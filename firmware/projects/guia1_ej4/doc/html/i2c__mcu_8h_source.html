@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Mostrar Numero en Display: Archivo de código fuente C:/Repositorios/EProgramable_FIUNER/firmware/drivers/microcontroller/inc/i2c_mcu.h</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Mostrar Numero en Display<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Ejercicios 4 5 y 6 de la guia de proyecto 1</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('i2c__mcu_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">i2c_mcu.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="i2c__mcu_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef I2C_MCU_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define I2C_MCU_H</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">/*==================[inclusions]=============================================*/</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;esp_log.h&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;driver/i2c.h&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="gpio__mcu_8h.html">gpio_mcu.h</a>&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">/*==================[macros]=================================================*/</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/*==================[typedef]================================================*/</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="group___i2_c.html#ga033b5e8a30541fe4ff939a62fdb7a43d">   36</a></span><span class="preprocessor">#define I2C_MASTER_SCL_IO           GPIO_7      </span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="group___i2_c.html#gaf47631d568bba17edf9d1ea042602bb6">   37</a></span><span class="preprocessor">#define I2C_MASTER_SDA_IO           GPIO_6      </span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="group___i2_c.html#gaab9e642b6200f95fcbd2ad7466aaa2d3">   38</a></span><span class="preprocessor">#define I2C_MASTER_NUM              0           </span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="group___i2_c.html#ga5c22ca4de37a83a59014e48b0a0b043d">   39</a></span><span class="preprocessor">#define I2C_MASTER_FREQ_HZ          400000      </span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="group___i2_c.html#gaaa0e84f340ef5ea9db2d7624fdadaa26">   40</a></span><span class="preprocessor">#define I2C_MASTER_TX_BUF_DISABLE   0           </span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="group___i2_c.html#ga37a0707200e50e3b3e9ab28b1b8d6777">   41</a></span><span class="preprocessor">#define I2C_MASTER_RX_BUF_DISABLE   0           </span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="group___i2_c.html#ga7ebc0bc57afc33bd33967be8479690db">   42</a></span><span class="preprocessor">#define I2C_MASTER_TIMEOUT_MS       1000</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/*==================[external data declaration]==============================*/</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">/*==================[external functions declaration]=========================*/</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keywordtype">bool</span> <a class="code hl_function" href="group___i2_c.html#gae2cec986d327013569df22dd2945ff58">I2C_initialize</a>( uint32_t clockRateHz );</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___i2_c.html#ga7dba17bc71077c236ff1e4af407448a7">I2C_enable</a>(<span class="keywordtype">bool</span> isEnabled);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>int8_t <a class="code hl_function" href="group___i2_c.html#ga9ff51515a73e2748e863f88b94453806">I2C_readBit</a>(uint8_t <a class="code hl_variable" href="mpu6050_8c.html#aef9d7f9ccfe8fcda63e76f9541f59700">devAddr</a>, uint8_t regAddr, uint8_t bitNum, uint8_t *data, uint16_t timeout);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>int8_t <a class="code hl_function" href="group___i2_c.html#ga45576a616bac63831ccbb0d803e02937">I2C_readBits</a>(uint8_t <a class="code hl_variable" href="mpu6050_8c.html#aef9d7f9ccfe8fcda63e76f9541f59700">devAddr</a>, uint8_t regAddr, uint8_t bitStart, uint8_t length, uint8_t *data, uint16_t timeout);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>int8_t <a class="code hl_function" href="group___i2_c.html#ga4a21b6f9f325022b28bad83c9eb9896c">I2C_readByte</a>(uint8_t <a class="code hl_variable" href="mpu6050_8c.html#aef9d7f9ccfe8fcda63e76f9541f59700">devAddr</a>, uint8_t regAddr, uint8_t *data, uint16_t timeout);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>int8_t <a class="code hl_function" href="group___i2_c.html#ga3c1b580e0f8d3bffbb1087265be558d2">I2C_readWord</a>(uint8_t <a class="code hl_variable" href="mpu6050_8c.html#aef9d7f9ccfe8fcda63e76f9541f59700">devAddr</a>, uint8_t regAddr, uint16_t *data, uint16_t timeout);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>int8_t <a class="code hl_function" href="group___i2_c.html#ga63ed6aeafd8e26b0cf22f5477746c123">I2C_readBytes</a>(uint8_t <a class="code hl_variable" href="mpu6050_8c.html#aef9d7f9ccfe8fcda63e76f9541f59700">devAddr</a>, uint8_t regAddr, uint8_t length, uint8_t *data, uint16_t timeout);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="keywordtype">bool</span> <a class="code hl_function" href="group___i2_c.html#gadddc908cb8cdad77fc824cca1ac2f077">I2C_writeBit</a>(uint8_t <a class="code hl_variable" href="mpu6050_8c.html#aef9d7f9ccfe8fcda63e76f9541f59700">devAddr</a>, uint8_t regAddr, uint8_t bitNum, uint8_t data);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keywordtype">bool</span> <a class="code hl_function" href="group___i2_c.html#gacb23109c5269fd39be9c926552924eea">I2C_writeBits</a>(uint8_t <a class="code hl_variable" href="mpu6050_8c.html#aef9d7f9ccfe8fcda63e76f9541f59700">devAddr</a>, uint8_t regAddr, uint8_t bitStart, uint8_t length, uint8_t data);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="keywordtype">bool</span> <a class="code hl_function" href="group___i2_c.html#ga6525bb5162f38b6350d6bc3a3c9c98d7">I2C_writeByte</a>(uint8_t <a class="code hl_variable" href="mpu6050_8c.html#aef9d7f9ccfe8fcda63e76f9541f59700">devAddr</a>, uint8_t regAddr, uint8_t data);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keywordtype">bool</span> <a class="code hl_function" href="group___i2_c.html#gabfa0fda26a1a14f65a058f8d6dc2b55b">I2C_writeWord</a>(uint8_t <a class="code hl_variable" href="mpu6050_8c.html#aef9d7f9ccfe8fcda63e76f9541f59700">devAddr</a>, uint8_t regAddr, uint16_t data);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="keywordtype">bool</span> <a class="code hl_function" href="group___i2_c.html#ga58d10cf019bafffc7f9b4c2a0b019b53">I2C_writeBytes</a>(uint8_t <a class="code hl_variable" href="mpu6050_8c.html#aef9d7f9ccfe8fcda63e76f9541f59700">devAddr</a>, uint8_t regAddr, uint8_t length, uint8_t *data);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___i2_c.html#ga1900aab43da6013cadb944301c929562">I2C_SelectRegister</a>(uint8_t <a class="code hl_variable" href="mpu6050_8c.html#aef9d7f9ccfe8fcda63e76f9541f59700">devAddr</a>, uint8_t reg);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="preprocessor">#endif </span><span class="comment">/* #ifndef I2C_MCU_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">/*==================[end of file]============================================*/</span></div>
+<div class="ttc" id="agpio__mcu_8h_html"><div class="ttname"><a href="gpio__mcu_8h.html">gpio_mcu.h</a></div></div>
+<div class="ttc" id="agroup___i2_c_html_ga1900aab43da6013cadb944301c929562"><div class="ttname"><a href="group___i2_c.html#ga1900aab43da6013cadb944301c929562">I2C_SelectRegister</a></div><div class="ttdeci">void I2C_SelectRegister(uint8_t devAddr, uint8_t reg)</div><div class="ttdoc">Select a register.</div><div class="ttdef"><b>Definition</b> <a href="i2c__mcu_8c_source.html#l00153">i2c_mcu.c:153</a></div></div>
+<div class="ttc" id="agroup___i2_c_html_ga3c1b580e0f8d3bffbb1087265be558d2"><div class="ttname"><a href="group___i2_c.html#ga3c1b580e0f8d3bffbb1087265be558d2">I2C_readWord</a></div><div class="ttdeci">int8_t I2C_readWord(uint8_t devAddr, uint8_t regAddr, uint16_t *data, uint16_t timeout)</div><div class="ttdoc">Read word from an 16-bit device register.</div><div class="ttdef"><b>Definition</b> <a href="i2c__mcu_8c_source.html#l00260">i2c_mcu.c:260</a></div></div>
+<div class="ttc" id="agroup___i2_c_html_ga45576a616bac63831ccbb0d803e02937"><div class="ttname"><a href="group___i2_c.html#ga45576a616bac63831ccbb0d803e02937">I2C_readBits</a></div><div class="ttdeci">int8_t I2C_readBits(uint8_t devAddr, uint8_t regAddr, uint8_t bitStart, uint8_t length, uint8_t *data, uint16_t timeout)</div><div class="ttdoc">Read multiple bits from an 8-bit device register.</div><div class="ttdef"><b>Definition</b> <a href="i2c__mcu_8c_source.html#l00091">i2c_mcu.c:91</a></div></div>
+<div class="ttc" id="agroup___i2_c_html_ga4a21b6f9f325022b28bad83c9eb9896c"><div class="ttname"><a href="group___i2_c.html#ga4a21b6f9f325022b28bad83c9eb9896c">I2C_readByte</a></div><div class="ttdeci">int8_t I2C_readByte(uint8_t devAddr, uint8_t regAddr, uint8_t *data, uint16_t timeout)</div><div class="ttdoc">Read single byte from an 8-bit device register.</div><div class="ttdef"><b>Definition</b> <a href="i2c__mcu_8c_source.html#l00114">i2c_mcu.c:114</a></div></div>
+<div class="ttc" id="agroup___i2_c_html_ga58d10cf019bafffc7f9b4c2a0b019b53"><div class="ttname"><a href="group___i2_c.html#ga58d10cf019bafffc7f9b4c2a0b019b53">I2C_writeBytes</a></div><div class="ttdeci">bool I2C_writeBytes(uint8_t devAddr, uint8_t regAddr, uint8_t length, uint8_t *data)</div><div class="ttdoc">Write multiple bytes to device.</div><div class="ttdef"><b>Definition</b> <a href="i2c__mcu_8c_source.html#l00236">i2c_mcu.c:236</a></div></div>
+<div class="ttc" id="agroup___i2_c_html_ga63ed6aeafd8e26b0cf22f5477746c123"><div class="ttname"><a href="group___i2_c.html#ga63ed6aeafd8e26b0cf22f5477746c123">I2C_readBytes</a></div><div class="ttdeci">int8_t I2C_readBytes(uint8_t devAddr, uint8_t regAddr, uint8_t length, uint8_t *data, uint16_t timeout)</div><div class="ttdoc">Read multiple bytes from an 8-bit device register.</div><div class="ttdef"><b>Definition</b> <a href="i2c__mcu_8c_source.html#l00126">i2c_mcu.c:126</a></div></div>
+<div class="ttc" id="agroup___i2_c_html_ga6525bb5162f38b6350d6bc3a3c9c98d7"><div class="ttname"><a href="group___i2_c.html#ga6525bb5162f38b6350d6bc3a3c9c98d7">I2C_writeByte</a></div><div class="ttdeci">bool I2C_writeByte(uint8_t devAddr, uint8_t regAddr, uint8_t data)</div><div class="ttdoc">Write single byte to an 8-bit device register.</div><div class="ttdef"><b>Definition</b> <a href="i2c__mcu_8c_source.html#l00214">i2c_mcu.c:214</a></div></div>
+<div class="ttc" id="agroup___i2_c_html_ga7dba17bc71077c236ff1e4af407448a7"><div class="ttname"><a href="group___i2_c.html#ga7dba17bc71077c236ff1e4af407448a7">I2C_enable</a></div><div class="ttdeci">void I2C_enable(bool isEnabled)</div><div class="ttdoc">Enable or disable I2C.</div><div class="ttdef"><b>Definition</b> <a href="i2c__mcu_8c_source.html#l00058">i2c_mcu.c:58</a></div></div>
+<div class="ttc" id="agroup___i2_c_html_ga9ff51515a73e2748e863f88b94453806"><div class="ttname"><a href="group___i2_c.html#ga9ff51515a73e2748e863f88b94453806">I2C_readBit</a></div><div class="ttdeci">int8_t I2C_readBit(uint8_t devAddr, uint8_t regAddr, uint8_t bitNum, uint8_t *data, uint16_t timeout)</div><div class="ttdoc">Read a single bit from an 8-bit device register.</div><div class="ttdef"><b>Definition</b> <a href="i2c__mcu_8c_source.html#l00073">i2c_mcu.c:73</a></div></div>
+<div class="ttc" id="agroup___i2_c_html_gabfa0fda26a1a14f65a058f8d6dc2b55b"><div class="ttname"><a href="group___i2_c.html#gabfa0fda26a1a14f65a058f8d6dc2b55b">I2C_writeWord</a></div><div class="ttdeci">bool I2C_writeWord(uint8_t devAddr, uint8_t regAddr, uint16_t data)</div><div class="ttdoc">Write word from an 16-bit device register.</div><div class="ttdef"><b>Definition</b> <a href="i2c__mcu_8c_source.html#l00146">i2c_mcu.c:146</a></div></div>
+<div class="ttc" id="agroup___i2_c_html_gacb23109c5269fd39be9c926552924eea"><div class="ttname"><a href="group___i2_c.html#gacb23109c5269fd39be9c926552924eea">I2C_writeBits</a></div><div class="ttdeci">bool I2C_writeBits(uint8_t devAddr, uint8_t regAddr, uint8_t bitStart, uint8_t length, uint8_t data)</div><div class="ttdoc">Write multiple bits in an 8-bit device register.</div><div class="ttdef"><b>Definition</b> <a href="i2c__mcu_8c_source.html#l00187">i2c_mcu.c:187</a></div></div>
+<div class="ttc" id="agroup___i2_c_html_gadddc908cb8cdad77fc824cca1ac2f077"><div class="ttname"><a href="group___i2_c.html#gadddc908cb8cdad77fc824cca1ac2f077">I2C_writeBit</a></div><div class="ttdeci">bool I2C_writeBit(uint8_t devAddr, uint8_t regAddr, uint8_t bitNum, uint8_t data)</div><div class="ttdoc">write a single bit in an 8-bit device register.</div><div class="ttdef"><b>Definition</b> <a href="i2c__mcu_8c_source.html#l00172">i2c_mcu.c:172</a></div></div>
+<div class="ttc" id="agroup___i2_c_html_gae2cec986d327013569df22dd2945ff58"><div class="ttname"><a href="group___i2_c.html#gae2cec986d327013569df22dd2945ff58">I2C_initialize</a></div><div class="ttdeci">bool I2C_initialize(uint32_t clockRateHz)</div><div class="ttdoc">Initialize I2C0.</div><div class="ttdef"><b>Definition</b> <a href="i2c__mcu_8c_source.html#l00034">i2c_mcu.c:34</a></div></div>
+<div class="ttc" id="ampu6050_8c_html_aef9d7f9ccfe8fcda63e76f9541f59700"><div class="ttname"><a href="mpu6050_8c.html#aef9d7f9ccfe8fcda63e76f9541f59700">devAddr</a></div><div class="ttdeci">uint8_t devAddr</div><div class="ttdef"><b>Definition</b> <a href="mpu6050_8c_source.html#l00020">mpu6050.c:20</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_fcba15287a7fba83beff6e7e8c7a3a80.html">firmware</a></li><li class="navelem"><a class="el" href="dir_d771f3729bc48f700515c8c6c400e99b.html">drivers</a></li><li class="navelem"><a class="el" href="dir_bc36ab89ecafc2a8b5ba798a6143b9d0.html">microcontroller</a></li><li class="navelem"><a class="el" href="dir_8e142a7b6f220c6356305c580ebb7a03.html">inc</a></li><li class="navelem"><a class="el" href="i2c__mcu_8h.html">i2c_mcu.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>
