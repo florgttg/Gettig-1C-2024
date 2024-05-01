@@ -23,6 +23,18 @@
         },
         {
             "path": "projects/guia1_ej2"
+        },
+        {
+            "path": "projects/guia2_ej1"
+        },
+        {
+            "path": "projects/guia2_ej2"
+        },
+        {
+            "path": "../../EProgramable_FIUNER/firmware/projects/3_blinking_timer"
+        },
+        {
+            "path": "projects/guia2_ej4"
         }
     ],
     "settings": {

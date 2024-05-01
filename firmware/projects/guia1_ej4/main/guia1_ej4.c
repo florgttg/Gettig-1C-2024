@@ -117,7 +117,7 @@ void app_main(void)
 	uint8_t digits = 3;
 	uint8_t bcd_number[digits];
 
-	convertToBcdArray(numero, digits, bcd_number);
+	//convertToBcdArray(numero, digits, bcd_number);
 	gpioConf_t gpioArray[4] =
 		{
 			{GPIO_20, GPIO_OUTPUT},
