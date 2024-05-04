@@ -4,10 +4,9 @@
  *
  * Este es el ejercicio 4 del proyecto 2
  * Diseño e implementacion una aplicación, basada en el driver analog_io_mcu.h y el driver de
- * transmisión serie uart_mcu.h, que digitalice una señal analógica y la transmita a un graficador
- * de puerto serie de la PC. Se debe tomar la entrada CH1 del conversor AD y la transmisión se
- * debe realizar por la UART conectada al puerto serie de la PC, en un formato compatible con un
- * graficador por puerto serie.
+ * transmisión serie uart_mcu.h, que:
+ * Digitalice una señal analógica y la transmita a un graficador de puerto serie de la PC. 
+ * Converta una señal digital de un ECG en una señal analógica. 
  *
  * <a href="https://drive.google.com/...">Operation Example</a>
  *
@@ -37,18 +36,25 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "gpio_mcu.h"
-#include "led.h"
-#include "switch.h"
 #include "timer_mcu.h"
 #include "uart_mcu.h"
 #include "analog_io_mcu.h"
 /*==================[macros and definitions]=================================*/
 #define BUFFER_SIZE 231
 #define CONFIG_TIMER_A_PERIOD 2000
-
+#define CONFIG_TIMER_B_PERIOD 4000
+/**
+ * @brief Identificador de la tarea del conversor analogico a digital.
+ */
 TaskHandle_t analog_task_handle = NULL;
+/**
+ * @brief Identificador de la tarea del conversor  digital a analogico.
+ */
+TaskHandle_t digital_task_handle = NULL;
 /*==================[internal data definition]===============================*/
-TaskHandle_t main_task_handle = NULL;
+/**
+ *  @brief Vector de valores digitalizados de un ecg.
+*/
 const char ecg[BUFFER_SIZE] = {
 	76,
 	77,
@@ -287,39 +293,84 @@ const char ecg[BUFFER_SIZE] = {
 
 /**
  * @brief Toma un valor analogico y lo convierte en digital
-*/
+ */
 static void Task_analog_to_DC(void *pvParameter)
 {
 	uint16_t valorDigital;
 	while (1)
-	{   
-		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);//Recibo la notificacion del timer
+	{
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY); // Recibo la notificacion del timer
 
-		AnalogInputReadSingle(CH1,&valorDigital);//Lo leo
+		AnalogInputReadSingle(CH1, &valorDigital); // Lo leo
 
 		UartSendString(UART_PC, (char *)UartItoa(valorDigital, 10));
 		UartSendString(UART_PC, "\r\n");
-
-
 	}
 }
 
+/**
+ * @brief Toma un vector con valores digitales y lo convierte en una señal analogica
+ */
+static void Task_DC_to_analog(void *pvParameter)
+{
+	uint8_t indice = 0;
+	while (1)
+	{
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY); // Recibo la notificacion del timer
+
+		AnalogOutputWrite(ecg[indice]);
+		indice++;
+		if (indice == sizeof(ecg))
+			indice = 0;
+	}
+}
+
+/**
+ * @brief Función de retrollamada para el temporizador A.
+ *
+ * Esta función envia una notificacion a la tarea encargada de la digitalización
+ * de la señal analógica cuando debe ejecutarse. 
+ * 
+ * @param param Puntero al parámetro pasado al temporizador A (no utilizado).
+ */
 void FunctionTimerA(void *param)
 {
 	vTaskNotifyGiveFromISR(analog_task_handle, pdFALSE);
 }
+/**
+ * @brief Función de retrollamada para el temporizador B.
+ *
+ * Esta función envia una notificacion a la tarea encargada de la de la conversión de la
+ * señal digital a analógica cuando debe ejecutarse.
+ * 
+ * @param param Puntero al parámetro pasado al temporizador B (no utilizado).
+ */
+void FunctionTimerB(void *param)
+{
+	vTaskNotifyGiveFromISR(digital_task_handle, pdFALSE);
+}
 /*==================[external functions definition]==========================*/
+
+
 void app_main(void)
 {
 	// Analog
-
 	analog_input_config_t senal_canal_1 = {
 		.input = CH1,
 		.mode = ADC_SINGLE,
 		.func_p = NULL,
 		.param_p = NULL,
 		.sample_frec = NULL};
+
 	AnalogInputInit(&senal_canal_1);
+	analog_input_config_t senal_canal_0 = {
+		.input = CH0,
+		.mode = ADC_SINGLE,
+		.func_p = NULL,
+		.param_p = NULL,
+		.sample_frec = NULL};
+
+	AnalogOutputInit();
 
 	// Timers
 	timer_config_t timer_start = {
@@ -329,20 +380,29 @@ void app_main(void)
 		.param_p = NULL};
 	TimerInit(&timer_start);
 
-	//UART 
-	//Esto del uart(puerto serie)
+	timer_config_t timer_start_b = {
+		.timer = TIMER_B,
+		.period = CONFIG_TIMER_B_PERIOD,
+		.func_p = FunctionTimerB,
+		.param_p = NULL};
+	TimerInit(&timer_start_b);
+
+	// UART
+	// Esto del uart(puerto serie)
 	serial_config_t my_uart = {
 		.port = UART_PC,
-		.baud_rate = 115200,		 /*!< baudrate (bits per second) */
-		.func_p = NULL, /*!< Pointer to callback function to call when receiving data (= UART_NO_INT if not requiered)*/
-		.param_p = NULL			 /*!< Pointer to callback function parameters */
+		.baud_rate = 115200, /*!< baudrate (bits per second) */
+		.func_p = NULL,		 /*!< Pointer to callback function to call when receiving data (= UART_NO_INT if not requiered)*/
+		.param_p = NULL		 /*!< Pointer to callback function parameters */
 	};
 	UartInit(&my_uart);
 
-
 	// Tarea
 	xTaskCreate(&Task_analog_to_DC, "Task_analog", 2048, NULL, 5, &analog_task_handle);
+	xTaskCreate(&Task_DC_to_analog, "Task_digital", 2048, NULL, 5, &digital_task_handle);
+
 	TimerStart(timer_start.timer);
+	TimerStart(timer_start_b.timer);
 
 }
 /*==================[end of file]============================================*/
