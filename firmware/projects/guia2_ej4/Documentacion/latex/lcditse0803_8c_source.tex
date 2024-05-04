@@ -1,0 +1,99 @@
+\doxysection{lcditse0803.\+c}
+\hypertarget{lcditse0803_8c_source}{}\label{lcditse0803_8c_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/lcditse0803.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/lcditse0803.c}}
+\mbox{\hyperlink{lcditse0803_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00012}00012\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lcditse0803_8h}{lcditse0803.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio__mcu_8h}{gpio\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00015}00015\ \textcolor{comment}{/*==================[macros\ and\ definitions]=================================*/}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00016}\mbox{\hyperlink{lcditse0803_8c_a905b3247404e978fc5c06cdc007568a4}{00016}}\ \textcolor{preprocessor}{\#define\ GPIO\_BCD\_1\ \ GPIO\_20}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00017}\mbox{\hyperlink{lcditse0803_8c_a979e11510604c3d0dab7d26b513465f4}{00017}}\ \textcolor{preprocessor}{\#define\ GPIO\_BCD\_2\ \ GPIO\_21}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00018}\mbox{\hyperlink{lcditse0803_8c_ad44f73d4822c2731f9a1e0553a53bacc}{00018}}\ \textcolor{preprocessor}{\#define\ GPIO\_BCD\_3\ \ GPIO\_22}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00019}\mbox{\hyperlink{lcditse0803_8c_a4f9dbd73c9383706e6de83e31f5a45b5}{00019}}\ \textcolor{preprocessor}{\#define\ GPIO\_BCD\_4\ \ GPIO\_23}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00020}\mbox{\hyperlink{lcditse0803_8c_ab01195514d15a19e1c38b772d08ceb0e}{00020}}\ \textcolor{preprocessor}{\#define\ GPIO\_SEL\_1\ \ GPIO\_19}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00021}\mbox{\hyperlink{lcditse0803_8c_a20227f4ac122fad255580f73943bd114}{00021}}\ \textcolor{preprocessor}{\#define\ GPIO\_SEL\_2\ \ GPIO\_18}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00022}\mbox{\hyperlink{lcditse0803_8c_ab6ee35f7022901c51f374ba4ceac51b7}{00022}}\ \textcolor{preprocessor}{\#define\ GPIO\_SEL\_3\ \ GPIO\_9}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00023}00023\ \textcolor{comment}{/*==================[internal\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00024}00024\ \textcolor{keyword}{static}\ uint16\_t\ actual\_value\ =\ 0;\ \textcolor{comment}{/*variable\ that\ saves\ the\ value\ to\ be\ shown\ in\ the\ display\ LCD*/}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00025}00025\ \textcolor{comment}{/*==================[internal\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00029}\mbox{\hyperlink{lcditse0803_8c_a52c775a96cee096ac36021a44b40459f}{00029}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{lcditse0803_8c_a52c775a96cee096ac36021a44b40459f}{LcdItsE0803BCDtoPin}}(uint8\_t\ value)\{}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaff44adf38b055e964fe7e89834eabccc}{GPIOState}}(\mbox{\hyperlink{lcditse0803_8c_a905b3247404e978fc5c06cdc007568a4}{GPIO\_BCD\_1}},\ (value\ \&\ (1<<0))>>0);}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaff44adf38b055e964fe7e89834eabccc}{GPIOState}}(\mbox{\hyperlink{lcditse0803_8c_a979e11510604c3d0dab7d26b513465f4}{GPIO\_BCD\_2}},\ (value\ \&\ (1<<1))>>1);}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaff44adf38b055e964fe7e89834eabccc}{GPIOState}}(\mbox{\hyperlink{lcditse0803_8c_ad44f73d4822c2731f9a1e0553a53bacc}{GPIO\_BCD\_3}},\ (value\ \&\ (1<<2))>>2);}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaff44adf38b055e964fe7e89834eabccc}{GPIOState}}(\mbox{\hyperlink{lcditse0803_8c_a4f9dbd73c9383706e6de83e31f5a45b5}{GPIO\_BCD\_4}},\ (value\ \&\ (1<<3))>>3);}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00036}00036\ \textcolor{comment}{/*==================[external\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00037}\mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga1c08a1458380c8f0a02a3763d14c8bf3}{00037}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga1c08a1458380c8f0a02a3763d14c8bf3}{LcdItsE0803Init}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00038}00038\ \ \ \ \ \textcolor{comment}{/*\ Configuration\ of\ pins\ of\ data*/}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00039}00039\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{lcditse0803_8c_a905b3247404e978fc5c06cdc007568a4}{GPIO\_BCD\_1}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{lcditse0803_8c_a979e11510604c3d0dab7d26b513465f4}{GPIO\_BCD\_2}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{lcditse0803_8c_ad44f73d4822c2731f9a1e0553a53bacc}{GPIO\_BCD\_3}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{lcditse0803_8c_a4f9dbd73c9383706e6de83e31f5a45b5}{GPIO\_BCD\_4}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00044}00044\ \ \ \ \ \textcolor{comment}{/*\ Configuration\ of\ pins\ of\ control*/}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{lcditse0803_8c_ab01195514d15a19e1c38b772d08ceb0e}{GPIO\_SEL\_1}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{lcditse0803_8c_a20227f4ac122fad255580f73943bd114}{GPIO\_SEL\_2}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{lcditse0803_8c_ab6ee35f7022901c51f374ba4ceac51b7}{GPIO\_SEL\_3}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00049}00049\ \ \ \ \ actual\_value=0;}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga77a9887ee733d3212c3e4996c47f1b9d}{LcdItsE0803Write}}(actual\_value);}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00052}00052\ \};}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00054}\mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga77a9887ee733d3212c3e4996c47f1b9d}{00054}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga77a9887ee733d3212c3e4996c47f1b9d}{LcdItsE0803Write}}(uint16\_t\ value)\ \{}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00055}00055\ \ \ \ \ uint8\_t\ units,\ tens,\ hundreds;}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{if}(value<1000)\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ actual\_value\ =\ value;}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ hundreds\ =\ value/100;}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ tens\ =\ (value-\/(hundreds*100))/10;}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ units\ =\ (value-\/(hundreds*100)-\/(tens*10));}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Write\ hundreds\ */}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lcditse0803_8c_a52c775a96cee096ac36021a44b40459f}{LcdItsE0803BCDtoPin}}(hundreds);}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{lcditse0803_8c_ab01195514d15a19e1c38b772d08ceb0e}{GPIO\_SEL\_1}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{lcditse0803_8c_ab01195514d15a19e1c38b772d08ceb0e}{GPIO\_SEL\_1}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Write\ tens\ */}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lcditse0803_8c_a52c775a96cee096ac36021a44b40459f}{LcdItsE0803BCDtoPin}}(tens);}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{lcditse0803_8c_a20227f4ac122fad255580f73943bd114}{GPIO\_SEL\_2}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{lcditse0803_8c_a20227f4ac122fad255580f73943bd114}{GPIO\_SEL\_2}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Write\ units\ */}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lcditse0803_8c_a52c775a96cee096ac36021a44b40459f}{LcdItsE0803BCDtoPin}}(units);}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{lcditse0803_8c_ab6ee35f7022901c51f374ba4ceac51b7}{GPIO\_SEL\_3}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{lcditse0803_8c_ab6ee35f7022901c51f374ba4ceac51b7}{GPIO\_SEL\_3}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{/*\ return\ 1\ for\ values\ lower\ than\ 999\ */}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{/*\ return\ 0\ for\ values\ higher\ than\ 999\ */}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00083}\mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga748187a90cb737541071dcd01c67db51}{00083}}\ uint16\_t\ \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga748187a90cb737541071dcd01c67db51}{LcdItsE0803Read}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{return}\ (actual\_value);}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00085}00085\ \}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00087}\mbox{\hyperlink{group___l_c_d___i_t_s_e0803_gae84766fe1e3b5550b1ca4bbc70f00504}{00087}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_gae84766fe1e3b5550b1ca4bbc70f00504}{LcdItsE0803Off}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00088}00088\ \ \ \ \ \mbox{\hyperlink{lcditse0803_8c_a52c775a96cee096ac36021a44b40459f}{LcdItsE0803BCDtoPin}}(0x0F);}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00089}00089\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{lcditse0803_8c_ab01195514d15a19e1c38b772d08ceb0e}{GPIO\_SEL\_1}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00090}00090\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{lcditse0803_8c_ab01195514d15a19e1c38b772d08ceb0e}{GPIO\_SEL\_1}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{lcditse0803_8c_a52c775a96cee096ac36021a44b40459f}{LcdItsE0803BCDtoPin}}(0x0F);}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00093}00093\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{lcditse0803_8c_a20227f4ac122fad255580f73943bd114}{GPIO\_SEL\_2}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00094}00094\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{lcditse0803_8c_a20227f4ac122fad255580f73943bd114}{GPIO\_SEL\_2}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00096}00096\ \ \ \ \ \mbox{\hyperlink{lcditse0803_8c_a52c775a96cee096ac36021a44b40459f}{LcdItsE0803BCDtoPin}}(0x0F);}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00097}00097\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{lcditse0803_8c_ab6ee35f7022901c51f374ba4ceac51b7}{GPIO\_SEL\_3}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00098}00098\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{lcditse0803_8c_ab6ee35f7022901c51f374ba4ceac51b7}{GPIO\_SEL\_3}});}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00099}00099\ \}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00101}\mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga38ac54150b5921cb9ec4897f62868a68}{00101}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga38ac54150b5921cb9ec4897f62868a68}{LcdItsE0803DeInit}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00102}00102\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaa3ab377728bae4c84463cb75c266b60b}{GPIODeinit}}();}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00104}00104\ \}}
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{lcditse0803_8c_source_l00106}00106\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

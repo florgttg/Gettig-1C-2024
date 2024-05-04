@@ -1,0 +1,35 @@
+\doxysection{ws2812b.\+h}
+\hypertarget{ws2812b_8h_source}{}\label{ws2812b_8h_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/ws2812b.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/ws2812b.h}}
+\mbox{\hyperlink{ws2812b_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ WS2812B\_H}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ WS2812B\_H}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00025}00025\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}sdkconfig.h"{}}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}esp\_err.h"{}}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio__mcu_8h}{gpio\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00030}00030\ \textcolor{comment}{/*==================[macros]=================================================*/}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00032}00032\ \textcolor{comment}{/*==================[typedef]================================================*/}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00037}\mbox{\hyperlink{structrgb__led}{00037}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrgb__led}{rgb\_led}}\{}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00038}\mbox{\hyperlink{structrgb__led_a90d21fa503b626c00cdc8d94863d5877}{00038}}\ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structrgb__led_a90d21fa503b626c00cdc8d94863d5877}{green}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Green}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00039}\mbox{\hyperlink{structrgb__led_ad47d918910aaa51c73160ac85999d09c}{00039}}\ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structrgb__led_ad47d918910aaa51c73160ac85999d09c}{red}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Red}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00040}\mbox{\hyperlink{structrgb__led_a287b397e90d7b995c81ff54e741f96b2}{00040}}\ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structrgb__led_a287b397e90d7b995c81ff54e741f96b2}{blue}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Blue}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00041}\mbox{\hyperlink{group___w_s2812_b_ga10677d455b434a1fb0ac83c343551647}{00041}}\ \}\ \mbox{\hyperlink{group___w_s2812_b_ga10677d455b434a1fb0ac83c343551647}{rgb\_led\_t}};}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00043}00043\ \textcolor{comment}{/*==================[external\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00045}00045\ \textcolor{comment}{/*==================[external\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00051}00051\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___w_s2812_b_gab5724b524301eafce386e26782206b3c}{ws2812bInit}}(\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ pin);}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00058}00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___w_s2812_b_ga6efc852be97e10768f170756c0bde024}{ws2812bSend}}(\mbox{\hyperlink{structrgb__led}{rgb\_led\_t}}\ led\_color);}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00064}00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___w_s2812_b_ga7f917e1d76a1edff14b8bac723a169d8}{ws2812bSendRet}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00069}00069\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{ws2812b_8h_source_l00071}00071\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

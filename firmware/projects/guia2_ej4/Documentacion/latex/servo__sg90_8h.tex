@@ -1,0 +1,26 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/inc/servo\+\_\+sg90.h}
+\hypertarget{servo__sg90_8h}{}\label{servo__sg90_8h}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/servo\_sg90.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/servo\_sg90.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___s_e_r_v_o_ga7d2476d006aaacd66b6795d84541a02f}{servo\+\_\+out}} \mbox{\hyperlink{group___s_e_r_v_o_ga6567a5d72a1ac2085e1ed97840b2deae}{servo\+\_\+out\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Servo driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___s_e_r_v_o_ga7d2476d006aaacd66b6795d84541a02f}{servo\+\_\+out}} \{ \mbox{\hyperlink{group___s_e_r_v_o_gga7d2476d006aaacd66b6795d84541a02fae55d97065021a1ed543b21c04e6b48cb}{SERVO\+\_\+0}}
+, \mbox{\hyperlink{group___s_e_r_v_o_gga7d2476d006aaacd66b6795d84541a02fa244dd246e77a39dc50d6bc5d6cc14938}{SERVO\+\_\+1}}
+, \mbox{\hyperlink{group___s_e_r_v_o_gga7d2476d006aaacd66b6795d84541a02fa290278b94cfe920ee48e38106df523ed}{SERVO\+\_\+2}}
+, \mbox{\hyperlink{group___s_e_r_v_o_gga7d2476d006aaacd66b6795d84541a02fabb19ef803bacaa28877cd543d0b2f90e}{SERVO\+\_\+3}}
+ \}
+\begin{DoxyCompactList}\small\item\em Servo driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___s_e_r_v_o_gad3b35d6ee8bdf69b0cceac96862fa8e7}{Servo\+Init}} (\mbox{\hyperlink{group___s_e_r_v_o_ga6567a5d72a1ac2085e1ed97840b2deae}{servo\+\_\+out\+\_\+t}} servo, \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} gpio)
+\begin{DoxyCompactList}\small\item\em Servo initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___s_e_r_v_o_gac63abba15fdb98a070e8da53d87cd80d}{Servo\+Move}} (\mbox{\hyperlink{group___s_e_r_v_o_ga6567a5d72a1ac2085e1ed97840b2deae}{servo\+\_\+out\+\_\+t}} servo, int8\+\_\+t ang)
+\begin{DoxyCompactList}\small\item\em Change servo angle. \end{DoxyCompactList}\end{DoxyCompactItemize}

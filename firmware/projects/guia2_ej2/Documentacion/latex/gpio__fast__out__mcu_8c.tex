@@ -1,0 +1,72 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/src/gpio\+\_\+fast\+\_\+out\+\_\+mcu.c}
+\hypertarget{gpio__fast__out__mcu_8c}{}\label{gpio__fast__out__mcu_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/gpio\_fast\_out\_mcu.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/gpio\_fast\_out\_mcu.c}}
+{\ttfamily \#include "{}gpio\+\_\+fast\+\_\+out\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}driver/gpio.\+h"{}}\newline
+{\ttfamily \#include "{}driver/dedic\+\_\+gpio.\+h"{}}\newline
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___g_i_o_p___f_a_s_t_ga56ea073ca6d7ef523095bf1da50fb8c1}{GPIOFast\+Init}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} \texorpdfstring{$\ast$}{*}pin\+\_\+list, uint8\+\_\+t pin\+\_\+qty)
+\begin{DoxyCompactList}\small\item\em GPIO driver to use gpio ouputs with faster functions than gpio\+\_\+mcu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___g_i_o_p___f_a_s_t_ga49597fb98997e713d9a0f660192491da}{GPIOFast\+Write}} (uint16\+\_\+t value)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+dedic\+\_\+gpio\+\_\+bundle\+\_\+handle\+\_\+t \mbox{\hyperlink{gpio__fast__out__mcu_8c_a49b3a59d5cb43369da07eeec78bdeb78}{bundleA}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\item 
+int \mbox{\hyperlink{gpio__fast__out__mcu_8c_a618b0d089ac040bd855239d414877886}{bundle\+A\+\_\+gpios}} \mbox{[}16\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva (\href{mailto:albano.penalva@uner.edu.ar}{\texttt{ albano.\+penalva@uner.\+edu.\+ar}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2023-\/11-\/20
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+Definición en el archivo \mbox{\hyperlink{gpio__fast__out__mcu_8c_source}{gpio\+\_\+fast\+\_\+out\+\_\+mcu.\+c}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{gpio__fast__out__mcu_8c_a49b3a59d5cb43369da07eeec78bdeb78}\label{gpio__fast__out__mcu_8c_a49b3a59d5cb43369da07eeec78bdeb78} 
+\index{gpio\_fast\_out\_mcu.c@{gpio\_fast\_out\_mcu.c}!bundleA@{bundleA}}
+\index{bundleA@{bundleA}!gpio\_fast\_out\_mcu.c@{gpio\_fast\_out\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{bundleA}{bundleA}}
+{\footnotesize\ttfamily dedic\+\_\+gpio\+\_\+bundle\+\_\+handle\+\_\+t bundleA = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00022}{22}} del archivo \mbox{\hyperlink{gpio__fast__out__mcu_8c_source}{gpio\+\_\+fast\+\_\+out\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00034}{GPIOFast\+Init()}} y \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00054}{GPIOFast\+Write()}}.
+
+\Hypertarget{gpio__fast__out__mcu_8c_a618b0d089ac040bd855239d414877886}\label{gpio__fast__out__mcu_8c_a618b0d089ac040bd855239d414877886} 
+\index{gpio\_fast\_out\_mcu.c@{gpio\_fast\_out\_mcu.c}!bundleA\_gpios@{bundleA\_gpios}}
+\index{bundleA\_gpios@{bundleA\_gpios}!gpio\_fast\_out\_mcu.c@{gpio\_fast\_out\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{bundleA\_gpios}{bundleA\_gpios}}
+{\footnotesize\ttfamily int bundle\+A\+\_\+gpios\mbox{[}16\mbox{]}}
+
+
+
+Definición en la línea \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00023}{23}} del archivo \mbox{\hyperlink{gpio__fast__out__mcu_8c_source}{gpio\+\_\+fast\+\_\+out\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00034}{GPIOFast\+Init()}}.
+

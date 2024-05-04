@@ -1,0 +1,226 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/src/analog\+\_\+io\+\_\+mcu.c}
+\hypertarget{analog__io__mcu_8c}{}\label{analog__io__mcu_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/analog\_io\_mcu.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/analog\_io\_mcu.c}}
+{\ttfamily \#include "{}analog\+\_\+io\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}driver/gptimer.\+h"{}}\newline
+{\ttfamily \#include "{}driver/sdm.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+adc/adc\+\_\+cali\+\_\+scheme.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+adc/adc\+\_\+oneshot.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+adc/adc\+\_\+continuous.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{analog__io__mcu_8c_a133ef7b7b4ad7fa713384c3ede19e5f4}{ADC\+\_\+\+BITWIDTH}}~SOC\+\_\+\+ADC\+\_\+\+DIGI\+\_\+\+MAX\+\_\+\+BITWIDTH
+\item 
+\#define \mbox{\hyperlink{analog__io__mcu_8c_a011dd77da2406fbe9beab9a63e042af9}{ADC\+\_\+\+ATTENUATION}}~ADC\+\_\+\+ATTEN\+\_\+\+DB\+\_\+11
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___analog___i_o_ga24ce5556aa4682468220b982f151cdfe}{Analog\+Input\+Init}} (\mbox{\hyperlink{structanalog__input__config__t}{analog\+\_\+input\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}config)
+\begin{DoxyCompactList}\small\item\em Analog input initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___analog___i_o_gab57399e946247652a096a0e2d3a1b69a}{Analog\+Output\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Analog output initialization (DAC) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___analog___i_o_gab5ae00a35744f407072230979e593fd9}{Analog\+Input\+Read\+Single}} (\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}} channel, uint16\+\_\+t \texorpdfstring{$\ast$}{*}value)
+\begin{DoxyCompactList}\small\item\em Read single channel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___analog___i_o_ga59d18db7ff84dc756b4a66f5331a23eb}{Analog\+Start\+Continuous}} (\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}} channel)
+\begin{DoxyCompactList}\small\item\em Start convertion for ADC module in continuous mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___analog___i_o_gaea40f5dd5d020c0854734479d52458c2}{Analog\+Stop\+Continuous}} (\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}} channel)
+\begin{DoxyCompactList}\small\item\em Stop convertion for ADC module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___analog___i_o_ga042e3964ac18e816a5eb4dfca78bb223}{Analog\+Input\+Read\+Continuous}} (\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}} channel, uint16\+\_\+t \texorpdfstring{$\ast$}{*}values)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___analog___i_o_gac3a4df81e78216c7d552c0b9d8b1128d}{Analog\+Raw2mV}} (uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Convert raw value from ADC to mV, using a calibration curve. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___analog___i_o_gad3fea4064bfa31ae309d4da542347198}{Analog\+Output\+Write}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Digital-\/to-\/\+Analog convert. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+adc\+\_\+cali\+\_\+handle\+\_\+t \mbox{\hyperlink{analog__io__mcu_8c_a761884a13c0d9b7721eaee64dbfd93a4}{adc\+\_\+calibration\+\_\+single}}
+\item 
+adc\+\_\+cali\+\_\+handle\+\_\+t \mbox{\hyperlink{analog__io__mcu_8c_a941cc7edec2abcba2c18930ffded7ca7}{adc\+\_\+calibration\+\_\+cont}}
+\item 
+adc\+\_\+oneshot\+\_\+unit\+\_\+handle\+\_\+t \mbox{\hyperlink{analog__io__mcu_8c_a6db1b5bb87100014c45838465c4faaf4}{adc1\+\_\+single}}
+\item 
+adc\+\_\+continuous\+\_\+handle\+\_\+t \mbox{\hyperlink{analog__io__mcu_8c_abf723b68942364cd9f3854c95040974d}{adc2\+\_\+cont}}
+\item 
+sdm\+\_\+channel\+\_\+handle\+\_\+t \mbox{\hyperlink{analog__io__mcu_8c_a908fcff7a8381fbd4b39b2cc1a76104f}{dac}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\item 
+bool \mbox{\hyperlink{analog__io__mcu_8c_af31fb823954b0df82d9ec5ab760370f3}{adc1\+\_\+single\+\_\+used}} = false
+\item 
+adc\+\_\+oneshot\+\_\+unit\+\_\+init\+\_\+cfg\+\_\+t \mbox{\hyperlink{analog__io__mcu_8c_a4fd9860812e660e725ea0c13d458d3f7}{init\+\_\+config\+\_\+single}}
+\item 
+adc\+\_\+oneshot\+\_\+chan\+\_\+cfg\+\_\+t \mbox{\hyperlink{analog__io__mcu_8c_a2253f0d5ed152dd9f9d316728dec787a}{adc\+\_\+config\+\_\+single}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva (\href{mailto:albano.penalva@uner.edu.ar}{\texttt{ albano.\+penalva@uner.\+edu.\+ar}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2024-\/02-\/06
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+Definición en el archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{analog__io__mcu_8c_a011dd77da2406fbe9beab9a63e042af9}\label{analog__io__mcu_8c_a011dd77da2406fbe9beab9a63e042af9} 
+\index{analog\_io\_mcu.c@{analog\_io\_mcu.c}!ADC\_ATTENUATION@{ADC\_ATTENUATION}}
+\index{ADC\_ATTENUATION@{ADC\_ATTENUATION}!analog\_io\_mcu.c@{analog\_io\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_ATTENUATION}{ADC\_ATTENUATION}}
+{\footnotesize\ttfamily \#define ADC\+\_\+\+ATTENUATION~ADC\+\_\+\+ATTEN\+\_\+\+DB\+\_\+11}
+
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00021}{21}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{analog__io__mcu_8c_source_l00045}{Analog\+Input\+Init()}}.
+
+\Hypertarget{analog__io__mcu_8c_a133ef7b7b4ad7fa713384c3ede19e5f4}\label{analog__io__mcu_8c_a133ef7b7b4ad7fa713384c3ede19e5f4} 
+\index{analog\_io\_mcu.c@{analog\_io\_mcu.c}!ADC\_BITWIDTH@{ADC\_BITWIDTH}}
+\index{ADC\_BITWIDTH@{ADC\_BITWIDTH}!analog\_io\_mcu.c@{analog\_io\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_BITWIDTH}{ADC\_BITWIDTH}}
+{\footnotesize\ttfamily \#define ADC\+\_\+\+BITWIDTH~SOC\+\_\+\+ADC\+\_\+\+DIGI\+\_\+\+MAX\+\_\+\+BITWIDTH}
+
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00020}{20}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{analog__io__mcu_8c_source_l00045}{Analog\+Input\+Init()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{analog__io__mcu_8c_a6db1b5bb87100014c45838465c4faaf4}\label{analog__io__mcu_8c_a6db1b5bb87100014c45838465c4faaf4} 
+\index{analog\_io\_mcu.c@{analog\_io\_mcu.c}!adc1\_single@{adc1\_single}}
+\index{adc1\_single@{adc1\_single}!analog\_io\_mcu.c@{analog\_io\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{adc1\_single}{adc1\_single}}
+{\footnotesize\ttfamily adc\+\_\+oneshot\+\_\+unit\+\_\+handle\+\_\+t adc1\+\_\+single}
+
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00024}{24}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{analog__io__mcu_8c_source_l00045}{Analog\+Input\+Init()}} y \mbox{\hyperlink{analog__io__mcu_8c_source_l00105}{Analog\+Input\+Read\+Single()}}.
+
+\Hypertarget{analog__io__mcu_8c_af31fb823954b0df82d9ec5ab760370f3}\label{analog__io__mcu_8c_af31fb823954b0df82d9ec5ab760370f3} 
+\index{analog\_io\_mcu.c@{analog\_io\_mcu.c}!adc1\_single\_used@{adc1\_single\_used}}
+\index{adc1\_single\_used@{adc1\_single\_used}!analog\_io\_mcu.c@{analog\_io\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{adc1\_single\_used}{adc1\_single\_used}}
+{\footnotesize\ttfamily bool adc1\+\_\+single\+\_\+used = false}
+
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00027}{27}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{analog__io__mcu_8c_source_l00045}{Analog\+Input\+Init()}}.
+
+\Hypertarget{analog__io__mcu_8c_abf723b68942364cd9f3854c95040974d}\label{analog__io__mcu_8c_abf723b68942364cd9f3854c95040974d} 
+\index{analog\_io\_mcu.c@{analog\_io\_mcu.c}!adc2\_cont@{adc2\_cont}}
+\index{adc2\_cont@{adc2\_cont}!analog\_io\_mcu.c@{analog\_io\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{adc2\_cont}{adc2\_cont}}
+{\footnotesize\ttfamily adc\+\_\+continuous\+\_\+handle\+\_\+t adc2\+\_\+cont}
+
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00025}{25}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+\Hypertarget{analog__io__mcu_8c_a941cc7edec2abcba2c18930ffded7ca7}\label{analog__io__mcu_8c_a941cc7edec2abcba2c18930ffded7ca7} 
+\index{analog\_io\_mcu.c@{analog\_io\_mcu.c}!adc\_calibration\_cont@{adc\_calibration\_cont}}
+\index{adc\_calibration\_cont@{adc\_calibration\_cont}!analog\_io\_mcu.c@{analog\_io\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{adc\_calibration\_cont}{adc\_calibration\_cont}}
+{\footnotesize\ttfamily adc\+\_\+cali\+\_\+handle\+\_\+t adc\+\_\+calibration\+\_\+cont}
+
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00023}{23}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+\Hypertarget{analog__io__mcu_8c_a761884a13c0d9b7721eaee64dbfd93a4}\label{analog__io__mcu_8c_a761884a13c0d9b7721eaee64dbfd93a4} 
+\index{analog\_io\_mcu.c@{analog\_io\_mcu.c}!adc\_calibration\_single@{adc\_calibration\_single}}
+\index{adc\_calibration\_single@{adc\_calibration\_single}!analog\_io\_mcu.c@{analog\_io\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{adc\_calibration\_single}{adc\_calibration\_single}}
+{\footnotesize\ttfamily adc\+\_\+cali\+\_\+handle\+\_\+t adc\+\_\+calibration\+\_\+single}
+
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00023}{23}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{analog__io__mcu_8c_source_l00045}{Analog\+Input\+Init()}} y \mbox{\hyperlink{analog__io__mcu_8c_source_l00134}{Analog\+Raw2m\+V()}}.
+
+\Hypertarget{analog__io__mcu_8c_a2253f0d5ed152dd9f9d316728dec787a}\label{analog__io__mcu_8c_a2253f0d5ed152dd9f9d316728dec787a} 
+\index{analog\_io\_mcu.c@{analog\_io\_mcu.c}!adc\_config\_single@{adc\_config\_single}}
+\index{adc\_config\_single@{adc\_config\_single}!analog\_io\_mcu.c@{analog\_io\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{adc\_config\_single}{adc\_config\_single}}
+{\footnotesize\ttfamily adc\+\_\+oneshot\+\_\+chan\+\_\+cfg\+\_\+t adc\+\_\+config\+\_\+single}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .bitwidth\ =\ \mbox{\hyperlink{analog__io__mcu_8c_a133ef7b7b4ad7fa713384c3ede19e5f4}{ADC\_BITWIDTH}},}
+\DoxyCodeLine{\ \ \ \ .atten\ =\ \mbox{\hyperlink{analog__io__mcu_8c_a011dd77da2406fbe9beab9a63e042af9}{ADC\_ATTENUATION}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00035}{35}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{analog__io__mcu_8c_source_l00045}{Analog\+Input\+Init()}}.
+
+\Hypertarget{analog__io__mcu_8c_a908fcff7a8381fbd4b39b2cc1a76104f}\label{analog__io__mcu_8c_a908fcff7a8381fbd4b39b2cc1a76104f} 
+\index{analog\_io\_mcu.c@{analog\_io\_mcu.c}!dac@{dac}}
+\index{dac@{dac}!analog\_io\_mcu.c@{analog\_io\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{dac}{dac}}
+{\footnotesize\ttfamily sdm\+\_\+channel\+\_\+handle\+\_\+t dac = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00026}{26}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{analog__io__mcu_8c_source_l00095}{Analog\+Output\+Init()}} y \mbox{\hyperlink{analog__io__mcu_8c_source_l00140}{Analog\+Output\+Write()}}.
+
+\Hypertarget{analog__io__mcu_8c_a4fd9860812e660e725ea0c13d458d3f7}\label{analog__io__mcu_8c_a4fd9860812e660e725ea0c13d458d3f7} 
+\index{analog\_io\_mcu.c@{analog\_io\_mcu.c}!init\_config\_single@{init\_config\_single}}
+\index{init\_config\_single@{init\_config\_single}!analog\_io\_mcu.c@{analog\_io\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{init\_config\_single}{init\_config\_single}}
+{\footnotesize\ttfamily adc\+\_\+oneshot\+\_\+unit\+\_\+init\+\_\+cfg\+\_\+t init\+\_\+config\+\_\+single}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .unit\_id\ =\ ADC\_UNIT\_1,}
+\DoxyCodeLine{\ \ \ \ .ulp\_mode\ =\ ADC\_ULP\_MODE\_DISABLE,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00031}{31}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{analog__io__mcu_8c_source_l00045}{Analog\+Input\+Init()}}.
+

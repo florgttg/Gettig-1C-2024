@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Proyecto 2 actividad 4: Archivo de código fuente C:/Repositorios/EProgramable_FIUNER/firmware/drivers/microcontroller/inc/spi_mcu.h</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Proyecto 2 actividad 4<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Conversion analogico digitsl y viceversa</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('spi__mcu_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">spi_mcu.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="spi__mcu_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SPI_MCU_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SPI_MCU_H</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/*==================[inclusions]=============================================*/</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">/*==================[macros]=================================================*/</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/*==================[typedef]================================================*/</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="group___s_p_i.html#ga919e4040af605e210f6c5f4c6fe13a12">   37</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="group___s_p_i.html#ga919e4040af605e210f6c5f4c6fe13a12">spi_devices</a> {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="group___s_p_i.html#gga919e4040af605e210f6c5f4c6fe13a12aa4b24f86e59b845990862af6481c321f">   38</a></span>    <a class="code hl_enumvalue" href="group___s_p_i.html#gga919e4040af605e210f6c5f4c6fe13a12aa4b24f86e59b845990862af6481c321f">SPI_1</a>,          </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="group___s_p_i.html#gga919e4040af605e210f6c5f4c6fe13a12a78d05bc33881e02031f9bb60dc5312ee">   39</a></span>    <a class="code hl_enumvalue" href="group___s_p_i.html#gga919e4040af605e210f6c5f4c6fe13a12a78d05bc33881e02031f9bb60dc5312ee">SPI_2</a>,          </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_enumvalue" href="group___s_p_i.html#gga919e4040af605e210f6c5f4c6fe13a12a58b58ba7b098bbfb9fbb252304863a63">SPI_3</a>           </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="group___s_p_i.html#gga919e4040af605e210f6c5f4c6fe13a12a58b58ba7b098bbfb9fbb252304863a63">   41</a></span>} <a class="code hl_typedef" href="group___s_p_i.html#ga7d468ea862538a179a76e97b9085f075">spi_dev_t</a>;</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="group___s_p_i.html#ga7ddb86ccba25a168f889234061e21692">   46</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="group___s_p_i.html#gga7ddb86ccba25a168f889234061e21692a8c818ffe07c247353de39ebce7a017c2">   47</a></span>    <a class="code hl_enumvalue" href="group___s_p_i.html#gga7ddb86ccba25a168f889234061e21692a8c818ffe07c247353de39ebce7a017c2">MODE0</a> = 0,  </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="group___s_p_i.html#gga7ddb86ccba25a168f889234061e21692ac96709e78c1f5f5e077b68b1c65d141d">   48</a></span>    <a class="code hl_enumvalue" href="group___s_p_i.html#gga7ddb86ccba25a168f889234061e21692ac96709e78c1f5f5e077b68b1c65d141d">MODE1</a> = 1,  </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="group___s_p_i.html#gga7ddb86ccba25a168f889234061e21692a7e24ffb02d34c2b3a679095809eafc55">   49</a></span>    <a class="code hl_enumvalue" href="group___s_p_i.html#gga7ddb86ccba25a168f889234061e21692a7e24ffb02d34c2b3a679095809eafc55">MODE2</a> = 2,  </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="group___s_p_i.html#gga7ddb86ccba25a168f889234061e21692a7b316658e8633844a318cde3660e5a77">   50</a></span>    <a class="code hl_enumvalue" href="group___s_p_i.html#gga7ddb86ccba25a168f889234061e21692a7b316658e8633844a318cde3660e5a77">MODE3</a> = 3,  </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>} <a class="code hl_enumeration" href="group___s_p_i.html#ga7ddb86ccba25a168f889234061e21692">clk_mode_t</a>;</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="};">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="group___s_p_i.html#gadfb7c2a6a73bfdf993e50505aa92992f">   56</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="group___s_p_i.html#ggadfb7c2a6a73bfdf993e50505aa92992fa0cb4f6c37501162dcdcd5686e2efea9a">   57</a></span>    <a class="code hl_enumvalue" href="group___s_p_i.html#ggadfb7c2a6a73bfdf993e50505aa92992fa0cb4f6c37501162dcdcd5686e2efea9a">SPI_POLLING</a>,        </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="group___s_p_i.html#ggadfb7c2a6a73bfdf993e50505aa92992fa70e1201d8d9010717b07818bf975c5ed">   58</a></span>    <a class="code hl_enumvalue" href="group___s_p_i.html#ggadfb7c2a6a73bfdf993e50505aa92992fa70e1201d8d9010717b07818bf975c5ed">SPI_INTERRUPT</a>,      </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>} <a class="code hl_enumeration" href="group___s_p_i.html#gadfb7c2a6a73bfdf993e50505aa92992f">transfer_mode_t</a>;</div>
+</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="};">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="structspi__mcu__config__t.html">   64</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="structspi__mcu__config__t.html#ab742c16164c5199448894aa0930a6e75">   65</a></span>    <a class="code hl_typedef" href="group___s_p_i.html#ga7d468ea862538a179a76e97b9085f075">spi_dev_t</a> <a class="code hl_variable" href="structspi__mcu__config__t.html#ab742c16164c5199448894aa0930a6e75">device</a>;               </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="structspi__mcu__config__t.html#a4737b644103a7cbe225b36724f8d9120">   66</a></span>    <a class="code hl_enumeration" href="group___s_p_i.html#ga7ddb86ccba25a168f889234061e21692">clk_mode_t</a> <a class="code hl_variable" href="structspi__mcu__config__t.html#a4737b644103a7cbe225b36724f8d9120">clk_mode</a>;            </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structspi__mcu__config__t.html#a32678c62007e0748dae550bd1007a07d">   67</a></span>    uint32_t <a class="code hl_variable" href="structspi__mcu__config__t.html#a32678c62007e0748dae550bd1007a07d">bitrate</a>;               </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structspi__mcu__config__t.html#a84b3bf61c72f30449d7e3e1a389b9ea2">   68</a></span>    <a class="code hl_enumeration" href="group___s_p_i.html#gadfb7c2a6a73bfdf993e50505aa92992f">transfer_mode_t</a> <a class="code hl_variable" href="structspi__mcu__config__t.html#a84b3bf61c72f30449d7e3e1a389b9ea2">transfer_mode</a>;  </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structspi__mcu__config__t.html#a672985730d2c0cf9105559adc9759a3a">   69</a></span>    <span class="keywordtype">void</span> *<a class="code hl_variable" href="structspi__mcu__config__t.html#a672985730d2c0cf9105559adc9759a3a">func_p</a>;                   </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="structspi__mcu__config__t.html#aad5f5715cb799d57b86e98fe3bf701e1">   70</a></span>    <span class="keywordtype">void</span> *<a class="code hl_variable" href="structspi__mcu__config__t.html#aad5f5715cb799d57b86e98fe3bf701e1">param_p</a>;                  </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>} <a class="code hl_struct" href="structspi__mcu__config__t.html">spi_mcu_config_t</a>;</div>
+</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">/*==================[external data declaration]==============================*/</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">/*==================[external functions declaration]=========================*/</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>uint8_t <a class="code hl_function" href="group___s_p_i.html#gab45316fbf89f00655b81427e3e709596">SpiInit</a>(<a class="code hl_struct" href="structspi__mcu__config__t.html">spi_mcu_config_t</a>* spi);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___s_p_i.html#ga401e936d7c4a7ec7866bd93d6e3e3a8d">SpiRead</a>(<a class="code hl_typedef" href="group___s_p_i.html#ga7d468ea862538a179a76e97b9085f075">spi_dev_t</a> device, uint8_t * rx_buffer, uint32_t rx_buffer_size);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___s_p_i.html#ga8895abd934fb22a652c828b72f3eda13">SpiWrite</a>(<a class="code hl_typedef" href="group___s_p_i.html#ga7d468ea862538a179a76e97b9085f075">spi_dev_t</a> device, uint8_t * tx_buffer, uint32_t tx_buffer_size);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___s_p_i.html#gabc656b4da81a1183cf8b8b67679d6e49">SpiReadWrite</a>(<a class="code hl_typedef" href="group___s_p_i.html#ga7d468ea862538a179a76e97b9085f075">spi_dev_t</a> device, uint8_t * tx_buffer, uint8_t * rx_buffer, uint32_t buffer_size);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>uint8_t <a class="code hl_function" href="group___s_p_i.html#gac082e2d0f13dd3a3c67e4f30c71fcacf">SpiDeInit</a>(<a class="code hl_typedef" href="group___s_p_i.html#ga7d468ea862538a179a76e97b9085f075">spi_dev_t</a> device);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="preprocessor">#endif </span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">/*==================[end of file]============================================*/</span></div>
+<div class="ttc" id="agroup___s_p_i_html_ga401e936d7c4a7ec7866bd93d6e3e3a8d"><div class="ttname"><a href="group___s_p_i.html#ga401e936d7c4a7ec7866bd93d6e3e3a8d">SpiRead</a></div><div class="ttdeci">void SpiRead(spi_dev_t device, uint8_t *rx_buffer, uint32_t rx_buffer_size)</div><div class="ttdoc">Read data from SPI port.</div><div class="ttdef"><b>Definition</b> <a href="spi__mcu_8c_source.html#l00105">spi_mcu.c:105</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_ga7d468ea862538a179a76e97b9085f075"><div class="ttname"><a href="group___s_p_i.html#ga7d468ea862538a179a76e97b9085f075">spi_dev_t</a></div><div class="ttdeci">enum spi_devices spi_dev_t</div><div class="ttdoc">SPI driver for the ESP-EDU Board.</div></div>
+<div class="ttc" id="agroup___s_p_i_html_ga7ddb86ccba25a168f889234061e21692"><div class="ttname"><a href="group___s_p_i.html#ga7ddb86ccba25a168f889234061e21692">clk_mode_t</a></div><div class="ttdeci">clk_mode_t</div><div class="ttdoc">SPI phase and polarity.</div><div class="ttdef"><b>Definition</b> <a href="#l00046">spi_mcu.h:46</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_ga8895abd934fb22a652c828b72f3eda13"><div class="ttname"><a href="group___s_p_i.html#ga8895abd934fb22a652c828b72f3eda13">SpiWrite</a></div><div class="ttdeci">void SpiWrite(spi_dev_t device, uint8_t *tx_buffer, uint32_t tx_buffer_size)</div><div class="ttdoc">Write data from SPI port.</div><div class="ttdef"><b>Definition</b> <a href="spi__mcu_8c_source.html#l00145">spi_mcu.c:145</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_ga919e4040af605e210f6c5f4c6fe13a12"><div class="ttname"><a href="group___s_p_i.html#ga919e4040af605e210f6c5f4c6fe13a12">spi_devices</a></div><div class="ttdeci">spi_devices</div><div class="ttdoc">SPI driver for the ESP-EDU Board.</div><div class="ttdef"><b>Definition</b> <a href="#l00037">spi_mcu.h:37</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_gab45316fbf89f00655b81427e3e709596"><div class="ttname"><a href="group___s_p_i.html#gab45316fbf89f00655b81427e3e709596">SpiInit</a></div><div class="ttdeci">uint8_t SpiInit(spi_mcu_config_t *spi)</div><div class="ttdoc">Initialize SPI module with the corresponding configuration.</div><div class="ttdef"><b>Definition</b> <a href="spi__mcu_8c_source.html#l00059">spi_mcu.c:59</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_gabc656b4da81a1183cf8b8b67679d6e49"><div class="ttname"><a href="group___s_p_i.html#gabc656b4da81a1183cf8b8b67679d6e49">SpiReadWrite</a></div><div class="ttdeci">void SpiReadWrite(spi_dev_t device, uint8_t *tx_buffer, uint8_t *rx_buffer, uint32_t buffer_size)</div><div class="ttdoc">Write and Read data simultaneous from SPI port.</div><div class="ttdef"><b>Definition</b> <a href="spi__mcu_8c_source.html#l00184">spi_mcu.c:184</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_gac082e2d0f13dd3a3c67e4f30c71fcacf"><div class="ttname"><a href="group___s_p_i.html#gac082e2d0f13dd3a3c67e4f30c71fcacf">SpiDeInit</a></div><div class="ttdeci">uint8_t SpiDeInit(spi_dev_t device)</div><div class="ttdoc">De-Initialize SPI module with the corresponding configuration.</div><div class="ttdef"><b>Definition</b> <a href="spi__mcu_8c_source.html#l00225">spi_mcu.c:225</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_gadfb7c2a6a73bfdf993e50505aa92992f"><div class="ttname"><a href="group___s_p_i.html#gadfb7c2a6a73bfdf993e50505aa92992f">transfer_mode_t</a></div><div class="ttdeci">transfer_mode_t</div><div class="ttdoc">SPI transfer modes.</div><div class="ttdef"><b>Definition</b> <a href="#l00056">spi_mcu.h:56</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_gga7ddb86ccba25a168f889234061e21692a7b316658e8633844a318cde3660e5a77"><div class="ttname"><a href="group___s_p_i.html#gga7ddb86ccba25a168f889234061e21692a7b316658e8633844a318cde3660e5a77">MODE3</a></div><div class="ttdeci">@ MODE3</div><div class="ttdef"><b>Definition</b> <a href="#l00050">spi_mcu.h:50</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_gga7ddb86ccba25a168f889234061e21692a7e24ffb02d34c2b3a679095809eafc55"><div class="ttname"><a href="group___s_p_i.html#gga7ddb86ccba25a168f889234061e21692a7e24ffb02d34c2b3a679095809eafc55">MODE2</a></div><div class="ttdeci">@ MODE2</div><div class="ttdef"><b>Definition</b> <a href="#l00049">spi_mcu.h:49</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_gga7ddb86ccba25a168f889234061e21692a8c818ffe07c247353de39ebce7a017c2"><div class="ttname"><a href="group___s_p_i.html#gga7ddb86ccba25a168f889234061e21692a8c818ffe07c247353de39ebce7a017c2">MODE0</a></div><div class="ttdeci">@ MODE0</div><div class="ttdef"><b>Definition</b> <a href="#l00047">spi_mcu.h:47</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_gga7ddb86ccba25a168f889234061e21692ac96709e78c1f5f5e077b68b1c65d141d"><div class="ttname"><a href="group___s_p_i.html#gga7ddb86ccba25a168f889234061e21692ac96709e78c1f5f5e077b68b1c65d141d">MODE1</a></div><div class="ttdeci">@ MODE1</div><div class="ttdef"><b>Definition</b> <a href="#l00048">spi_mcu.h:48</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_gga919e4040af605e210f6c5f4c6fe13a12a58b58ba7b098bbfb9fbb252304863a63"><div class="ttname"><a href="group___s_p_i.html#gga919e4040af605e210f6c5f4c6fe13a12a58b58ba7b098bbfb9fbb252304863a63">SPI_3</a></div><div class="ttdeci">@ SPI_3</div><div class="ttdef"><b>Definition</b> <a href="#l00041">spi_mcu.h:40</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_gga919e4040af605e210f6c5f4c6fe13a12a78d05bc33881e02031f9bb60dc5312ee"><div class="ttname"><a href="group___s_p_i.html#gga919e4040af605e210f6c5f4c6fe13a12a78d05bc33881e02031f9bb60dc5312ee">SPI_2</a></div><div class="ttdeci">@ SPI_2</div><div class="ttdef"><b>Definition</b> <a href="#l00039">spi_mcu.h:39</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_gga919e4040af605e210f6c5f4c6fe13a12aa4b24f86e59b845990862af6481c321f"><div class="ttname"><a href="group___s_p_i.html#gga919e4040af605e210f6c5f4c6fe13a12aa4b24f86e59b845990862af6481c321f">SPI_1</a></div><div class="ttdeci">@ SPI_1</div><div class="ttdef"><b>Definition</b> <a href="#l00038">spi_mcu.h:38</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_ggadfb7c2a6a73bfdf993e50505aa92992fa0cb4f6c37501162dcdcd5686e2efea9a"><div class="ttname"><a href="group___s_p_i.html#ggadfb7c2a6a73bfdf993e50505aa92992fa0cb4f6c37501162dcdcd5686e2efea9a">SPI_POLLING</a></div><div class="ttdeci">@ SPI_POLLING</div><div class="ttdef"><b>Definition</b> <a href="#l00057">spi_mcu.h:57</a></div></div>
+<div class="ttc" id="agroup___s_p_i_html_ggadfb7c2a6a73bfdf993e50505aa92992fa70e1201d8d9010717b07818bf975c5ed"><div class="ttname"><a href="group___s_p_i.html#ggadfb7c2a6a73bfdf993e50505aa92992fa70e1201d8d9010717b07818bf975c5ed">SPI_INTERRUPT</a></div><div class="ttdeci">@ SPI_INTERRUPT</div><div class="ttdef"><b>Definition</b> <a href="#l00058">spi_mcu.h:58</a></div></div>
+<div class="ttc" id="astructspi__mcu__config__t_html"><div class="ttname"><a href="structspi__mcu__config__t.html">spi_mcu_config_t</a></div><div class="ttdoc">SPI configuration structure.</div><div class="ttdef"><b>Definition</b> <a href="#l00064">spi_mcu.h:64</a></div></div>
+<div class="ttc" id="astructspi__mcu__config__t_html_a32678c62007e0748dae550bd1007a07d"><div class="ttname"><a href="structspi__mcu__config__t.html#a32678c62007e0748dae550bd1007a07d">spi_mcu_config_t::bitrate</a></div><div class="ttdeci">uint32_t bitrate</div><div class="ttdef"><b>Definition</b> <a href="#l00067">spi_mcu.h:67</a></div></div>
+<div class="ttc" id="astructspi__mcu__config__t_html_a4737b644103a7cbe225b36724f8d9120"><div class="ttname"><a href="structspi__mcu__config__t.html#a4737b644103a7cbe225b36724f8d9120">spi_mcu_config_t::clk_mode</a></div><div class="ttdeci">clk_mode_t clk_mode</div><div class="ttdef"><b>Definition</b> <a href="#l00066">spi_mcu.h:66</a></div></div>
+<div class="ttc" id="astructspi__mcu__config__t_html_a672985730d2c0cf9105559adc9759a3a"><div class="ttname"><a href="structspi__mcu__config__t.html#a672985730d2c0cf9105559adc9759a3a">spi_mcu_config_t::func_p</a></div><div class="ttdeci">void * func_p</div><div class="ttdef"><b>Definition</b> <a href="#l00069">spi_mcu.h:69</a></div></div>
+<div class="ttc" id="astructspi__mcu__config__t_html_a84b3bf61c72f30449d7e3e1a389b9ea2"><div class="ttname"><a href="structspi__mcu__config__t.html#a84b3bf61c72f30449d7e3e1a389b9ea2">spi_mcu_config_t::transfer_mode</a></div><div class="ttdeci">transfer_mode_t transfer_mode</div><div class="ttdef"><b>Definition</b> <a href="#l00068">spi_mcu.h:68</a></div></div>
+<div class="ttc" id="astructspi__mcu__config__t_html_aad5f5715cb799d57b86e98fe3bf701e1"><div class="ttname"><a href="structspi__mcu__config__t.html#aad5f5715cb799d57b86e98fe3bf701e1">spi_mcu_config_t::param_p</a></div><div class="ttdeci">void * param_p</div><div class="ttdef"><b>Definition</b> <a href="#l00070">spi_mcu.h:70</a></div></div>
+<div class="ttc" id="astructspi__mcu__config__t_html_ab742c16164c5199448894aa0930a6e75"><div class="ttname"><a href="structspi__mcu__config__t.html#ab742c16164c5199448894aa0930a6e75">spi_mcu_config_t::device</a></div><div class="ttdeci">spi_dev_t device</div><div class="ttdef"><b>Definition</b> <a href="#l00065">spi_mcu.h:65</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_fcba15287a7fba83beff6e7e8c7a3a80.html">firmware</a></li><li class="navelem"><a class="el" href="dir_d771f3729bc48f700515c8c6c400e99b.html">drivers</a></li><li class="navelem"><a class="el" href="dir_bc36ab89ecafc2a8b5ba798a6143b9d0.html">microcontroller</a></li><li class="navelem"><a class="el" href="dir_8e142a7b6f220c6356305c580ebb7a03.html">inc</a></li><li class="navelem"><a class="el" href="spi__mcu_8h.html">spi_mcu.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

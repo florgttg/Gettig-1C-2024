@@ -1,0 +1,39 @@
+\doxysection{timer\+\_\+mcu.\+h}
+\hypertarget{timer__mcu_8h_source}{}\label{timer__mcu_8h_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/timer\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/timer\_mcu.h}}
+\mbox{\hyperlink{timer__mcu_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TIMER\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TIMER\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00023}00023\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}stdint.h"{}}}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00025}00025\ \textcolor{comment}{/*==================[macros]=================================================*/}}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00027}00027\ \textcolor{comment}{/*==================[typedef]================================================*/}}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00031}\mbox{\hyperlink{group___timer_gacc4e64394d03a6e790f8e52c674534d9}{00031}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{group___timer_gacc4e64394d03a6e790f8e52c674534d9}{timers}}\ \{}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00032}\mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598}{00032}}\ \ \ \ \ \mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598}{TIMER\_A}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00033}\mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f}{00033}}\ \ \ \ \ \mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f}{TIMER\_B}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d}{TIMER\_C}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00035}\mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d}{00035}}\ \}\ \mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\_mcu\_t}};}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00039}\mbox{\hyperlink{structtimer__config__t}{00039}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00040}\mbox{\hyperlink{structtimer__config__t_ab83043b8038c5e630f6a2a05ea007e49}{00040}}\ \ \ \ \ \mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\_mcu\_t}}\ \mbox{\hyperlink{structtimer__config__t_ab83043b8038c5e630f6a2a05ea007e49}{timer}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00041}\mbox{\hyperlink{structtimer__config__t_a81b43df06332b4fef558297592bb7ff1}{00041}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structtimer__config__t_a81b43df06332b4fef558297592bb7ff1}{period}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00042}\mbox{\hyperlink{structtimer__config__t_a672985730d2c0cf9105559adc9759a3a}{00042}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structtimer__config__t_a672985730d2c0cf9105559adc9759a3a}{func\_p}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00043}\mbox{\hyperlink{structtimer__config__t_aad5f5715cb799d57b86e98fe3bf701e1}{00043}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structtimer__config__t_aad5f5715cb799d57b86e98fe3bf701e1}{param\_p}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00044}00044\ \}\ \mbox{\hyperlink{structtimer__config__t}{timer\_config\_t}};}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00045}00045\ \textcolor{comment}{/*==================[external\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00047}00047\ \textcolor{comment}{/*==================[external\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00055}00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___timer_gae8617c0d176463a60441464ad26563f6}{TimerInit}}(\mbox{\hyperlink{structtimer__config__t}{timer\_config\_t}}\ *timer\_ini);}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00062}00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___timer_ga0b1779c5b8f91cc83c8bfd127071ea2f}{TimerStart}}(\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\_mcu\_t}}\ timer);}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00069}00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___timer_ga0860e7ffff656386879c7dcd600d0629}{TimerStop}}(\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\_mcu\_t}}\ timer);}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00076}00076\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___timer_ga80ed309959e5a179f5676ed4af547fa1}{TimerReset}}(\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\_mcu\_t}}\ timer);}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00081}00081\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{timer__mcu_8h_source_l00083}00083\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

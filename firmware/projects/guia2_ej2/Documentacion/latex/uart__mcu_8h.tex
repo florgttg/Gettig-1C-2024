@@ -1,0 +1,42 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/inc/uart\+\_\+mcu.h}
+\hypertarget{uart__mcu_8h}{}\label{uart__mcu_8h}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/uart\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/uart\_mcu.h}}
+{\ttfamily \#include "{}stdint.\+h"{}}\newline
+\doxysubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structserial__config__t}{serial\+\_\+config\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Serial port configuration struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___u_a_r_t_ga544040074fa1abddedb1eaade6994035}{UART\+\_\+\+NO\+\_\+\+INT}}~0
+\begin{DoxyCompactList}\small\item\em UART driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___u_a_r_t_ga6e1a445bae87c4cfd26710dbd4657b77}{uart\+\_\+ports}} \mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em List of UART ports available in ESP-\/\+EDU. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___u_a_r_t_ga6e1a445bae87c4cfd26710dbd4657b77}{uart\+\_\+ports}} \{ \mbox{\hyperlink{group___u_a_r_t_gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056}{UART\+\_\+\+PC}}
+, \mbox{\hyperlink{group___u_a_r_t_gga6e1a445bae87c4cfd26710dbd4657b77aab02e55aa3ae1d09e52cd7c916cd067f}{UART\+\_\+\+CONNECTOR}}
+ \}
+\begin{DoxyCompactList}\small\item\em List of UART ports available in ESP-\/\+EDU. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___u_a_r_t_ga440f6a03dfd8b310f5fdf42c3bf20c42}{Uart\+Init}} (\mbox{\hyperlink{structserial__config__t}{serial\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}port\+\_\+config)
+\begin{DoxyCompactList}\small\item\em Serial port initialization. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___u_a_r_t_ga37f1b16880c3ca70ed2e543566d555d2}{Uart\+Read\+Byte}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Read a single byte from serial port. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___u_a_r_t_gaec359d22a59e650a21a0666dad59656a}{Uart\+Read\+Buffer}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t nbytes)
+\begin{DoxyCompactList}\small\item\em Read multiple bytes from serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___u_a_r_t_gaeb142fa2425b80bddba60121b1cf13f2}{Uart\+Send\+Byte}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, const char \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Send a single byte trough serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___u_a_r_t_ga60db217694ea24ad75fcedda3336a3a8}{Uart\+Send\+String}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Send a String trough serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___u_a_r_t_ga81fce0b6465799566af3cc8cc896c45e}{Uart\+Send\+Buffer}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, const char \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t nbytes)
+\begin{DoxyCompactList}\small\item\em Send multiple bytes through serial port. \end{DoxyCompactList}\item 
+uint8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___u_a_r_t_ga00c7e785d2874c52bab6e4dba88a5e23}{Uart\+Itoa}} (uint32\+\_\+t val, uint8\+\_\+t base)
+\begin{DoxyCompactList}\small\item\em Convert a number to a String (char array ended with \textquotesingle{}\textbackslash{}0\textquotesingle{}) \end{DoxyCompactList}\end{DoxyCompactItemize}

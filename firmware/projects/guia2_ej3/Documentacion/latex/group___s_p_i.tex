@@ -1,0 +1,334 @@
+\doxysubsubsection{SPI}
+\hypertarget{group___s_p_i}{}\label{group___s_p_i}\index{SPI@{SPI}}
+\doxysubsubsubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structspi__mcu__config__t}{spi\+\_\+mcu\+\_\+config\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em SPI configuration structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___s_p_i_ga919e4040af605e210f6c5f4c6fe13a12}{spi\+\_\+devices}} \mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em SPI driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___s_p_i_ga919e4040af605e210f6c5f4c6fe13a12}{spi\+\_\+devices}} \{ \mbox{\hyperlink{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12aa4b24f86e59b845990862af6481c321f}{SPI\+\_\+1}}
+, \mbox{\hyperlink{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12a78d05bc33881e02031f9bb60dc5312ee}{SPI\+\_\+2}}
+, \mbox{\hyperlink{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12a58b58ba7b098bbfb9fbb252304863a63}{SPI\+\_\+3}}
+ \}
+\begin{DoxyCompactList}\small\item\em SPI driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___s_p_i_ga7ddb86ccba25a168f889234061e21692}{clk\+\_\+mode\+\_\+t}} \{ \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a8c818ffe07c247353de39ebce7a017c2}{MODE0}} = 0
+, \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692ac96709e78c1f5f5e077b68b1c65d141d}{MODE1}} = 1
+, \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a7e24ffb02d34c2b3a679095809eafc55}{MODE2}} = 2
+, \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a7b316658e8633844a318cde3660e5a77}{MODE3}} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em SPI phase and polarity. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{transfer\+\_\+mode\+\_\+t}} \{ \mbox{\hyperlink{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa0cb4f6c37501162dcdcd5686e2efea9a}{SPI\+\_\+\+POLLING}}
+, \mbox{\hyperlink{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa70e1201d8d9010717b07818bf975c5ed}{SPI\+\_\+\+INTERRUPT}}
+ \}
+\begin{DoxyCompactList}\small\item\em SPI transfer modes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___s_p_i_gab45316fbf89f00655b81427e3e709596}{Spi\+Init}} (\mbox{\hyperlink{structspi__mcu__config__t}{spi\+\_\+mcu\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}spi)
+\begin{DoxyCompactList}\small\item\em Initialize SPI module with the corresponding configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___s_p_i_ga401e936d7c4a7ec7866bd93d6e3e3a8d}{Spi\+Read}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} device, uint8\+\_\+t \texorpdfstring{$\ast$}{*}rx\+\_\+buffer, uint32\+\_\+t rx\+\_\+buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Read data from SPI port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___s_p_i_ga8895abd934fb22a652c828b72f3eda13}{Spi\+Write}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} device, uint8\+\_\+t \texorpdfstring{$\ast$}{*}tx\+\_\+buffer, uint32\+\_\+t tx\+\_\+buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Write data from SPI port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___s_p_i_gabc656b4da81a1183cf8b8b67679d6e49}{Spi\+Read\+Write}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} device, uint8\+\_\+t \texorpdfstring{$\ast$}{*}tx\+\_\+buffer, uint8\+\_\+t \texorpdfstring{$\ast$}{*}rx\+\_\+buffer, uint32\+\_\+t buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Write and Read data simultaneous from SPI port. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___s_p_i_gac082e2d0f13dd3a3c67e4f30c71fcacf}{Spi\+De\+Init}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} device)
+\begin{DoxyCompactList}\small\item\em De-\/\+Initialize SPI module with the corresponding configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de «typedef»}
+\Hypertarget{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}\label{group___s_p_i_ga7d468ea862538a179a76e97b9085f075} 
+\index{SPI@{SPI}!spi\_dev\_t@{spi\_dev\_t}}
+\index{spi\_dev\_t@{spi\_dev\_t}!SPI@{SPI}}
+\doxysubsubsubsubsection{\texorpdfstring{spi\_dev\_t}{spi\_dev\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___s_p_i_ga919e4040af605e210f6c5f4c6fe13a12}{spi\+\_\+devices}} \mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}}}
+
+
+
+SPI driver for the ESP-\/\+EDU Board. 
+
+\begin{DoxyNote}{Nota}
+ESP-\/\+EDU only have 1 SPI port, than can be connected up to 3 diferent devices using chip select pins (CS1, CS2, CS3). The SPI\+\_\+0, SPI\+\_\+1 and SPI\+\_\+2 defines refer to this.
+
+MISO\+: GPIO\+\_\+22, MOSI\+: GPIO\+\_\+21, SCLK\+: GPIO\+\_\+20, CS1\+: GPIO\+\_\+19, CS2\+: GPIO\+\_\+18, CS3\+: GPIO\+\_\+9
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{group___u_a_r_t_changelog}{}\doxysubsubsubsection{\texorpdfstring{changelog}{changelog}}\label{group___u_a_r_t_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 09/02/2024   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+ESP-\/\+EDU only have 1 SPI port, than can be connected up to 3 diferent devices using chip select pins (CS1, CS2, CS3). The SPI\+\_\+0, SPI\+\_\+1 and SPI\+\_\+2 defines refer to this. 
+
+\doxysubsubsubsection{Documentación de enumeraciones}
+\Hypertarget{group___s_p_i_ga7ddb86ccba25a168f889234061e21692}\label{group___s_p_i_ga7ddb86ccba25a168f889234061e21692} 
+\index{SPI@{SPI}!clk\_mode\_t@{clk\_mode\_t}}
+\index{clk\_mode\_t@{clk\_mode\_t}!SPI@{SPI}}
+\doxysubsubsubsubsection{\texorpdfstring{clk\_mode\_t}{clk\_mode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___s_p_i_ga7ddb86ccba25a168f889234061e21692}{clk\+\_\+mode\+\_\+t}}}
+
+
+
+SPI phase and polarity. 
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MODE0@{MODE0}!SPI@{SPI}}\index{SPI@{SPI}!MODE0@{MODE0}}}\Hypertarget{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a8c818ffe07c247353de39ebce7a017c2}\label{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a8c818ffe07c247353de39ebce7a017c2} 
+MODE0&phase = 0 and polarity = 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MODE1@{MODE1}!SPI@{SPI}}\index{SPI@{SPI}!MODE1@{MODE1}}}\Hypertarget{group___s_p_i_gga7ddb86ccba25a168f889234061e21692ac96709e78c1f5f5e077b68b1c65d141d}\label{group___s_p_i_gga7ddb86ccba25a168f889234061e21692ac96709e78c1f5f5e077b68b1c65d141d} 
+MODE1&phase = 1 and polarity = 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MODE2@{MODE2}!SPI@{SPI}}\index{SPI@{SPI}!MODE2@{MODE2}}}\Hypertarget{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a7e24ffb02d34c2b3a679095809eafc55}\label{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a7e24ffb02d34c2b3a679095809eafc55} 
+MODE2&phase = 0 and polarity = 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MODE3@{MODE3}!SPI@{SPI}}\index{SPI@{SPI}!MODE3@{MODE3}}}\Hypertarget{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a7b316658e8633844a318cde3660e5a77}\label{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a7b316658e8633844a318cde3660e5a77} 
+MODE3&phase = 1 and polarity = 1 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8h_source_l00046}{46}} del archivo \mbox{\hyperlink{spi__mcu_8h_source}{spi\+\_\+mcu.\+h}}.
+
+\Hypertarget{group___s_p_i_ga919e4040af605e210f6c5f4c6fe13a12}\label{group___s_p_i_ga919e4040af605e210f6c5f4c6fe13a12} 
+\index{SPI@{SPI}!spi\_devices@{spi\_devices}}
+\index{spi\_devices@{spi\_devices}!SPI@{SPI}}
+\doxysubsubsubsubsection{\texorpdfstring{spi\_devices}{spi\_devices}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___s_p_i_ga919e4040af605e210f6c5f4c6fe13a12}{spi\+\_\+devices}}}
+
+
+
+SPI driver for the ESP-\/\+EDU Board. 
+
+\begin{DoxyNote}{Nota}
+ESP-\/\+EDU only have 1 SPI port, than can be connected up to 3 diferent devices using chip select pins (CS1, CS2, CS3). The SPI\+\_\+0, SPI\+\_\+1 and SPI\+\_\+2 defines refer to this.
+
+MISO\+: GPIO\+\_\+22, MOSI\+: GPIO\+\_\+21, SCLK\+: GPIO\+\_\+20, CS1\+: GPIO\+\_\+19, CS2\+: GPIO\+\_\+18, CS3\+: GPIO\+\_\+9
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{group___u_a_r_t_changelog}{}\doxysubsubsubsection{\texorpdfstring{changelog}{changelog}}\label{group___u_a_r_t_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 09/02/2024   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+ESP-\/\+EDU only have 1 SPI port, than can be connected up to 3 diferent devices using chip select pins (CS1, CS2, CS3). The SPI\+\_\+0, SPI\+\_\+1 and SPI\+\_\+2 defines refer to this. \begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_1@{SPI\_1}!SPI@{SPI}}\index{SPI@{SPI}!SPI\_1@{SPI\_1}}}\Hypertarget{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12aa4b24f86e59b845990862af6481c321f}\label{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12aa4b24f86e59b845990862af6481c321f} 
+SPI\+\_\+1&CS\+\_\+1\+: GPIO\+\_\+19 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_2@{SPI\_2}!SPI@{SPI}}\index{SPI@{SPI}!SPI\_2@{SPI\_2}}}\Hypertarget{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12a78d05bc33881e02031f9bb60dc5312ee}\label{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12a78d05bc33881e02031f9bb60dc5312ee} 
+SPI\+\_\+2&CS\+\_\+2\+: GPIO\+\_\+18 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_3@{SPI\_3}!SPI@{SPI}}\index{SPI@{SPI}!SPI\_3@{SPI\_3}}}\Hypertarget{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12a58b58ba7b098bbfb9fbb252304863a63}\label{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12a58b58ba7b098bbfb9fbb252304863a63} 
+SPI\+\_\+3&CS\+\_\+3\+: GPIO\+\_\+9 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8h_source_l00037}{37}} del archivo \mbox{\hyperlink{spi__mcu_8h_source}{spi\+\_\+mcu.\+h}}.
+
+\Hypertarget{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}\label{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f} 
+\index{SPI@{SPI}!transfer\_mode\_t@{transfer\_mode\_t}}
+\index{transfer\_mode\_t@{transfer\_mode\_t}!SPI@{SPI}}
+\doxysubsubsubsubsection{\texorpdfstring{transfer\_mode\_t}{transfer\_mode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{transfer\+\_\+mode\+\_\+t}}}
+
+
+
+SPI transfer modes. 
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_POLLING@{SPI\_POLLING}!SPI@{SPI}}\index{SPI@{SPI}!SPI\_POLLING@{SPI\_POLLING}}}\Hypertarget{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa0cb4f6c37501162dcdcd5686e2efea9a}\label{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa0cb4f6c37501162dcdcd5686e2efea9a} 
+SPI\+\_\+\+POLLING&Polling \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_INTERRUPT@{SPI\_INTERRUPT}!SPI@{SPI}}\index{SPI@{SPI}!SPI\_INTERRUPT@{SPI\_INTERRUPT}}}\Hypertarget{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa70e1201d8d9010717b07818bf975c5ed}\label{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa70e1201d8d9010717b07818bf975c5ed} 
+SPI\+\_\+\+INTERRUPT&Interrupción \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8h_source_l00056}{56}} del archivo \mbox{\hyperlink{spi__mcu_8h_source}{spi\+\_\+mcu.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___s_p_i_gac082e2d0f13dd3a3c67e4f30c71fcacf}\label{group___s_p_i_gac082e2d0f13dd3a3c67e4f30c71fcacf} 
+\index{SPI@{SPI}!SpiDeInit@{SpiDeInit}}
+\index{SpiDeInit@{SpiDeInit}!SPI@{SPI}}
+\doxysubsubsubsubsection{\texorpdfstring{SpiDeInit()}{SpiDeInit()}}
+{\footnotesize\ttfamily uint8\+\_\+t Spi\+De\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}}}]{device }\end{DoxyParamCaption})}
+
+
+
+De-\/\+Initialize SPI module with the corresponding configuration. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em device} & SPI device \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00225}{225}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+\Hypertarget{group___s_p_i_gab45316fbf89f00655b81427e3e709596}\label{group___s_p_i_gab45316fbf89f00655b81427e3e709596} 
+\index{SPI@{SPI}!SpiInit@{SpiInit}}
+\index{SpiInit@{SpiInit}!SPI@{SPI}}
+\doxysubsubsubsubsection{\texorpdfstring{SpiInit()}{SpiInit()}}
+{\footnotesize\ttfamily uint8\+\_\+t Spi\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structspi__mcu__config__t}{spi\+\_\+mcu\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{spi }\end{DoxyParamCaption})}
+
+
+
+Initialize SPI module with the corresponding configuration. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em spi} & Structure with the module configuration \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00059}{59}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{spi__mcu_8h_source_l00067}{spi\+\_\+mcu\+\_\+config\+\_\+t\+::bitrate}}, \mbox{\hyperlink{spi__mcu_8c_source_l00027}{bus\+\_\+cfg}}, \mbox{\hyperlink{spi__mcu_8h_source_l00066}{spi\+\_\+mcu\+\_\+config\+\_\+t\+::clk\+\_\+mode}}, \mbox{\hyperlink{spi__mcu_8h_source_l00065}{spi\+\_\+mcu\+\_\+config\+\_\+t\+::device}}, \mbox{\hyperlink{spi__mcu_8h_source_l00069}{spi\+\_\+mcu\+\_\+config\+\_\+t\+::func\+\_\+p}}, \mbox{\hyperlink{spi__mcu_8h_source_l00070}{spi\+\_\+mcu\+\_\+config\+\_\+t\+::param\+\_\+p}}, \mbox{\hyperlink{spi__mcu_8c_source_l00022}{PIN\+\_\+\+NUM\+\_\+\+CS1}}, \mbox{\hyperlink{spi__mcu_8c_source_l00023}{PIN\+\_\+\+NUM\+\_\+\+CS2}}, \mbox{\hyperlink{spi__mcu_8c_source_l00024}{PIN\+\_\+\+NUM\+\_\+\+CS3}}, \mbox{\hyperlink{spi__mcu_8h_source_l00038}{SPI\+\_\+1}}, \mbox{\hyperlink{spi__mcu_8c_source_l00026}{spi\+\_\+1}}, \mbox{\hyperlink{spi__mcu_8c_source_l00036}{spi\+\_\+1\+\_\+isr\+\_\+p}}, \mbox{\hyperlink{spi__mcu_8c_source_l00039}{spi\+\_\+1\+\_\+user\+\_\+data}}, \mbox{\hyperlink{spi__mcu_8h_source_l00039}{SPI\+\_\+2}}, \mbox{\hyperlink{spi__mcu_8c_source_l00026}{spi\+\_\+2}}, \mbox{\hyperlink{spi__mcu_8c_source_l00037}{spi\+\_\+2\+\_\+isr\+\_\+p}}, \mbox{\hyperlink{spi__mcu_8c_source_l00040}{spi\+\_\+2\+\_\+user\+\_\+data}}, \mbox{\hyperlink{spi__mcu_8h_source_l00040}{SPI\+\_\+3}}, \mbox{\hyperlink{spi__mcu_8c_source_l00026}{spi\+\_\+3}}, \mbox{\hyperlink{spi__mcu_8c_source_l00038}{spi\+\_\+3\+\_\+isr\+\_\+p}}, \mbox{\hyperlink{spi__mcu_8c_source_l00041}{spi\+\_\+3\+\_\+user\+\_\+data}}, \mbox{\hyperlink{spi__mcu_8h_source_l00058}{SPI\+\_\+\+INTERRUPT}}, \mbox{\hyperlink{spi__mcu_8h_source_l00068}{spi\+\_\+mcu\+\_\+config\+\_\+t\+::transfer\+\_\+mode}}, \mbox{\hyperlink{spi__mcu_8c_source_l00035}{transfer\+\_\+mode\+\_\+1}}, \mbox{\hyperlink{spi__mcu_8c_source_l00035}{transfer\+\_\+mode\+\_\+2}} y \mbox{\hyperlink{spi__mcu_8c_source_l00035}{transfer\+\_\+mode\+\_\+3}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00222}{Write\+LCD()}}.
+
+\Hypertarget{group___s_p_i_ga401e936d7c4a7ec7866bd93d6e3e3a8d}\label{group___s_p_i_ga401e936d7c4a7ec7866bd93d6e3e3a8d} 
+\index{SPI@{SPI}!SpiRead@{SpiRead}}
+\index{SpiRead@{SpiRead}!SPI@{SPI}}
+\doxysubsubsubsubsection{\texorpdfstring{SpiRead()}{SpiRead()}}
+{\footnotesize\ttfamily void Spi\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}}}]{device,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{rx\+\_\+buffer,  }\item[{uint32\+\_\+t}]{rx\+\_\+buffer\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Read data from SPI port. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em device} & SPI device to read from \\
+\hline
+{\em rx\+\_\+buffer} & pointer to buffer where data is stored \\
+\hline
+{\em rx\+\_\+buffer\+\_\+size} & numbers of bytes to read \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00105}{105}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{spi__mcu_8h_source_l00038}{SPI\+\_\+1}}, \mbox{\hyperlink{spi__mcu_8c_source_l00026}{spi\+\_\+1}}, \mbox{\hyperlink{spi__mcu_8h_source_l00039}{SPI\+\_\+2}}, \mbox{\hyperlink{spi__mcu_8c_source_l00026}{spi\+\_\+2}}, \mbox{\hyperlink{spi__mcu_8h_source_l00040}{SPI\+\_\+3}}, \mbox{\hyperlink{spi__mcu_8c_source_l00026}{spi\+\_\+3}}, \mbox{\hyperlink{spi__mcu_8h_source_l00058}{SPI\+\_\+\+INTERRUPT}}, \mbox{\hyperlink{spi__mcu_8h_source_l00057}{SPI\+\_\+\+POLLING}}, \mbox{\hyperlink{spi__mcu_8c_source_l00035}{transfer\+\_\+mode\+\_\+1}}, \mbox{\hyperlink{spi__mcu_8c_source_l00035}{transfer\+\_\+mode\+\_\+2}} y \mbox{\hyperlink{spi__mcu_8c_source_l00035}{transfer\+\_\+mode\+\_\+3}}.
+
+\Hypertarget{group___s_p_i_gabc656b4da81a1183cf8b8b67679d6e49}\label{group___s_p_i_gabc656b4da81a1183cf8b8b67679d6e49} 
+\index{SPI@{SPI}!SpiReadWrite@{SpiReadWrite}}
+\index{SpiReadWrite@{SpiReadWrite}!SPI@{SPI}}
+\doxysubsubsubsubsection{\texorpdfstring{SpiReadWrite()}{SpiReadWrite()}}
+{\footnotesize\ttfamily void Spi\+Read\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}}}]{device,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{tx\+\_\+buffer,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{rx\+\_\+buffer,  }\item[{uint32\+\_\+t}]{buffer\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Write and Read data simultaneous from SPI port. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em device} & SPI device to read from \\
+\hline
+{\em tx\+\_\+buffer} & pointer to buffer where data to write is stored \\
+\hline
+{\em rx\+\_\+buffer} & pointer to buffer where data read is stored \\
+\hline
+{\em buffer\+\_\+size} & numbers of bytes to read or write \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00184}{184}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{spi__mcu_8h_source_l00038}{SPI\+\_\+1}}, \mbox{\hyperlink{spi__mcu_8c_source_l00026}{spi\+\_\+1}}, \mbox{\hyperlink{spi__mcu_8h_source_l00039}{SPI\+\_\+2}}, \mbox{\hyperlink{spi__mcu_8c_source_l00026}{spi\+\_\+2}}, \mbox{\hyperlink{spi__mcu_8h_source_l00040}{SPI\+\_\+3}}, \mbox{\hyperlink{spi__mcu_8c_source_l00026}{spi\+\_\+3}}, \mbox{\hyperlink{spi__mcu_8h_source_l00058}{SPI\+\_\+\+INTERRUPT}}, \mbox{\hyperlink{spi__mcu_8h_source_l00057}{SPI\+\_\+\+POLLING}}, \mbox{\hyperlink{spi__mcu_8c_source_l00035}{transfer\+\_\+mode\+\_\+1}}, \mbox{\hyperlink{spi__mcu_8c_source_l00035}{transfer\+\_\+mode\+\_\+2}} y \mbox{\hyperlink{spi__mcu_8c_source_l00035}{transfer\+\_\+mode\+\_\+3}}.
+
+\Hypertarget{group___s_p_i_ga8895abd934fb22a652c828b72f3eda13}\label{group___s_p_i_ga8895abd934fb22a652c828b72f3eda13} 
+\index{SPI@{SPI}!SpiWrite@{SpiWrite}}
+\index{SpiWrite@{SpiWrite}!SPI@{SPI}}
+\doxysubsubsubsubsection{\texorpdfstring{SpiWrite()}{SpiWrite()}}
+{\footnotesize\ttfamily void Spi\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}}}]{device,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{tx\+\_\+buffer,  }\item[{uint32\+\_\+t}]{tx\+\_\+buffer\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Write data from SPI port. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em device} & SPI device to read from \\
+\hline
+{\em tx\+\_\+buffer} & pointer to buffer where data is stored \\
+\hline
+{\em tx\+\_\+buffer\+\_\+size} & numbers of bytes to write \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00145}{145}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{spi__mcu_8h_source_l00038}{SPI\+\_\+1}}, \mbox{\hyperlink{spi__mcu_8c_source_l00026}{spi\+\_\+1}}, \mbox{\hyperlink{spi__mcu_8h_source_l00039}{SPI\+\_\+2}}, \mbox{\hyperlink{spi__mcu_8c_source_l00026}{spi\+\_\+2}}, \mbox{\hyperlink{spi__mcu_8h_source_l00040}{SPI\+\_\+3}}, \mbox{\hyperlink{spi__mcu_8c_source_l00026}{spi\+\_\+3}}, \mbox{\hyperlink{spi__mcu_8h_source_l00058}{SPI\+\_\+\+INTERRUPT}}, \mbox{\hyperlink{spi__mcu_8h_source_l00057}{SPI\+\_\+\+POLLING}}, \mbox{\hyperlink{spi__mcu_8c_source_l00035}{transfer\+\_\+mode\+\_\+1}}, \mbox{\hyperlink{spi__mcu_8c_source_l00035}{transfer\+\_\+mode\+\_\+2}} y \mbox{\hyperlink{spi__mcu_8c_source_l00035}{transfer\+\_\+mode\+\_\+3}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00222}{Write\+LCD()}}.
+

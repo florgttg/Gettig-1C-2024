@@ -1,0 +1,428 @@
+\doxysubsection{Drivers devices}
+\hypertarget{group___drivers___devices}{}\label{group___drivers___devices}\index{Drivers devices@{Drivers devices}}
+\doxysubsubsubsection*{Topics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___fonts}{Fonts}}
+\begin{DoxyCompactList}\small\item\em Fonts library for LCD. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___h_c___s_r04}{HC SR04}}
+\item 
+\mbox{\hyperlink{group___h_x711}{HX711}}
+\item 
+\mbox{\hyperlink{group___i_l_i9341}{ILI9341}}
+\begin{DoxyCompactList}\small\item\em TFT LCD RGB 240x320 ILI9341 driver. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___l_c_d___i_t_s_e0803}{LCD ITSE0803}}
+\item 
+\mbox{\hyperlink{group___l_e_d}{Led}}
+\item 
+\mbox{\hyperlink{group___m_p_u6050}{MPU6050}}
+\item 
+\mbox{\hyperlink{group___neo_pixel___stripe}{Neo\+Pixel\+\_\+\+Stripe}}
+\item 
+\mbox{\hyperlink{group___s_e_r_v_o}{Servo}}
+\item 
+\mbox{\hyperlink{group___switch}{Switch}}
+\item 
+\mbox{\hyperlink{group___w_s2812_b}{WS2812B}}
+\item 
+\mbox{\hyperlink{group___p_w_m}{PWM}}
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___drivers___devices_ga0253b5770d7658f386b17e6846be30bb}{HX711\+\_\+\+Init}} (uint8\+\_\+t gain, \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pd\+\_\+sck, \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} dout)
+\begin{DoxyCompactList}\small\item\em The HX711 amplifier is a breakout board that allows you to easily read load cells to measure weight. It communicates with the EDU-\/\+ESP board via I2C. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group___drivers___devices_ga71638214415227f49d5a68c1ab7ac5fc}{HX711\+\_\+is\+Ready}} (void)
+\begin{DoxyCompactList}\small\item\em Check if HX711 is ready. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_ga015618a3aeb885f497bb4e49703f0533}{HX711\+\_\+set\+Gain}} (uint8\+\_\+t gain)
+\begin{DoxyCompactList}\small\item\em Set the gain factor; takes effect only after a call to read() channel A can be set for a 128 or 64 gain; channel B has a fixed 32 gain depending on the parameter, the channel is also set to either A or B. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___drivers___devices_ga98ffbaa5e4a9d05cbe26d4f11c852b43}{HX711\+\_\+read}} (void)
+\begin{DoxyCompactList}\small\item\em Waits for the chip to be ready and returns a reading. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___drivers___devices_ga624121c6e72709fa80dec71b0bb5a09e}{HX711\+\_\+read\+Average}} (uint8\+\_\+t times)
+\begin{DoxyCompactList}\small\item\em Returns an average reading. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group___drivers___devices_gab948b825f1a8bb789ffc918a9d56a0a9}{HX711\+\_\+get\+\_\+value}} (uint8\+\_\+t times)
+\begin{DoxyCompactList}\small\item\em Returns (read\+\_\+average() -\/ OFFSET), that is the current value without the tare weight. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group___drivers___devices_gac86aec8c4c9fb31a084f8c4b44cb6c11}{HX711\+\_\+get\+\_\+units}} (uint8\+\_\+t times)
+\begin{DoxyCompactList}\small\item\em Returns get\+\_\+value() divided by SCALE, that is the raw value divided by a value obtained via calibration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_ga49825990854e1a686bec6827116bd21a}{HX711\+\_\+tare}} (uint8\+\_\+t times)
+\begin{DoxyCompactList}\small\item\em Set the OFFSET value for tare weight. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_ga7f8fa1c373124a450721cd2f7c37ca65}{HX711\+\_\+set\+Scale}} (float scale)
+\begin{DoxyCompactList}\small\item\em Set the SCALE value; this value is used to convert the raw data to "{}human readable"{} data (measure units) \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group___drivers___devices_ga5f85e38a6bd3628b18a7fa39696e1734}{HX711\+\_\+get\+Scale}} (void)
+\begin{DoxyCompactList}\small\item\em Get the current SCALE. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_gafeb43438890820a40cac639b45e2f68e}{HX711\+\_\+set\+Offset}} (double offset)
+\item 
+double \mbox{\hyperlink{group___drivers___devices_ga88b64b36ae1198175c714bcb1d12824d}{HX711\+\_\+get\+Offset}} (void)
+\begin{DoxyCompactList}\small\item\em Get the current OFFSET. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_ga6f16f71a0f63a246364ac964488ac9eb}{HX711\+\_\+power\+Down}} (void)
+\begin{DoxyCompactList}\small\item\em Puts the chip into power down mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_gaefe09edcab845b980ff9f23cb196a914}{HX711\+\_\+power\+Up}} (void)
+\begin{DoxyCompactList}\small\item\em Wakes up the chip after power down mode. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___drivers___devices_gaacc0fa70a56783b9a18f6ae8a6b37487}{shift\+In}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Descripción detallada}
+
+
+\doxysubsubsection{Documentación de funciones}
+\Hypertarget{group___drivers___devices_gac86aec8c4c9fb31a084f8c4b44cb6c11}\label{group___drivers___devices_gac86aec8c4c9fb31a084f8c4b44cb6c11} 
+\index{Drivers devices@{Drivers devices}!HX711\_get\_units@{HX711\_get\_units}}
+\index{HX711\_get\_units@{HX711\_get\_units}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_get\_units()}{HX711\_get\_units()}}
+{\footnotesize\ttfamily HX711\+\_\+get\+\_\+units (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{times }\end{DoxyParamCaption})}
+
+
+
+Returns get\+\_\+value() divided by SCALE, that is the raw value divided by a value obtained via calibration. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em times} & How many readings to do \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Read value 
+\end{DoxyReturn}
+\Hypertarget{group___drivers___devices_gab948b825f1a8bb789ffc918a9d56a0a9}\label{group___drivers___devices_gab948b825f1a8bb789ffc918a9d56a0a9} 
+\index{Drivers devices@{Drivers devices}!HX711\_get\_value@{HX711\_get\_value}}
+\index{HX711\_get\_value@{HX711\_get\_value}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_get\_value()}{HX711\_get\_value()}}
+{\footnotesize\ttfamily HX711\+\_\+get\+\_\+value (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{times }\end{DoxyParamCaption})}
+
+
+
+Returns (read\+\_\+average() -\/ OFFSET), that is the current value without the tare weight. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em times} & How many times to read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Read value 
+\end{DoxyReturn}
+
+
+Referenciado por \mbox{\hyperlink{hx711_8c_source_l00133}{HX711\+\_\+get\+Units()}}.
+
+\Hypertarget{group___drivers___devices_ga88b64b36ae1198175c714bcb1d12824d}\label{group___drivers___devices_ga88b64b36ae1198175c714bcb1d12824d} 
+\index{Drivers devices@{Drivers devices}!HX711\_getOffset@{HX711\_getOffset}}
+\index{HX711\_getOffset@{HX711\_getOffset}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_getOffset()}{HX711\_getOffset()}}
+{\footnotesize\ttfamily HX711\+\_\+get\+Offset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the current OFFSET. 
+
+\begin{DoxyReturn}{Devuelve}
+Offset value 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00159}{159}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{hx711_8c_source_l00020}{OFFSET}}.
+
+\Hypertarget{group___drivers___devices_ga5f85e38a6bd3628b18a7fa39696e1734}\label{group___drivers___devices_ga5f85e38a6bd3628b18a7fa39696e1734} 
+\index{Drivers devices@{Drivers devices}!HX711\_getScale@{HX711\_getScale}}
+\index{HX711\_getScale@{HX711\_getScale}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_getScale()}{HX711\_getScale()}}
+{\footnotesize\ttfamily HX711\+\_\+get\+Scale (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the current SCALE. 
+
+\begin{DoxyReturn}{Devuelve}
+Scale value 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00149}{149}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{hx711_8c_source_l00021}{SCALE}}.
+
+\Hypertarget{group___drivers___devices_ga0253b5770d7658f386b17e6846be30bb}\label{group___drivers___devices_ga0253b5770d7658f386b17e6846be30bb} 
+\index{Drivers devices@{Drivers devices}!HX711\_Init@{HX711\_Init}}
+\index{HX711\_Init@{HX711\_Init}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_Init()}{HX711\_Init()}}
+{\footnotesize\ttfamily HX711\+\_\+\+Init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{gain,  }\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{pd\+\_\+sck,  }\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{dout }\end{DoxyParamCaption})}
+
+
+
+The HX711 amplifier is a breakout board that allows you to easily read load cells to measure weight. It communicates with the EDU-\/\+ESP board via I2C. 
+
+\begin{DoxyAuthor}{Autor}
+Juan Ignacio Cerrudo
+\end{DoxyAuthor}
+\hypertarget{group___u_a_r_t_changelog}{}\doxysubsubsection{\texorpdfstring{changelog}{changelog}}\label{group___u_a_r_t_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 30/01/2024   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+Define clock and data pin, channel, and gain factor 
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em gain} & Gain \\
+\hline
+\mbox{\texttt{ in}}  & {\em pd\+\_\+sck} & Clock pin \\
+\hline
+\mbox{\texttt{ in}}  & {\em dout} & Datapin \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00047}{47}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__mcu_8h_source_l00043}{GPIO\+\_\+\+INPUT}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00044}{GPIO\+\_\+\+OUTPUT}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00067}{GPIOInit()}}, \mbox{\hyperlink{hx711_8c_source_l00062}{HX711\+\_\+set\+Gain()}}, \mbox{\hyperlink{hx711_8c_source_l00025}{internal\+\_\+dout}} y \mbox{\hyperlink{hx711_8c_source_l00024}{internal\+\_\+pd\+\_\+sck}}.
+
+\Hypertarget{group___drivers___devices_ga71638214415227f49d5a68c1ab7ac5fc}\label{group___drivers___devices_ga71638214415227f49d5a68c1ab7ac5fc} 
+\index{Drivers devices@{Drivers devices}!HX711\_isReady@{HX711\_isReady}}
+\index{HX711\_isReady@{HX711\_isReady}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_isReady()}{HX711\_isReady()}}
+{\footnotesize\ttfamily int HX711\+\_\+is\+Ready (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Check if HX711 is ready. 
+
+\begin{DoxyReturn}{Devuelve}
+1 if ready 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00057}{57}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__mcu_8c_source_l00101}{GPIORead()}} y \mbox{\hyperlink{hx711_8c_source_l00025}{internal\+\_\+dout}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hx711_8c_source_l00081}{HX711\+\_\+read()}}.
+
+\Hypertarget{group___drivers___devices_ga6f16f71a0f63a246364ac964488ac9eb}\label{group___drivers___devices_ga6f16f71a0f63a246364ac964488ac9eb} 
+\index{Drivers devices@{Drivers devices}!HX711\_powerDown@{HX711\_powerDown}}
+\index{HX711\_powerDown@{HX711\_powerDown}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_powerDown()}{HX711\_powerDown()}}
+{\footnotesize\ttfamily HX711\+\_\+power\+Down (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Puts the chip into power down mode. 
+
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00164}{164}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{delay__mcu_8c_source_l00087}{Delay\+Us()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}} y \mbox{\hyperlink{hx711_8c_source_l00024}{internal\+\_\+pd\+\_\+sck}}.
+
+\Hypertarget{group___drivers___devices_gaefe09edcab845b980ff9f23cb196a914}\label{group___drivers___devices_gaefe09edcab845b980ff9f23cb196a914} 
+\index{Drivers devices@{Drivers devices}!HX711\_powerUp@{HX711\_powerUp}}
+\index{HX711\_powerUp@{HX711\_powerUp}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_powerUp()}{HX711\_powerUp()}}
+{\footnotesize\ttfamily HX711\+\_\+power\+Up (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Wakes up the chip after power down mode. 
+
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00171}{171}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}} y \mbox{\hyperlink{hx711_8c_source_l00024}{internal\+\_\+pd\+\_\+sck}}.
+
+\Hypertarget{group___drivers___devices_ga98ffbaa5e4a9d05cbe26d4f11c852b43}\label{group___drivers___devices_ga98ffbaa5e4a9d05cbe26d4f11c852b43} 
+\index{Drivers devices@{Drivers devices}!HX711\_read@{HX711\_read}}
+\index{HX711\_read@{HX711\_read}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_read()}{HX711\_read()}}
+{\footnotesize\ttfamily HX711\+\_\+read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Waits for the chip to be ready and returns a reading. 
+
+\begin{DoxyReturn}{Devuelve}
+Read value 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00081}{81}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{delay__mcu_8c_source_l00087}{Delay\+Us()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00101}{GPIORead()}}, \mbox{\hyperlink{hx711_8c_source_l00057}{HX711\+\_\+is\+Ready()}}, \mbox{\hyperlink{hx711_8c_source_l00025}{internal\+\_\+dout}} y \mbox{\hyperlink{hx711_8c_source_l00024}{internal\+\_\+pd\+\_\+sck}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hx711_8c_source_l00117}{HX711\+\_\+read\+Average()}} y \mbox{\hyperlink{hx711_8c_source_l00062}{HX711\+\_\+set\+Gain()}}.
+
+\Hypertarget{group___drivers___devices_ga624121c6e72709fa80dec71b0bb5a09e}\label{group___drivers___devices_ga624121c6e72709fa80dec71b0bb5a09e} 
+\index{Drivers devices@{Drivers devices}!HX711\_readAverage@{HX711\_readAverage}}
+\index{HX711\_readAverage@{HX711\_readAverage}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_readAverage()}{HX711\_readAverage()}}
+{\footnotesize\ttfamily HX711\+\_\+read\+Average (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{times }\end{DoxyParamCaption})}
+
+
+
+Returns an average reading. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em times} & How many times to read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Read value 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00117}{117}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{hx711_8c_source_l00081}{HX711\+\_\+read()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hx711_8c_source_l00128}{HX711\+\_\+get\+Value()}} y \mbox{\hyperlink{hx711_8c_source_l00138}{HX711\+\_\+tare()}}.
+
+\Hypertarget{group___drivers___devices_ga015618a3aeb885f497bb4e49703f0533}\label{group___drivers___devices_ga015618a3aeb885f497bb4e49703f0533} 
+\index{Drivers devices@{Drivers devices}!HX711\_setGain@{HX711\_setGain}}
+\index{HX711\_setGain@{HX711\_setGain}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_setGain()}{HX711\_setGain()}}
+{\footnotesize\ttfamily HX711\+\_\+set\+Gain (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{gain }\end{DoxyParamCaption})}
+
+
+
+Set the gain factor; takes effect only after a call to read() channel A can be set for a 128 or 64 gain; channel B has a fixed 32 gain depending on the parameter, the channel is also set to either A or B. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em gain} & Gain \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00062}{62}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{hx711_8c_source_l00019}{GAIN}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}, \mbox{\hyperlink{hx711_8c_source_l00081}{HX711\+\_\+read()}} y \mbox{\hyperlink{hx711_8c_source_l00024}{internal\+\_\+pd\+\_\+sck}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hx711_8c_source_l00047}{HX711\+\_\+\+Init()}}.
+
+\Hypertarget{group___drivers___devices_gafeb43438890820a40cac639b45e2f68e}\label{group___drivers___devices_gafeb43438890820a40cac639b45e2f68e} 
+\index{Drivers devices@{Drivers devices}!HX711\_setOffset@{HX711\_setOffset}}
+\index{HX711\_setOffset@{HX711\_setOffset}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_setOffset()}{HX711\_setOffset()}}
+{\footnotesize\ttfamily void HX711\+\_\+set\+Offset (\begin{DoxyParamCaption}\item[{double}]{offset }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00154}{154}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{hx711_8c_source_l00020}{OFFSET}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hx711_8c_source_l00138}{HX711\+\_\+tare()}}.
+
+\Hypertarget{group___drivers___devices_ga7f8fa1c373124a450721cd2f7c37ca65}\label{group___drivers___devices_ga7f8fa1c373124a450721cd2f7c37ca65} 
+\index{Drivers devices@{Drivers devices}!HX711\_setScale@{HX711\_setScale}}
+\index{HX711\_setScale@{HX711\_setScale}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_setScale()}{HX711\_setScale()}}
+{\footnotesize\ttfamily HX711\+\_\+set\+Scale (\begin{DoxyParamCaption}\item[{float}]{scale }\end{DoxyParamCaption})}
+
+
+
+Set the SCALE value; this value is used to convert the raw data to "{}human readable"{} data (measure units) 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em scale} & Scale vlaue \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00144}{144}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{hx711_8c_source_l00021}{SCALE}}.
+
+\Hypertarget{group___drivers___devices_ga49825990854e1a686bec6827116bd21a}\label{group___drivers___devices_ga49825990854e1a686bec6827116bd21a} 
+\index{Drivers devices@{Drivers devices}!HX711\_tare@{HX711\_tare}}
+\index{HX711\_tare@{HX711\_tare}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{HX711\_tare()}{HX711\_tare()}}
+{\footnotesize\ttfamily HX711\+\_\+tare (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{times }\end{DoxyParamCaption})}
+
+
+
+Set the OFFSET value for tare weight. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em times} & How many times to read the tare value \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00138}{138}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{hx711_8c_source_l00117}{HX711\+\_\+read\+Average()}} y \mbox{\hyperlink{hx711_8c_source_l00154}{HX711\+\_\+set\+Offset()}}.
+
+\Hypertarget{group___drivers___devices_gaacc0fa70a56783b9a18f6ae8a6b37487}\label{group___drivers___devices_gaacc0fa70a56783b9a18f6ae8a6b37487} 
+\index{Drivers devices@{Drivers devices}!shiftIn@{shiftIn}}
+\index{shiftIn@{shiftIn}!Drivers devices@{Drivers devices}}
+\doxysubsubsubsection{\texorpdfstring{shiftIn()}{shiftIn()}}
+{\footnotesize\ttfamily uint8\+\_\+t shift\+In (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00029}{29}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00101}{GPIORead()}}, \mbox{\hyperlink{hx711_8c_source_l00025}{internal\+\_\+dout}} y \mbox{\hyperlink{hx711_8c_source_l00024}{internal\+\_\+pd\+\_\+sck}}.
+
+\input{group___fonts}
+\input{group___h_c___s_r04}
+\input{group___h_x711}
+\input{group___i_l_i9341}
+\input{group___l_c_d___i_t_s_e0803}
+\input{group___l_e_d}
+\input{group___m_p_u6050}
+\input{group___neo_pixel___stripe}
+\input{group___s_e_r_v_o}
+\input{group___switch}
+\input{group___w_s2812_b}
+\input{group___p_w_m}

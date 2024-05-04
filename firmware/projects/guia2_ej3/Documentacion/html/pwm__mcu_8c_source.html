@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Proyecto 2 actividad 3: Archivo de código fuente C:/Repositorios/EProgramable_FIUNER/firmware/drivers/microcontroller/src/pwm_mcu.c</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Proyecto 2 actividad 3<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Mide distancia,muestra en Display y prende LED. Utiliza puerto serie uart.</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('pwm__mcu_8c_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">pwm_mcu.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="pwm__mcu_8c.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/*==================[inclusions]=============================================*/</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="pwm__mcu_8h.html">pwm_mcu.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;driver/ledc.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/*==================[macros and definitions]=================================*/</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="pwm__mcu_8c.html#a701d2222601b84faafa94cb1909df104">   16</a></span><span class="preprocessor">#define DC_MAX  1023</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="pwm__mcu_8c.html#a684bac99a5de1348b0cf76f80c31ae3d">   17</a></span><span class="preprocessor">#define DC_100  100</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">/*==================[internal data declaration]==============================*/</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">static</span> ledc_timer_config_t pwm_timer_cfg = {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    .speed_mode       = LEDC_LOW_SPEED_MODE,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    .duty_resolution  = LEDC_TIMER_10_BIT,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    .clk_cfg          = LEDC_AUTO_CLK</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">static</span> ledc_channel_config_t ledc_channel_cfg = {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    .speed_mode     = LEDC_LOW_SPEED_MODE,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    .intr_type      = LEDC_INTR_DISABLE,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    .duty           = 0,       </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    .hpoint         = 0</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/*==================[internal functions declaration]=========================*/</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/*==================[internal data definition]===============================*/</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">/*==================[external data definition]===============================*/</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/*==================[internal functions definition]==========================*/</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">/*==================[external functions definition]==========================*/</span></div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="group___p_w_m.html#ga50ba8fd6442b4799b8fb9b2e2b859bbd">   39</a></span>uint8_t <a class="code hl_function" href="group___p_w_m.html#ga50ba8fd6442b4799b8fb9b2e2b859bbd">PWMInit</a>(<a class="code hl_typedef" href="group___p_w_m.html#ga1d363970f0a2cf766d46868c4e88c41a">pwm_out_t</a> out, <a class="code hl_typedef" href="group___g_i_o_p.html#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a> gpio, uint16_t freq){</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">switch</span>(out){</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740">PWM_0</a>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            pwm_timer_cfg.freq_hz = freq;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            pwm_timer_cfg.timer_num = LEDC_TIMER_0;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            ledc_timer_config(&amp;pwm_timer_cfg);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            ledc_channel_cfg.channel = LEDC_CHANNEL_0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            ledc_channel_cfg.timer_sel = LEDC_TIMER_0;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            ledc_channel_cfg.gpio_num = gpio;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            ledc_channel_config(&amp;ledc_channel_cfg);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703">PWM_1</a>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            pwm_timer_cfg.freq_hz = freq;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            pwm_timer_cfg.timer_num = LEDC_TIMER_1;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            ledc_timer_config(&amp;pwm_timer_cfg);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            ledc_channel_cfg.channel = LEDC_CHANNEL_1;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            ledc_channel_cfg.timer_sel = LEDC_TIMER_1;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            ledc_channel_cfg.gpio_num = gpio;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            ledc_channel_config(&amp;ledc_channel_cfg);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6">PWM_2</a>:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            pwm_timer_cfg.freq_hz = freq;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            pwm_timer_cfg.timer_num = LEDC_TIMER_2;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            ledc_timer_config(&amp;pwm_timer_cfg);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            ledc_channel_cfg.channel = LEDC_CHANNEL_2;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            ledc_channel_cfg.timer_sel = LEDC_TIMER_2;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            ledc_channel_cfg.gpio_num = gpio;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            ledc_channel_config(&amp;ledc_channel_cfg);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542">PWM_3</a>:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            pwm_timer_cfg.freq_hz = freq;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            pwm_timer_cfg.timer_num = LEDC_TIMER_3;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            ledc_timer_config(&amp;pwm_timer_cfg);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            ledc_channel_cfg.channel = LEDC_CHANNEL_3;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            ledc_channel_cfg.timer_sel = LEDC_TIMER_3;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            ledc_channel_cfg.gpio_num = gpio;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            ledc_channel_config(&amp;ledc_channel_cfg);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="group___p_w_m.html#ga6fe31ebdc570ccdd776a7d4178566062">   81</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___p_w_m.html#ga6fe31ebdc570ccdd776a7d4178566062">PWMOn</a>(<a class="code hl_typedef" href="group___p_w_m.html#ga1d363970f0a2cf766d46868c4e88c41a">pwm_out_t</a> out){</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">switch</span>(out){</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740">PWM_0</a>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            ledc_timer_resume(LEDC_LOW_SPEED_MODE, LEDC_TIMER_0);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703">PWM_1</a>:</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            ledc_timer_resume(LEDC_LOW_SPEED_MODE, LEDC_TIMER_1);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6">PWM_2</a>:</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            ledc_timer_resume(LEDC_LOW_SPEED_MODE, LEDC_TIMER_2);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542">PWM_3</a>:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            ledc_timer_resume(LEDC_LOW_SPEED_MODE, LEDC_TIMER_3);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
+</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="group___p_w_m.html#ga43660d2e059ccf15efea7fff6a5fbfe4">   98</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___p_w_m.html#ga43660d2e059ccf15efea7fff6a5fbfe4">PWMOff</a>(<a class="code hl_typedef" href="group___p_w_m.html#ga1d363970f0a2cf766d46868c4e88c41a">pwm_out_t</a> out){</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordflow">switch</span>(out){</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740">PWM_0</a>:</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            ledc_timer_pause(LEDC_LOW_SPEED_MODE, LEDC_TIMER_0);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703">PWM_1</a>:</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            ledc_timer_pause(LEDC_LOW_SPEED_MODE, LEDC_TIMER_1);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6">PWM_2</a>:</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            ledc_timer_pause(LEDC_LOW_SPEED_MODE, LEDC_TIMER_2);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542">PWM_3</a>:</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            ledc_timer_pause(LEDC_LOW_SPEED_MODE, LEDC_TIMER_3);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
+</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="foldopen" id="foldopen00115" data-start="{" data-end="}">
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="group___p_w_m.html#ga427d00e7908ad5bc30e8a71dd07159ba">  115</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___p_w_m.html#ga427d00e7908ad5bc30e8a71dd07159ba">PWMSetDutyCycle</a>(<a class="code hl_typedef" href="group___p_w_m.html#ga1d363970f0a2cf766d46868c4e88c41a">pwm_out_t</a> out, uint8_t duty_cycle){</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordflow">if</span>(duty_cycle &gt; <a class="code hl_define" href="pwm__mcu_8c.html#a684bac99a5de1348b0cf76f80c31ae3d">DC_100</a>){</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        duty_cycle = <a class="code hl_define" href="pwm__mcu_8c.html#a684bac99a5de1348b0cf76f80c31ae3d">DC_100</a>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    uint32_t dc = ((uint32_t)duty_cycle * <a class="code hl_define" href="pwm__mcu_8c.html#a701d2222601b84faafa94cb1909df104">DC_MAX</a>) / <a class="code hl_define" href="pwm__mcu_8c.html#a684bac99a5de1348b0cf76f80c31ae3d">DC_100</a>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordflow">switch</span>(out){</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740">PWM_0</a>:</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_TIMER_0, dc);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_TIMER_0);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703">PWM_1</a>:</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_TIMER_1, dc);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_TIMER_1);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6">PWM_2</a>:</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_TIMER_2, dc);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_TIMER_2);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542">PWM_3</a>:</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_TIMER_3, dc);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_TIMER_3);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    }</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>}</div>
+</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="foldopen" id="foldopen00140" data-start="{" data-end="}">
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="group___p_w_m.html#ga223ccf708bb17d7bfb4ffb77d57c0501">  140</a></span>uint8_t <a class="code hl_function" href="group___p_w_m.html#ga223ccf708bb17d7bfb4ffb77d57c0501">PWMSetFreq</a>(<a class="code hl_typedef" href="group___p_w_m.html#ga1d363970f0a2cf766d46868c4e88c41a">pwm_out_t</a> out, uint32_t freq){</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordflow">switch</span>(out){</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740">PWM_0</a>:</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            ledc_set_freq(LEDC_LOW_SPEED_MODE, LEDC_TIMER_0, freq);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703">PWM_1</a>:</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            ledc_set_freq(LEDC_LOW_SPEED_MODE, LEDC_TIMER_1, freq);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6">PWM_2</a>:</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            ledc_set_freq(LEDC_LOW_SPEED_MODE, LEDC_TIMER_2, freq);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542">PWM_3</a>:</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            ledc_set_freq(LEDC_LOW_SPEED_MODE, LEDC_TIMER_3, freq);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    }</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>}</div>
+</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="foldopen" id="foldopen00158" data-start="{" data-end="}">
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="group___p_w_m.html#gad2556985508ded35e34bccc1e974fe6b">  158</a></span>uint8_t <a class="code hl_function" href="group___p_w_m.html#gad2556985508ded35e34bccc1e974fe6b">PWMDeinit</a>(<a class="code hl_typedef" href="group___p_w_m.html#ga1d363970f0a2cf766d46868c4e88c41a">pwm_out_t</a> out){</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">switch</span>(out){</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740">PWM_0</a>:</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            ledc_stop(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0, 0);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703">PWM_1</a>:</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            ledc_stop(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_1, 0);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6">PWM_2</a>:</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            ledc_stop(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_2, 0);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542">PWM_3</a>:</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            ledc_stop(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_3, 0);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    }</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>}</div>
+</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment">/*==================[end of file]============================================*/</span></div>
+<div class="ttc" id="agroup___g_i_o_p_html_gac6f7bd4f7ee306a4519f04641cbf2d67"><div class="ttname"><a href="group___g_i_o_p.html#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a></div><div class="ttdeci">enum gpio_list gpio_t</div><div class="ttdoc">ESP32-C6 available GPIOs (not all of them are available in ESP-EDU)</div></div>
+<div class="ttc" id="agroup___p_w_m_html_ga1d363970f0a2cf766d46868c4e88c41a"><div class="ttname"><a href="group___p_w_m.html#ga1d363970f0a2cf766d46868c4e88c41a">pwm_out_t</a></div><div class="ttdeci">enum pwm_out pwm_out_t</div><div class="ttdoc">PWM driver for ESP-EDU board.</div></div>
+<div class="ttc" id="agroup___p_w_m_html_ga223ccf708bb17d7bfb4ffb77d57c0501"><div class="ttname"><a href="group___p_w_m.html#ga223ccf708bb17d7bfb4ffb77d57c0501">PWMSetFreq</a></div><div class="ttdeci">uint8_t PWMSetFreq(pwm_out_t out, uint32_t freq)</div><div class="ttdoc">Change frequency of an PWM output.</div><div class="ttdef"><b>Definition</b> <a href="#l00140">pwm_mcu.c:140</a></div></div>
+<div class="ttc" id="agroup___p_w_m_html_ga427d00e7908ad5bc30e8a71dd07159ba"><div class="ttname"><a href="group___p_w_m.html#ga427d00e7908ad5bc30e8a71dd07159ba">PWMSetDutyCycle</a></div><div class="ttdeci">void PWMSetDutyCycle(pwm_out_t out, uint8_t duty_cycle)</div><div class="ttdoc">Change PWM duty cycle of an PWM output.</div><div class="ttdef"><b>Definition</b> <a href="#l00115">pwm_mcu.c:115</a></div></div>
+<div class="ttc" id="agroup___p_w_m_html_ga43660d2e059ccf15efea7fff6a5fbfe4"><div class="ttname"><a href="group___p_w_m.html#ga43660d2e059ccf15efea7fff6a5fbfe4">PWMOff</a></div><div class="ttdeci">void PWMOff(pwm_out_t out)</div><div class="ttdoc">Pause PWM output.</div><div class="ttdef"><b>Definition</b> <a href="#l00098">pwm_mcu.c:98</a></div></div>
+<div class="ttc" id="agroup___p_w_m_html_ga50ba8fd6442b4799b8fb9b2e2b859bbd"><div class="ttname"><a href="group___p_w_m.html#ga50ba8fd6442b4799b8fb9b2e2b859bbd">PWMInit</a></div><div class="ttdeci">uint8_t PWMInit(pwm_out_t out, gpio_t gpio, uint16_t freq)</div><div class="ttdoc">Single PWM output inicialization in selected GPIO.</div><div class="ttdef"><b>Definition</b> <a href="#l00039">pwm_mcu.c:39</a></div></div>
+<div class="ttc" id="agroup___p_w_m_html_ga6fe31ebdc570ccdd776a7d4178566062"><div class="ttname"><a href="group___p_w_m.html#ga6fe31ebdc570ccdd776a7d4178566062">PWMOn</a></div><div class="ttdeci">void PWMOn(pwm_out_t out)</div><div class="ttdoc">Resume PWM output.</div><div class="ttdef"><b>Definition</b> <a href="#l00081">pwm_mcu.c:81</a></div></div>
+<div class="ttc" id="agroup___p_w_m_html_gad2556985508ded35e34bccc1e974fe6b"><div class="ttname"><a href="group___p_w_m.html#gad2556985508ded35e34bccc1e974fe6b">PWMDeinit</a></div><div class="ttdeci">uint8_t PWMDeinit(pwm_out_t out)</div><div class="ttdoc">PWM output de-inicialization.</div><div class="ttdef"><b>Definition</b> <a href="#l00158">pwm_mcu.c:158</a></div></div>
+<div class="ttc" id="agroup___p_w_m_html_gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542"><div class="ttname"><a href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542">PWM_3</a></div><div class="ttdeci">@ PWM_3</div><div class="ttdef"><b>Definition</b> <a href="pwm__mcu_8h_source.html#l00038">pwm_mcu.h:37</a></div></div>
+<div class="ttc" id="agroup___p_w_m_html_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740"><div class="ttname"><a href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740">PWM_0</a></div><div class="ttdeci">@ PWM_0</div><div class="ttdef"><b>Definition</b> <a href="pwm__mcu_8h_source.html#l00034">pwm_mcu.h:34</a></div></div>
+<div class="ttc" id="agroup___p_w_m_html_gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6"><div class="ttname"><a href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6">PWM_2</a></div><div class="ttdeci">@ PWM_2</div><div class="ttdef"><b>Definition</b> <a href="pwm__mcu_8h_source.html#l00036">pwm_mcu.h:36</a></div></div>
+<div class="ttc" id="agroup___p_w_m_html_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703"><div class="ttname"><a href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703">PWM_1</a></div><div class="ttdeci">@ PWM_1</div><div class="ttdef"><b>Definition</b> <a href="pwm__mcu_8h_source.html#l00035">pwm_mcu.h:35</a></div></div>
+<div class="ttc" id="apwm__mcu_8c_html_a684bac99a5de1348b0cf76f80c31ae3d"><div class="ttname"><a href="pwm__mcu_8c.html#a684bac99a5de1348b0cf76f80c31ae3d">DC_100</a></div><div class="ttdeci">#define DC_100</div><div class="ttdef"><b>Definition</b> <a href="#l00017">pwm_mcu.c:17</a></div></div>
+<div class="ttc" id="apwm__mcu_8c_html_a701d2222601b84faafa94cb1909df104"><div class="ttname"><a href="pwm__mcu_8c.html#a701d2222601b84faafa94cb1909df104">DC_MAX</a></div><div class="ttdeci">#define DC_MAX</div><div class="ttdef"><b>Definition</b> <a href="#l00016">pwm_mcu.c:16</a></div></div>
+<div class="ttc" id="apwm__mcu_8h_html"><div class="ttname"><a href="pwm__mcu_8h.html">pwm_mcu.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_fcba15287a7fba83beff6e7e8c7a3a80.html">firmware</a></li><li class="navelem"><a class="el" href="dir_d771f3729bc48f700515c8c6c400e99b.html">drivers</a></li><li class="navelem"><a class="el" href="dir_bc36ab89ecafc2a8b5ba798a6143b9d0.html">microcontroller</a></li><li class="navelem"><a class="el" href="dir_f1809a81d77850a6c3d2e8c4ffb742df.html">src</a></li><li class="navelem"><a class="el" href="pwm__mcu_8c.html">pwm_mcu.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

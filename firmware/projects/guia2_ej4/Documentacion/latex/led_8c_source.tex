@@ -1,0 +1,113 @@
+\doxysection{led.\+c}
+\hypertarget{led_8c_source}{}\label{led_8c_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/led.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/led.c}}
+\mbox{\hyperlink{led_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00012}00012\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{led_8h}{led.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio__mcu_8h}{gpio\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00015}00015\ \textcolor{comment}{/*==================[macros\ and\ definitions]=================================*/}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00016}\mbox{\hyperlink{led_8c_ab6b53d6f84e5f6ad10d6d94df9b7e4b3}{00016}}\ \textcolor{preprocessor}{\#define\ GPIO\_LED1\ GPIO\_11}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00017}\mbox{\hyperlink{led_8c_a09f1014df1694b89be1e1bd46cd499b1}{00017}}\ \textcolor{preprocessor}{\#define\ GPIO\_LED2\ GPIO\_10}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00018}\mbox{\hyperlink{led_8c_a4d2764c906b184c472b649a52479f579}{00018}}\ \textcolor{preprocessor}{\#define\ GPIO\_LED3\ GPIO\_5}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00019}00019\ \textcolor{comment}{/*==================[internal\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00021}00021\ \textcolor{comment}{/*==================[internal\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00023}00023\ \textcolor{comment}{/*==================[internal\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00025}00025\ \textcolor{comment}{/*==================[external\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00027}00027\ \textcolor{comment}{/*==================[internal\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00029}00029\ \textcolor{comment}{/*==================[external\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00031}\mbox{\hyperlink{group___l_e_d_gacba669c3e8f52e45d1bea50c2e63b250}{00031}}\ uint8\_t\ \mbox{\hyperlink{group___l_e_d_gacba669c3e8f52e45d1bea50c2e63b250}{LedsInit}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{led_8c_ab6b53d6f84e5f6ad10d6d94df9b7e4b3}{GPIO\_LED1}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{led_8c_a09f1014df1694b89be1e1bd46cd499b1}{GPIO\_LED2}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{led_8c_a4d2764c906b184c472b649a52479f579}{GPIO\_LED3}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{led_8c_ab6b53d6f84e5f6ad10d6d94df9b7e4b3}{GPIO\_LED1}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00039}00039\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{led_8c_a09f1014df1694b89be1e1bd46cd499b1}{GPIO\_LED2}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{led_8c_a4d2764c906b184c472b649a52479f579}{GPIO\_LED3}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00046}\mbox{\hyperlink{group___l_e_d_ga883021aaef65f080a52b1852172ecbc3}{00046}}\ uint8\_t\ \mbox{\hyperlink{group___l_e_d_ga883021aaef65f080a52b1852172ecbc3}{LedOn}}(\mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\_t}}\ led)\{}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00047}00047\ \ \ \ \ uint8\_t\ result\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{switch}\ (led)\{}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b}{LED\_1}}:}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{led_8c_ab6b53d6f84e5f6ad10d6d94df9b7e4b3}{GPIO\_LED1}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41}{LED\_2}}:}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{led_8c_a09f1014df1694b89be1e1bd46cd499b1}{GPIO\_LED2}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3}{LED\_3}}:}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{led_8c_a4d2764c906b184c472b649a52479f579}{GPIO\_LED3}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00065}\mbox{\hyperlink{group___l_e_d_ga4fd07c9f7fab15d0d07389a38f4a39d8}{00065}}\ uint8\_t\ \mbox{\hyperlink{group___l_e_d_ga4fd07c9f7fab15d0d07389a38f4a39d8}{LedOff}}(\mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\_t}}\ led)\{}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00066}00066\ \ \ \ \ uint8\_t\ result\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{switch}\ (led)\{}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b}{LED\_1}}:}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{led_8c_ab6b53d6f84e5f6ad10d6d94df9b7e4b3}{GPIO\_LED1}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41}{LED\_2}}:}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{led_8c_a09f1014df1694b89be1e1bd46cd499b1}{GPIO\_LED2}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3}{LED\_3}}:}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{led_8c_a4d2764c906b184c472b649a52479f579}{GPIO\_LED3}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00080}00080\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00082}00082\ \}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00084}\mbox{\hyperlink{group___l_e_d_ga787ec5815e0eb2680bf1845562731beb}{00084}}\ uint8\_t\ \mbox{\hyperlink{group___l_e_d_ga787ec5815e0eb2680bf1845562731beb}{LedToggle}}(\mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\_t}}\ led)\{}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00085}00085\ \ \ \ \ uint8\_t\ result\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{switch}\ (led)\{}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b}{LED\_1}}:}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gacf7eae149edbe60c38faeb4b634b75b6}{GPIOToggle}}(\mbox{\hyperlink{led_8c_ab6b53d6f84e5f6ad10d6d94df9b7e4b3}{GPIO\_LED1}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00092}00092\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41}{LED\_2}}:}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gacf7eae149edbe60c38faeb4b634b75b6}{GPIOToggle}}(\mbox{\hyperlink{led_8c_a09f1014df1694b89be1e1bd46cd499b1}{GPIO\_LED2}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3}{LED\_3}}:}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gacf7eae149edbe60c38faeb4b634b75b6}{GPIOToggle}}(\mbox{\hyperlink{led_8c_a4d2764c906b184c472b649a52479f579}{GPIO\_LED3}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00100}00100\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00103}00103\ \}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00105}\mbox{\hyperlink{group___l_e_d_gafcc4fefa23689ea53feedb349c8a9eb6}{00105}}\ uint8\_t\ \mbox{\hyperlink{group___l_e_d_gafcc4fefa23689ea53feedb349c8a9eb6}{LedsOffAll}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00106}00106\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{led_8c_ab6b53d6f84e5f6ad10d6d94df9b7e4b3}{GPIO\_LED1}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00107}00107\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{led_8c_a09f1014df1694b89be1e1bd46cd499b1}{GPIO\_LED2}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00108}00108\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{led_8c_a4d2764c906b184c472b649a52479f579}{GPIO\_LED3}});}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00109}00109\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00110}00110\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00111}00111\ \}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00113}\mbox{\hyperlink{group___l_e_d_gaf0920e222837036abc96894b17b93b34}{00113}}\ uint8\_t\ \mbox{\hyperlink{group___l_e_d_gaf0920e222837036abc96894b17b93b34}{LedsMask}}(uint8\_t\ mask)\{}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00114}00114\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaff44adf38b055e964fe7e89834eabccc}{GPIOState}}(\mbox{\hyperlink{led_8c_ab6b53d6f84e5f6ad10d6d94df9b7e4b3}{GPIO\_LED1}},\ (mask\ \&\ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b}{LED\_1}})\ >>\ 2);}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00115}00115\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaff44adf38b055e964fe7e89834eabccc}{GPIOState}}(\mbox{\hyperlink{led_8c_a09f1014df1694b89be1e1bd46cd499b1}{GPIO\_LED2}},\ (mask\ \&\ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41}{LED\_2}})\ >>\ 1);}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00116}00116\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaff44adf38b055e964fe7e89834eabccc}{GPIOState}}(\mbox{\hyperlink{led_8c_a4d2764c906b184c472b649a52479f579}{GPIO\_LED3}},\ (mask\ \&\ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3}{LED\_3}}));}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00117}00117\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00118}00118\ \}}
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{led_8c_source_l00120}00120\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

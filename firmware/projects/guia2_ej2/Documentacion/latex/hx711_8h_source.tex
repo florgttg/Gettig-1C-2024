@@ -1,0 +1,54 @@
+\doxysection{hx711.\+h}
+\hypertarget{hx711_8h_source}{}\label{hx711_8h_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/hx711.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/hx711.h}}
+\mbox{\hyperlink{hx711_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_HX711\_H\_}}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_HX711\_H\_}}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00023}00023\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{gpio__mcu_8h}{gpio\_mcu.h}}>}}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00025}00025\ \textcolor{comment}{/*==================[macros]=================================================*/}}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00027}00027\ \textcolor{comment}{/*==================[typedef]================================================*/}}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00029}00029\ \textcolor{comment}{/*==================[external\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00031}00031\ \textcolor{comment}{/*==================[external\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00038}00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___drivers___devices_ga0253b5770d7658f386b17e6846be30bb}{HX711\_Init}}(uint8\_t\ gain,\ \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ pd\_sck,\ \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ dout);}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00044}00044\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{group___drivers___devices_ga71638214415227f49d5a68c1ab7ac5fc}{HX711\_isReady}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00052}00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___drivers___devices_ga015618a3aeb885f497bb4e49703f0533}{HX711\_setGain}}(uint8\_t\ gain);}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00058}00058\ uint32\_t\ \mbox{\hyperlink{group___drivers___devices_ga98ffbaa5e4a9d05cbe26d4f11c852b43}{HX711\_read}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00060}00060\ \textcolor{comment}{//\ returns\ an\ average\ reading;\ times\ =\ how\ many\ times\ to\ read}}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00066}00066\ uint32\_t\ \mbox{\hyperlink{group___drivers___devices_ga624121c6e72709fa80dec71b0bb5a09e}{HX711\_readAverage}}(uint8\_t\ times);}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00073}\mbox{\hyperlink{group___drivers___devices_gab948b825f1a8bb789ffc918a9d56a0a9}{00073}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{group___drivers___devices_gab948b825f1a8bb789ffc918a9d56a0a9}{HX711\_get\_value}}(uint8\_t\ times);}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00081}\mbox{\hyperlink{group___drivers___devices_gac86aec8c4c9fb31a084f8c4b44cb6c11}{00081}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{group___drivers___devices_gac86aec8c4c9fb31a084f8c4b44cb6c11}{HX711\_get\_units}}(uint8\_t\ times);}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00087}00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___drivers___devices_ga49825990854e1a686bec6827116bd21a}{HX711\_tare}}(uint8\_t\ times);}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00093}00093\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___drivers___devices_ga7f8fa1c373124a450721cd2f7c37ca65}{HX711\_setScale}}(\textcolor{keywordtype}{float}\ scale);}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00099}00099\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{group___drivers___devices_ga5f85e38a6bd3628b18a7fa39696e1734}{HX711\_getScale}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00105}00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___drivers___devices_gafeb43438890820a40cac639b45e2f68e}{HX711\_setOffset}}(\textcolor{keywordtype}{double}\ offset);}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00111}00111\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{group___drivers___devices_ga88b64b36ae1198175c714bcb1d12824d}{HX711\_getOffset}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00116}00116\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___drivers___devices_ga6f16f71a0f63a246364ac964488ac9eb}{HX711\_powerDown}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00121}00121\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___drivers___devices_gaefe09edcab845b980ff9f23cb196a914}{HX711\_powerUp}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00123}00123\ \textcolor{comment}{/*==================[internal\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00124}00124\ \textcolor{comment}{//\ Sends/receives\ data.\ }}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00125}00125\ uint8\_t\ \mbox{\hyperlink{group___drivers___devices_gaacc0fa70a56783b9a18f6ae8a6b37487}{shiftIn}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00130}00130\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_HX711\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{hx711_8h_source_l00132}00132\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

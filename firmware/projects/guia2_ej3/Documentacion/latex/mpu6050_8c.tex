@@ -1,0 +1,515 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/src/mpu6050.c}
+\hypertarget{mpu6050_8c}{}\label{mpu6050_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/mpu6050.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/mpu6050.c}}
+{\ttfamily \#include "{}mpu6050.\+h"{}}\newline
+{\ttfamily \#include "{}math.\+h"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{mpu6050_8c_ad4a5ae6760ae60ffc730f60541657628}{I2\+C\+\_\+\+NUM}}~I2\+C\+\_\+\+NUM\+\_\+0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga2debcaf0e4ac95ada61e3e6b86ce0ffc}{MPU6050\+\_\+\+Read\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t len)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga07a69491e10ff82d432b46171fdfe132}{MPU6050\+\_\+\+Address}} (uint8\+\_\+t address)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga20a6f9d62b8c368a5d2bd23bc6c09a47}{MPU6050\+\_\+initialize}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaa67a00fa91990b91552f68e1b8acfa9c}{MPU6050\+\_\+test\+Connection}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga348db70e788c76a40539599570fe6023}{MPU6050\+\_\+get\+Aux\+VDDIOLevel}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga5f143323a123771e90612e65e2a6aab6}{MPU6050\+\_\+set\+Aux\+VDDIOLevel}} (uint8\+\_\+t level)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gab95ca56d80db058541d664b97c87ab96}{MPU6050\+\_\+get\+Rate}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga36749d09ea90afd47fe961cc825f1522}{MPU6050\+\_\+set\+Rate}} (uint8\+\_\+t rate)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga3099d53bc2bb5478dc27ef72f829ab75}{MPU6050\+\_\+get\+External\+Frame\+Sync}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gad9e6cfac4c344724e670a33bc063218d}{MPU6050\+\_\+set\+External\+Frame\+Sync}} (uint8\+\_\+t sync)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga688327d65d49afcb4a0d89c93b8564d3}{MPU6050\+\_\+get\+DLPFMode}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga45df54d78cf3afa33dd63a463749ffa4}{MPU6050\+\_\+set\+DLPFMode}} (uint8\+\_\+t mode)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga78921bb10130ace00594c9731e5ab99f}{MPU6050\+\_\+get\+Full\+Scale\+Gyro\+Range}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga159e9162cf601053f8433d03583eb561}{MPU6050\+\_\+set\+Full\+Scale\+Gyro\+Range}} (uint8\+\_\+t range)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga046b9ec225a9b0409a96ce1d52d60962}{MPU6050\+\_\+get\+Accel\+XSelf\+Test\+Factory\+Trim}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaa41f855ca9aa84fdc71482eed8982382}{MPU6050\+\_\+get\+Accel\+YSelf\+Test\+Factory\+Trim}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gafb1a2864a0e52a62395eb21fa807f551}{MPU6050\+\_\+get\+Accel\+ZSelf\+Test\+Factory\+Trim}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga4d30210e25c9c966889d93560933ca32}{MPU6050\+\_\+get\+Gyro\+XSelf\+Test\+Factory\+Trim}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga8a2b68cf88dc445ee7e623aa8cdb3b0c}{MPU6050\+\_\+get\+Gyro\+YSelf\+Test\+Factory\+Trim}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga77594dfee0c3533115f691ba327f5d13}{MPU6050\+\_\+get\+Gyro\+ZSelf\+Test\+Factory\+Trim}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga2ca9e94e5d10ad5ac6b0dcbcdc0e99e9}{MPU6050\+\_\+get\+Accel\+XSelf\+Test}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga4ba88aa3ff3c6376a2b40f03ec80312f}{MPU6050\+\_\+set\+Accel\+XSelf\+Test}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga40cab1382b3cb84f61f21f5860a1d3d5}{MPU6050\+\_\+get\+Accel\+YSelf\+Test}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gae96312f9c83eae2ce6449d4775d74469}{MPU6050\+\_\+set\+Accel\+YSelf\+Test}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga18b47082b381fc5f40426171ab4eef7f}{MPU6050\+\_\+get\+Accel\+ZSelf\+Test}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga03a721a7e85117e75b968c890684e06d}{MPU6050\+\_\+set\+Accel\+ZSelf\+Test}} (bool enabled)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga3acc5b8a6dd2e99bea903441e16d2ea9}{MPU6050\+\_\+get\+Full\+Scale\+Accel\+Range}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaed9582371a077c479eef207c04129369}{MPU6050\+\_\+set\+Full\+Scale\+Accel\+Range}} (uint8\+\_\+t range)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga9da93ad1bb5e5151aca04a426c8c4b3f}{MPU6050\+\_\+get\+DHPFMode}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga6c62598dc161f8055000493d2379f8f6}{MPU6050\+\_\+set\+DHPFMode}} (uint8\+\_\+t bandwidth)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga92ac80b3753476a7fe9a07df0de06d00}{MPU6050\+\_\+get\+Freefall\+Detection\+Threshold}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga62159eb27d6f68aefa2485639893476c}{MPU6050\+\_\+set\+Freefall\+Detection\+Threshold}} (uint8\+\_\+t threshold)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gab9708af75739a847c2187dcf3e3ab422}{MPU6050\+\_\+get\+Freefall\+Detection\+Duration}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaa89c6ac6bb68e46a8114a609d2d84c17}{MPU6050\+\_\+set\+Freefall\+Detection\+Duration}} (uint8\+\_\+t duration)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga24e36231761683a419f594cabd7b7d30}{MPU6050\+\_\+get\+Motion\+Detection\+Threshold}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga0d9824e1a183bbd78055a0eda6c723cf}{MPU6050\+\_\+set\+Motion\+Detection\+Threshold}} (uint8\+\_\+t threshold)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga815ff3bb0531a55bf4571adc9a449bd9}{MPU6050\+\_\+get\+Motion\+Detection\+Duration}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaaa0e065cdc47b712a864a54674a732c7}{MPU6050\+\_\+set\+Motion\+Detection\+Duration}} (uint8\+\_\+t duration)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga6245519f5a269c815695b0f21cd41441}{MPU6050\+\_\+get\+Zero\+Motion\+Detection\+Threshold}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga9522d52a175c89f64178d0e4bfec7235}{MPU6050\+\_\+set\+Zero\+Motion\+Detection\+Threshold}} (uint8\+\_\+t threshold)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga0489759f132083cf508239de03079b21}{MPU6050\+\_\+get\+Zero\+Motion\+Detection\+Duration}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaaa66b1c2f99d04c5fcf346639c4fe2a4}{MPU6050\+\_\+set\+Zero\+Motion\+Detection\+Duration}} (uint8\+\_\+t duration)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga40bccf492b39300ce9539ea0e419c385}{MPU6050\+\_\+get\+Temp\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga7c7284b9107a885f21fa7fbfc1d918ef}{MPU6050\+\_\+set\+Temp\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga7c34673a87714654550e476dcffde709}{MPU6050\+\_\+get\+XGyro\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gafbaf34c4d69ae4bfe093573e4ae8789c}{MPU6050\+\_\+set\+XGyro\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaee06ec0ebbb31b4bce1f13f8096ab27e}{MPU6050\+\_\+get\+YGyro\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga5895d582bc3bf70985fcc3b65b3181ea}{MPU6050\+\_\+set\+YGyro\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga17854f306c372e0a589e3e0f2378a676}{MPU6050\+\_\+get\+ZGyro\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaf8914d8e54dcc539fe426d497ecb4927}{MPU6050\+\_\+set\+ZGyro\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaff13e3ae74db4a71c8c76cdab0b002b0}{MPU6050\+\_\+get\+Accel\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga744dd4152fc89ff37b46e2e2e7a993e2}{MPU6050\+\_\+set\+Accel\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaff7b95a392566710d325d91b20d83aaa}{MPU6050\+\_\+get\+Slave2\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga8e3d84243949de1baed7174125f8eeec}{MPU6050\+\_\+set\+Slave2\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga2fba02d7f083fe1e5b2f5e861cf0fcb1}{MPU6050\+\_\+get\+Slave1\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga2f8377484d25b4d9a485da1a828ddab5}{MPU6050\+\_\+set\+Slave1\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga6f868243da42fba3551636400745347c}{MPU6050\+\_\+get\+Slave0\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga1aee9de0f198bad6fe05b15715b01a44}{MPU6050\+\_\+set\+Slave0\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga41ee2b40d9a301872ccf6d4b42f77678}{MPU6050\+\_\+get\+Multi\+Master\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga8726accf2a819202ceaa3346e2ebfbe6}{MPU6050\+\_\+set\+Multi\+Master\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga66a86ea83a1e14a08d904dcef87a2428}{MPU6050\+\_\+get\+Wait\+For\+External\+Sensor\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga3099d31566c5bfa7141735aa14cd23c5}{MPU6050\+\_\+set\+Wait\+For\+External\+Sensor\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gae9fcc5c19cb562c4878eda32faa28c8a}{MPU6050\+\_\+get\+Slave3\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga4384421f25dd4b2871efc0f39159e6b3}{MPU6050\+\_\+set\+Slave3\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gab7c183cb70ea24f3a8ebb8f8e561b0c2}{MPU6050\+\_\+get\+Slave\+Read\+Write\+Transition\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga36fe7bd82ca253fb6d7b3e8cefada0e3}{MPU6050\+\_\+set\+Slave\+Read\+Write\+Transition\+Enabled}} (bool enabled)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaca3d024745a0a31623474ee2f50042cd}{MPU6050\+\_\+get\+Master\+Clock\+Speed}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga292467acfc4d23c30099de4f9076e0ae}{MPU6050\+\_\+set\+Master\+Clock\+Speed}} (uint8\+\_\+t speed)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga50961409221f6d3716342de8be7bc392}{MPU6050\+\_\+get\+Slave\+Address}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga0ee5547efab6c4d6750af1b40ef0aa2b}{MPU6050\+\_\+set\+Slave\+Address}} (uint8\+\_\+t num, uint8\+\_\+t address)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga2f4af58123628dfe246f61e743e292cf}{MPU6050\+\_\+get\+Slave\+Register}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gad6db0569f9038fbc0380efe2c4d0878f}{MPU6050\+\_\+set\+Slave\+Register}} (uint8\+\_\+t num, uint8\+\_\+t reg)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga845e660f152dd0fd46f367e3e3b8712b}{MPU6050\+\_\+get\+Slave\+Enabled}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga729f004a7bae5c08781638410b1467b4}{MPU6050\+\_\+set\+Slave\+Enabled}} (uint8\+\_\+t num, bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gab72945cb0bc0ac86ee27d3faedbd432a}{MPU6050\+\_\+get\+Slave\+Word\+Byte\+Swap}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gafb871094dba906e71eb4b3f8658e7f37}{MPU6050\+\_\+set\+Slave\+Word\+Byte\+Swap}} (uint8\+\_\+t num, bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga1927f50c18288bebe6683a3e74b08fa5}{MPU6050\+\_\+get\+Slave\+Write\+Mode}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gadc5e2485f37099b9990c64d07ee39f37}{MPU6050\+\_\+set\+Slave\+Write\+Mode}} (uint8\+\_\+t num, bool mode)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga1cd87f24d77ef2f077ca7a04422ff8b3}{MPU6050\+\_\+get\+Slave\+Word\+Group\+Offset}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga9f009e11c66c8b569028d2e3b2923160}{MPU6050\+\_\+set\+Slave\+Word\+Group\+Offset}} (uint8\+\_\+t num, bool enabled)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga2c24ebd52bd9b403a903655982ec25c7}{MPU6050\+\_\+get\+Slave\+Data\+Length}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga423667b1fe18e41bbdb9e350ec8e41c1}{MPU6050\+\_\+set\+Slave\+Data\+Length}} (uint8\+\_\+t num, uint8\+\_\+t length)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga60c60e0c0e7d04261ed836dcec617aea}{MPU6050\+\_\+get\+Slave4\+Address}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaa4ce586ebe9a063fb4e41a27d1fe8f63}{MPU6050\+\_\+set\+Slave4\+Address}} (uint8\+\_\+t address)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga6536d4032a910cc1f28f25092420b426}{MPU6050\+\_\+get\+Slave4\+Register}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gae071cedddf05e3792b67a23ba5036d36}{MPU6050\+\_\+set\+Slave4\+Register}} (uint8\+\_\+t reg)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gacc94f1acc123e7d72a5e5ee35955b026}{MPU6050\+\_\+set\+Slave4\+Output\+Byte}} (uint8\+\_\+t data)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga1ea13e6bff9eca91e30be795a4306390}{MPU6050\+\_\+get\+Slave4\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaf8ac0707c1c45b37de2c89a6d429fdb0}{MPU6050\+\_\+set\+Slave4\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gabfea7053eea5a9cec66c44e21cb9990b}{MPU6050\+\_\+get\+Slave4\+Interrupt\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gafd62c0bc48220f9b69a7915f8023b040}{MPU6050\+\_\+set\+Slave4\+Interrupt\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gad8c574f90207ae4c8571ece02cb3857c}{MPU6050\+\_\+get\+Slave4\+Write\+Mode}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga64c7f174e449aef6a2fe899c281f2e60}{MPU6050\+\_\+set\+Slave4\+Write\+Mode}} (bool mode)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaa7a9f200df73f3180bd4218044714c1d}{MPU6050\+\_\+get\+Slave4\+Master\+Delay}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaa3a72d5a271d4f4f0da12ec5d3c138a0}{MPU6050\+\_\+set\+Slave4\+Master\+Delay}} (uint8\+\_\+t delay)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaaef69aa155595af9e0faad96f96fe473}{MPU6050\+\_\+get\+Slate4\+Input\+Byte}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga688b45d4461a8f6e2e1edbdac393d7dc}{MPU6050\+\_\+get\+Passthrough\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaf723a7a8987ee4aafc5f2619f598c073}{MPU6050\+\_\+get\+Slave4\+Is\+Done}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gadb14bf99bd1e4bfb131c2b8625c7a123}{MPU6050\+\_\+get\+Lost\+Arbitration}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga981cabb89db15ef17f4b41099a11bedb}{MPU6050\+\_\+get\+Slave4\+Nack}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga970f07a4e7ad116204c09aace4275eb4}{MPU6050\+\_\+get\+Slave3\+Nack}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gabc788141cc8c6102a9ffc64f1ffe2f34}{MPU6050\+\_\+get\+Slave2\+Nack}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga45848753825aa08534e577ef4c88f305}{MPU6050\+\_\+get\+Slave1\+Nack}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga8f68a493491983ddcec7b45764ee75ce}{MPU6050\+\_\+get\+Slave0\+Nack}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga9b646e2af3b5951f059e494c183b7a73}{MPU6050\+\_\+get\+Interrupt\+Mode}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga0e7b78d2511dbf1f609e9a57fb604517}{MPU6050\+\_\+set\+Interrupt\+Mode}} (bool mode)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga00fd786732f2a201425e5be22e97d866}{MPU6050\+\_\+get\+Interrupt\+Drive}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gabd23cf4066e4a0c018d8b49ea089dd2e}{MPU6050\+\_\+set\+Interrupt\+Drive}} (bool drive)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga882c558185e98f27274b54be3a03e87c}{MPU6050\+\_\+get\+Interrupt\+Latch}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga8c6df43decae6f7d2cf2e0ee70537a25}{MPU6050\+\_\+set\+Interrupt\+Latch}} (bool latch)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga78fe10f025d732c55bc2782937725127}{MPU6050\+\_\+get\+Interrupt\+Latch\+Clear}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gab31ae1799c2dcdfe0005e81c24ac6543}{MPU6050\+\_\+set\+Interrupt\+Latch\+Clear}} (bool clear)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga8d18af7d1db2f888135aa0ff33b871df}{MPU6050\+\_\+get\+FSync\+Interrupt\+Level}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga1af73c0d8eee070024403206a61c3908}{MPU6050\+\_\+set\+FSync\+Interrupt\+Level}} (bool level)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gad18d4d289c2c9ac1645dea4e6e1f1570}{MPU6050\+\_\+get\+FSync\+Interrupt\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga21446e36e69409099a3da8258ed7eba4}{MPU6050\+\_\+set\+FSync\+Interrupt\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga995a09276db09ddb913ef44dc4ec939d}{MPU6050\+\_\+get\+I2\+CBypass\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gac5e8eeaac7907577698012c4cee978ea}{MPU6050\+\_\+set\+I2\+CBypass\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gad77bc68ea5f3fc16538153e14be22875}{MPU6050\+\_\+get\+Clock\+Output\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga586636fe3f41146a694df05436aaabf3}{MPU6050\+\_\+set\+Clock\+Output\+Enabled}} (bool enabled)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga4dce329a47c201e5b32c78c00cc96446}{MPU6050\+\_\+get\+Int\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga6f7fb0d7f98fc237143287fd2a6d4f5f}{MPU6050\+\_\+set\+Int\+Enabled}} (uint8\+\_\+t enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga308195e365d8ea74deacf659e047b838}{MPU6050\+\_\+get\+Int\+Freefall\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaa4a4d70bb3b8efe0f09c085e2ed4e173}{MPU6050\+\_\+set\+Int\+Freefall\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga79d0410aaf581d03bf1d58056f225563}{MPU6050\+\_\+get\+Int\+Motion\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga33448168ad44d3d4d55ecbc5f4ea6b98}{MPU6050\+\_\+set\+Int\+Motion\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga82b60bc96683839aa0de91a809d83c6f}{MPU6050\+\_\+get\+Int\+Zero\+Motion\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gae94047a94db6780413b0d3c0baadae13}{MPU6050\+\_\+set\+Int\+Zero\+Motion\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga1bb816d5a6941f27542e17475647bc01}{MPU6050\+\_\+get\+Int\+FIFOBuffer\+Overflow\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga44e7a559d5c4175399766e8b40894e98}{MPU6050\+\_\+set\+Int\+FIFOBuffer\+Overflow\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gab543c63b16a530d499afd59a7c8607ae}{MPU6050\+\_\+get\+Int\+I2\+CMaster\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gad044cab4e1274da18195fe44bde313c9}{MPU6050\+\_\+set\+Int\+I2\+CMaster\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga71ae503e274e632ca60122e8d5b1c4f2}{MPU6050\+\_\+get\+Int\+Data\+Ready\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga6b353c9b8d7961a33c7ac0b2cf783a32}{MPU6050\+\_\+set\+Int\+Data\+Ready\+Enabled}} (bool enabled)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga96b955f0af5d7c13ae9fa1f97e79af02}{MPU6050\+\_\+get\+Int\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaf6b2feb7896f3d160e63b399b3216e76}{MPU6050\+\_\+get\+Int\+Freefall\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gac0c1d79d434f1405c3fae4053ae19ac2}{MPU6050\+\_\+get\+Int\+Motion\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga9f868595479662870c4b9d71540d4190}{MPU6050\+\_\+get\+Int\+Zero\+Motion\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga3e76529d4f540bee5664e132ac11e885}{MPU6050\+\_\+get\+Int\+FIFOBuffer\+Overflow\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaccd465944282472d808ee580ca9f0e13}{MPU6050\+\_\+get\+Int\+I2\+CMaster\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga6a07a9ebd38c66c688cbd293c67b3598}{MPU6050\+\_\+get\+Int\+Data\+Ready\+Status}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga4fe8d980b68a838579fafbd6136b948d}{MPU6050\+\_\+get\+Motion9}} (int16\+\_\+t \texorpdfstring{$\ast$}{*}ax, int16\+\_\+t \texorpdfstring{$\ast$}{*}ay, int16\+\_\+t \texorpdfstring{$\ast$}{*}az, int16\+\_\+t \texorpdfstring{$\ast$}{*}gx, int16\+\_\+t \texorpdfstring{$\ast$}{*}gy, int16\+\_\+t \texorpdfstring{$\ast$}{*}gz, int16\+\_\+t \texorpdfstring{$\ast$}{*}mx, int16\+\_\+t \texorpdfstring{$\ast$}{*}my, int16\+\_\+t \texorpdfstring{$\ast$}{*}mz)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga174dfe0a58dc42caf0c2a7a613fd44c5}{MPU6050\+\_\+get\+Motion6}} (int16\+\_\+t \texorpdfstring{$\ast$}{*}ax, int16\+\_\+t \texorpdfstring{$\ast$}{*}ay, int16\+\_\+t \texorpdfstring{$\ast$}{*}az, int16\+\_\+t \texorpdfstring{$\ast$}{*}gx, int16\+\_\+t \texorpdfstring{$\ast$}{*}gy, int16\+\_\+t \texorpdfstring{$\ast$}{*}gz)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga2c0be7c37c1647973d0b5d5ed559c084}{MPU6050\+\_\+get\+Acceleration}} (int16\+\_\+t \texorpdfstring{$\ast$}{*}x, int16\+\_\+t \texorpdfstring{$\ast$}{*}y, int16\+\_\+t \texorpdfstring{$\ast$}{*}z)
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gac996d44c26dca7a5d6cbcb6478af1510}{MPU6050\+\_\+get\+AccelerationX}} ()
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga35fa50f9d77f7a0bf5396eca18e6cb90}{MPU6050\+\_\+get\+AccelerationY}} ()
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga5113016af8bebd8a61c4113f7e08fcea}{MPU6050\+\_\+get\+AccelerationZ}} ()
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga200269674699d3323e17e0e501f906cd}{MPU6050\+\_\+get\+Temperature}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gad7a69e72b3b60703ab3efa67d0c61230}{MPU6050\+\_\+get\+Rotation}} (int16\+\_\+t \texorpdfstring{$\ast$}{*}x, int16\+\_\+t \texorpdfstring{$\ast$}{*}y, int16\+\_\+t \texorpdfstring{$\ast$}{*}z)
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gad581a67f554b110b802e320d9e095c89}{MPU6050\+\_\+get\+RotationX}} ()
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaafa46df86ca7ae1b00b251bd8b6a729d}{MPU6050\+\_\+get\+RotationY}} ()
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga864fa1c093eb989cb27cc4476fbf8344}{MPU6050\+\_\+get\+RotationZ}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaa0a358a189bf835031933a0154e8c43a}{MPU6050\+\_\+get\+External\+Sensor\+Byte}} (int position)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaef005a4067b9ca61204f18a0898f1949}{MPU6050\+\_\+get\+External\+Sensor\+Word}} (int position)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga24945abe7d55a6ca973df3bf824bff15}{MPU6050\+\_\+get\+External\+Sensor\+DWord}} (int position)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga6838304bd1ffddfc0b472ea8ffe9d81f}{MPU6050\+\_\+get\+Motion\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gada160fc8d6671b6b4c1a2305073bb89e}{MPU6050\+\_\+get\+XNeg\+Motion\+Detected}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaf757b337125ce76f74d451fdb5811cc6}{MPU6050\+\_\+get\+XPos\+Motion\+Detected}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gac82a37e68ba0d45dbe452d09e470643c}{MPU6050\+\_\+get\+YNeg\+Motion\+Detected}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gad4562d6a8d82f37a374e27dede0788b8}{MPU6050\+\_\+get\+YPos\+Motion\+Detected}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gac61eb1f9ec468b3f456da47209a2832c}{MPU6050\+\_\+get\+ZNeg\+Motion\+Detected}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga79f827df99aeb8b0007afd70e43a6a3a}{MPU6050\+\_\+get\+ZPos\+Motion\+Detected}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga4ed782806af059d1597542bb799bfcd3}{MPU6050\+\_\+get\+Zero\+Motion\+Detected}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga6f60cd0eb327acc7336b7ed891ca6343}{MPU6050\+\_\+set\+Slave\+Output\+Byte}} (uint8\+\_\+t num, uint8\+\_\+t data)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga77e26b9783e03ea837e89857284373c7}{MPU6050\+\_\+get\+External\+Shadow\+Delay\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaeff20085db1bc690e806c72f5db10f47}{MPU6050\+\_\+set\+External\+Shadow\+Delay\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaa414448378ee6317a7399eb00e2d5735}{MPU6050\+\_\+get\+Slave\+Delay\+Enabled}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gae912bda6da98ff7dfdd88ae4f7a3cee7}{MPU6050\+\_\+set\+Slave\+Delay\+Enabled}} (uint8\+\_\+t num, bool enabled)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga216c47467e7b636609df9b0e4968437b}{MPU6050\+\_\+reset\+Gyroscope\+Path}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga4418919544f2d92a3d9784651af44a52}{MPU6050\+\_\+reset\+Accelerometer\+Path}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga99ad3715887892df7c0f86309763449b}{MPU6050\+\_\+reset\+Temperature\+Path}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga25fbde279c86bd2cb34eb8dfd91cf515}{MPU6050\+\_\+get\+Accelerometer\+Power\+On\+Delay}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga7fd705718db189030297c449e631e98b}{MPU6050\+\_\+set\+Accelerometer\+Power\+On\+Delay}} (uint8\+\_\+t delay)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga6ec5e3438f3ba8bddcf28563b6cde74a}{MPU6050\+\_\+get\+Freefall\+Detection\+Counter\+Decrement}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gace085b328f4b05c8b6656651ea798bd9}{MPU6050\+\_\+set\+Freefall\+Detection\+Counter\+Decrement}} (uint8\+\_\+t decrement)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga060643402ca8f9b7e2ec66cd9af56663}{MPU6050\+\_\+get\+Motion\+Detection\+Counter\+Decrement}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga97af8c0655ed75fca093dff7885911f6}{MPU6050\+\_\+set\+Motion\+Detection\+Counter\+Decrement}} (uint8\+\_\+t decrement)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaec82423a5a42b279c018f213b4e74d9c}{MPU6050\+\_\+get\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaa2a31d9771b07506241bbe69256cb299}{MPU6050\+\_\+set\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga9cfc37f72678e28d96ee9a9b7ac4e63e}{MPU6050\+\_\+get\+I2\+CMaster\+Mode\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga1596377db9d6fe323d9eac346b217a1c}{MPU6050\+\_\+set\+I2\+CMaster\+Mode\+Enabled}} (bool enabled)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga51dd37010a9813a0bf1749c6797933f5}{MPU6050\+\_\+switch\+SPIEnabled}} (bool enabled)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga5a716aa4005bfb6d4ab00c2e01be09e7}{MPU6050\+\_\+reset\+FIFO}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga22160e9ce767fe6e41a103236977013d}{MPU6050\+\_\+reset\+I2\+CMaster}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gae31d6d83d0822e5c28cc1d95998db749}{MPU6050\+\_\+reset\+Sensors}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gad511777638fd580d32a207a609b0c42d}{MPU6050\+\_\+reset}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga20025f971e7956723b9f8ca23e565694}{MPU6050\+\_\+get\+Sleep\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga8fd47633da37e117b1715933ec111fdd}{MPU6050\+\_\+set\+Sleep\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga268c585bd54363d71d4e4d5568f6d40a}{MPU6050\+\_\+get\+Wake\+Cycle\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga90fc7e6badb1536f04b52785ceb266e8}{MPU6050\+\_\+set\+Wake\+Cycle\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gac5ddf73e3767bce619f9026dfc4c7003}{MPU6050\+\_\+get\+Temp\+Sensor\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga7ef3e72f5de0daaec883a4f1440350ce}{MPU6050\+\_\+set\+Temp\+Sensor\+Enabled}} (bool enabled)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga8f52c1db81f95ee606ff6479326cc902}{MPU6050\+\_\+get\+Clock\+Source}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga2cd72d94ed9c44014bff6f70a3966454}{MPU6050\+\_\+set\+Clock\+Source}} (uint8\+\_\+t source)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga70db2c57090c9056ec2675e6bef7edf4}{MPU6050\+\_\+get\+Wake\+Frequency}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga8d6a209c19e3673c444779cbe0586ed1}{MPU6050\+\_\+set\+Wake\+Frequency}} (uint8\+\_\+t frequency)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gab1de7d86ff645c9c29cd3ef1b4184e72}{MPU6050\+\_\+get\+Standby\+XAccel\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga1eec1bc9522e0a9a0410d2d27e63e98e}{MPU6050\+\_\+set\+Standby\+XAccel\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga86005a55afa61890062efa3a0d7ffb12}{MPU6050\+\_\+get\+Standby\+YAccel\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gad9352c04f85ab87164e8871d5998a75a}{MPU6050\+\_\+set\+Standby\+YAccel\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gabd8350e71a0700f89aa6d13a43c1e19a}{MPU6050\+\_\+get\+Standby\+ZAccel\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaf59fa51ad2e096ee9ffb5ece50f3b107}{MPU6050\+\_\+set\+Standby\+ZAccel\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga72f1015797c248222ac15b1561c0ed47}{MPU6050\+\_\+get\+Standby\+XGyro\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga40bb8d14c12504677b3e08071bd1940c}{MPU6050\+\_\+set\+Standby\+XGyro\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga213a533a7baf3afe916fd6d7d73c4ec1}{MPU6050\+\_\+get\+Standby\+YGyro\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaffe5dd20c828775c31854cbcae919ef9}{MPU6050\+\_\+set\+Standby\+YGyro\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga3352704b2d12c42b06c3ae5b21e9a97c}{MPU6050\+\_\+get\+Standby\+ZGyro\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga7f2740e8d962dcbfbd58a134111ad76c}{MPU6050\+\_\+set\+Standby\+ZGyro\+Enabled}} (bool enabled)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga3a636a6fd259f0b2dcca50c5e2f5000a}{MPU6050\+\_\+get\+FIFOCount}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga01fc07f333444a14b45eb4a91abee595}{MPU6050\+\_\+get\+FIFOByte}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga78d7ac8b51f447e3f074d9334f4512b6}{MPU6050\+\_\+get\+FIFOBytes}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t length)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga49876a11c424470f81310133d3002051}{MPU6050\+\_\+set\+FIFOByte}} (uint8\+\_\+t data)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga07946cc8d97bab361062a28c841cb5f6}{MPU6050\+\_\+get\+Device\+ID}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gac1940478f064230ee503daba0ba2f181}{MPU6050\+\_\+set\+Device\+ID}} (uint8\+\_\+t id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{dev\+Addr}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{mpu6050_8c_a174887a700c9f9e196a6504506d757e7}{buffer}} \mbox{[}14\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Juan Cerrudo (\href{mailto:juan.cerrudo@uner.edu.ar}{\texttt{ juan.\+cerrudo@uner.\+edu.\+ar}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2024-\/01-\/30
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+Definición en el archivo \mbox{\hyperlink{mpu6050_8c_source}{mpu6050.\+c}}.
+
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{mpu6050_8c_ad4a5ae6760ae60ffc730f60541657628}\label{mpu6050_8c_ad4a5ae6760ae60ffc730f60541657628} 
+\index{mpu6050.c@{mpu6050.c}!I2C\_NUM@{I2C\_NUM}}
+\index{I2C\_NUM@{I2C\_NUM}!mpu6050.c@{mpu6050.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_NUM}{I2C\_NUM}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+NUM~I2\+C\+\_\+\+NUM\+\_\+0}
+
+
+
+Definición en la línea \mbox{\hyperlink{mpu6050_8c_source_l00017}{17}} del archivo \mbox{\hyperlink{mpu6050_8c_source}{mpu6050.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{mpu6050_8c_source_l00025}{MPU6050\+\_\+\+Read\+Register()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{mpu6050_8c_a174887a700c9f9e196a6504506d757e7}\label{mpu6050_8c_a174887a700c9f9e196a6504506d757e7} 
+\index{mpu6050.c@{mpu6050.c}!buffer@{buffer}}
+\index{buffer@{buffer}!mpu6050.c@{mpu6050.c}}
+\doxysubsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t buffer\mbox{[}14\mbox{]}}
+
+
+
+Definición en la línea \mbox{\hyperlink{mpu6050_8c_source_l00021}{21}} del archivo \mbox{\hyperlink{mpu6050_8c_source}{mpu6050.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{mpu6050_8c_source_l01822}{MPU6050\+\_\+get\+Acceleration()}}, \mbox{\hyperlink{mpu6050_8c_source_l01833}{MPU6050\+\_\+get\+Acceleration\+X()}}, \mbox{\hyperlink{mpu6050_8c_source_l01842}{MPU6050\+\_\+get\+Acceleration\+Y()}}, \mbox{\hyperlink{mpu6050_8c_source_l01851}{MPU6050\+\_\+get\+Acceleration\+Z()}}, \mbox{\hyperlink{mpu6050_8c_source_l02226}{MPU6050\+\_\+get\+Accelerometer\+Power\+On\+Delay()}}, \mbox{\hyperlink{mpu6050_8c_source_l00701}{MPU6050\+\_\+get\+Accel\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00305}{MPU6050\+\_\+get\+Accel\+XSelf\+Test()}}, \mbox{\hyperlink{mpu6050_8c_source_l00247}{MPU6050\+\_\+get\+Accel\+XSelf\+Test\+Factory\+Trim()}}, \mbox{\hyperlink{mpu6050_8c_source_l00320}{MPU6050\+\_\+get\+Accel\+YSelf\+Test()}}, \mbox{\hyperlink{mpu6050_8c_source_l00257}{MPU6050\+\_\+get\+Accel\+YSelf\+Test\+Factory\+Trim()}}, \mbox{\hyperlink{mpu6050_8c_source_l00335}{MPU6050\+\_\+get\+Accel\+ZSelf\+Test()}}, \mbox{\hyperlink{mpu6050_8c_source_l00267}{MPU6050\+\_\+get\+Accel\+ZSelf\+Test\+Factory\+Trim()}}, \mbox{\hyperlink{mpu6050_8c_source_l00071}{MPU6050\+\_\+get\+Aux\+VDDIOLevel()}}, \mbox{\hyperlink{mpu6050_8c_source_l01504}{MPU6050\+\_\+get\+Clock\+Output\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02493}{MPU6050\+\_\+get\+Clock\+Source()}}, \mbox{\hyperlink{mpu6050_8c_source_l02752}{MPU6050\+\_\+get\+Device\+ID()}}, \mbox{\hyperlink{mpu6050_8c_source_l00409}{MPU6050\+\_\+get\+DHPFMode()}}, \mbox{\hyperlink{mpu6050_8c_source_l00190}{MPU6050\+\_\+get\+DLPFMode()}}, \mbox{\hyperlink{mpu6050_8c_source_l00149}{MPU6050\+\_\+get\+External\+Frame\+Sync()}}, \mbox{\hyperlink{mpu6050_8c_source_l02011}{MPU6050\+\_\+get\+External\+Sensor\+Byte()}}, \mbox{\hyperlink{mpu6050_8c_source_l02029}{MPU6050\+\_\+get\+External\+Sensor\+DWord()}}, \mbox{\hyperlink{mpu6050_8c_source_l02020}{MPU6050\+\_\+get\+External\+Sensor\+Word()}}, \mbox{\hyperlink{mpu6050_8c_source_l02133}{MPU6050\+\_\+get\+External\+Shadow\+Delay\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02724}{MPU6050\+\_\+get\+FIFOByte()}}, \mbox{\hyperlink{mpu6050_8c_source_l02692}{MPU6050\+\_\+get\+FIFOCount()}}, \mbox{\hyperlink{mpu6050_8c_source_l02325}{MPU6050\+\_\+get\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02265}{MPU6050\+\_\+get\+Freefall\+Detection\+Counter\+Decrement()}}, \mbox{\hyperlink{mpu6050_8c_source_l00472}{MPU6050\+\_\+get\+Freefall\+Detection\+Duration()}}, \mbox{\hyperlink{mpu6050_8c_source_l00440}{MPU6050\+\_\+get\+Freefall\+Detection\+Threshold()}}, \mbox{\hyperlink{mpu6050_8c_source_l01453}{MPU6050\+\_\+get\+FSync\+Interrupt\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01434}{MPU6050\+\_\+get\+FSync\+Interrupt\+Level()}}, \mbox{\hyperlink{mpu6050_8c_source_l00363}{MPU6050\+\_\+get\+Full\+Scale\+Accel\+Range()}}, \mbox{\hyperlink{mpu6050_8c_source_l00225}{MPU6050\+\_\+get\+Full\+Scale\+Gyro\+Range()}}, \mbox{\hyperlink{mpu6050_8c_source_l00276}{MPU6050\+\_\+get\+Gyro\+XSelf\+Test\+Factory\+Trim()}}, \mbox{\hyperlink{mpu6050_8c_source_l00285}{MPU6050\+\_\+get\+Gyro\+YSelf\+Test\+Factory\+Trim()}}, \mbox{\hyperlink{mpu6050_8c_source_l00294}{MPU6050\+\_\+get\+Gyro\+ZSelf\+Test\+Factory\+Trim()}}, \mbox{\hyperlink{mpu6050_8c_source_l01477}{MPU6050\+\_\+get\+I2\+CBypass\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02349}{MPU6050\+\_\+get\+I2\+CMaster\+Mode\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01648}{MPU6050\+\_\+get\+Int\+Data\+Ready\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01738}{MPU6050\+\_\+get\+Int\+Data\+Ready\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01530}{MPU6050\+\_\+get\+Int\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01377}{MPU6050\+\_\+get\+Interrupt\+Drive()}}, \mbox{\hyperlink{mpu6050_8c_source_l01396}{MPU6050\+\_\+get\+Interrupt\+Latch()}}, \mbox{\hyperlink{mpu6050_8c_source_l01415}{MPU6050\+\_\+get\+Interrupt\+Latch\+Clear()}}, \mbox{\hyperlink{mpu6050_8c_source_l01358}{MPU6050\+\_\+get\+Interrupt\+Mode()}}, \mbox{\hyperlink{mpu6050_8c_source_l01608}{MPU6050\+\_\+get\+Int\+FIFOBuffer\+Overflow\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01715}{MPU6050\+\_\+get\+Int\+FIFOBuffer\+Overflow\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01551}{MPU6050\+\_\+get\+Int\+Freefall\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01682}{MPU6050\+\_\+get\+Int\+Freefall\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01628}{MPU6050\+\_\+get\+Int\+I2\+CMaster\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01727}{MPU6050\+\_\+get\+Int\+I2\+CMaster\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01570}{MPU6050\+\_\+get\+Int\+Motion\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01693}{MPU6050\+\_\+get\+Int\+Motion\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01671}{MPU6050\+\_\+get\+Int\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01589}{MPU6050\+\_\+get\+Int\+Zero\+Motion\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01704}{MPU6050\+\_\+get\+Int\+Zero\+Motion\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01290}{MPU6050\+\_\+get\+Lost\+Arbitration()}}, \mbox{\hyperlink{mpu6050_8c_source_l00889}{MPU6050\+\_\+get\+Master\+Clock\+Speed()}}, \mbox{\hyperlink{mpu6050_8c_source_l01777}{MPU6050\+\_\+get\+Motion6()}}, \mbox{\hyperlink{mpu6050_8c_source_l02301}{MPU6050\+\_\+get\+Motion\+Detection\+Counter\+Decrement()}}, \mbox{\hyperlink{mpu6050_8c_source_l00536}{MPU6050\+\_\+get\+Motion\+Detection\+Duration()}}, \mbox{\hyperlink{mpu6050_8c_source_l00506}{MPU6050\+\_\+get\+Motion\+Detection\+Threshold()}}, \mbox{\hyperlink{mpu6050_8c_source_l02040}{MPU6050\+\_\+get\+Motion\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l00785}{MPU6050\+\_\+get\+Multi\+Master\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01267}{MPU6050\+\_\+get\+Passthrough\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l00107}{MPU6050\+\_\+get\+Rate()}}, \mbox{\hyperlink{mpu6050_8c_source_l01901}{MPU6050\+\_\+get\+Rotation()}}, \mbox{\hyperlink{mpu6050_8c_source_l01912}{MPU6050\+\_\+get\+Rotation\+X()}}, \mbox{\hyperlink{mpu6050_8c_source_l01921}{MPU6050\+\_\+get\+Rotation\+Y()}}, \mbox{\hyperlink{mpu6050_8c_source_l01930}{MPU6050\+\_\+get\+Rotation\+Z()}}, \mbox{\hyperlink{mpu6050_8c_source_l01251}{MPU6050\+\_\+get\+Slate4\+Input\+Byte()}}, \mbox{\hyperlink{mpu6050_8c_source_l00755}{MPU6050\+\_\+get\+Slave0\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01345}{MPU6050\+\_\+get\+Slave0\+Nack()}}, \mbox{\hyperlink{mpu6050_8c_source_l00737}{MPU6050\+\_\+get\+Slave1\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01334}{MPU6050\+\_\+get\+Slave1\+Nack()}}, \mbox{\hyperlink{mpu6050_8c_source_l00719}{MPU6050\+\_\+get\+Slave2\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01323}{MPU6050\+\_\+get\+Slave2\+Nack()}}, \mbox{\hyperlink{mpu6050_8c_source_l00826}{MPU6050\+\_\+get\+Slave3\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01312}{MPU6050\+\_\+get\+Slave3\+Nack()}}, \mbox{\hyperlink{mpu6050_8c_source_l01118}{MPU6050\+\_\+get\+Slave4\+Address()}}, \mbox{\hyperlink{mpu6050_8c_source_l01164}{MPU6050\+\_\+get\+Slave4\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01185}{MPU6050\+\_\+get\+Slave4\+Interrupt\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01279}{MPU6050\+\_\+get\+Slave4\+Is\+Done()}}, \mbox{\hyperlink{mpu6050_8c_source_l01233}{MPU6050\+\_\+get\+Slave4\+Master\+Delay()}}, \mbox{\hyperlink{mpu6050_8c_source_l01301}{MPU6050\+\_\+get\+Slave4\+Nack()}}, \mbox{\hyperlink{mpu6050_8c_source_l01137}{MPU6050\+\_\+get\+Slave4\+Register()}}, \mbox{\hyperlink{mpu6050_8c_source_l01206}{MPU6050\+\_\+get\+Slave4\+Write\+Mode()}}, \mbox{\hyperlink{mpu6050_8c_source_l00944}{MPU6050\+\_\+get\+Slave\+Address()}}, \mbox{\hyperlink{mpu6050_8c_source_l01091}{MPU6050\+\_\+get\+Slave\+Data\+Length()}}, \mbox{\hyperlink{mpu6050_8c_source_l02164}{MPU6050\+\_\+get\+Slave\+Delay\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00992}{MPU6050\+\_\+get\+Slave\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00848}{MPU6050\+\_\+get\+Slave\+Read\+Write\+Transition\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00970}{MPU6050\+\_\+get\+Slave\+Register()}}, \mbox{\hyperlink{mpu6050_8c_source_l01018}{MPU6050\+\_\+get\+Slave\+Word\+Byte\+Swap()}}, \mbox{\hyperlink{mpu6050_8c_source_l01069}{MPU6050\+\_\+get\+Slave\+Word\+Group\+Offset()}}, \mbox{\hyperlink{mpu6050_8c_source_l01043}{MPU6050\+\_\+get\+Slave\+Write\+Mode()}}, \mbox{\hyperlink{mpu6050_8c_source_l02424}{MPU6050\+\_\+get\+Sleep\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02574}{MPU6050\+\_\+get\+Standby\+XAccel\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02631}{MPU6050\+\_\+get\+Standby\+XGyro\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02593}{MPU6050\+\_\+get\+Standby\+YAccel\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02650}{MPU6050\+\_\+get\+Standby\+YGyro\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02612}{MPU6050\+\_\+get\+Standby\+ZAccel\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02669}{MPU6050\+\_\+get\+Standby\+ZGyro\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01862}{MPU6050\+\_\+get\+Temperature()}}, \mbox{\hyperlink{mpu6050_8c_source_l00628}{MPU6050\+\_\+get\+Temp\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02469}{MPU6050\+\_\+get\+Temp\+Sensor\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00808}{MPU6050\+\_\+get\+Wait\+For\+External\+Sensor\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02445}{MPU6050\+\_\+get\+Wake\+Cycle\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02556}{MPU6050\+\_\+get\+Wake\+Frequency()}}, \mbox{\hyperlink{mpu6050_8c_source_l00646}{MPU6050\+\_\+get\+XGyro\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02049}{MPU6050\+\_\+get\+XNeg\+Motion\+Detected()}}, \mbox{\hyperlink{mpu6050_8c_source_l02058}{MPU6050\+\_\+get\+XPos\+Motion\+Detected()}}, \mbox{\hyperlink{mpu6050_8c_source_l00664}{MPU6050\+\_\+get\+YGyro\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02067}{MPU6050\+\_\+get\+YNeg\+Motion\+Detected()}}, \mbox{\hyperlink{mpu6050_8c_source_l02076}{MPU6050\+\_\+get\+YPos\+Motion\+Detected()}}, \mbox{\hyperlink{mpu6050_8c_source_l02103}{MPU6050\+\_\+get\+Zero\+Motion\+Detected()}}, \mbox{\hyperlink{mpu6050_8c_source_l00607}{MPU6050\+\_\+get\+Zero\+Motion\+Detection\+Duration()}}, \mbox{\hyperlink{mpu6050_8c_source_l00576}{MPU6050\+\_\+get\+Zero\+Motion\+Detection\+Threshold()}}, \mbox{\hyperlink{mpu6050_8c_source_l00682}{MPU6050\+\_\+get\+ZGyro\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02085}{MPU6050\+\_\+get\+ZNeg\+Motion\+Detected()}} y \mbox{\hyperlink{mpu6050_8c_source_l02094}{MPU6050\+\_\+get\+ZPos\+Motion\+Detected()}}.
+
+\Hypertarget{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}\label{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700} 
+\index{mpu6050.c@{mpu6050.c}!devAddr@{devAddr}}
+\index{devAddr@{devAddr}!mpu6050.c@{mpu6050.c}}
+\doxysubsubsection{\texorpdfstring{devAddr}{devAddr}}
+{\footnotesize\ttfamily uint8\+\_\+t dev\+Addr}
+
+
+
+Definición en la línea \mbox{\hyperlink{mpu6050_8c_source_l00020}{20}} del archivo \mbox{\hyperlink{mpu6050_8c_source}{mpu6050.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{i2c__mcu_8c_source_l00073}{I2\+C\+\_\+read\+Bit()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00091}{I2\+C\+\_\+read\+Bits()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00114}{I2\+C\+\_\+read\+Byte()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00126}{I2\+C\+\_\+read\+Bytes()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00260}{I2\+C\+\_\+read\+Word()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00153}{I2\+C\+\_\+\+Select\+Register()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00172}{I2\+C\+\_\+write\+Bit()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00187}{I2\+C\+\_\+write\+Bits()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00214}{I2\+C\+\_\+write\+Byte()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00236}{I2\+C\+\_\+write\+Bytes()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00146}{I2\+C\+\_\+write\+Word()}}, \mbox{\hyperlink{mpu6050_8c_source_l00044}{MPU6050\+\_\+\+Address()}}, \mbox{\hyperlink{mpu6050_8c_source_l01822}{MPU6050\+\_\+get\+Acceleration()}}, \mbox{\hyperlink{mpu6050_8c_source_l01833}{MPU6050\+\_\+get\+Acceleration\+X()}}, \mbox{\hyperlink{mpu6050_8c_source_l01842}{MPU6050\+\_\+get\+Acceleration\+Y()}}, \mbox{\hyperlink{mpu6050_8c_source_l01851}{MPU6050\+\_\+get\+Acceleration\+Z()}}, \mbox{\hyperlink{mpu6050_8c_source_l02226}{MPU6050\+\_\+get\+Accelerometer\+Power\+On\+Delay()}}, \mbox{\hyperlink{mpu6050_8c_source_l00701}{MPU6050\+\_\+get\+Accel\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00305}{MPU6050\+\_\+get\+Accel\+XSelf\+Test()}}, \mbox{\hyperlink{mpu6050_8c_source_l00247}{MPU6050\+\_\+get\+Accel\+XSelf\+Test\+Factory\+Trim()}}, \mbox{\hyperlink{mpu6050_8c_source_l00320}{MPU6050\+\_\+get\+Accel\+YSelf\+Test()}}, \mbox{\hyperlink{mpu6050_8c_source_l00257}{MPU6050\+\_\+get\+Accel\+YSelf\+Test\+Factory\+Trim()}}, \mbox{\hyperlink{mpu6050_8c_source_l00335}{MPU6050\+\_\+get\+Accel\+ZSelf\+Test()}}, \mbox{\hyperlink{mpu6050_8c_source_l00267}{MPU6050\+\_\+get\+Accel\+ZSelf\+Test\+Factory\+Trim()}}, \mbox{\hyperlink{mpu6050_8c_source_l00071}{MPU6050\+\_\+get\+Aux\+VDDIOLevel()}}, \mbox{\hyperlink{mpu6050_8c_source_l01504}{MPU6050\+\_\+get\+Clock\+Output\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02493}{MPU6050\+\_\+get\+Clock\+Source()}}, \mbox{\hyperlink{mpu6050_8c_source_l02752}{MPU6050\+\_\+get\+Device\+ID()}}, \mbox{\hyperlink{mpu6050_8c_source_l00409}{MPU6050\+\_\+get\+DHPFMode()}}, \mbox{\hyperlink{mpu6050_8c_source_l00190}{MPU6050\+\_\+get\+DLPFMode()}}, \mbox{\hyperlink{mpu6050_8c_source_l00149}{MPU6050\+\_\+get\+External\+Frame\+Sync()}}, \mbox{\hyperlink{mpu6050_8c_source_l02011}{MPU6050\+\_\+get\+External\+Sensor\+Byte()}}, \mbox{\hyperlink{mpu6050_8c_source_l02029}{MPU6050\+\_\+get\+External\+Sensor\+DWord()}}, \mbox{\hyperlink{mpu6050_8c_source_l02020}{MPU6050\+\_\+get\+External\+Sensor\+Word()}}, \mbox{\hyperlink{mpu6050_8c_source_l02133}{MPU6050\+\_\+get\+External\+Shadow\+Delay\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02724}{MPU6050\+\_\+get\+FIFOByte()}}, \mbox{\hyperlink{mpu6050_8c_source_l02728}{MPU6050\+\_\+get\+FIFOBytes()}}, \mbox{\hyperlink{mpu6050_8c_source_l02692}{MPU6050\+\_\+get\+FIFOCount()}}, \mbox{\hyperlink{mpu6050_8c_source_l02325}{MPU6050\+\_\+get\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02265}{MPU6050\+\_\+get\+Freefall\+Detection\+Counter\+Decrement()}}, \mbox{\hyperlink{mpu6050_8c_source_l00472}{MPU6050\+\_\+get\+Freefall\+Detection\+Duration()}}, \mbox{\hyperlink{mpu6050_8c_source_l00440}{MPU6050\+\_\+get\+Freefall\+Detection\+Threshold()}}, \mbox{\hyperlink{mpu6050_8c_source_l01453}{MPU6050\+\_\+get\+FSync\+Interrupt\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01434}{MPU6050\+\_\+get\+FSync\+Interrupt\+Level()}}, \mbox{\hyperlink{mpu6050_8c_source_l00363}{MPU6050\+\_\+get\+Full\+Scale\+Accel\+Range()}}, \mbox{\hyperlink{mpu6050_8c_source_l00225}{MPU6050\+\_\+get\+Full\+Scale\+Gyro\+Range()}}, \mbox{\hyperlink{mpu6050_8c_source_l00276}{MPU6050\+\_\+get\+Gyro\+XSelf\+Test\+Factory\+Trim()}}, \mbox{\hyperlink{mpu6050_8c_source_l00285}{MPU6050\+\_\+get\+Gyro\+YSelf\+Test\+Factory\+Trim()}}, \mbox{\hyperlink{mpu6050_8c_source_l00294}{MPU6050\+\_\+get\+Gyro\+ZSelf\+Test\+Factory\+Trim()}}, \mbox{\hyperlink{mpu6050_8c_source_l01477}{MPU6050\+\_\+get\+I2\+CBypass\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02349}{MPU6050\+\_\+get\+I2\+CMaster\+Mode\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01648}{MPU6050\+\_\+get\+Int\+Data\+Ready\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01738}{MPU6050\+\_\+get\+Int\+Data\+Ready\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01530}{MPU6050\+\_\+get\+Int\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01377}{MPU6050\+\_\+get\+Interrupt\+Drive()}}, \mbox{\hyperlink{mpu6050_8c_source_l01396}{MPU6050\+\_\+get\+Interrupt\+Latch()}}, \mbox{\hyperlink{mpu6050_8c_source_l01415}{MPU6050\+\_\+get\+Interrupt\+Latch\+Clear()}}, \mbox{\hyperlink{mpu6050_8c_source_l01358}{MPU6050\+\_\+get\+Interrupt\+Mode()}}, \mbox{\hyperlink{mpu6050_8c_source_l01608}{MPU6050\+\_\+get\+Int\+FIFOBuffer\+Overflow\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01715}{MPU6050\+\_\+get\+Int\+FIFOBuffer\+Overflow\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01551}{MPU6050\+\_\+get\+Int\+Freefall\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01682}{MPU6050\+\_\+get\+Int\+Freefall\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01628}{MPU6050\+\_\+get\+Int\+I2\+CMaster\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01727}{MPU6050\+\_\+get\+Int\+I2\+CMaster\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01570}{MPU6050\+\_\+get\+Int\+Motion\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01693}{MPU6050\+\_\+get\+Int\+Motion\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01671}{MPU6050\+\_\+get\+Int\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01589}{MPU6050\+\_\+get\+Int\+Zero\+Motion\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01704}{MPU6050\+\_\+get\+Int\+Zero\+Motion\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l01290}{MPU6050\+\_\+get\+Lost\+Arbitration()}}, \mbox{\hyperlink{mpu6050_8c_source_l00889}{MPU6050\+\_\+get\+Master\+Clock\+Speed()}}, \mbox{\hyperlink{mpu6050_8c_source_l01777}{MPU6050\+\_\+get\+Motion6()}}, \mbox{\hyperlink{mpu6050_8c_source_l02301}{MPU6050\+\_\+get\+Motion\+Detection\+Counter\+Decrement()}}, \mbox{\hyperlink{mpu6050_8c_source_l00536}{MPU6050\+\_\+get\+Motion\+Detection\+Duration()}}, \mbox{\hyperlink{mpu6050_8c_source_l00506}{MPU6050\+\_\+get\+Motion\+Detection\+Threshold()}}, \mbox{\hyperlink{mpu6050_8c_source_l02040}{MPU6050\+\_\+get\+Motion\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l00785}{MPU6050\+\_\+get\+Multi\+Master\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01267}{MPU6050\+\_\+get\+Passthrough\+Status()}}, \mbox{\hyperlink{mpu6050_8c_source_l00107}{MPU6050\+\_\+get\+Rate()}}, \mbox{\hyperlink{mpu6050_8c_source_l01901}{MPU6050\+\_\+get\+Rotation()}}, \mbox{\hyperlink{mpu6050_8c_source_l01912}{MPU6050\+\_\+get\+Rotation\+X()}}, \mbox{\hyperlink{mpu6050_8c_source_l01921}{MPU6050\+\_\+get\+Rotation\+Y()}}, \mbox{\hyperlink{mpu6050_8c_source_l01930}{MPU6050\+\_\+get\+Rotation\+Z()}}, \mbox{\hyperlink{mpu6050_8c_source_l01251}{MPU6050\+\_\+get\+Slate4\+Input\+Byte()}}, \mbox{\hyperlink{mpu6050_8c_source_l00755}{MPU6050\+\_\+get\+Slave0\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01345}{MPU6050\+\_\+get\+Slave0\+Nack()}}, \mbox{\hyperlink{mpu6050_8c_source_l00737}{MPU6050\+\_\+get\+Slave1\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01334}{MPU6050\+\_\+get\+Slave1\+Nack()}}, \mbox{\hyperlink{mpu6050_8c_source_l00719}{MPU6050\+\_\+get\+Slave2\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01323}{MPU6050\+\_\+get\+Slave2\+Nack()}}, \mbox{\hyperlink{mpu6050_8c_source_l00826}{MPU6050\+\_\+get\+Slave3\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01312}{MPU6050\+\_\+get\+Slave3\+Nack()}}, \mbox{\hyperlink{mpu6050_8c_source_l01118}{MPU6050\+\_\+get\+Slave4\+Address()}}, \mbox{\hyperlink{mpu6050_8c_source_l01164}{MPU6050\+\_\+get\+Slave4\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01185}{MPU6050\+\_\+get\+Slave4\+Interrupt\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01279}{MPU6050\+\_\+get\+Slave4\+Is\+Done()}}, \mbox{\hyperlink{mpu6050_8c_source_l01233}{MPU6050\+\_\+get\+Slave4\+Master\+Delay()}}, \mbox{\hyperlink{mpu6050_8c_source_l01301}{MPU6050\+\_\+get\+Slave4\+Nack()}}, \mbox{\hyperlink{mpu6050_8c_source_l01137}{MPU6050\+\_\+get\+Slave4\+Register()}}, \mbox{\hyperlink{mpu6050_8c_source_l01206}{MPU6050\+\_\+get\+Slave4\+Write\+Mode()}}, \mbox{\hyperlink{mpu6050_8c_source_l00944}{MPU6050\+\_\+get\+Slave\+Address()}}, \mbox{\hyperlink{mpu6050_8c_source_l01091}{MPU6050\+\_\+get\+Slave\+Data\+Length()}}, \mbox{\hyperlink{mpu6050_8c_source_l02164}{MPU6050\+\_\+get\+Slave\+Delay\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00992}{MPU6050\+\_\+get\+Slave\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00848}{MPU6050\+\_\+get\+Slave\+Read\+Write\+Transition\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00970}{MPU6050\+\_\+get\+Slave\+Register()}}, \mbox{\hyperlink{mpu6050_8c_source_l01018}{MPU6050\+\_\+get\+Slave\+Word\+Byte\+Swap()}}, \mbox{\hyperlink{mpu6050_8c_source_l01069}{MPU6050\+\_\+get\+Slave\+Word\+Group\+Offset()}}, \mbox{\hyperlink{mpu6050_8c_source_l01043}{MPU6050\+\_\+get\+Slave\+Write\+Mode()}}, \mbox{\hyperlink{mpu6050_8c_source_l02424}{MPU6050\+\_\+get\+Sleep\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02574}{MPU6050\+\_\+get\+Standby\+XAccel\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02631}{MPU6050\+\_\+get\+Standby\+XGyro\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02593}{MPU6050\+\_\+get\+Standby\+YAccel\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02650}{MPU6050\+\_\+get\+Standby\+YGyro\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02612}{MPU6050\+\_\+get\+Standby\+ZAccel\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02669}{MPU6050\+\_\+get\+Standby\+ZGyro\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01862}{MPU6050\+\_\+get\+Temperature()}}, \mbox{\hyperlink{mpu6050_8c_source_l00628}{MPU6050\+\_\+get\+Temp\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02469}{MPU6050\+\_\+get\+Temp\+Sensor\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00808}{MPU6050\+\_\+get\+Wait\+For\+External\+Sensor\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02445}{MPU6050\+\_\+get\+Wake\+Cycle\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02556}{MPU6050\+\_\+get\+Wake\+Frequency()}}, \mbox{\hyperlink{mpu6050_8c_source_l00646}{MPU6050\+\_\+get\+XGyro\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02049}{MPU6050\+\_\+get\+XNeg\+Motion\+Detected()}}, \mbox{\hyperlink{mpu6050_8c_source_l02058}{MPU6050\+\_\+get\+XPos\+Motion\+Detected()}}, \mbox{\hyperlink{mpu6050_8c_source_l00664}{MPU6050\+\_\+get\+YGyro\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02067}{MPU6050\+\_\+get\+YNeg\+Motion\+Detected()}}, \mbox{\hyperlink{mpu6050_8c_source_l02076}{MPU6050\+\_\+get\+YPos\+Motion\+Detected()}}, \mbox{\hyperlink{mpu6050_8c_source_l02103}{MPU6050\+\_\+get\+Zero\+Motion\+Detected()}}, \mbox{\hyperlink{mpu6050_8c_source_l00607}{MPU6050\+\_\+get\+Zero\+Motion\+Detection\+Duration()}}, \mbox{\hyperlink{mpu6050_8c_source_l00576}{MPU6050\+\_\+get\+Zero\+Motion\+Detection\+Threshold()}}, \mbox{\hyperlink{mpu6050_8c_source_l00682}{MPU6050\+\_\+get\+ZGyro\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02085}{MPU6050\+\_\+get\+ZNeg\+Motion\+Detected()}}, \mbox{\hyperlink{mpu6050_8c_source_l02094}{MPU6050\+\_\+get\+ZPos\+Motion\+Detected()}}, \mbox{\hyperlink{mpu6050_8c_source_l00048}{MPU6050\+\_\+initialize()}}, \mbox{\hyperlink{mpu6050_8c_source_l02410}{MPU6050\+\_\+reset()}}, \mbox{\hyperlink{mpu6050_8c_source_l02197}{MPU6050\+\_\+reset\+Accelerometer\+Path()}}, \mbox{\hyperlink{mpu6050_8c_source_l02375}{MPU6050\+\_\+reset\+FIFO()}}, \mbox{\hyperlink{mpu6050_8c_source_l02188}{MPU6050\+\_\+reset\+Gyroscope\+Path()}}, \mbox{\hyperlink{mpu6050_8c_source_l02384}{MPU6050\+\_\+reset\+I2\+CMaster()}}, \mbox{\hyperlink{mpu6050_8c_source_l02399}{MPU6050\+\_\+reset\+Sensors()}}, \mbox{\hyperlink{mpu6050_8c_source_l02206}{MPU6050\+\_\+reset\+Temperature\+Path()}}, \mbox{\hyperlink{mpu6050_8c_source_l02236}{MPU6050\+\_\+set\+Accelerometer\+Power\+On\+Delay()}}, \mbox{\hyperlink{mpu6050_8c_source_l00710}{MPU6050\+\_\+set\+Accel\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00313}{MPU6050\+\_\+set\+Accel\+XSelf\+Test()}}, \mbox{\hyperlink{mpu6050_8c_source_l00328}{MPU6050\+\_\+set\+Accel\+YSelf\+Test()}}, \mbox{\hyperlink{mpu6050_8c_source_l00343}{MPU6050\+\_\+set\+Accel\+ZSelf\+Test()}}, \mbox{\hyperlink{mpu6050_8c_source_l00081}{MPU6050\+\_\+set\+Aux\+VDDIOLevel()}}, \mbox{\hyperlink{mpu6050_8c_source_l01517}{MPU6050\+\_\+set\+Clock\+Output\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02527}{MPU6050\+\_\+set\+Clock\+Source()}}, \mbox{\hyperlink{mpu6050_8c_source_l02765}{MPU6050\+\_\+set\+Device\+ID()}}, \mbox{\hyperlink{mpu6050_8c_source_l00419}{MPU6050\+\_\+set\+DHPFMode()}}, \mbox{\hyperlink{mpu6050_8c_source_l00202}{MPU6050\+\_\+set\+DLPFMode()}}, \mbox{\hyperlink{mpu6050_8c_source_l00159}{MPU6050\+\_\+set\+External\+Frame\+Sync()}}, \mbox{\hyperlink{mpu6050_8c_source_l02143}{MPU6050\+\_\+set\+External\+Shadow\+Delay\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02739}{MPU6050\+\_\+set\+FIFOByte()}}, \mbox{\hyperlink{mpu6050_8c_source_l02335}{MPU6050\+\_\+set\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02275}{MPU6050\+\_\+set\+Freefall\+Detection\+Counter\+Decrement()}}, \mbox{\hyperlink{mpu6050_8c_source_l00481}{MPU6050\+\_\+set\+Freefall\+Detection\+Duration()}}, \mbox{\hyperlink{mpu6050_8c_source_l00449}{MPU6050\+\_\+set\+Freefall\+Detection\+Threshold()}}, \mbox{\hyperlink{mpu6050_8c_source_l01463}{MPU6050\+\_\+set\+FSync\+Interrupt\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01444}{MPU6050\+\_\+set\+FSync\+Interrupt\+Level()}}, \mbox{\hyperlink{mpu6050_8c_source_l00371}{MPU6050\+\_\+set\+Full\+Scale\+Accel\+Range()}}, \mbox{\hyperlink{mpu6050_8c_source_l00237}{MPU6050\+\_\+set\+Full\+Scale\+Gyro\+Range()}}, \mbox{\hyperlink{mpu6050_8c_source_l01492}{MPU6050\+\_\+set\+I2\+CBypass\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02359}{MPU6050\+\_\+set\+I2\+CMaster\+Mode\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01658}{MPU6050\+\_\+set\+Int\+Data\+Ready\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01542}{MPU6050\+\_\+set\+Int\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01387}{MPU6050\+\_\+set\+Interrupt\+Drive()}}, \mbox{\hyperlink{mpu6050_8c_source_l01406}{MPU6050\+\_\+set\+Interrupt\+Latch()}}, \mbox{\hyperlink{mpu6050_8c_source_l01425}{MPU6050\+\_\+set\+Interrupt\+Latch\+Clear()}}, \mbox{\hyperlink{mpu6050_8c_source_l01368}{MPU6050\+\_\+set\+Interrupt\+Mode()}}, \mbox{\hyperlink{mpu6050_8c_source_l01618}{MPU6050\+\_\+set\+Int\+FIFOBuffer\+Overflow\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01561}{MPU6050\+\_\+set\+Int\+Freefall\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01638}{MPU6050\+\_\+set\+Int\+I2\+CMaster\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01580}{MPU6050\+\_\+set\+Int\+Motion\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01599}{MPU6050\+\_\+set\+Int\+Zero\+Motion\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00897}{MPU6050\+\_\+set\+Master\+Clock\+Speed()}}, \mbox{\hyperlink{mpu6050_8c_source_l02311}{MPU6050\+\_\+set\+Motion\+Detection\+Counter\+Decrement()}}, \mbox{\hyperlink{mpu6050_8c_source_l00545}{MPU6050\+\_\+set\+Motion\+Detection\+Duration()}}, \mbox{\hyperlink{mpu6050_8c_source_l00515}{MPU6050\+\_\+set\+Motion\+Detection\+Threshold()}}, \mbox{\hyperlink{mpu6050_8c_source_l00794}{MPU6050\+\_\+set\+Multi\+Master\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00117}{MPU6050\+\_\+set\+Rate()}}, \mbox{\hyperlink{mpu6050_8c_source_l00764}{MPU6050\+\_\+set\+Slave0\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00746}{MPU6050\+\_\+set\+Slave1\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00728}{MPU6050\+\_\+set\+Slave2\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00835}{MPU6050\+\_\+set\+Slave3\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01127}{MPU6050\+\_\+set\+Slave4\+Address()}}, \mbox{\hyperlink{mpu6050_8c_source_l01173}{MPU6050\+\_\+set\+Slave4\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01194}{MPU6050\+\_\+set\+Slave4\+Interrupt\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01242}{MPU6050\+\_\+set\+Slave4\+Master\+Delay()}}, \mbox{\hyperlink{mpu6050_8c_source_l01155}{MPU6050\+\_\+set\+Slave4\+Output\+Byte()}}, \mbox{\hyperlink{mpu6050_8c_source_l01146}{MPU6050\+\_\+set\+Slave4\+Register()}}, \mbox{\hyperlink{mpu6050_8c_source_l01215}{MPU6050\+\_\+set\+Slave4\+Write\+Mode()}}, \mbox{\hyperlink{mpu6050_8c_source_l00955}{MPU6050\+\_\+set\+Slave\+Address()}}, \mbox{\hyperlink{mpu6050_8c_source_l01102}{MPU6050\+\_\+set\+Slave\+Data\+Length()}}, \mbox{\hyperlink{mpu6050_8c_source_l02176}{MPU6050\+\_\+set\+Slave\+Delay\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l01003}{MPU6050\+\_\+set\+Slave\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02118}{MPU6050\+\_\+set\+Slave\+Output\+Byte()}}, \mbox{\hyperlink{mpu6050_8c_source_l00857}{MPU6050\+\_\+set\+Slave\+Read\+Write\+Transition\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00981}{MPU6050\+\_\+set\+Slave\+Register()}}, \mbox{\hyperlink{mpu6050_8c_source_l01029}{MPU6050\+\_\+set\+Slave\+Word\+Byte\+Swap()}}, \mbox{\hyperlink{mpu6050_8c_source_l01080}{MPU6050\+\_\+set\+Slave\+Word\+Group\+Offset()}}, \mbox{\hyperlink{mpu6050_8c_source_l01054}{MPU6050\+\_\+set\+Slave\+Write\+Mode()}}, \mbox{\hyperlink{mpu6050_8c_source_l02434}{MPU6050\+\_\+set\+Sleep\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02584}{MPU6050\+\_\+set\+Standby\+XAccel\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02641}{MPU6050\+\_\+set\+Standby\+XGyro\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02603}{MPU6050\+\_\+set\+Standby\+YAccel\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02660}{MPU6050\+\_\+set\+Standby\+YGyro\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02622}{MPU6050\+\_\+set\+Standby\+ZAccel\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02679}{MPU6050\+\_\+set\+Standby\+ZGyro\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00637}{MPU6050\+\_\+set\+Temp\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02483}{MPU6050\+\_\+set\+Temp\+Sensor\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00817}{MPU6050\+\_\+set\+Wait\+For\+External\+Sensor\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02455}{MPU6050\+\_\+set\+Wake\+Cycle\+Enabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l02564}{MPU6050\+\_\+set\+Wake\+Frequency()}}, \mbox{\hyperlink{mpu6050_8c_source_l00655}{MPU6050\+\_\+set\+XGyro\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00673}{MPU6050\+\_\+set\+YGyro\+FIFOEnabled()}}, \mbox{\hyperlink{mpu6050_8c_source_l00616}{MPU6050\+\_\+set\+Zero\+Motion\+Detection\+Duration()}}, \mbox{\hyperlink{mpu6050_8c_source_l00585}{MPU6050\+\_\+set\+Zero\+Motion\+Detection\+Threshold()}}, \mbox{\hyperlink{mpu6050_8c_source_l00691}{MPU6050\+\_\+set\+ZGyro\+FIFOEnabled()}} y \mbox{\hyperlink{mpu6050_8c_source_l02366}{MPU6050\+\_\+switch\+SPIEnabled()}}.
+

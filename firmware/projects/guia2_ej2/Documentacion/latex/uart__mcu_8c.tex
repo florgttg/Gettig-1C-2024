@@ -1,0 +1,204 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/src/uart\+\_\+mcu.c}
+\hypertarget{uart__mcu_8c}{}\label{uart__mcu_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/uart\_mcu.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/uart\_mcu.c}}
+{\ttfamily \#include "{}uart\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}driver/uart.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/queue.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+log.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{uart__mcu_8c_ac5a136fed9300f073616af50ba577b6e}{UART\+\_\+\+CONN\+\_\+\+TX}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917}{GPIO\+\_\+18}}
+\item 
+\#define \mbox{\hyperlink{uart__mcu_8c_ac7c92d22ddc5bfc3c9aa3da970c126e9}{UART\+\_\+\+CONN\+\_\+\+RX}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847}{GPIO\+\_\+19}}
+\item 
+\#define \mbox{\hyperlink{uart__mcu_8c_a9ab33647617098646990fe263600b650}{TX\+\_\+\+BUFFER\+\_\+\+SIZE}}~256
+\item 
+\#define \mbox{\hyperlink{uart__mcu_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}~256
+\item 
+\#define \mbox{\hyperlink{uart__mcu_8c_a3d16e5de491dfd7c361575b398679dd3}{EVENT\+\_\+\+QUEUE\+\_\+\+SIZE}}~16
+\item 
+\#define \mbox{\hyperlink{uart__mcu_8c_a18e13c9ac88403c42395bb0af487eb2d}{READ\+\_\+\+TIMEOUT}}~100
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___u_a_r_t_ga440f6a03dfd8b310f5fdf42c3bf20c42}{Uart\+Init}} (\mbox{\hyperlink{structserial__config__t}{serial\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}port\+\_\+config)
+\begin{DoxyCompactList}\small\item\em Serial port initialization. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___u_a_r_t_ga37f1b16880c3ca70ed2e543566d555d2}{Uart\+Read\+Byte}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Read a single byte from serial port. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___u_a_r_t_gaec359d22a59e650a21a0666dad59656a}{Uart\+Read\+Buffer}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t nbytes)
+\begin{DoxyCompactList}\small\item\em Read multiple bytes from serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___u_a_r_t_gaeb142fa2425b80bddba60121b1cf13f2}{Uart\+Send\+Byte}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, const char \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Send a single byte trough serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___u_a_r_t_ga60db217694ea24ad75fcedda3336a3a8}{Uart\+Send\+String}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Send a String trough serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___u_a_r_t_ga81fce0b6465799566af3cc8cc896c45e}{Uart\+Send\+Buffer}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, const char \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t nbytes)
+\begin{DoxyCompactList}\small\item\em Send multiple bytes through serial port. \end{DoxyCompactList}\item 
+uint8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___u_a_r_t_ga00c7e785d2874c52bab6e4dba88a5e23}{Uart\+Itoa}} (uint32\+\_\+t val, uint8\+\_\+t base)
+\begin{DoxyCompactList}\small\item\em Convert a number to a String (char array ended with \textquotesingle{}\textbackslash{}0\textquotesingle{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{uart__mcu_8c_add274a908a7400d0789a64b68fcee9f9}{uart\+\_\+pc\+\_\+isr\+\_\+p}} )(void \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{uart__mcu_8c_a0134994d4bd2ea78ac2e9a525f3393e4}{uart\+\_\+conn\+\_\+isr\+\_\+p}} )(void \texorpdfstring{$\ast$}{*})
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{uart__mcu_8c_a03b3a7a952be7763247705b56b5cfde8}{uart\+\_\+pc\+\_\+user\+\_\+data}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{uart__mcu_8c_a9ae4715bc5b76649b1f05ea98df67125}{uart\+\_\+conn\+\_\+user\+\_\+data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva (\href{mailto:albano.penalva@uner.edu.ar}{\texttt{ albano.\+penalva@uner.\+edu.\+ar}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2024-\/02-\/07
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+Definición en el archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{uart__mcu_8c_a3d16e5de491dfd7c361575b398679dd3}\label{uart__mcu_8c_a3d16e5de491dfd7c361575b398679dd3} 
+\index{uart\_mcu.c@{uart\_mcu.c}!EVENT\_QUEUE\_SIZE@{EVENT\_QUEUE\_SIZE}}
+\index{EVENT\_QUEUE\_SIZE@{EVENT\_QUEUE\_SIZE}!uart\_mcu.c@{uart\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{EVENT\_QUEUE\_SIZE}{EVENT\_QUEUE\_SIZE}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+QUEUE\+\_\+\+SIZE~16}
+
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00024}{24}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+\Hypertarget{uart__mcu_8c_a18e13c9ac88403c42395bb0af487eb2d}\label{uart__mcu_8c_a18e13c9ac88403c42395bb0af487eb2d} 
+\index{uart\_mcu.c@{uart\_mcu.c}!READ\_TIMEOUT@{READ\_TIMEOUT}}
+\index{READ\_TIMEOUT@{READ\_TIMEOUT}!uart\_mcu.c@{uart\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{READ\_TIMEOUT}{READ\_TIMEOUT}}
+{\footnotesize\ttfamily \#define READ\+\_\+\+TIMEOUT~100}
+
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00025}{25}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{uart__mcu_8c_source_l00161}{Uart\+Read\+Buffer()}} y \mbox{\hyperlink{uart__mcu_8c_source_l00142}{Uart\+Read\+Byte()}}.
+
+\Hypertarget{uart__mcu_8c_a739a2a1a0047c98ac1b18ecd25dac092}\label{uart__mcu_8c_a739a2a1a0047c98ac1b18ecd25dac092} 
+\index{uart\_mcu.c@{uart\_mcu.c}!RX\_BUFFER\_SIZE@{RX\_BUFFER\_SIZE}}
+\index{RX\_BUFFER\_SIZE@{RX\_BUFFER\_SIZE}!uart\_mcu.c@{uart\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{RX\_BUFFER\_SIZE}{RX\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define RX\+\_\+\+BUFFER\+\_\+\+SIZE~256}
+
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00023}{23}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+\Hypertarget{uart__mcu_8c_a9ab33647617098646990fe263600b650}\label{uart__mcu_8c_a9ab33647617098646990fe263600b650} 
+\index{uart\_mcu.c@{uart\_mcu.c}!TX\_BUFFER\_SIZE@{TX\_BUFFER\_SIZE}}
+\index{TX\_BUFFER\_SIZE@{TX\_BUFFER\_SIZE}!uart\_mcu.c@{uart\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{TX\_BUFFER\_SIZE}{TX\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define TX\+\_\+\+BUFFER\+\_\+\+SIZE~256}
+
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00022}{22}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+\Hypertarget{uart__mcu_8c_ac7c92d22ddc5bfc3c9aa3da970c126e9}\label{uart__mcu_8c_ac7c92d22ddc5bfc3c9aa3da970c126e9} 
+\index{uart\_mcu.c@{uart\_mcu.c}!UART\_CONN\_RX@{UART\_CONN\_RX}}
+\index{UART\_CONN\_RX@{UART\_CONN\_RX}!uart\_mcu.c@{uart\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{UART\_CONN\_RX}{UART\_CONN\_RX}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+CONN\+\_\+\+RX~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847}{GPIO\+\_\+19}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00021}{21}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+\Hypertarget{uart__mcu_8c_ac5a136fed9300f073616af50ba577b6e}\label{uart__mcu_8c_ac5a136fed9300f073616af50ba577b6e} 
+\index{uart\_mcu.c@{uart\_mcu.c}!UART\_CONN\_TX@{UART\_CONN\_TX}}
+\index{UART\_CONN\_TX@{UART\_CONN\_TX}!uart\_mcu.c@{uart\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{UART\_CONN\_TX}{UART\_CONN\_TX}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+CONN\+\_\+\+TX~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917}{GPIO\+\_\+18}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00020}{20}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{uart__mcu_8c_a0134994d4bd2ea78ac2e9a525f3393e4}\label{uart__mcu_8c_a0134994d4bd2ea78ac2e9a525f3393e4} 
+\index{uart\_mcu.c@{uart\_mcu.c}!uart\_conn\_isr\_p@{uart\_conn\_isr\_p}}
+\index{uart\_conn\_isr\_p@{uart\_conn\_isr\_p}!uart\_mcu.c@{uart\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{uart\_conn\_isr\_p}{uart\_conn\_isr\_p}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} uart\+\_\+conn\+\_\+isr\+\_\+p) (void \texorpdfstring{$\ast$}{*}) (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00028}{28}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+\Hypertarget{uart__mcu_8c_a9ae4715bc5b76649b1f05ea98df67125}\label{uart__mcu_8c_a9ae4715bc5b76649b1f05ea98df67125} 
+\index{uart\_mcu.c@{uart\_mcu.c}!uart\_conn\_user\_data@{uart\_conn\_user\_data}}
+\index{uart\_conn\_user\_data@{uart\_conn\_user\_data}!uart\_mcu.c@{uart\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{uart\_conn\_user\_data}{uart\_conn\_user\_data}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} uart\+\_\+conn\+\_\+user\+\_\+data}
+
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00030}{30}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+\Hypertarget{uart__mcu_8c_add274a908a7400d0789a64b68fcee9f9}\label{uart__mcu_8c_add274a908a7400d0789a64b68fcee9f9} 
+\index{uart\_mcu.c@{uart\_mcu.c}!uart\_pc\_isr\_p@{uart\_pc\_isr\_p}}
+\index{uart\_pc\_isr\_p@{uart\_pc\_isr\_p}!uart\_mcu.c@{uart\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{uart\_pc\_isr\_p}{uart\_pc\_isr\_p}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} uart\+\_\+pc\+\_\+isr\+\_\+p) (void \texorpdfstring{$\ast$}{*}) (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00027}{27}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+\Hypertarget{uart__mcu_8c_a03b3a7a952be7763247705b56b5cfde8}\label{uart__mcu_8c_a03b3a7a952be7763247705b56b5cfde8} 
+\index{uart\_mcu.c@{uart\_mcu.c}!uart\_pc\_user\_data@{uart\_pc\_user\_data}}
+\index{uart\_pc\_user\_data@{uart\_pc\_user\_data}!uart\_mcu.c@{uart\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{uart\_pc\_user\_data}{uart\_pc\_user\_data}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} uart\+\_\+pc\+\_\+user\+\_\+data}
+
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00029}{29}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+

@@ -1,0 +1,309 @@
+\doxysubsubsection{UART}
+\hypertarget{group___u_a_r_t}{}\label{group___u_a_r_t}\index{UART@{UART}}
+\doxysubsubsubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structserial__config__t}{serial\+\_\+config\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Serial port configuration struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___u_a_r_t_ga544040074fa1abddedb1eaade6994035}{UART\+\_\+\+NO\+\_\+\+INT}}~0
+\begin{DoxyCompactList}\small\item\em UART driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___u_a_r_t_ga6e1a445bae87c4cfd26710dbd4657b77}{uart\+\_\+ports}} \mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em List of UART ports available in ESP-\/\+EDU. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___u_a_r_t_ga6e1a445bae87c4cfd26710dbd4657b77}{uart\+\_\+ports}} \{ \mbox{\hyperlink{group___u_a_r_t_gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056}{UART\+\_\+\+PC}}
+, \mbox{\hyperlink{group___u_a_r_t_gga6e1a445bae87c4cfd26710dbd4657b77aab02e55aa3ae1d09e52cd7c916cd067f}{UART\+\_\+\+CONNECTOR}}
+ \}
+\begin{DoxyCompactList}\small\item\em List of UART ports available in ESP-\/\+EDU. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___u_a_r_t_ga440f6a03dfd8b310f5fdf42c3bf20c42}{Uart\+Init}} (\mbox{\hyperlink{structserial__config__t}{serial\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}port\+\_\+config)
+\begin{DoxyCompactList}\small\item\em Serial port initialization. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___u_a_r_t_ga37f1b16880c3ca70ed2e543566d555d2}{Uart\+Read\+Byte}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Read a single byte from serial port. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___u_a_r_t_gaec359d22a59e650a21a0666dad59656a}{Uart\+Read\+Buffer}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t nbytes)
+\begin{DoxyCompactList}\small\item\em Read multiple bytes from serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___u_a_r_t_gaeb142fa2425b80bddba60121b1cf13f2}{Uart\+Send\+Byte}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, const char \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Send a single byte trough serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___u_a_r_t_ga60db217694ea24ad75fcedda3336a3a8}{Uart\+Send\+String}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Send a String trough serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___u_a_r_t_ga81fce0b6465799566af3cc8cc896c45e}{Uart\+Send\+Buffer}} (\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port, const char \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t nbytes)
+\begin{DoxyCompactList}\small\item\em Send multiple bytes through serial port. \end{DoxyCompactList}\item 
+uint8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___u_a_r_t_ga00c7e785d2874c52bab6e4dba88a5e23}{Uart\+Itoa}} (uint32\+\_\+t val, uint8\+\_\+t base)
+\begin{DoxyCompactList}\small\item\em Convert a number to a String (char array ended with \textquotesingle{}\textbackslash{}0\textquotesingle{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de «define»}
+\Hypertarget{group___u_a_r_t_ga544040074fa1abddedb1eaade6994035}\label{group___u_a_r_t_ga544040074fa1abddedb1eaade6994035} 
+\index{UART@{UART}!UART\_NO\_INT@{UART\_NO\_INT}}
+\index{UART\_NO\_INT@{UART\_NO\_INT}!UART@{UART}}
+\doxysubsubsubsubsection{\texorpdfstring{UART\_NO\_INT}{UART\_NO\_INT}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+NO\+\_\+\+INT~0}
+
+
+
+UART driver for the ESP-\/\+EDU Board. 
+
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{group___u_a_r_t_changelog}{}\doxysubsubsubsection{\texorpdfstring{changelog}{changelog}}\label{group___u_a_r_t_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 02/07/2024   &Document creation   \\\cline{1-2}
+\end{longtabu}
+Flag used when no reading interruption is required 
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8h_source_l00026}{26}} del archivo \mbox{\hyperlink{uart__mcu_8h_source}{uart\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+
+
+\doxysubsubsubsection{Documentación de «typedef»}
+\Hypertarget{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}\label{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595} 
+\index{UART@{UART}!uart\_mcu\_port\_t@{uart\_mcu\_port\_t}}
+\index{uart\_mcu\_port\_t@{uart\_mcu\_port\_t}!UART@{UART}}
+\doxysubsubsubsubsection{\texorpdfstring{uart\_mcu\_port\_t}{uart\_mcu\_port\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___u_a_r_t_ga6e1a445bae87c4cfd26710dbd4657b77}{uart\+\_\+ports}} \mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}}}
+
+
+
+List of UART ports available in ESP-\/\+EDU. 
+
+
+
+\doxysubsubsubsection{Documentación de enumeraciones}
+\Hypertarget{group___u_a_r_t_ga6e1a445bae87c4cfd26710dbd4657b77}\label{group___u_a_r_t_ga6e1a445bae87c4cfd26710dbd4657b77} 
+\index{UART@{UART}!uart\_ports@{uart\_ports}}
+\index{uart\_ports@{uart\_ports}!UART@{UART}}
+\doxysubsubsubsubsection{\texorpdfstring{uart\_ports}{uart\_ports}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___u_a_r_t_ga6e1a445bae87c4cfd26710dbd4657b77}{uart\+\_\+ports}}}
+
+
+
+List of UART ports available in ESP-\/\+EDU. 
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_PC@{UART\_PC}!UART@{UART}}\index{UART@{UART}!UART\_PC@{UART\_PC}}}\Hypertarget{group___u_a_r_t_gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056}\label{group___u_a_r_t_gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056} 
+UART\+\_\+\+PC&UART connected PC through USB port (indicated with UART) (also maped to TX\+: GPIO16, RX\+: GPIO17) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_CONNECTOR@{UART\_CONNECTOR}!UART@{UART}}\index{UART@{UART}!UART\_CONNECTOR@{UART\_CONNECTOR}}}\Hypertarget{group___u_a_r_t_gga6e1a445bae87c4cfd26710dbd4657b77aab02e55aa3ae1d09e52cd7c916cd067f}\label{group___u_a_r_t_gga6e1a445bae87c4cfd26710dbd4657b77aab02e55aa3ae1d09e52cd7c916cd067f} 
+UART\+\_\+\+CONNECTOR&UART connected to J2 connector (TX\+: GPIO18, RX\+: GPIO19) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8h_source_l00031}{31}} del archivo \mbox{\hyperlink{uart__mcu_8h_source}{uart\+\_\+mcu.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___u_a_r_t_ga440f6a03dfd8b310f5fdf42c3bf20c42}\label{group___u_a_r_t_ga440f6a03dfd8b310f5fdf42c3bf20c42} 
+\index{UART@{UART}!UartInit@{UartInit}}
+\index{UartInit@{UartInit}!UART@{UART}}
+\doxysubsubsubsubsection{\texorpdfstring{UartInit()}{UartInit()}}
+{\footnotesize\ttfamily void Uart\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structserial__config__t}{serial\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{port\+\_\+config }\end{DoxyParamCaption})}
+
+
+
+Serial port initialization. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em port\+\_\+config} & \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00107}{107}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{uart__mcu_8h_source_l00040}{serial\+\_\+config\+\_\+t\+::baud\+\_\+rate}}, \mbox{\hyperlink{uart__mcu_8h_source_l00041}{serial\+\_\+config\+\_\+t\+::func\+\_\+p}}, \mbox{\hyperlink{ili9341_8c_source_l00042}{NULL}}, \mbox{\hyperlink{uart__mcu_8h_source_l00042}{serial\+\_\+config\+\_\+t\+::param\+\_\+p}}, \mbox{\hyperlink{uart__mcu_8h_source_l00039}{serial\+\_\+config\+\_\+t\+::port}}, \mbox{\hyperlink{uart__mcu_8c_source_l00023}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}, \mbox{\hyperlink{uart__mcu_8c_source_l00022}{TX\+\_\+\+BUFFER\+\_\+\+SIZE}}, \mbox{\hyperlink{uart__mcu_8c_source_l00028}{uart\+\_\+conn\+\_\+isr\+\_\+p}}, \mbox{\hyperlink{uart__mcu_8c_source_l00021}{UART\+\_\+\+CONN\+\_\+\+RX}}, \mbox{\hyperlink{uart__mcu_8c_source_l00020}{UART\+\_\+\+CONN\+\_\+\+TX}}, \mbox{\hyperlink{uart__mcu_8h_source_l00033}{UART\+\_\+\+CONNECTOR}}, \mbox{\hyperlink{uart__mcu_8h_source_l00026}{UART\+\_\+\+NO\+\_\+\+INT}}, \mbox{\hyperlink{uart__mcu_8h_source_l00032}{UART\+\_\+\+PC}} y \mbox{\hyperlink{uart__mcu_8c_source_l00027}{uart\+\_\+pc\+\_\+isr\+\_\+p}}.
+
+\Hypertarget{group___u_a_r_t_ga00c7e785d2874c52bab6e4dba88a5e23}\label{group___u_a_r_t_ga00c7e785d2874c52bab6e4dba88a5e23} 
+\index{UART@{UART}!UartItoa@{UartItoa}}
+\index{UartItoa@{UartItoa}!UART@{UART}}
+\doxysubsubsubsubsection{\texorpdfstring{UartItoa()}{UartItoa()}}
+{\footnotesize\ttfamily uint8\+\_\+t \texorpdfstring{$\ast$}{*} Uart\+Itoa (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{val,  }\item[{uint8\+\_\+t}]{base }\end{DoxyParamCaption})}
+
+
+
+Convert a number to a String (char array ended with \textquotesingle{}\textbackslash{}0\textquotesingle{}) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em val} & Number to be converted \\
+\hline
+{\em base} & Base of the converted number (2\+: binary, 10\+: decimal, 16\+: hexadecimal) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00222}{222}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+\Hypertarget{group___u_a_r_t_gaec359d22a59e650a21a0666dad59656a}\label{group___u_a_r_t_gaec359d22a59e650a21a0666dad59656a} 
+\index{UART@{UART}!UartReadBuffer@{UartReadBuffer}}
+\index{UartReadBuffer@{UartReadBuffer}!UART@{UART}}
+\doxysubsubsubsubsection{\texorpdfstring{UartReadBuffer()}{UartReadBuffer()}}
+{\footnotesize\ttfamily uint8\+\_\+t Uart\+Read\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}}}]{port,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data,  }\item[{uint16\+\_\+t}]{nbytes }\end{DoxyParamCaption})}
+
+
+
+Read multiple bytes from serial port. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em port} & Port to read from \\
+\hline
+{\em data} & Pointer to array where data will be stored \\
+\hline
+{\em nbytes} & Number of bytes to be readed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00161}{161}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{uart__mcu_8c_source_l00025}{READ\+\_\+\+TIMEOUT}}, \mbox{\hyperlink{uart__mcu_8h_source_l00033}{UART\+\_\+\+CONNECTOR}} y \mbox{\hyperlink{uart__mcu_8h_source_l00032}{UART\+\_\+\+PC}}.
+
+\Hypertarget{group___u_a_r_t_ga37f1b16880c3ca70ed2e543566d555d2}\label{group___u_a_r_t_ga37f1b16880c3ca70ed2e543566d555d2} 
+\index{UART@{UART}!UartReadByte@{UartReadByte}}
+\index{UartReadByte@{UartReadByte}!UART@{UART}}
+\doxysubsubsubsubsection{\texorpdfstring{UartReadByte()}{UartReadByte()}}
+{\footnotesize\ttfamily uint8\+\_\+t Uart\+Read\+Byte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}}}]{port,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Read a single byte from serial port. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em port} & Port to read from \\
+\hline
+{\em data} & Pointer to variable where data will be stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00142}{142}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{uart__mcu_8c_source_l00025}{READ\+\_\+\+TIMEOUT}}, \mbox{\hyperlink{uart__mcu_8h_source_l00033}{UART\+\_\+\+CONNECTOR}} y \mbox{\hyperlink{uart__mcu_8h_source_l00032}{UART\+\_\+\+PC}}.
+
+\Hypertarget{group___u_a_r_t_ga81fce0b6465799566af3cc8cc896c45e}\label{group___u_a_r_t_ga81fce0b6465799566af3cc8cc896c45e} 
+\index{UART@{UART}!UartSendBuffer@{UartSendBuffer}}
+\index{UartSendBuffer@{UartSendBuffer}!UART@{UART}}
+\doxysubsubsubsubsection{\texorpdfstring{UartSendBuffer()}{UartSendBuffer()}}
+{\footnotesize\ttfamily void Uart\+Send\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}}}]{port,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{data,  }\item[{uint8\+\_\+t}]{nbytes }\end{DoxyParamCaption})}
+
+
+
+Send multiple bytes through serial port. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em port} & Port for sending data \\
+\hline
+{\em data} & Pointer to array of data to be transmitted \\
+\hline
+{\em nbytes} & Number of bytes to be sended \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00209}{209}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{uart__mcu_8h_source_l00033}{UART\+\_\+\+CONNECTOR}} y \mbox{\hyperlink{uart__mcu_8h_source_l00032}{UART\+\_\+\+PC}}.
+
+\Hypertarget{group___u_a_r_t_gaeb142fa2425b80bddba60121b1cf13f2}\label{group___u_a_r_t_gaeb142fa2425b80bddba60121b1cf13f2} 
+\index{UART@{UART}!UartSendByte@{UartSendByte}}
+\index{UartSendByte@{UartSendByte}!UART@{UART}}
+\doxysubsubsubsubsection{\texorpdfstring{UartSendByte()}{UartSendByte()}}
+{\footnotesize\ttfamily void Uart\+Send\+Byte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}}}]{port,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Send a single byte trough serial port. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em port} & Port for sending data \\
+\hline
+{\em data} & Pointer to variable with data to be transmitted \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00180}{180}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{uart__mcu_8h_source_l00033}{UART\+\_\+\+CONNECTOR}} y \mbox{\hyperlink{uart__mcu_8h_source_l00032}{UART\+\_\+\+PC}}.
+
+\Hypertarget{group___u_a_r_t_ga60db217694ea24ad75fcedda3336a3a8}\label{group___u_a_r_t_ga60db217694ea24ad75fcedda3336a3a8} 
+\index{UART@{UART}!UartSendString@{UartSendString}}
+\index{UartSendString@{UartSendString}!UART@{UART}}
+\doxysubsubsubsubsection{\texorpdfstring{UartSendString()}{UartSendString()}}
+{\footnotesize\ttfamily void Uart\+Send\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}}}]{port,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})}
+
+
+
+Send a String trough serial port. 
+
+\begin{DoxyNote}{Nota}
+Sends data untill finding the \textquotesingle{}\textbackslash{}0\textquotesingle{} character (used to indicate a String end).
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parámetros}
+{\em port} & Port for sending data \\
+\hline
+{\em msg} & Pointer to string to be transmitted \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8c_source_l00193}{193}} del archivo \mbox{\hyperlink{uart__mcu_8c_source}{uart\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{uart__mcu_8h_source_l00033}{UART\+\_\+\+CONNECTOR}} y \mbox{\hyperlink{uart__mcu_8h_source_l00032}{UART\+\_\+\+PC}}.
+

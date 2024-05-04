@@ -1,0 +1,210 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+Gettig-\/1\+C-\/2024/firmware/projects/guia2\+\_\+ej4/main/guia2\+\_\+ej4.c}
+\hypertarget{guia2__ej4_8c}{}\label{guia2__ej4_8c}\index{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/guia2\_ej4/main/guia2\_ej4.c@{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/guia2\_ej4/main/guia2\_ej4.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}freertos/\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/task.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}timer\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}uart\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}analog\+\_\+io\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{guia2__ej4_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\+\_\+\+SIZE}}~231
+\item 
+\#define \mbox{\hyperlink{guia2__ej4_8c_ac9dd9bf5a0c99f12a6f1b8c0850f3d6a}{CONFIG\+\_\+\+TIMER\+\_\+\+A\+\_\+\+PERIOD}}~2000
+\item 
+\#define \mbox{\hyperlink{guia2__ej4_8c_a247c7e148d4e59e05c0796f5ed72b790}{CONFIG\+\_\+\+TIMER\+\_\+\+B\+\_\+\+PERIOD}}~4000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{guia2__ej4_8c_a10506548c0166cec6195f808a27701d6}{Function\+TimerA}} (void \texorpdfstring{$\ast$}{*}param)
+\begin{DoxyCompactList}\small\item\em Función de retrollamada para el temporizador A. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{guia2__ej4_8c_aaac5cc84aba38aa4ab933e3a00e92dfd}{Function\+TimerB}} (void \texorpdfstring{$\ast$}{*}param)
+\begin{DoxyCompactList}\small\item\em Función de retrollamada para el temporizador B. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{guia2__ej4_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}{app\+\_\+main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{guia2__ej4_8c_a70eb4c277711016a01f43220574e42ed}{analog\+\_\+task\+\_\+handle}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\begin{DoxyCompactList}\small\item\em Identificador de la tarea del conversor analogico a digital. \end{DoxyCompactList}\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{guia2__ej4_8c_a11b84f885fca6e85afccc970954406c9}{digital\+\_\+task\+\_\+handle}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\begin{DoxyCompactList}\small\item\em Identificador de la tarea del conversor digital a analogico. \end{DoxyCompactList}\item 
+const char \mbox{\hyperlink{guia2__ej4_8c_a2dafb8b8179af8e9f4cc4df3f588e42e}{ecg}} \mbox{[}\mbox{\hyperlink{guia2__ej4_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\+\_\+\+SIZE}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Vector de valores digitalizados de un ecg. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{guia2__ej4_8c_a6b20d41d6252e9871430c242cb1a56e7}\label{guia2__ej4_8c_a6b20d41d6252e9871430c242cb1a56e7} 
+\index{guia2\_ej4.c@{guia2\_ej4.c}!BUFFER\_SIZE@{BUFFER\_SIZE}}
+\index{BUFFER\_SIZE@{BUFFER\_SIZE}!guia2\_ej4.c@{guia2\_ej4.c}}
+\doxysubsubsection{\texorpdfstring{BUFFER\_SIZE}{BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define BUFFER\+\_\+\+SIZE~231}
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej4_8c_source_l00043}{43}} del archivo \mbox{\hyperlink{guia2__ej4_8c_source}{guia2\+\_\+ej4.\+c}}.
+
+\Hypertarget{guia2__ej4_8c_ac9dd9bf5a0c99f12a6f1b8c0850f3d6a}\label{guia2__ej4_8c_ac9dd9bf5a0c99f12a6f1b8c0850f3d6a} 
+\index{guia2\_ej4.c@{guia2\_ej4.c}!CONFIG\_TIMER\_A\_PERIOD@{CONFIG\_TIMER\_A\_PERIOD}}
+\index{CONFIG\_TIMER\_A\_PERIOD@{CONFIG\_TIMER\_A\_PERIOD}!guia2\_ej4.c@{guia2\_ej4.c}}
+\doxysubsubsection{\texorpdfstring{CONFIG\_TIMER\_A\_PERIOD}{CONFIG\_TIMER\_A\_PERIOD}}
+{\footnotesize\ttfamily \#define CONFIG\+\_\+\+TIMER\+\_\+\+A\+\_\+\+PERIOD~2000}
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej4_8c_source_l00044}{44}} del archivo \mbox{\hyperlink{guia2__ej4_8c_source}{guia2\+\_\+ej4.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej4_8c_source_l00355}{app\+\_\+main()}}.
+
+\Hypertarget{guia2__ej4_8c_a247c7e148d4e59e05c0796f5ed72b790}\label{guia2__ej4_8c_a247c7e148d4e59e05c0796f5ed72b790} 
+\index{guia2\_ej4.c@{guia2\_ej4.c}!CONFIG\_TIMER\_B\_PERIOD@{CONFIG\_TIMER\_B\_PERIOD}}
+\index{CONFIG\_TIMER\_B\_PERIOD@{CONFIG\_TIMER\_B\_PERIOD}!guia2\_ej4.c@{guia2\_ej4.c}}
+\doxysubsubsection{\texorpdfstring{CONFIG\_TIMER\_B\_PERIOD}{CONFIG\_TIMER\_B\_PERIOD}}
+{\footnotesize\ttfamily \#define CONFIG\+\_\+\+TIMER\+\_\+\+B\+\_\+\+PERIOD~4000}
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej4_8c_source_l00045}{45}} del archivo \mbox{\hyperlink{guia2__ej4_8c_source}{guia2\+\_\+ej4.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej4_8c_source_l00355}{app\+\_\+main()}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{guia2__ej4_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}\label{guia2__ej4_8c_a630544a7f0a2cc40d8a7fefab7e2fe70} 
+\index{guia2\_ej4.c@{guia2\_ej4.c}!app\_main@{app\_main}}
+\index{app\_main@{app\_main}!guia2\_ej4.c@{guia2\_ej4.c}}
+\doxysubsubsection{\texorpdfstring{app\_main()}{app\_main()}}
+{\footnotesize\ttfamily void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\texorpdfstring{$<$}{<} baudrate (bits per second)
+
+\texorpdfstring{$<$}{<} Pointer to callback function to call when receiving data (= UART\+\_\+\+NO\+\_\+\+INT if not requiered)
+
+\texorpdfstring{$<$}{<} Pointer to callback function parameters
+
+Definición en la línea \mbox{\hyperlink{guia2__ej4_8c_source_l00355}{355}} del archivo \mbox{\hyperlink{guia2__ej4_8c_source}{guia2\+\_\+ej4.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{analog__io__mcu_8h_source_l00038}{ADC\+\_\+\+SINGLE}}, \mbox{\hyperlink{guia2__ej4_8c_source_l00049}{analog\+\_\+task\+\_\+handle}}, \mbox{\hyperlink{analog__io__mcu_8c_source_l00045}{Analog\+Input\+Init()}}, \mbox{\hyperlink{analog__io__mcu_8c_source_l00095}{Analog\+Output\+Init()}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00031}{CH0}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00032}{CH1}}, \mbox{\hyperlink{guia2__ej4_8c_source_l00044}{CONFIG\+\_\+\+TIMER\+\_\+\+A\+\_\+\+PERIOD}}, \mbox{\hyperlink{guia2__ej4_8c_source_l00045}{CONFIG\+\_\+\+TIMER\+\_\+\+B\+\_\+\+PERIOD}}, \mbox{\hyperlink{guia2__ej4_8c_source_l00053}{digital\+\_\+task\+\_\+handle}}, \mbox{\hyperlink{guia2__ej4_8c_source_l00336}{Function\+Timer\+A()}}, \mbox{\hyperlink{guia2__ej4_8c_source_l00348}{Function\+Timer\+B()}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00049}{analog\+\_\+input\+\_\+config\+\_\+t\+::input}}, \mbox{\hyperlink{ili9341_8c_source_l00042}{NULL}}, \mbox{\hyperlink{uart__mcu_8h_source_l00039}{serial\+\_\+config\+\_\+t\+::port}}, \mbox{\hyperlink{timer__mcu_8h_source_l00040}{timer\+\_\+config\+\_\+t\+::timer}}, \mbox{\hyperlink{timer__mcu_8h_source_l00032}{TIMER\+\_\+A}}, \mbox{\hyperlink{timer__mcu_8h_source_l00033}{TIMER\+\_\+B}}, \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}, \mbox{\hyperlink{timer__mcu_8c_source_l00110}{Timer\+Start()}}, \mbox{\hyperlink{uart__mcu_8h_source_l00032}{UART\+\_\+\+PC}} y \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+\Hypertarget{guia2__ej4_8c_a10506548c0166cec6195f808a27701d6}\label{guia2__ej4_8c_a10506548c0166cec6195f808a27701d6} 
+\index{guia2\_ej4.c@{guia2\_ej4.c}!FunctionTimerA@{FunctionTimerA}}
+\index{FunctionTimerA@{FunctionTimerA}!guia2\_ej4.c@{guia2\_ej4.c}}
+\doxysubsubsection{\texorpdfstring{FunctionTimerA()}{FunctionTimerA()}}
+{\footnotesize\ttfamily void Function\+TimerA (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption})}
+
+
+
+Función de retrollamada para el temporizador A. 
+
+Esta función envia una notificacion a la tarea encargada de la digitalización de la señal analógica cuando debe ejecutarse.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em param} & Puntero al parámetro pasado al temporizador A (no utilizado). \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej4_8c_source_l00336}{336}} del archivo \mbox{\hyperlink{guia2__ej4_8c_source}{guia2\+\_\+ej4.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{guia2__ej4_8c_source_l00049}{analog\+\_\+task\+\_\+handle}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej4_8c_source_l00355}{app\+\_\+main()}}.
+
+\Hypertarget{guia2__ej4_8c_aaac5cc84aba38aa4ab933e3a00e92dfd}\label{guia2__ej4_8c_aaac5cc84aba38aa4ab933e3a00e92dfd} 
+\index{guia2\_ej4.c@{guia2\_ej4.c}!FunctionTimerB@{FunctionTimerB}}
+\index{FunctionTimerB@{FunctionTimerB}!guia2\_ej4.c@{guia2\_ej4.c}}
+\doxysubsubsection{\texorpdfstring{FunctionTimerB()}{FunctionTimerB()}}
+{\footnotesize\ttfamily void Function\+TimerB (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption})}
+
+
+
+Función de retrollamada para el temporizador B. 
+
+Esta función envia una notificacion a la tarea encargada de la de la conversión de la señal digital a analógica cuando debe ejecutarse.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em param} & Puntero al parámetro pasado al temporizador B (no utilizado). \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej4_8c_source_l00348}{348}} del archivo \mbox{\hyperlink{guia2__ej4_8c_source}{guia2\+\_\+ej4.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{guia2__ej4_8c_source_l00053}{digital\+\_\+task\+\_\+handle}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej4_8c_source_l00355}{app\+\_\+main()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{guia2__ej4_8c_a70eb4c277711016a01f43220574e42ed}\label{guia2__ej4_8c_a70eb4c277711016a01f43220574e42ed} 
+\index{guia2\_ej4.c@{guia2\_ej4.c}!analog\_task\_handle@{analog\_task\_handle}}
+\index{analog\_task\_handle@{analog\_task\_handle}!guia2\_ej4.c@{guia2\_ej4.c}}
+\doxysubsubsection{\texorpdfstring{analog\_task\_handle}{analog\_task\_handle}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t analog\+\_\+task\+\_\+handle = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Identificador de la tarea del conversor analogico a digital. 
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej4_8c_source_l00049}{49}} del archivo \mbox{\hyperlink{guia2__ej4_8c_source}{guia2\+\_\+ej4.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej4_8c_source_l00355}{app\+\_\+main()}} y \mbox{\hyperlink{guia2__ej4_8c_source_l00336}{Function\+Timer\+A()}}.
+
+\Hypertarget{guia2__ej4_8c_a11b84f885fca6e85afccc970954406c9}\label{guia2__ej4_8c_a11b84f885fca6e85afccc970954406c9} 
+\index{guia2\_ej4.c@{guia2\_ej4.c}!digital\_task\_handle@{digital\_task\_handle}}
+\index{digital\_task\_handle@{digital\_task\_handle}!guia2\_ej4.c@{guia2\_ej4.c}}
+\doxysubsubsection{\texorpdfstring{digital\_task\_handle}{digital\_task\_handle}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t digital\+\_\+task\+\_\+handle = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Identificador de la tarea del conversor digital a analogico. 
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej4_8c_source_l00053}{53}} del archivo \mbox{\hyperlink{guia2__ej4_8c_source}{guia2\+\_\+ej4.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej4_8c_source_l00355}{app\+\_\+main()}} y \mbox{\hyperlink{guia2__ej4_8c_source_l00348}{Function\+Timer\+B()}}.
+
+\Hypertarget{guia2__ej4_8c_a2dafb8b8179af8e9f4cc4df3f588e42e}\label{guia2__ej4_8c_a2dafb8b8179af8e9f4cc4df3f588e42e} 
+\index{guia2\_ej4.c@{guia2\_ej4.c}!ecg@{ecg}}
+\index{ecg@{ecg}!guia2\_ej4.c@{guia2\_ej4.c}}
+\doxysubsubsection{\texorpdfstring{ecg}{ecg}}
+{\footnotesize\ttfamily const char ecg\mbox{[}\mbox{\hyperlink{guia2__ej4_8c_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\+\_\+\+SIZE}}\mbox{]}}
+
+
+
+Vector de valores digitalizados de un ecg. 
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej4_8c_source_l00058}{58}} del archivo \mbox{\hyperlink{guia2__ej4_8c_source}{guia2\+\_\+ej4.\+c}}.
+

@@ -1,0 +1,293 @@
+\doxysubsubsection{PWM}
+\hypertarget{group___p_w_m}{}\label{group___p_w_m}\index{PWM@{PWM}}
+\doxysubsubsubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___p_w_m_ga5800a2bada92ba802e1cbdb0307f0c7b}{pwm\+\_\+out}} \mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em PWM driver for ESP-\/\+EDU board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_w_m_ga5800a2bada92ba802e1cbdb0307f0c7b}{pwm\+\_\+out}} \{ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\+\_\+0}}
+, \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\+\_\+1}}
+, \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6}{PWM\+\_\+2}}
+, \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542}{PWM\+\_\+3}}
+ \}
+\begin{DoxyCompactList}\small\item\em PWM driver for ESP-\/\+EDU board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_w_m_ga50ba8fd6442b4799b8fb9b2e2b859bbd}{PWMInit}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out, \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} gpio, uint16\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Single PWM output inicialization in selected GPIO. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___p_w_m_ga6fe31ebdc570ccdd776a7d4178566062}{PWMOn}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out)
+\begin{DoxyCompactList}\small\item\em Resume PWM output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___p_w_m_ga43660d2e059ccf15efea7fff6a5fbfe4}{PWMOff}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out)
+\begin{DoxyCompactList}\small\item\em Pause PWM output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba}{PWMSet\+Duty\+Cycle}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out, uint8\+\_\+t duty\+\_\+cycle)
+\begin{DoxyCompactList}\small\item\em Change PWM duty cycle of an PWM output. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_w_m_ga223ccf708bb17d7bfb4ffb77d57c0501}{PWMSet\+Freq}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out, uint32\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Change frequency of an PWM output. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_w_m_gad2556985508ded35e34bccc1e974fe6b}{PWMDeinit}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out)
+\begin{DoxyCompactList}\small\item\em PWM output de-\/inicialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de «typedef»}
+\Hypertarget{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}\label{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a} 
+\index{PWM@{PWM}!pwm\_out\_t@{pwm\_out\_t}}
+\index{pwm\_out\_t@{pwm\_out\_t}!PWM@{PWM}}
+\doxysubsubsubsubsection{\texorpdfstring{pwm\_out\_t}{pwm\_out\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___p_w_m_ga5800a2bada92ba802e1cbdb0307f0c7b}{pwm\+\_\+out}} \mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}}}
+
+
+
+PWM driver for ESP-\/\+EDU board. 
+
+This driver provide functions to generate PWM signals
+
+\begin{DoxyNote}{Nota}
+It can setup up to 4 PWM outputs, with independet duty cycle and frequency configuration
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 23/01/2024   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+\doxysubsubsubsection{Documentación de enumeraciones}
+\Hypertarget{group___p_w_m_ga5800a2bada92ba802e1cbdb0307f0c7b}\label{group___p_w_m_ga5800a2bada92ba802e1cbdb0307f0c7b} 
+\index{PWM@{PWM}!pwm\_out@{pwm\_out}}
+\index{pwm\_out@{pwm\_out}!PWM@{PWM}}
+\doxysubsubsubsubsection{\texorpdfstring{pwm\_out}{pwm\_out}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_w_m_ga5800a2bada92ba802e1cbdb0307f0c7b}{pwm\+\_\+out}}}
+
+
+
+PWM driver for ESP-\/\+EDU board. 
+
+This driver provide functions to generate PWM signals
+
+\begin{DoxyNote}{Nota}
+It can setup up to 4 PWM outputs, with independet duty cycle and frequency configuration
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 23/01/2024   &Document creation   \\\cline{1-2}
+\end{longtabu}
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_0@{PWM\_0}!PWM@{PWM}}\index{PWM@{PWM}!PWM\_0@{PWM\_0}}}\Hypertarget{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}\label{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740} 
+PWM\+\_\+0&PWM output 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_1@{PWM\_1}!PWM@{PWM}}\index{PWM@{PWM}!PWM\_1@{PWM\_1}}}\Hypertarget{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}\label{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703} 
+PWM\+\_\+1&PWM output 2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_2@{PWM\_2}!PWM@{PWM}}\index{PWM@{PWM}!PWM\_2@{PWM\_2}}}\Hypertarget{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6}\label{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6} 
+PWM\+\_\+2&PWM output 3 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWM\_3@{PWM\_3}!PWM@{PWM}}\index{PWM@{PWM}!PWM\_3@{PWM\_3}}}\Hypertarget{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542}\label{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542} 
+PWM\+\_\+3&PWM output 4 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{pwm__mcu_8h_source_l00033}{33}} del archivo \mbox{\hyperlink{pwm__mcu_8h_source}{pwm\+\_\+mcu.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___p_w_m_gad2556985508ded35e34bccc1e974fe6b}\label{group___p_w_m_gad2556985508ded35e34bccc1e974fe6b} 
+\index{PWM@{PWM}!PWMDeinit@{PWMDeinit}}
+\index{PWMDeinit@{PWMDeinit}!PWM@{PWM}}
+\doxysubsubsubsubsection{\texorpdfstring{PWMDeinit()}{PWMDeinit()}}
+{\footnotesize\ttfamily uint8\+\_\+t PWMDeinit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}}}]{out }\end{DoxyParamCaption})}
+
+
+
+PWM output de-\/inicialization. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em out} & PWM output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{pwm__mcu_8c_source_l00158}{158}} del archivo \mbox{\hyperlink{pwm__mcu_8c_source}{pwm\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{pwm__mcu_8h_source_l00034}{PWM\+\_\+0}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00035}{PWM\+\_\+1}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00036}{PWM\+\_\+2}} y \mbox{\hyperlink{pwm__mcu_8h_source_l00037}{PWM\+\_\+3}}.
+
+\Hypertarget{group___p_w_m_ga50ba8fd6442b4799b8fb9b2e2b859bbd}\label{group___p_w_m_ga50ba8fd6442b4799b8fb9b2e2b859bbd} 
+\index{PWM@{PWM}!PWMInit@{PWMInit}}
+\index{PWMInit@{PWMInit}!PWM@{PWM}}
+\doxysubsubsubsubsection{\texorpdfstring{PWMInit()}{PWMInit()}}
+{\footnotesize\ttfamily uint8\+\_\+t PWMInit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}}}]{out,  }\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{gpio,  }\item[{uint16\+\_\+t}]{freq }\end{DoxyParamCaption})}
+
+
+
+Single PWM output inicialization in selected GPIO. 
+
+\begin{DoxyNote}{Nota}
+When initialized PWM output start On with duty cycle 0\%.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parámetros}
+{\em out} & PWM output \\
+\hline
+{\em gpio} & GPIO pin number \\
+\hline
+{\em freq} & PWM wave frequency \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{pwm__mcu_8c_source_l00039}{39}} del archivo \mbox{\hyperlink{pwm__mcu_8c_source}{pwm\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{pwm__mcu_8h_source_l00034}{PWM\+\_\+0}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00035}{PWM\+\_\+1}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00036}{PWM\+\_\+2}} y \mbox{\hyperlink{pwm__mcu_8h_source_l00037}{PWM\+\_\+3}}.
+
+
+
+Referenciado por \mbox{\hyperlink{servo__sg90_8c_source_l00033}{Servo\+Init()}}.
+
+\Hypertarget{group___p_w_m_ga43660d2e059ccf15efea7fff6a5fbfe4}\label{group___p_w_m_ga43660d2e059ccf15efea7fff6a5fbfe4} 
+\index{PWM@{PWM}!PWMOff@{PWMOff}}
+\index{PWMOff@{PWMOff}!PWM@{PWM}}
+\doxysubsubsubsubsection{\texorpdfstring{PWMOff()}{PWMOff()}}
+{\footnotesize\ttfamily void PWMOff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}}}]{out }\end{DoxyParamCaption})}
+
+
+
+Pause PWM output. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em out} & PWM output \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{pwm__mcu_8c_source_l00098}{98}} del archivo \mbox{\hyperlink{pwm__mcu_8c_source}{pwm\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{pwm__mcu_8h_source_l00034}{PWM\+\_\+0}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00035}{PWM\+\_\+1}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00036}{PWM\+\_\+2}} y \mbox{\hyperlink{pwm__mcu_8h_source_l00037}{PWM\+\_\+3}}.
+
+\Hypertarget{group___p_w_m_ga6fe31ebdc570ccdd776a7d4178566062}\label{group___p_w_m_ga6fe31ebdc570ccdd776a7d4178566062} 
+\index{PWM@{PWM}!PWMOn@{PWMOn}}
+\index{PWMOn@{PWMOn}!PWM@{PWM}}
+\doxysubsubsubsubsection{\texorpdfstring{PWMOn()}{PWMOn()}}
+{\footnotesize\ttfamily void PWMOn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}}}]{out }\end{DoxyParamCaption})}
+
+
+
+Resume PWM output. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em out} & PWM output \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{pwm__mcu_8c_source_l00081}{81}} del archivo \mbox{\hyperlink{pwm__mcu_8c_source}{pwm\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{pwm__mcu_8h_source_l00034}{PWM\+\_\+0}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00035}{PWM\+\_\+1}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00036}{PWM\+\_\+2}} y \mbox{\hyperlink{pwm__mcu_8h_source_l00037}{PWM\+\_\+3}}.
+
+\Hypertarget{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba}\label{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba} 
+\index{PWM@{PWM}!PWMSetDutyCycle@{PWMSetDutyCycle}}
+\index{PWMSetDutyCycle@{PWMSetDutyCycle}!PWM@{PWM}}
+\doxysubsubsubsubsection{\texorpdfstring{PWMSetDutyCycle()}{PWMSetDutyCycle()}}
+{\footnotesize\ttfamily void PWMSet\+Duty\+Cycle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}}}]{out,  }\item[{uint8\+\_\+t}]{duty\+\_\+cycle }\end{DoxyParamCaption})}
+
+
+
+Change PWM duty cycle of an PWM output. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em out} & PWM output \\
+\hline
+{\em duty\+\_\+cycle} & duty cycle in \% (0 to 100) \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{pwm__mcu_8c_source_l00115}{115}} del archivo \mbox{\hyperlink{pwm__mcu_8c_source}{pwm\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{pwm__mcu_8c_source_l00017}{DC\+\_\+100}}, \mbox{\hyperlink{pwm__mcu_8c_source_l00016}{DC\+\_\+\+MAX}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00034}{PWM\+\_\+0}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00035}{PWM\+\_\+1}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00036}{PWM\+\_\+2}} y \mbox{\hyperlink{pwm__mcu_8h_source_l00037}{PWM\+\_\+3}}.
+
+
+
+Referenciado por \mbox{\hyperlink{servo__sg90_8c_source_l00051}{Servo\+Move()}}.
+
+\Hypertarget{group___p_w_m_ga223ccf708bb17d7bfb4ffb77d57c0501}\label{group___p_w_m_ga223ccf708bb17d7bfb4ffb77d57c0501} 
+\index{PWM@{PWM}!PWMSetFreq@{PWMSetFreq}}
+\index{PWMSetFreq@{PWMSetFreq}!PWM@{PWM}}
+\doxysubsubsubsubsection{\texorpdfstring{PWMSetFreq()}{PWMSetFreq()}}
+{\footnotesize\ttfamily uint8\+\_\+t PWMSet\+Freq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}}}]{out,  }\item[{uint32\+\_\+t}]{freq }\end{DoxyParamCaption})}
+
+
+
+Change frequency of an PWM output. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em out} & PWM output \\
+\hline
+{\em freq} & Frequency of PWM output (40k\+Hz máx) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{pwm__mcu_8c_source_l00140}{140}} del archivo \mbox{\hyperlink{pwm__mcu_8c_source}{pwm\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{pwm__mcu_8h_source_l00034}{PWM\+\_\+0}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00035}{PWM\+\_\+1}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00036}{PWM\+\_\+2}} y \mbox{\hyperlink{pwm__mcu_8h_source_l00037}{PWM\+\_\+3}}.
+

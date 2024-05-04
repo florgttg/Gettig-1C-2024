@@ -1,0 +1,91 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/inc/neopixel\+\_\+stripe.h}
+\hypertarget{neopixel__stripe_8h}{}\label{neopixel__stripe_8h}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/neopixel\_stripe.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/neopixel\_stripe.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}sdkconfig.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+err.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga1585c41d4e31451e1ba0899672251fd0}{BUILT\+\_\+\+IN\+\_\+\+RGB\+\_\+\+LED\+\_\+\+PIN}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a1633eaf3914293921cf5e102f5026106}{GPIO\+\_\+8}}        /\texorpdfstring{$\ast$}{*}$>$ ESP32-\/C6-\/Dev\+KitC-\/1 Neo\+Pixel it\textquotesingle{}s connected at \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a1633eaf3914293921cf5e102f5026106}{GPIO\+\_\+8}} \texorpdfstring{$\ast$}{*}/
+\begin{DoxyCompactList}\small\item\em Neo\+Pixel driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga6671e70ff1d2d50e9051e81cc1f99223}{BUILT\+\_\+\+IN\+\_\+\+RGB\+\_\+\+LED\+\_\+\+LENGTH}}~1             /\texorpdfstring{$\ast$}{*}$>$ ESP32-\/C6-\/Dev\+KitC-\/1 Neo\+Pixel has one pixel \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_gab21b8bf436d12066d07deef42b83e272}{NEOPIXEL\+\_\+\+COLOR\+\_\+\+WHITE}}~0x00\+FFFFFF  /\texorpdfstring{$\ast$}{*}$>$ Color white \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga2e1dcc1fe1f1ec8488bc4185597108f2}{NEOPIXEL\+\_\+\+COLOR\+\_\+\+RED}}~0x00\+FF0000  /\texorpdfstring{$\ast$}{*}$>$ Color red \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_gad01b5463a5171bb2fdeab894b86131b5}{NEOPIXEL\+\_\+\+COLOR\+\_\+\+ORANGE}}~0x00\+FF7\+D00  /\texorpdfstring{$\ast$}{*}$>$ Color orange \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga94c4bcd376cbef7becd93531c1031df6}{NEOPIXEL\+\_\+\+COLOR\+\_\+\+YELLOW}}~0x007\+F7\+F00  /\texorpdfstring{$\ast$}{*}$>$ Color yellow \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_gafac09aef2fe0017a3bbc6e578c062365}{NEOPIXEL\+\_\+\+COLOR\+\_\+\+LGREEN}}~0x007\+DFF00  /\texorpdfstring{$\ast$}{*}$>$ Color ligth green \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_gac8188c114d2342b3ca60466df01c7111}{NEOPIXEL\+\_\+\+COLOR\+\_\+\+GREEN}}~0x0000\+FF00  /\texorpdfstring{$\ast$}{*}$>$ Color green \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga72327279e6027cbeb0b836bd9c5c6540}{NEOPIXEL\+\_\+\+COLOR\+\_\+\+TURQUOISE}}~0x0000\+FF7D  /\texorpdfstring{$\ast$}{*}$>$ Color turquoise \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga1bbd4decd349b5f30af62223d2617742}{NEOPIXEL\+\_\+\+COLOR\+\_\+\+CYAN}}~0x0000\+F7\+F7  /\texorpdfstring{$\ast$}{*}$>$ Color cyan \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_gae190ef27b88f70b5f13936044baa1e74}{NEOPIXEL\+\_\+\+COLOR\+\_\+\+OCEAN}}~0x00007\+DFF  /\texorpdfstring{$\ast$}{*}$>$ Color ocean \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga0b34bb5f5ac15880f7ee287053559470}{NEOPIXEL\+\_\+\+COLOR\+\_\+\+BLUE}}~0x000000\+FF  /\texorpdfstring{$\ast$}{*}$>$ Color blue \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga1c1707be8a267a4d1f32640ff25a38f5}{NEOPIXEL\+\_\+\+COLOR\+\_\+\+VIOLET}}~0x007\+D00\+FF  /\texorpdfstring{$\ast$}{*}$>$ Color violet \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga85854bf074b7494c8816468f93781851}{NEOPIXEL\+\_\+\+COLOR\+\_\+\+MAGENTA}}~0x007\+F007F  /\texorpdfstring{$\ast$}{*}$>$ Color magenta \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga6eac59a3417616eea96c26c43823fbc6}{NEOPIXEL\+\_\+\+COLOR\+\_\+\+ROSE}}~0x00\+FF007D  /\texorpdfstring{$\ast$}{*}$>$ Color rose \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga3231b1cce620e883be5b2093d9934b19}{NEOPIXEL\+\_\+\+HUE\+\_\+\+RED}}~0x0000      /\texorpdfstring{$\ast$}{*}$>$ Hue red \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga9f6e9fae32ee655d56923a91ce799a40}{NEOPIXEL\+\_\+\+HUE\+\_\+\+ORANGE}}~0x1555      /\texorpdfstring{$\ast$}{*}$>$ Hue orange \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_gaddb098f967e2a711f027e7b07ba309f7}{NEOPIXEL\+\_\+\+HUE\+\_\+\+YELLOW}}~0x2\+AAA      /\texorpdfstring{$\ast$}{*}$>$ Hue yellow \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga60b6dadec3258d56ac54ced562a46cd8}{NEOPIXEL\+\_\+\+HUE\+\_\+\+LGREEN}}~0x4000      /\texorpdfstring{$\ast$}{*}$>$ Hue ligth green \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_gab35332981182a145ecb8a71461d174e0}{NEOPIXEL\+\_\+\+HUE\+\_\+\+GREEN}}~0x5555      /\texorpdfstring{$\ast$}{*}$>$ Hue green \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_gae9450fd6a0031d7a4181f2cae8807a58}{NEOPIXEL\+\_\+\+HUE\+\_\+\+TURQUOISE}}~0x6\+AAA      /\texorpdfstring{$\ast$}{*}$>$ Hue turquoise \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga93061f31a8989eb016cbfef36785139b}{NEOPIXEL\+\_\+\+HUE\+\_\+\+CYAN}}~0x8000      /\texorpdfstring{$\ast$}{*}$>$ Hue cyan \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_gab34d42267a7d66cf4849dccfae9724ff}{NEOPIXEL\+\_\+\+HUE\+\_\+\+OCEAN}}~0x9555      /\texorpdfstring{$\ast$}{*}$>$ Hue ocean \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga8531cdd3f1810183ae737e92a6d88466}{NEOPIXEL\+\_\+\+HUE\+\_\+\+BLUE}}~0x\+AAAA      /\texorpdfstring{$\ast$}{*}$>$ Hue blue \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_ga2da18f05db61923aa6173713a8cda595}{NEOPIXEL\+\_\+\+HUE\+\_\+\+VIOLET}}~0x\+C000      /\texorpdfstring{$\ast$}{*}$>$ Hue violet \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_gaee7247cbfba08510a59d249d401953ec}{NEOPIXEL\+\_\+\+HUE\+\_\+\+MAGENTA}}~0x\+D555      /\texorpdfstring{$\ast$}{*}$>$ Hue magenta \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___neo_pixel___stripe_gab5461e37a4c0e1c1cb6e1ce5d835c482}{NEOPIXEL\+\_\+\+HUE\+\_\+\+ROSE}}~0x\+EAAA      /\texorpdfstring{$\ast$}{*}$>$ Hue rose \texorpdfstring{$\ast$}{*}/
+\end{DoxyCompactItemize}
+\doxysubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint32\+\_\+t \mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em 24 bits color \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_ga1dd960cb0564070aae4f05d455a21942}{Neo\+Pixel\+Init}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin, uint16\+\_\+t len, \mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}} \texorpdfstring{$\ast$}{*}color\+\_\+array)
+\begin{DoxyCompactList}\small\item\em Neo\+Pixel array initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_ga7eda8ecf6370a5af575af2ca85eafa6d}{Neo\+Pixel\+All\+Off}} (void)
+\begin{DoxyCompactList}\small\item\em Turn off all Neo\+Pixels. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_ga00aedd9bd24d607244a314348180bdb8}{Neo\+Pixel\+All\+Color}} (\mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}} color)
+\begin{DoxyCompactList}\small\item\em Change all Neo\+Pixels in the stripe to the same color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_ga7f53683e3207e9523fc201bdc79b6025}{Neo\+Pixel\+Set\+Pixel}} (uint16\+\_\+t pixel, \mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}} color)
+\begin{DoxyCompactList}\small\item\em Set an individual pixel to a color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_ga23ae424d3a323c2e315b3f89ba857a84}{Neo\+Pixel\+Set\+Array}} (\mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}} \texorpdfstring{$\ast$}{*}color\+\_\+array)
+\begin{DoxyCompactList}\small\item\em Set all Neo\+Pixels in the array with the color stored in an array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_gac95515e3889b8cebd2f8bf0e72590d33}{Neo\+Pixel\+Shift}} (bool upwards)
+\begin{DoxyCompactList}\small\item\em Shift the all Neo\+Pixel colors in the array 1 position (up or down) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_gacebd73c47572bd32b7f578e3dd98cc2f}{Neo\+Pixel\+Brightness}} (uint8\+\_\+t bright)
+\begin{DoxyCompactList}\small\item\em Change Neo\+Pixel brightness. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}} \mbox{\hyperlink{group___neo_pixel___stripe_gaf687598b356c6dab43afa17df8014a22}{Neo\+Pixel\+Rgb2\+Color}} (uint8\+\_\+t red, uint8\+\_\+t green, uint8\+\_\+t blue)
+\begin{DoxyCompactList}\small\item\em Convert 3 individual color levels (R, G, B) to a 24bits color data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}} \mbox{\hyperlink{group___neo_pixel___stripe_ga1f293711b6af3e20c821fd26c7089111}{Neo\+Pixel\+HSV2\+Color}} (uint16\+\_\+t hue, uint8\+\_\+t sat, uint8\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Convert hue, value and saturation values to 24 bits color (using the HSV color model) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_gaa286fdaba2147e99c24195745ad30dba}{Neo\+Pixel\+Rainbow}} (uint16\+\_\+t first\+\_\+hue, uint8\+\_\+t sat, uint8\+\_\+t val, uint8\+\_\+t reps)
+\begin{DoxyCompactList}\small\item\em Set all Neo\+Pixels with a gradient of colors. \end{DoxyCompactList}\end{DoxyCompactItemize}

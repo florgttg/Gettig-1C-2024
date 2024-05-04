@@ -1,0 +1,130 @@
+\doxysection{gpio\+\_\+mcu.\+c}
+\hypertarget{gpio__mcu_8c_source}{}\label{gpio__mcu_8c_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/gpio\_mcu.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/gpio\_mcu.c}}
+\mbox{\hyperlink{gpio__mcu_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00012}00012\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio__mcu_8h}{gpio\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}driver/gpio.h"{}}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}driver/gpio\_filter.h"{}}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00017}00017\ \textcolor{comment}{/*==================[macros\ and\ definitions]=================================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00018}\mbox{\hyperlink{gpio__mcu_8c_a43abdef6af11fe32ed8edc921176c568}{00018}}\ \textcolor{preprocessor}{\#define\ GPIO\_QTY\ \ \ \ 24}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00019}\mbox{\hyperlink{gpio__mcu_8c_a4d21f8c265de2d2ab63e83038729448a}{00019}}\ \textcolor{preprocessor}{\#define\ FILTER\_QTY\ \ 8}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00020}\mbox{\hyperlink{structdigital__io__t}{00020}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00021}\mbox{\hyperlink{structdigital__io__t_af5e63535711f7fbbc6d5477690f9e487}{00021}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structdigital__io__t_af5e63535711f7fbbc6d5477690f9e487}{pin}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00022}\mbox{\hyperlink{structdigital__io__t_a23aeec8098631547d58a797b2ad857c1}{00022}}\ \ \ \ \ gpio\_mode\_t\ \mbox{\hyperlink{structdigital__io__t_a23aeec8098631547d58a797b2ad857c1}{mode}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00023}\mbox{\hyperlink{structdigital__io__t_aacb6eba5525d04b3d9be202365c49c75}{00023}}\ \ \ \ \ gpio\_pull\_mode\_t\ \mbox{\hyperlink{structdigital__io__t_aacb6eba5525d04b3d9be202365c49c75}{pull}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00024}\mbox{\hyperlink{structdigital__io__t_ab30ba07e2a0bd07a15e45a92c32db9c5}{00024}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structdigital__io__t_ab30ba07e2a0bd07a15e45a92c32db9c5}{state}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00025}00025\ \}\ \mbox{\hyperlink{structdigital__io__t}{digital\_io\_t}};}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00026}00026\ \textcolor{comment}{/*==================[internal\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00028}00028\ \textcolor{comment}{/*==================[internal\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00030}00030\ \textcolor{comment}{/*==================[internal\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00031}\mbox{\hyperlink{gpio__mcu_8c_a8018c4faafd13a4271855441e1a9b2ab}{00031}}\ \mbox{\hyperlink{structdigital__io__t}{digital\_io\_t}}\ \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[\mbox{\hyperlink{gpio__mcu_8c_a43abdef6af11fe32ed8edc921176c568}{GPIO\_QTY}}]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00032}00032\ \ \ \ \ \{GPIO\_NUM\_0,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO0*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00033}00033\ \ \ \ \ \{GPIO\_NUM\_1,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO1*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00034}00034\ \ \ \ \ \{GPIO\_NUM\_2,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO2*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00035}00035\ \ \ \ \ \{GPIO\_NUM\_3,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO3*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00036}00036\ \ \ \ \ \{GPIO\_NUM\_4,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO4*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00037}00037\ \ \ \ \ \{GPIO\_NUM\_5,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO5*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00038}00038\ \ \ \ \ \{GPIO\_NUM\_6,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO6*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00039}00039\ \ \ \ \ \{GPIO\_NUM\_7,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO7*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00040}00040\ \ \ \ \ \{GPIO\_NUM\_8,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO8*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00041}00041\ \ \ \ \ \{GPIO\_NUM\_9,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO9*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00042}00042\ \ \ \ \ \{GPIO\_NUM\_10,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO10*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00043}00043\ \ \ \ \ \{GPIO\_NUM\_11,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO11*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00044}00044\ \ \ \ \ \{GPIO\_NUM\_12,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO12*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00045}00045\ \ \ \ \ \{GPIO\_NUM\_13,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO13*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00046}00046\ \ \ \ \ \{GPIO\_NUM\_14,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO14*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00047}00047\ \ \ \ \ \{GPIO\_NUM\_15,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO15*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00048}00048\ \ \ \ \ \{GPIO\_NUM\_16,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO16*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00049}00049\ \ \ \ \ \{GPIO\_NUM\_17,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO17*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00050}00050\ \ \ \ \ \{GPIO\_NUM\_18,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO18*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00051}00051\ \ \ \ \ \{GPIO\_NUM\_19,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO19*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00052}00052\ \ \ \ \ \{GPIO\_NUM\_20,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO20*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00053}00053\ \ \ \ \ \{GPIO\_NUM\_21,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO21*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00054}00054\ \ \ \ \ \{GPIO\_NUM\_22,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO22*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00055}00055\ \ \ \ \ \{GPIO\_NUM\_23,\ GPIO\_MODE\_DISABLE,\ GPIO\_PULLUP\_ONLY,\ \textcolor{keyword}{false}\},\ \textcolor{comment}{/*\ Configuration\ GPIO23*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00056}00056\ \};}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00057}\mbox{\hyperlink{gpio__mcu_8c_aaaaf6ac395a7d5bc901d55a9b358137a}{00057}}\ gpio\_flex\_glitch\_filter\_config\_t\ \mbox{\hyperlink{gpio__mcu_8c_aaaaf6ac395a7d5bc901d55a9b358137a}{filter\_config}}\ =\ \{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00058}00058\ \ \ \ \ .clk\_src\ =\ GLITCH\_FILTER\_CLK\_SRC\_DEFAULT,}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00059}00059\ \ \ \ \ .window\_width\_ns\ =\ 700,}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00060}00060\ \ \ \ \ .window\_thres\_ns\ =\ 600,}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00061}00061\ \};}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00062}00062\ \textcolor{comment}{/*==================[external\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00064}00064\ \textcolor{comment}{/*==================[internal\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00066}00066\ \textcolor{comment}{/*==================[external\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00067}\mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{00067}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ pin,\ \mbox{\hyperlink{group___g_i_o_p_ga423620ef7d69894833f70cfc395caaa9}{io\_t}}\ io)\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{if}((pin\ ==\ \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393ada33ca57455eb7fc3c6af46dd57fea41}{GPIO\_14}})\ ||\ (pin\ >\ \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f}{GPIO\_23}}))\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{if}(io\ ==\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa1ea38ffc304a6c32480a65b5fec7302}{GPIO\_INPUT}})\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].\mbox{\hyperlink{structdigital__io__t_a23aeec8098631547d58a797b2ad857c1}{mode}}\ =\ GPIO\_MODE\_INPUT;}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00073}00073\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(io\ ==\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}})\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].mode\ =\ GPIO\_MODE\_OUTPUT;}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00075}00075\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00076}00076\ \ \ \ \ gpio\_reset\_pin(\mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].pin);}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00077}00077\ \ \ \ \ gpio\_set\_direction(\mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].pin,\ \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].mode);}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00078}00078\ \ \ \ \ gpio\_set\_pull\_mode(\mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].pin,\ \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].pull);}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00079}00079\ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00081}\mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{00081}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ pin)\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00082}00082\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].state\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00083}00083\ \ \ \ \ gpio\_set\_level(\mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].pin,\ \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].state);}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00084}00084\ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00086}\mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{00086}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ pin)\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00087}00087\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].state\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00088}00088\ \ \ \ \ gpio\_set\_level(\mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].pin,\ \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].state);}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00089}00089\ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00091}\mbox{\hyperlink{group___g_i_o_p_gaff44adf38b055e964fe7e89834eabccc}{00091}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___g_i_o_p_gaff44adf38b055e964fe7e89834eabccc}{GPIOState}}(\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ pin,\ \textcolor{keywordtype}{bool}\ state)\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].state\ =\ state;}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00093}00093\ \ \ \ \ gpio\_set\_level(\mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].pin,\ \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].state);}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00094}00094\ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00096}\mbox{\hyperlink{group___g_i_o_p_gacf7eae149edbe60c38faeb4b634b75b6}{00096}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___g_i_o_p_gacf7eae149edbe60c38faeb4b634b75b6}{GPIOToggle}}(\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ pin)\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00097}00097\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].state\ =\ !\mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].state;}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00098}00098\ \ \ \ \ gpio\_set\_level(\mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].pin,\ \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].state);}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00099}00099\ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00101}\mbox{\hyperlink{group___g_i_o_p_gab42a477acc6064150000fb4a1bd4305c}{00101}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group___g_i_o_p_gab42a477acc6064150000fb4a1bd4305c}{GPIORead}}(\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ pin)\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{return}\ gpio\_get\_level(\mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].pin);}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00103}00103\ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00105}\mbox{\hyperlink{group___g_i_o_p_gad5488fbc04a198d3d3fd3d1b04e6c5f5}{00105}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___g_i_o_p_gad5488fbc04a198d3d3fd3d1b04e6c5f5}{GPIOActivInt}}(\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ pin,\ \textcolor{keywordtype}{void}\ *ptr\_int\_func,\ \textcolor{keywordtype}{bool}\ edge,\ \textcolor{keywordtype}{void}\ *args)\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00106}00106\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ isr\_service\_installed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00107}00107\ \ \ \ \ \textcolor{keywordflow}{if}(edge)\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ gpio\_set\_intr\_type(\mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].pin,\ GPIO\_INTR\_POSEDGE);}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00109}00109\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ gpio\_set\_intr\_type(\mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].pin,\ GPIO\_INTR\_NEGEDGE);}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{if}(!isr\_service\_installed)\{\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ gpio\_install\_isr\_service(0);}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ isr\_service\_installed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00116}00116\ \ \ \ \ gpio\_isr\_handler\_add(\mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\_list}}[pin].pin,\ ptr\_int\_func,\ (\textcolor{keywordtype}{void}\ *)args);\ \ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00117}00117\ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00119}\mbox{\hyperlink{group___g_i_o_p_ga3f43faf280a63697678036bdbd434c46}{00119}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___g_i_o_p_ga3f43faf280a63697678036bdbd434c46}{GPIOInputFilter}}(\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ pin)\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00120}00120\ \ \ \ \ \textcolor{keyword}{static}\ uint8\_t\ filter\_count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00121}00121\ \ \ \ \ gpio\_glitch\_filter\_handle\_t\ filter;}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{if}(filter\_count\ <\ \mbox{\hyperlink{gpio__mcu_8c_a4d21f8c265de2d2ab63e83038729448a}{FILTER\_QTY}})\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ filter\_count++;}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gpio__mcu_8c_aaaaf6ac395a7d5bc901d55a9b358137a}{filter\_config}}.gpio\_num\ =\ pin;}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ gpio\_new\_flex\_glitch\_filter(\&\mbox{\hyperlink{gpio__mcu_8c_aaaaf6ac395a7d5bc901d55a9b358137a}{filter\_config}},\ \&filter);}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ gpio\_glitch\_filter\_enable(filter);}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00127}00127\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00128}00128\ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00130}\mbox{\hyperlink{group___g_i_o_p_gaa3ab377728bae4c84463cb75c266b60b}{00130}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___g_i_o_p_gaa3ab377728bae4c84463cb75c266b60b}{GPIODeinit}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00131}00131\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00132}00132\ \}}
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{gpio__mcu_8c_source_l00135}00135\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

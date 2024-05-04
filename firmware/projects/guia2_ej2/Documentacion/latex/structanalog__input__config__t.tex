@@ -1,0 +1,98 @@
+\doxysection{Referencia de la estructura analog\+\_\+input\+\_\+config\+\_\+t}
+\hypertarget{structanalog__input__config__t}{}\label{structanalog__input__config__t}\index{analog\_input\_config\_t@{analog\_input\_config\_t}}
+
+
+Analog inputs config structure.  
+
+
+
+
+{\ttfamily \#include $<$analog\+\_\+io\+\_\+mcu.\+h$>$}
+
+\doxysubsubsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}} \mbox{\hyperlink{structanalog__input__config__t_a16d10b35d778a5d4fdbda4d75981d310}{input}}
+\item 
+\mbox{\hyperlink{group___analog___i_o_ga3e4744e022398e776a8dbdd97903a629}{adc\+\_\+mode\+\_\+t}} \mbox{\hyperlink{structanalog__input__config__t_a56cce61871ae1c1c5317d84d747f87c1}{mode}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structanalog__input__config__t_a672985730d2c0cf9105559adc9759a3a}{func\+\_\+p}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structanalog__input__config__t_aad5f5715cb799d57b86e98fe3bf701e1}{param\+\_\+p}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structanalog__input__config__t_a25204106348e34dfe9da6ac6e61b08c8}{sample\+\_\+frec}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Analog inputs config structure. 
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8h_source_l00048}{48}} del archivo \mbox{\hyperlink{analog__io__mcu_8h_source}{analog\+\_\+io\+\_\+mcu.\+h}}.
+
+
+
+\doxysubsection{Documentación de campos}
+\Hypertarget{structanalog__input__config__t_a672985730d2c0cf9105559adc9759a3a}\label{structanalog__input__config__t_a672985730d2c0cf9105559adc9759a3a} 
+\index{analog\_input\_config\_t@{analog\_input\_config\_t}!func\_p@{func\_p}}
+\index{func\_p@{func\_p}!analog\_input\_config\_t@{analog\_input\_config\_t}}
+\doxysubsubsection{\texorpdfstring{func\_p}{func\_p}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} func\+\_\+p}
+
+Pointer to callback function for convertion end (only for continuous mode) 
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8h_source_l00051}{51}} del archivo \mbox{\hyperlink{analog__io__mcu_8h_source}{analog\+\_\+io\+\_\+mcu.\+h}}.
+
+\Hypertarget{structanalog__input__config__t_a16d10b35d778a5d4fdbda4d75981d310}\label{structanalog__input__config__t_a16d10b35d778a5d4fdbda4d75981d310} 
+\index{analog\_input\_config\_t@{analog\_input\_config\_t}!input@{input}}
+\index{input@{input}!analog\_input\_config\_t@{analog\_input\_config\_t}}
+\doxysubsubsection{\texorpdfstring{input}{input}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}} input}
+
+Inputs\+: CH0, CH1, CH2, CH3 
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8h_source_l00049}{49}} del archivo \mbox{\hyperlink{analog__io__mcu_8h_source}{analog\+\_\+io\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{analog__io__mcu_8c_source_l00045}{Analog\+Input\+Init()}}.
+
+\Hypertarget{structanalog__input__config__t_a56cce61871ae1c1c5317d84d747f87c1}\label{structanalog__input__config__t_a56cce61871ae1c1c5317d84d747f87c1} 
+\index{analog\_input\_config\_t@{analog\_input\_config\_t}!mode@{mode}}
+\index{mode@{mode}!analog\_input\_config\_t@{analog\_input\_config\_t}}
+\doxysubsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___analog___i_o_ga3e4744e022398e776a8dbdd97903a629}{adc\+\_\+mode\+\_\+t}} mode}
+
+Mode\+: single read or continuous read 
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8h_source_l00050}{50}} del archivo \mbox{\hyperlink{analog__io__mcu_8h_source}{analog\+\_\+io\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{analog__io__mcu_8c_source_l00045}{Analog\+Input\+Init()}}.
+
+\Hypertarget{structanalog__input__config__t_aad5f5715cb799d57b86e98fe3bf701e1}\label{structanalog__input__config__t_aad5f5715cb799d57b86e98fe3bf701e1} 
+\index{analog\_input\_config\_t@{analog\_input\_config\_t}!param\_p@{param\_p}}
+\index{param\_p@{param\_p}!analog\_input\_config\_t@{analog\_input\_config\_t}}
+\doxysubsubsection{\texorpdfstring{param\_p}{param\_p}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} param\+\_\+p}
+
+Pointer to callback function parameters (only for continuous mode) 
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8h_source_l00052}{52}} del archivo \mbox{\hyperlink{analog__io__mcu_8h_source}{analog\+\_\+io\+\_\+mcu.\+h}}.
+
+\Hypertarget{structanalog__input__config__t_a25204106348e34dfe9da6ac6e61b08c8}\label{structanalog__input__config__t_a25204106348e34dfe9da6ac6e61b08c8} 
+\index{analog\_input\_config\_t@{analog\_input\_config\_t}!sample\_frec@{sample\_frec}}
+\index{sample\_frec@{sample\_frec}!analog\_input\_config\_t@{analog\_input\_config\_t}}
+\doxysubsubsection{\texorpdfstring{sample\_frec}{sample\_frec}}
+{\footnotesize\ttfamily uint16\+\_\+t sample\+\_\+frec}
+
+Sample frequency min\+: 20k\+Hz -\/ max\+: 2MHz (only for continuous mode) ~\newline
+ 
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8h_source_l00053}{53}} del archivo \mbox{\hyperlink{analog__io__mcu_8h_source}{analog\+\_\+io\+\_\+mcu.\+h}}.
+
+
+
+La documentación de esta estructura está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/inc/\mbox{\hyperlink{analog__io__mcu_8h}{analog\+\_\+io\+\_\+mcu.\+h}}\end{DoxyCompactItemize}

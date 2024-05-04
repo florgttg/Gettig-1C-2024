@@ -1,0 +1,262 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+Gettig-\/1\+C-\/2024/firmware/projects/guia2\+\_\+ej2/main/guia2\+\_\+ej2.c}
+\hypertarget{guia2__ej2_8c}{}\label{guia2__ej2_8c}\index{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/guia2\_ej2/main/guia2\_ej2.c@{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/guia2\_ej2/main/guia2\_ej2.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}freertos/\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/task.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}lcditse0803.\+h"{}}\newline
+{\ttfamily \#include "{}led.\+h"{}}\newline
+{\ttfamily \#include "{}switch.\+h"{}}\newline
+{\ttfamily \#include "{}hc\+\_\+sr04.\+h"{}}\newline
+{\ttfamily \#include "{}timer\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{guia2__ej2_8c_a7b975dec27ec560e3ac6e17e6ce20013}{CONFIG\+\_\+\+TIMER\+\_\+\+PERIOD}}~1000000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{guia2__ej2_8c_abbc3b8429519e25c8ad9c610cbcec08b}{control\+LED}} (uint16\+\_\+t distancia)
+\begin{DoxyCompactList}\small\item\em Controla los LEDs según la distancia medida. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{guia2__ej2_8c_af53c19770b4e736dfeaee7aaf2fb2081}{Task\+\_\+measure}} (void \texorpdfstring{$\ast$}{*}pv\+Parameter)
+\begin{DoxyCompactList}\small\item\em Tarea para medir la distancia y mostrarla. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{guia2__ej2_8c_a0e8d7ec6bda79bc092ef03c843bcb1c9}{Function\+Hold}} ()
+\begin{DoxyCompactList}\small\item\em Función para cambiar el estado de hold. Se utiliza para manejo de interrupciones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{guia2__ej2_8c_a0febcf7c0dda3de61859f3046a104fc2}{Function\+Start}} ()
+\begin{DoxyCompactList}\small\item\em Función para cambiar el estado de start. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{guia2__ej2_8c_aaac5cc84aba38aa4ab933e3a00e92dfd}{Function\+TimerB}} (void \texorpdfstring{$\ast$}{*}param)
+\begin{DoxyCompactList}\small\item\em Función de callback del Timer que envia la notificación a la tarea Task\+\_\+measure para que realice una medición de distancia. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{guia2__ej2_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}{app\+\_\+main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{guia2__ej2_8c_ab376b87f96a574a793c03c53e75afec8}{start}} = false
+\begin{DoxyCompactList}\small\item\em Indicador del estado de inicio de la medición. Esta variable global booleana indica si la medición está en curso (true) o no (false). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{guia2__ej2_8c_af0129e079b57e897edf00f22cc25f3d4}{hold}} = false
+\begin{DoxyCompactList}\small\item\em Indicador del estado de retención de la medición. Esta variable global booleana indica si la medición está en estado de retención (true) o no (false). \end{DoxyCompactList}\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{guia2__ej2_8c_ac22ee0f4de1e8eb682232f04b2ac1e3c}{measure\+\_\+task\+\_\+handle}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\begin{DoxyCompactList}\small\item\em Identificador de la tarea de medición. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{guia2__ej2_8c_a7b975dec27ec560e3ac6e17e6ce20013}\label{guia2__ej2_8c_a7b975dec27ec560e3ac6e17e6ce20013} 
+\index{guia2\_ej2.c@{guia2\_ej2.c}!CONFIG\_TIMER\_PERIOD@{CONFIG\_TIMER\_PERIOD}}
+\index{CONFIG\_TIMER\_PERIOD@{CONFIG\_TIMER\_PERIOD}!guia2\_ej2.c@{guia2\_ej2.c}}
+\doxysubsubsection{\texorpdfstring{CONFIG\_TIMER\_PERIOD}{CONFIG\_TIMER\_PERIOD}}
+{\footnotesize\ttfamily \#define CONFIG\+\_\+\+TIMER\+\_\+\+PERIOD~1000000}
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej2_8c_source_l00048}{48}} del archivo \mbox{\hyperlink{guia2__ej2_8c_source}{guia2\+\_\+ej2.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00164}{app\+\_\+main()}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{guia2__ej2_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}\label{guia2__ej2_8c_a630544a7f0a2cc40d8a7fefab7e2fe70} 
+\index{guia2\_ej2.c@{guia2\_ej2.c}!app\_main@{app\_main}}
+\index{app\_main@{app\_main}!guia2\_ej2.c@{guia2\_ej2.c}}
+\doxysubsubsection{\texorpdfstring{app\_main()}{app\_main()}}
+{\footnotesize\ttfamily void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej2_8c_source_l00164}{164}} del archivo \mbox{\hyperlink{guia2__ej2_8c_source}{guia2\+\_\+ej2.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{guia2__ej2_8c_source_l00048}{CONFIG\+\_\+\+TIMER\+\_\+\+PERIOD}}, \mbox{\hyperlink{guia2__ej2_8c_source_l00144}{Function\+Hold()}}, \mbox{\hyperlink{guia2__ej2_8c_source_l00151}{Function\+Start()}}, \mbox{\hyperlink{guia2__ej2_8c_source_l00159}{Function\+Timer\+B()}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00054}{GPIO\+\_\+2}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00055}{GPIO\+\_\+3}}, \mbox{\hyperlink{hc__sr04_8c_source_l00034}{Hc\+Sr04\+Init()}}, \mbox{\hyperlink{lcditse0803_8c_source_l00037}{Lcd\+Its\+E0803\+Init()}}, \mbox{\hyperlink{led_8c_source_l00031}{Leds\+Init()}}, \mbox{\hyperlink{guia2__ej2_8c_source_l00063}{measure\+\_\+task\+\_\+handle}}, \mbox{\hyperlink{ili9341_8c_source_l00042}{NULL}}, \mbox{\hyperlink{switch_8h_source_l00032}{SWITCH\+\_\+1}}, \mbox{\hyperlink{switch_8h_source_l00033}{SWITCH\+\_\+2}}, \mbox{\hyperlink{switch_8c_source_l00047}{Switch\+Activ\+Int()}}, \mbox{\hyperlink{switch_8c_source_l00029}{Switches\+Init()}}, \mbox{\hyperlink{guia2__ej2_8c_source_l00114}{Task\+\_\+measure()}}, \mbox{\hyperlink{timer__mcu_8h_source_l00040}{timer\+\_\+config\+\_\+t\+::timer}}, \mbox{\hyperlink{timer__mcu_8h_source_l00032}{TIMER\+\_\+A}}, \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}} y \mbox{\hyperlink{timer__mcu_8c_source_l00110}{Timer\+Start()}}.
+
+\Hypertarget{guia2__ej2_8c_abbc3b8429519e25c8ad9c610cbcec08b}\label{guia2__ej2_8c_abbc3b8429519e25c8ad9c610cbcec08b} 
+\index{guia2\_ej2.c@{guia2\_ej2.c}!controlLED@{controlLED}}
+\index{controlLED@{controlLED}!guia2\_ej2.c@{guia2\_ej2.c}}
+\doxysubsubsection{\texorpdfstring{controlLED()}{controlLED()}}
+{\footnotesize\ttfamily void control\+LED (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{distancia }\end{DoxyParamCaption})}
+
+
+
+Controla los LEDs según la distancia medida. 
+
+Esta función controla los LEDs según la distancia medida, siguiendo las siguientes reglas\+:
+\begin{DoxyItemize}
+\item Si la distancia es menor a 10 cm, apaga todos los LEDs.
+\item Si la distancia está entre 10 y 20 cm, enciende el LED\+\_\+1 y apaga el LED\+\_\+2 y LED\+\_\+3.
+\item Si la distancia está entre 20 y 30 cm, enciende el LED\+\_\+1 y LED\+\_\+2 y apaga el LED\+\_\+3.
+\item Si la distancia es mayor a 30 cm, enciende todos los LEDs.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em distancia} & La distancia medida en centímetros. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej2_8c_source_l00077}{77}} del archivo \mbox{\hyperlink{guia2__ej2_8c_source}{guia2\+\_\+ej2.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{led_8h_source_l00034}{LED\+\_\+1}}, \mbox{\hyperlink{led_8h_source_l00033}{LED\+\_\+2}}, \mbox{\hyperlink{led_8h_source_l00032}{LED\+\_\+3}}, \mbox{\hyperlink{led_8c_source_l00065}{Led\+Off()}}, \mbox{\hyperlink{led_8c_source_l00046}{Led\+On()}} y \mbox{\hyperlink{led_8c_source_l00105}{Leds\+Off\+All()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00114}{Task\+\_\+measure()}}.
+
+\Hypertarget{guia2__ej2_8c_a0e8d7ec6bda79bc092ef03c843bcb1c9}\label{guia2__ej2_8c_a0e8d7ec6bda79bc092ef03c843bcb1c9} 
+\index{guia2\_ej2.c@{guia2\_ej2.c}!FunctionHold@{FunctionHold}}
+\index{FunctionHold@{FunctionHold}!guia2\_ej2.c@{guia2\_ej2.c}}
+\doxysubsubsection{\texorpdfstring{FunctionHold()}{FunctionHold()}}
+{\footnotesize\ttfamily void Function\+Hold (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Función para cambiar el estado de hold. Se utiliza para manejo de interrupciones. 
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej2_8c_source_l00144}{144}} del archivo \mbox{\hyperlink{guia2__ej2_8c_source}{guia2\+\_\+ej2.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{guia2__ej2_8c_source_l00059}{hold}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00164}{app\+\_\+main()}}.
+
+\Hypertarget{guia2__ej2_8c_a0febcf7c0dda3de61859f3046a104fc2}\label{guia2__ej2_8c_a0febcf7c0dda3de61859f3046a104fc2} 
+\index{guia2\_ej2.c@{guia2\_ej2.c}!FunctionStart@{FunctionStart}}
+\index{FunctionStart@{FunctionStart}!guia2\_ej2.c@{guia2\_ej2.c}}
+\doxysubsubsection{\texorpdfstring{FunctionStart()}{FunctionStart()}}
+{\footnotesize\ttfamily void Function\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Función para cambiar el estado de start. 
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej2_8c_source_l00151}{151}} del archivo \mbox{\hyperlink{guia2__ej2_8c_source}{guia2\+\_\+ej2.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{guia2__ej2_8c_source_l00054}{start}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00164}{app\+\_\+main()}}.
+
+\Hypertarget{guia2__ej2_8c_aaac5cc84aba38aa4ab933e3a00e92dfd}\label{guia2__ej2_8c_aaac5cc84aba38aa4ab933e3a00e92dfd} 
+\index{guia2\_ej2.c@{guia2\_ej2.c}!FunctionTimerB@{FunctionTimerB}}
+\index{FunctionTimerB@{FunctionTimerB}!guia2\_ej2.c@{guia2\_ej2.c}}
+\doxysubsubsection{\texorpdfstring{FunctionTimerB()}{FunctionTimerB()}}
+{\footnotesize\ttfamily void Function\+TimerB (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption})}
+
+
+
+Función de callback del Timer que envia la notificación a la tarea Task\+\_\+measure para que realice una medición de distancia. 
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej2_8c_source_l00159}{159}} del archivo \mbox{\hyperlink{guia2__ej2_8c_source}{guia2\+\_\+ej2.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{guia2__ej2_8c_source_l00063}{measure\+\_\+task\+\_\+handle}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00164}{app\+\_\+main()}}.
+
+\Hypertarget{guia2__ej2_8c_af53c19770b4e736dfeaee7aaf2fb2081}\label{guia2__ej2_8c_af53c19770b4e736dfeaee7aaf2fb2081} 
+\index{guia2\_ej2.c@{guia2\_ej2.c}!Task\_measure@{Task\_measure}}
+\index{Task\_measure@{Task\_measure}!guia2\_ej2.c@{guia2\_ej2.c}}
+\doxysubsubsection{\texorpdfstring{Task\_measure()}{Task\_measure()}}
+{\footnotesize\ttfamily void Task\+\_\+measure (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameter }\end{DoxyParamCaption})}
+
+
+
+Tarea para medir la distancia y mostrarla. 
+
+Esta tarea cuando recibe una notificacion y si el bool "{}start"{} es verdadero se encarga de medir la distancia utilizando un sensor ultrasónico y mostrarla en un display LCD. Además, controla el encendido y apagado de los LEDs utilizando la funcion control\+LED. La tarea actualiza el display LCD con el valor de la distancia, excepto si se activa la función "{}hold"{}, que mantiene el último valor mostrado.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pv\+Parameter} & Puntero a parámetro pasado a la tarea (no utilizado). \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej2_8c_source_l00114}{114}} del archivo \mbox{\hyperlink{guia2__ej2_8c_source}{guia2\+\_\+ej2.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{guia2__ej2_8c_source_l00077}{control\+LED()}}, \mbox{\hyperlink{hc__sr04_8c_source_l00045}{Hc\+Sr04\+Read\+Distance\+In\+Centimeters()}}, \mbox{\hyperlink{guia2__ej2_8c_source_l00059}{hold}}, \mbox{\hyperlink{lcditse0803_8c_source_l00087}{Lcd\+Its\+E0803\+Off()}}, \mbox{\hyperlink{lcditse0803_8c_source_l00054}{Lcd\+Its\+E0803\+Write()}}, \mbox{\hyperlink{led_8c_source_l00105}{Leds\+Off\+All()}} y \mbox{\hyperlink{guia2__ej2_8c_source_l00054}{start}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00164}{app\+\_\+main()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{guia2__ej2_8c_af0129e079b57e897edf00f22cc25f3d4}\label{guia2__ej2_8c_af0129e079b57e897edf00f22cc25f3d4} 
+\index{guia2\_ej2.c@{guia2\_ej2.c}!hold@{hold}}
+\index{hold@{hold}!guia2\_ej2.c@{guia2\_ej2.c}}
+\doxysubsubsection{\texorpdfstring{hold}{hold}}
+{\footnotesize\ttfamily bool hold = false}
+
+
+
+Indicador del estado de retención de la medición. Esta variable global booleana indica si la medición está en estado de retención (true) o no (false). 
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej2_8c_source_l00059}{59}} del archivo \mbox{\hyperlink{guia2__ej2_8c_source}{guia2\+\_\+ej2.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00144}{Function\+Hold()}} y \mbox{\hyperlink{guia2__ej2_8c_source_l00114}{Task\+\_\+measure()}}.
+
+\Hypertarget{guia2__ej2_8c_ac22ee0f4de1e8eb682232f04b2ac1e3c}\label{guia2__ej2_8c_ac22ee0f4de1e8eb682232f04b2ac1e3c} 
+\index{guia2\_ej2.c@{guia2\_ej2.c}!measure\_task\_handle@{measure\_task\_handle}}
+\index{measure\_task\_handle@{measure\_task\_handle}!guia2\_ej2.c@{guia2\_ej2.c}}
+\doxysubsubsection{\texorpdfstring{measure\_task\_handle}{measure\_task\_handle}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t measure\+\_\+task\+\_\+handle = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Identificador de la tarea de medición. 
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej2_8c_source_l00063}{63}} del archivo \mbox{\hyperlink{guia2__ej2_8c_source}{guia2\+\_\+ej2.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00164}{app\+\_\+main()}} y \mbox{\hyperlink{guia2__ej2_8c_source_l00159}{Function\+Timer\+B()}}.
+
+\Hypertarget{guia2__ej2_8c_ab376b87f96a574a793c03c53e75afec8}\label{guia2__ej2_8c_ab376b87f96a574a793c03c53e75afec8} 
+\index{guia2\_ej2.c@{guia2\_ej2.c}!start@{start}}
+\index{start@{start}!guia2\_ej2.c@{guia2\_ej2.c}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily bool start = false}
+
+
+
+Indicador del estado de inicio de la medición. Esta variable global booleana indica si la medición está en curso (true) o no (false). 
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej2_8c_source_l00054}{54}} del archivo \mbox{\hyperlink{guia2__ej2_8c_source}{guia2\+\_\+ej2.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00151}{Function\+Start()}} y \mbox{\hyperlink{guia2__ej2_8c_source_l00114}{Task\+\_\+measure()}}.
+

@@ -1,0 +1,32 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/inc/led.h}
+\hypertarget{led_8h}{}\label{led_8h}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/led.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/led.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___l_e_d_gab6831a7d06c0a2bc69f9b024f6445a80}{LEDs}} \mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em LED driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___l_e_d_gab6831a7d06c0a2bc69f9b024f6445a80}{LEDs}} \{ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3}{LED\+\_\+3}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0)
+, \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41}{LED\+\_\+2}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1)
+, \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b}{LED\+\_\+1}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2)
+ \}
+\begin{DoxyCompactList}\small\item\em LED driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l_e_d_gacba669c3e8f52e45d1bea50c2e63b250}{Leds\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em ESP-\/\+EDU LEDs initialization. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l_e_d_ga883021aaef65f080a52b1852172ecbc3}{Led\+On}} (\mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\+\_\+t}} led)
+\begin{DoxyCompactList}\small\item\em Turn on a specific LED. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l_e_d_ga4fd07c9f7fab15d0d07389a38f4a39d8}{Led\+Off}} (\mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\+\_\+t}} led)
+\begin{DoxyCompactList}\small\item\em Turn off a specific LED. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l_e_d_ga787ec5815e0eb2680bf1845562731beb}{Led\+Toggle}} (\mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\+\_\+t}} led)
+\begin{DoxyCompactList}\small\item\em Invert a specific LED state. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l_e_d_gafcc4fefa23689ea53feedb349c8a9eb6}{Leds\+Off\+All}} (void)
+\begin{DoxyCompactList}\small\item\em Turn off all LEDs. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l_e_d_gaf0920e222837036abc96894b17b93b34}{Leds\+Mask}} (uint8\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Turn on or off leds from a mask. \end{DoxyCompactList}\end{DoxyCompactItemize}

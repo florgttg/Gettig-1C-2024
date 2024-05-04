@@ -1,0 +1,32 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/inc/timer\+\_\+mcu.h}
+\hypertarget{timer__mcu_8h}{}\label{timer__mcu_8h}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/timer\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/timer\_mcu.h}}
+{\ttfamily \#include "{}stdint.\+h"{}}\newline
+\doxysubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtimer__config__t}{timer\+\_\+config\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Timer configuration struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___timer_gacc4e64394d03a6e790f8e52c674534d9}{timers}} \mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Timer driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___timer_gacc4e64394d03a6e790f8e52c674534d9}{timers}} \{ \mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598}{TIMER\+\_\+A}}
+, \mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f}{TIMER\+\_\+B}}
+, \mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d}{TIMER\+\_\+C}}
+ \}
+\begin{DoxyCompactList}\small\item\em Timer driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___timer_gae8617c0d176463a60441464ad26563f6}{Timer\+Init}} (\mbox{\hyperlink{structtimer__config__t}{timer\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+ini)
+\begin{DoxyCompactList}\small\item\em Timer initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___timer_ga0b1779c5b8f91cc83c8bfd127071ea2f}{Timer\+Start}} (\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}} timer)
+\begin{DoxyCompactList}\small\item\em Start timer count. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___timer_ga0860e7ffff656386879c7dcd600d0629}{Timer\+Stop}} (\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}} timer)
+\begin{DoxyCompactList}\small\item\em Pause timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___timer_ga80ed309959e5a179f5676ed4af547fa1}{Timer\+Reset}} (\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}} timer)
+\begin{DoxyCompactList}\small\item\em Reset timer count to 0. \end{DoxyCompactList}\end{DoxyCompactItemize}

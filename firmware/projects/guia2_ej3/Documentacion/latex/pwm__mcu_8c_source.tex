@@ -1,0 +1,172 @@
+\doxysection{pwm\+\_\+mcu.\+c}
+\hypertarget{pwm__mcu_8c_source}{}\label{pwm__mcu_8c_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/pwm\_mcu.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/pwm\_mcu.c}}
+\mbox{\hyperlink{pwm__mcu_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00012}00012\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{pwm__mcu_8h}{pwm\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}driver/ledc.h"{}}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00015}00015\ \textcolor{comment}{/*==================[macros\ and\ definitions]=================================*/}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00016}\mbox{\hyperlink{pwm__mcu_8c_a701d2222601b84faafa94cb1909df104}{00016}}\ \textcolor{preprocessor}{\#define\ DC\_MAX\ \ 1023}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00017}\mbox{\hyperlink{pwm__mcu_8c_a684bac99a5de1348b0cf76f80c31ae3d}{00017}}\ \textcolor{preprocessor}{\#define\ DC\_100\ \ 100}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00018}00018\ \textcolor{comment}{/*==================[internal\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00019}00019\ \textcolor{keyword}{static}\ ledc\_timer\_config\_t\ pwm\_timer\_cfg\ =\ \{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00020}00020\ \ \ \ \ .speed\_mode\ \ \ \ \ \ \ =\ LEDC\_LOW\_SPEED\_MODE,}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00021}00021\ \ \ \ \ .duty\_resolution\ \ =\ LEDC\_TIMER\_10\_BIT,}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00022}00022\ \ \ \ \ .clk\_cfg\ \ \ \ \ \ \ \ \ \ =\ LEDC\_AUTO\_CLK}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00023}00023\ \};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00024}00024\ \textcolor{keyword}{static}\ ledc\_channel\_config\_t\ ledc\_channel\_cfg\ =\ \{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00025}00025\ \ \ \ \ .speed\_mode\ \ \ \ \ =\ LEDC\_LOW\_SPEED\_MODE,}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00026}00026\ \ \ \ \ .intr\_type\ \ \ \ \ \ =\ LEDC\_INTR\_DISABLE,}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00027}00027\ \ \ \ \ .duty\ \ \ \ \ \ \ \ \ \ \ =\ 0,\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00028}00028\ \ \ \ \ .hpoint\ \ \ \ \ \ \ \ \ =\ 0}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00029}00029\ \};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00030}00030\ \textcolor{comment}{/*==================[internal\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00032}00032\ \textcolor{comment}{/*==================[internal\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00034}00034\ \textcolor{comment}{/*==================[external\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00036}00036\ \textcolor{comment}{/*==================[internal\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00038}00038\ \textcolor{comment}{/*==================[external\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00039}\mbox{\hyperlink{group___p_w_m_ga50ba8fd6442b4799b8fb9b2e2b859bbd}{00039}}\ uint8\_t\ \mbox{\hyperlink{group___p_w_m_ga50ba8fd6442b4799b8fb9b2e2b859bbd}{PWMInit}}(\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\_out\_t}}\ out,\ \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ gpio,\ uint16\_t\ freq)\{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{switch}(out)\{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\_0}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ pwm\_timer\_cfg.freq\_hz\ =\ freq;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ pwm\_timer\_cfg.timer\_num\ =\ LEDC\_TIMER\_0;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_timer\_config(\&pwm\_timer\_cfg);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_cfg.channel\ =\ LEDC\_CHANNEL\_0;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_cfg.timer\_sel\ =\ LEDC\_TIMER\_0;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_cfg.gpio\_num\ =\ gpio;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_config(\&ledc\_channel\_cfg);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ pwm\_timer\_cfg.freq\_hz\ =\ freq;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ pwm\_timer\_cfg.timer\_num\ =\ LEDC\_TIMER\_1;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_timer\_config(\&pwm\_timer\_cfg);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_cfg.channel\ =\ LEDC\_CHANNEL\_1;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_cfg.timer\_sel\ =\ LEDC\_TIMER\_1;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_cfg.gpio\_num\ =\ gpio;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_config(\&ledc\_channel\_cfg);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6}{PWM\_2}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ pwm\_timer\_cfg.freq\_hz\ =\ freq;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ pwm\_timer\_cfg.timer\_num\ =\ LEDC\_TIMER\_2;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_timer\_config(\&pwm\_timer\_cfg);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_cfg.channel\ =\ LEDC\_CHANNEL\_2;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_cfg.timer\_sel\ =\ LEDC\_TIMER\_2;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_cfg.gpio\_num\ =\ gpio;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_config(\&ledc\_channel\_cfg);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542}{PWM\_3}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ pwm\_timer\_cfg.freq\_hz\ =\ freq;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ pwm\_timer\_cfg.timer\_num\ =\ LEDC\_TIMER\_3;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_timer\_config(\&pwm\_timer\_cfg);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_cfg.channel\ =\ LEDC\_CHANNEL\_3;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_cfg.timer\_sel\ =\ LEDC\_TIMER\_3;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_cfg.gpio\_num\ =\ gpio;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_config(\&ledc\_channel\_cfg);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00077}00077\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00079}00079\ \}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00081}\mbox{\hyperlink{group___p_w_m_ga6fe31ebdc570ccdd776a7d4178566062}{00081}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_m_ga6fe31ebdc570ccdd776a7d4178566062}{PWMOn}}(\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\_out\_t}}\ out)\{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00082}00082\ \ \ \ \ \textcolor{keywordflow}{switch}(out)\{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\_0}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_timer\_resume(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_0);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_timer\_resume(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_1);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6}{PWM\_2}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_timer\_resume(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_2);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542}{PWM\_3}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_timer\_resume(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_3);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00095}00095\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00096}00096\ \}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00098}\mbox{\hyperlink{group___p_w_m_ga43660d2e059ccf15efea7fff6a5fbfe4}{00098}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_m_ga43660d2e059ccf15efea7fff6a5fbfe4}{PWMOff}}(\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\_out\_t}}\ out)\{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{switch}(out)\{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\_0}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_timer\_pause(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_0);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_timer\_pause(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_1);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6}{PWM\_2}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_timer\_pause(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_2);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542}{PWM\_3}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_timer\_pause(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_3);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00112}00112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00113}00113\ \}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00115}\mbox{\hyperlink{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba}{00115}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba}{PWMSetDutyCycle}}(\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\_out\_t}}\ out,\ uint8\_t\ duty\_cycle)\{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00116}00116\ \ \ \ \ \textcolor{keywordflow}{if}(duty\_cycle\ >\ \mbox{\hyperlink{pwm__mcu_8c_a684bac99a5de1348b0cf76f80c31ae3d}{DC\_100}})\{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ duty\_cycle\ =\ \mbox{\hyperlink{pwm__mcu_8c_a684bac99a5de1348b0cf76f80c31ae3d}{DC\_100}};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00118}00118\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00119}00119\ \ \ \ \ uint32\_t\ dc\ =\ ((uint32\_t)duty\_cycle\ *\ \mbox{\hyperlink{pwm__mcu_8c_a701d2222601b84faafa94cb1909df104}{DC\_MAX}})\ /\ \mbox{\hyperlink{pwm__mcu_8c_a684bac99a5de1348b0cf76f80c31ae3d}{DC\_100}};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00120}00120\ \ \ \ \ \textcolor{keywordflow}{switch}(out)\{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\_0}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_set\_duty(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_0,\ dc);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_update\_duty(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_0);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_set\_duty(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_1,\ dc);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_update\_duty(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_1);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6}{PWM\_2}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_set\_duty(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_2,\ dc);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_update\_duty(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_2);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542}{PWM\_3}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_set\_duty(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_3,\ dc);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_update\_duty(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_3);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00137}00137\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00138}00138\ \}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00140}\mbox{\hyperlink{group___p_w_m_ga223ccf708bb17d7bfb4ffb77d57c0501}{00140}}\ uint8\_t\ \mbox{\hyperlink{group___p_w_m_ga223ccf708bb17d7bfb4ffb77d57c0501}{PWMSetFreq}}(\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\_out\_t}}\ out,\ uint32\_t\ freq)\{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00141}00141\ \ \ \ \ \textcolor{keywordflow}{switch}(out)\{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\_0}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_set\_freq(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_0,\ freq);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_set\_freq(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_1,\ freq);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6}{PWM\_2}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_set\_freq(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_2,\ freq);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542}{PWM\_3}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_set\_freq(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_TIMER\_3,\ freq);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00154}00154\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00155}00155\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00156}00156\ \}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00158}\mbox{\hyperlink{group___p_w_m_gad2556985508ded35e34bccc1e974fe6b}{00158}}\ uint8\_t\ \mbox{\hyperlink{group___p_w_m_gad2556985508ded35e34bccc1e974fe6b}{PWMDeinit}}(\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\_out\_t}}\ out)\{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00159}00159\ \ \ \ \ \textcolor{keywordflow}{switch}(out)\{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\_0}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_stop(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_CHANNEL\_0,\ 0);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_stop(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_CHANNEL\_1,\ 0);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6}{PWM\_2}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_stop(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_CHANNEL\_2,\ 0);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542}{PWM\_3}}:}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_stop(LEDC\_LOW\_SPEED\_MODE,\ LEDC\_CHANNEL\_3,\ 0);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00172}00172\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00173}00173\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00174}00174\ \}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8c_source_l00176}00176\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

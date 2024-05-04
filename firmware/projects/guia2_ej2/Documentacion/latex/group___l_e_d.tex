@@ -1,0 +1,286 @@
+\doxysubsubsection{Led}
+\hypertarget{group___l_e_d}{}\label{group___l_e_d}\index{Led@{Led}}
+\doxysubsubsubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___l_e_d_gab6831a7d06c0a2bc69f9b024f6445a80}{LEDs}} \mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em LED driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___l_e_d_gab6831a7d06c0a2bc69f9b024f6445a80}{LEDs}} \{ \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3}{LED\+\_\+3}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0)
+, \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41}{LED\+\_\+2}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1)
+, \mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b}{LED\+\_\+1}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2)
+ \}
+\begin{DoxyCompactList}\small\item\em LED driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l_e_d_gacba669c3e8f52e45d1bea50c2e63b250}{Leds\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em ESP-\/\+EDU LEDs initialization. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l_e_d_ga883021aaef65f080a52b1852172ecbc3}{Led\+On}} (\mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\+\_\+t}} led)
+\begin{DoxyCompactList}\small\item\em Turn on a specific LED. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l_e_d_ga4fd07c9f7fab15d0d07389a38f4a39d8}{Led\+Off}} (\mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\+\_\+t}} led)
+\begin{DoxyCompactList}\small\item\em Turn off a specific LED. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l_e_d_ga787ec5815e0eb2680bf1845562731beb}{Led\+Toggle}} (\mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\+\_\+t}} led)
+\begin{DoxyCompactList}\small\item\em Invert a specific LED state. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l_e_d_gafcc4fefa23689ea53feedb349c8a9eb6}{Leds\+Off\+All}} (void)
+\begin{DoxyCompactList}\small\item\em Turn off all LEDs. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l_e_d_gaf0920e222837036abc96894b17b93b34}{Leds\+Mask}} (uint8\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Turn on or off leds from a mask. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de «typedef»}
+\Hypertarget{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}\label{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c} 
+\index{Led@{Led}!led\_t@{led\_t}}
+\index{led\_t@{led\_t}!Led@{Led}}
+\doxysubsubsubsubsection{\texorpdfstring{led\_t}{led\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___l_e_d_gab6831a7d06c0a2bc69f9b024f6445a80}{LEDs}} \mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\+\_\+t}}}
+
+
+
+LED driver for the ESP-\/\+EDU Board. 
+
+\begin{DoxyNote}{Nota}
+ESP-\/\+EDU have 3 LEDs LED\+\_\+1\+: green, LED\+\_\+2\+: yellow, LED\+\_\+3\+: red
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 23/10/2023   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+List of available LEDs in ESP-\/\+EDU board. 
+
+\doxysubsubsubsection{Documentación de enumeraciones}
+\Hypertarget{group___l_e_d_gab6831a7d06c0a2bc69f9b024f6445a80}\label{group___l_e_d_gab6831a7d06c0a2bc69f9b024f6445a80} 
+\index{Led@{Led}!LEDs@{LEDs}}
+\index{LEDs@{LEDs}!Led@{Led}}
+\doxysubsubsubsubsection{\texorpdfstring{LEDs}{LEDs}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___l_e_d_gab6831a7d06c0a2bc69f9b024f6445a80}{LEDs}}}
+
+
+
+LED driver for the ESP-\/\+EDU Board. 
+
+\begin{DoxyNote}{Nota}
+ESP-\/\+EDU have 3 LEDs LED\+\_\+1\+: green, LED\+\_\+2\+: yellow, LED\+\_\+3\+: red
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 23/10/2023   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+List of available LEDs in ESP-\/\+EDU board. \begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LED\_3@{LED\_3}!Led@{Led}}\index{Led@{Led}!LED\_3@{LED\_3}}}\Hypertarget{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3}\label{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3} 
+LED\+\_\+3&Color red. Routed to GPIO\+\_\+5 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LED\_2@{LED\_2}!Led@{Led}}\index{Led@{Led}!LED\_2@{LED\_2}}}\Hypertarget{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41}\label{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41} 
+LED\+\_\+2&Color yellow. Routed to GPIO\+\_\+10 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LED\_1@{LED\_1}!Led@{Led}}\index{Led@{Led}!LED\_1@{LED\_1}}}\Hypertarget{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b}\label{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b} 
+LED\+\_\+1&Color green. Routed to GPIO\+\_\+11 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{led_8h_source_l00031}{31}} del archivo \mbox{\hyperlink{led_8h_source}{led.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___l_e_d_ga4fd07c9f7fab15d0d07389a38f4a39d8}\label{group___l_e_d_ga4fd07c9f7fab15d0d07389a38f4a39d8} 
+\index{Led@{Led}!LedOff@{LedOff}}
+\index{LedOff@{LedOff}!Led@{Led}}
+\doxysubsubsubsubsection{\texorpdfstring{LedOff()}{LedOff()}}
+{\footnotesize\ttfamily uint8\+\_\+t Led\+Off (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\+\_\+t}}}]{led }\end{DoxyParamCaption})}
+
+
+
+Turn off a specific LED. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em led} & LED number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t false\+: if invalid LED number 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{led_8c_source_l00065}{65}} del archivo \mbox{\hyperlink{led_8c_source}{led.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{led_8c_source_l00016}{GPIO\+\_\+\+LED1}}, \mbox{\hyperlink{led_8c_source_l00017}{GPIO\+\_\+\+LED2}}, \mbox{\hyperlink{led_8c_source_l00018}{GPIO\+\_\+\+LED3}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}, \mbox{\hyperlink{led_8h_source_l00034}{LED\+\_\+1}}, \mbox{\hyperlink{led_8h_source_l00033}{LED\+\_\+2}} y \mbox{\hyperlink{led_8h_source_l00032}{LED\+\_\+3}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00077}{control\+LED()}}.
+
+\Hypertarget{group___l_e_d_ga883021aaef65f080a52b1852172ecbc3}\label{group___l_e_d_ga883021aaef65f080a52b1852172ecbc3} 
+\index{Led@{Led}!LedOn@{LedOn}}
+\index{LedOn@{LedOn}!Led@{Led}}
+\doxysubsubsubsubsection{\texorpdfstring{LedOn()}{LedOn()}}
+{\footnotesize\ttfamily uint8\+\_\+t Led\+On (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\+\_\+t}}}]{led }\end{DoxyParamCaption})}
+
+
+
+Turn on a specific LED. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em led} & LED number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t false\+: if invalid LED number
+\end{DoxyReturn}
+Turn on a specific LED. 
+
+Definición en la línea \mbox{\hyperlink{led_8c_source_l00046}{46}} del archivo \mbox{\hyperlink{led_8c_source}{led.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{led_8c_source_l00016}{GPIO\+\_\+\+LED1}}, \mbox{\hyperlink{led_8c_source_l00017}{GPIO\+\_\+\+LED2}}, \mbox{\hyperlink{led_8c_source_l00018}{GPIO\+\_\+\+LED3}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}}, \mbox{\hyperlink{led_8h_source_l00034}{LED\+\_\+1}}, \mbox{\hyperlink{led_8h_source_l00033}{LED\+\_\+2}} y \mbox{\hyperlink{led_8h_source_l00032}{LED\+\_\+3}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00077}{control\+LED()}}.
+
+\Hypertarget{group___l_e_d_gacba669c3e8f52e45d1bea50c2e63b250}\label{group___l_e_d_gacba669c3e8f52e45d1bea50c2e63b250} 
+\index{Led@{Led}!LedsInit@{LedsInit}}
+\index{LedsInit@{LedsInit}!Led@{Led}}
+\doxysubsubsubsubsection{\texorpdfstring{LedsInit()}{LedsInit()}}
+{\footnotesize\ttfamily uint8\+\_\+t Leds\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+ESP-\/\+EDU LEDs initialization. 
+
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t 
+\end{DoxyReturn}
+Configuration of the GPIO
+
+Turn off leds
+
+Definición en la línea \mbox{\hyperlink{led_8c_source_l00031}{31}} del archivo \mbox{\hyperlink{led_8c_source}{led.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{led_8c_source_l00016}{GPIO\+\_\+\+LED1}}, \mbox{\hyperlink{led_8c_source_l00017}{GPIO\+\_\+\+LED2}}, \mbox{\hyperlink{led_8c_source_l00018}{GPIO\+\_\+\+LED3}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00044}{GPIO\+\_\+\+OUTPUT}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00067}{GPIOInit()}} y \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00164}{app\+\_\+main()}}.
+
+\Hypertarget{group___l_e_d_gaf0920e222837036abc96894b17b93b34}\label{group___l_e_d_gaf0920e222837036abc96894b17b93b34} 
+\index{Led@{Led}!LedsMask@{LedsMask}}
+\index{LedsMask@{LedsMask}!Led@{Led}}
+\doxysubsubsubsubsection{\texorpdfstring{LedsMask()}{LedsMask()}}
+{\footnotesize\ttfamily uint8\+\_\+t Leds\+Mask (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{mask }\end{DoxyParamCaption})}
+
+
+
+Turn on or off leds from a mask. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em mask} & (b0\+: LED\+\_\+3, b1\+: LED\+\_\+2, b2\+: LED\+\_\+1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{led_8c_source_l00113}{113}} del archivo \mbox{\hyperlink{led_8c_source}{led.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{led_8c_source_l00016}{GPIO\+\_\+\+LED1}}, \mbox{\hyperlink{led_8c_source_l00017}{GPIO\+\_\+\+LED2}}, \mbox{\hyperlink{led_8c_source_l00018}{GPIO\+\_\+\+LED3}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00091}{GPIOState()}}, \mbox{\hyperlink{led_8h_source_l00034}{LED\+\_\+1}}, \mbox{\hyperlink{led_8h_source_l00033}{LED\+\_\+2}} y \mbox{\hyperlink{led_8h_source_l00032}{LED\+\_\+3}}.
+
+\Hypertarget{group___l_e_d_gafcc4fefa23689ea53feedb349c8a9eb6}\label{group___l_e_d_gafcc4fefa23689ea53feedb349c8a9eb6} 
+\index{Led@{Led}!LedsOffAll@{LedsOffAll}}
+\index{LedsOffAll@{LedsOffAll}!Led@{Led}}
+\doxysubsubsubsubsection{\texorpdfstring{LedsOffAll()}{LedsOffAll()}}
+{\footnotesize\ttfamily uint8\+\_\+t Leds\+Off\+All (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Turn off all LEDs. 
+
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{led_8c_source_l00105}{105}} del archivo \mbox{\hyperlink{led_8c_source}{led.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{led_8c_source_l00016}{GPIO\+\_\+\+LED1}}, \mbox{\hyperlink{led_8c_source_l00017}{GPIO\+\_\+\+LED2}}, \mbox{\hyperlink{led_8c_source_l00018}{GPIO\+\_\+\+LED3}} y \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00077}{control\+LED()}} y \mbox{\hyperlink{guia2__ej2_8c_source_l00114}{Task\+\_\+measure()}}.
+
+\Hypertarget{group___l_e_d_ga787ec5815e0eb2680bf1845562731beb}\label{group___l_e_d_ga787ec5815e0eb2680bf1845562731beb} 
+\index{Led@{Led}!LedToggle@{LedToggle}}
+\index{LedToggle@{LedToggle}!Led@{Led}}
+\doxysubsubsubsubsection{\texorpdfstring{LedToggle()}{LedToggle()}}
+{\footnotesize\ttfamily uint8\+\_\+t Led\+Toggle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___l_e_d_ga5de8a7d972b1b2f68e7c698f0de2dd0c}{led\+\_\+t}}}]{led }\end{DoxyParamCaption})}
+
+
+
+Invert a specific LED state. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em led} & LED number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+uint8\+\_\+t false\+: if invalid LED number 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{led_8c_source_l00084}{84}} del archivo \mbox{\hyperlink{led_8c_source}{led.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{led_8c_source_l00016}{GPIO\+\_\+\+LED1}}, \mbox{\hyperlink{led_8c_source_l00017}{GPIO\+\_\+\+LED2}}, \mbox{\hyperlink{led_8c_source_l00018}{GPIO\+\_\+\+LED3}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00096}{GPIOToggle()}}, \mbox{\hyperlink{led_8h_source_l00034}{LED\+\_\+1}}, \mbox{\hyperlink{led_8h_source_l00033}{LED\+\_\+2}} y \mbox{\hyperlink{led_8h_source_l00032}{LED\+\_\+3}}.
+

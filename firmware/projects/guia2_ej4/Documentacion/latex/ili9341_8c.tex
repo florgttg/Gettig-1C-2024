@@ -1,0 +1,1180 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/src/ili9341.c}
+\hypertarget{ili9341_8c}{}\label{ili9341_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/ili9341.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/ili9341.c}}
+
+
+TFT LCD RGB 240x320 ILI9341 driver.  
+
+
+{\ttfamily \#include "{}ili9341.\+h"{}}\newline
+{\ttfamily \#include "{}fonts.\+h"{}}\newline
+{\ttfamily \#include "{}spi\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}delay\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structorientation__properties__t}{orientation\+\_\+properties\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure with LCD orientation properties. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlcd__cmd__t}{lcd\+\_\+cmd\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure to configure or write LCD. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}~0
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a5a96556b55f3bf5350e836859a37280d}{SPI\+\_\+\+BR}}~20000000
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a5caebf870bad746770549a3e5fa09495}{MAX\+\_\+\+PIXEL}}~320\texorpdfstring{$\ast$}{*}240\texorpdfstring{$\ast$}{*}2
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a2a5ba1ed97aac125f32742e00a237ec8}{MSK\+\_\+\+BIT16}}~0x8000
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\+\_\+\+VALUE\+\_\+\+SIZE}}~256
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a437ef08681e7210d6678427030446a54}{LEFT}}~-\/1
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a80fb826a684cf3f0d306b22aa100ddac}{RIGHT}}~1
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a4193cd1c8c2e6ebd0e056fa2364a663f}{DOWN}}~1
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a1965eaca47dbf3f87acdafc2208f04eb}{UP}}~-\/1
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_ab702106cf3b3e96750b6845ded4e0299}{RESET}}~0x01
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_ae9a82b50c8748942c64e90f7f8629669}{SLEEP\+\_\+\+IN}}~0x10
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a50d64363b3ecae17415811bf896e2930}{SLEEP\+\_\+\+OUT}}~0x11
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a61f0dfed825350751d2c07c7c50a35ff}{DISPLAY\+\_\+\+INV\+\_\+\+OFF}}~0x20
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_aa9833fa99863f5c2648202085044620a}{DISPLAY\+\_\+\+INV\+\_\+\+ON}}~0x21
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a7f0a97455f8ede6150b6b2c078a90f10}{GAMMA\+\_\+\+SET}}~0x26
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_ad2ec9831813c5e7069917aa4455af682}{DISPLAY\+\_\+\+OFF}}~0x28
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a5ae6b05b3e1559c97f0d1b2daaaa0ee4}{DISPLAY\+\_\+\+ON}}~0x29
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_ac1ec6d9537a288a39f354c7133fb11c5}{COLUMN\+\_\+\+ADDR\+\_\+\+SET}}~0x2A
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a7fa17eb97440c73b81ca87407c164aee}{PAGE\+\_\+\+ADDR\+\_\+\+SET}}~0x2B
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_aabb0fea5286144a240a956114bccce7a}{MEM\+\_\+\+WRITE}}~0x2C
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_ae707afd6326457b82a15bdcbfd99b8a8}{MEM\+\_\+\+ACC\+\_\+\+CTRL}}~0x36
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a47ba113dfe8e8118575b3dcbedd9b3ec}{PIXEL\+\_\+\+FORMAT\+\_\+\+SET}}~0x3A
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a65c7150109661fbdca94d5cf724c307b}{WRITE\+\_\+\+DISP\+\_\+\+BRIGHT}}~0x51
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a47a04474c8c4fa05bd3ca427346a7cc1}{WRITE\+\_\+\+CTRL\+\_\+\+DISP}}~0x53
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a798785f739c085efedff5ff9668f70c2}{RGB\+\_\+\+INTERFACE}}~0x\+B0
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a7f2398c30b4b925af593fae3bb4168d0}{FRAME\+\_\+\+CTRL}}~0x\+B1
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a3864c48a21a720ca2c2e3ea4cd904569}{BLANK\+\_\+\+PORCH\+\_\+\+CTRL}}~0x\+B5
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_ab17423783bb85a590da679a849ea5c57}{DISP\+\_\+\+FUN\+\_\+\+CTRL}}~0x\+B6
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a7a8f9ebe145ba4ff3c8787208f244909}{PWR\+\_\+\+CTRL1}}~0x\+C0
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_adb301f832861ef36b7a9a48d8c77ced9}{PWR\+\_\+\+CTRL2}}~0x\+C1
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a6aaf215e34abc207bc8e2f607ec7c7b3}{VCOM\+\_\+\+CTRL1}}~0x\+C5
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a64425812670d1aa05fd620e20bfc3df7}{VCOM\+\_\+\+CTRL2}}~0x\+C7
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_adb7ea53332699577f0e0615520c484d1}{PWR\+\_\+\+CTRL\+\_\+A}}~0x\+CB
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a4c878fb5f2335f89220d476a5214325a}{PWR\+\_\+\+CTRL\+\_\+B}}~0x\+CF
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a964889b3527f09608fde445c20847b87}{POS\+\_\+\+GAMMA}}~0x\+E0
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a31a6695f5a43385bbd0f5ee988170e06}{NEG\+\_\+\+GAMMA}}~0x\+E1
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a12dc1e23eaceb49cbc5643e44ebcddac}{DRIV\+\_\+\+TIM\+\_\+\+CTRL\+\_\+A}}~0x\+E8
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a5d38d9987627bf2e19312456b3ca399b}{DRIV\+\_\+\+TIM\+\_\+\+CTRL\+\_\+B}}~0x\+EA
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a37fc0ccd6096f0b3961023d6689b84f2}{PWR\+\_\+\+ON\+\_\+\+CTRL}}~0x\+ED
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_a27a2a53c2b01e4dd42e91cddecc41442}{EN\+\_\+3\+\_\+\+GAMMA}}~0x\+F2
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_adc200d26bdb86547d00275ba038936bf}{PUMP\+\_\+\+RATIO\+\_\+\+CTRL}}~0x\+F7
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0}{High\+Byte}}(x)~x $>$$>$ 8
+\item 
+\#define \mbox{\hyperlink{ili9341_8c_aa9fad731fc07b249db66376d062050cd}{Low\+Byte}}(x)~x \& 0x\+FF
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{Write\+LCD}} (\mbox{\hyperlink{structlcd__cmd__t}{lcd\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Send command and parameters/data to LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ili9341_8c_a3ced3a9e7189797ae4b2c5cc34cc1886}{Set\+Cursor\+Position}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1)
+\begin{DoxyCompactList}\small\item\em Define an area of frame memory where MCU can access. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ili9341_8c_a1398b648b9ae023e8c33ac565fc9eaff}{Fill}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Fill an srea of LCD with a determined color. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___i_l_i9341_ga5f72d1febbb1e77c2b50876ba8caf40c}{ILI9341\+Init}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} spi\+\_\+dev, uint8\+\_\+t gpio\+\_\+dc, uint8\+\_\+t gpio\+\_\+rst)
+\begin{DoxyCompactList}\small\item\em Initializes ILI9341 LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341\+Draw\+Pixel}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws single pixel to LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gadbfd33ee5866c7e8283e5d29d2843b5f}{ILI9341\+Fill}} (uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Fills entire LCD with color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga7b187b4cb92aa6b28a51fbfd5153aa2b}{ILI9341\+Rotate}} (\mbox{\hyperlink{group___i_l_i9341_gafd244eb5252344eaf17669b9d2fddcdc}{ili9341\+\_\+orientation\+\_\+t}} orientation)
+\begin{DoxyCompactList}\small\item\em Rotates LCD to specific orientation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gaf40f745e33f77553ed8756b0cdbff963}{ILI9341\+Draw\+Char}} (uint16\+\_\+t x, uint16\+\_\+t y, char data, \mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, uint16\+\_\+t foreground, uint16\+\_\+t background)
+\begin{DoxyCompactList}\small\item\em Draw a single character on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gaf1f38ba35089e77b713750c4e25e2476}{ILI9341\+Draw\+Int}} (uint16\+\_\+t x, uint16\+\_\+t y, uint32\+\_\+t num, uint8\+\_\+t dig, \mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, uint16\+\_\+t foreground, uint16\+\_\+t background)
+\begin{DoxyCompactList}\small\item\em Draw an integer on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa}{ILI9341\+Draw\+String}} (uint16\+\_\+t x, uint16\+\_\+t y, char \texorpdfstring{$\ast$}{*}str, \mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, uint16\+\_\+t foreground, uint16\+\_\+t background)
+\begin{DoxyCompactList}\small\item\em Draw a string on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga5044d1ea4ba5b9b9244bc13898a514d2}{ILI9341\+Get\+String\+Size}} (char \texorpdfstring{$\ast$}{*}str, \mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, uint16\+\_\+t \texorpdfstring{$\ast$}{*}width, uint16\+\_\+t \texorpdfstring{$\ast$}{*}height)
+\begin{DoxyCompactList}\small\item\em Gets width and height of box with text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341\+Draw\+Line}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws line on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga90867195c7e57957fe9db4913beeee45}{ILI9341\+Draw\+Rectangle}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws rectangle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gae317015706c9711c49b9419cd3d89823}{ILI9341\+Draw\+Filled\+Rectangle}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws filled rectangle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga232a7c83cb705bd8c14d57dee26d0db7}{ILI9341\+Draw\+Circle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t r, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws circle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga12d38b5bae7cf33dce21b97e9ed7f114}{ILI9341\+Draw\+Filled\+Circle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t r, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws filled circle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga91597ef98cf09f7d8870917f9b5ebea4}{ILI9341\+Draw\+Triangle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, int16\+\_\+t x2, int16\+\_\+t y2, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws triangle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga371e40bd6e120c18f7fff4a5a0f292b2}{ILI9341\+Draw\+Filled\+Triangle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, int16\+\_\+t x2, int16\+\_\+t y2, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws filled triangle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gaef4d22da8546573df6381d4d0f3911f0}{ILI9341\+Draw\+Picture}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t width, uint16\+\_\+t height, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}pic)
+\begin{DoxyCompactList}\small\item\em Draw a picture on the LCD. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a416313b8ca5aecccc037d6e3458677db}{pwr\+\_\+ctrl\+\_\+a}} \mbox{[}$\,$\mbox{]} = \{0x39, 0x2C, 0x00, 0x34, 0x02\}
+\begin{DoxyCompactList}\small\item\em Initial LCD configuration parameters. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a438c9eddc4798e47d7c55f6301e1c6cc}{pwr\+\_\+ctrl\+\_\+b}} \mbox{[}$\,$\mbox{]} = \{0x00, 0x\+C1, 0x30\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_afc83c18e8d0854b8b4cdb9aca29c312b}{driv\+\_\+tim\+\_\+ctrl\+\_\+a}} \mbox{[}$\,$\mbox{]} = \{0x85, 0x00, 0x78\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a9f16309f2f64840481039f862dac26e6}{driv\+\_\+tim\+\_\+ctrl\+\_\+b}} \mbox{[}$\,$\mbox{]} = \{0x00, 0x00\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a50c4cc503302476f9c68c328d19f5e30}{pwr\+\_\+on\+\_\+ctrl}} \mbox{[}$\,$\mbox{]} = \{0x64, 0x03, 0x12, 0x81\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a57cfbbe62f146bb9f1bf6493191053dd}{pump\+\_\+ratio\+\_\+ctrl}} \mbox{[}$\,$\mbox{]} = \{0x20\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_afda58a19fb0b537ef8043dd8ff5d684a}{pwr\+\_\+ctrl1}} \mbox{[}$\,$\mbox{]} = \{0x23\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a564f88fe64e9af6e6cac92d11b68a247}{pwr\+\_\+ctrl2}} \mbox{[}$\,$\mbox{]} = \{0x10\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a30138cf575d97056dc44637ba2b5505e}{vcom\+\_\+ctrl1}} \mbox{[}$\,$\mbox{]} = \{0x3E, 0x28\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a1c32b869895cdeaec2169dedde07196a}{vcom\+\_\+ctrl2}} \mbox{[}$\,$\mbox{]} = \{0x86\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a1aec16dc7650a4729f08ed5e4b529b42}{mem\+\_\+acc\+\_\+ctrl}} \mbox{[}$\,$\mbox{]} = \{0x48\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a100d66d7e8beee36f57806d288f8af96}{pixel\+\_\+format\+\_\+set}} \mbox{[}$\,$\mbox{]} = \{0x55\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_aa3d2f2e1764e68edcf0585da630a8739}{frame\+\_\+ctrl}} \mbox{[}$\,$\mbox{]} = \{0x00, 0x18\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a1c5f9f3b3ce68b179a541aaeb825cd02}{disp\+\_\+fun\+\_\+ctrl}} \mbox{[}$\,$\mbox{]} = \{0x0A, 0x82, 0x27\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_ad5c58f04847ba842f7ccb2979d40308d}{en\+\_\+3\+\_\+gamma}} \mbox{[}$\,$\mbox{]} = \{0x02\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a263ce7bccbcd1c94f9c234c101df296d}{column\+\_\+addr\+\_\+set}} \mbox{[}$\,$\mbox{]} = \{0x00, 0x00, 0x00, 0x\+EF\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a88412e782c5108da05d13e3e3bca06ff}{page\+\_\+addr\+\_\+set}} \mbox{[}$\,$\mbox{]} = \{0x00, 0x00, 0x01, 0x3F\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a56f6a4cad6b1411383f78e0777d5a077}{gamma\+\_\+set}} \mbox{[}$\,$\mbox{]} = \{0x01\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_ae9f7984c806b71627776323c6d7e642a}{pos\+\_\+gamma}} \mbox{[}$\,$\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ili9341_8c_a9959a87a6f6cd807a52dc75801af8e6e}{neg\+\_\+gamma}} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{structlcd__cmd__t}{lcd\+\_\+cmd\+\_\+t}} \mbox{\hyperlink{ili9341_8c_a663c460e092a1eea379439ac9014b80c}{lcd\+\_\+init}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Initial LCD configuration. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structlcd__cmd__t}{lcd\+\_\+cmd\+\_\+t}} \mbox{\hyperlink{ili9341_8c_a33d60197da1424cb4c13eab6b01a0d39}{lcd\+\_\+reset}} = \{\mbox{\hyperlink{ili9341_8c_ab702106cf3b3e96750b6845ded4e0299}{RESET}}, \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}, \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\}
+\item 
+\mbox{\hyperlink{structlcd__cmd__t}{lcd\+\_\+cmd\+\_\+t}} \mbox{\hyperlink{ili9341_8c_a2bfe0d561287fb1d78f7f2fe50207ee1}{lcd\+\_\+sleep\+\_\+out}} = \{\mbox{\hyperlink{ili9341_8c_a50d64363b3ecae17415811bf896e2930}{SLEEP\+\_\+\+OUT}}, \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}, \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\}
+\item 
+\mbox{\hyperlink{structlcd__cmd__t}{lcd\+\_\+cmd\+\_\+t}} \mbox{\hyperlink{ili9341_8c_a11fe1fd4be5bc0f028d673b9e3ea047b}{lcd\+\_\+on}} = \{\mbox{\hyperlink{ili9341_8c_a5ae6b05b3e1559c97f0d1b2daaaa0ee4}{DISPLAY\+\_\+\+ON}}, \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}, \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\}
+\item 
+\mbox{\hyperlink{structspi__mcu__config__t}{spi\+\_\+mcu\+\_\+config\+\_\+t}} \mbox{\hyperlink{ili9341_8c_aa7f1bcccbdc2615169d9c57878b037a0}{spi\+\_\+conf}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+TFT LCD RGB 240x320 ILI9341 driver. 
+
+This driver provide functions to configure and control a 240x320 pixels TFT color display connected to the ESP-\/\+EDU. It uses a SPI port and 3 GPIOs to communicate with the ILI9341 LCD driver chip.
+
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\begin{DoxyNote}{Nota}
+Hardware connections\+:
+\end{DoxyNote}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Display   }&\cellcolor{\tableheadbgcolor}\textbf{ EDU-\/\+CIAA    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Display   }&\cellcolor{\tableheadbgcolor}\textbf{ EDU-\/\+CIAA    }\\\cline{1-2}
+\endhead
+\PBS\centering SDO/\+MISO   &SPI\+\_\+\+MISO    \\\cline{1-2}
+\PBS\centering LED   &3V3    \\\cline{1-2}
+\PBS\centering SCK   &SPI\+\_\+\+SCK    \\\cline{1-2}
+\PBS\centering SDI/\+MOSI   &SPI\+\_\+\+MOSI    \\\cline{1-2}
+\PBS\centering DC/\+RS   &GPIOx    \\\cline{1-2}
+\PBS\centering RESET   &GPIOx    \\\cline{1-2}
+\PBS\centering CS   &GPIOx    \\\cline{1-2}
+\PBS\centering GND   &GND    \\\cline{1-2}
+\PBS\centering VCC   &3V3   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{index_changelog}{}\doxysubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 21/11/2018   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+Definición en el archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{ili9341_8c_a3864c48a21a720ca2c2e3ea4cd904569}\label{ili9341_8c_a3864c48a21a720ca2c2e3ea4cd904569} 
+\index{ili9341.c@{ili9341.c}!BLANK\_PORCH\_CTRL@{BLANK\_PORCH\_CTRL}}
+\index{BLANK\_PORCH\_CTRL@{BLANK\_PORCH\_CTRL}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{BLANK\_PORCH\_CTRL}{BLANK\_PORCH\_CTRL}}
+{\footnotesize\ttfamily \#define BLANK\+\_\+\+PORCH\+\_\+\+CTRL~0x\+B5}
+
+Blanking porch control 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00071}{71}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_ac1ec6d9537a288a39f354c7133fb11c5}\label{ili9341_8c_ac1ec6d9537a288a39f354c7133fb11c5} 
+\index{ili9341.c@{ili9341.c}!COLUMN\_ADDR\_SET@{COLUMN\_ADDR\_SET}}
+\index{COLUMN\_ADDR\_SET@{COLUMN\_ADDR\_SET}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{COLUMN\_ADDR\_SET}{COLUMN\_ADDR\_SET}}
+{\footnotesize\ttfamily \#define COLUMN\+\_\+\+ADDR\+\_\+\+SET~0x2A}
+
+Define columns of frame memory where MCU can access 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00062}{62}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00238}{Set\+Cursor\+Position()}}.
+
+\Hypertarget{ili9341_8c_ab17423783bb85a590da679a849ea5c57}\label{ili9341_8c_ab17423783bb85a590da679a849ea5c57} 
+\index{ili9341.c@{ili9341.c}!DISP\_FUN\_CTRL@{DISP\_FUN\_CTRL}}
+\index{DISP\_FUN\_CTRL@{DISP\_FUN\_CTRL}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{DISP\_FUN\_CTRL}{DISP\_FUN\_CTRL}}
+{\footnotesize\ttfamily \#define DISP\+\_\+\+FUN\+\_\+\+CTRL~0x\+B6}
+
+Display function control 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00072}{72}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a61f0dfed825350751d2c07c7c50a35ff}\label{ili9341_8c_a61f0dfed825350751d2c07c7c50a35ff} 
+\index{ili9341.c@{ili9341.c}!DISPLAY\_INV\_OFF@{DISPLAY\_INV\_OFF}}
+\index{DISPLAY\_INV\_OFF@{DISPLAY\_INV\_OFF}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{DISPLAY\_INV\_OFF}{DISPLAY\_INV\_OFF}}
+{\footnotesize\ttfamily \#define DISPLAY\+\_\+\+INV\+\_\+\+OFF~0x20}
+
+Recover from display inversion mode 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00057}{57}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_aa9833fa99863f5c2648202085044620a}\label{ili9341_8c_aa9833fa99863f5c2648202085044620a} 
+\index{ili9341.c@{ili9341.c}!DISPLAY\_INV\_ON@{DISPLAY\_INV\_ON}}
+\index{DISPLAY\_INV\_ON@{DISPLAY\_INV\_ON}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{DISPLAY\_INV\_ON}{DISPLAY\_INV\_ON}}
+{\footnotesize\ttfamily \#define DISPLAY\+\_\+\+INV\+\_\+\+ON~0x21}
+
+Invert every bit from the frame memory to the display 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00058}{58}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_ad2ec9831813c5e7069917aa4455af682}\label{ili9341_8c_ad2ec9831813c5e7069917aa4455af682} 
+\index{ili9341.c@{ili9341.c}!DISPLAY\_OFF@{DISPLAY\_OFF}}
+\index{DISPLAY\_OFF@{DISPLAY\_OFF}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{DISPLAY\_OFF}{DISPLAY\_OFF}}
+{\footnotesize\ttfamily \#define DISPLAY\+\_\+\+OFF~0x28}
+
+The output from Frame Memory is disabled and blank page inserted 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00060}{60}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a5ae6b05b3e1559c97f0d1b2daaaa0ee4}\label{ili9341_8c_a5ae6b05b3e1559c97f0d1b2daaaa0ee4} 
+\index{ili9341.c@{ili9341.c}!DISPLAY\_ON@{DISPLAY\_ON}}
+\index{DISPLAY\_ON@{DISPLAY\_ON}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{DISPLAY\_ON}{DISPLAY\_ON}}
+{\footnotesize\ttfamily \#define DISPLAY\+\_\+\+ON~0x29}
+
+Recover from DISPLAY OFF mode 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00061}{61}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a4193cd1c8c2e6ebd0e056fa2364a663f}\label{ili9341_8c_a4193cd1c8c2e6ebd0e056fa2364a663f} 
+\index{ili9341.c@{ili9341.c}!DOWN@{DOWN}}
+\index{DOWN@{DOWN}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{DOWN}{DOWN}}
+{\footnotesize\ttfamily \#define DOWN~1}
+
+Vertical grow direction 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00050}{50}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00499}{ILI9341\+Draw\+Line()}}.
+
+\Hypertarget{ili9341_8c_a12dc1e23eaceb49cbc5643e44ebcddac}\label{ili9341_8c_a12dc1e23eaceb49cbc5643e44ebcddac} 
+\index{ili9341.c@{ili9341.c}!DRIV\_TIM\_CTRL\_A@{DRIV\_TIM\_CTRL\_A}}
+\index{DRIV\_TIM\_CTRL\_A@{DRIV\_TIM\_CTRL\_A}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{DRIV\_TIM\_CTRL\_A}{DRIV\_TIM\_CTRL\_A}}
+{\footnotesize\ttfamily \#define DRIV\+\_\+\+TIM\+\_\+\+CTRL\+\_\+A~0x\+E8}
+
+Timing control 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00081}{81}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a5d38d9987627bf2e19312456b3ca399b}\label{ili9341_8c_a5d38d9987627bf2e19312456b3ca399b} 
+\index{ili9341.c@{ili9341.c}!DRIV\_TIM\_CTRL\_B@{DRIV\_TIM\_CTRL\_B}}
+\index{DRIV\_TIM\_CTRL\_B@{DRIV\_TIM\_CTRL\_B}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{DRIV\_TIM\_CTRL\_B}{DRIV\_TIM\_CTRL\_B}}
+{\footnotesize\ttfamily \#define DRIV\+\_\+\+TIM\+\_\+\+CTRL\+\_\+B~0x\+EA}
+
+Timing control 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00082}{82}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a27a2a53c2b01e4dd42e91cddecc41442}\label{ili9341_8c_a27a2a53c2b01e4dd42e91cddecc41442} 
+\index{ili9341.c@{ili9341.c}!EN\_3\_GAMMA@{EN\_3\_GAMMA}}
+\index{EN\_3\_GAMMA@{EN\_3\_GAMMA}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{EN\_3\_GAMMA}{EN\_3\_GAMMA}}
+{\footnotesize\ttfamily \#define EN\+\_\+3\+\_\+\+GAMMA~0x\+F2}
+
+3 gamma control enable 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00084}{84}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a7f2398c30b4b925af593fae3bb4168d0}\label{ili9341_8c_a7f2398c30b4b925af593fae3bb4168d0} 
+\index{ili9341.c@{ili9341.c}!FRAME\_CTRL@{FRAME\_CTRL}}
+\index{FRAME\_CTRL@{FRAME\_CTRL}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{FRAME\_CTRL}{FRAME\_CTRL}}
+{\footnotesize\ttfamily \#define FRAME\+\_\+\+CTRL~0x\+B1}
+
+Sets the division ratio for internal clocks of Normal mode at MCU interface 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00070}{70}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a7f0a97455f8ede6150b6b2c078a90f10}\label{ili9341_8c_a7f0a97455f8ede6150b6b2c078a90f10} 
+\index{ili9341.c@{ili9341.c}!GAMMA\_SET@{GAMMA\_SET}}
+\index{GAMMA\_SET@{GAMMA\_SET}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{GAMMA\_SET}{GAMMA\_SET}}
+{\footnotesize\ttfamily \#define GAMMA\+\_\+\+SET~0x26}
+
+Select the desired Gamma curve for the current display 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00059}{59}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0}\label{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0} 
+\index{ili9341.c@{ili9341.c}!HighByte@{HighByte}}
+\index{HighByte@{HighByte}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{HighByte}{HighByte}}
+{\footnotesize\ttfamily \#define High\+Byte(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~x $>$$>$ 8}
+
+High byte of a 16 bits data 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00087}{87}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00260}{Fill()}}, \mbox{\hyperlink{ili9341_8c_source_l00380}{ILI9341\+Draw\+Char()}}, \mbox{\hyperlink{ili9341_8c_source_l00333}{ILI9341\+Draw\+Pixel()}} y \mbox{\hyperlink{ili9341_8c_source_l00238}{Set\+Cursor\+Position()}}.
+
+\Hypertarget{ili9341_8c_a437ef08681e7210d6678427030446a54}\label{ili9341_8c_a437ef08681e7210d6678427030446a54} 
+\index{ili9341.c@{ili9341.c}!LEFT@{LEFT}}
+\index{LEFT@{LEFT}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{LEFT}{LEFT}}
+{\footnotesize\ttfamily \#define LEFT~-\/1}
+
+Horizontal grow direction 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00048}{48}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00499}{ILI9341\+Draw\+Line()}}.
+
+\Hypertarget{ili9341_8c_aa9fad731fc07b249db66376d062050cd}\label{ili9341_8c_aa9fad731fc07b249db66376d062050cd} 
+\index{ili9341.c@{ili9341.c}!LowByte@{LowByte}}
+\index{LowByte@{LowByte}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{LowByte}{LowByte}}
+{\footnotesize\ttfamily \#define Low\+Byte(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~x \& 0x\+FF}
+
+Low byte of a 16 bits data 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00088}{88}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00260}{Fill()}}, \mbox{\hyperlink{ili9341_8c_source_l00380}{ILI9341\+Draw\+Char()}}, \mbox{\hyperlink{ili9341_8c_source_l00333}{ILI9341\+Draw\+Pixel()}} y \mbox{\hyperlink{ili9341_8c_source_l00238}{Set\+Cursor\+Position()}}.
+
+\Hypertarget{ili9341_8c_a5caebf870bad746770549a3e5fa09495}\label{ili9341_8c_a5caebf870bad746770549a3e5fa09495} 
+\index{ili9341.c@{ili9341.c}!MAX\_PIXEL@{MAX\_PIXEL}}
+\index{MAX\_PIXEL@{MAX\_PIXEL}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_PIXEL}{MAX\_PIXEL}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+PIXEL~320\texorpdfstring{$\ast$}{*}240\texorpdfstring{$\ast$}{*}2}
+
+Maximum number of bytes to write on LCD 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00045}{45}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}\label{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c} 
+\index{ili9341.c@{ili9341.c}!MAX\_VALUE\_SIZE@{MAX\_VALUE\_SIZE}}
+\index{MAX\_VALUE\_SIZE@{MAX\_VALUE\_SIZE}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_VALUE\_SIZE}{MAX\_VALUE\_SIZE}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+VALUE\+\_\+\+SIZE~256}
+
+Maximum length of a data array to prevent excessive use of memory 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00047}{47}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00260}{Fill()}}, \mbox{\hyperlink{ili9341_8c_source_l00380}{ILI9341\+Draw\+Char()}} y \mbox{\hyperlink{ili9341_8c_source_l00769}{ILI9341\+Draw\+Picture()}}.
+
+\Hypertarget{ili9341_8c_ae707afd6326457b82a15bdcbfd99b8a8}\label{ili9341_8c_ae707afd6326457b82a15bdcbfd99b8a8} 
+\index{ili9341.c@{ili9341.c}!MEM\_ACC\_CTRL@{MEM\_ACC\_CTRL}}
+\index{MEM\_ACC\_CTRL@{MEM\_ACC\_CTRL}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{MEM\_ACC\_CTRL}{MEM\_ACC\_CTRL}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+ACC\+\_\+\+CTRL~0x36}
+
+Defines read/write scanning direction of frame memory 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00065}{65}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00345}{ILI9341\+Rotate()}}.
+
+\Hypertarget{ili9341_8c_aabb0fea5286144a240a956114bccce7a}\label{ili9341_8c_aabb0fea5286144a240a956114bccce7a} 
+\index{ili9341.c@{ili9341.c}!MEM\_WRITE@{MEM\_WRITE}}
+\index{MEM\_WRITE@{MEM\_WRITE}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{MEM\_WRITE}{MEM\_WRITE}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+WRITE~0x2C}
+
+Transfer data from MCU to frame memory 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00064}{64}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00260}{Fill()}}, \mbox{\hyperlink{ili9341_8c_source_l00380}{ILI9341\+Draw\+Char()}}, \mbox{\hyperlink{ili9341_8c_source_l00769}{ILI9341\+Draw\+Picture()}} y \mbox{\hyperlink{ili9341_8c_source_l00333}{ILI9341\+Draw\+Pixel()}}.
+
+\Hypertarget{ili9341_8c_a2a5ba1ed97aac125f32742e00a237ec8}\label{ili9341_8c_a2a5ba1ed97aac125f32742e00a237ec8} 
+\index{ili9341.c@{ili9341.c}!MSK\_BIT16@{MSK\_BIT16}}
+\index{MSK\_BIT16@{MSK\_BIT16}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{MSK\_BIT16}{MSK\_BIT16}}
+{\footnotesize\ttfamily \#define MSK\+\_\+\+BIT16~0x8000}
+
+16th bit mask 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00046}{46}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00380}{ILI9341\+Draw\+Char()}}.
+
+\Hypertarget{ili9341_8c_a31a6695f5a43385bbd0f5ee988170e06}\label{ili9341_8c_a31a6695f5a43385bbd0f5ee988170e06} 
+\index{ili9341.c@{ili9341.c}!NEG\_GAMMA@{NEG\_GAMMA}}
+\index{NEG\_GAMMA@{NEG\_GAMMA}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{NEG\_GAMMA}{NEG\_GAMMA}}
+{\footnotesize\ttfamily \#define NEG\+\_\+\+GAMMA~0x\+E1}
+
+Set the gray scale voltage to adjust the gamma characteristics of the TFT panel 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00080}{80}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}\label{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4} 
+\index{ili9341.c@{ili9341.c}!NULL@{NULL}}
+\index{NULL@{NULL}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{NULL}{NULL}}
+{\footnotesize\ttfamily \#define NULL~0}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00042}{42}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej4_8c_source_l00355}{app\+\_\+main()}}, \mbox{\hyperlink{delay__mcu_8c_source_l00063}{Delay\+Ms()}}, \mbox{\hyperlink{delay__mcu_8c_source_l00039}{Delay\+Sec()}}, \mbox{\hyperlink{delay__mcu_8c_source_l00087}{Delay\+Us()}}, \mbox{\hyperlink{ili9341_8c_source_l00260}{Fill()}}, \mbox{\hyperlink{ili9341_8c_source_l00380}{ILI9341\+Draw\+Char()}}, \mbox{\hyperlink{ili9341_8c_source_l00769}{ILI9341\+Draw\+Picture()}}, \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}, \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}} y \mbox{\hyperlink{ili9341_8c_source_l00222}{Write\+LCD()}}.
+
+\Hypertarget{ili9341_8c_a7fa17eb97440c73b81ca87407c164aee}\label{ili9341_8c_a7fa17eb97440c73b81ca87407c164aee} 
+\index{ili9341.c@{ili9341.c}!PAGE\_ADDR\_SET@{PAGE\_ADDR\_SET}}
+\index{PAGE\_ADDR\_SET@{PAGE\_ADDR\_SET}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{PAGE\_ADDR\_SET}{PAGE\_ADDR\_SET}}
+{\footnotesize\ttfamily \#define PAGE\+\_\+\+ADDR\+\_\+\+SET~0x2B}
+
+Define rows of frame memory where MCU can access 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00063}{63}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00238}{Set\+Cursor\+Position()}}.
+
+\Hypertarget{ili9341_8c_a47ba113dfe8e8118575b3dcbedd9b3ec}\label{ili9341_8c_a47ba113dfe8e8118575b3dcbedd9b3ec} 
+\index{ili9341.c@{ili9341.c}!PIXEL\_FORMAT\_SET@{PIXEL\_FORMAT\_SET}}
+\index{PIXEL\_FORMAT\_SET@{PIXEL\_FORMAT\_SET}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{PIXEL\_FORMAT\_SET}{PIXEL\_FORMAT\_SET}}
+{\footnotesize\ttfamily \#define PIXEL\+\_\+\+FORMAT\+\_\+\+SET~0x3A}
+
+Sets the pixel format for the RGB image data used by the interface 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00066}{66}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a964889b3527f09608fde445c20847b87}\label{ili9341_8c_a964889b3527f09608fde445c20847b87} 
+\index{ili9341.c@{ili9341.c}!POS\_GAMMA@{POS\_GAMMA}}
+\index{POS\_GAMMA@{POS\_GAMMA}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{POS\_GAMMA}{POS\_GAMMA}}
+{\footnotesize\ttfamily \#define POS\+\_\+\+GAMMA~0x\+E0}
+
+Set the gray scale voltage to adjust the gamma characteristics of the TFT panel 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00079}{79}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_adc200d26bdb86547d00275ba038936bf}\label{ili9341_8c_adc200d26bdb86547d00275ba038936bf} 
+\index{ili9341.c@{ili9341.c}!PUMP\_RATIO\_CTRL@{PUMP\_RATIO\_CTRL}}
+\index{PUMP\_RATIO\_CTRL@{PUMP\_RATIO\_CTRL}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{PUMP\_RATIO\_CTRL}{PUMP\_RATIO\_CTRL}}
+{\footnotesize\ttfamily \#define PUMP\+\_\+\+RATIO\+\_\+\+CTRL~0x\+F7}
+
+Pump ratio control 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00085}{85}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a7a8f9ebe145ba4ff3c8787208f244909}\label{ili9341_8c_a7a8f9ebe145ba4ff3c8787208f244909} 
+\index{ili9341.c@{ili9341.c}!PWR\_CTRL1@{PWR\_CTRL1}}
+\index{PWR\_CTRL1@{PWR\_CTRL1}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{PWR\_CTRL1}{PWR\_CTRL1}}
+{\footnotesize\ttfamily \#define PWR\+\_\+\+CTRL1~0x\+C0}
+
+Set the GVDD level, which is a reference level for the VCOM level and the grayscale voltage level 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00073}{73}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_adb301f832861ef36b7a9a48d8c77ced9}\label{ili9341_8c_adb301f832861ef36b7a9a48d8c77ced9} 
+\index{ili9341.c@{ili9341.c}!PWR\_CTRL2@{PWR\_CTRL2}}
+\index{PWR\_CTRL2@{PWR\_CTRL2}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{PWR\_CTRL2}{PWR\_CTRL2}}
+{\footnotesize\ttfamily \#define PWR\+\_\+\+CTRL2~0x\+C1}
+
+Sets the factor used in the step-\/up circuits 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00074}{74}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_adb7ea53332699577f0e0615520c484d1}\label{ili9341_8c_adb7ea53332699577f0e0615520c484d1} 
+\index{ili9341.c@{ili9341.c}!PWR\_CTRL\_A@{PWR\_CTRL\_A}}
+\index{PWR\_CTRL\_A@{PWR\_CTRL\_A}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{PWR\_CTRL\_A}{PWR\_CTRL\_A}}
+{\footnotesize\ttfamily \#define PWR\+\_\+\+CTRL\+\_\+A~0x\+CB}
+
+Vcore control 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00077}{77}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a4c878fb5f2335f89220d476a5214325a}\label{ili9341_8c_a4c878fb5f2335f89220d476a5214325a} 
+\index{ili9341.c@{ili9341.c}!PWR\_CTRL\_B@{PWR\_CTRL\_B}}
+\index{PWR\_CTRL\_B@{PWR\_CTRL\_B}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{PWR\_CTRL\_B}{PWR\_CTRL\_B}}
+{\footnotesize\ttfamily \#define PWR\+\_\+\+CTRL\+\_\+B~0x\+CF}
+
+Power control 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00078}{78}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a37fc0ccd6096f0b3961023d6689b84f2}\label{ili9341_8c_a37fc0ccd6096f0b3961023d6689b84f2} 
+\index{ili9341.c@{ili9341.c}!PWR\_ON\_CTRL@{PWR\_ON\_CTRL}}
+\index{PWR\_ON\_CTRL@{PWR\_ON\_CTRL}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{PWR\_ON\_CTRL}{PWR\_ON\_CTRL}}
+{\footnotesize\ttfamily \#define PWR\+\_\+\+ON\+\_\+\+CTRL~0x\+ED}
+
+Power on sequence control 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00083}{83}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_ab702106cf3b3e96750b6845ded4e0299}\label{ili9341_8c_ab702106cf3b3e96750b6845ded4e0299} 
+\index{ili9341.c@{ili9341.c}!RESET@{RESET}}
+\index{RESET@{RESET}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{RESET}{RESET}}
+{\footnotesize\ttfamily \#define RESET~0x01}
+
+Resets the commands and parameters to their S/W Reset default values 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00054}{54}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a798785f739c085efedff5ff9668f70c2}\label{ili9341_8c_a798785f739c085efedff5ff9668f70c2} 
+\index{ili9341.c@{ili9341.c}!RGB\_INTERFACE@{RGB\_INTERFACE}}
+\index{RGB\_INTERFACE@{RGB\_INTERFACE}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{RGB\_INTERFACE}{RGB\_INTERFACE}}
+{\footnotesize\ttfamily \#define RGB\+\_\+\+INTERFACE~0x\+B0}
+
+Sets the operation status of the display interface 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00069}{69}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a80fb826a684cf3f0d306b22aa100ddac}\label{ili9341_8c_a80fb826a684cf3f0d306b22aa100ddac} 
+\index{ili9341.c@{ili9341.c}!RIGHT@{RIGHT}}
+\index{RIGHT@{RIGHT}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{RIGHT}{RIGHT}}
+{\footnotesize\ttfamily \#define RIGHT~1}
+
+Horizontal grow direction 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00049}{49}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00499}{ILI9341\+Draw\+Line()}}.
+
+\Hypertarget{ili9341_8c_ae9a82b50c8748942c64e90f7f8629669}\label{ili9341_8c_ae9a82b50c8748942c64e90f7f8629669} 
+\index{ili9341.c@{ili9341.c}!SLEEP\_IN@{SLEEP\_IN}}
+\index{SLEEP\_IN@{SLEEP\_IN}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{SLEEP\_IN}{SLEEP\_IN}}
+{\footnotesize\ttfamily \#define SLEEP\+\_\+\+IN~0x10}
+
+Enter to the minimum power consumption mode 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00055}{55}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a50d64363b3ecae17415811bf896e2930}\label{ili9341_8c_a50d64363b3ecae17415811bf896e2930} 
+\index{ili9341.c@{ili9341.c}!SLEEP\_OUT@{SLEEP\_OUT}}
+\index{SLEEP\_OUT@{SLEEP\_OUT}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{SLEEP\_OUT}{SLEEP\_OUT}}
+{\footnotesize\ttfamily \#define SLEEP\+\_\+\+OUT~0x11}
+
+Turns off sleep mode 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00056}{56}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a5a96556b55f3bf5350e836859a37280d}\label{ili9341_8c_a5a96556b55f3bf5350e836859a37280d} 
+\index{ili9341.c@{ili9341.c}!SPI\_BR@{SPI\_BR}}
+\index{SPI\_BR@{SPI\_BR}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_BR}{SPI\_BR}}
+{\footnotesize\ttfamily \#define SPI\+\_\+\+BR~20000000}
+
+Frequency of sck for SPI communication 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00044}{44}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a1965eaca47dbf3f87acdafc2208f04eb}\label{ili9341_8c_a1965eaca47dbf3f87acdafc2208f04eb} 
+\index{ili9341.c@{ili9341.c}!UP@{UP}}
+\index{UP@{UP}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{UP}{UP}}
+{\footnotesize\ttfamily \#define UP~-\/1}
+
+Vertical grow direction 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00051}{51}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00499}{ILI9341\+Draw\+Line()}}.
+
+\Hypertarget{ili9341_8c_a6aaf215e34abc207bc8e2f607ec7c7b3}\label{ili9341_8c_a6aaf215e34abc207bc8e2f607ec7c7b3} 
+\index{ili9341.c@{ili9341.c}!VCOM\_CTRL1@{VCOM\_CTRL1}}
+\index{VCOM\_CTRL1@{VCOM\_CTRL1}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{VCOM\_CTRL1}{VCOM\_CTRL1}}
+{\footnotesize\ttfamily \#define VCOM\+\_\+\+CTRL1~0x\+C5}
+
+Set the VCOMH voltage 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00075}{75}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a64425812670d1aa05fd620e20bfc3df7}\label{ili9341_8c_a64425812670d1aa05fd620e20bfc3df7} 
+\index{ili9341.c@{ili9341.c}!VCOM\_CTRL2@{VCOM\_CTRL2}}
+\index{VCOM\_CTRL2@{VCOM\_CTRL2}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{VCOM\_CTRL2}{VCOM\_CTRL2}}
+{\footnotesize\ttfamily \#define VCOM\+\_\+\+CTRL2~0x\+C7}
+
+Set the VCOMH voltage 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00076}{76}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a47a04474c8c4fa05bd3ca427346a7cc1}\label{ili9341_8c_a47a04474c8c4fa05bd3ca427346a7cc1} 
+\index{ili9341.c@{ili9341.c}!WRITE\_CTRL\_DISP@{WRITE\_CTRL\_DISP}}
+\index{WRITE\_CTRL\_DISP@{WRITE\_CTRL\_DISP}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{WRITE\_CTRL\_DISP}{WRITE\_CTRL\_DISP}}
+{\footnotesize\ttfamily \#define WRITE\+\_\+\+CTRL\+\_\+\+DISP~0x53}
+
+Control display brightness 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00068}{68}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a65c7150109661fbdca94d5cf724c307b}\label{ili9341_8c_a65c7150109661fbdca94d5cf724c307b} 
+\index{ili9341.c@{ili9341.c}!WRITE\_DISP\_BRIGHT@{WRITE\_DISP\_BRIGHT}}
+\index{WRITE\_DISP\_BRIGHT@{WRITE\_DISP\_BRIGHT}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{WRITE\_DISP\_BRIGHT}{WRITE\_DISP\_BRIGHT}}
+{\footnotesize\ttfamily \#define WRITE\+\_\+\+DISP\+\_\+\+BRIGHT~0x51}
+
+Adjust the brightness value of the display 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00067}{67}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{ili9341_8c_a1398b648b9ae023e8c33ac565fc9eaff}\label{ili9341_8c_a1398b648b9ae023e8c33ac565fc9eaff} 
+\index{ili9341.c@{ili9341.c}!Fill@{Fill}}
+\index{Fill@{Fill}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{Fill()}{Fill()}}
+{\footnotesize\ttfamily void Fill (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x0,  }\item[{uint16\+\_\+t}]{y0,  }\item[{uint16\+\_\+t}]{x1,  }\item[{uint16\+\_\+t}]{y1,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Fill an srea of LCD with a determined color. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x1} & Start column \\
+\hline
+\mbox{\texttt{ in}}  & {\em y1} & Start row \\
+\hline
+\mbox{\texttt{ in}}  & {\em x2} & End column \\
+\hline
+\mbox{\texttt{ in}}  & {\em y2} & End row \\
+\hline
+\mbox{\texttt{ in}}  & {\em color} & color \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00260}{260}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00087}{High\+Byte}}, \mbox{\hyperlink{ili9341_8c_source_l00088}{Low\+Byte}}, \mbox{\hyperlink{ili9341_8c_source_l00047}{MAX\+\_\+\+VALUE\+\_\+\+SIZE}}, \mbox{\hyperlink{ili9341_8c_source_l00064}{MEM\+\_\+\+WRITE}}, \mbox{\hyperlink{ili9341_8c_source_l00042}{NULL}}, \mbox{\hyperlink{ili9341_8c_source_l00238}{Set\+Cursor\+Position()}} y \mbox{\hyperlink{ili9341_8c_source_l00222}{Write\+LCD()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00576}{ILI9341\+Draw\+Filled\+Rectangle()}}, \mbox{\hyperlink{ili9341_8c_source_l00499}{ILI9341\+Draw\+Line()}} y \mbox{\hyperlink{ili9341_8c_source_l00341}{ILI9341\+Fill()}}.
+
+\Hypertarget{ili9341_8c_a3ced3a9e7189797ae4b2c5cc34cc1886}\label{ili9341_8c_a3ced3a9e7189797ae4b2c5cc34cc1886} 
+\index{ili9341.c@{ili9341.c}!SetCursorPosition@{SetCursorPosition}}
+\index{SetCursorPosition@{SetCursorPosition}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{SetCursorPosition()}{SetCursorPosition()}}
+{\footnotesize\ttfamily void Set\+Cursor\+Position (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x0,  }\item[{uint16\+\_\+t}]{y0,  }\item[{uint16\+\_\+t}]{x1,  }\item[{uint16\+\_\+t}]{y1 }\end{DoxyParamCaption})}
+
+
+
+Define an area of frame memory where MCU can access. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x1} & Start column \\
+\hline
+\mbox{\texttt{ in}}  & {\em y1} & Start row \\
+\hline
+\mbox{\texttt{ in}}  & {\em x2} & End column \\
+\hline
+\mbox{\texttt{ in}}  & {\em y2} & End row \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00238}{238}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00062}{COLUMN\+\_\+\+ADDR\+\_\+\+SET}}, \mbox{\hyperlink{ili9341_8c_source_l00087}{High\+Byte}}, \mbox{\hyperlink{ili9341_8c_source_l00088}{Low\+Byte}}, \mbox{\hyperlink{ili9341_8c_source_l00063}{PAGE\+\_\+\+ADDR\+\_\+\+SET}} y \mbox{\hyperlink{ili9341_8c_source_l00222}{Write\+LCD()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00260}{Fill()}}, \mbox{\hyperlink{ili9341_8c_source_l00380}{ILI9341\+Draw\+Char()}}, \mbox{\hyperlink{ili9341_8c_source_l00769}{ILI9341\+Draw\+Picture()}} y \mbox{\hyperlink{ili9341_8c_source_l00333}{ILI9341\+Draw\+Pixel()}}.
+
+\Hypertarget{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}\label{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6} 
+\index{ili9341.c@{ili9341.c}!WriteLCD@{WriteLCD}}
+\index{WriteLCD@{WriteLCD}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{WriteLCD()}{WriteLCD()}}
+{\footnotesize\ttfamily void Write\+LCD (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlcd__cmd__t}{lcd\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Send command and parameters/data to LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em data} & Structure with the command and parameters/data to send \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00222}{222}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00103}{lcd\+\_\+cmd\+\_\+t\+::cmd}}, \mbox{\hyperlink{ili9341_8c_source_l00105}{lcd\+\_\+cmd\+\_\+t\+::data}}, \mbox{\hyperlink{ili9341_8c_source_l00104}{lcd\+\_\+cmd\+\_\+t\+::databytes}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}}, \mbox{\hyperlink{ili9341_8c_source_l00042}{NULL}}, \mbox{\hyperlink{ili9341_8c_source_l00167}{spi\+\_\+conf}}, \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}} y \mbox{\hyperlink{spi__mcu_8c_source_l00145}{Spi\+Write()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00260}{Fill()}}, \mbox{\hyperlink{ili9341_8c_source_l00380}{ILI9341\+Draw\+Char()}}, \mbox{\hyperlink{ili9341_8c_source_l00769}{ILI9341\+Draw\+Picture()}}, \mbox{\hyperlink{ili9341_8c_source_l00333}{ILI9341\+Draw\+Pixel()}}, \mbox{\hyperlink{ili9341_8c_source_l00300}{ILI9341\+Init()}}, \mbox{\hyperlink{ili9341_8c_source_l00345}{ILI9341\+Rotate()}} y \mbox{\hyperlink{ili9341_8c_source_l00238}{Set\+Cursor\+Position()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{ili9341_8c_a263ce7bccbcd1c94f9c234c101df296d}\label{ili9341_8c_a263ce7bccbcd1c94f9c234c101df296d} 
+\index{ili9341.c@{ili9341.c}!column\_addr\_set@{column\_addr\_set}}
+\index{column\_addr\_set@{column\_addr\_set}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{column\_addr\_set}{column\_addr\_set}}
+{\footnotesize\ttfamily uint8\+\_\+t column\+\_\+addr\+\_\+set\mbox{[}$\,$\mbox{]} = \{0x00, 0x00, 0x00, 0x\+EF\}}
+
+Start Column = 0, End Column = 239 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00126}{126}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a1c5f9f3b3ce68b179a541aaeb825cd02}\label{ili9341_8c_a1c5f9f3b3ce68b179a541aaeb825cd02} 
+\index{ili9341.c@{ili9341.c}!disp\_fun\_ctrl@{disp\_fun\_ctrl}}
+\index{disp\_fun\_ctrl@{disp\_fun\_ctrl}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{disp\_fun\_ctrl}{disp\_fun\_ctrl}}
+{\footnotesize\ttfamily uint8\+\_\+t disp\+\_\+fun\+\_\+ctrl\mbox{[}$\,$\mbox{]} = \{0x0A, 0x82, 0x27\}}
+
+Default configuration after RST 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00124}{124}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_afc83c18e8d0854b8b4cdb9aca29c312b}\label{ili9341_8c_afc83c18e8d0854b8b4cdb9aca29c312b} 
+\index{ili9341.c@{ili9341.c}!driv\_tim\_ctrl\_a@{driv\_tim\_ctrl\_a}}
+\index{driv\_tim\_ctrl\_a@{driv\_tim\_ctrl\_a}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{driv\_tim\_ctrl\_a}{driv\_tim\_ctrl\_a}}
+{\footnotesize\ttfamily uint8\+\_\+t driv\+\_\+tim\+\_\+ctrl\+\_\+a\mbox{[}$\,$\mbox{]} = \{0x85, 0x00, 0x78\}}
+
+Default configuration after RST 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00113}{113}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a9f16309f2f64840481039f862dac26e6}\label{ili9341_8c_a9f16309f2f64840481039f862dac26e6} 
+\index{ili9341.c@{ili9341.c}!driv\_tim\_ctrl\_b@{driv\_tim\_ctrl\_b}}
+\index{driv\_tim\_ctrl\_b@{driv\_tim\_ctrl\_b}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{driv\_tim\_ctrl\_b}{driv\_tim\_ctrl\_b}}
+{\footnotesize\ttfamily uint8\+\_\+t driv\+\_\+tim\+\_\+ctrl\+\_\+b\mbox{[}$\,$\mbox{]} = \{0x00, 0x00\}}
+
+Gate driver timing control\+: 0 unit 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00114}{114}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_ad5c58f04847ba842f7ccb2979d40308d}\label{ili9341_8c_ad5c58f04847ba842f7ccb2979d40308d} 
+\index{ili9341.c@{ili9341.c}!en\_3\_gamma@{en\_3\_gamma}}
+\index{en\_3\_gamma@{en\_3\_gamma}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{en\_3\_gamma}{en\_3\_gamma}}
+{\footnotesize\ttfamily uint8\+\_\+t en\+\_\+3\+\_\+gamma\mbox{[}$\,$\mbox{]} = \{0x02\}}
+
+Default configuration after RST 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00125}{125}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_aa3d2f2e1764e68edcf0585da630a8739}\label{ili9341_8c_aa3d2f2e1764e68edcf0585da630a8739} 
+\index{ili9341.c@{ili9341.c}!frame\_ctrl@{frame\_ctrl}}
+\index{frame\_ctrl@{frame\_ctrl}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{frame\_ctrl}{frame\_ctrl}}
+{\footnotesize\ttfamily uint8\+\_\+t frame\+\_\+ctrl\mbox{[}$\,$\mbox{]} = \{0x00, 0x18\}}
+
+Frame Rate = 79Hz 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00123}{123}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a56f6a4cad6b1411383f78e0777d5a077}\label{ili9341_8c_a56f6a4cad6b1411383f78e0777d5a077} 
+\index{ili9341.c@{ili9341.c}!gamma\_set@{gamma\_set}}
+\index{gamma\_set@{gamma\_set}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{gamma\_set}{gamma\_set}}
+{\footnotesize\ttfamily uint8\+\_\+t gamma\+\_\+set\mbox{[}$\,$\mbox{]} = \{0x01\}}
+
+Default configuration after RST 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00128}{128}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a663c460e092a1eea379439ac9014b80c}\label{ili9341_8c_a663c460e092a1eea379439ac9014b80c} 
+\index{ili9341.c@{ili9341.c}!lcd\_init@{lcd\_init}}
+\index{lcd\_init@{lcd\_init}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_init}{lcd\_init}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlcd__cmd__t}{lcd\+\_\+cmd\+\_\+t}} lcd\+\_\+init\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_adb7ea53332699577f0e0615520c484d1}{PWR\_CTRL\_A}},\ 5,\ \mbox{\hyperlink{ili9341_8c_a416313b8ca5aecccc037d6e3458677db}{pwr\_ctrl\_a}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a4c878fb5f2335f89220d476a5214325a}{PWR\_CTRL\_B}},\ 3,\ \mbox{\hyperlink{ili9341_8c_a438c9eddc4798e47d7c55f6301e1c6cc}{pwr\_ctrl\_b}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a12dc1e23eaceb49cbc5643e44ebcddac}{DRIV\_TIM\_CTRL\_A}},\ 3,\ \mbox{\hyperlink{ili9341_8c_afc83c18e8d0854b8b4cdb9aca29c312b}{driv\_tim\_ctrl\_a}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a5d38d9987627bf2e19312456b3ca399b}{DRIV\_TIM\_CTRL\_B}},\ 2,\ \mbox{\hyperlink{ili9341_8c_a9f16309f2f64840481039f862dac26e6}{driv\_tim\_ctrl\_b}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a37fc0ccd6096f0b3961023d6689b84f2}{PWR\_ON\_CTRL}},\ 4,\ \mbox{\hyperlink{ili9341_8c_a50c4cc503302476f9c68c328d19f5e30}{pwr\_on\_ctrl}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_adc200d26bdb86547d00275ba038936bf}{PUMP\_RATIO\_CTRL}},\ 1,\ \mbox{\hyperlink{ili9341_8c_a57cfbbe62f146bb9f1bf6493191053dd}{pump\_ratio\_ctrl}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a7a8f9ebe145ba4ff3c8787208f244909}{PWR\_CTRL1}},\ 1,\ \mbox{\hyperlink{ili9341_8c_afda58a19fb0b537ef8043dd8ff5d684a}{pwr\_ctrl1}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_adb301f832861ef36b7a9a48d8c77ced9}{PWR\_CTRL2}},\ 1,\ \mbox{\hyperlink{ili9341_8c_a564f88fe64e9af6e6cac92d11b68a247}{pwr\_ctrl2}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a6aaf215e34abc207bc8e2f607ec7c7b3}{VCOM\_CTRL1}},\ 2,\ \mbox{\hyperlink{ili9341_8c_a30138cf575d97056dc44637ba2b5505e}{vcom\_ctrl1}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a64425812670d1aa05fd620e20bfc3df7}{VCOM\_CTRL2}},\ 1,\ \mbox{\hyperlink{ili9341_8c_a1c32b869895cdeaec2169dedde07196a}{vcom\_ctrl2}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_ae707afd6326457b82a15bdcbfd99b8a8}{MEM\_ACC\_CTRL}},\ 1,\ \mbox{\hyperlink{ili9341_8c_a1aec16dc7650a4729f08ed5e4b529b42}{mem\_acc\_ctrl}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a47ba113dfe8e8118575b3dcbedd9b3ec}{PIXEL\_FORMAT\_SET}},\ 1,\ \mbox{\hyperlink{ili9341_8c_a100d66d7e8beee36f57806d288f8af96}{pixel\_format\_set}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a7f2398c30b4b925af593fae3bb4168d0}{FRAME\_CTRL}},\ 2,\ \mbox{\hyperlink{ili9341_8c_aa3d2f2e1764e68edcf0585da630a8739}{frame\_ctrl}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_ab17423783bb85a590da679a849ea5c57}{DISP\_FUN\_CTRL}},\ 3,\ \mbox{\hyperlink{ili9341_8c_a1c5f9f3b3ce68b179a541aaeb825cd02}{disp\_fun\_ctrl}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a27a2a53c2b01e4dd42e91cddecc41442}{EN\_3\_GAMMA}},\ 1,\ \mbox{\hyperlink{ili9341_8c_ad5c58f04847ba842f7ccb2979d40308d}{en\_3\_gamma}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_ac1ec6d9537a288a39f354c7133fb11c5}{COLUMN\_ADDR\_SET}},\ 4,\ \mbox{\hyperlink{ili9341_8c_a263ce7bccbcd1c94f9c234c101df296d}{column\_addr\_set}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a7fa17eb97440c73b81ca87407c164aee}{PAGE\_ADDR\_SET}},\ 4,\ \mbox{\hyperlink{ili9341_8c_a88412e782c5108da05d13e3e3bca06ff}{page\_addr\_set}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a7f0a97455f8ede6150b6b2c078a90f10}{GAMMA\_SET}},\ 1,\ \mbox{\hyperlink{ili9341_8c_a56f6a4cad6b1411383f78e0777d5a077}{gamma\_set}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a964889b3527f09608fde445c20847b87}{POS\_GAMMA}},\ 15,\ \mbox{\hyperlink{ili9341_8c_ae9f7984c806b71627776323c6d7e642a}{pos\_gamma}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a31a6695f5a43385bbd0f5ee988170e06}{NEG\_GAMMA}},\ 15,\ \mbox{\hyperlink{ili9341_8c_a9959a87a6f6cd807a52dc75801af8e6e}{neg\_gamma}}\},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Initial LCD configuration. 
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00137}{137}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00300}{ILI9341\+Init()}}.
+
+\Hypertarget{ili9341_8c_a11fe1fd4be5bc0f028d673b9e3ea047b}\label{ili9341_8c_a11fe1fd4be5bc0f028d673b9e3ea047b} 
+\index{ili9341.c@{ili9341.c}!lcd\_on@{lcd\_on}}
+\index{lcd\_on@{lcd\_on}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_on}{lcd\_on}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlcd__cmd__t}{lcd\+\_\+cmd\+\_\+t}} lcd\+\_\+on = \{\mbox{\hyperlink{ili9341_8c_a5ae6b05b3e1559c97f0d1b2daaaa0ee4}{DISPLAY\+\_\+\+ON}}, \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}, \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\}}
+
+Exit sleep mode 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00162}{162}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00300}{ILI9341\+Init()}}.
+
+\Hypertarget{ili9341_8c_a33d60197da1424cb4c13eab6b01a0d39}\label{ili9341_8c_a33d60197da1424cb4c13eab6b01a0d39} 
+\index{ili9341.c@{ili9341.c}!lcd\_reset@{lcd\_reset}}
+\index{lcd\_reset@{lcd\_reset}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_reset}{lcd\_reset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlcd__cmd__t}{lcd\+\_\+cmd\+\_\+t}} lcd\+\_\+reset = \{\mbox{\hyperlink{ili9341_8c_ab702106cf3b3e96750b6845ded4e0299}{RESET}}, \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}, \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\}}
+
+SW reset 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00160}{160}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00300}{ILI9341\+Init()}}.
+
+\Hypertarget{ili9341_8c_a2bfe0d561287fb1d78f7f2fe50207ee1}\label{ili9341_8c_a2bfe0d561287fb1d78f7f2fe50207ee1} 
+\index{ili9341.c@{ili9341.c}!lcd\_sleep\_out@{lcd\_sleep\_out}}
+\index{lcd\_sleep\_out@{lcd\_sleep\_out}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_sleep\_out}{lcd\_sleep\_out}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlcd__cmd__t}{lcd\+\_\+cmd\+\_\+t}} lcd\+\_\+sleep\+\_\+out = \{\mbox{\hyperlink{ili9341_8c_a50d64363b3ecae17415811bf896e2930}{SLEEP\+\_\+\+OUT}}, \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}, \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\}}
+
+Exit sleep mode 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00161}{161}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00300}{ILI9341\+Init()}}.
+
+\Hypertarget{ili9341_8c_a1aec16dc7650a4729f08ed5e4b529b42}\label{ili9341_8c_a1aec16dc7650a4729f08ed5e4b529b42} 
+\index{ili9341.c@{ili9341.c}!mem\_acc\_ctrl@{mem\_acc\_ctrl}}
+\index{mem\_acc\_ctrl@{mem\_acc\_ctrl}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{mem\_acc\_ctrl}{mem\_acc\_ctrl}}
+{\footnotesize\ttfamily uint8\+\_\+t mem\+\_\+acc\+\_\+ctrl\mbox{[}$\,$\mbox{]} = \{0x48\}}
+
+MY = 0, MX = 1, MV = 0, ML = 0, BGR order, MH = 0 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00121}{121}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a9959a87a6f6cd807a52dc75801af8e6e}\label{ili9341_8c_a9959a87a6f6cd807a52dc75801af8e6e} 
+\index{ili9341.c@{ili9341.c}!neg\_gamma@{neg\_gamma}}
+\index{neg\_gamma@{neg\_gamma}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{neg\_gamma}{neg\_gamma}}
+{\footnotesize\ttfamily uint8\+\_\+t neg\+\_\+gamma\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{0x00,\ 0X0E,\ 0X14,\ 0X03,\ 0X11,\ 0X07,}
+\DoxyCodeLine{\ \ \ \ 0X31,\ 0XC1,\ 0X48,\ 0X08,\ 0X0F,\ 0X0C,\ 0X31,\ 0X36,\ 0X0F\}}
+
+\end{DoxyCode}
+Negative gamma correction 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00131}{131}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a88412e782c5108da05d13e3e3bca06ff}\label{ili9341_8c_a88412e782c5108da05d13e3e3bca06ff} 
+\index{ili9341.c@{ili9341.c}!page\_addr\_set@{page\_addr\_set}}
+\index{page\_addr\_set@{page\_addr\_set}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{page\_addr\_set}{page\_addr\_set}}
+{\footnotesize\ttfamily uint8\+\_\+t page\+\_\+addr\+\_\+set\mbox{[}$\,$\mbox{]} = \{0x00, 0x00, 0x01, 0x3F\}}
+
+Start Page = 0, End Page = 319 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00127}{127}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a100d66d7e8beee36f57806d288f8af96}\label{ili9341_8c_a100d66d7e8beee36f57806d288f8af96} 
+\index{ili9341.c@{ili9341.c}!pixel\_format\_set@{pixel\_format\_set}}
+\index{pixel\_format\_set@{pixel\_format\_set}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{pixel\_format\_set}{pixel\_format\_set}}
+{\footnotesize\ttfamily uint8\+\_\+t pixel\+\_\+format\+\_\+set\mbox{[}$\,$\mbox{]} = \{0x55\}}
+
+16 bits/pixel 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00122}{122}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_ae9f7984c806b71627776323c6d7e642a}\label{ili9341_8c_ae9f7984c806b71627776323c6d7e642a} 
+\index{ili9341.c@{ili9341.c}!pos\_gamma@{pos\_gamma}}
+\index{pos\_gamma@{pos\_gamma}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{pos\_gamma}{pos\_gamma}}
+{\footnotesize\ttfamily uint8\+\_\+t pos\+\_\+gamma\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{0x0F,\ 0X31,\ 0X2B,\ 0X0C,\ 0X0E,\ 0X08,}
+\DoxyCodeLine{\ \ \ \ 0X4E,\ 0XF1,\ 0X37,\ 0X07,\ 0X10,\ 0X03,\ 0X0E,\ 0X09,\ 0X00\}}
+
+\end{DoxyCode}
+Positive gamma correction 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00129}{129}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a57cfbbe62f146bb9f1bf6493191053dd}\label{ili9341_8c_a57cfbbe62f146bb9f1bf6493191053dd} 
+\index{ili9341.c@{ili9341.c}!pump\_ratio\_ctrl@{pump\_ratio\_ctrl}}
+\index{pump\_ratio\_ctrl@{pump\_ratio\_ctrl}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{pump\_ratio\_ctrl}{pump\_ratio\_ctrl}}
+{\footnotesize\ttfamily uint8\+\_\+t pump\+\_\+ratio\+\_\+ctrl\mbox{[}$\,$\mbox{]} = \{0x20\}}
+
+DDVDH = 2x\+VCI 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00116}{116}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_afda58a19fb0b537ef8043dd8ff5d684a}\label{ili9341_8c_afda58a19fb0b537ef8043dd8ff5d684a} 
+\index{ili9341.c@{ili9341.c}!pwr\_ctrl1@{pwr\_ctrl1}}
+\index{pwr\_ctrl1@{pwr\_ctrl1}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{pwr\_ctrl1}{pwr\_ctrl1}}
+{\footnotesize\ttfamily uint8\+\_\+t pwr\+\_\+ctrl1\mbox{[}$\,$\mbox{]} = \{0x23\}}
+
+GVDD = 4.\+6V 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00117}{117}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a564f88fe64e9af6e6cac92d11b68a247}\label{ili9341_8c_a564f88fe64e9af6e6cac92d11b68a247} 
+\index{ili9341.c@{ili9341.c}!pwr\_ctrl2@{pwr\_ctrl2}}
+\index{pwr\_ctrl2@{pwr\_ctrl2}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{pwr\_ctrl2}{pwr\_ctrl2}}
+{\footnotesize\ttfamily uint8\+\_\+t pwr\+\_\+ctrl2\mbox{[}$\,$\mbox{]} = \{0x10\}}
+
+Default configuration after RST 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00118}{118}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a416313b8ca5aecccc037d6e3458677db}\label{ili9341_8c_a416313b8ca5aecccc037d6e3458677db} 
+\index{ili9341.c@{ili9341.c}!pwr\_ctrl\_a@{pwr\_ctrl\_a}}
+\index{pwr\_ctrl\_a@{pwr\_ctrl\_a}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{pwr\_ctrl\_a}{pwr\_ctrl\_a}}
+{\footnotesize\ttfamily uint8\+\_\+t pwr\+\_\+ctrl\+\_\+a\mbox{[}$\,$\mbox{]} = \{0x39, 0x2C, 0x00, 0x34, 0x02\}}
+
+
+
+Initial LCD configuration parameters. 
+
+Default configuration after RST 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00111}{111}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a438c9eddc4798e47d7c55f6301e1c6cc}\label{ili9341_8c_a438c9eddc4798e47d7c55f6301e1c6cc} 
+\index{ili9341.c@{ili9341.c}!pwr\_ctrl\_b@{pwr\_ctrl\_b}}
+\index{pwr\_ctrl\_b@{pwr\_ctrl\_b}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{pwr\_ctrl\_b}{pwr\_ctrl\_b}}
+{\footnotesize\ttfamily uint8\+\_\+t pwr\+\_\+ctrl\+\_\+b\mbox{[}$\,$\mbox{]} = \{0x00, 0x\+C1, 0x30\}}
+
+Discharge path enable 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00112}{112}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a50c4cc503302476f9c68c328d19f5e30}\label{ili9341_8c_a50c4cc503302476f9c68c328d19f5e30} 
+\index{ili9341.c@{ili9341.c}!pwr\_on\_ctrl@{pwr\_on\_ctrl}}
+\index{pwr\_on\_ctrl@{pwr\_on\_ctrl}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{pwr\_on\_ctrl}{pwr\_on\_ctrl}}
+{\footnotesize\ttfamily uint8\+\_\+t pwr\+\_\+on\+\_\+ctrl\mbox{[}$\,$\mbox{]} = \{0x64, 0x03, 0x12, 0x81\}}
+
+CP1 keeps 1 frame, 1st frame enable, vcl = 0, ddvdh = 3, vgh =1 , vgl = , DDVDH\+\_\+\+ENH = 1 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00115}{115}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_aa7f1bcccbdc2615169d9c57878b037a0}\label{ili9341_8c_aa7f1bcccbdc2615169d9c57878b037a0} 
+\index{ili9341.c@{ili9341.c}!spi\_conf@{spi\_conf}}
+\index{spi\_conf@{spi\_conf}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{spi\_conf}{spi\_conf}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structspi__mcu__config__t}{spi\+\_\+mcu\+\_\+config\+\_\+t}} spi\+\_\+conf}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .device\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ }
+\DoxyCodeLine{\ \ \ \ .clk\_mode\ =\ \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a8c818ffe07c247353de39ebce7a017c2}{MODE0}},\ }
+\DoxyCodeLine{\ \ \ \ .bitrate\ =\ \mbox{\hyperlink{ili9341_8c_a5a96556b55f3bf5350e836859a37280d}{SPI\_BR}},\ }
+\DoxyCodeLine{\ \ \ \ .transfer\_mode\ =\ \mbox{\hyperlink{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa0cb4f6c37501162dcdcd5686e2efea9a}{SPI\_POLLING}},\ }
+\DoxyCodeLine{\ \ \ \ .func\_p\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},}
+\DoxyCodeLine{\ \ \ \ .param\_p\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\ \}}
+
+\end{DoxyCode}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00167}{167}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00300}{ILI9341\+Init()}} y \mbox{\hyperlink{ili9341_8c_source_l00222}{Write\+LCD()}}.
+
+\Hypertarget{ili9341_8c_a30138cf575d97056dc44637ba2b5505e}\label{ili9341_8c_a30138cf575d97056dc44637ba2b5505e} 
+\index{ili9341.c@{ili9341.c}!vcom\_ctrl1@{vcom\_ctrl1}}
+\index{vcom\_ctrl1@{vcom\_ctrl1}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{vcom\_ctrl1}{vcom\_ctrl1}}
+{\footnotesize\ttfamily uint8\+\_\+t vcom\+\_\+ctrl1\mbox{[}$\,$\mbox{]} = \{0x3E, 0x28\}}
+
+VCOMH = 4.\+25V, VCOML = -\/1.\+5V 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00119}{119}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{ili9341_8c_a1c32b869895cdeaec2169dedde07196a}\label{ili9341_8c_a1c32b869895cdeaec2169dedde07196a} 
+\index{ili9341.c@{ili9341.c}!vcom\_ctrl2@{vcom\_ctrl2}}
+\index{vcom\_ctrl2@{vcom\_ctrl2}!ili9341.c@{ili9341.c}}
+\doxysubsubsection{\texorpdfstring{vcom\_ctrl2}{vcom\_ctrl2}}
+{\footnotesize\ttfamily uint8\+\_\+t vcom\+\_\+ctrl2\mbox{[}$\,$\mbox{]} = \{0x86\}}
+
+VCOMH = VMH -\/ 58, VCOML = VML -\/ 58 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00120}{120}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+

@@ -1,0 +1,33 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/inc/pwm\+\_\+mcu.h}
+\hypertarget{pwm__mcu_8h}{}\label{pwm__mcu_8h}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/pwm\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/pwm\_mcu.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$gpio\+\_\+mcu.\+h$>$}\newline
+\doxysubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___p_w_m_ga5800a2bada92ba802e1cbdb0307f0c7b}{pwm\+\_\+out}} \mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em PWM driver for ESP-\/\+EDU board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_w_m_ga5800a2bada92ba802e1cbdb0307f0c7b}{pwm\+\_\+out}} \{ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\+\_\+0}}
+, \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\+\_\+1}}
+, \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6}{PWM\+\_\+2}}
+, \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542}{PWM\+\_\+3}}
+ \}
+\begin{DoxyCompactList}\small\item\em PWM driver for ESP-\/\+EDU board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_w_m_ga50ba8fd6442b4799b8fb9b2e2b859bbd}{PWMInit}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out, \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} gpio, uint16\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Single PWM output inicialization in selected GPIO. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___p_w_m_ga6fe31ebdc570ccdd776a7d4178566062}{PWMOn}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out)
+\begin{DoxyCompactList}\small\item\em Resume PWM output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___p_w_m_ga43660d2e059ccf15efea7fff6a5fbfe4}{PWMOff}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out)
+\begin{DoxyCompactList}\small\item\em Pause PWM output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba}{PWMSet\+Duty\+Cycle}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out, uint8\+\_\+t duty\+\_\+cycle)
+\begin{DoxyCompactList}\small\item\em Change PWM duty cycle of an PWM output. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_w_m_ga223ccf708bb17d7bfb4ffb77d57c0501}{PWMSet\+Freq}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out, uint32\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Change frequency of an PWM output. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_w_m_gad2556985508ded35e34bccc1e974fe6b}{PWMDeinit}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out)
+\begin{DoxyCompactList}\small\item\em PWM output de-\/inicialization. \end{DoxyCompactList}\end{DoxyCompactItemize}

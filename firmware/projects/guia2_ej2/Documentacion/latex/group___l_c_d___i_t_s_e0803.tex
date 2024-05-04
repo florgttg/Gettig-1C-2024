@@ -1,0 +1,190 @@
+\doxysubsubsection{LCD ITSE0803}
+\hypertarget{group___l_c_d___i_t_s_e0803}{}\label{group___l_c_d___i_t_s_e0803}\index{LCD ITSE0803@{LCD ITSE0803}}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga1c08a1458380c8f0a02a3763d14c8bf3}{Lcd\+Its\+E0803\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Driver for using the 3 digits numeric display in ESP-\/\+EDU. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga77a9887ee733d3212c3e4996c47f1b9d}{Lcd\+Its\+E0803\+Write}} (uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Function to display value a LCD Module for EDU-\/\+CIAA. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga748187a90cb737541071dcd01c67db51}{Lcd\+Its\+E0803\+Read}} (void)
+\begin{DoxyCompactList}\small\item\em Read value displayed in LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_gae84766fe1e3b5550b1ca4bbc70f00504}{Lcd\+Its\+E0803\+Off}} (void)
+\begin{DoxyCompactList}\small\item\em Turn off display. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga38ac54150b5921cb9ec4897f62868a68}{Lcd\+Its\+E0803\+De\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em ESP-\/\+EDU LCD Module initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___l_c_d___i_t_s_e0803_ga38ac54150b5921cb9ec4897f62868a68}\label{group___l_c_d___i_t_s_e0803_ga38ac54150b5921cb9ec4897f62868a68} 
+\index{LCD ITSE0803@{LCD ITSE0803}!LcdItsE0803DeInit@{LcdItsE0803DeInit}}
+\index{LcdItsE0803DeInit@{LcdItsE0803DeInit}!LCD ITSE0803@{LCD ITSE0803}}
+\doxysubsubsubsubsection{\texorpdfstring{LcdItsE0803DeInit()}{LcdItsE0803DeInit()}}
+{\footnotesize\ttfamily bool Lcd\+Its\+E0803\+De\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+ESP-\/\+EDU LCD Module initialization. 
+
+\begin{DoxyReturn}{Devuelve}
+true 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{lcditse0803_8c_source_l00101}{101}} del archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__mcu_8c_source_l00130}{GPIODeinit()}}.
+
+\Hypertarget{group___l_c_d___i_t_s_e0803_ga1c08a1458380c8f0a02a3763d14c8bf3}\label{group___l_c_d___i_t_s_e0803_ga1c08a1458380c8f0a02a3763d14c8bf3} 
+\index{LCD ITSE0803@{LCD ITSE0803}!LcdItsE0803Init@{LcdItsE0803Init}}
+\index{LcdItsE0803Init@{LcdItsE0803Init}!LCD ITSE0803@{LCD ITSE0803}}
+\doxysubsubsubsubsection{\texorpdfstring{LcdItsE0803Init()}{LcdItsE0803Init()}}
+{\footnotesize\ttfamily bool Lcd\+Its\+E0803\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Driver for using the 3 digits numeric display in ESP-\/\+EDU. 
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Display   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ EDU-\/\+CIAA    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Display   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ EDU-\/\+CIAA    }\\\cline{1-2}
+\endhead
+\PBS\centering Vcc   &\PBS\centering 5V    \\\cline{1-2}
+\PBS\centering BCD1   &\PBS\centering GPIO\+\_\+20    \\\cline{1-2}
+\PBS\centering BCD2   &\PBS\centering GPIO\+\_\+21    \\\cline{1-2}
+\PBS\centering BCD3   &\PBS\centering GPIO\+\_\+22    \\\cline{1-2}
+\PBS\centering BCD4   &\PBS\centering GPIO\+\_\+23    \\\cline{1-2}
+\PBS\centering SEL1   &\PBS\centering GPIO\+\_\+19    \\\cline{1-2}
+\PBS\centering SEL2   &\PBS\centering GPIO\+\_\+18    \\\cline{1-2}
+\PBS\centering SEL3   &\PBS\centering GPIO\+\_\+9    \\\cline{1-2}
+\PBS\centering Gnd   &\PBS\centering GND   \\\cline{1-2}
+\end{longtabu}
+
+
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 23/10/2023   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+ESP-\/\+EDU LCD Module initialization.
+
+\begin{DoxyReturn}{Devuelve}
+true 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{lcditse0803_8c_source_l00037}{37}} del archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{lcditse0803_8c_source_l00016}{GPIO\+\_\+\+BCD\+\_\+1}}, \mbox{\hyperlink{lcditse0803_8c_source_l00017}{GPIO\+\_\+\+BCD\+\_\+2}}, \mbox{\hyperlink{lcditse0803_8c_source_l00018}{GPIO\+\_\+\+BCD\+\_\+3}}, \mbox{\hyperlink{lcditse0803_8c_source_l00019}{GPIO\+\_\+\+BCD\+\_\+4}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00044}{GPIO\+\_\+\+OUTPUT}}, \mbox{\hyperlink{lcditse0803_8c_source_l00020}{GPIO\+\_\+\+SEL\+\_\+1}}, \mbox{\hyperlink{lcditse0803_8c_source_l00021}{GPIO\+\_\+\+SEL\+\_\+2}}, \mbox{\hyperlink{lcditse0803_8c_source_l00022}{GPIO\+\_\+\+SEL\+\_\+3}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00067}{GPIOInit()}} y \mbox{\hyperlink{lcditse0803_8c_source_l00054}{Lcd\+Its\+E0803\+Write()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00164}{app\+\_\+main()}}.
+
+\Hypertarget{group___l_c_d___i_t_s_e0803_gae84766fe1e3b5550b1ca4bbc70f00504}\label{group___l_c_d___i_t_s_e0803_gae84766fe1e3b5550b1ca4bbc70f00504} 
+\index{LCD ITSE0803@{LCD ITSE0803}!LcdItsE0803Off@{LcdItsE0803Off}}
+\index{LcdItsE0803Off@{LcdItsE0803Off}!LCD ITSE0803@{LCD ITSE0803}}
+\doxysubsubsubsubsection{\texorpdfstring{LcdItsE0803Off()}{LcdItsE0803Off()}}
+{\footnotesize\ttfamily void Lcd\+Its\+E0803\+Off (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Turn off display. 
+
+
+
+Definición en la línea \mbox{\hyperlink{lcditse0803_8c_source_l00087}{87}} del archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{lcditse0803_8c_source_l00020}{GPIO\+\_\+\+SEL\+\_\+1}}, \mbox{\hyperlink{lcditse0803_8c_source_l00021}{GPIO\+\_\+\+SEL\+\_\+2}}, \mbox{\hyperlink{lcditse0803_8c_source_l00022}{GPIO\+\_\+\+SEL\+\_\+3}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}} y \mbox{\hyperlink{lcditse0803_8c_source_l00029}{Lcd\+Its\+E0803\+BCDto\+Pin()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej2_8c_source_l00114}{Task\+\_\+measure()}}.
+
+\Hypertarget{group___l_c_d___i_t_s_e0803_ga748187a90cb737541071dcd01c67db51}\label{group___l_c_d___i_t_s_e0803_ga748187a90cb737541071dcd01c67db51} 
+\index{LCD ITSE0803@{LCD ITSE0803}!LcdItsE0803Read@{LcdItsE0803Read}}
+\index{LcdItsE0803Read@{LcdItsE0803Read}!LCD ITSE0803@{LCD ITSE0803}}
+\doxysubsubsubsubsection{\texorpdfstring{LcdItsE0803Read()}{LcdItsE0803Read()}}
+{\footnotesize\ttfamily uint16\+\_\+t Lcd\+Its\+E0803\+Read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Read value displayed in LCD. 
+
+\begin{DoxyReturn}{Devuelve}
+uint16\+\_\+t value displayed. 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{lcditse0803_8c_source_l00083}{83}} del archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+\Hypertarget{group___l_c_d___i_t_s_e0803_ga77a9887ee733d3212c3e4996c47f1b9d}\label{group___l_c_d___i_t_s_e0803_ga77a9887ee733d3212c3e4996c47f1b9d} 
+\index{LCD ITSE0803@{LCD ITSE0803}!LcdItsE0803Write@{LcdItsE0803Write}}
+\index{LcdItsE0803Write@{LcdItsE0803Write}!LCD ITSE0803@{LCD ITSE0803}}
+\doxysubsubsubsubsection{\texorpdfstring{LcdItsE0803Write()}{LcdItsE0803Write()}}
+{\footnotesize\ttfamily bool Lcd\+Its\+E0803\+Write (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Function to display value a LCD Module for EDU-\/\+CIAA. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em value} & to show 0..999\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+false if an error occurs (out of scale), in other case returns true
+\end{DoxyReturn}
+Display a value in LCD Module.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em value} & Number to display (o to 999) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true if value \texorpdfstring{$<$}{<} 999 
+
+false if value \texorpdfstring{$>$}{>} 999 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{lcditse0803_8c_source_l00054}{54}} del archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{lcditse0803_8c_source_l00020}{GPIO\+\_\+\+SEL\+\_\+1}}, \mbox{\hyperlink{lcditse0803_8c_source_l00021}{GPIO\+\_\+\+SEL\+\_\+2}}, \mbox{\hyperlink{lcditse0803_8c_source_l00022}{GPIO\+\_\+\+SEL\+\_\+3}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}} y \mbox{\hyperlink{lcditse0803_8c_source_l00029}{Lcd\+Its\+E0803\+BCDto\+Pin()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{lcditse0803_8c_source_l00037}{Lcd\+Its\+E0803\+Init()}} y \mbox{\hyperlink{guia2__ej2_8c_source_l00114}{Task\+\_\+measure()}}.
+

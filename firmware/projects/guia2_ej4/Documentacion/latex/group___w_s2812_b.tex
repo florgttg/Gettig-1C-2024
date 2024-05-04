@@ -1,0 +1,137 @@
+\doxysubsubsection{WS2812B}
+\hypertarget{group___w_s2812_b}{}\label{group___w_s2812_b}\index{WS2812B@{WS2812B}}
+\doxysubsubsubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structrgb__led}{rgb\+\_\+led}}
+\begin{DoxyCompactList}\small\item\em Driver for handling WS2812B RGB leds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structrgb__led}{rgb\+\_\+led}} \mbox{\hyperlink{group___w_s2812_b_ga10677d455b434a1fb0ac83c343551647}{rgb\+\_\+led\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Driver for handling WS2812B RGB leds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___w_s2812_b_gab5724b524301eafce386e26782206b3c}{ws2812b\+Init}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin)
+\begin{DoxyCompactList}\small\item\em Neo\+Pixel initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___w_s2812_b_ga6efc852be97e10768f170756c0bde024}{ws2812b\+Send}} (\mbox{\hyperlink{group___w_s2812_b_ga10677d455b434a1fb0ac83c343551647}{rgb\+\_\+led\+\_\+t}} led\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Send color information to Neo\+Pixel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___w_s2812_b_ga7f917e1d76a1edff14b8bac723a169d8}{ws2812b\+Send\+Ret}} (void)
+\begin{DoxyCompactList}\small\item\em Send a ret command to Neo\+Pixel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de «typedef»}
+\Hypertarget{group___w_s2812_b_ga10677d455b434a1fb0ac83c343551647}\label{group___w_s2812_b_ga10677d455b434a1fb0ac83c343551647} 
+\index{WS2812B@{WS2812B}!rgb\_led\_t@{rgb\_led\_t}}
+\index{rgb\_led\_t@{rgb\_led\_t}!WS2812B@{WS2812B}}
+\doxysubsubsubsubsection{\texorpdfstring{rgb\_led\_t}{rgb\_led\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structrgb__led}{rgb\+\_\+led}} \mbox{\hyperlink{group___w_s2812_b_ga10677d455b434a1fb0ac83c343551647}{rgb\+\_\+led\+\_\+t}}}
+
+
+
+Driver for handling WS2812B RGB leds. 
+
+\begin{DoxyNote}{Nota}
+For handling Neo\+Pixels arrays use "{}neopixel\+\_\+stripe.\+h"{}.
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 23/10/2023   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+Neo\+Pixel color 
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___w_s2812_b_gab5724b524301eafce386e26782206b3c}\label{group___w_s2812_b_gab5724b524301eafce386e26782206b3c} 
+\index{WS2812B@{WS2812B}!ws2812bInit@{ws2812bInit}}
+\index{ws2812bInit@{ws2812bInit}!WS2812B@{WS2812B}}
+\doxysubsubsubsubsection{\texorpdfstring{ws2812bInit()}{ws2812bInit()}}
+{\footnotesize\ttfamily void ws2812b\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{pin }\end{DoxyParamCaption})}
+
+
+
+Neo\+Pixel initialization. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pin} & GPIO number where Neo\+Pixel data pin (DIN) will be connected \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{ws2812b_8c_source_l00335}{335}} del archivo \mbox{\hyperlink{ws2812b_8c_source}{ws2812b.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00034}{GPIOFast\+Init()}} y \mbox{\hyperlink{ws2812b_8c_source_l00024}{pin\+\_\+number}}.
+
+
+
+Referenciado por \mbox{\hyperlink{neopixel__stripe_8c_source_l00038}{Neo\+Pixel\+Init()}}.
+
+\Hypertarget{group___w_s2812_b_ga6efc852be97e10768f170756c0bde024}\label{group___w_s2812_b_ga6efc852be97e10768f170756c0bde024} 
+\index{WS2812B@{WS2812B}!ws2812bSend@{ws2812bSend}}
+\index{ws2812bSend@{ws2812bSend}!WS2812B@{WS2812B}}
+\doxysubsubsubsubsection{\texorpdfstring{ws2812bSend()}{ws2812bSend()}}
+{\footnotesize\ttfamily void ws2812b\+Send (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___w_s2812_b_ga10677d455b434a1fb0ac83c343551647}{rgb\+\_\+led\+\_\+t}}}]{led\+\_\+color }\end{DoxyParamCaption})}
+
+
+
+Send color information to Neo\+Pixel. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em data} & Neo\+Pixel color \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{ws2812b_8c_source_l00340}{340}} del archivo \mbox{\hyperlink{ws2812b_8c_source}{ws2812b.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ws2812b_8c_source_l00022}{BIT\+\_\+7}}, \mbox{\hyperlink{ws2812b_8h_source_l00040}{rgb\+\_\+led\+::blue}}, \mbox{\hyperlink{ws2812b_8h_source_l00038}{rgb\+\_\+led\+::green}}, \mbox{\hyperlink{ws2812b_8c_source_l00024}{pin\+\_\+number}}, \mbox{\hyperlink{ws2812b_8h_source_l00039}{rgb\+\_\+led\+::red}}, \mbox{\hyperlink{ws2812b_8c_source_l00329}{ws2812b\+Gamma\+Correction()}}, \mbox{\hyperlink{ws2812b_8c_source_l00050}{ws2812b\+Send\+High()}} y \mbox{\hyperlink{ws2812b_8c_source_l00189}{ws2812b\+Send\+Low()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{neopixel__stripe_8c_source_l00044}{Neo\+Pixel\+All\+Off()}} y \mbox{\hyperlink{neopixel__stripe_8c_source_l00067}{Neo\+Pixel\+Set\+Array()}}.
+
+\Hypertarget{group___w_s2812_b_ga7f917e1d76a1edff14b8bac723a169d8}\label{group___w_s2812_b_ga7f917e1d76a1edff14b8bac723a169d8} 
+\index{WS2812B@{WS2812B}!ws2812bSendRet@{ws2812bSendRet}}
+\index{ws2812bSendRet@{ws2812bSendRet}!WS2812B@{WS2812B}}
+\doxysubsubsubsubsection{\texorpdfstring{ws2812bSendRet()}{ws2812bSendRet()}}
+{\footnotesize\ttfamily void ws2812b\+Send\+Ret (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Send a ret command to Neo\+Pixel. 
+
+
+
+Definición en la línea \mbox{\hyperlink{ws2812b_8c_source_l00371}{371}} del archivo \mbox{\hyperlink{ws2812b_8c_source}{ws2812b.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{delay__mcu_8c_source_l00087}{Delay\+Us()}}, \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00054}{GPIOFast\+Write()}} y \mbox{\hyperlink{ws2812b_8c_source_l00020}{RET\+\_\+\+CMD}}.
+
+
+
+Referenciado por \mbox{\hyperlink{neopixel__stripe_8c_source_l00044}{Neo\+Pixel\+All\+Off()}} y \mbox{\hyperlink{neopixel__stripe_8c_source_l00067}{Neo\+Pixel\+Set\+Array()}}.
+

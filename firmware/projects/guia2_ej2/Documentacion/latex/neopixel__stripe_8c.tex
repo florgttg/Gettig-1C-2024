@@ -1,0 +1,230 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/src/neopixel\+\_\+stripe.c}
+\hypertarget{neopixel__stripe_8c}{}\label{neopixel__stripe_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/neopixel\_stripe.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/neopixel\_stripe.c}}
+{\ttfamily \#include "{}neopixel\+\_\+stripe.\+h"{}}\newline
+{\ttfamily \#include "{}ws2812b.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{neopixel__stripe_8c_a7540dd68adcd7c70780fcb45d2aa0f83}{RED\+\_\+\+MSK}}~0x00\+FF0000
+\item 
+\#define \mbox{\hyperlink{neopixel__stripe_8c_a09e619b992a50b34742d68754eff15e3}{GREEN\+\_\+\+MSK}}~0x0000\+FF00
+\item 
+\#define \mbox{\hyperlink{neopixel__stripe_8c_ab821869451c5b9d4dcaec88d8cb00b41}{BLUE\+\_\+\+MSK}}~0x000000\+FF
+\item 
+\#define \mbox{\hyperlink{neopixel__stripe_8c_a7b63a430cb1ca07c7feeb74a0626fcaa}{RED\+\_\+\+OFFSET}}~16
+\item 
+\#define \mbox{\hyperlink{neopixel__stripe_8c_aea3275e63db7d1cb3df830ba4d27a838}{GREEN\+\_\+\+OFFSET}}~8
+\item 
+\#define \mbox{\hyperlink{neopixel__stripe_8c_a62e3dbb5365407c155ed8c6ec346e8e1}{BLUE\+\_\+\+OFFSET}}~0
+\item 
+\#define \mbox{\hyperlink{neopixel__stripe_8c_a9e90c85256c4f5a45a78b71c3bc73a42}{MAX\+\_\+\+BRIGHT}}~255
+\item 
+\#define \mbox{\hyperlink{neopixel__stripe_8c_a6c94edbcea161634d33b78aa6138f18a}{BRIGHT\+\_\+\+OFFSET}}~8
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_ga1dd960cb0564070aae4f05d455a21942}{Neo\+Pixel\+Init}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin, uint16\+\_\+t len, \mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}} \texorpdfstring{$\ast$}{*}color\+\_\+array)
+\begin{DoxyCompactList}\small\item\em Neo\+Pixel array initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_ga7eda8ecf6370a5af575af2ca85eafa6d}{Neo\+Pixel\+All\+Off}} (void)
+\begin{DoxyCompactList}\small\item\em Turn off all Neo\+Pixels. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_ga00aedd9bd24d607244a314348180bdb8}{Neo\+Pixel\+All\+Color}} (\mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}} color)
+\begin{DoxyCompactList}\small\item\em Change all Neo\+Pixels in the stripe to the same color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_ga7f53683e3207e9523fc201bdc79b6025}{Neo\+Pixel\+Set\+Pixel}} (uint16\+\_\+t pixel, \mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}} color)
+\begin{DoxyCompactList}\small\item\em Set an individual pixel to a color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_ga23ae424d3a323c2e315b3f89ba857a84}{Neo\+Pixel\+Set\+Array}} (\mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}} \texorpdfstring{$\ast$}{*}color\+\_\+array)
+\begin{DoxyCompactList}\small\item\em Set all Neo\+Pixels in the array with the color stored in an array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_gac95515e3889b8cebd2f8bf0e72590d33}{Neo\+Pixel\+Shift}} (bool upwards)
+\begin{DoxyCompactList}\small\item\em Shift the all Neo\+Pixel colors in the array 1 position (up or down) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_gacebd73c47572bd32b7f578e3dd98cc2f}{Neo\+Pixel\+Brightness}} (uint8\+\_\+t bright)
+\begin{DoxyCompactList}\small\item\em Change Neo\+Pixel brightness. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___neo_pixel___stripe_gaa286fdaba2147e99c24195745ad30dba}{Neo\+Pixel\+Rainbow}} (uint16\+\_\+t first\+\_\+hue, uint8\+\_\+t sat, uint8\+\_\+t val, uint8\+\_\+t reps)
+\begin{DoxyCompactList}\small\item\em Set all Neo\+Pixels with a gradient of colors. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}} \mbox{\hyperlink{group___neo_pixel___stripe_gaf687598b356c6dab43afa17df8014a22}{Neo\+Pixel\+Rgb2\+Color}} (uint8\+\_\+t red, uint8\+\_\+t green, uint8\+\_\+t blue)
+\begin{DoxyCompactList}\small\item\em Convert 3 individual color levels (R, G, B) to a 24bits color data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}} \mbox{\hyperlink{group___neo_pixel___stripe_ga1f293711b6af3e20c821fd26c7089111}{Neo\+Pixel\+HSV2\+Color}} (uint16\+\_\+t hue, uint8\+\_\+t sat, uint8\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Convert hue, value and saturation values to 24 bits color (using the HSV color model) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\+\_\+length}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{neopixel__stripe_8c_a693d9d35a7e69903c6d6f96fbd08988f}{stripe\+\_\+bright}} = \mbox{\hyperlink{neopixel__stripe_8c_a9e90c85256c4f5a45a78b71c3bc73a42}{MAX\+\_\+\+BRIGHT}}
+\item 
+\mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\+\_\+colors}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva (\href{mailto:albano.penalva@uner.edu.ar}{\texttt{ albano.\+penalva@uner.\+edu.\+ar}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2023-\/10-\/25
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+Definición en el archivo \mbox{\hyperlink{neopixel__stripe_8c_source}{neopixel\+\_\+stripe.\+c}}.
+
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{neopixel__stripe_8c_ab821869451c5b9d4dcaec88d8cb00b41}\label{neopixel__stripe_8c_ab821869451c5b9d4dcaec88d8cb00b41} 
+\index{neopixel\_stripe.c@{neopixel\_stripe.c}!BLUE\_MSK@{BLUE\_MSK}}
+\index{BLUE\_MSK@{BLUE\_MSK}!neopixel\_stripe.c@{neopixel\_stripe.c}}
+\doxysubsubsection{\texorpdfstring{BLUE\_MSK}{BLUE\_MSK}}
+{\footnotesize\ttfamily \#define BLUE\+\_\+\+MSK~0x000000\+FF}
+
+
+
+Definición en la línea \mbox{\hyperlink{neopixel__stripe_8c_source_l00018}{18}} del archivo \mbox{\hyperlink{neopixel__stripe_8c_source}{neopixel\+\_\+stripe.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{neopixel__stripe_8c_source_l00067}{Neo\+Pixel\+Set\+Array()}}.
+
+\Hypertarget{neopixel__stripe_8c_a62e3dbb5365407c155ed8c6ec346e8e1}\label{neopixel__stripe_8c_a62e3dbb5365407c155ed8c6ec346e8e1} 
+\index{neopixel\_stripe.c@{neopixel\_stripe.c}!BLUE\_OFFSET@{BLUE\_OFFSET}}
+\index{BLUE\_OFFSET@{BLUE\_OFFSET}!neopixel\_stripe.c@{neopixel\_stripe.c}}
+\doxysubsubsection{\texorpdfstring{BLUE\_OFFSET}{BLUE\_OFFSET}}
+{\footnotesize\ttfamily \#define BLUE\+\_\+\+OFFSET~0}
+
+
+
+Definición en la línea \mbox{\hyperlink{neopixel__stripe_8c_source_l00021}{21}} del archivo \mbox{\hyperlink{neopixel__stripe_8c_source}{neopixel\+\_\+stripe.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{neopixel__stripe_8c_source_l00115}{Neo\+Pixel\+Rgb2\+Color()}} y \mbox{\hyperlink{neopixel__stripe_8c_source_l00067}{Neo\+Pixel\+Set\+Array()}}.
+
+\Hypertarget{neopixel__stripe_8c_a6c94edbcea161634d33b78aa6138f18a}\label{neopixel__stripe_8c_a6c94edbcea161634d33b78aa6138f18a} 
+\index{neopixel\_stripe.c@{neopixel\_stripe.c}!BRIGHT\_OFFSET@{BRIGHT\_OFFSET}}
+\index{BRIGHT\_OFFSET@{BRIGHT\_OFFSET}!neopixel\_stripe.c@{neopixel\_stripe.c}}
+\doxysubsubsection{\texorpdfstring{BRIGHT\_OFFSET}{BRIGHT\_OFFSET}}
+{\footnotesize\ttfamily \#define BRIGHT\+\_\+\+OFFSET~8}
+
+
+
+Definición en la línea \mbox{\hyperlink{neopixel__stripe_8c_source_l00023}{23}} del archivo \mbox{\hyperlink{neopixel__stripe_8c_source}{neopixel\+\_\+stripe.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{neopixel__stripe_8c_source_l00067}{Neo\+Pixel\+Set\+Array()}}.
+
+\Hypertarget{neopixel__stripe_8c_a09e619b992a50b34742d68754eff15e3}\label{neopixel__stripe_8c_a09e619b992a50b34742d68754eff15e3} 
+\index{neopixel\_stripe.c@{neopixel\_stripe.c}!GREEN\_MSK@{GREEN\_MSK}}
+\index{GREEN\_MSK@{GREEN\_MSK}!neopixel\_stripe.c@{neopixel\_stripe.c}}
+\doxysubsubsection{\texorpdfstring{GREEN\_MSK}{GREEN\_MSK}}
+{\footnotesize\ttfamily \#define GREEN\+\_\+\+MSK~0x0000\+FF00}
+
+
+
+Definición en la línea \mbox{\hyperlink{neopixel__stripe_8c_source_l00017}{17}} del archivo \mbox{\hyperlink{neopixel__stripe_8c_source}{neopixel\+\_\+stripe.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{neopixel__stripe_8c_source_l00067}{Neo\+Pixel\+Set\+Array()}}.
+
+\Hypertarget{neopixel__stripe_8c_aea3275e63db7d1cb3df830ba4d27a838}\label{neopixel__stripe_8c_aea3275e63db7d1cb3df830ba4d27a838} 
+\index{neopixel\_stripe.c@{neopixel\_stripe.c}!GREEN\_OFFSET@{GREEN\_OFFSET}}
+\index{GREEN\_OFFSET@{GREEN\_OFFSET}!neopixel\_stripe.c@{neopixel\_stripe.c}}
+\doxysubsubsection{\texorpdfstring{GREEN\_OFFSET}{GREEN\_OFFSET}}
+{\footnotesize\ttfamily \#define GREEN\+\_\+\+OFFSET~8}
+
+
+
+Definición en la línea \mbox{\hyperlink{neopixel__stripe_8c_source_l00020}{20}} del archivo \mbox{\hyperlink{neopixel__stripe_8c_source}{neopixel\+\_\+stripe.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{neopixel__stripe_8c_source_l00115}{Neo\+Pixel\+Rgb2\+Color()}} y \mbox{\hyperlink{neopixel__stripe_8c_source_l00067}{Neo\+Pixel\+Set\+Array()}}.
+
+\Hypertarget{neopixel__stripe_8c_a9e90c85256c4f5a45a78b71c3bc73a42}\label{neopixel__stripe_8c_a9e90c85256c4f5a45a78b71c3bc73a42} 
+\index{neopixel\_stripe.c@{neopixel\_stripe.c}!MAX\_BRIGHT@{MAX\_BRIGHT}}
+\index{MAX\_BRIGHT@{MAX\_BRIGHT}!neopixel\_stripe.c@{neopixel\_stripe.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_BRIGHT}{MAX\_BRIGHT}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+BRIGHT~255}
+
+
+
+Definición en la línea \mbox{\hyperlink{neopixel__stripe_8c_source_l00022}{22}} del archivo \mbox{\hyperlink{neopixel__stripe_8c_source}{neopixel\+\_\+stripe.\+c}}.
+
+\Hypertarget{neopixel__stripe_8c_a7540dd68adcd7c70780fcb45d2aa0f83}\label{neopixel__stripe_8c_a7540dd68adcd7c70780fcb45d2aa0f83} 
+\index{neopixel\_stripe.c@{neopixel\_stripe.c}!RED\_MSK@{RED\_MSK}}
+\index{RED\_MSK@{RED\_MSK}!neopixel\_stripe.c@{neopixel\_stripe.c}}
+\doxysubsubsection{\texorpdfstring{RED\_MSK}{RED\_MSK}}
+{\footnotesize\ttfamily \#define RED\+\_\+\+MSK~0x00\+FF0000}
+
+
+
+Definición en la línea \mbox{\hyperlink{neopixel__stripe_8c_source_l00016}{16}} del archivo \mbox{\hyperlink{neopixel__stripe_8c_source}{neopixel\+\_\+stripe.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{neopixel__stripe_8c_source_l00067}{Neo\+Pixel\+Set\+Array()}}.
+
+\Hypertarget{neopixel__stripe_8c_a7b63a430cb1ca07c7feeb74a0626fcaa}\label{neopixel__stripe_8c_a7b63a430cb1ca07c7feeb74a0626fcaa} 
+\index{neopixel\_stripe.c@{neopixel\_stripe.c}!RED\_OFFSET@{RED\_OFFSET}}
+\index{RED\_OFFSET@{RED\_OFFSET}!neopixel\_stripe.c@{neopixel\_stripe.c}}
+\doxysubsubsection{\texorpdfstring{RED\_OFFSET}{RED\_OFFSET}}
+{\footnotesize\ttfamily \#define RED\+\_\+\+OFFSET~16}
+
+
+
+Definición en la línea \mbox{\hyperlink{neopixel__stripe_8c_source_l00019}{19}} del archivo \mbox{\hyperlink{neopixel__stripe_8c_source}{neopixel\+\_\+stripe.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{neopixel__stripe_8c_source_l00115}{Neo\+Pixel\+Rgb2\+Color()}} y \mbox{\hyperlink{neopixel__stripe_8c_source_l00067}{Neo\+Pixel\+Set\+Array()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{neopixel__stripe_8c_a693d9d35a7e69903c6d6f96fbd08988f}\label{neopixel__stripe_8c_a693d9d35a7e69903c6d6f96fbd08988f} 
+\index{neopixel\_stripe.c@{neopixel\_stripe.c}!stripe\_bright@{stripe\_bright}}
+\index{stripe\_bright@{stripe\_bright}!neopixel\_stripe.c@{neopixel\_stripe.c}}
+\doxysubsubsection{\texorpdfstring{stripe\_bright}{stripe\_bright}}
+{\footnotesize\ttfamily uint8\+\_\+t stripe\+\_\+bright = \mbox{\hyperlink{neopixel__stripe_8c_a9e90c85256c4f5a45a78b71c3bc73a42}{MAX\+\_\+\+BRIGHT}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{neopixel__stripe_8c_source_l00026}{26}} del archivo \mbox{\hyperlink{neopixel__stripe_8c_source}{neopixel\+\_\+stripe.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{neopixel__stripe_8c_source_l00101}{Neo\+Pixel\+Brightness()}} y \mbox{\hyperlink{neopixel__stripe_8c_source_l00067}{Neo\+Pixel\+Set\+Array()}}.
+
+\Hypertarget{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}\label{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925} 
+\index{neopixel\_stripe.c@{neopixel\_stripe.c}!stripe\_colors@{stripe\_colors}}
+\index{stripe\_colors@{stripe\_colors}!neopixel\_stripe.c@{neopixel\_stripe.c}}
+\doxysubsubsection{\texorpdfstring{stripe\_colors}{stripe\_colors}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\+\_\+color\+\_\+t}}\texorpdfstring{$\ast$}{*} stripe\+\_\+colors}
+
+
+
+Definición en la línea \mbox{\hyperlink{neopixel__stripe_8c_source_l00027}{27}} del archivo \mbox{\hyperlink{neopixel__stripe_8c_source}{neopixel\+\_\+stripe.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{neopixel__stripe_8c_source_l00055}{Neo\+Pixel\+All\+Color()}}, \mbox{\hyperlink{neopixel__stripe_8c_source_l00101}{Neo\+Pixel\+Brightness()}}, \mbox{\hyperlink{neopixel__stripe_8c_source_l00038}{Neo\+Pixel\+Init()}}, \mbox{\hyperlink{neopixel__stripe_8c_source_l00106}{Neo\+Pixel\+Rainbow()}}, \mbox{\hyperlink{neopixel__stripe_8c_source_l00062}{Neo\+Pixel\+Set\+Pixel()}} y \mbox{\hyperlink{neopixel__stripe_8c_source_l00082}{Neo\+Pixel\+Shift()}}.
+
+\Hypertarget{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}\label{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea} 
+\index{neopixel\_stripe.c@{neopixel\_stripe.c}!stripe\_length@{stripe\_length}}
+\index{stripe\_length@{stripe\_length}!neopixel\_stripe.c@{neopixel\_stripe.c}}
+\doxysubsubsection{\texorpdfstring{stripe\_length}{stripe\_length}}
+{\footnotesize\ttfamily uint16\+\_\+t stripe\+\_\+length}
+
+
+
+Definición en la línea \mbox{\hyperlink{neopixel__stripe_8c_source_l00025}{25}} del archivo \mbox{\hyperlink{neopixel__stripe_8c_source}{neopixel\+\_\+stripe.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{neopixel__stripe_8c_source_l00055}{Neo\+Pixel\+All\+Color()}}, \mbox{\hyperlink{neopixel__stripe_8c_source_l00044}{Neo\+Pixel\+All\+Off()}}, \mbox{\hyperlink{neopixel__stripe_8c_source_l00038}{Neo\+Pixel\+Init()}}, \mbox{\hyperlink{neopixel__stripe_8c_source_l00106}{Neo\+Pixel\+Rainbow()}}, \mbox{\hyperlink{neopixel__stripe_8c_source_l00067}{Neo\+Pixel\+Set\+Array()}} y \mbox{\hyperlink{neopixel__stripe_8c_source_l00082}{Neo\+Pixel\+Shift()}}.
+

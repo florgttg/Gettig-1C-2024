@@ -1,0 +1,125 @@
+\doxysection{Referencia de la estructura spi\+\_\+mcu\+\_\+config\+\_\+t}
+\hypertarget{structspi__mcu__config__t}{}\label{structspi__mcu__config__t}\index{spi\_mcu\_config\_t@{spi\_mcu\_config\_t}}
+
+
+SPI configuration structure.  
+
+
+
+
+{\ttfamily \#include $<$spi\+\_\+mcu.\+h$>$}
+
+\doxysubsubsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} \mbox{\hyperlink{structspi__mcu__config__t_ab742c16164c5199448894aa0930a6e75}{device}}
+\item 
+\mbox{\hyperlink{group___s_p_i_ga7ddb86ccba25a168f889234061e21692}{clk\+\_\+mode\+\_\+t}} \mbox{\hyperlink{structspi__mcu__config__t_a4737b644103a7cbe225b36724f8d9120}{clk\+\_\+mode}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structspi__mcu__config__t_a32678c62007e0748dae550bd1007a07d}{bitrate}}
+\item 
+\mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{transfer\+\_\+mode\+\_\+t}} \mbox{\hyperlink{structspi__mcu__config__t_a84b3bf61c72f30449d7e3e1a389b9ea2}{transfer\+\_\+mode}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structspi__mcu__config__t_a672985730d2c0cf9105559adc9759a3a}{func\+\_\+p}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structspi__mcu__config__t_aad5f5715cb799d57b86e98fe3bf701e1}{param\+\_\+p}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+SPI configuration structure. 
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8h_source_l00064}{64}} del archivo \mbox{\hyperlink{spi__mcu_8h_source}{spi\+\_\+mcu.\+h}}.
+
+
+
+\doxysubsection{Documentación de campos}
+\Hypertarget{structspi__mcu__config__t_a32678c62007e0748dae550bd1007a07d}\label{structspi__mcu__config__t_a32678c62007e0748dae550bd1007a07d} 
+\index{spi\_mcu\_config\_t@{spi\_mcu\_config\_t}!bitrate@{bitrate}}
+\index{bitrate@{bitrate}!spi\_mcu\_config\_t@{spi\_mcu\_config\_t}}
+\doxysubsubsection{\texorpdfstring{bitrate}{bitrate}}
+{\footnotesize\ttfamily uint32\+\_\+t bitrate}
+
+Transfer speed (up to 26MHz) 
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8h_source_l00067}{67}} del archivo \mbox{\hyperlink{spi__mcu_8h_source}{spi\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{structspi__mcu__config__t_a4737b644103a7cbe225b36724f8d9120}\label{structspi__mcu__config__t_a4737b644103a7cbe225b36724f8d9120} 
+\index{spi\_mcu\_config\_t@{spi\_mcu\_config\_t}!clk\_mode@{clk\_mode}}
+\index{clk\_mode@{clk\_mode}!spi\_mcu\_config\_t@{spi\_mcu\_config\_t}}
+\doxysubsubsection{\texorpdfstring{clk\_mode}{clk\_mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___s_p_i_ga7ddb86ccba25a168f889234061e21692}{clk\+\_\+mode\+\_\+t}} clk\+\_\+mode}
+
+Mode\+: phase and polarity 
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8h_source_l00066}{66}} del archivo \mbox{\hyperlink{spi__mcu_8h_source}{spi\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{structspi__mcu__config__t_ab742c16164c5199448894aa0930a6e75}\label{structspi__mcu__config__t_ab742c16164c5199448894aa0930a6e75} 
+\index{spi\_mcu\_config\_t@{spi\_mcu\_config\_t}!device@{device}}
+\index{device@{device}!spi\_mcu\_config\_t@{spi\_mcu\_config\_t}}
+\doxysubsubsection{\texorpdfstring{device}{device}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} device}
+
+SPI device number 
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8h_source_l00065}{65}} del archivo \mbox{\hyperlink{spi__mcu_8h_source}{spi\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00300}{ILI9341\+Init()}} y \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{structspi__mcu__config__t_a672985730d2c0cf9105559adc9759a3a}\label{structspi__mcu__config__t_a672985730d2c0cf9105559adc9759a3a} 
+\index{spi\_mcu\_config\_t@{spi\_mcu\_config\_t}!func\_p@{func\_p}}
+\index{func\_p@{func\_p}!spi\_mcu\_config\_t@{spi\_mcu\_config\_t}}
+\doxysubsubsection{\texorpdfstring{func\_p}{func\_p}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} func\+\_\+p}
+
+Pointer to callback function for transaction end 
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8h_source_l00069}{69}} del archivo \mbox{\hyperlink{spi__mcu_8h_source}{spi\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{structspi__mcu__config__t_aad5f5715cb799d57b86e98fe3bf701e1}\label{structspi__mcu__config__t_aad5f5715cb799d57b86e98fe3bf701e1} 
+\index{spi\_mcu\_config\_t@{spi\_mcu\_config\_t}!param\_p@{param\_p}}
+\index{param\_p@{param\_p}!spi\_mcu\_config\_t@{spi\_mcu\_config\_t}}
+\doxysubsubsection{\texorpdfstring{param\_p}{param\_p}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} param\+\_\+p}
+
+Pointer to callback parameter 
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8h_source_l00070}{70}} del archivo \mbox{\hyperlink{spi__mcu_8h_source}{spi\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{structspi__mcu__config__t_a84b3bf61c72f30449d7e3e1a389b9ea2}\label{structspi__mcu__config__t_a84b3bf61c72f30449d7e3e1a389b9ea2} 
+\index{spi\_mcu\_config\_t@{spi\_mcu\_config\_t}!transfer\_mode@{transfer\_mode}}
+\index{transfer\_mode@{transfer\_mode}!spi\_mcu\_config\_t@{spi\_mcu\_config\_t}}
+\doxysubsubsection{\texorpdfstring{transfer\_mode}{transfer\_mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{transfer\+\_\+mode\+\_\+t}} transfer\+\_\+mode}
+
+Transfer mode 
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8h_source_l00068}{68}} del archivo \mbox{\hyperlink{spi__mcu_8h_source}{spi\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+
+
+La documentación de esta estructura está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/inc/\mbox{\hyperlink{spi__mcu_8h}{spi\+\_\+mcu.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Proyecto 2 actividad 3: Archivo de código fuente C:/Repositorios/EProgramable_FIUNER/firmware/drivers/devices/inc/fonts.h</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Proyecto 2 actividad 3<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Mide distancia,muestra en Display y prende LED. Utiliza puerto serie uart.</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('fonts_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">fonts.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="fonts_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#ifndef FONTS_H_</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#define FONTS_H_</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/*****************************************************************************</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * Public macros/types/enumerations/variables definitions</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> ****************************************************************************/</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_font__t.html">   38</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="struct_font__t.html#a021249d2eb1fb7335050c2e883335f5b">   40</a></span>    uint8_t <a class="code hl_variable" href="struct_font__t.html#a021249d2eb1fb7335050c2e883335f5b">FontWidth</a>;    </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="struct_font__t.html#a62f376116f9d475e50cf9f8c73b7d5c4">   41</a></span>    uint8_t <a class="code hl_variable" href="struct_font__t.html#a62f376116f9d475e50cf9f8c73b7d5c4">FontHeight</a>;   </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="struct_font__t.html#a83a3ec7b6a8a7512fe92002a4663ccc4">   42</a></span>    <span class="keyword">const</span> uint16_t *<a class="code hl_variable" href="struct_font__t.html#a83a3ec7b6a8a7512fe92002a4663ccc4">data</a>; </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>} <a class="code hl_struct" href="struct_font__t.html">Font_t</a>;</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_font__t.html">Font_t</a> <a class="code hl_variable" href="group___fonts.html#gae6438e0c2917273778e8ba4e937f5c56">font_7x10</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_font__t.html">Font_t</a> <a class="code hl_variable" href="group___fonts.html#ga0240d31bb89adfab98c7ccc47038c4ca">font_11x18</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_font__t.html">Font_t</a> <a class="code hl_variable" href="group___fonts.html#ga74059aa18b97df0252245e8aa5ab6354">font_16x26</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif </span><span class="comment">/* FONTS_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="agroup___fonts_html_ga0240d31bb89adfab98c7ccc47038c4ca"><div class="ttname"><a href="group___fonts.html#ga0240d31bb89adfab98c7ccc47038c4ca">font_11x18</a></div><div class="ttdeci">Font_t font_11x18</div><div class="ttdoc">11 x 18 pixels font size structure</div><div class="ttdef"><b>Definition</b> <a href="fonts_8c_source.html#l00642">fonts.c:642</a></div></div>
+<div class="ttc" id="agroup___fonts_html_ga74059aa18b97df0252245e8aa5ab6354"><div class="ttname"><a href="group___fonts.html#ga74059aa18b97df0252245e8aa5ab6354">font_16x26</a></div><div class="ttdeci">Font_t font_16x26</div><div class="ttdoc">16 x 26 pixels font size structure</div><div class="ttdef"><b>Definition</b> <a href="fonts_8c_source.html#l00649">fonts.c:649</a></div></div>
+<div class="ttc" id="agroup___fonts_html_gae6438e0c2917273778e8ba4e937f5c56"><div class="ttname"><a href="group___fonts.html#gae6438e0c2917273778e8ba4e937f5c56">font_7x10</a></div><div class="ttdeci">Font_t font_7x10</div><div class="ttdoc">7 x 10 pixels font size structure</div><div class="ttdef"><b>Definition</b> <a href="fonts_8c_source.html#l00635">fonts.c:635</a></div></div>
+<div class="ttc" id="astruct_font__t_html"><div class="ttname"><a href="struct_font__t.html">Font_t</a></div><div class="ttdoc">Font structure.</div><div class="ttdef"><b>Definition</b> <a href="#l00038">fonts.h:39</a></div></div>
+<div class="ttc" id="astruct_font__t_html_a021249d2eb1fb7335050c2e883335f5b"><div class="ttname"><a href="struct_font__t.html#a021249d2eb1fb7335050c2e883335f5b">Font_t::FontWidth</a></div><div class="ttdeci">uint8_t FontWidth</div><div class="ttdef"><b>Definition</b> <a href="#l00040">fonts.h:40</a></div></div>
+<div class="ttc" id="astruct_font__t_html_a62f376116f9d475e50cf9f8c73b7d5c4"><div class="ttname"><a href="struct_font__t.html#a62f376116f9d475e50cf9f8c73b7d5c4">Font_t::FontHeight</a></div><div class="ttdeci">uint8_t FontHeight</div><div class="ttdef"><b>Definition</b> <a href="#l00041">fonts.h:41</a></div></div>
+<div class="ttc" id="astruct_font__t_html_a83a3ec7b6a8a7512fe92002a4663ccc4"><div class="ttname"><a href="struct_font__t.html#a83a3ec7b6a8a7512fe92002a4663ccc4">Font_t::data</a></div><div class="ttdeci">const uint16_t * data</div><div class="ttdef"><b>Definition</b> <a href="#l00042">fonts.h:42</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_fcba15287a7fba83beff6e7e8c7a3a80.html">firmware</a></li><li class="navelem"><a class="el" href="dir_d771f3729bc48f700515c8c6c400e99b.html">drivers</a></li><li class="navelem"><a class="el" href="dir_7f308ea91af7ba00bd2379b2a292bcdf.html">devices</a></li><li class="navelem"><a class="el" href="dir_7434c8e53b2b67f7e652dbb5de76370a.html">inc</a></li><li class="navelem"><a class="el" href="fonts_8h.html">fonts.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

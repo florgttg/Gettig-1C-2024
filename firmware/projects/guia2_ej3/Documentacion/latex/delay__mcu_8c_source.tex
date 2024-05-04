@@ -1,0 +1,109 @@
+\doxysection{delay\+\_\+mcu.\+c}
+\hypertarget{delay__mcu_8c_source}{}\label{delay__mcu_8c_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/delay\_mcu.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/delay\_mcu.c}}
+\mbox{\hyperlink{delay__mcu_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00012}00012\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{delay__mcu_8h}{delay\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}driver/gptimer.h"{}}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}freertos/FreeRTOS.h"{}}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}freertos/task.h"{}}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}esp\_rom\_sys.h"{}}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00018}00018\ \textcolor{comment}{/*==================[macros\ and\ definitions]=================================*/}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00019}\mbox{\hyperlink{delay__mcu_8c_a0084affffdb426de14a2629cfe92c652}{00019}}\ \textcolor{preprocessor}{\#define\ US\_RESOLUTION\_HZ\ \ \ \ 1000000\ }}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00020}\mbox{\hyperlink{delay__mcu_8c_a097e69eabf0bcad178a5958f83036f68}{00020}}\ \textcolor{preprocessor}{\#define\ MSEC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00021}\mbox{\hyperlink{delay__mcu_8c_a8bc5e463885769f21393880576c25f6b}{00021}}\ \textcolor{preprocessor}{\#define\ SEC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000000\ }}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00022}\mbox{\hyperlink{delay__mcu_8c_a4ba330e742002516439543f6d93c5404}{00022}}\ \textcolor{preprocessor}{\#define\ MIN\_US\ \ \ \ \ \ \ \ \ \ \ \ \ \ 50\ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00023}00023\ \textcolor{comment}{/*==================[internal\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00024}\mbox{\hyperlink{delay__mcu_8c_a09f1afa6c00b38b7d70dae43274c9f55}{00024}}\ TaskHandle\_t\ \mbox{\hyperlink{delay__mcu_8c_a09f1afa6c00b38b7d70dae43274c9f55}{task\_to\_notify}};}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00025}00025\ \textcolor{comment}{/*==================[internal\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00026}00026\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ IRAM\_ATTR\ delay\_isr(gptimer\_handle\_t\ timer,\ \textcolor{keyword}{const}\ gptimer\_alarm\_event\_data\_t\ *edata,\ \textcolor{keywordtype}{void}\ *user\_data)\{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00027}00027\ \ \ \ \ BaseType\_t\ xHigherPriorityTaskWoken\ =\ pdFALSE;}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00028}00028\ \ \ \ \ gptimer\_stop(timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00029}00029\ \ \ \ \ vTaskNotifyGiveFromISR(\mbox{\hyperlink{delay__mcu_8c_a09f1afa6c00b38b7d70dae43274c9f55}{task\_to\_notify}},\ \&xHigherPriorityTaskWoken);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{return}\ (xHigherPriorityTaskWoken\ ==\ pdTRUE);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00032}00032\ \textcolor{comment}{/*==================[internal\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00034}00034\ \textcolor{comment}{/*==================[external\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00036}00036\ \textcolor{comment}{/*==================[internal\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00038}00038\ \textcolor{comment}{/*==================[external\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00039}\mbox{\hyperlink{group___delay_ga69b7a2b5881d757ba405331cb1d5e5df}{00039}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___delay_ga69b7a2b5881d757ba405331cb1d5e5df}{DelaySec}}(uint16\_t\ sec)\{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{delay__mcu_8c_a09f1afa6c00b38b7d70dae43274c9f55}{task\_to\_notify}}\ =\ xTaskGetCurrentTaskHandle();}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00041}00041\ \ \ \ \ gptimer\_handle\_t\ delay\_timer\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00042}00042\ \ \ \ \ gptimer\_config\_t\ delay\_timer\_config\ =\ \{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ .clk\_src\ =\ GPTIMER\_CLK\_SRC\_DEFAULT,}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ .direction\ =\ GPTIMER\_COUNT\_UP,}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ .resolution\_hz\ =\ \mbox{\hyperlink{delay__mcu_8c_a0084affffdb426de14a2629cfe92c652}{US\_RESOLUTION\_HZ}},}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00046}00046\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00047}00047\ \ \ \ \ gptimer\_new\_timer(\&delay\_timer\_config,\ \&delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00048}00048\ \ \ \ \ gptimer\_event\_callbacks\_t\ delay\_alarm\ =\ \{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ .on\_alarm\ =\ delay\_isr,}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00050}00050\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00051}00051\ \ \ \ \ gptimer\_register\_event\_callbacks(delay\_timer,\ \&delay\_alarm,\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00052}00052\ \ \ \ \ gptimer\_enable(delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00053}00053\ \ \ \ \ gptimer\_alarm\_config\_t\ alarm\_config\ =\ \{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ .alarm\_count\ =\ sec*\mbox{\hyperlink{delay__mcu_8c_a8bc5e463885769f21393880576c25f6b}{SEC}},\ }
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00055}00055\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00056}00056\ \ \ \ \ gptimer\_set\_alarm\_action(delay\_timer,\ \&alarm\_config);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00057}00057\ \ \ \ \ gptimer\_start(delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00058}00058\ \ \ \ \ ulTaskNotifyTake(pdTRUE,\ portMAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00059}00059\ \ \ \ \ gptimer\_disable(delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00060}00060\ \ \ \ \ gptimer\_del\_timer(delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00063}\mbox{\hyperlink{group___delay_gad436d587a00f4ef2ede7ea6644f07aa1}{00063}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___delay_gad436d587a00f4ef2ede7ea6644f07aa1}{DelayMs}}(uint16\_t\ msec)\{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{delay__mcu_8c_a09f1afa6c00b38b7d70dae43274c9f55}{task\_to\_notify}}\ =\ xTaskGetCurrentTaskHandle();}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00065}00065\ \ \ \ \ gptimer\_handle\_t\ delay\_timer\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00066}00066\ \ \ \ \ gptimer\_config\_t\ delay\_timer\_config\ =\ \{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ .clk\_src\ =\ GPTIMER\_CLK\_SRC\_DEFAULT,}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ .direction\ =\ GPTIMER\_COUNT\_UP,}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ .resolution\_hz\ =\ \mbox{\hyperlink{delay__mcu_8c_a0084affffdb426de14a2629cfe92c652}{US\_RESOLUTION\_HZ}},}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00070}00070\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00071}00071\ \ \ \ \ gptimer\_new\_timer(\&delay\_timer\_config,\ \&delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00072}00072\ \ \ \ \ gptimer\_event\_callbacks\_t\ delay\_alarm\ =\ \{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ .on\_alarm\ =\ delay\_isr,}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00074}00074\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00075}00075\ \ \ \ \ gptimer\_register\_event\_callbacks(delay\_timer,\ \&delay\_alarm,\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00076}00076\ \ \ \ \ gptimer\_enable(delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00077}00077\ \ \ \ \ gptimer\_alarm\_config\_t\ alarm\_config\ =\ \{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ .alarm\_count\ =\ msec*\mbox{\hyperlink{delay__mcu_8c_a097e69eabf0bcad178a5958f83036f68}{MSEC}},\ }
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00079}00079\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00080}00080\ \ \ \ \ gptimer\_set\_alarm\_action(delay\_timer,\ \&alarm\_config);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00081}00081\ \ \ \ \ gptimer\_start(delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00082}00082\ \ \ \ \ ulTaskNotifyTake(pdTRUE,\ portMAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00083}00083\ \ \ \ \ gptimer\_disable(delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00084}00084\ \ \ \ \ gptimer\_del\_timer(delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00085}00085\ \}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00087}\mbox{\hyperlink{group___delay_ga92e1b2564bacd20071bcd06b697f52f8}{00087}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___delay_ga92e1b2564bacd20071bcd06b697f52f8}{DelayUs}}(uint16\_t\ usec)\{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{if}(usec<=\mbox{\hyperlink{delay__mcu_8c_a4ba330e742002516439543f6d93c5404}{MIN\_US}})\{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ esp\_rom\_delay\_us(usec);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00090}00090\ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{delay__mcu_8c_a09f1afa6c00b38b7d70dae43274c9f55}{task\_to\_notify}}\ =\ xTaskGetCurrentTaskHandle();}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ gptimer\_handle\_t\ delay\_timer\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ gptimer\_config\_t\ delay\_timer\_config\ =\ \{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ .clk\_src\ =\ GPTIMER\_CLK\_SRC\_DEFAULT,}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ .direction\ =\ GPTIMER\_COUNT\_UP,}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ .resolution\_hz\ =\ \mbox{\hyperlink{delay__mcu_8c_a0084affffdb426de14a2629cfe92c652}{US\_RESOLUTION\_HZ}},}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ gptimer\_new\_timer(\&delay\_timer\_config,\ \&delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ gptimer\_event\_callbacks\_t\ delay\_alarm\ =\ \{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ .on\_alarm\ =\ delay\_isr,}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ gptimer\_register\_event\_callbacks(delay\_timer,\ \&delay\_alarm,\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ gptimer\_enable(delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ gptimer\_alarm\_config\_t\ alarm\_config\ =\ \{}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ .alarm\_count\ =\ usec,\ }
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ gptimer\_set\_alarm\_action(delay\_timer,\ \&alarm\_config);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ gptimer\_start(delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ ulTaskNotifyTake(pdTRUE,\ portMAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ gptimer\_disable(delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ gptimer\_del\_timer(delay\_timer);}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00112}00112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{delay__mcu_8c_source_l00113}00113\ \}}
+
+\end{DoxyCode}
