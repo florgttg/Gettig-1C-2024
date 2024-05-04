@@ -1,0 +1,160 @@
+\doxysubsubsection{HC SR04}
+\hypertarget{group___h_c___s_r04}{}\label{group___h_c___s_r04}\index{HC SR04@{HC SR04}}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{group___h_c___s_r04_ga9d26cc017fe45c607d08231ebffb46c4}{Hc\+Sr04\+Init}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} echo, \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} trigger)
+\begin{DoxyCompactList}\small\item\em Driver for reading distance with HC-\/\+SR04 module. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{group___h_c___s_r04_ga73a5aaa2183e55d104d4e0c2c435e251}{Hc\+Sr04\+Read\+Distance\+In\+Centimeters}} (void)
+\begin{DoxyCompactList}\small\item\em Read distance. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{group___h_c___s_r04_gad819b1b0326d1edca15ec7d153aa5700}{Hc\+Sr04\+Read\+Distance\+In\+Inches}} (void)
+\begin{DoxyCompactList}\small\item\em Read distance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___h_c___s_r04_ga549ba28c76f1282cfd92f57f3bca3ff0}{Hc\+Sr04\+Deinit}} (void)
+\begin{DoxyCompactList}\small\item\em HC\+\_\+\+SR04 de-\/initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___h_c___s_r04_ga549ba28c76f1282cfd92f57f3bca3ff0}\label{group___h_c___s_r04_ga549ba28c76f1282cfd92f57f3bca3ff0} 
+\index{HC SR04@{HC SR04}!HcSr04Deinit@{HcSr04Deinit}}
+\index{HcSr04Deinit@{HcSr04Deinit}!HC SR04@{HC SR04}}
+\doxysubsubsubsubsection{\texorpdfstring{HcSr04Deinit()}{HcSr04Deinit()}}
+{\footnotesize\ttfamily bool Hc\+Sr04\+Deinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+HC\+\_\+\+SR04 de-\/initialization. 
+
+\begin{DoxyReturn}{Devuelve}
+true 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{hc__sr04_8c_source_l00089}{89}} del archivo \mbox{\hyperlink{hc__sr04_8c_source}{hc\+\_\+sr04.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__mcu_8c_source_l00130}{GPIODeinit()}}.
+
+\Hypertarget{group___h_c___s_r04_ga9d26cc017fe45c607d08231ebffb46c4}\label{group___h_c___s_r04_ga9d26cc017fe45c607d08231ebffb46c4} 
+\index{HC SR04@{HC SR04}!HcSr04Init@{HcSr04Init}}
+\index{HcSr04Init@{HcSr04Init}!HC SR04@{HC SR04}}
+\doxysubsubsubsubsection{\texorpdfstring{HcSr04Init()}{HcSr04Init()}}
+{\footnotesize\ttfamily bool Hc\+Sr04\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{echo,  }\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{trigger }\end{DoxyParamCaption})}
+
+
+
+Driver for reading distance with HC-\/\+SR04 module. 
+
+\begin{DoxyNote}{Nota}
+Maximun distance\+: 300cm (118 inches).
+
+When disconnected return 0.
+
+When ussing dedicated connector in ESP-\/\+EDU\+: \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ HC\+\_\+\+SR04   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ EDU-\/\+CIAA    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ HC\+\_\+\+SR04   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ EDU-\/\+CIAA    }\\\cline{1-2}
+\endhead
+\PBS\centering Vcc   &\PBS\centering 5V    \\\cline{1-2}
+\PBS\centering Echo   &\PBS\centering GPIO\+\_\+3    \\\cline{1-2}
+\PBS\centering Trig   &\PBS\centering GPIO\+\_\+2    \\\cline{1-2}
+\PBS\centering Gnd   &\PBS\centering GND   \\\cline{1-2}
+\end{longtabu}
+
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 23/10/2023   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+HC\+\_\+\+SR04 initialization.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em echo} & GPIO number wher echo pin is connected \\
+\hline
+{\em trigger} & GPIO number wher trigger pin is connected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true 
+\end{DoxyReturn}
+Configuration of the GPIO pins
+
+Definición en la línea \mbox{\hyperlink{hc__sr04_8c_source_l00034}{34}} del archivo \mbox{\hyperlink{hc__sr04_8c_source}{hc\+\_\+sr04.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__mcu_8h_source_l00043}{GPIO\+\_\+\+INPUT}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00044}{GPIO\+\_\+\+OUTPUT}} y \mbox{\hyperlink{gpio__mcu_8c_source_l00067}{GPIOInit()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej1_8c_source_l00160}{app\+\_\+main()}}.
+
+\Hypertarget{group___h_c___s_r04_ga73a5aaa2183e55d104d4e0c2c435e251}\label{group___h_c___s_r04_ga73a5aaa2183e55d104d4e0c2c435e251} 
+\index{HC SR04@{HC SR04}!HcSr04ReadDistanceInCentimeters@{HcSr04ReadDistanceInCentimeters}}
+\index{HcSr04ReadDistanceInCentimeters@{HcSr04ReadDistanceInCentimeters}!HC SR04@{HC SR04}}
+\doxysubsubsubsubsection{\texorpdfstring{HcSr04ReadDistanceInCentimeters()}{HcSr04ReadDistanceInCentimeters()}}
+{\footnotesize\ttfamily uint16\+\_\+t Hc\+Sr04\+Read\+Distance\+In\+Centimeters (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Read distance. 
+
+\begin{DoxyReturn}{Devuelve}
+uint16\+\_\+t measured distance in cm. 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{hc__sr04_8c_source_l00045}{45}} del archivo \mbox{\hyperlink{hc__sr04_8c_source}{hc\+\_\+sr04.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{delay__mcu_8c_source_l00087}{Delay\+Us()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00101}{GPIORead()}}, \mbox{\hyperlink{hc__sr04_8c_source_l00017}{MAX\+\_\+\+CM}}, \mbox{\hyperlink{hc__sr04_8c_source_l00016}{MAX\+\_\+\+US}}, \mbox{\hyperlink{hc__sr04_8c_source_l00019}{US2\+CM}} y \mbox{\hyperlink{hc__sr04_8c_source_l00021}{WAIT\+\_\+\+MAX}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej1_8c_source_l00108}{Task\+\_\+measure()}}.
+
+\Hypertarget{group___h_c___s_r04_gad819b1b0326d1edca15ec7d153aa5700}\label{group___h_c___s_r04_gad819b1b0326d1edca15ec7d153aa5700} 
+\index{HC SR04@{HC SR04}!HcSr04ReadDistanceInInches@{HcSr04ReadDistanceInInches}}
+\index{HcSr04ReadDistanceInInches@{HcSr04ReadDistanceInInches}!HC SR04@{HC SR04}}
+\doxysubsubsubsubsection{\texorpdfstring{HcSr04ReadDistanceInInches()}{HcSr04ReadDistanceInInches()}}
+{\footnotesize\ttfamily uint16\+\_\+t Hc\+Sr04\+Read\+Distance\+In\+Inches (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Read distance. 
+
+\begin{DoxyReturn}{Devuelve}
+uint16\+\_\+t measured distance in inches. 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{hc__sr04_8c_source_l00067}{67}} del archivo \mbox{\hyperlink{hc__sr04_8c_source}{hc\+\_\+sr04.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{delay__mcu_8c_source_l00087}{Delay\+Us()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00101}{GPIORead()}}, \mbox{\hyperlink{hc__sr04_8c_source_l00018}{MAX\+\_\+\+INCH}}, \mbox{\hyperlink{hc__sr04_8c_source_l00016}{MAX\+\_\+\+US}}, \mbox{\hyperlink{hc__sr04_8c_source_l00020}{US2\+INCH}} y \mbox{\hyperlink{hc__sr04_8c_source_l00021}{WAIT\+\_\+\+MAX}}.
+

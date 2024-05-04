@@ -1,0 +1,216 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+Gettig-\/1\+C-\/2024/firmware/projects/guia2\+\_\+ej1/main/guia2\+\_\+ej1.c}
+\hypertarget{guia2__ej1_8c}{}\label{guia2__ej1_8c}\index{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/guia2\_ej1/main/guia2\_ej1.c@{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/guia2\_ej1/main/guia2\_ej1.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}freertos/\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/task.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}lcditse0803.\+h"{}}\newline
+{\ttfamily \#include "{}led.\+h"{}}\newline
+{\ttfamily \#include "{}switch.\+h"{}}\newline
+{\ttfamily \#include "{}hc\+\_\+sr04.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{guia2__ej1_8c_a3df1b4cad09974bfc68858fad7cdc054}{CONFIG\+\_\+\+BLINK\+\_\+\+PERIOD}}~1000
+\begin{DoxyCompactList}\small\item\em Período de parpadeo para la medición en milisegundos. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{guia2__ej1_8c_a411a2c3bf826c264c542ce94d4eab916}{CONFIG\+\_\+\+BLINK\+\_\+\+PERIOD\+\_\+2}}~50
+\begin{DoxyCompactList}\small\item\em Período de parpadeo para la verificación de interruptores en milisegundos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{guia2__ej1_8c_abbc3b8429519e25c8ad9c610cbcec08b}{control\+LED}} (uint16\+\_\+t distancia)
+\begin{DoxyCompactList}\small\item\em Controla los LEDs según la distancia medida. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{guia2__ej1_8c_af53c19770b4e736dfeaee7aaf2fb2081}{Task\+\_\+measure}} (void \texorpdfstring{$\ast$}{*}pv\+Parameter)
+\begin{DoxyCompactList}\small\item\em Tarea para medir la distancia y mostrarla. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{guia2__ej1_8c_a2f822b43a9539e2d78db233c568a5eea}{Task\+\_\+switches}} (void \texorpdfstring{$\ast$}{*}pv\+Parameter)
+\begin{DoxyCompactList}\small\item\em Tarea para leer el estado de los interruptores y controlar el inicio y la retención del display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{guia2__ej1_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}{app\+\_\+main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{guia2__ej1_8c_ab376b87f96a574a793c03c53e75afec8}{start}} = false
+\item 
+bool \mbox{\hyperlink{guia2__ej1_8c_af0129e079b57e897edf00f22cc25f3d4}{hold}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{guia2__ej1_8c_a3df1b4cad09974bfc68858fad7cdc054}\label{guia2__ej1_8c_a3df1b4cad09974bfc68858fad7cdc054} 
+\index{guia2\_ej1.c@{guia2\_ej1.c}!CONFIG\_BLINK\_PERIOD@{CONFIG\_BLINK\_PERIOD}}
+\index{CONFIG\_BLINK\_PERIOD@{CONFIG\_BLINK\_PERIOD}!guia2\_ej1.c@{guia2\_ej1.c}}
+\doxysubsubsection{\texorpdfstring{CONFIG\_BLINK\_PERIOD}{CONFIG\_BLINK\_PERIOD}}
+{\footnotesize\ttfamily \#define CONFIG\+\_\+\+BLINK\+\_\+\+PERIOD~1000}
+
+
+
+Período de parpadeo para la medición en milisegundos. 
+
+Esta constante define el período de parpadeo utilizado para controlar la frecuencia de medición. Especifica el tiempo en milisegundos entre cada medición de distancia realizada por la tarea Task\+\_\+measure. 
+
+Definición en la línea \mbox{\hyperlink{guia2__ej1_8c_source_l00049}{49}} del archivo \mbox{\hyperlink{guia2__ej1_8c_source}{guia2\+\_\+ej1.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej1_8c_source_l00108}{Task\+\_\+measure()}}.
+
+\Hypertarget{guia2__ej1_8c_a411a2c3bf826c264c542ce94d4eab916}\label{guia2__ej1_8c_a411a2c3bf826c264c542ce94d4eab916} 
+\index{guia2\_ej1.c@{guia2\_ej1.c}!CONFIG\_BLINK\_PERIOD\_2@{CONFIG\_BLINK\_PERIOD\_2}}
+\index{CONFIG\_BLINK\_PERIOD\_2@{CONFIG\_BLINK\_PERIOD\_2}!guia2\_ej1.c@{guia2\_ej1.c}}
+\doxysubsubsection{\texorpdfstring{CONFIG\_BLINK\_PERIOD\_2}{CONFIG\_BLINK\_PERIOD\_2}}
+{\footnotesize\ttfamily \#define CONFIG\+\_\+\+BLINK\+\_\+\+PERIOD\+\_\+2~50}
+
+
+
+Período de parpadeo para la verificación de interruptores en milisegundos. 
+
+Esta constante define el período de parpadeo utilizado para verificar el estado de los interruptores en la tarea Task\+\_\+switches. Especifica el tiempo en milisegundos entre cada lectura de los interruptores. 
+
+Definición en la línea \mbox{\hyperlink{guia2__ej1_8c_source_l00055}{55}} del archivo \mbox{\hyperlink{guia2__ej1_8c_source}{guia2\+\_\+ej1.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej1_8c_source_l00138}{Task\+\_\+switches()}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{guia2__ej1_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}\label{guia2__ej1_8c_a630544a7f0a2cc40d8a7fefab7e2fe70} 
+\index{guia2\_ej1.c@{guia2\_ej1.c}!app\_main@{app\_main}}
+\index{app\_main@{app\_main}!guia2\_ej1.c@{guia2\_ej1.c}}
+\doxysubsubsection{\texorpdfstring{app\_main()}{app\_main()}}
+{\footnotesize\ttfamily void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej1_8c_source_l00160}{160}} del archivo \mbox{\hyperlink{guia2__ej1_8c_source}{guia2\+\_\+ej1.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__mcu_8h_source_l00054}{GPIO\+\_\+2}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00055}{GPIO\+\_\+3}}, \mbox{\hyperlink{hc__sr04_8c_source_l00034}{Hc\+Sr04\+Init()}}, \mbox{\hyperlink{lcditse0803_8c_source_l00037}{Lcd\+Its\+E0803\+Init()}}, \mbox{\hyperlink{led_8c_source_l00031}{Leds\+Init()}}, \mbox{\hyperlink{ili9341_8c_source_l00042}{NULL}}, \mbox{\hyperlink{switch_8c_source_l00029}{Switches\+Init()}}, \mbox{\hyperlink{guia2__ej1_8c_source_l00108}{Task\+\_\+measure()}} y \mbox{\hyperlink{guia2__ej1_8c_source_l00138}{Task\+\_\+switches()}}.
+
+\Hypertarget{guia2__ej1_8c_abbc3b8429519e25c8ad9c610cbcec08b}\label{guia2__ej1_8c_abbc3b8429519e25c8ad9c610cbcec08b} 
+\index{guia2\_ej1.c@{guia2\_ej1.c}!controlLED@{controlLED}}
+\index{controlLED@{controlLED}!guia2\_ej1.c@{guia2\_ej1.c}}
+\doxysubsubsection{\texorpdfstring{controlLED()}{controlLED()}}
+{\footnotesize\ttfamily void control\+LED (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{distancia }\end{DoxyParamCaption})}
+
+
+
+Controla los LEDs según la distancia medida. 
+
+Esta función controla los LEDs según la distancia medida, siguiendo las siguientes reglas\+:
+\begin{DoxyItemize}
+\item Si la distancia es menor a 10 cm, apaga todos los LEDs.
+\item Si la distancia está entre 10 y 20 cm, enciende el LED\+\_\+1 y apaga el LED\+\_\+2 y LED\+\_\+3.
+\item Si la distancia está entre 20 y 30 cm, enciende el LED\+\_\+1 y LED\+\_\+2 y apaga el LED\+\_\+3.
+\item Si la distancia es mayor a 30 cm, enciende todos los LEDs.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em distancia} & La distancia medida en centímetros. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej1_8c_source_l00073}{73}} del archivo \mbox{\hyperlink{guia2__ej1_8c_source}{guia2\+\_\+ej1.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{led_8h_source_l00034}{LED\+\_\+1}}, \mbox{\hyperlink{led_8h_source_l00033}{LED\+\_\+2}}, \mbox{\hyperlink{led_8h_source_l00032}{LED\+\_\+3}}, \mbox{\hyperlink{led_8c_source_l00065}{Led\+Off()}}, \mbox{\hyperlink{led_8c_source_l00046}{Led\+On()}} y \mbox{\hyperlink{led_8c_source_l00105}{Leds\+Off\+All()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej1_8c_source_l00108}{Task\+\_\+measure()}}.
+
+\Hypertarget{guia2__ej1_8c_af53c19770b4e736dfeaee7aaf2fb2081}\label{guia2__ej1_8c_af53c19770b4e736dfeaee7aaf2fb2081} 
+\index{guia2\_ej1.c@{guia2\_ej1.c}!Task\_measure@{Task\_measure}}
+\index{Task\_measure@{Task\_measure}!guia2\_ej1.c@{guia2\_ej1.c}}
+\doxysubsubsection{\texorpdfstring{Task\_measure()}{Task\_measure()}}
+{\footnotesize\ttfamily void Task\+\_\+measure (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameter }\end{DoxyParamCaption})}
+
+
+
+Tarea para medir la distancia y mostrarla. 
+
+Esta tarea cuando el bool "{}start"{} es verdadero se encarga de medir la distancia utilizando un sensor ultrasónico y mostrarla en un display LCD. Además, controla el encendido y apagado de los LEDs utilizando la funcion control\+LED. La tarea actualiza el display LCD con el valor de la distancia, excepto si se activa la función "{}hold"{}, que mantiene el último valor mostrado.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pv\+Parameter} & Puntero a parámetro pasado a la tarea (no utilizado). \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej1_8c_source_l00108}{108}} del archivo \mbox{\hyperlink{guia2__ej1_8c_source}{guia2\+\_\+ej1.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{guia2__ej1_8c_source_l00049}{CONFIG\+\_\+\+BLINK\+\_\+\+PERIOD}}, \mbox{\hyperlink{guia2__ej1_8c_source_l00073}{control\+LED()}}, \mbox{\hyperlink{hc__sr04_8c_source_l00045}{Hc\+Sr04\+Read\+Distance\+In\+Centimeters()}}, \mbox{\hyperlink{guia2__ej1_8c_source_l00059}{hold}}, \mbox{\hyperlink{lcditse0803_8c_source_l00087}{Lcd\+Its\+E0803\+Off()}}, \mbox{\hyperlink{lcditse0803_8c_source_l00054}{Lcd\+Its\+E0803\+Write()}}, \mbox{\hyperlink{led_8c_source_l00105}{Leds\+Off\+All()}} y \mbox{\hyperlink{guia2__ej1_8c_source_l00058}{start}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej1_8c_source_l00160}{app\+\_\+main()}}.
+
+\Hypertarget{guia2__ej1_8c_a2f822b43a9539e2d78db233c568a5eea}\label{guia2__ej1_8c_a2f822b43a9539e2d78db233c568a5eea} 
+\index{guia2\_ej1.c@{guia2\_ej1.c}!Task\_switches@{Task\_switches}}
+\index{Task\_switches@{Task\_switches}!guia2\_ej1.c@{guia2\_ej1.c}}
+\doxysubsubsection{\texorpdfstring{Task\_switches()}{Task\_switches()}}
+{\footnotesize\ttfamily void Task\+\_\+switches (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameter }\end{DoxyParamCaption})}
+
+
+
+Tarea para leer el estado de los interruptores y controlar el inicio y la retención del display. 
+
+Esta tarea lee las teclas y al usar TEC1 activar o detenie la medición y con TEC2 mantiene el resultado (“\+HOLD”).
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pv\+Parameter} & Puntero a parámetro pasado a la tarea (no utilizado). \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej1_8c_source_l00138}{138}} del archivo \mbox{\hyperlink{guia2__ej1_8c_source}{guia2\+\_\+ej1.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{guia2__ej1_8c_source_l00055}{CONFIG\+\_\+\+BLINK\+\_\+\+PERIOD\+\_\+2}}, \mbox{\hyperlink{guia2__ej1_8c_source_l00059}{hold}}, \mbox{\hyperlink{guia2__ej1_8c_source_l00058}{start}}, \mbox{\hyperlink{switch_8h_source_l00032}{SWITCH\+\_\+1}}, \mbox{\hyperlink{switch_8h_source_l00033}{SWITCH\+\_\+2}} y \mbox{\hyperlink{switch_8c_source_l00038}{Switches\+Read()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej1_8c_source_l00160}{app\+\_\+main()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{guia2__ej1_8c_af0129e079b57e897edf00f22cc25f3d4}\label{guia2__ej1_8c_af0129e079b57e897edf00f22cc25f3d4} 
+\index{guia2\_ej1.c@{guia2\_ej1.c}!hold@{hold}}
+\index{hold@{hold}!guia2\_ej1.c@{guia2\_ej1.c}}
+\doxysubsubsection{\texorpdfstring{hold}{hold}}
+{\footnotesize\ttfamily bool hold = false}
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej1_8c_source_l00059}{59}} del archivo \mbox{\hyperlink{guia2__ej1_8c_source}{guia2\+\_\+ej1.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej1_8c_source_l00108}{Task\+\_\+measure()}} y \mbox{\hyperlink{guia2__ej1_8c_source_l00138}{Task\+\_\+switches()}}.
+
+\Hypertarget{guia2__ej1_8c_ab376b87f96a574a793c03c53e75afec8}\label{guia2__ej1_8c_ab376b87f96a574a793c03c53e75afec8} 
+\index{guia2\_ej1.c@{guia2\_ej1.c}!start@{start}}
+\index{start@{start}!guia2\_ej1.c@{guia2\_ej1.c}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily bool start = false}
+
+
+
+Definición en la línea \mbox{\hyperlink{guia2__ej1_8c_source_l00058}{58}} del archivo \mbox{\hyperlink{guia2__ej1_8c_source}{guia2\+\_\+ej1.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{guia2__ej1_8c_source_l00108}{Task\+\_\+measure()}} y \mbox{\hyperlink{guia2__ej1_8c_source_l00138}{Task\+\_\+switches()}}.
+

@@ -1,0 +1,1111 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/inc/mpu6050.h}
+\hypertarget{mpu6050_8h}{}\label{mpu6050_8h}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/mpu6050.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/mpu6050.h}}
+{\ttfamily \#include "{}i2c\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga48c60b057902adf805797f183286728d}{pgm\+\_\+read\+\_\+byte}}(addr)~(\texorpdfstring{$\ast$}{*}(const unsigned char \texorpdfstring{$\ast$}{*})(addr))
+\begin{DoxyCompactList}\small\item\em MPU6050 sensor module is a 6-\/axis Motion Tracking Device. It combines 3-\/axis Accelerometer and 3-\/axis Gyroscope. It communicates with the EDU-\/\+ESP board via I2C. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gad9c8593ecb6f9a2865b8080add402cc6}{MPU6050\+\_\+\+ADDRESS\+\_\+\+AD0\+\_\+\+LOW}}~0x68
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gad6e414ff4b69bb789ac93215a28c8d9c}{MPU6050\+\_\+\+ADDRESS\+\_\+\+AD0\+\_\+\+HIGH}}~0x69
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gae5cf60bf2cbc13d21384c215c4f05149}{MPU6050\+\_\+\+DEFAULT\+\_\+\+ADDRESS}}~\mbox{\hyperlink{group___m_p_u6050_gad9c8593ecb6f9a2865b8080add402cc6}{MPU6050\+\_\+\+ADDRESS\+\_\+\+AD0\+\_\+\+LOW}}
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gafd22a4b047ae1372899fd03c7d3e7b95}{MPU6050\+\_\+\+RA\+\_\+\+XG\+\_\+\+OFFS\+\_\+\+TC}}~0x00
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga45060dc0c7bdd30589a081dbe4d43b98}{MPU6050\+\_\+\+RA\+\_\+\+YG\+\_\+\+OFFS\+\_\+\+TC}}~0x01
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga76fe60d1cec00e0ba64ed7da364ff8f3}{MPU6050\+\_\+\+RA\+\_\+\+ZG\+\_\+\+OFFS\+\_\+\+TC}}~0x02
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga93f16a19ecbbe05449c9183eb450204e}{MPU6050\+\_\+\+RA\+\_\+\+X\+\_\+\+FINE\+\_\+\+GAIN}}~0x03
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga88f99638599b4102ee4e3e34db7b7392}{MPU6050\+\_\+\+RA\+\_\+\+Y\+\_\+\+FINE\+\_\+\+GAIN}}~0x04
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga0bfea60d0fc70f48f9122cc213621649}{MPU6050\+\_\+\+RA\+\_\+\+Z\+\_\+\+FINE\+\_\+\+GAIN}}~0x05
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaab84cbf9368196baad6c34ca5c002a02}{MPU6050\+\_\+\+RA\+\_\+\+XA\+\_\+\+OFFS\+\_\+H}}~0x06
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab9aa7f9893b0a71161f872bd128a8357}{MPU6050\+\_\+\+RA\+\_\+\+XA\+\_\+\+OFFS\+\_\+\+L\+\_\+\+TC}}~0x07
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga42a9f56beb06be04813e1d740e7b9f99}{MPU6050\+\_\+\+RA\+\_\+\+YA\+\_\+\+OFFS\+\_\+H}}~0x08
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga2b84d0a4c02ee5067e4699b2e3592850}{MPU6050\+\_\+\+RA\+\_\+\+YA\+\_\+\+OFFS\+\_\+\+L\+\_\+\+TC}}~0x09
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaee1a02e70e57222178bed56f1b435ad3}{MPU6050\+\_\+\+RA\+\_\+\+ZA\+\_\+\+OFFS\+\_\+H}}~0x0A
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga36883cf4dc6d12e0f283bb2ef4460170}{MPU6050\+\_\+\+RA\+\_\+\+ZA\+\_\+\+OFFS\+\_\+\+L\+\_\+\+TC}}~0x0B
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga7ec394e32416951b6882ebe6ae924965}{MPU6050\+\_\+\+RA\+\_\+\+SELF\+\_\+\+TEST\+\_\+X}}~0x0D
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gafaeebb6ab18231c171fed704574987e7}{MPU6050\+\_\+\+RA\+\_\+\+SELF\+\_\+\+TEST\+\_\+Y}}~0x0E
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga87df5ed3b1736da250e8127810adf44d}{MPU6050\+\_\+\+RA\+\_\+\+SELF\+\_\+\+TEST\+\_\+Z}}~0x0F
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga1c9edfc09303193559373d5768d301e1}{MPU6050\+\_\+\+RA\+\_\+\+SELF\+\_\+\+TEST\+\_\+A}}~0x10
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga6e41d8bb53f71f3c9b5f32727ecb290b}{MPU6050\+\_\+\+RA\+\_\+\+XG\+\_\+\+OFFS\+\_\+\+USRH}}~0x13
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gad68a24c7c13fc57697ae7748c28c60bc}{MPU6050\+\_\+\+RA\+\_\+\+XG\+\_\+\+OFFS\+\_\+\+USRL}}~0x14
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga5c416dac853f57163ed4ac3042d7c3a8}{MPU6050\+\_\+\+RA\+\_\+\+YG\+\_\+\+OFFS\+\_\+\+USRH}}~0x15
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaa095bac70719072fbb0dbd328cda7442}{MPU6050\+\_\+\+RA\+\_\+\+YG\+\_\+\+OFFS\+\_\+\+USRL}}~0x16
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga2ec4ac3fb609fb44febcccb136689656}{MPU6050\+\_\+\+RA\+\_\+\+ZG\+\_\+\+OFFS\+\_\+\+USRH}}~0x17
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga32b9dc921aefaf3e881cc3bcda2d0841}{MPU6050\+\_\+\+RA\+\_\+\+ZG\+\_\+\+OFFS\+\_\+\+USRL}}~0x18
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga12d24140bc78ba2db5a2e11ab32abeda}{MPU6050\+\_\+\+RA\+\_\+\+SMPLRT\+\_\+\+DIV}}~0x19
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga51c78b27e0368d91c94209dbeca4df90}{MPU6050\+\_\+\+RA\+\_\+\+CONFIG}}~0x1A
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga004871ad77398075d79e9111989007dc}{MPU6050\+\_\+\+RA\+\_\+\+GYRO\+\_\+\+CONFIG}}~0x1B
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga48b7d7b24a70b247e373bc5965a5dcc7}{MPU6050\+\_\+\+RA\+\_\+\+ACCEL\+\_\+\+CONFIG}}~0x1C
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga391a4a95c33895c6926b9459cea5f3cd}{MPU6050\+\_\+\+RA\+\_\+\+FF\+\_\+\+THR}}~0x1D
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaaf242278f1dd87556bdeeab589b01fd7}{MPU6050\+\_\+\+RA\+\_\+\+FF\+\_\+\+DUR}}~0x1E
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga444c7d6d710bcc30f1ad98f703f9921e}{MPU6050\+\_\+\+RA\+\_\+\+MOT\+\_\+\+THR}}~0x1F
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga25ce9fe346237d22b62881257458fdf4}{MPU6050\+\_\+\+RA\+\_\+\+MOT\+\_\+\+DUR}}~0x20
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga866eb43544165dc8c777d82bab9860e6}{MPU6050\+\_\+\+RA\+\_\+\+ZRMOT\+\_\+\+THR}}~0x21
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga57ad8b9e0c77ec27d41b60405ab57e1c}{MPU6050\+\_\+\+RA\+\_\+\+ZRMOT\+\_\+\+DUR}}~0x22
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga1166fe50f4792f3266e15dc3273e375d}{MPU6050\+\_\+\+RA\+\_\+\+FIFO\+\_\+\+EN}}~0x23
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gae4804708dd5f21dbca1ff1815b883504}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+MST\+\_\+\+CTRL}}~0x24
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga423463fce914683217f05e3ca686364c}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV0\+\_\+\+ADDR}}~0x25
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gae9fc1bc0eb0c568846328de91127ca80}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV0\+\_\+\+REG}}~0x26
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga70ce4d71982a1e3fb2be9b71f40da786}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV0\+\_\+\+CTRL}}~0x27
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gae33062d5e05f28a5aa6831b7f1d88104}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV1\+\_\+\+ADDR}}~0x28
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga49790a56674e4dfe184ec067295e26ec}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV1\+\_\+\+REG}}~0x29
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gad2ea53ab83e95289ef6d78cccb73b307}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV1\+\_\+\+CTRL}}~0x2A
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab9bd1737877e24c981423c9b63f64d3a}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV2\+\_\+\+ADDR}}~0x2B
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9ed25cb09399d6700cd0255b17ad7a47}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV2\+\_\+\+REG}}~0x2C
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga85020a23b62a5ea0c88137038f65767e}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV2\+\_\+\+CTRL}}~0x2D
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga2a495eb60b391ed7a157e494dd7d3e69}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV3\+\_\+\+ADDR}}~0x2E
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaab183c416882e55c7fdda4b24160dd1a}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV3\+\_\+\+REG}}~0x2F
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga0f9ead95fc8c60f9218162a69c83163a}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV3\+\_\+\+CTRL}}~0x30
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga3a3a4854870a5f354e50fbc4eae196c0}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+ADDR}}~0x31
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga5b2f24136f2f68b5d42652d16208d9d0}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+REG}}~0x32
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga433e4202ff24b4d90e695d5154a6f9eb}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+DO}}~0x33
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga2b6fbfceb145ba1c8b19f51475fd7a5d}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+CTRL}}~0x34
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga80d3591c47d0482c0adcf176e1994a65}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+DI}}~0x35
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga5ef54580f436c198fb84d01288fbef49}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+MST\+\_\+\+STATUS}}~0x36
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga82344e1daef2bac2e0d938319528be6c}{MPU6050\+\_\+\+RA\+\_\+\+INT\+\_\+\+PIN\+\_\+\+CFG}}~0x37
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga1de9d9557aa7420c746721999df4a377}{MPU6050\+\_\+\+RA\+\_\+\+INT\+\_\+\+ENABLE}}~0x38
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga917ac5ff97cc7e9ecee733d20a95825e}{MPU6050\+\_\+\+RA\+\_\+\+DMP\+\_\+\+INT\+\_\+\+STATUS}}~0x39
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga8337320c5ccc92def830e968d2e19d75}{MPU6050\+\_\+\+RA\+\_\+\+INT\+\_\+\+STATUS}}~0x3A
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9f08bfd13152053c226e5efb57e1c209}{MPU6050\+\_\+\+RA\+\_\+\+ACCEL\+\_\+\+XOUT\+\_\+H}}~0x3B
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga7a077cc96fed2f0502592983d9d9115e}{MPU6050\+\_\+\+RA\+\_\+\+ACCEL\+\_\+\+XOUT\+\_\+L}}~0x3C
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaccc9b8669e7b799c8630e8a84cd24692}{MPU6050\+\_\+\+RA\+\_\+\+ACCEL\+\_\+\+YOUT\+\_\+H}}~0x3D
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga44bc0473921fbf0a6cdfc39ed4b26b15}{MPU6050\+\_\+\+RA\+\_\+\+ACCEL\+\_\+\+YOUT\+\_\+L}}~0x3E
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga2244ed0bf9c94ab5cde2bba541bfa22f}{MPU6050\+\_\+\+RA\+\_\+\+ACCEL\+\_\+\+ZOUT\+\_\+H}}~0x3F
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gad6a2299d2c4e78faa704c70a80a6c7c8}{MPU6050\+\_\+\+RA\+\_\+\+ACCEL\+\_\+\+ZOUT\+\_\+L}}~0x40
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaa4318f7e67df92b06d81356b38048a6d}{MPU6050\+\_\+\+RA\+\_\+\+TEMP\+\_\+\+OUT\+\_\+H}}~0x41
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga08528cb9d7fd1c3c128f0762cbd0ffdd}{MPU6050\+\_\+\+RA\+\_\+\+TEMP\+\_\+\+OUT\+\_\+L}}~0x42
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gabf19d88e8e460df1c49750393ee4b72c}{MPU6050\+\_\+\+RA\+\_\+\+GYRO\+\_\+\+XOUT\+\_\+H}}~0x43
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga84accb945e8d1388d38fe76482cdd144}{MPU6050\+\_\+\+RA\+\_\+\+GYRO\+\_\+\+XOUT\+\_\+L}}~0x44
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga97729ffd27bd81b9af5b42a598f91736}{MPU6050\+\_\+\+RA\+\_\+\+GYRO\+\_\+\+YOUT\+\_\+H}}~0x45
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaa6ac5e36155a22dcd345148720272a75}{MPU6050\+\_\+\+RA\+\_\+\+GYRO\+\_\+\+YOUT\+\_\+L}}~0x46
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gac134c8894ef3aa4715e796f7a3a56383}{MPU6050\+\_\+\+RA\+\_\+\+GYRO\+\_\+\+ZOUT\+\_\+H}}~0x47
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga4af03513e690fb8cdff5d2fef4669704}{MPU6050\+\_\+\+RA\+\_\+\+GYRO\+\_\+\+ZOUT\+\_\+L}}~0x48
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gafbb19101a107f71744f2146e0f09d926}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+00}}~0x49
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga8588292fe63c60797fa35d2fa45304ff}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+01}}~0x4A
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab64e78a35138012905b39bce57bc11ad}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+02}}~0x4B
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga04d33c89ef205d71c6a58375583a3e9a}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+03}}~0x4C
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gac2ab46a498dad6b08c1eba13141334e9}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+04}}~0x4D
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga59ae9c4cc5e49ca9c2e84964bd4650f8}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+05}}~0x4E
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga8826886b08af627d90cf6177d47a92c5}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+06}}~0x4F
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaf6833167ba0616ecbae4d097c07a876d}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+07}}~0x50
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga13873cda21ce269f6fe226eab1d4b30b}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+08}}~0x51
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gac573e571fcad258f86dde91664e5f342}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+09}}~0x52
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gacd1f7243b983e30e089287848f8cc55e}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+10}}~0x53
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga0e0182cc41903f0a093744ecd235387a}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+11}}~0x54
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga298602aead44e886734ad2a23409346b}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+12}}~0x55
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga760d027a571620eb804b107179a1f482}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+13}}~0x56
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga29f438db1edcda54a42257599122d864}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+14}}~0x57
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab5a88f4d418f8fe9872c533ab007c431}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+15}}~0x58
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gac5d3afd3508121f30613edceb4e48297}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+16}}~0x59
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaa1a6f7f2b079583c5478f7126f7ca3d6}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+17}}~0x5A
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaefda60825aa631ed7837cf33a134e3f7}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+18}}~0x5B
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab89c01f38370289d7e9f323871014370}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+19}}~0x5C
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga572fd6cdf79333a5fd6e88021cde475f}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+20}}~0x5D
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab62ffbd26174f1ec37088a3217fdb14e}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+21}}~0x5E
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gac52873fef1bb2a0c1e00b7ba77a5c10e}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+22}}~0x5F
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga7256bd65a372fcc4f420e1796c1b579a}{MPU6050\+\_\+\+RA\+\_\+\+EXT\+\_\+\+SENS\+\_\+\+DATA\+\_\+23}}~0x60
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga5b725ca4941b1a73f8e4df3d7164d514}{MPU6050\+\_\+\+RA\+\_\+\+MOT\+\_\+\+DETECT\+\_\+\+STATUS}}~0x61
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga53ca9562881303b665299907726fb753}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV0\+\_\+\+DO}}~0x63
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga62e9f2471f54176625236775d82b66ca}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV1\+\_\+\+DO}}~0x64
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga1f192825e93dd8bdfbe8cefdb30786ac}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV2\+\_\+\+DO}}~0x65
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga1fbafdd8c59383fa4eeae50b103adda7}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+SLV3\+\_\+\+DO}}~0x66
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga95960b2c82d00341b6174272e2fb3e07}{MPU6050\+\_\+\+RA\+\_\+\+I2\+C\+\_\+\+MST\+\_\+\+DELAY\+\_\+\+CTRL}}~0x67
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaccbe0fc25de063494eac9fda35ed1ca5}{MPU6050\+\_\+\+RA\+\_\+\+SIGNAL\+\_\+\+PATH\+\_\+\+RESET}}~0x68
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gae83e3eb48f0803227db54291fdf0ea80}{MPU6050\+\_\+\+RA\+\_\+\+MOT\+\_\+\+DETECT\+\_\+\+CTRL}}~0x69
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gacd4c638a6f677a42ecb9a3d7612d087a}{MPU6050\+\_\+\+RA\+\_\+\+USER\+\_\+\+CTRL}}~0x6A
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gac6c83146165a2307ac7155d4fa566df4}{MPU6050\+\_\+\+RA\+\_\+\+PWR\+\_\+\+MGMT\+\_\+1}}~0x6B
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaace6ce286da4d5f8c8f5ba6f80688e13}{MPU6050\+\_\+\+RA\+\_\+\+PWR\+\_\+\+MGMT\+\_\+2}}~0x6C
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga68a2727ce368bc1b2f768a518cf8c844}{MPU6050\+\_\+\+RA\+\_\+\+BANK\+\_\+\+SEL}}~0x6D
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga2b9fa9064708afc9d0532f53d8d8a3eb}{MPU6050\+\_\+\+RA\+\_\+\+MEM\+\_\+\+START\+\_\+\+ADDR}}~0x6E
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga1571b92d8bf4afbac27987d166192239}{MPU6050\+\_\+\+RA\+\_\+\+MEM\+\_\+\+R\+\_\+W}}~0x6F
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaec20dc57c7da6d3a849cdce39a4c3f18}{MPU6050\+\_\+\+RA\+\_\+\+DMP\+\_\+\+CFG\+\_\+1}}~0x70
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab52b8dc0dd01d3c77b9969a6b1c91854}{MPU6050\+\_\+\+RA\+\_\+\+DMP\+\_\+\+CFG\+\_\+2}}~0x71
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaaff95ccbc06a8f3336850a35cd8df488}{MPU6050\+\_\+\+RA\+\_\+\+FIFO\+\_\+\+COUNTH}}~0x72
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9bc0458ce42b66e81a8831dd2c07dc0a}{MPU6050\+\_\+\+RA\+\_\+\+FIFO\+\_\+\+COUNTL}}~0x73
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga4fd3a14925375c3112b830d6d1dd1fe9}{MPU6050\+\_\+\+RA\+\_\+\+FIFO\+\_\+\+R\+\_\+W}}~0x74
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga83d60aa4c37e954266ecd17ae02ec174}{MPU6050\+\_\+\+RA\+\_\+\+WHO\+\_\+\+AM\+\_\+I}}~0x75
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga56dd5df40937b5207b20dc5741e26391}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+XA\+\_\+1\+\_\+\+BIT}}~0x07
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaa24a8f0d1285c74a94c7407a94d4be9b}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+XA\+\_\+1\+\_\+\+LENGTH}}~0x03
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaec7dc7743e6eda87fd05fbcded657fd4}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+XA\+\_\+2\+\_\+\+BIT}}~0x05
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gadc64319f58cca3d7eb4058a879f44e3b}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+XA\+\_\+2\+\_\+\+LENGTH}}~0x02
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga6f2b82d72ca6d919c10e7b741ebc157d}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+YA\+\_\+1\+\_\+\+BIT}}~0x07
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gac8a86314be822ba5a40036d4e7fcfb16}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+YA\+\_\+1\+\_\+\+LENGTH}}~0x03
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga8de682c780c80df4a48e186128bc2930}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+YA\+\_\+2\+\_\+\+BIT}}~0x03
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9c1f00b82503b74a1729abb5efe478f8}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+YA\+\_\+2\+\_\+\+LENGTH}}~0x02
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gad2dcc7285e3d49d0491344256f10037e}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+ZA\+\_\+1\+\_\+\+BIT}}~0x07
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga3066d19bfb21d2c73e1a164e34f0f393}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+ZA\+\_\+1\+\_\+\+LENGTH}}~0x03
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga417e250acaff6e9979c4d1f1b515a5d8}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+ZA\+\_\+2\+\_\+\+BIT}}~0x01
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaebb042f966e9279c3000d2d4c554a3ce}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+ZA\+\_\+2\+\_\+\+LENGTH}}~0x02
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaf276a1d630430c0a239347a78c655aca}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+XG\+\_\+1\+\_\+\+BIT}}~0x04
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga40bad0c49b87dbad2cd6d98d9256ac5e}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+XG\+\_\+1\+\_\+\+LENGTH}}~0x05
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab86e50d61c7b76e0a536b2eada16254d}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+YG\+\_\+1\+\_\+\+BIT}}~0x04
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga4bc5782929eaf86af52c0e69c73560d6}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+YG\+\_\+1\+\_\+\+LENGTH}}~0x05
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga882620c1996e03c20a8b41dc69b1515e}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+ZG\+\_\+1\+\_\+\+BIT}}~0x04
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gace803940b71d302043b4363739e4aa05}{MPU6050\+\_\+\+SELF\+\_\+\+TEST\+\_\+\+ZG\+\_\+1\+\_\+\+LENGTH}}~0x05
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga0f89d8196e6739bb626d92cba3a96628}{MPU6050\+\_\+\+TC\+\_\+\+PWR\+\_\+\+MODE\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga147a44c6c85258a6e5847333170f36e2}{MPU6050\+\_\+\+TC\+\_\+\+OFFSET\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gac66acfca33282b6e38fed6bbd6b0d455}{MPU6050\+\_\+\+TC\+\_\+\+OFFSET\+\_\+\+LENGTH}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9640cbeb0cb15ccac6f62721ccde7e6c}{MPU6050\+\_\+\+TC\+\_\+\+OTP\+\_\+\+BNK\+\_\+\+VLD\+\_\+\+BIT}}~0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga124c3130faa727f1223af39fcdaeb136}{MPU6050\+\_\+\+VDDIO\+\_\+\+LEVEL\+\_\+\+VLOGIC}}~0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga8c286ade28b68d117859dc73fd73e646}{MPU6050\+\_\+\+VDDIO\+\_\+\+LEVEL\+\_\+\+VDD}}~1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga495a67e684c7c6922d55518f613a40ee}{MPU6050\+\_\+\+CFG\+\_\+\+EXT\+\_\+\+SYNC\+\_\+\+SET\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga31cfa0ed00f2a10dc5e136d63c25348d}{MPU6050\+\_\+\+CFG\+\_\+\+EXT\+\_\+\+SYNC\+\_\+\+SET\+\_\+\+LENGTH}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gadf909a696e2ebf9ba3dba9570ae02af2}{MPU6050\+\_\+\+CFG\+\_\+\+DLPF\+\_\+\+CFG\+\_\+\+BIT}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga119feeb54b957c50e0beba3f6aa2458f}{MPU6050\+\_\+\+CFG\+\_\+\+DLPF\+\_\+\+CFG\+\_\+\+LENGTH}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab8702e74a8849503592b5a54b8951458}{MPU6050\+\_\+\+EXT\+\_\+\+SYNC\+\_\+\+DISABLED}}~0x0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga2bb1b06ca1e5e300716ab7470052460e}{MPU6050\+\_\+\+EXT\+\_\+\+SYNC\+\_\+\+TEMP\+\_\+\+OUT\+\_\+L}}~0x1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaef554b3d9ad349741bd17640c6df7313}{MPU6050\+\_\+\+EXT\+\_\+\+SYNC\+\_\+\+GYRO\+\_\+\+XOUT\+\_\+L}}~0x2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaf1f17a3716c9804f34c630c7e1bebc1e}{MPU6050\+\_\+\+EXT\+\_\+\+SYNC\+\_\+\+GYRO\+\_\+\+YOUT\+\_\+L}}~0x3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga55e8ce4b4d966864f96ce7407fcad0ec}{MPU6050\+\_\+\+EXT\+\_\+\+SYNC\+\_\+\+GYRO\+\_\+\+ZOUT\+\_\+L}}~0x4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gad6cd3b81b148be477d13a9eb103bb366}{MPU6050\+\_\+\+EXT\+\_\+\+SYNC\+\_\+\+ACCEL\+\_\+\+XOUT\+\_\+L}}~0x5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga523250ac1107852015b868b00f58829b}{MPU6050\+\_\+\+EXT\+\_\+\+SYNC\+\_\+\+ACCEL\+\_\+\+YOUT\+\_\+L}}~0x6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga985445c35a0fe1be18020ad3a635beb7}{MPU6050\+\_\+\+EXT\+\_\+\+SYNC\+\_\+\+ACCEL\+\_\+\+ZOUT\+\_\+L}}~0x7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga69e8618585558f2ef5cec3116726ca60}{MPU6050\+\_\+\+DLPF\+\_\+\+BW\+\_\+256}}~0x00
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga27f6318269af082372464d232eb8fd61}{MPU6050\+\_\+\+DLPF\+\_\+\+BW\+\_\+188}}~0x01
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga94f89bee3550147c66aaa3610f96fe8f}{MPU6050\+\_\+\+DLPF\+\_\+\+BW\+\_\+98}}~0x02
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga15fc642e77fceab2590b0f52b30b5b64}{MPU6050\+\_\+\+DLPF\+\_\+\+BW\+\_\+42}}~0x03
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga5bdfddfff9742f1a4149b08daef169fa}{MPU6050\+\_\+\+DLPF\+\_\+\+BW\+\_\+20}}~0x04
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gacc6ee2095cc376b987626c8ecdb82952}{MPU6050\+\_\+\+DLPF\+\_\+\+BW\+\_\+10}}~0x05
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga5310ee15bbaf6030c7a26d5d82493ac2}{MPU6050\+\_\+\+DLPF\+\_\+\+BW\+\_\+5}}~0x06
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gafd6d2bc756768007166a6c3941569c80}{MPU6050\+\_\+\+GCONFIG\+\_\+\+FS\+\_\+\+SEL\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9ffad45588f9e6c49842bbe8c57335f6}{MPU6050\+\_\+\+GCONFIG\+\_\+\+FS\+\_\+\+SEL\+\_\+\+LENGTH}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaac5b35a3fa5792b38fe7118bc72fb442}{MPU6050\+\_\+\+GYRO\+\_\+\+FS\+\_\+250}}~0x00
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gafad77059ccd86820ddf77025ec3e3fb8}{MPU6050\+\_\+\+GYRO\+\_\+\+FS\+\_\+500}}~0x01
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaece25806948f2455a1e2c1895b4583b0}{MPU6050\+\_\+\+GYRO\+\_\+\+FS\+\_\+1000}}~0x02
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga51162889c2f7d3ada6d181110cabb8ab}{MPU6050\+\_\+\+GYRO\+\_\+\+FS\+\_\+2000}}~0x03
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga03f95a0f712cf6d405647f8b3e904969}{MPU6050\+\_\+\+ACONFIG\+\_\+\+XA\+\_\+\+ST\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gabe3a731e58d6fd5df31c7b83226fd22d}{MPU6050\+\_\+\+ACONFIG\+\_\+\+YA\+\_\+\+ST\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga4bb3480dc64752518ccb62d1bb3cd258}{MPU6050\+\_\+\+ACONFIG\+\_\+\+ZA\+\_\+\+ST\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga86a744acedbe8a5ec7c82792e050d911}{MPU6050\+\_\+\+ACONFIG\+\_\+\+AFS\+\_\+\+SEL\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gac2d0f6933b5cee0ffe5bc049eb54536f}{MPU6050\+\_\+\+ACONFIG\+\_\+\+AFS\+\_\+\+SEL\+\_\+\+LENGTH}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga3093502ef7b7c123c2602a736431a1bb}{MPU6050\+\_\+\+ACONFIG\+\_\+\+ACCEL\+\_\+\+HPF\+\_\+\+BIT}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga3b446c27de2d733443376c87bf2b00a8}{MPU6050\+\_\+\+ACONFIG\+\_\+\+ACCEL\+\_\+\+HPF\+\_\+\+LENGTH}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaeb63b8456cc4d715ce1fbe29ca5b1722}{MPU6050\+\_\+\+ACCEL\+\_\+\+FS\+\_\+2}}~0x00
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga7df0fb518f20ee9119db5807263fb61f}{MPU6050\+\_\+\+ACCEL\+\_\+\+FS\+\_\+4}}~0x01
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab54b1663fc62da54bbe86bfb5434ddf3}{MPU6050\+\_\+\+ACCEL\+\_\+\+FS\+\_\+8}}~0x02
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga522a4633b0dabeb1ba2aefda8778e081}{MPU6050\+\_\+\+ACCEL\+\_\+\+FS\+\_\+16}}~0x03
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaa27e7511d60ab2f0d99b4bb138539e25}{MPU6050\+\_\+\+DHPF\+\_\+\+RESET}}~0x00
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga5d48b614e6762d49602fdc2b156559b3}{MPU6050\+\_\+\+DHPF\+\_\+5}}~0x01
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga11b6f9a69133f54e28d7951aba1ba342}{MPU6050\+\_\+\+DHPF\+\_\+2\+P5}}~0x02
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga17ebe2e554d2920a69943bc8d6e84232}{MPU6050\+\_\+\+DHPF\+\_\+1\+P25}}~0x03
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga7c73c70ce194ea3b49d2c28cf3db05b8}{MPU6050\+\_\+\+DHPF\+\_\+0\+P63}}~0x04
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga4f06e096e1e528b39f999f8bc0c78ddf}{MPU6050\+\_\+\+DHPF\+\_\+\+HOLD}}~0x07
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga817ed1eb65de563dceb35fed3e2ebd08}{MPU6050\+\_\+\+TEMP\+\_\+\+FIFO\+\_\+\+EN\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaabcf0707489b9a812f1a061644918bcf}{MPU6050\+\_\+\+XG\+\_\+\+FIFO\+\_\+\+EN\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga1f1c02b773d610b316c91fa93d06598a}{MPU6050\+\_\+\+YG\+\_\+\+FIFO\+\_\+\+EN\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga14806887f28db8ea569f25651a2699d4}{MPU6050\+\_\+\+ZG\+\_\+\+FIFO\+\_\+\+EN\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga3b2263e85c479475b12c39e6ab913258}{MPU6050\+\_\+\+ACCEL\+\_\+\+FIFO\+\_\+\+EN\+\_\+\+BIT}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga1c1f4767669a4b78fc545515ad40daf6}{MPU6050\+\_\+\+SLV2\+\_\+\+FIFO\+\_\+\+EN\+\_\+\+BIT}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaff048ca52f7c8a412c0e6c820d4cf1cf}{MPU6050\+\_\+\+SLV1\+\_\+\+FIFO\+\_\+\+EN\+\_\+\+BIT}}~1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga805428e54c987a4c759bcafaa2b56018}{MPU6050\+\_\+\+SLV0\+\_\+\+FIFO\+\_\+\+EN\+\_\+\+BIT}}~0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga04375cc27ef0b67acb5672a3d6618be1}{MPU6050\+\_\+\+MULT\+\_\+\+MST\+\_\+\+EN\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga8a99b8cc4dd5b1e59ab9238a7c0ea583}{MPU6050\+\_\+\+WAIT\+\_\+\+FOR\+\_\+\+ES\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gacb5e5b4b301da1c7cacef2130c9de698}{MPU6050\+\_\+\+SLV\+\_\+3\+\_\+\+FIFO\+\_\+\+EN\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga4fe21728b1fd788f207cd4fe26288a95}{MPU6050\+\_\+\+I2\+C\+\_\+\+MST\+\_\+\+P\+\_\+\+NSR\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga326b4f2642ef6bf83ea31ad802aaeec5}{MPU6050\+\_\+\+I2\+C\+\_\+\+MST\+\_\+\+CLK\+\_\+\+BIT}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga000953c1d01b201a9d812594fadac87b}{MPU6050\+\_\+\+I2\+C\+\_\+\+MST\+\_\+\+CLK\+\_\+\+LENGTH}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga8f1a20f878989254d09f019bdbc6e6b7}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+348}}~0x0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab9d57c062d268ce21104810f3db806d6}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+333}}~0x1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga0da6820c16d7b416cc98b4e375760d19}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+320}}~0x2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gac31b5f056b43d0b3142cbab2382f59d0}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+308}}~0x3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga977201784ee22da88101e2cd60ca83ed}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+296}}~0x4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga35a0877579112c4c3525197e87f04906}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+286}}~0x5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga745e21e168adb00f2ddfe7dca0888972}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+276}}~0x6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga017c3fb27bcb2c713de14003624e1fba}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+267}}~0x7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga06f98b7e24ac3e177b4b7b8999577120}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+258}}~0x8
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gac2af9dbd468d5b4b63314e5ca3b19a9c}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+500}}~0x9
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga22b32d4a4450280e72341c0d65609b72}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+471}}~0xA
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga5218653a0345b2983158e740cb084f27}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+444}}~0xB
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga02822aea26dd0323e7b93d75caa9e68b}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+421}}~0xC
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gad650b411bef17f370e08c7219bfc7764}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+400}}~0xD
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga50f8676ced2688a23ccea8fc16247887}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+381}}~0xE
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab14992d4143bf7cbf4298a3a6f267518}{MPU6050\+\_\+\+CLOCK\+\_\+\+DIV\+\_\+364}}~0xF
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9826becbd0002bfa200d25690e92e126}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV\+\_\+\+RW\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga755db2f2ee6bc9cbfdf67563244e9f32}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV\+\_\+\+ADDR\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga817c7994c3bea93494cc1d53323716f8}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV\+\_\+\+ADDR\+\_\+\+LENGTH}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga063a1cfe7425c65cfdf9f3ca90871770}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV\+\_\+\+EN\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga6c67014f4d0b0c2b20b7f5de816cf16c}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV\+\_\+\+BYTE\+\_\+\+SW\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga673cc147c62400d23d1f543d9c2840f0}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV\+\_\+\+REG\+\_\+\+DIS\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gadbd9e3c1c2b8979f9e38ef4815a8b426}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV\+\_\+\+GRP\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga0f9622a82b552e2272079690d603829b}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV\+\_\+\+LEN\+\_\+\+BIT}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga217150e945314ff816e18da341f722df}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV\+\_\+\+LEN\+\_\+\+LENGTH}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaccc83586015bb1612a3e155f4ebfd707}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+RW\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga3b36cc3065aa46e1a018da4af5104a0c}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+ADDR\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9a66ab23f323dbb887a28c53636e9ad1}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+ADDR\+\_\+\+LENGTH}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaba35d05653ef49e0e43903306406a774}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+EN\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga268e7470796885d36d1d03eb0aac43ee}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+INT\+\_\+\+EN\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga7325cf589adff245ca1330e928f12d6f}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+REG\+\_\+\+DIS\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga27c0a893adec2f318a3b465327725c61}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+MST\+\_\+\+DLY\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gac74877bfb915f4a21000728965b87e34}{MPU6050\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+MST\+\_\+\+DLY\+\_\+\+LENGTH}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga321041d87b000d80f291014771f81092}{MPU6050\+\_\+\+MST\+\_\+\+PASS\+\_\+\+THROUGH\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga3d2341997a132b286cfc683520385aef}{MPU6050\+\_\+\+MST\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+DONE\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga8b5ca8697862a741632275a717631358}{MPU6050\+\_\+\+MST\+\_\+\+I2\+C\+\_\+\+LOST\+\_\+\+ARB\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaa807166b18837db271be5b8243368fcd}{MPU6050\+\_\+\+MST\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+NACK\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9f25b37a24ef8be5a4f15f6a81fa3acf}{MPU6050\+\_\+\+MST\+\_\+\+I2\+C\+\_\+\+SLV3\+\_\+\+NACK\+\_\+\+BIT}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga8362b6475085e832faa1b64794c3792c}{MPU6050\+\_\+\+MST\+\_\+\+I2\+C\+\_\+\+SLV2\+\_\+\+NACK\+\_\+\+BIT}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga750b9796bad18b46826726f2820c79f7}{MPU6050\+\_\+\+MST\+\_\+\+I2\+C\+\_\+\+SLV1\+\_\+\+NACK\+\_\+\+BIT}}~1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga673b1e4ceda6f8dffd94c18e213f4090}{MPU6050\+\_\+\+MST\+\_\+\+I2\+C\+\_\+\+SLV0\+\_\+\+NACK\+\_\+\+BIT}}~0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga0ca358b8171fd08fd631434ee8ff2339}{MPU6050\+\_\+\+INTCFG\+\_\+\+INT\+\_\+\+LEVEL\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gae8cef0becbc209ac15fea3d86261d324}{MPU6050\+\_\+\+INTCFG\+\_\+\+INT\+\_\+\+OPEN\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga5704a7815c0fa6dcbfd4666a70e89d90}{MPU6050\+\_\+\+INTCFG\+\_\+\+LATCH\+\_\+\+INT\+\_\+\+EN\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga45b83ab5dc3f439636f6e5c591f1d5b1}{MPU6050\+\_\+\+INTCFG\+\_\+\+INT\+\_\+\+RD\+\_\+\+CLEAR\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga1696357738f5b7e4bc50ec4170be3324}{MPU6050\+\_\+\+INTCFG\+\_\+\+FSYNC\+\_\+\+INT\+\_\+\+LEVEL\+\_\+\+BIT}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga39963ea6d8b9cbeebc4daf40f8872fed}{MPU6050\+\_\+\+INTCFG\+\_\+\+FSYNC\+\_\+\+INT\+\_\+\+EN\+\_\+\+BIT}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab3dd639412ccf5b69cfb66346d0b6b99}{MPU6050\+\_\+\+INTCFG\+\_\+\+I2\+C\+\_\+\+BYPASS\+\_\+\+EN\+\_\+\+BIT}}~1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaf6f983ee1d32777d725f259c7806f15a}{MPU6050\+\_\+\+INTCFG\+\_\+\+CLKOUT\+\_\+\+EN\+\_\+\+BIT}}~0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga2140fe222f97f6c1aef4c0ccec5d75f8}{MPU6050\+\_\+\+INTMODE\+\_\+\+ACTIVEHIGH}}~0x00
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga1fd2792f3c76de279d0072fac890334c}{MPU6050\+\_\+\+INTMODE\+\_\+\+ACTIVELOW}}~0x01
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga243c5f613a922946ca2f274edc65b779}{MPU6050\+\_\+\+INTDRV\+\_\+\+PUSHPULL}}~0x00
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga44b16b463deb4c8e0e89f09101241472}{MPU6050\+\_\+\+INTDRV\+\_\+\+OPENDRAIN}}~0x01
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga6aed2516e058e0b1be7754c34fe57fd0}{MPU6050\+\_\+\+INTLATCH\+\_\+50\+USPULSE}}~0x00
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga3efb264f7ba10242537ecfc7678ef23b}{MPU6050\+\_\+\+INTLATCH\+\_\+\+WAITCLEAR}}~0x01
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab7574e85b652ee2d58096c62479dcc21}{MPU6050\+\_\+\+INTCLEAR\+\_\+\+STATUSREAD}}~0x00
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga65fadbb9a23a64e34adb527cbb953c28}{MPU6050\+\_\+\+INTCLEAR\+\_\+\+ANYREAD}}~0x01
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga95b5ee3f5f796515c31f0b59f9ce0019}{MPU6050\+\_\+\+INTERRUPT\+\_\+\+FF\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga510f9a47269818529f7dc7f7d5e662ae}{MPU6050\+\_\+\+INTERRUPT\+\_\+\+MOT\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaa4a24f325b4449adf83ce8458bb31a08}{MPU6050\+\_\+\+INTERRUPT\+\_\+\+ZMOT\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9d13e0ea2a96e5d234b7efa3de74d6bf}{MPU6050\+\_\+\+INTERRUPT\+\_\+\+FIFO\+\_\+\+OFLOW\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gafb0bff7cde199d7806469f93b6e59b02}{MPU6050\+\_\+\+INTERRUPT\+\_\+\+I2\+C\+\_\+\+MST\+\_\+\+INT\+\_\+\+BIT}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga90d82ed64d6fd2b4b96db163f5dd45d2}{MPU6050\+\_\+\+INTERRUPT\+\_\+\+PLL\+\_\+\+RDY\+\_\+\+INT\+\_\+\+BIT}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga484dc2c64005652ff208840ddc8c1cff}{MPU6050\+\_\+\+INTERRUPT\+\_\+\+DMP\+\_\+\+INT\+\_\+\+BIT}}~1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaf58fafd4db7755e66e0beab54e88c41d}{MPU6050\+\_\+\+INTERRUPT\+\_\+\+DATA\+\_\+\+RDY\+\_\+\+BIT}}~0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga8a26bc671cd144ca5b3303f5aa43c239}{MPU6050\+\_\+\+DMPINT\+\_\+5\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gae82e96084d3a3859b6222f3b85b20c56}{MPU6050\+\_\+\+DMPINT\+\_\+4\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaf856fa148a76775a7d02e91e9b71767e}{MPU6050\+\_\+\+DMPINT\+\_\+3\+\_\+\+BIT}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga8b2fe81371281ee765a79cebeebc1961}{MPU6050\+\_\+\+DMPINT\+\_\+2\+\_\+\+BIT}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga6d264648396a11f5273464f1dd38377b}{MPU6050\+\_\+\+DMPINT\+\_\+1\+\_\+\+BIT}}~1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga528e9ac3e7727082f872490ff59252fc}{MPU6050\+\_\+\+DMPINT\+\_\+0\+\_\+\+BIT}}~0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga4aad48766db4bb295d0d1f4a7857b8c3}{MPU6050\+\_\+\+MOTION\+\_\+\+MOT\+\_\+\+XNEG\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaa8e676899573e11b356291e335cbe340}{MPU6050\+\_\+\+MOTION\+\_\+\+MOT\+\_\+\+XPOS\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga5273d39ef8f5d87e931609fee90d4120}{MPU6050\+\_\+\+MOTION\+\_\+\+MOT\+\_\+\+YNEG\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gae1473d5aa4b8f0dbda1e15b205c23bcf}{MPU6050\+\_\+\+MOTION\+\_\+\+MOT\+\_\+\+YPOS\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gacdf23f184c06ec12587582b4a0ad60a8}{MPU6050\+\_\+\+MOTION\+\_\+\+MOT\+\_\+\+ZNEG\+\_\+\+BIT}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga21646cdd13cd4d72bc18ec615774e9c5}{MPU6050\+\_\+\+MOTION\+\_\+\+MOT\+\_\+\+ZPOS\+\_\+\+BIT}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga851e3f5ae43d03ef3d59916a731a8c6a}{MPU6050\+\_\+\+MOTION\+\_\+\+MOT\+\_\+\+ZRMOT\+\_\+\+BIT}}~0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga77b25de3f3dbdb1aec3201cab7d88980}{MPU6050\+\_\+\+DELAYCTRL\+\_\+\+DELAY\+\_\+\+ES\+\_\+\+SHADOW\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga0fc0a9bd91e6264c00ff26a27b15c7f0}{MPU6050\+\_\+\+DELAYCTRL\+\_\+\+I2\+C\+\_\+\+SLV4\+\_\+\+DLY\+\_\+\+EN\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga8074ca6de4dc700d90c85e8362886ee5}{MPU6050\+\_\+\+DELAYCTRL\+\_\+\+I2\+C\+\_\+\+SLV3\+\_\+\+DLY\+\_\+\+EN\+\_\+\+BIT}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga3e7ccf5f8ab625d45141a6be164aad5a}{MPU6050\+\_\+\+DELAYCTRL\+\_\+\+I2\+C\+\_\+\+SLV2\+\_\+\+DLY\+\_\+\+EN\+\_\+\+BIT}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga0871a11787eccc26a91d0cc545164eed}{MPU6050\+\_\+\+DELAYCTRL\+\_\+\+I2\+C\+\_\+\+SLV1\+\_\+\+DLY\+\_\+\+EN\+\_\+\+BIT}}~1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gae79610c4ceb7d51823836a1242e81f28}{MPU6050\+\_\+\+DELAYCTRL\+\_\+\+I2\+C\+\_\+\+SLV0\+\_\+\+DLY\+\_\+\+EN\+\_\+\+BIT}}~0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gac83827506ea3a6c8ed40a0c6e97e2417}{MPU6050\+\_\+\+PATHRESET\+\_\+\+GYRO\+\_\+\+RESET\+\_\+\+BIT}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaac6a4cb8f1df1d5e7981c276dddf17ab}{MPU6050\+\_\+\+PATHRESET\+\_\+\+ACCEL\+\_\+\+RESET\+\_\+\+BIT}}~1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga4ef510137ee58f16813c0326b196e5a6}{MPU6050\+\_\+\+PATHRESET\+\_\+\+TEMP\+\_\+\+RESET\+\_\+\+BIT}}~0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga31babac49d185160595482b1a41a9db3}{MPU6050\+\_\+\+DETECT\+\_\+\+ACCEL\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaedcf3d8fb788339ce1a148b5163f90a3}{MPU6050\+\_\+\+DETECT\+\_\+\+ACCEL\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+LENGTH}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga77e346aef05647d9d492077e0297d67b}{MPU6050\+\_\+\+DETECT\+\_\+\+FF\+\_\+\+COUNT\+\_\+\+BIT}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga2540220a4e752351f305343131f21858}{MPU6050\+\_\+\+DETECT\+\_\+\+FF\+\_\+\+COUNT\+\_\+\+LENGTH}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga43d8fcac0f570c3333ef3236764c8315}{MPU6050\+\_\+\+DETECT\+\_\+\+MOT\+\_\+\+COUNT\+\_\+\+BIT}}~1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga02fffe7c5a95c533a8ccb484ebf8a574}{MPU6050\+\_\+\+DETECT\+\_\+\+MOT\+\_\+\+COUNT\+\_\+\+LENGTH}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9f0ab45d9baf50f054be366aaee14cff}{MPU6050\+\_\+\+DETECT\+\_\+\+DECREMENT\+\_\+\+RESET}}~0x0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga55f01ed64ae3aaad2e3059d1e87111e0}{MPU6050\+\_\+\+DETECT\+\_\+\+DECREMENT\+\_\+1}}~0x1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaddb84e26707f4d78a4f431e4906b0482}{MPU6050\+\_\+\+DETECT\+\_\+\+DECREMENT\+\_\+2}}~0x2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga5d74fe1e64fb6d2bbc5b8e7fd4b398e3}{MPU6050\+\_\+\+DETECT\+\_\+\+DECREMENT\+\_\+4}}~0x3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga64a5c31028811ba96a8dc0d9eb02d304}{MPU6050\+\_\+\+USERCTRL\+\_\+\+DMP\+\_\+\+EN\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga4d287b028bfb7d4f40a8da106ed74d66}{MPU6050\+\_\+\+USERCTRL\+\_\+\+FIFO\+\_\+\+EN\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga1974fd2b8e743e0c5517ff903da5f99a}{MPU6050\+\_\+\+USERCTRL\+\_\+\+I2\+C\+\_\+\+MST\+\_\+\+EN\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga60cd97f110d6644292f0d0dc42178e54}{MPU6050\+\_\+\+USERCTRL\+\_\+\+I2\+C\+\_\+\+IF\+\_\+\+DIS\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga48ebc61e42fb37e13be19869c7391e7a}{MPU6050\+\_\+\+USERCTRL\+\_\+\+DMP\+\_\+\+RESET\+\_\+\+BIT}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gad13b067b38b832477c0139266a863204}{MPU6050\+\_\+\+USERCTRL\+\_\+\+FIFO\+\_\+\+RESET\+\_\+\+BIT}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gabca1324e14bfff124823daecc1df2479}{MPU6050\+\_\+\+USERCTRL\+\_\+\+I2\+C\+\_\+\+MST\+\_\+\+RESET\+\_\+\+BIT}}~1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga19d39a5b4f64b95d9003c087ccbc6a67}{MPU6050\+\_\+\+USERCTRL\+\_\+\+SIG\+\_\+\+COND\+\_\+\+RESET\+\_\+\+BIT}}~0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga7b0ecc568c76cb52b57dd31487c2379e}{MPU6050\+\_\+\+PWR1\+\_\+\+DEVICE\+\_\+\+RESET\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga303276044c71a042bb43d24a888104d9}{MPU6050\+\_\+\+PWR1\+\_\+\+SLEEP\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga78ae6e61ebfd0704101e073b268151d4}{MPU6050\+\_\+\+PWR1\+\_\+\+CYCLE\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaf87944da0c9b3b0a14ed2f0049fe0ec2}{MPU6050\+\_\+\+PWR1\+\_\+\+TEMP\+\_\+\+DIS\+\_\+\+BIT}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga77a4abb41f9adaa799cccf6402443cb9}{MPU6050\+\_\+\+PWR1\+\_\+\+CLKSEL\+\_\+\+BIT}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga211c99bb94df09b85cf838b2a5eb7167}{MPU6050\+\_\+\+PWR1\+\_\+\+CLKSEL\+\_\+\+LENGTH}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaa143953c1136c1c7db038cb88e4ee92f}{MPU6050\+\_\+\+CLOCK\+\_\+\+INTERNAL}}~0x00
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga3c240f7062a547fee82e419b565e440e}{MPU6050\+\_\+\+CLOCK\+\_\+\+PLL\+\_\+\+XGYRO}}~0x01
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga24e208c6430742c4c01a81f5979cca51}{MPU6050\+\_\+\+CLOCK\+\_\+\+PLL\+\_\+\+YGYRO}}~0x02
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaad6073e7b00f8752e3b6faf1947fc964}{MPU6050\+\_\+\+CLOCK\+\_\+\+PLL\+\_\+\+ZGYRO}}~0x03
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9afa924d18b0aaeda7f95190318e09ae}{MPU6050\+\_\+\+CLOCK\+\_\+\+PLL\+\_\+\+EXT32K}}~0x04
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9d252008a6b17346e32b36656d927e2a}{MPU6050\+\_\+\+CLOCK\+\_\+\+PLL\+\_\+\+EXT19M}}~0x05
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga795c81a32a12a232e00f401ef4c57ea2}{MPU6050\+\_\+\+CLOCK\+\_\+\+KEEP\+\_\+\+RESET}}~0x07
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga95c845eb6e9149bc273fee5892e642f8}{MPU6050\+\_\+\+PWR2\+\_\+\+LP\+\_\+\+WAKE\+\_\+\+CTRL\+\_\+\+BIT}}~7
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaad1694bc8ecb13230269872a70a71e8e}{MPU6050\+\_\+\+PWR2\+\_\+\+LP\+\_\+\+WAKE\+\_\+\+CTRL\+\_\+\+LENGTH}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga94e69b1bac91c18489c5f1d59d9dcc54}{MPU6050\+\_\+\+PWR2\+\_\+\+STBY\+\_\+\+XA\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaffa59453badce23273e2a6470da072d3}{MPU6050\+\_\+\+PWR2\+\_\+\+STBY\+\_\+\+YA\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga913262cf8ad43c4dcb28aa31521fac23}{MPU6050\+\_\+\+PWR2\+\_\+\+STBY\+\_\+\+ZA\+\_\+\+BIT}}~3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gaab0f2205a6568a80659bfafbe770cae8}{MPU6050\+\_\+\+PWR2\+\_\+\+STBY\+\_\+\+XG\+\_\+\+BIT}}~2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga81afc3f43cd9caf0739a3d3432718506}{MPU6050\+\_\+\+PWR2\+\_\+\+STBY\+\_\+\+YG\+\_\+\+BIT}}~1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga6da4d8df0e058732364f3353c30527c5}{MPU6050\+\_\+\+PWR2\+\_\+\+STBY\+\_\+\+ZG\+\_\+\+BIT}}~0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9bd7d20192f747289f80ea3c736751ac}{MPU6050\+\_\+\+WAKE\+\_\+\+FREQ\+\_\+1\+P25}}~0x0
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga6cd0377342ce090355618d6028157467}{MPU6050\+\_\+\+WAKE\+\_\+\+FREQ\+\_\+2\+P5}}~0x1
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga0702c4c16f0c07bd2e3137181723c356}{MPU6050\+\_\+\+WAKE\+\_\+\+FREQ\+\_\+5}}~0x2
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga18548e6b1bc57725f87ec21777800f91}{MPU6050\+\_\+\+WAKE\+\_\+\+FREQ\+\_\+10}}~0x3
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga07a96da0bf7627d2981371c91def3b40}{MPU6050\+\_\+\+BANKSEL\+\_\+\+PRFTCH\+\_\+\+EN\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9eab1171a03a53a79992bff51d9ff6b6}{MPU6050\+\_\+\+BANKSEL\+\_\+\+CFG\+\_\+\+USER\+\_\+\+BANK\+\_\+\+BIT}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga9cdc87a769dcb9d175c7e32ff6315611}{MPU6050\+\_\+\+BANKSEL\+\_\+\+MEM\+\_\+\+SEL\+\_\+\+BIT}}~4
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga0965e7a94f1f5727d4b052569fb78934}{MPU6050\+\_\+\+BANKSEL\+\_\+\+MEM\+\_\+\+SEL\+\_\+\+LENGTH}}~5
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga3c136677cedb8e974669e70018326ea1}{MPU6050\+\_\+\+WHO\+\_\+\+AM\+\_\+\+I\+\_\+\+BIT}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gab07bf191f71bdb7f5edcd2b41f6c0709}{MPU6050\+\_\+\+WHO\+\_\+\+AM\+\_\+\+I\+\_\+\+LENGTH}}~6
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_gadb4070c076c6e69615b6bbd35c6cfa6f}{MPU6050\+\_\+\+DMP\+\_\+\+MEMORY\+\_\+\+BANKS}}~8
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga606d221ac7a8888283fbad1b79ae90c5}{MPU6050\+\_\+\+DMP\+\_\+\+MEMORY\+\_\+\+BANK\+\_\+\+SIZE}}~256
+\item 
+\#define \mbox{\hyperlink{group___m_p_u6050_ga49306862a4b9c8f26329221fad9546f5}{MPU6050\+\_\+\+DMP\+\_\+\+MEMORY\+\_\+\+CHUNK\+\_\+\+SIZE}}~16
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga07a69491e10ff82d432b46171fdfe132}{MPU6050\+\_\+\+Address}} (uint8\+\_\+t address)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga2debcaf0e4ac95ada61e3e6b86ce0ffc}{MPU6050\+\_\+\+Read\+Register}} (uint8\+\_\+t reg, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t len)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga20a6f9d62b8c368a5d2bd23bc6c09a47}{MPU6050\+\_\+initialize}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaa67a00fa91990b91552f68e1b8acfa9c}{MPU6050\+\_\+test\+Connection}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga348db70e788c76a40539599570fe6023}{MPU6050\+\_\+get\+Aux\+VDDIOLevel}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga5f143323a123771e90612e65e2a6aab6}{MPU6050\+\_\+set\+Aux\+VDDIOLevel}} (uint8\+\_\+t level)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gab95ca56d80db058541d664b97c87ab96}{MPU6050\+\_\+get\+Rate}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga36749d09ea90afd47fe961cc825f1522}{MPU6050\+\_\+set\+Rate}} (uint8\+\_\+t rate)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga3099d53bc2bb5478dc27ef72f829ab75}{MPU6050\+\_\+get\+External\+Frame\+Sync}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gad9e6cfac4c344724e670a33bc063218d}{MPU6050\+\_\+set\+External\+Frame\+Sync}} (uint8\+\_\+t sync)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga688327d65d49afcb4a0d89c93b8564d3}{MPU6050\+\_\+get\+DLPFMode}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga45df54d78cf3afa33dd63a463749ffa4}{MPU6050\+\_\+set\+DLPFMode}} (uint8\+\_\+t bandwidth)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga78921bb10130ace00594c9731e5ab99f}{MPU6050\+\_\+get\+Full\+Scale\+Gyro\+Range}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga159e9162cf601053f8433d03583eb561}{MPU6050\+\_\+set\+Full\+Scale\+Gyro\+Range}} (uint8\+\_\+t range)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga046b9ec225a9b0409a96ce1d52d60962}{MPU6050\+\_\+get\+Accel\+XSelf\+Test\+Factory\+Trim}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaa41f855ca9aa84fdc71482eed8982382}{MPU6050\+\_\+get\+Accel\+YSelf\+Test\+Factory\+Trim}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gafb1a2864a0e52a62395eb21fa807f551}{MPU6050\+\_\+get\+Accel\+ZSelf\+Test\+Factory\+Trim}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga4d30210e25c9c966889d93560933ca32}{MPU6050\+\_\+get\+Gyro\+XSelf\+Test\+Factory\+Trim}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga8a2b68cf88dc445ee7e623aa8cdb3b0c}{MPU6050\+\_\+get\+Gyro\+YSelf\+Test\+Factory\+Trim}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga77594dfee0c3533115f691ba327f5d13}{MPU6050\+\_\+get\+Gyro\+ZSelf\+Test\+Factory\+Trim}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga2ca9e94e5d10ad5ac6b0dcbcdc0e99e9}{MPU6050\+\_\+get\+Accel\+XSelf\+Test}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga4ba88aa3ff3c6376a2b40f03ec80312f}{MPU6050\+\_\+set\+Accel\+XSelf\+Test}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga40cab1382b3cb84f61f21f5860a1d3d5}{MPU6050\+\_\+get\+Accel\+YSelf\+Test}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gae96312f9c83eae2ce6449d4775d74469}{MPU6050\+\_\+set\+Accel\+YSelf\+Test}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga18b47082b381fc5f40426171ab4eef7f}{MPU6050\+\_\+get\+Accel\+ZSelf\+Test}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga03a721a7e85117e75b968c890684e06d}{MPU6050\+\_\+set\+Accel\+ZSelf\+Test}} (bool enabled)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga3acc5b8a6dd2e99bea903441e16d2ea9}{MPU6050\+\_\+get\+Full\+Scale\+Accel\+Range}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaed9582371a077c479eef207c04129369}{MPU6050\+\_\+set\+Full\+Scale\+Accel\+Range}} (uint8\+\_\+t range)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga9da93ad1bb5e5151aca04a426c8c4b3f}{MPU6050\+\_\+get\+DHPFMode}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga6c62598dc161f8055000493d2379f8f6}{MPU6050\+\_\+set\+DHPFMode}} (uint8\+\_\+t mode)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga92ac80b3753476a7fe9a07df0de06d00}{MPU6050\+\_\+get\+Freefall\+Detection\+Threshold}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga62159eb27d6f68aefa2485639893476c}{MPU6050\+\_\+set\+Freefall\+Detection\+Threshold}} (uint8\+\_\+t threshold)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gab9708af75739a847c2187dcf3e3ab422}{MPU6050\+\_\+get\+Freefall\+Detection\+Duration}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaa89c6ac6bb68e46a8114a609d2d84c17}{MPU6050\+\_\+set\+Freefall\+Detection\+Duration}} (uint8\+\_\+t duration)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga24e36231761683a419f594cabd7b7d30}{MPU6050\+\_\+get\+Motion\+Detection\+Threshold}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga0d9824e1a183bbd78055a0eda6c723cf}{MPU6050\+\_\+set\+Motion\+Detection\+Threshold}} (uint8\+\_\+t threshold)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga815ff3bb0531a55bf4571adc9a449bd9}{MPU6050\+\_\+get\+Motion\+Detection\+Duration}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaaa0e065cdc47b712a864a54674a732c7}{MPU6050\+\_\+set\+Motion\+Detection\+Duration}} (uint8\+\_\+t duration)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga6245519f5a269c815695b0f21cd41441}{MPU6050\+\_\+get\+Zero\+Motion\+Detection\+Threshold}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga9522d52a175c89f64178d0e4bfec7235}{MPU6050\+\_\+set\+Zero\+Motion\+Detection\+Threshold}} (uint8\+\_\+t threshold)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga0489759f132083cf508239de03079b21}{MPU6050\+\_\+get\+Zero\+Motion\+Detection\+Duration}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaaa66b1c2f99d04c5fcf346639c4fe2a4}{MPU6050\+\_\+set\+Zero\+Motion\+Detection\+Duration}} (uint8\+\_\+t duration)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga40bccf492b39300ce9539ea0e419c385}{MPU6050\+\_\+get\+Temp\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga7c7284b9107a885f21fa7fbfc1d918ef}{MPU6050\+\_\+set\+Temp\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga7c34673a87714654550e476dcffde709}{MPU6050\+\_\+get\+XGyro\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gafbaf34c4d69ae4bfe093573e4ae8789c}{MPU6050\+\_\+set\+XGyro\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaee06ec0ebbb31b4bce1f13f8096ab27e}{MPU6050\+\_\+get\+YGyro\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga5895d582bc3bf70985fcc3b65b3181ea}{MPU6050\+\_\+set\+YGyro\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga17854f306c372e0a589e3e0f2378a676}{MPU6050\+\_\+get\+ZGyro\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaf8914d8e54dcc539fe426d497ecb4927}{MPU6050\+\_\+set\+ZGyro\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaff13e3ae74db4a71c8c76cdab0b002b0}{MPU6050\+\_\+get\+Accel\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga744dd4152fc89ff37b46e2e2e7a993e2}{MPU6050\+\_\+set\+Accel\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaff7b95a392566710d325d91b20d83aaa}{MPU6050\+\_\+get\+Slave2\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga8e3d84243949de1baed7174125f8eeec}{MPU6050\+\_\+set\+Slave2\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga2fba02d7f083fe1e5b2f5e861cf0fcb1}{MPU6050\+\_\+get\+Slave1\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga2f8377484d25b4d9a485da1a828ddab5}{MPU6050\+\_\+set\+Slave1\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga6f868243da42fba3551636400745347c}{MPU6050\+\_\+get\+Slave0\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga1aee9de0f198bad6fe05b15715b01a44}{MPU6050\+\_\+set\+Slave0\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga41ee2b40d9a301872ccf6d4b42f77678}{MPU6050\+\_\+get\+Multi\+Master\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga8726accf2a819202ceaa3346e2ebfbe6}{MPU6050\+\_\+set\+Multi\+Master\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga66a86ea83a1e14a08d904dcef87a2428}{MPU6050\+\_\+get\+Wait\+For\+External\+Sensor\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga3099d31566c5bfa7141735aa14cd23c5}{MPU6050\+\_\+set\+Wait\+For\+External\+Sensor\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gae9fcc5c19cb562c4878eda32faa28c8a}{MPU6050\+\_\+get\+Slave3\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga4384421f25dd4b2871efc0f39159e6b3}{MPU6050\+\_\+set\+Slave3\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gab7c183cb70ea24f3a8ebb8f8e561b0c2}{MPU6050\+\_\+get\+Slave\+Read\+Write\+Transition\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga36fe7bd82ca253fb6d7b3e8cefada0e3}{MPU6050\+\_\+set\+Slave\+Read\+Write\+Transition\+Enabled}} (bool enabled)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaca3d024745a0a31623474ee2f50042cd}{MPU6050\+\_\+get\+Master\+Clock\+Speed}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga292467acfc4d23c30099de4f9076e0ae}{MPU6050\+\_\+set\+Master\+Clock\+Speed}} (uint8\+\_\+t speed)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga50961409221f6d3716342de8be7bc392}{MPU6050\+\_\+get\+Slave\+Address}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga0ee5547efab6c4d6750af1b40ef0aa2b}{MPU6050\+\_\+set\+Slave\+Address}} (uint8\+\_\+t num, uint8\+\_\+t address)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga2f4af58123628dfe246f61e743e292cf}{MPU6050\+\_\+get\+Slave\+Register}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gad6db0569f9038fbc0380efe2c4d0878f}{MPU6050\+\_\+set\+Slave\+Register}} (uint8\+\_\+t num, uint8\+\_\+t reg)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga845e660f152dd0fd46f367e3e3b8712b}{MPU6050\+\_\+get\+Slave\+Enabled}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga729f004a7bae5c08781638410b1467b4}{MPU6050\+\_\+set\+Slave\+Enabled}} (uint8\+\_\+t num, bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gab72945cb0bc0ac86ee27d3faedbd432a}{MPU6050\+\_\+get\+Slave\+Word\+Byte\+Swap}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gafb871094dba906e71eb4b3f8658e7f37}{MPU6050\+\_\+set\+Slave\+Word\+Byte\+Swap}} (uint8\+\_\+t num, bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga1927f50c18288bebe6683a3e74b08fa5}{MPU6050\+\_\+get\+Slave\+Write\+Mode}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gadc5e2485f37099b9990c64d07ee39f37}{MPU6050\+\_\+set\+Slave\+Write\+Mode}} (uint8\+\_\+t num, bool mode)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga1cd87f24d77ef2f077ca7a04422ff8b3}{MPU6050\+\_\+get\+Slave\+Word\+Group\+Offset}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga9f009e11c66c8b569028d2e3b2923160}{MPU6050\+\_\+set\+Slave\+Word\+Group\+Offset}} (uint8\+\_\+t num, bool enabled)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga2c24ebd52bd9b403a903655982ec25c7}{MPU6050\+\_\+get\+Slave\+Data\+Length}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga423667b1fe18e41bbdb9e350ec8e41c1}{MPU6050\+\_\+set\+Slave\+Data\+Length}} (uint8\+\_\+t num, uint8\+\_\+t length)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga60c60e0c0e7d04261ed836dcec617aea}{MPU6050\+\_\+get\+Slave4\+Address}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaa4ce586ebe9a063fb4e41a27d1fe8f63}{MPU6050\+\_\+set\+Slave4\+Address}} (uint8\+\_\+t address)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga6536d4032a910cc1f28f25092420b426}{MPU6050\+\_\+get\+Slave4\+Register}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gae071cedddf05e3792b67a23ba5036d36}{MPU6050\+\_\+set\+Slave4\+Register}} (uint8\+\_\+t reg)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gacc94f1acc123e7d72a5e5ee35955b026}{MPU6050\+\_\+set\+Slave4\+Output\+Byte}} (uint8\+\_\+t data)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga1ea13e6bff9eca91e30be795a4306390}{MPU6050\+\_\+get\+Slave4\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaf8ac0707c1c45b37de2c89a6d429fdb0}{MPU6050\+\_\+set\+Slave4\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gabfea7053eea5a9cec66c44e21cb9990b}{MPU6050\+\_\+get\+Slave4\+Interrupt\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gafd62c0bc48220f9b69a7915f8023b040}{MPU6050\+\_\+set\+Slave4\+Interrupt\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gad8c574f90207ae4c8571ece02cb3857c}{MPU6050\+\_\+get\+Slave4\+Write\+Mode}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga64c7f174e449aef6a2fe899c281f2e60}{MPU6050\+\_\+set\+Slave4\+Write\+Mode}} (bool mode)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaa7a9f200df73f3180bd4218044714c1d}{MPU6050\+\_\+get\+Slave4\+Master\+Delay}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaa3a72d5a271d4f4f0da12ec5d3c138a0}{MPU6050\+\_\+set\+Slave4\+Master\+Delay}} (uint8\+\_\+t delay)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaaef69aa155595af9e0faad96f96fe473}{MPU6050\+\_\+get\+Slate4\+Input\+Byte}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga688b45d4461a8f6e2e1edbdac393d7dc}{MPU6050\+\_\+get\+Passthrough\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaf723a7a8987ee4aafc5f2619f598c073}{MPU6050\+\_\+get\+Slave4\+Is\+Done}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gadb14bf99bd1e4bfb131c2b8625c7a123}{MPU6050\+\_\+get\+Lost\+Arbitration}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga981cabb89db15ef17f4b41099a11bedb}{MPU6050\+\_\+get\+Slave4\+Nack}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga970f07a4e7ad116204c09aace4275eb4}{MPU6050\+\_\+get\+Slave3\+Nack}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gabc788141cc8c6102a9ffc64f1ffe2f34}{MPU6050\+\_\+get\+Slave2\+Nack}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga45848753825aa08534e577ef4c88f305}{MPU6050\+\_\+get\+Slave1\+Nack}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga8f68a493491983ddcec7b45764ee75ce}{MPU6050\+\_\+get\+Slave0\+Nack}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga9b646e2af3b5951f059e494c183b7a73}{MPU6050\+\_\+get\+Interrupt\+Mode}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga0e7b78d2511dbf1f609e9a57fb604517}{MPU6050\+\_\+set\+Interrupt\+Mode}} (bool mode)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga00fd786732f2a201425e5be22e97d866}{MPU6050\+\_\+get\+Interrupt\+Drive}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gabd23cf4066e4a0c018d8b49ea089dd2e}{MPU6050\+\_\+set\+Interrupt\+Drive}} (bool drive)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga882c558185e98f27274b54be3a03e87c}{MPU6050\+\_\+get\+Interrupt\+Latch}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga8c6df43decae6f7d2cf2e0ee70537a25}{MPU6050\+\_\+set\+Interrupt\+Latch}} (bool latch)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga78fe10f025d732c55bc2782937725127}{MPU6050\+\_\+get\+Interrupt\+Latch\+Clear}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gab31ae1799c2dcdfe0005e81c24ac6543}{MPU6050\+\_\+set\+Interrupt\+Latch\+Clear}} (bool clear)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga8d18af7d1db2f888135aa0ff33b871df}{MPU6050\+\_\+get\+FSync\+Interrupt\+Level}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga1af73c0d8eee070024403206a61c3908}{MPU6050\+\_\+set\+FSync\+Interrupt\+Level}} (bool level)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gad18d4d289c2c9ac1645dea4e6e1f1570}{MPU6050\+\_\+get\+FSync\+Interrupt\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga21446e36e69409099a3da8258ed7eba4}{MPU6050\+\_\+set\+FSync\+Interrupt\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga995a09276db09ddb913ef44dc4ec939d}{MPU6050\+\_\+get\+I2\+CBypass\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gac5e8eeaac7907577698012c4cee978ea}{MPU6050\+\_\+set\+I2\+CBypass\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gad77bc68ea5f3fc16538153e14be22875}{MPU6050\+\_\+get\+Clock\+Output\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga586636fe3f41146a694df05436aaabf3}{MPU6050\+\_\+set\+Clock\+Output\+Enabled}} (bool enabled)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga4dce329a47c201e5b32c78c00cc96446}{MPU6050\+\_\+get\+Int\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga6f7fb0d7f98fc237143287fd2a6d4f5f}{MPU6050\+\_\+set\+Int\+Enabled}} (uint8\+\_\+t enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga308195e365d8ea74deacf659e047b838}{MPU6050\+\_\+get\+Int\+Freefall\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaa4a4d70bb3b8efe0f09c085e2ed4e173}{MPU6050\+\_\+set\+Int\+Freefall\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga79d0410aaf581d03bf1d58056f225563}{MPU6050\+\_\+get\+Int\+Motion\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga33448168ad44d3d4d55ecbc5f4ea6b98}{MPU6050\+\_\+set\+Int\+Motion\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga82b60bc96683839aa0de91a809d83c6f}{MPU6050\+\_\+get\+Int\+Zero\+Motion\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gae94047a94db6780413b0d3c0baadae13}{MPU6050\+\_\+set\+Int\+Zero\+Motion\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga1bb816d5a6941f27542e17475647bc01}{MPU6050\+\_\+get\+Int\+FIFOBuffer\+Overflow\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga44e7a559d5c4175399766e8b40894e98}{MPU6050\+\_\+set\+Int\+FIFOBuffer\+Overflow\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gab543c63b16a530d499afd59a7c8607ae}{MPU6050\+\_\+get\+Int\+I2\+CMaster\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gad044cab4e1274da18195fe44bde313c9}{MPU6050\+\_\+set\+Int\+I2\+CMaster\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga71ae503e274e632ca60122e8d5b1c4f2}{MPU6050\+\_\+get\+Int\+Data\+Ready\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga6b353c9b8d7961a33c7ac0b2cf783a32}{MPU6050\+\_\+set\+Int\+Data\+Ready\+Enabled}} (bool enabled)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga96b955f0af5d7c13ae9fa1f97e79af02}{MPU6050\+\_\+get\+Int\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaf6b2feb7896f3d160e63b399b3216e76}{MPU6050\+\_\+get\+Int\+Freefall\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gac0c1d79d434f1405c3fae4053ae19ac2}{MPU6050\+\_\+get\+Int\+Motion\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga9f868595479662870c4b9d71540d4190}{MPU6050\+\_\+get\+Int\+Zero\+Motion\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga3e76529d4f540bee5664e132ac11e885}{MPU6050\+\_\+get\+Int\+FIFOBuffer\+Overflow\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaccd465944282472d808ee580ca9f0e13}{MPU6050\+\_\+get\+Int\+I2\+CMaster\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga6a07a9ebd38c66c688cbd293c67b3598}{MPU6050\+\_\+get\+Int\+Data\+Ready\+Status}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga4fe8d980b68a838579fafbd6136b948d}{MPU6050\+\_\+get\+Motion9}} (int16\+\_\+t \texorpdfstring{$\ast$}{*}ax, int16\+\_\+t \texorpdfstring{$\ast$}{*}ay, int16\+\_\+t \texorpdfstring{$\ast$}{*}az, int16\+\_\+t \texorpdfstring{$\ast$}{*}gx, int16\+\_\+t \texorpdfstring{$\ast$}{*}gy, int16\+\_\+t \texorpdfstring{$\ast$}{*}gz, int16\+\_\+t \texorpdfstring{$\ast$}{*}mx, int16\+\_\+t \texorpdfstring{$\ast$}{*}my, int16\+\_\+t \texorpdfstring{$\ast$}{*}mz)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga174dfe0a58dc42caf0c2a7a613fd44c5}{MPU6050\+\_\+get\+Motion6}} (int16\+\_\+t \texorpdfstring{$\ast$}{*}ax, int16\+\_\+t \texorpdfstring{$\ast$}{*}ay, int16\+\_\+t \texorpdfstring{$\ast$}{*}az, int16\+\_\+t \texorpdfstring{$\ast$}{*}gx, int16\+\_\+t \texorpdfstring{$\ast$}{*}gy, int16\+\_\+t \texorpdfstring{$\ast$}{*}gz)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga2c0be7c37c1647973d0b5d5ed559c084}{MPU6050\+\_\+get\+Acceleration}} (int16\+\_\+t \texorpdfstring{$\ast$}{*}x, int16\+\_\+t \texorpdfstring{$\ast$}{*}y, int16\+\_\+t \texorpdfstring{$\ast$}{*}z)
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gac996d44c26dca7a5d6cbcb6478af1510}{MPU6050\+\_\+get\+AccelerationX}} ()
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga35fa50f9d77f7a0bf5396eca18e6cb90}{MPU6050\+\_\+get\+AccelerationY}} ()
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga5113016af8bebd8a61c4113f7e08fcea}{MPU6050\+\_\+get\+AccelerationZ}} ()
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga200269674699d3323e17e0e501f906cd}{MPU6050\+\_\+get\+Temperature}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gad7a69e72b3b60703ab3efa67d0c61230}{MPU6050\+\_\+get\+Rotation}} (int16\+\_\+t \texorpdfstring{$\ast$}{*}x, int16\+\_\+t \texorpdfstring{$\ast$}{*}y, int16\+\_\+t \texorpdfstring{$\ast$}{*}z)
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gad581a67f554b110b802e320d9e095c89}{MPU6050\+\_\+get\+RotationX}} ()
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaafa46df86ca7ae1b00b251bd8b6a729d}{MPU6050\+\_\+get\+RotationY}} ()
+\item 
+int16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga864fa1c093eb989cb27cc4476fbf8344}{MPU6050\+\_\+get\+RotationZ}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaa0a358a189bf835031933a0154e8c43a}{MPU6050\+\_\+get\+External\+Sensor\+Byte}} (int position)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_gaef005a4067b9ca61204f18a0898f1949}{MPU6050\+\_\+get\+External\+Sensor\+Word}} (int position)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga24945abe7d55a6ca973df3bf824bff15}{MPU6050\+\_\+get\+External\+Sensor\+DWord}} (int position)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga6838304bd1ffddfc0b472ea8ffe9d81f}{MPU6050\+\_\+get\+Motion\+Status}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gada160fc8d6671b6b4c1a2305073bb89e}{MPU6050\+\_\+get\+XNeg\+Motion\+Detected}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaf757b337125ce76f74d451fdb5811cc6}{MPU6050\+\_\+get\+XPos\+Motion\+Detected}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gac82a37e68ba0d45dbe452d09e470643c}{MPU6050\+\_\+get\+YNeg\+Motion\+Detected}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gad4562d6a8d82f37a374e27dede0788b8}{MPU6050\+\_\+get\+YPos\+Motion\+Detected}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gac61eb1f9ec468b3f456da47209a2832c}{MPU6050\+\_\+get\+ZNeg\+Motion\+Detected}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga79f827df99aeb8b0007afd70e43a6a3a}{MPU6050\+\_\+get\+ZPos\+Motion\+Detected}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga4ed782806af059d1597542bb799bfcd3}{MPU6050\+\_\+get\+Zero\+Motion\+Detected}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga6f60cd0eb327acc7336b7ed891ca6343}{MPU6050\+\_\+set\+Slave\+Output\+Byte}} (uint8\+\_\+t num, uint8\+\_\+t data)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga77e26b9783e03ea837e89857284373c7}{MPU6050\+\_\+get\+External\+Shadow\+Delay\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaeff20085db1bc690e806c72f5db10f47}{MPU6050\+\_\+set\+External\+Shadow\+Delay\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaa414448378ee6317a7399eb00e2d5735}{MPU6050\+\_\+get\+Slave\+Delay\+Enabled}} (uint8\+\_\+t num)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gae912bda6da98ff7dfdd88ae4f7a3cee7}{MPU6050\+\_\+set\+Slave\+Delay\+Enabled}} (uint8\+\_\+t num, bool enabled)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga216c47467e7b636609df9b0e4968437b}{MPU6050\+\_\+reset\+Gyroscope\+Path}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga4418919544f2d92a3d9784651af44a52}{MPU6050\+\_\+reset\+Accelerometer\+Path}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga99ad3715887892df7c0f86309763449b}{MPU6050\+\_\+reset\+Temperature\+Path}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga25fbde279c86bd2cb34eb8dfd91cf515}{MPU6050\+\_\+get\+Accelerometer\+Power\+On\+Delay}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga7fd705718db189030297c449e631e98b}{MPU6050\+\_\+set\+Accelerometer\+Power\+On\+Delay}} (uint8\+\_\+t delay)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga6ec5e3438f3ba8bddcf28563b6cde74a}{MPU6050\+\_\+get\+Freefall\+Detection\+Counter\+Decrement}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gace085b328f4b05c8b6656651ea798bd9}{MPU6050\+\_\+set\+Freefall\+Detection\+Counter\+Decrement}} (uint8\+\_\+t decrement)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga060643402ca8f9b7e2ec66cd9af56663}{MPU6050\+\_\+get\+Motion\+Detection\+Counter\+Decrement}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga97af8c0655ed75fca093dff7885911f6}{MPU6050\+\_\+set\+Motion\+Detection\+Counter\+Decrement}} (uint8\+\_\+t decrement)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gaec82423a5a42b279c018f213b4e74d9c}{MPU6050\+\_\+get\+FIFOEnabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaa2a31d9771b07506241bbe69256cb299}{MPU6050\+\_\+set\+FIFOEnabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga9cfc37f72678e28d96ee9a9b7ac4e63e}{MPU6050\+\_\+get\+I2\+CMaster\+Mode\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga1596377db9d6fe323d9eac346b217a1c}{MPU6050\+\_\+set\+I2\+CMaster\+Mode\+Enabled}} (bool enabled)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga51dd37010a9813a0bf1749c6797933f5}{MPU6050\+\_\+switch\+SPIEnabled}} (bool enabled)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga5a716aa4005bfb6d4ab00c2e01be09e7}{MPU6050\+\_\+reset\+FIFO}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga22160e9ce767fe6e41a103236977013d}{MPU6050\+\_\+reset\+I2\+CMaster}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gae31d6d83d0822e5c28cc1d95998db749}{MPU6050\+\_\+reset\+Sensors}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gad511777638fd580d32a207a609b0c42d}{MPU6050\+\_\+reset}} ()
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga20025f971e7956723b9f8ca23e565694}{MPU6050\+\_\+get\+Sleep\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga8fd47633da37e117b1715933ec111fdd}{MPU6050\+\_\+set\+Sleep\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga268c585bd54363d71d4e4d5568f6d40a}{MPU6050\+\_\+get\+Wake\+Cycle\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga90fc7e6badb1536f04b52785ceb266e8}{MPU6050\+\_\+set\+Wake\+Cycle\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gac5ddf73e3767bce619f9026dfc4c7003}{MPU6050\+\_\+get\+Temp\+Sensor\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga7ef3e72f5de0daaec883a4f1440350ce}{MPU6050\+\_\+set\+Temp\+Sensor\+Enabled}} (bool enabled)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga8f52c1db81f95ee606ff6479326cc902}{MPU6050\+\_\+get\+Clock\+Source}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga2cd72d94ed9c44014bff6f70a3966454}{MPU6050\+\_\+set\+Clock\+Source}} (uint8\+\_\+t source)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga70db2c57090c9056ec2675e6bef7edf4}{MPU6050\+\_\+get\+Wake\+Frequency}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga8d6a209c19e3673c444779cbe0586ed1}{MPU6050\+\_\+set\+Wake\+Frequency}} (uint8\+\_\+t frequency)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gab1de7d86ff645c9c29cd3ef1b4184e72}{MPU6050\+\_\+get\+Standby\+XAccel\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga1eec1bc9522e0a9a0410d2d27e63e98e}{MPU6050\+\_\+set\+Standby\+XAccel\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga86005a55afa61890062efa3a0d7ffb12}{MPU6050\+\_\+get\+Standby\+YAccel\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gad9352c04f85ab87164e8871d5998a75a}{MPU6050\+\_\+set\+Standby\+YAccel\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_gabd8350e71a0700f89aa6d13a43c1e19a}{MPU6050\+\_\+get\+Standby\+ZAccel\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaf59fa51ad2e096ee9ffb5ece50f3b107}{MPU6050\+\_\+set\+Standby\+ZAccel\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga72f1015797c248222ac15b1561c0ed47}{MPU6050\+\_\+get\+Standby\+XGyro\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga40bb8d14c12504677b3e08071bd1940c}{MPU6050\+\_\+set\+Standby\+XGyro\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga213a533a7baf3afe916fd6d7d73c4ec1}{MPU6050\+\_\+get\+Standby\+YGyro\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gaffe5dd20c828775c31854cbcae919ef9}{MPU6050\+\_\+set\+Standby\+YGyro\+Enabled}} (bool enabled)
+\item 
+bool \mbox{\hyperlink{group___m_p_u6050_ga3352704b2d12c42b06c3ae5b21e9a97c}{MPU6050\+\_\+get\+Standby\+ZGyro\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga7f2740e8d962dcbfbd58a134111ad76c}{MPU6050\+\_\+set\+Standby\+ZGyro\+Enabled}} (bool enabled)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga3a636a6fd259f0b2dcca50c5e2f5000a}{MPU6050\+\_\+get\+FIFOCount}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga01fc07f333444a14b45eb4a91abee595}{MPU6050\+\_\+get\+FIFOByte}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga49876a11c424470f81310133d3002051}{MPU6050\+\_\+set\+FIFOByte}} (uint8\+\_\+t data)
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_ga78d7ac8b51f447e3f074d9334f4512b6}{MPU6050\+\_\+get\+FIFOBytes}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t length)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___m_p_u6050_ga07946cc8d97bab361062a28c841cb5f6}{MPU6050\+\_\+get\+Device\+ID}} ()
+\item 
+void \mbox{\hyperlink{group___m_p_u6050_gac1940478f064230ee503daba0ba2f181}{MPU6050\+\_\+set\+Device\+ID}} (uint8\+\_\+t id)
+\end{DoxyCompactItemize}

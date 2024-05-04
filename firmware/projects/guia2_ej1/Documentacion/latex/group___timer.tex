@@ -1,0 +1,212 @@
+\doxysubsubsection{Timer}
+\hypertarget{group___timer}{}\label{group___timer}\index{Timer@{Timer}}
+\doxysubsubsubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtimer__config__t}{timer\+\_\+config\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Timer configuration struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___timer_gacc4e64394d03a6e790f8e52c674534d9}{timers}} \mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Timer driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___timer_gacc4e64394d03a6e790f8e52c674534d9}{timers}} \{ \mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598}{TIMER\+\_\+A}}
+, \mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f}{TIMER\+\_\+B}}
+, \mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d}{TIMER\+\_\+C}}
+ \}
+\begin{DoxyCompactList}\small\item\em Timer driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___timer_gae8617c0d176463a60441464ad26563f6}{Timer\+Init}} (\mbox{\hyperlink{structtimer__config__t}{timer\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+ini)
+\begin{DoxyCompactList}\small\item\em Timer initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___timer_ga0b1779c5b8f91cc83c8bfd127071ea2f}{Timer\+Start}} (\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}} timer)
+\begin{DoxyCompactList}\small\item\em Start timer count. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___timer_ga0860e7ffff656386879c7dcd600d0629}{Timer\+Stop}} (\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}} timer)
+\begin{DoxyCompactList}\small\item\em Pause timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___timer_ga80ed309959e5a179f5676ed4af547fa1}{Timer\+Reset}} (\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}} timer)
+\begin{DoxyCompactList}\small\item\em Reset timer count to 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de «typedef»}
+\Hypertarget{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}\label{group___timer_ga5b93c89e9ca8359fa618753610f77a8d} 
+\index{Timer@{Timer}!timer\_mcu\_t@{timer\_mcu\_t}}
+\index{timer\_mcu\_t@{timer\_mcu\_t}!Timer@{Timer}}
+\doxysubsubsubsubsection{\texorpdfstring{timer\_mcu\_t}{timer\_mcu\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___timer_gacc4e64394d03a6e790f8e52c674534d9}{timers}} \mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}}}
+
+
+
+Timer driver for the ESP-\/\+EDU Board. 
+
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 20/10/2023   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+List of available timers in this driver 
+
+\doxysubsubsubsection{Documentación de enumeraciones}
+\Hypertarget{group___timer_gacc4e64394d03a6e790f8e52c674534d9}\label{group___timer_gacc4e64394d03a6e790f8e52c674534d9} 
+\index{Timer@{Timer}!timers@{timers}}
+\index{timers@{timers}!Timer@{Timer}}
+\doxysubsubsubsubsection{\texorpdfstring{timers}{timers}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___timer_gacc4e64394d03a6e790f8e52c674534d9}{timers}}}
+
+
+
+Timer driver for the ESP-\/\+EDU Board. 
+
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 20/10/2023   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+List of available timers in this driver \begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TIMER\_A@{TIMER\_A}!Timer@{Timer}}\index{Timer@{Timer}!TIMER\_A@{TIMER\_A}}}\Hypertarget{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598}\label{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598} 
+TIMER\+\_\+A&Timer A \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TIMER\_B@{TIMER\_B}!Timer@{Timer}}\index{Timer@{Timer}!TIMER\_B@{TIMER\_B}}}\Hypertarget{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f}\label{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f} 
+TIMER\+\_\+B&Timer B \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TIMER\_C@{TIMER\_C}!Timer@{Timer}}\index{Timer@{Timer}!TIMER\_C@{TIMER\_C}}}\Hypertarget{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d}\label{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d} 
+TIMER\+\_\+C&Timer C \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8h_source_l00031}{31}} del archivo \mbox{\hyperlink{timer__mcu_8h_source}{timer\+\_\+mcu.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___timer_gae8617c0d176463a60441464ad26563f6}\label{group___timer_gae8617c0d176463a60441464ad26563f6} 
+\index{Timer@{Timer}!TimerInit@{TimerInit}}
+\index{TimerInit@{TimerInit}!Timer@{Timer}}
+\doxysubsubsubsubsection{\texorpdfstring{TimerInit()}{TimerInit()}}
+{\footnotesize\ttfamily void Timer\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtimer__config__t}{timer\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{timer\+\_\+ini }\end{DoxyParamCaption})}
+
+
+
+Timer initialization. 
+
+\begin{DoxyNote}{Nota}
+Timer are stopped after init
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parámetros}
+{\em timer\+\_\+ini} & Pointer to timer configuration \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00055}{55}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{timer__mcu_8h_source_l00042}{timer\+\_\+config\+\_\+t\+::func\+\_\+p}}, \mbox{\hyperlink{ili9341_8c_source_l00042}{NULL}}, \mbox{\hyperlink{timer__mcu_8h_source_l00043}{timer\+\_\+config\+\_\+t\+::param\+\_\+p}}, \mbox{\hyperlink{timer__mcu_8h_source_l00041}{timer\+\_\+config\+\_\+t\+::period}}, \mbox{\hyperlink{timer__mcu_8c_source_l00019}{RESET\+\_\+\+COUNT\+\_\+\+VALUE}}, \mbox{\hyperlink{timer__mcu_8h_source_l00040}{timer\+\_\+config\+\_\+t\+::timer}}, \mbox{\hyperlink{timer__mcu_8h_source_l00032}{TIMER\+\_\+A}}, \mbox{\hyperlink{timer__mcu_8c_source_l00021}{timer\+\_\+a}}, \mbox{\hyperlink{timer__mcu_8c_source_l00029}{timer\+\_\+a\+\_\+isr\+\_\+p}}, \mbox{\hyperlink{timer__mcu_8c_source_l00032}{timer\+\_\+a\+\_\+user\+\_\+data}}, \mbox{\hyperlink{timer__mcu_8h_source_l00033}{TIMER\+\_\+B}}, \mbox{\hyperlink{timer__mcu_8c_source_l00022}{timer\+\_\+b}}, \mbox{\hyperlink{timer__mcu_8c_source_l00030}{timer\+\_\+b\+\_\+isr\+\_\+p}}, \mbox{\hyperlink{timer__mcu_8c_source_l00033}{timer\+\_\+b\+\_\+user\+\_\+data}}, \mbox{\hyperlink{timer__mcu_8h_source_l00034}{TIMER\+\_\+C}}, \mbox{\hyperlink{timer__mcu_8c_source_l00023}{timer\+\_\+c}}, \mbox{\hyperlink{timer__mcu_8c_source_l00031}{timer\+\_\+c\+\_\+isr\+\_\+p}}, \mbox{\hyperlink{timer__mcu_8c_source_l00034}{timer\+\_\+c\+\_\+user\+\_\+data}} y \mbox{\hyperlink{timer__mcu_8c_source_l00024}{timer\+\_\+config}}.
+
+\Hypertarget{group___timer_ga80ed309959e5a179f5676ed4af547fa1}\label{group___timer_ga80ed309959e5a179f5676ed4af547fa1} 
+\index{Timer@{Timer}!TimerReset@{TimerReset}}
+\index{TimerReset@{TimerReset}!Timer@{Timer}}
+\doxysubsubsubsubsection{\texorpdfstring{TimerReset()}{TimerReset()}}
+{\footnotesize\ttfamily void Timer\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}}}]{timer }\end{DoxyParamCaption})}
+
+
+
+Reset timer count to 0. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em timer} & Timer number \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00138}{138}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{timer__mcu_8c_source_l00019}{RESET\+\_\+\+COUNT\+\_\+\+VALUE}}, \mbox{\hyperlink{timer__mcu_8h_source_l00032}{TIMER\+\_\+A}}, \mbox{\hyperlink{timer__mcu_8c_source_l00021}{timer\+\_\+a}}, \mbox{\hyperlink{timer__mcu_8h_source_l00033}{TIMER\+\_\+B}}, \mbox{\hyperlink{timer__mcu_8c_source_l00022}{timer\+\_\+b}}, \mbox{\hyperlink{timer__mcu_8h_source_l00034}{TIMER\+\_\+C}} y \mbox{\hyperlink{timer__mcu_8c_source_l00023}{timer\+\_\+c}}.
+
+\Hypertarget{group___timer_ga0b1779c5b8f91cc83c8bfd127071ea2f}\label{group___timer_ga0b1779c5b8f91cc83c8bfd127071ea2f} 
+\index{Timer@{Timer}!TimerStart@{TimerStart}}
+\index{TimerStart@{TimerStart}!Timer@{Timer}}
+\doxysubsubsubsubsection{\texorpdfstring{TimerStart()}{TimerStart()}}
+{\footnotesize\ttfamily void Timer\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}}}]{timer }\end{DoxyParamCaption})}
+
+
+
+Start timer count. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em timer} & Timer number \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00110}{110}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{timer__mcu_8h_source_l00032}{TIMER\+\_\+A}}, \mbox{\hyperlink{timer__mcu_8c_source_l00021}{timer\+\_\+a}}, \mbox{\hyperlink{timer__mcu_8h_source_l00033}{TIMER\+\_\+B}}, \mbox{\hyperlink{timer__mcu_8c_source_l00022}{timer\+\_\+b}}, \mbox{\hyperlink{timer__mcu_8h_source_l00034}{TIMER\+\_\+C}} y \mbox{\hyperlink{timer__mcu_8c_source_l00023}{timer\+\_\+c}}.
+
+\Hypertarget{group___timer_ga0860e7ffff656386879c7dcd600d0629}\label{group___timer_ga0860e7ffff656386879c7dcd600d0629} 
+\index{Timer@{Timer}!TimerStop@{TimerStop}}
+\index{TimerStop@{TimerStop}!Timer@{Timer}}
+\doxysubsubsubsubsection{\texorpdfstring{TimerStop()}{TimerStop()}}
+{\footnotesize\ttfamily void Timer\+Stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}}}]{timer }\end{DoxyParamCaption})}
+
+
+
+Pause timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em timer} & Timer number \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00124}{124}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{timer__mcu_8h_source_l00032}{TIMER\+\_\+A}}, \mbox{\hyperlink{timer__mcu_8c_source_l00021}{timer\+\_\+a}}, \mbox{\hyperlink{timer__mcu_8h_source_l00033}{TIMER\+\_\+B}}, \mbox{\hyperlink{timer__mcu_8c_source_l00022}{timer\+\_\+b}}, \mbox{\hyperlink{timer__mcu_8h_source_l00034}{TIMER\+\_\+C}} y \mbox{\hyperlink{timer__mcu_8c_source_l00023}{timer\+\_\+c}}.
+

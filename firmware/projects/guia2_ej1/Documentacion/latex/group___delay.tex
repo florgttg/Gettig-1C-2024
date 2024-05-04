@@ -1,0 +1,126 @@
+\doxysubsubsection{Delay}
+\hypertarget{group___delay}{}\label{group___delay}\index{Delay@{Delay}}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___delay_ga69b7a2b5881d757ba405331cb1d5e5df}{Delay\+Sec}} (uint16\+\_\+t sec)
+\begin{DoxyCompactList}\small\item\em Functions to generate delays. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___delay_gad436d587a00f4ef2ede7ea6644f07aa1}{Delay\+Ms}} (uint16\+\_\+t msec)
+\begin{DoxyCompactList}\small\item\em Delay in milliseconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___delay_ga92e1b2564bacd20071bcd06b697f52f8}{Delay\+Us}} (uint16\+\_\+t usec)
+\begin{DoxyCompactList}\small\item\em Delay in microseconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___delay_gad436d587a00f4ef2ede7ea6644f07aa1}\label{group___delay_gad436d587a00f4ef2ede7ea6644f07aa1} 
+\index{Delay@{Delay}!DelayMs@{DelayMs}}
+\index{DelayMs@{DelayMs}!Delay@{Delay}}
+\doxysubsubsubsubsection{\texorpdfstring{DelayMs()}{DelayMs()}}
+{\footnotesize\ttfamily void Delay\+Ms (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{msec }\end{DoxyParamCaption})}
+
+
+
+Delay in milliseconds. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em msec} & milliseconds to be in delay \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{delay__mcu_8c_source_l00063}{63}} del archivo \mbox{\hyperlink{delay__mcu_8c_source}{delay\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{delay__mcu_8c_source_l00020}{MSEC}}, \mbox{\hyperlink{ili9341_8c_source_l00042}{NULL}}, \mbox{\hyperlink{delay__mcu_8c_source_l00024}{task\+\_\+to\+\_\+notify}} y \mbox{\hyperlink{delay__mcu_8c_source_l00019}{US\+\_\+\+RESOLUTION\+\_\+\+HZ}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00300}{ILI9341\+Init()}}.
+
+\Hypertarget{group___delay_ga69b7a2b5881d757ba405331cb1d5e5df}\label{group___delay_ga69b7a2b5881d757ba405331cb1d5e5df} 
+\index{Delay@{Delay}!DelaySec@{DelaySec}}
+\index{DelaySec@{DelaySec}!Delay@{Delay}}
+\doxysubsubsubsubsection{\texorpdfstring{DelaySec()}{DelaySec()}}
+{\footnotesize\ttfamily void Delay\+Sec (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{sec }\end{DoxyParamCaption})}
+
+
+
+Functions to generate delays. 
+
+This driver provide functions to generate delays Free\+RTOS friendly, using one timer.
+
+\begin{DoxyNote}{Nota}
+All delays will block the current RTOS task, with the exception of Delay\+Us with usec \texorpdfstring{$<$}{<} 50.
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 20/10/2023   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+Delay in seconds 
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em sec} & seconds to be in delay \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{delay__mcu_8c_source_l00039}{39}} del archivo \mbox{\hyperlink{delay__mcu_8c_source}{delay\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00042}{NULL}}, \mbox{\hyperlink{delay__mcu_8c_source_l00021}{SEC}}, \mbox{\hyperlink{delay__mcu_8c_source_l00024}{task\+\_\+to\+\_\+notify}} y \mbox{\hyperlink{delay__mcu_8c_source_l00019}{US\+\_\+\+RESOLUTION\+\_\+\+HZ}}.
+
+\Hypertarget{group___delay_ga92e1b2564bacd20071bcd06b697f52f8}\label{group___delay_ga92e1b2564bacd20071bcd06b697f52f8} 
+\index{Delay@{Delay}!DelayUs@{DelayUs}}
+\index{DelayUs@{DelayUs}!Delay@{Delay}}
+\doxysubsubsubsubsection{\texorpdfstring{DelayUs()}{DelayUs()}}
+{\footnotesize\ttfamily void Delay\+Us (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{usec }\end{DoxyParamCaption})}
+
+
+
+Delay in microseconds. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em usec} & microseconds to be in delay \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{delay__mcu_8c_source_l00087}{87}} del archivo \mbox{\hyperlink{delay__mcu_8c_source}{delay\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{delay__mcu_8c_source_l00022}{MIN\+\_\+\+US}}, \mbox{\hyperlink{ili9341_8c_source_l00042}{NULL}}, \mbox{\hyperlink{delay__mcu_8c_source_l00024}{task\+\_\+to\+\_\+notify}} y \mbox{\hyperlink{delay__mcu_8c_source_l00019}{US\+\_\+\+RESOLUTION\+\_\+\+HZ}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hc__sr04_8c_source_l00045}{Hc\+Sr04\+Read\+Distance\+In\+Centimeters()}}, \mbox{\hyperlink{hc__sr04_8c_source_l00067}{Hc\+Sr04\+Read\+Distance\+In\+Inches()}}, \mbox{\hyperlink{hx711_8c_source_l00164}{HX711\+\_\+power\+Down()}}, \mbox{\hyperlink{hx711_8c_source_l00081}{HX711\+\_\+read()}}, \mbox{\hyperlink{ili9341_8c_source_l00300}{ILI9341\+Init()}} y \mbox{\hyperlink{ws2812b_8c_source_l00371}{ws2812b\+Send\+Ret()}}.
+

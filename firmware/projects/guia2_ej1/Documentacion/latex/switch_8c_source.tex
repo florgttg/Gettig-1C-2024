@@ -1,0 +1,53 @@
+\doxysection{switch.\+c}
+\hypertarget{switch_8c_source}{}\label{switch_8c_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/switch.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/switch.c}}
+\mbox{\hyperlink{switch_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00012}00012\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{switch_8h}{switch.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio__mcu_8h}{gpio\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00015}00015\ \textcolor{comment}{/*==================[macros\ and\ definitions]=================================*/}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00016}\mbox{\hyperlink{switch_8c_a64ab4ea9c363b22a766897ccc7634c7e}{00016}}\ \textcolor{preprocessor}{\#define\ GPIO\_SWITCH1\ GPIO\_4}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00017}\mbox{\hyperlink{switch_8c_a48ab628b7254349aa281ef9df279049f}{00017}}\ \textcolor{preprocessor}{\#define\ GPIO\_SWITCH2\ GPIO\_15}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00018}00018\ \textcolor{comment}{/*==================[internal\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00020}00020\ \textcolor{comment}{/*==================[internal\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00022}00022\ \textcolor{comment}{/*==================[internal\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00024}00024\ \textcolor{comment}{/*==================[external\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00026}00026\ \textcolor{comment}{/*==================[internal\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00028}00028\ \textcolor{comment}{/*==================[external\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00029}\mbox{\hyperlink{group___switch_ga8eb2865a73bf2d2b9fd6760958a0cc3c}{00029}}\ int8\_t\ \mbox{\hyperlink{group___switch_ga8eb2865a73bf2d2b9fd6760958a0cc3c}{SwitchesInit}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00030}00030\ \ \ \ \ \textcolor{comment}{/*\ GPIO\ configurations\ */}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{switch_8c_a64ab4ea9c363b22a766897ccc7634c7e}{GPIO\_SWITCH1}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa1ea38ffc304a6c32480a65b5fec7302}{GPIO\_INPUT}});\ \ \ \textcolor{comment}{//\ SWITCH\_1}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{switch_8c_a48ab628b7254349aa281ef9df279049f}{GPIO\_SWITCH2}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa1ea38ffc304a6c32480a65b5fec7302}{GPIO\_INPUT}});\ \ \ \textcolor{comment}{//\ SWITCH\_2}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga3f43faf280a63697678036bdbd434c46}{GPIOInputFilter}}(\mbox{\hyperlink{switch_8c_a64ab4ea9c363b22a766897ccc7634c7e}{GPIO\_SWITCH1}});\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga3f43faf280a63697678036bdbd434c46}{GPIOInputFilter}}(\mbox{\hyperlink{switch_8c_a48ab628b7254349aa281ef9df279049f}{GPIO\_SWITCH2}});}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00038}\mbox{\hyperlink{group___switch_gae2e64bab117e3f8ffc08ecae51f5e262}{00038}}\ int8\_t\ \mbox{\hyperlink{group___switch_gae2e64bab117e3f8ffc08ecae51f5e262}{SwitchesRead}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00039}00039\ \ \ \ \ int8\_t\ mask\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{group___g_i_o_p_gab42a477acc6064150000fb4a1bd4305c}{GPIORead}}(\mbox{\hyperlink{switch_8c_a64ab4ea9c363b22a766897ccc7634c7e}{GPIO\_SWITCH1}}))}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ mask\ |=\ \mbox{\hyperlink{group___switch_gga8caa2df6d25fea5a14eb4533df1d5cfaa24caa46485c5fec2211b3ebd8a1eee77}{SWITCH\_1}};}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{group___g_i_o_p_gab42a477acc6064150000fb4a1bd4305c}{GPIORead}}(\mbox{\hyperlink{switch_8c_a48ab628b7254349aa281ef9df279049f}{GPIO\_SWITCH2}}))}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ mask\ |=\ \mbox{\hyperlink{group___switch_gga8caa2df6d25fea5a14eb4533df1d5cfaa73fda67835d5d51aa9251fee781a7434}{SWITCH\_2}};}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{return}\ mask;}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00047}\mbox{\hyperlink{group___switch_ga9847b9081e3cb39dd3ec01eaee8323b2}{00047}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___switch_ga9847b9081e3cb39dd3ec01eaee8323b2}{SwitchActivInt}}(\mbox{\hyperlink{group___switch_ga7e3732d4e527fda09473b232e502f54e}{switch\_t}}\ sw,\ \textcolor{keywordtype}{void}\ *ptr\_int\_func,\ \textcolor{keywordtype}{void}\ *args)\{}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{switch}(sw)\{}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___switch_gga8caa2df6d25fea5a14eb4533df1d5cfaa24caa46485c5fec2211b3ebd8a1eee77}{SWITCH\_1}}:}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gad5488fbc04a198d3d3fd3d1b04e6c5f5}{GPIOActivInt}}(\mbox{\hyperlink{switch_8c_a64ab4ea9c363b22a766897ccc7634c7e}{GPIO\_SWITCH1}},\ ptr\_int\_func,\ \textcolor{keyword}{false},\ args);}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___switch_gga8caa2df6d25fea5a14eb4533df1d5cfaa73fda67835d5d51aa9251fee781a7434}{SWITCH\_2}}:}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gad5488fbc04a198d3d3fd3d1b04e6c5f5}{GPIOActivInt}}(\mbox{\hyperlink{switch_8c_a48ab628b7254349aa281ef9df279049f}{GPIO\_SWITCH2}},\ ptr\_int\_func,\ \textcolor{keyword}{false},\ args);}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{switch_8c_source_l00057}00057\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

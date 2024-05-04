@@ -1,0 +1,484 @@
+\doxysubsubsection{GPIO}
+\hypertarget{group___g_i_o_p}{}\label{group___g_i_o_p}\index{GPIO@{GPIO}}
+\doxysubsubsubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\+\_\+list}} \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em ESP32-\/\+C6 available GPIOs (not all of them are available in ESP-\/\+EDU) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___g_i_o_p_ga423620ef7d69894833f70cfc395caaa9}{io\+\_\+t}} \{ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa1ea38ffc304a6c32480a65b5fec7302}{GPIO\+\_\+\+INPUT}} = 0
+, \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\+\_\+\+OUTPUT}}
+ \}
+\begin{DoxyCompactList}\small\item\em GPIO driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\+\_\+list}} \{ \newline
+\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a086256647dcbd93f77f55f1da9bb443e}{GPIO\+\_\+0}} =0
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a8595f8d7a0ae611fb06e4b9c690295f3}{GPIO\+\_\+1}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393abbea21b656f1917800d9d279b685f38e}{GPIO\+\_\+2}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a426d08ab85ab3aebbb53eed1a32dfb71}{GPIO\+\_\+3}}
+, \newline
+\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a8750fdf2e45e210b73beac29d0583b8d}{GPIO\+\_\+4}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a6213ab680cde9fe00f518cfb26a30a6b}{GPIO\+\_\+5}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a1b3ef28b8ae924f5f3fdfbb0ed7e6f7c}{GPIO\+\_\+6}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a4bae0816af6049c68cf772f0e01ea0e5}{GPIO\+\_\+7}}
+, \newline
+\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a1633eaf3914293921cf5e102f5026106}{GPIO\+\_\+8}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d}{GPIO\+\_\+9}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a3943e6071dec78b6bcf9586cf0de6dd3}{GPIO\+\_\+10}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393af3ddb0db315daeab49b75dbca06ba6e5}{GPIO\+\_\+11}}
+, \newline
+\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a9c0d0164730f9f641db357f5781643d0}{GPIO\+\_\+12}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393ad3c7eb7127bc6e6c1ecc8216c518c60b}{GPIO\+\_\+13}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393ada33ca57455eb7fc3c6af46dd57fea41}{GPIO\+\_\+14}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a10d7c4b9b8ab7cf7c5f77d99bf420849}{GPIO\+\_\+15}}
+, \newline
+\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393af5c2b7f44743385580550aa81e4b4f31}{GPIO\+\_\+16}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a272b8d60ca888339e5095000b50ba5b1}{GPIO\+\_\+17}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917}{GPIO\+\_\+18}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847}{GPIO\+\_\+19}}
+, \newline
+\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95}{GPIO\+\_\+20}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c}{GPIO\+\_\+21}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb}{GPIO\+\_\+22}}
+, \mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f}{GPIO\+\_\+23}}
+ \}
+\begin{DoxyCompactList}\small\item\em ESP32-\/\+C6 available GPIOs (not all of them are available in ESP-\/\+EDU) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin, \mbox{\hyperlink{group___g_i_o_p_ga423620ef7d69894833f70cfc395caaa9}{io\+\_\+t}} io)
+\begin{DoxyCompactList}\small\item\em GPIO initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin)
+\begin{DoxyCompactList}\small\item\em Change GPIO state to high. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin)
+\begin{DoxyCompactList}\small\item\em Change GPIO state to low. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___g_i_o_p_gaff44adf38b055e964fe7e89834eabccc}{GPIOState}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin, bool state)
+\begin{DoxyCompactList}\small\item\em Change GPIO state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___g_i_o_p_gacf7eae149edbe60c38faeb4b634b75b6}{GPIOToggle}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin)
+\begin{DoxyCompactList}\small\item\em Invert GPIO state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___g_i_o_p_gab42a477acc6064150000fb4a1bd4305c}{GPIORead}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin)
+\begin{DoxyCompactList}\small\item\em Reads GPIO state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___g_i_o_p_gad5488fbc04a198d3d3fd3d1b04e6c5f5}{GPIOActiv\+Int}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin, void \texorpdfstring{$\ast$}{*}ptr\+\_\+int\+\_\+func, bool edge, void \texorpdfstring{$\ast$}{*}args)
+\begin{DoxyCompactList}\small\item\em Configure GPIO input interruption. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___g_i_o_p_ga3f43faf280a63697678036bdbd434c46}{GPIOInput\+Filter}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin)
+\begin{DoxyCompactList}\small\item\em Configure an input glitch filter to a GPIO. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___g_i_o_p_gaa3ab377728bae4c84463cb75c266b60b}{GPIODeinit}} (void)
+\begin{DoxyCompactList}\small\item\em GPIO de-\/initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de «typedef»}
+\Hypertarget{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}\label{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67} 
+\index{GPIO@{GPIO}!gpio\_t@{gpio\_t}}
+\index{gpio\_t@{gpio\_t}!GPIO@{GPIO}}
+\doxysubsubsubsubsection{\texorpdfstring{gpio\_t}{gpio\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\+\_\+list}} \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}
+
+
+
+ESP32-\/\+C6 available GPIOs (not all of them are available in ESP-\/\+EDU) 
+
+
+
+\doxysubsubsubsection{Documentación de enumeraciones}
+\Hypertarget{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}\label{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393} 
+\index{GPIO@{GPIO}!gpio\_list@{gpio\_list}}
+\index{gpio\_list@{gpio\_list}!GPIO@{GPIO}}
+\doxysubsubsubsubsection{\texorpdfstring{gpio\_list}{gpio\_list}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___g_i_o_p_gaf65604147d0244c9b13cfdc865ad5393}{gpio\+\_\+list}}}
+
+
+
+ESP32-\/\+C6 available GPIOs (not all of them are available in ESP-\/\+EDU) 
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_0@{GPIO\_0}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_0@{GPIO\_0}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a086256647dcbd93f77f55f1da9bb443e}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a086256647dcbd93f77f55f1da9bb443e} 
+GPIO\+\_\+0&GPIO0 -\/ shared with ADC CH0 and DAC \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_1@{GPIO\_1}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_1@{GPIO\_1}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a8595f8d7a0ae611fb06e4b9c690295f3}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a8595f8d7a0ae611fb06e4b9c690295f3} 
+GPIO\+\_\+1&GPIO1 -\/ shared with ADC CH1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_2@{GPIO\_2}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_2@{GPIO\_2}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393abbea21b656f1917800d9d279b685f38e}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393abbea21b656f1917800d9d279b685f38e} 
+GPIO\+\_\+2&GPIO2 -\/ shared with ADC CH2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_3@{GPIO\_3}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_3@{GPIO\_3}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a426d08ab85ab3aebbb53eed1a32dfb71}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a426d08ab85ab3aebbb53eed1a32dfb71} 
+GPIO\+\_\+3&GPIO3 -\/ shared with ADC CH3 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_4@{GPIO\_4}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_4@{GPIO\_4}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a8750fdf2e45e210b73beac29d0583b8d}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a8750fdf2e45e210b73beac29d0583b8d} 
+GPIO\+\_\+4&GPIO4 -\/ connected to SWITCH\+\_\+1 (TECLA 1) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_5@{GPIO\_5}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_5@{GPIO\_5}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a6213ab680cde9fe00f518cfb26a30a6b}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a6213ab680cde9fe00f518cfb26a30a6b} 
+GPIO\+\_\+5&GPIO5 -\/ connected to LED\+\_\+3 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_6@{GPIO\_6}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_6@{GPIO\_6}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a1b3ef28b8ae924f5f3fdfbb0ed7e6f7c}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a1b3ef28b8ae924f5f3fdfbb0ed7e6f7c} 
+GPIO\+\_\+6&GPIO6 -\/ shared with I2C SDA \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_7@{GPIO\_7}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_7@{GPIO\_7}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a4bae0816af6049c68cf772f0e01ea0e5}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a4bae0816af6049c68cf772f0e01ea0e5} 
+GPIO\+\_\+7&GPIO7 -\/ shared with I2C SCL \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_8@{GPIO\_8}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_8@{GPIO\_8}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a1633eaf3914293921cf5e102f5026106}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a1633eaf3914293921cf5e102f5026106} 
+GPIO\+\_\+8&GPIO8 -\/ shared with Neo\+Pixel \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_9@{GPIO\_9}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_9@{GPIO\_9}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d} 
+GPIO\+\_\+9&GPIO9 -\/ shared with SPI CS0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_10@{GPIO\_10}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_10@{GPIO\_10}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a3943e6071dec78b6bcf9586cf0de6dd3}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a3943e6071dec78b6bcf9586cf0de6dd3} 
+GPIO\+\_\+10&GPIO10 -\/ connected to LED\+\_\+2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_11@{GPIO\_11}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_11@{GPIO\_11}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393af3ddb0db315daeab49b75dbca06ba6e5}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393af3ddb0db315daeab49b75dbca06ba6e5} 
+GPIO\+\_\+11&GPIO11 -\/ connected to LED\+\_\+1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_12@{GPIO\_12}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_12@{GPIO\_12}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a9c0d0164730f9f641db357f5781643d0}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a9c0d0164730f9f641db357f5781643d0} 
+GPIO\+\_\+12&GPIO12 -\/ shared with USB\+\_\+\+D-\/ (not recommended for use) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_13@{GPIO\_13}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_13@{GPIO\_13}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393ad3c7eb7127bc6e6c1ecc8216c518c60b}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393ad3c7eb7127bc6e6c1ecc8216c518c60b} 
+GPIO\+\_\+13&GPIO13 -\/ shared with USB\+\_\+\+D+ (not recommended for use) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_14@{GPIO\_14}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_14@{GPIO\_14}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393ada33ca57455eb7fc3c6af46dd57fea41}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393ada33ca57455eb7fc3c6af46dd57fea41} 
+GPIO\+\_\+14&not available \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_15@{GPIO\_15}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_15@{GPIO\_15}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a10d7c4b9b8ab7cf7c5f77d99bf420849}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a10d7c4b9b8ab7cf7c5f77d99bf420849} 
+GPIO\+\_\+15&GPIO15 -\/ connected to SWITCH\+\_\+2 (TECLA 2) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_16@{GPIO\_16}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_16@{GPIO\_16}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393af5c2b7f44743385580550aa81e4b4f31}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393af5c2b7f44743385580550aa81e4b4f31} 
+GPIO\+\_\+16&GPIO16 -\/ shared with UART\+\_\+\+PC TX \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_17@{GPIO\_17}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_17@{GPIO\_17}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a272b8d60ca888339e5095000b50ba5b1}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a272b8d60ca888339e5095000b50ba5b1} 
+GPIO\+\_\+17&GPIO17 -\/ shared with UART\+\_\+\+PC RX \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_18@{GPIO\_18}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_18@{GPIO\_18}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917} 
+GPIO\+\_\+18&GPIO18 -\/ shared with UART\+\_\+\+CONNECTOR TX and SPI CS2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_19@{GPIO\_19}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_19@{GPIO\_19}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847} 
+GPIO\+\_\+19&GPIO19 -\/ shared with UART\+\_\+\+CONNECTOR RX and SPI CS1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_20@{GPIO\_20}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_20@{GPIO\_20}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95} 
+GPIO\+\_\+20&GPIO20 -\/ shared with SPI SCLK \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_21@{GPIO\_21}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_21@{GPIO\_21}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c} 
+GPIO\+\_\+21&GPIO21 -\/ shared with SPI MOSI ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_22@{GPIO\_22}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_22@{GPIO\_22}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb} 
+GPIO\+\_\+22&GPIO22 -\/ shared with SPI MISO ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_23@{GPIO\_23}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_23@{GPIO\_23}}}\Hypertarget{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f}\label{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f} 
+GPIO\+\_\+23&GPIO23 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{gpio__mcu_8h_source_l00051}{51}} del archivo \mbox{\hyperlink{gpio__mcu_8h_source}{gpio\+\_\+mcu.\+h}}.
+
+\Hypertarget{group___g_i_o_p_ga423620ef7d69894833f70cfc395caaa9}\label{group___g_i_o_p_ga423620ef7d69894833f70cfc395caaa9} 
+\index{GPIO@{GPIO}!io\_t@{io\_t}}
+\index{io\_t@{io\_t}!GPIO@{GPIO}}
+\doxysubsubsubsubsection{\texorpdfstring{io\_t}{io\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___g_i_o_p_ga423620ef7d69894833f70cfc395caaa9}{io\+\_\+t}}}
+
+
+
+GPIO driver for the ESP-\/\+EDU Board. 
+
+This driver provide functions to configure and handle the ESP-\/\+EDU General Purpose Input-\/\+Outputs .
+
+\begin{DoxyNote}{Nota}
+GPIO\+\_\+4 and GPIO\+\_\+15 are connected to ESP-\/\+EDU switches (only GPIO\+\_\+15 is available in headers)
+
+GPIO\+\_\+5, GPIO\+\_\+10 and GPIO\+\_\+11 are connected to ESP-\/\+EDU LEDs.
+
+GPIO\+\_\+12 and GPIO\+\_\+13 are not recommended for use, because using them will overwrite the flash and debug functionalities via USB.
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 23/10/2023   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+GPIO direction (input or output). \begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_INPUT@{GPIO\_INPUT}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_INPUT@{GPIO\_INPUT}}}\Hypertarget{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa1ea38ffc304a6c32480a65b5fec7302}\label{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa1ea38ffc304a6c32480a65b5fec7302} 
+GPIO\+\_\+\+INPUT&Input with pull-\/up resistor \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GPIO\_OUTPUT@{GPIO\_OUTPUT}!GPIO@{GPIO}}\index{GPIO@{GPIO}!GPIO\_OUTPUT@{GPIO\_OUTPUT}}}\Hypertarget{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}\label{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516} 
+GPIO\+\_\+\+OUTPUT&Output \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{gpio__mcu_8h_source_l00042}{42}} del archivo \mbox{\hyperlink{gpio__mcu_8h_source}{gpio\+\_\+mcu.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___g_i_o_p_gad5488fbc04a198d3d3fd3d1b04e6c5f5}\label{group___g_i_o_p_gad5488fbc04a198d3d3fd3d1b04e6c5f5} 
+\index{GPIO@{GPIO}!GPIOActivInt@{GPIOActivInt}}
+\index{GPIOActivInt@{GPIOActivInt}!GPIO@{GPIO}}
+\doxysubsubsubsubsection{\texorpdfstring{GPIOActivInt()}{GPIOActivInt()}}
+{\footnotesize\ttfamily void GPIOActiv\+Int (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{pin,  }\item[{void \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+int\+\_\+func,  }\item[{bool}]{edge,  }\item[{void \texorpdfstring{$\ast$}{*}}]{args }\end{DoxyParamCaption})}
+
+
+
+Configure GPIO input interruption. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pin} & GPIO number \\
+\hline
+{\em ptr\+\_\+int\+\_\+func} & Pointer to callback function \\
+\hline
+{\em edge} & true\+: positive edge -\/ false\+: negative edge \\
+\hline
+{\em args} & \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{gpio__mcu_8c_source_l00105}{105}} del archivo \mbox{\hyperlink{gpio__mcu_8c_source}{gpio\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{switch_8c_source_l00047}{Switch\+Activ\+Int()}}.
+
+\Hypertarget{group___g_i_o_p_gaa3ab377728bae4c84463cb75c266b60b}\label{group___g_i_o_p_gaa3ab377728bae4c84463cb75c266b60b} 
+\index{GPIO@{GPIO}!GPIODeinit@{GPIODeinit}}
+\index{GPIODeinit@{GPIODeinit}!GPIO@{GPIO}}
+\doxysubsubsubsubsection{\texorpdfstring{GPIODeinit()}{GPIODeinit()}}
+{\footnotesize\ttfamily void GPIODeinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+GPIO de-\/initialization. 
+
+
+
+Definición en la línea \mbox{\hyperlink{gpio__mcu_8c_source_l00130}{130}} del archivo \mbox{\hyperlink{gpio__mcu_8c_source}{gpio\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hc__sr04_8c_source_l00089}{Hc\+Sr04\+Deinit()}} y \mbox{\hyperlink{lcditse0803_8c_source_l00101}{Lcd\+Its\+E0803\+De\+Init()}}.
+
+\Hypertarget{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}\label{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964} 
+\index{GPIO@{GPIO}!GPIOInit@{GPIOInit}}
+\index{GPIOInit@{GPIOInit}!GPIO@{GPIO}}
+\doxysubsubsubsubsection{\texorpdfstring{GPIOInit()}{GPIOInit()}}
+{\footnotesize\ttfamily void GPIOInit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{pin,  }\item[{\mbox{\hyperlink{group___g_i_o_p_ga423620ef7d69894833f70cfc395caaa9}{io\+\_\+t}}}]{io }\end{DoxyParamCaption})}
+
+
+
+GPIO initialization. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pin} & GPIO number \\
+\hline
+{\em io} & GPIO direction \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{gpio__mcu_8c_source_l00067}{67}} del archivo \mbox{\hyperlink{gpio__mcu_8c_source}{gpio\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__mcu_8h_source_l00066}{GPIO\+\_\+14}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00075}{GPIO\+\_\+23}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00043}{GPIO\+\_\+\+INPUT}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00044}{GPIO\+\_\+\+OUTPUT}} y \mbox{\hyperlink{gpio__mcu_8c_source_l00022}{digital\+\_\+io\+\_\+t\+::mode}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hc__sr04_8c_source_l00034}{Hc\+Sr04\+Init()}}, \mbox{\hyperlink{hx711_8c_source_l00047}{HX711\+\_\+\+Init()}}, \mbox{\hyperlink{ili9341_8c_source_l00300}{ILI9341\+Init()}}, \mbox{\hyperlink{lcditse0803_8c_source_l00037}{Lcd\+Its\+E0803\+Init()}}, \mbox{\hyperlink{led_8c_source_l00031}{Leds\+Init()}} y \mbox{\hyperlink{switch_8c_source_l00029}{Switches\+Init()}}.
+
+\Hypertarget{group___g_i_o_p_ga3f43faf280a63697678036bdbd434c46}\label{group___g_i_o_p_ga3f43faf280a63697678036bdbd434c46} 
+\index{GPIO@{GPIO}!GPIOInputFilter@{GPIOInputFilter}}
+\index{GPIOInputFilter@{GPIOInputFilter}!GPIO@{GPIO}}
+\doxysubsubsubsubsection{\texorpdfstring{GPIOInputFilter()}{GPIOInputFilter()}}
+{\footnotesize\ttfamily void GPIOInput\+Filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{pin }\end{DoxyParamCaption})}
+
+
+
+Configure an input glitch filter to a GPIO. 
+
+\begin{DoxyNote}{Nota}
+You can add filters to up to 8 GPIO
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parámetros}
+{\em pin} & GPIO number \\
+\hline
+{\em filter} & filter number \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{gpio__mcu_8c_source_l00119}{119}} del archivo \mbox{\hyperlink{gpio__mcu_8c_source}{gpio\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__mcu_8c_source_l00057}{filter\+\_\+config}} y \mbox{\hyperlink{gpio__mcu_8c_source_l00019}{FILTER\+\_\+\+QTY}}.
+
+
+
+Referenciado por \mbox{\hyperlink{switch_8c_source_l00029}{Switches\+Init()}}.
+
+\Hypertarget{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}\label{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70} 
+\index{GPIO@{GPIO}!GPIOOff@{GPIOOff}}
+\index{GPIOOff@{GPIOOff}!GPIO@{GPIO}}
+\doxysubsubsubsubsection{\texorpdfstring{GPIOOff()}{GPIOOff()}}
+{\footnotesize\ttfamily void GPIOOff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{pin }\end{DoxyParamCaption})}
+
+
+
+Change GPIO state to low. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pin} & GPIO number \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{86}} del archivo \mbox{\hyperlink{gpio__mcu_8c_source}{gpio\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hc__sr04_8c_source_l00045}{Hc\+Sr04\+Read\+Distance\+In\+Centimeters()}}, \mbox{\hyperlink{hc__sr04_8c_source_l00067}{Hc\+Sr04\+Read\+Distance\+In\+Inches()}}, \mbox{\hyperlink{hx711_8c_source_l00164}{HX711\+\_\+power\+Down()}}, \mbox{\hyperlink{hx711_8c_source_l00171}{HX711\+\_\+power\+Up()}}, \mbox{\hyperlink{hx711_8c_source_l00081}{HX711\+\_\+read()}}, \mbox{\hyperlink{hx711_8c_source_l00062}{HX711\+\_\+set\+Gain()}}, \mbox{\hyperlink{lcditse0803_8c_source_l00087}{Lcd\+Its\+E0803\+Off()}}, \mbox{\hyperlink{lcditse0803_8c_source_l00054}{Lcd\+Its\+E0803\+Write()}}, \mbox{\hyperlink{led_8c_source_l00065}{Led\+Off()}}, \mbox{\hyperlink{led_8c_source_l00031}{Leds\+Init()}}, \mbox{\hyperlink{led_8c_source_l00105}{Leds\+Off\+All()}}, \mbox{\hyperlink{hx711_8c_source_l00029}{shift\+In()}} y \mbox{\hyperlink{ili9341_8c_source_l00222}{Write\+LCD()}}.
+
+\Hypertarget{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}\label{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1} 
+\index{GPIO@{GPIO}!GPIOOn@{GPIOOn}}
+\index{GPIOOn@{GPIOOn}!GPIO@{GPIO}}
+\doxysubsubsubsubsection{\texorpdfstring{GPIOOn()}{GPIOOn()}}
+{\footnotesize\ttfamily void GPIOOn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{pin }\end{DoxyParamCaption})}
+
+
+
+Change GPIO state to high. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pin} & GPIO number \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{81}} del archivo \mbox{\hyperlink{gpio__mcu_8c_source}{gpio\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hc__sr04_8c_source_l00045}{Hc\+Sr04\+Read\+Distance\+In\+Centimeters()}}, \mbox{\hyperlink{hc__sr04_8c_source_l00067}{Hc\+Sr04\+Read\+Distance\+In\+Inches()}}, \mbox{\hyperlink{hx711_8c_source_l00164}{HX711\+\_\+power\+Down()}}, \mbox{\hyperlink{hx711_8c_source_l00081}{HX711\+\_\+read()}}, \mbox{\hyperlink{ili9341_8c_source_l00300}{ILI9341\+Init()}}, \mbox{\hyperlink{lcditse0803_8c_source_l00087}{Lcd\+Its\+E0803\+Off()}}, \mbox{\hyperlink{lcditse0803_8c_source_l00054}{Lcd\+Its\+E0803\+Write()}}, \mbox{\hyperlink{led_8c_source_l00046}{Led\+On()}}, \mbox{\hyperlink{hx711_8c_source_l00029}{shift\+In()}} y \mbox{\hyperlink{ili9341_8c_source_l00222}{Write\+LCD()}}.
+
+\Hypertarget{group___g_i_o_p_gab42a477acc6064150000fb4a1bd4305c}\label{group___g_i_o_p_gab42a477acc6064150000fb4a1bd4305c} 
+\index{GPIO@{GPIO}!GPIORead@{GPIORead}}
+\index{GPIORead@{GPIORead}!GPIO@{GPIO}}
+\doxysubsubsubsubsection{\texorpdfstring{GPIORead()}{GPIORead()}}
+{\footnotesize\ttfamily bool GPIORead (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{pin }\end{DoxyParamCaption})}
+
+
+
+Reads GPIO state. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pin} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true GPIO input high 
+
+false GPIO input low 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{gpio__mcu_8c_source_l00101}{101}} del archivo \mbox{\hyperlink{gpio__mcu_8c_source}{gpio\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hc__sr04_8c_source_l00045}{Hc\+Sr04\+Read\+Distance\+In\+Centimeters()}}, \mbox{\hyperlink{hc__sr04_8c_source_l00067}{Hc\+Sr04\+Read\+Distance\+In\+Inches()}}, \mbox{\hyperlink{hx711_8c_source_l00057}{HX711\+\_\+is\+Ready()}}, \mbox{\hyperlink{hx711_8c_source_l00081}{HX711\+\_\+read()}}, \mbox{\hyperlink{hx711_8c_source_l00029}{shift\+In()}} y \mbox{\hyperlink{switch_8c_source_l00038}{Switches\+Read()}}.
+
+\Hypertarget{group___g_i_o_p_gaff44adf38b055e964fe7e89834eabccc}\label{group___g_i_o_p_gaff44adf38b055e964fe7e89834eabccc} 
+\index{GPIO@{GPIO}!GPIOState@{GPIOState}}
+\index{GPIOState@{GPIOState}!GPIO@{GPIO}}
+\doxysubsubsubsubsection{\texorpdfstring{GPIOState()}{GPIOState()}}
+{\footnotesize\ttfamily void GPIOState (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{pin,  }\item[{bool}]{state }\end{DoxyParamCaption})}
+
+
+
+Change GPIO state. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pin} & GPIO number \\
+\hline
+{\em state} & GPIO state (true\+: high -\/ false\+: low) \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{gpio__mcu_8c_source_l00091}{91}} del archivo \mbox{\hyperlink{gpio__mcu_8c_source}{gpio\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{lcditse0803_8c_source_l00029}{Lcd\+Its\+E0803\+BCDto\+Pin()}} y \mbox{\hyperlink{led_8c_source_l00113}{Leds\+Mask()}}.
+
+\Hypertarget{group___g_i_o_p_gacf7eae149edbe60c38faeb4b634b75b6}\label{group___g_i_o_p_gacf7eae149edbe60c38faeb4b634b75b6} 
+\index{GPIO@{GPIO}!GPIOToggle@{GPIOToggle}}
+\index{GPIOToggle@{GPIOToggle}!GPIO@{GPIO}}
+\doxysubsubsubsubsection{\texorpdfstring{GPIOToggle()}{GPIOToggle()}}
+{\footnotesize\ttfamily void GPIOToggle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{pin }\end{DoxyParamCaption})}
+
+
+
+Invert GPIO state. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pin} & GPIO number \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{gpio__mcu_8c_source_l00096}{96}} del archivo \mbox{\hyperlink{gpio__mcu_8c_source}{gpio\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{led_8c_source_l00084}{Led\+Toggle()}}.
+

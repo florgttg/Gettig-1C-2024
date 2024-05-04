@@ -1,0 +1,111 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/inc/ili9341.h}
+\hypertarget{ili9341_8h}{}\label{ili9341_8h}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/ili9341.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/ili9341.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}spi\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}fonts.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga0f07262d5faa91c725fa69a2847303d5}{ILI9341\+\_\+\+WIDTH}}~240
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga19b26d4d6ae752db7302c9cbb8688d51}{ILI9341\+\_\+\+HEIGHT}}~320
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga77c432b28a66dde602c46e7fcba4cc08}{ILI9341\+\_\+\+PIXEL\+\_\+\+MAX}}~76800
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga50166b9a65012fb2f8fe0a0d5f519fa3}{ILI9341\+\_\+\+BLACK}}~0x0000  /\texorpdfstring{$\ast$}{*}   0,   0,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gacaae04786d06f0ba08c8bea6b714b572}{ILI9341\+\_\+\+NAVY}}~0x000F  /\texorpdfstring{$\ast$}{*}   0,   0, 128 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga5a9d46f3af002ee1edc832257f3683a3}{ILI9341\+\_\+\+DARKGREEN}}~0x03\+E0  /\texorpdfstring{$\ast$}{*}   0, 128,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gadbc78927dc7105782714d69048580576}{ILI9341\+\_\+\+DARKCYAN}}~0x03\+EF  /\texorpdfstring{$\ast$}{*}   0, 128, 128 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga8fdcfa7e66294fbedf701b2822a9c6e9}{ILI9341\+\_\+\+MAROON}}~0x7800  /\texorpdfstring{$\ast$}{*} 128,   0,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga4371aa3db522c197cae529a235553071}{ILI9341\+\_\+\+PURPLE}}~0x780F  /\texorpdfstring{$\ast$}{*} 128,   0, 128 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gae8f5be0a5e731a047a1a7b5edaa0e46f}{ILI9341\+\_\+\+OLIVE}}~0x7\+BE0  /\texorpdfstring{$\ast$}{*} 128, 128,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga35990ea476b079cd6746056777fadfd8}{ILI9341\+\_\+\+LIGHTGREY}}~0x\+C618  /\texorpdfstring{$\ast$}{*} 192, 192, 192 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga56f69dad2de457c03d71ea0b38395c41}{ILI9341\+\_\+\+DARKGREY}}~0x7\+BEF  /\texorpdfstring{$\ast$}{*} 128, 128, 128 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gaa15cf651d66764cb8024808d6ea48eef}{ILI9341\+\_\+\+BLUE}}~0x001F  /\texorpdfstring{$\ast$}{*}   0,   0, 255 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga7753f9cc58d6e16ab69548349247922e}{ILI9341\+\_\+\+BLUE2}}~0x051D
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga2eb4b5e896b0b144970f33002134bb98}{ILI9341\+\_\+\+GREEN}}~0x07\+E0  /\texorpdfstring{$\ast$}{*}   0, 255,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gac7917ebbf25b3d806541ee4ed658b6c4}{ILI9341\+\_\+\+GREEN2}}~0x\+B723
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gaf04ea4a1f89418c734ba76739a2e730f}{ILI9341\+\_\+\+CYAN}}~0x07\+FF  /\texorpdfstring{$\ast$}{*}   0, 255, 255 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga4ebe718620305116033cb3f969cfc08b}{ILI9341\+\_\+\+RED}}~0x\+F800  /\texorpdfstring{$\ast$}{*} 255,   0,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gae858232678ff269cf0edd404aabcb989}{ILI9341\+\_\+\+MAGENTA}}~0x\+F81F  /\texorpdfstring{$\ast$}{*} 255,   0, 255 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga0313d113622009bfd9b6011fc9bffcc9}{ILI9341\+\_\+\+YELLOW}}~0x\+FFE0  /\texorpdfstring{$\ast$}{*} 255, 255,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga604507ef031b95291b2d177088fe03e4}{ILI9341\+\_\+\+WHITE}}~0x\+FFFF  /\texorpdfstring{$\ast$}{*} 255, 255, 255 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga857910d1b98cb9d77a29c2beb5af949d}{ILI9341\+\_\+\+ORANGE}}~0x\+FBE4
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gae518d9f896bf8456a175a5a04b49c7f3}{ILI9341\+\_\+\+ORANGE2}}~0x\+FD20  /\texorpdfstring{$\ast$}{*} 255, 165,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga5f9867862411a57b73cecbc0155e7507}{ILI9341\+\_\+\+GREENYELLOW}}~0x\+AFE5  /\texorpdfstring{$\ast$}{*} 173, 255,  47 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gad39cea2dab75ccfd9d83fab73ce1a56d}{ILI9341\+\_\+\+PINK}}~0x\+F81F
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga204e287c2484d745d3332e5b1e67ae2f}{ILI9341\+\_\+\+BROWN}}~0x\+BBCA
+\end{DoxyCompactItemize}
+\doxysubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___i_l_i9341_ga46360a506ec04c0ca618ee229bdad248}{ili9341\+\_\+orientation}} \mbox{\hyperlink{group___i_l_i9341_gafd244eb5252344eaf17669b9d2fddcdc}{ili9341\+\_\+orientation\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Possible orientations for LCD. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___i_l_i9341_ga46360a506ec04c0ca618ee229bdad248}{ili9341\+\_\+orientation}} \{ \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a8a91947a781dff5aa13fee4123fc4017}{ILI9341\+\_\+\+Portrait\+\_\+1}}
+, \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a5355240517a88f9c791c786f52c25a0b}{ILI9341\+\_\+\+Portrait\+\_\+2}}
+, \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a4a306e50be2b7a9f5ff45ed5a6a5ab6d}{ILI9341\+\_\+\+Landscape\+\_\+1}}
+, \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a80467f7bb95409c5d6f7d943896d3c5c}{ILI9341\+\_\+\+Landscape\+\_\+2}}
+ \}
+\begin{DoxyCompactList}\small\item\em Possible orientations for LCD. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___i_l_i9341_ga5f72d1febbb1e77c2b50876ba8caf40c}{ILI9341\+Init}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} spi\+\_\+dev, uint8\+\_\+t gpio\+\_\+dc, uint8\+\_\+t gpio\+\_\+rst)
+\begin{DoxyCompactList}\small\item\em Initializes ILI9341 LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341\+Draw\+Pixel}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws single pixel to LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gadbfd33ee5866c7e8283e5d29d2843b5f}{ILI9341\+Fill}} (uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Fills entire LCD with color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga7b187b4cb92aa6b28a51fbfd5153aa2b}{ILI9341\+Rotate}} (\mbox{\hyperlink{group___i_l_i9341_gafd244eb5252344eaf17669b9d2fddcdc}{ili9341\+\_\+orientation\+\_\+t}} orientation)
+\begin{DoxyCompactList}\small\item\em Rotates LCD to specific orientation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gaf40f745e33f77553ed8756b0cdbff963}{ILI9341\+Draw\+Char}} (uint16\+\_\+t x, uint16\+\_\+t y, char data, \mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, uint16\+\_\+t foreground, uint16\+\_\+t background)
+\begin{DoxyCompactList}\small\item\em Draw a single character on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gaf1f38ba35089e77b713750c4e25e2476}{ILI9341\+Draw\+Int}} (uint16\+\_\+t x, uint16\+\_\+t y, uint32\+\_\+t num, uint8\+\_\+t dig, \mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, uint16\+\_\+t foreground, uint16\+\_\+t background)
+\begin{DoxyCompactList}\small\item\em Draw an integer on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa}{ILI9341\+Draw\+String}} (uint16\+\_\+t x, uint16\+\_\+t y, char \texorpdfstring{$\ast$}{*}str, \mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, uint16\+\_\+t foreground, uint16\+\_\+t background)
+\begin{DoxyCompactList}\small\item\em Draw a string on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga5044d1ea4ba5b9b9244bc13898a514d2}{ILI9341\+Get\+String\+Size}} (char \texorpdfstring{$\ast$}{*}str, \mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, uint16\+\_\+t \texorpdfstring{$\ast$}{*}width, uint16\+\_\+t \texorpdfstring{$\ast$}{*}height)
+\begin{DoxyCompactList}\small\item\em Gets width and height of box with text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341\+Draw\+Line}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws line on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga90867195c7e57957fe9db4913beeee45}{ILI9341\+Draw\+Rectangle}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws rectangle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gae317015706c9711c49b9419cd3d89823}{ILI9341\+Draw\+Filled\+Rectangle}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws filled rectangle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga232a7c83cb705bd8c14d57dee26d0db7}{ILI9341\+Draw\+Circle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t r, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws circle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga12d38b5bae7cf33dce21b97e9ed7f114}{ILI9341\+Draw\+Filled\+Circle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t r, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws filled circle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga91597ef98cf09f7d8870917f9b5ebea4}{ILI9341\+Draw\+Triangle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, int16\+\_\+t x2, int16\+\_\+t y2, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws triangle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga371e40bd6e120c18f7fff4a5a0f292b2}{ILI9341\+Draw\+Filled\+Triangle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, int16\+\_\+t x2, int16\+\_\+t y2, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws filled triangle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gaef4d22da8546573df6381d4d0f3911f0}{ILI9341\+Draw\+Picture}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t width, uint16\+\_\+t hieght, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}pic)
+\begin{DoxyCompactList}\small\item\em Draw a picture on the LCD. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___i_l_i9341_gafae878cd3134badb186d4f6eae0c5de9}{ILI9341\+De\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em De-\/initializes ILI9341 LCD. \end{DoxyCompactList}\end{DoxyCompactItemize}

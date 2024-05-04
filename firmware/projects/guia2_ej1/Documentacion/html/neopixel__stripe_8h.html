@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Proyecto 2 actividad 1: Referencia del archivo C:/Repositorios/EProgramable_FIUNER/firmware/drivers/devices/inc/neopixel_stripe.h</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Proyecto 2 actividad 1<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Mide distancia,muestra en Display y prende LED. Utiliza tareas.</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('neopixel__stripe_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#typedef-members">typedefs</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo neopixel_stripe.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &quot;sdkconfig.h&quot;</code><br />
+<code>#include &quot;esp_err.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="gpio__mcu_8h_source.html">gpio_mcu.h</a>&quot;</code><br />
+</div>
+<p><a href="neopixel__stripe_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:ga1585c41d4e31451e1ba0899672251fd0" id="r_ga1585c41d4e31451e1ba0899672251fd0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga1585c41d4e31451e1ba0899672251fd0">BUILT_IN_RGB_LED_PIN</a>&#160;&#160;&#160;<a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a1633eaf3914293921cf5e102f5026106">GPIO_8</a>        /*&gt; ESP32-C6-DevKitC-1 NeoPixel it's connected at <a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a1633eaf3914293921cf5e102f5026106">GPIO_8</a> */</td></tr>
+<tr class="memdesc:ga1585c41d4e31451e1ba0899672251fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">NeoPixel driver for the ESP-EDU Board.  <br /></td></tr>
+<tr class="separator:ga1585c41d4e31451e1ba0899672251fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6671e70ff1d2d50e9051e81cc1f99223" id="r_ga6671e70ff1d2d50e9051e81cc1f99223"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga6671e70ff1d2d50e9051e81cc1f99223">BUILT_IN_RGB_LED_LENGTH</a>&#160;&#160;&#160;1             /*&gt; ESP32-C6-DevKitC-1 NeoPixel has one pixel */</td></tr>
+<tr class="separator:ga6671e70ff1d2d50e9051e81cc1f99223"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab21b8bf436d12066d07deef42b83e272" id="r_gab21b8bf436d12066d07deef42b83e272"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gab21b8bf436d12066d07deef42b83e272">NEOPIXEL_COLOR_WHITE</a>&#160;&#160;&#160;0x00FFFFFF  /*&gt; Color white */</td></tr>
+<tr class="separator:gab21b8bf436d12066d07deef42b83e272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2e1dcc1fe1f1ec8488bc4185597108f2" id="r_ga2e1dcc1fe1f1ec8488bc4185597108f2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga2e1dcc1fe1f1ec8488bc4185597108f2">NEOPIXEL_COLOR_RED</a>&#160;&#160;&#160;0x00FF0000  /*&gt; Color red */</td></tr>
+<tr class="separator:ga2e1dcc1fe1f1ec8488bc4185597108f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad01b5463a5171bb2fdeab894b86131b5" id="r_gad01b5463a5171bb2fdeab894b86131b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gad01b5463a5171bb2fdeab894b86131b5">NEOPIXEL_COLOR_ORANGE</a>&#160;&#160;&#160;0x00FF7D00  /*&gt; Color orange */</td></tr>
+<tr class="separator:gad01b5463a5171bb2fdeab894b86131b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga94c4bcd376cbef7becd93531c1031df6" id="r_ga94c4bcd376cbef7becd93531c1031df6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga94c4bcd376cbef7becd93531c1031df6">NEOPIXEL_COLOR_YELLOW</a>&#160;&#160;&#160;0x007F7F00  /*&gt; Color yellow */</td></tr>
+<tr class="separator:ga94c4bcd376cbef7becd93531c1031df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafac09aef2fe0017a3bbc6e578c062365" id="r_gafac09aef2fe0017a3bbc6e578c062365"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gafac09aef2fe0017a3bbc6e578c062365">NEOPIXEL_COLOR_LGREEN</a>&#160;&#160;&#160;0x007DFF00  /*&gt; Color ligth green */</td></tr>
+<tr class="separator:gafac09aef2fe0017a3bbc6e578c062365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac8188c114d2342b3ca60466df01c7111" id="r_gac8188c114d2342b3ca60466df01c7111"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gac8188c114d2342b3ca60466df01c7111">NEOPIXEL_COLOR_GREEN</a>&#160;&#160;&#160;0x0000FF00  /*&gt; Color green */</td></tr>
+<tr class="separator:gac8188c114d2342b3ca60466df01c7111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga72327279e6027cbeb0b836bd9c5c6540" id="r_ga72327279e6027cbeb0b836bd9c5c6540"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga72327279e6027cbeb0b836bd9c5c6540">NEOPIXEL_COLOR_TURQUOISE</a>&#160;&#160;&#160;0x0000FF7D  /*&gt; Color turquoise */</td></tr>
+<tr class="separator:ga72327279e6027cbeb0b836bd9c5c6540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1bbd4decd349b5f30af62223d2617742" id="r_ga1bbd4decd349b5f30af62223d2617742"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga1bbd4decd349b5f30af62223d2617742">NEOPIXEL_COLOR_CYAN</a>&#160;&#160;&#160;0x0000F7F7  /*&gt; Color cyan */</td></tr>
+<tr class="separator:ga1bbd4decd349b5f30af62223d2617742"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae190ef27b88f70b5f13936044baa1e74" id="r_gae190ef27b88f70b5f13936044baa1e74"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gae190ef27b88f70b5f13936044baa1e74">NEOPIXEL_COLOR_OCEAN</a>&#160;&#160;&#160;0x00007DFF  /*&gt; Color ocean */</td></tr>
+<tr class="separator:gae190ef27b88f70b5f13936044baa1e74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b34bb5f5ac15880f7ee287053559470" id="r_ga0b34bb5f5ac15880f7ee287053559470"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga0b34bb5f5ac15880f7ee287053559470">NEOPIXEL_COLOR_BLUE</a>&#160;&#160;&#160;0x000000FF  /*&gt; Color blue */</td></tr>
+<tr class="separator:ga0b34bb5f5ac15880f7ee287053559470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1c1707be8a267a4d1f32640ff25a38f5" id="r_ga1c1707be8a267a4d1f32640ff25a38f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga1c1707be8a267a4d1f32640ff25a38f5">NEOPIXEL_COLOR_VIOLET</a>&#160;&#160;&#160;0x007D00FF  /*&gt; Color violet */</td></tr>
+<tr class="separator:ga1c1707be8a267a4d1f32640ff25a38f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga85854bf074b7494c8816468f93781851" id="r_ga85854bf074b7494c8816468f93781851"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga85854bf074b7494c8816468f93781851">NEOPIXEL_COLOR_MAGENTA</a>&#160;&#160;&#160;0x007F007F  /*&gt; Color magenta */</td></tr>
+<tr class="separator:ga85854bf074b7494c8816468f93781851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6eac59a3417616eea96c26c43823fbc6" id="r_ga6eac59a3417616eea96c26c43823fbc6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga6eac59a3417616eea96c26c43823fbc6">NEOPIXEL_COLOR_ROSE</a>&#160;&#160;&#160;0x00FF007D  /*&gt; Color rose */</td></tr>
+<tr class="separator:ga6eac59a3417616eea96c26c43823fbc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3231b1cce620e883be5b2093d9934b19" id="r_ga3231b1cce620e883be5b2093d9934b19"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga3231b1cce620e883be5b2093d9934b19">NEOPIXEL_HUE_RED</a>&#160;&#160;&#160;0x0000      /*&gt; Hue red */</td></tr>
+<tr class="separator:ga3231b1cce620e883be5b2093d9934b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f6e9fae32ee655d56923a91ce799a40" id="r_ga9f6e9fae32ee655d56923a91ce799a40"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga9f6e9fae32ee655d56923a91ce799a40">NEOPIXEL_HUE_ORANGE</a>&#160;&#160;&#160;0x1555      /*&gt; Hue orange */</td></tr>
+<tr class="separator:ga9f6e9fae32ee655d56923a91ce799a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaddb098f967e2a711f027e7b07ba309f7" id="r_gaddb098f967e2a711f027e7b07ba309f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gaddb098f967e2a711f027e7b07ba309f7">NEOPIXEL_HUE_YELLOW</a>&#160;&#160;&#160;0x2AAA      /*&gt; Hue yellow */</td></tr>
+<tr class="separator:gaddb098f967e2a711f027e7b07ba309f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60b6dadec3258d56ac54ced562a46cd8" id="r_ga60b6dadec3258d56ac54ced562a46cd8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga60b6dadec3258d56ac54ced562a46cd8">NEOPIXEL_HUE_LGREEN</a>&#160;&#160;&#160;0x4000      /*&gt; Hue ligth green */</td></tr>
+<tr class="separator:ga60b6dadec3258d56ac54ced562a46cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab35332981182a145ecb8a71461d174e0" id="r_gab35332981182a145ecb8a71461d174e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gab35332981182a145ecb8a71461d174e0">NEOPIXEL_HUE_GREEN</a>&#160;&#160;&#160;0x5555      /*&gt; Hue green */</td></tr>
+<tr class="separator:gab35332981182a145ecb8a71461d174e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9450fd6a0031d7a4181f2cae8807a58" id="r_gae9450fd6a0031d7a4181f2cae8807a58"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gae9450fd6a0031d7a4181f2cae8807a58">NEOPIXEL_HUE_TURQUOISE</a>&#160;&#160;&#160;0x6AAA      /*&gt; Hue turquoise */</td></tr>
+<tr class="separator:gae9450fd6a0031d7a4181f2cae8807a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga93061f31a8989eb016cbfef36785139b" id="r_ga93061f31a8989eb016cbfef36785139b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga93061f31a8989eb016cbfef36785139b">NEOPIXEL_HUE_CYAN</a>&#160;&#160;&#160;0x8000      /*&gt; Hue cyan */</td></tr>
+<tr class="separator:ga93061f31a8989eb016cbfef36785139b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab34d42267a7d66cf4849dccfae9724ff" id="r_gab34d42267a7d66cf4849dccfae9724ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gab34d42267a7d66cf4849dccfae9724ff">NEOPIXEL_HUE_OCEAN</a>&#160;&#160;&#160;0x9555      /*&gt; Hue ocean */</td></tr>
+<tr class="separator:gab34d42267a7d66cf4849dccfae9724ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8531cdd3f1810183ae737e92a6d88466" id="r_ga8531cdd3f1810183ae737e92a6d88466"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga8531cdd3f1810183ae737e92a6d88466">NEOPIXEL_HUE_BLUE</a>&#160;&#160;&#160;0xAAAA      /*&gt; Hue blue */</td></tr>
+<tr class="separator:ga8531cdd3f1810183ae737e92a6d88466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2da18f05db61923aa6173713a8cda595" id="r_ga2da18f05db61923aa6173713a8cda595"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga2da18f05db61923aa6173713a8cda595">NEOPIXEL_HUE_VIOLET</a>&#160;&#160;&#160;0xC000      /*&gt; Hue violet */</td></tr>
+<tr class="separator:ga2da18f05db61923aa6173713a8cda595"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee7247cbfba08510a59d249d401953ec" id="r_gaee7247cbfba08510a59d249d401953ec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gaee7247cbfba08510a59d249d401953ec">NEOPIXEL_HUE_MAGENTA</a>&#160;&#160;&#160;0xD555      /*&gt; Hue magenta */</td></tr>
+<tr class="separator:gaee7247cbfba08510a59d249d401953ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5461e37a4c0e1c1cb6e1ce5d835c482" id="r_gab5461e37a4c0e1c1cb6e1ce5d835c482"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gab5461e37a4c0e1c1cb6e1ce5d835c482">NEOPIXEL_HUE_ROSE</a>&#160;&#160;&#160;0xEAAA      /*&gt; Hue rose */</td></tr>
+<tr class="separator:gab5461e37a4c0e1c1cb6e1ce5d835c482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+typedefs</h2></td></tr>
+<tr class="memitem:ga46c58082e9d85e6503e36f0e2306bb39" id="r_ga46c58082e9d85e6503e36f0e2306bb39"><td class="memItemLeft" align="right" valign="top">typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga46c58082e9d85e6503e36f0e2306bb39">neopixel_color_t</a></td></tr>
+<tr class="memdesc:ga46c58082e9d85e6503e36f0e2306bb39"><td class="mdescLeft">&#160;</td><td class="mdescRight">24 bits color  <br /></td></tr>
+<tr class="separator:ga46c58082e9d85e6503e36f0e2306bb39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ga1dd960cb0564070aae4f05d455a21942" id="r_ga1dd960cb0564070aae4f05d455a21942"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga1dd960cb0564070aae4f05d455a21942">NeoPixelInit</a> (<a class="el" href="group___g_i_o_p.html#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a> pin, uint16_t len, <a class="el" href="group___neo_pixel___stripe.html#ga46c58082e9d85e6503e36f0e2306bb39">neopixel_color_t</a> *color_array)</td></tr>
+<tr class="memdesc:ga1dd960cb0564070aae4f05d455a21942"><td class="mdescLeft">&#160;</td><td class="mdescRight">NeoPixel array initialization.  <br /></td></tr>
+<tr class="separator:ga1dd960cb0564070aae4f05d455a21942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7eda8ecf6370a5af575af2ca85eafa6d" id="r_ga7eda8ecf6370a5af575af2ca85eafa6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga7eda8ecf6370a5af575af2ca85eafa6d">NeoPixelAllOff</a> (void)</td></tr>
+<tr class="memdesc:ga7eda8ecf6370a5af575af2ca85eafa6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn off all NeoPixels.  <br /></td></tr>
+<tr class="separator:ga7eda8ecf6370a5af575af2ca85eafa6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00aedd9bd24d607244a314348180bdb8" id="r_ga00aedd9bd24d607244a314348180bdb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga00aedd9bd24d607244a314348180bdb8">NeoPixelAllColor</a> (<a class="el" href="group___neo_pixel___stripe.html#ga46c58082e9d85e6503e36f0e2306bb39">neopixel_color_t</a> color)</td></tr>
+<tr class="memdesc:ga00aedd9bd24d607244a314348180bdb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change all NeoPixels in the stripe to the same color.  <br /></td></tr>
+<tr class="separator:ga00aedd9bd24d607244a314348180bdb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f53683e3207e9523fc201bdc79b6025" id="r_ga7f53683e3207e9523fc201bdc79b6025"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga7f53683e3207e9523fc201bdc79b6025">NeoPixelSetPixel</a> (uint16_t pixel, <a class="el" href="group___neo_pixel___stripe.html#ga46c58082e9d85e6503e36f0e2306bb39">neopixel_color_t</a> color)</td></tr>
+<tr class="memdesc:ga7f53683e3207e9523fc201bdc79b6025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set an individual pixel to a color.  <br /></td></tr>
+<tr class="separator:ga7f53683e3207e9523fc201bdc79b6025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23ae424d3a323c2e315b3f89ba857a84" id="r_ga23ae424d3a323c2e315b3f89ba857a84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga23ae424d3a323c2e315b3f89ba857a84">NeoPixelSetArray</a> (<a class="el" href="group___neo_pixel___stripe.html#ga46c58082e9d85e6503e36f0e2306bb39">neopixel_color_t</a> *color_array)</td></tr>
+<tr class="memdesc:ga23ae424d3a323c2e315b3f89ba857a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all NeoPixels in the array with the color stored in an array.  <br /></td></tr>
+<tr class="separator:ga23ae424d3a323c2e315b3f89ba857a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac95515e3889b8cebd2f8bf0e72590d33" id="r_gac95515e3889b8cebd2f8bf0e72590d33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gac95515e3889b8cebd2f8bf0e72590d33">NeoPixelShift</a> (bool upwards)</td></tr>
+<tr class="memdesc:gac95515e3889b8cebd2f8bf0e72590d33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift the all NeoPixel colors in the array 1 position (up or down)  <br /></td></tr>
+<tr class="separator:gac95515e3889b8cebd2f8bf0e72590d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacebd73c47572bd32b7f578e3dd98cc2f" id="r_gacebd73c47572bd32b7f578e3dd98cc2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gacebd73c47572bd32b7f578e3dd98cc2f">NeoPixelBrightness</a> (uint8_t bright)</td></tr>
+<tr class="memdesc:gacebd73c47572bd32b7f578e3dd98cc2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change NeoPixel brightness.  <br /></td></tr>
+<tr class="separator:gacebd73c47572bd32b7f578e3dd98cc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf687598b356c6dab43afa17df8014a22" id="r_gaf687598b356c6dab43afa17df8014a22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___neo_pixel___stripe.html#ga46c58082e9d85e6503e36f0e2306bb39">neopixel_color_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gaf687598b356c6dab43afa17df8014a22">NeoPixelRgb2Color</a> (uint8_t red, uint8_t green, uint8_t blue)</td></tr>
+<tr class="memdesc:gaf687598b356c6dab43afa17df8014a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert 3 individual color levels (R, G, B) to a 24bits color data.  <br /></td></tr>
+<tr class="separator:gaf687598b356c6dab43afa17df8014a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1f293711b6af3e20c821fd26c7089111" id="r_ga1f293711b6af3e20c821fd26c7089111"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___neo_pixel___stripe.html#ga46c58082e9d85e6503e36f0e2306bb39">neopixel_color_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#ga1f293711b6af3e20c821fd26c7089111">NeoPixelHSV2Color</a> (uint16_t hue, uint8_t sat, uint8_t val)</td></tr>
+<tr class="memdesc:ga1f293711b6af3e20c821fd26c7089111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert hue, value and saturation values to 24 bits color (using the HSV color model)  <br /></td></tr>
+<tr class="separator:ga1f293711b6af3e20c821fd26c7089111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa286fdaba2147e99c24195745ad30dba" id="r_gaa286fdaba2147e99c24195745ad30dba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___neo_pixel___stripe.html#gaa286fdaba2147e99c24195745ad30dba">NeoPixelRainbow</a> (uint16_t first_hue, uint8_t sat, uint8_t val, uint8_t reps)</td></tr>
+<tr class="memdesc:gaa286fdaba2147e99c24195745ad30dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all NeoPixels with a gradient of colors.  <br /></td></tr>
+<tr class="separator:gaa286fdaba2147e99c24195745ad30dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_fcba15287a7fba83beff6e7e8c7a3a80.html">firmware</a></li><li class="navelem"><a class="el" href="dir_d771f3729bc48f700515c8c6c400e99b.html">drivers</a></li><li class="navelem"><a class="el" href="dir_7f308ea91af7ba00bd2379b2a292bcdf.html">devices</a></li><li class="navelem"><a class="el" href="dir_7434c8e53b2b67f7e652dbb5de76370a.html">inc</a></li><li class="navelem"><a class="el" href="neopixel__stripe_8h.html">neopixel_stripe.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>
