@@ -40,13 +40,13 @@
             "path": "projects/guia2_ej3"
         },
         {
-            "path": "projects/x_template - copia"
-        },
-        {
             "path": "projects/proyecto_integrador"
         },
         {
             "path": "projects/ej_bluetooth_mouse_kb"
+        },
+        {
+            "path": "projects/practica"
         }
     ],
     "settings": {
