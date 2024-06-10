@@ -1,0 +1,144 @@
+\doxysection{Referencia de la estructura hidd\+\_\+inst\+\_\+t}
+\hypertarget{structhidd__inst__t}{}\label{structhidd__inst__t}\index{hidd\_inst\_t@{hidd\_inst\_t}}
+\doxysubsubsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structhidd__inst__t_abdf9761d9e8c90fd70ec6eacaad8be2c}{app\+\_\+id}}
+\begin{DoxyCompactList}\small\item\em hidd profile id \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{structhidd__inst__t_a288b58ea8401f7326e231fd2d647e35a}{ntf\+\_\+handle}}
+\begin{DoxyCompactList}\small\item\em Notified handle. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{structhidd__inst__t_a4b02da3773a64fb803b4e3e238fb536b}{att\+\_\+tbl}} \mbox{[}\mbox{\hyperlink{ble__hid__mcu_8c_a06fc87d81c62e9abb8790b6e5713c55ba36d89e035162ba80365c8bd1ed53043e}{HIDD\+\_\+\+LE\+\_\+\+IDX\+\_\+\+NB}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Attribute handle Table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structhidd__feature__t}{hidd\+\_\+feature\+\_\+t}} \mbox{\hyperlink{structhidd__inst__t_ad1c33cd0a6de17edb91e3f9ac6408bad}{hidd\+\_\+feature}} \mbox{[}\mbox{\hyperlink{ble__hid__mcu_8c_aba6364e0b10b2a25a4d3b67801acc237}{HIDD\+\_\+\+LE\+\_\+\+NB\+\_\+\+HIDS\+\_\+\+INST\+\_\+\+MAX}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Supported Features. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{structhidd__inst__t_a952a3c195acc8c36d644a05851803e26}{proto\+\_\+mode}} \mbox{[}\mbox{\hyperlink{ble__hid__mcu_8c_aba6364e0b10b2a25a4d3b67801acc237}{HIDD\+\_\+\+LE\+\_\+\+NB\+\_\+\+HIDS\+\_\+\+INST\+\_\+\+MAX}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Current Protocol Mode. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{structhidd__inst__t_a495699a2ab108b1a8a3b946a36b50979}{hids\+\_\+nb}}
+\begin{DoxyCompactList}\small\item\em Number of HIDS added in the database. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{structhidd__inst__t_ab3d1d6abcb1adc8485e2b95731213cda}{pending\+\_\+evt}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structhidd__inst__t_a0fd188f239761a9826e2dff0975c012b}{pending\+\_\+hal}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8c_source_l00355}{355}} del archivo \mbox{\hyperlink{ble__hid__mcu_8c_source}{ble\+\_\+hid\+\_\+mcu.\+c}}.
+
+
+
+\doxysubsection{Documentación de campos}
+\Hypertarget{structhidd__inst__t_abdf9761d9e8c90fd70ec6eacaad8be2c}\label{structhidd__inst__t_abdf9761d9e8c90fd70ec6eacaad8be2c} 
+\index{hidd\_inst\_t@{hidd\_inst\_t}!app\_id@{app\_id}}
+\index{app\_id@{app\_id}!hidd\_inst\_t@{hidd\_inst\_t}}
+\doxysubsubsection{\texorpdfstring{app\_id}{app\_id}}
+{\footnotesize\ttfamily uint8\+\_\+t app\+\_\+id}
+
+
+
+hidd profile id 
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8c_source_l00357}{357}} del archivo \mbox{\hyperlink{ble__hid__mcu_8c_source}{ble\+\_\+hid\+\_\+mcu.\+c}}.
+
+\Hypertarget{structhidd__inst__t_a4b02da3773a64fb803b4e3e238fb536b}\label{structhidd__inst__t_a4b02da3773a64fb803b4e3e238fb536b} 
+\index{hidd\_inst\_t@{hidd\_inst\_t}!att\_tbl@{att\_tbl}}
+\index{att\_tbl@{att\_tbl}!hidd\_inst\_t@{hidd\_inst\_t}}
+\doxysubsubsection{\texorpdfstring{att\_tbl}{att\_tbl}}
+{\footnotesize\ttfamily uint16\+\_\+t att\+\_\+tbl\mbox{[}\mbox{\hyperlink{ble__hid__mcu_8c_a06fc87d81c62e9abb8790b6e5713c55ba36d89e035162ba80365c8bd1ed53043e}{HIDD\+\_\+\+LE\+\_\+\+IDX\+\_\+\+NB}}\mbox{]}}
+
+
+
+Attribute handle Table. 
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8c_source_l00361}{361}} del archivo \mbox{\hyperlink{ble__hid__mcu_8c_source}{ble\+\_\+hid\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ble__hid__mcu_8c_source_l01056}{esp\+\_\+hidd\+\_\+prf\+\_\+cb\+\_\+hdl()}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l01004}{esp\+\_\+hidd\+\_\+profile\+\_\+deinit()}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l01222}{hidd\+\_\+get\+\_\+attr\+\_\+value()}} y \mbox{\hyperlink{ble__hid__mcu_8c_source_l01212}{hidd\+\_\+set\+\_\+attr\+\_\+value()}}.
+
+\Hypertarget{structhidd__inst__t_ad1c33cd0a6de17edb91e3f9ac6408bad}\label{structhidd__inst__t_ad1c33cd0a6de17edb91e3f9ac6408bad} 
+\index{hidd\_inst\_t@{hidd\_inst\_t}!hidd\_feature@{hidd\_feature}}
+\index{hidd\_feature@{hidd\_feature}!hidd\_inst\_t@{hidd\_inst\_t}}
+\doxysubsubsection{\texorpdfstring{hidd\_feature}{hidd\_feature}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structhidd__feature__t}{hidd\+\_\+feature\+\_\+t}} hidd\+\_\+feature\mbox{[}\mbox{\hyperlink{ble__hid__mcu_8c_aba6364e0b10b2a25a4d3b67801acc237}{HIDD\+\_\+\+LE\+\_\+\+NB\+\_\+\+HIDS\+\_\+\+INST\+\_\+\+MAX}}\mbox{]}}
+
+
+
+Supported Features. 
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8c_source_l00363}{363}} del archivo \mbox{\hyperlink{ble__hid__mcu_8c_source}{ble\+\_\+hid\+\_\+mcu.\+c}}.
+
+\Hypertarget{structhidd__inst__t_a495699a2ab108b1a8a3b946a36b50979}\label{structhidd__inst__t_a495699a2ab108b1a8a3b946a36b50979} 
+\index{hidd\_inst\_t@{hidd\_inst\_t}!hids\_nb@{hids\_nb}}
+\index{hids\_nb@{hids\_nb}!hidd\_inst\_t@{hidd\_inst\_t}}
+\doxysubsubsection{\texorpdfstring{hids\_nb}{hids\_nb}}
+{\footnotesize\ttfamily uint8\+\_\+t hids\+\_\+nb}
+
+
+
+Number of HIDS added in the database. 
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8c_source_l00367}{367}} del archivo \mbox{\hyperlink{ble__hid__mcu_8c_source}{ble\+\_\+hid\+\_\+mcu.\+c}}.
+
+\Hypertarget{structhidd__inst__t_a288b58ea8401f7326e231fd2d647e35a}\label{structhidd__inst__t_a288b58ea8401f7326e231fd2d647e35a} 
+\index{hidd\_inst\_t@{hidd\_inst\_t}!ntf\_handle@{ntf\_handle}}
+\index{ntf\_handle@{ntf\_handle}!hidd\_inst\_t@{hidd\_inst\_t}}
+\doxysubsubsection{\texorpdfstring{ntf\_handle}{ntf\_handle}}
+{\footnotesize\ttfamily uint16\+\_\+t ntf\+\_\+handle}
+
+
+
+Notified handle. 
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8c_source_l00359}{359}} del archivo \mbox{\hyperlink{ble__hid__mcu_8c_source}{ble\+\_\+hid\+\_\+mcu.\+c}}.
+
+\Hypertarget{structhidd__inst__t_ab3d1d6abcb1adc8485e2b95731213cda}\label{structhidd__inst__t_ab3d1d6abcb1adc8485e2b95731213cda} 
+\index{hidd\_inst\_t@{hidd\_inst\_t}!pending\_evt@{pending\_evt}}
+\index{pending\_evt@{pending\_evt}!hidd\_inst\_t@{hidd\_inst\_t}}
+\doxysubsubsection{\texorpdfstring{pending\_evt}{pending\_evt}}
+{\footnotesize\ttfamily uint8\+\_\+t pending\+\_\+evt}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8c_source_l00368}{368}} del archivo \mbox{\hyperlink{ble__hid__mcu_8c_source}{ble\+\_\+hid\+\_\+mcu.\+c}}.
+
+\Hypertarget{structhidd__inst__t_a0fd188f239761a9826e2dff0975c012b}\label{structhidd__inst__t_a0fd188f239761a9826e2dff0975c012b} 
+\index{hidd\_inst\_t@{hidd\_inst\_t}!pending\_hal@{pending\_hal}}
+\index{pending\_hal@{pending\_hal}!hidd\_inst\_t@{hidd\_inst\_t}}
+\doxysubsubsection{\texorpdfstring{pending\_hal}{pending\_hal}}
+{\footnotesize\ttfamily uint16\+\_\+t pending\+\_\+hal}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8c_source_l00369}{369}} del archivo \mbox{\hyperlink{ble__hid__mcu_8c_source}{ble\+\_\+hid\+\_\+mcu.\+c}}.
+
+\Hypertarget{structhidd__inst__t_a952a3c195acc8c36d644a05851803e26}\label{structhidd__inst__t_a952a3c195acc8c36d644a05851803e26} 
+\index{hidd\_inst\_t@{hidd\_inst\_t}!proto\_mode@{proto\_mode}}
+\index{proto\_mode@{proto\_mode}!hidd\_inst\_t@{hidd\_inst\_t}}
+\doxysubsubsection{\texorpdfstring{proto\_mode}{proto\_mode}}
+{\footnotesize\ttfamily uint8\+\_\+t proto\+\_\+mode\mbox{[}\mbox{\hyperlink{ble__hid__mcu_8c_aba6364e0b10b2a25a4d3b67801acc237}{HIDD\+\_\+\+LE\+\_\+\+NB\+\_\+\+HIDS\+\_\+\+INST\+\_\+\+MAX}}\mbox{]}}
+
+
+
+Current Protocol Mode. 
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8c_source_l00365}{365}} del archivo \mbox{\hyperlink{ble__hid__mcu_8c_source}{ble\+\_\+hid\+\_\+mcu.\+c}}.
+
+
+
+La documentación de esta estructura está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/src/\mbox{\hyperlink{ble__hid__mcu_8c}{ble\+\_\+hid\+\_\+mcu.\+c}}\end{DoxyCompactItemize}

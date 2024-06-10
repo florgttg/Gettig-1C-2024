@@ -1,0 +1,619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Practica de parcial: GPIO</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Practica de parcial<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Cebador automatico de mate</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('group___g_i_o_p.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#typedef-members">typedefs</a> &#124;
+<a href="#enum-members">Enumeraciones</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle"><div class="title">GPIO<div class="ingroups"><a class="el" href="group___drivers___programable.html">Drivers Programable</a> &raquo; <a class="el" href="group___drivers___microcontroller.html">Drivers microcontroller</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+typedefs</h2></td></tr>
+<tr class="memitem:gac6f7bd4f7ee306a4519f04641cbf2d67" id="r_gac6f7bd4f7ee306a4519f04641cbf2d67"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="#gaf65604147d0244c9b13cfdc865ad5393">gpio_list</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a></td></tr>
+<tr class="memdesc:gac6f7bd4f7ee306a4519f04641cbf2d67"><td class="mdescLeft">&#160;</td><td class="mdescRight">ESP32-C6 available GPIOs (not all of them are available in ESP-EDU)  <br /></td></tr>
+<tr class="separator:gac6f7bd4f7ee306a4519f04641cbf2d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumeraciones</h2></td></tr>
+<tr class="memitem:ga423620ef7d69894833f70cfc395caaa9" id="r_ga423620ef7d69894833f70cfc395caaa9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga423620ef7d69894833f70cfc395caaa9">io_t</a> { <a class="el" href="#gga423620ef7d69894833f70cfc395caaa9aa1ea38ffc304a6c32480a65b5fec7302">GPIO_INPUT</a> = 0
+, <a class="el" href="#gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516">GPIO_OUTPUT</a>
+ }</td></tr>
+<tr class="memdesc:ga423620ef7d69894833f70cfc395caaa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO driver for the ESP-EDU Board.  <a href="#ga423620ef7d69894833f70cfc395caaa9">Más...</a><br /></td></tr>
+<tr class="separator:ga423620ef7d69894833f70cfc395caaa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf65604147d0244c9b13cfdc865ad5393" id="r_gaf65604147d0244c9b13cfdc865ad5393"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf65604147d0244c9b13cfdc865ad5393">gpio_list</a> { <br />
+&#160;&#160;<a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a086256647dcbd93f77f55f1da9bb443e">GPIO_0</a> =0
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a8595f8d7a0ae611fb06e4b9c690295f3">GPIO_1</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393abbea21b656f1917800d9d279b685f38e">GPIO_2</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a426d08ab85ab3aebbb53eed1a32dfb71">GPIO_3</a>
+, <br />
+&#160;&#160;<a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a8750fdf2e45e210b73beac29d0583b8d">GPIO_4</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a6213ab680cde9fe00f518cfb26a30a6b">GPIO_5</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a1b3ef28b8ae924f5f3fdfbb0ed7e6f7c">GPIO_6</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a4bae0816af6049c68cf772f0e01ea0e5">GPIO_7</a>
+, <br />
+&#160;&#160;<a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a1633eaf3914293921cf5e102f5026106">GPIO_8</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d">GPIO_9</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a3943e6071dec78b6bcf9586cf0de6dd3">GPIO_10</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393af3ddb0db315daeab49b75dbca06ba6e5">GPIO_11</a>
+, <br />
+&#160;&#160;<a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a9c0d0164730f9f641db357f5781643d0">GPIO_12</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393ad3c7eb7127bc6e6c1ecc8216c518c60b">GPIO_13</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393ada33ca57455eb7fc3c6af46dd57fea41">GPIO_14</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a10d7c4b9b8ab7cf7c5f77d99bf420849">GPIO_15</a>
+, <br />
+&#160;&#160;<a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393af5c2b7f44743385580550aa81e4b4f31">GPIO_16</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a272b8d60ca888339e5095000b50ba5b1">GPIO_17</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917">GPIO_18</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847">GPIO_19</a>
+, <br />
+&#160;&#160;<a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95">GPIO_20</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c">GPIO_21</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb">GPIO_22</a>
+, <a class="el" href="#ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f">GPIO_23</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:gaf65604147d0244c9b13cfdc865ad5393"><td class="mdescLeft">&#160;</td><td class="mdescRight">ESP32-C6 available GPIOs (not all of them are available in ESP-EDU)  <a href="#gaf65604147d0244c9b13cfdc865ad5393">Más...</a><br /></td></tr>
+<tr class="separator:gaf65604147d0244c9b13cfdc865ad5393"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ga10240d283f64bd1b09fca664fda27964" id="r_ga10240d283f64bd1b09fca664fda27964"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga10240d283f64bd1b09fca664fda27964">GPIOInit</a> (<a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a> pin, <a class="el" href="#ga423620ef7d69894833f70cfc395caaa9">io_t</a> io)</td></tr>
+<tr class="memdesc:ga10240d283f64bd1b09fca664fda27964"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO initialization.  <br /></td></tr>
+<tr class="separator:ga10240d283f64bd1b09fca664fda27964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba62250f2b0e73a98b6f35fb6078fdb1" id="r_gaba62250f2b0e73a98b6f35fb6078fdb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaba62250f2b0e73a98b6f35fb6078fdb1">GPIOOn</a> (<a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a> pin)</td></tr>
+<tr class="memdesc:gaba62250f2b0e73a98b6f35fb6078fdb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change GPIO state to high.  <br /></td></tr>
+<tr class="separator:gaba62250f2b0e73a98b6f35fb6078fdb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga30ed9d97406129b9b6390154a7479d70" id="r_ga30ed9d97406129b9b6390154a7479d70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga30ed9d97406129b9b6390154a7479d70">GPIOOff</a> (<a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a> pin)</td></tr>
+<tr class="memdesc:ga30ed9d97406129b9b6390154a7479d70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change GPIO state to low.  <br /></td></tr>
+<tr class="separator:ga30ed9d97406129b9b6390154a7479d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff44adf38b055e964fe7e89834eabccc" id="r_gaff44adf38b055e964fe7e89834eabccc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaff44adf38b055e964fe7e89834eabccc">GPIOState</a> (<a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a> pin, bool state)</td></tr>
+<tr class="memdesc:gaff44adf38b055e964fe7e89834eabccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change GPIO state.  <br /></td></tr>
+<tr class="separator:gaff44adf38b055e964fe7e89834eabccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf7eae149edbe60c38faeb4b634b75b6" id="r_gacf7eae149edbe60c38faeb4b634b75b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacf7eae149edbe60c38faeb4b634b75b6">GPIOToggle</a> (<a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a> pin)</td></tr>
+<tr class="memdesc:gacf7eae149edbe60c38faeb4b634b75b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invert GPIO state.  <br /></td></tr>
+<tr class="separator:gacf7eae149edbe60c38faeb4b634b75b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab42a477acc6064150000fb4a1bd4305c" id="r_gab42a477acc6064150000fb4a1bd4305c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab42a477acc6064150000fb4a1bd4305c">GPIORead</a> (<a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a> pin)</td></tr>
+<tr class="memdesc:gab42a477acc6064150000fb4a1bd4305c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads GPIO state.  <br /></td></tr>
+<tr class="separator:gab42a477acc6064150000fb4a1bd4305c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5488fbc04a198d3d3fd3d1b04e6c5f5" id="r_gad5488fbc04a198d3d3fd3d1b04e6c5f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad5488fbc04a198d3d3fd3d1b04e6c5f5">GPIOActivInt</a> (<a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a> pin, void *ptr_int_func, bool edge, void *args)</td></tr>
+<tr class="memdesc:gad5488fbc04a198d3d3fd3d1b04e6c5f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure GPIO input interruption.  <br /></td></tr>
+<tr class="separator:gad5488fbc04a198d3d3fd3d1b04e6c5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f43faf280a63697678036bdbd434c46" id="r_ga3f43faf280a63697678036bdbd434c46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3f43faf280a63697678036bdbd434c46">GPIOInputFilter</a> (<a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a> pin)</td></tr>
+<tr class="memdesc:ga3f43faf280a63697678036bdbd434c46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure an input glitch filter to a GPIO.  <br /></td></tr>
+<tr class="separator:ga3f43faf280a63697678036bdbd434c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa3ab377728bae4c84463cb75c266b60b" id="r_gaa3ab377728bae4c84463cb75c266b60b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa3ab377728bae4c84463cb75c266b60b">GPIODeinit</a> (void)</td></tr>
+<tr class="memdesc:gaa3ab377728bae4c84463cb75c266b60b"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO de-initialization.  <br /></td></tr>
+<tr class="separator:gaa3ab377728bae4c84463cb75c266b60b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<h2 class="groupheader">Documentación de «typedef»</h2>
+<a id="gac6f7bd4f7ee306a4519f04641cbf2d67" name="gac6f7bd4f7ee306a4519f04641cbf2d67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac6f7bd4f7ee306a4519f04641cbf2d67">&#9670;&#160;</a></span>gpio_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="#gaf65604147d0244c9b13cfdc865ad5393">gpio_list</a> <a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ESP32-C6 available GPIOs (not all of them are available in ESP-EDU) </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de enumeraciones</h2>
+<a id="gaf65604147d0244c9b13cfdc865ad5393" name="gaf65604147d0244c9b13cfdc865ad5393"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf65604147d0244c9b13cfdc865ad5393">&#9670;&#160;</a></span>gpio_list</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#gaf65604147d0244c9b13cfdc865ad5393">gpio_list</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ESP32-C6 available GPIOs (not all of them are available in ESP-EDU) </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a086256647dcbd93f77f55f1da9bb443e" name="ggaf65604147d0244c9b13cfdc865ad5393a086256647dcbd93f77f55f1da9bb443e"></a>GPIO_0&#160;</td><td class="fielddoc"><p>GPIO0 - shared with ADC CH0 and DAC </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a8595f8d7a0ae611fb06e4b9c690295f3" name="ggaf65604147d0244c9b13cfdc865ad5393a8595f8d7a0ae611fb06e4b9c690295f3"></a>GPIO_1&#160;</td><td class="fielddoc"><p>GPIO1 - shared with ADC CH1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393abbea21b656f1917800d9d279b685f38e" name="ggaf65604147d0244c9b13cfdc865ad5393abbea21b656f1917800d9d279b685f38e"></a>GPIO_2&#160;</td><td class="fielddoc"><p>GPIO2 - shared with ADC CH2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a426d08ab85ab3aebbb53eed1a32dfb71" name="ggaf65604147d0244c9b13cfdc865ad5393a426d08ab85ab3aebbb53eed1a32dfb71"></a>GPIO_3&#160;</td><td class="fielddoc"><p>GPIO3 - shared with ADC CH3 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a8750fdf2e45e210b73beac29d0583b8d" name="ggaf65604147d0244c9b13cfdc865ad5393a8750fdf2e45e210b73beac29d0583b8d"></a>GPIO_4&#160;</td><td class="fielddoc"><p>GPIO4 - connected to SWITCH_1 (TECLA 1) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a6213ab680cde9fe00f518cfb26a30a6b" name="ggaf65604147d0244c9b13cfdc865ad5393a6213ab680cde9fe00f518cfb26a30a6b"></a>GPIO_5&#160;</td><td class="fielddoc"><p>GPIO5 - connected to LED_3 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a1b3ef28b8ae924f5f3fdfbb0ed7e6f7c" name="ggaf65604147d0244c9b13cfdc865ad5393a1b3ef28b8ae924f5f3fdfbb0ed7e6f7c"></a>GPIO_6&#160;</td><td class="fielddoc"><p>GPIO6 - shared with I2C SDA </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a4bae0816af6049c68cf772f0e01ea0e5" name="ggaf65604147d0244c9b13cfdc865ad5393a4bae0816af6049c68cf772f0e01ea0e5"></a>GPIO_7&#160;</td><td class="fielddoc"><p>GPIO7 - shared with I2C SCL </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a1633eaf3914293921cf5e102f5026106" name="ggaf65604147d0244c9b13cfdc865ad5393a1633eaf3914293921cf5e102f5026106"></a>GPIO_8&#160;</td><td class="fielddoc"><p>GPIO8 - shared with NeoPixel </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d" name="ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d"></a>GPIO_9&#160;</td><td class="fielddoc"><p>GPIO9 - shared with SPI CS0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a3943e6071dec78b6bcf9586cf0de6dd3" name="ggaf65604147d0244c9b13cfdc865ad5393a3943e6071dec78b6bcf9586cf0de6dd3"></a>GPIO_10&#160;</td><td class="fielddoc"><p>GPIO10 - connected to LED_2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393af3ddb0db315daeab49b75dbca06ba6e5" name="ggaf65604147d0244c9b13cfdc865ad5393af3ddb0db315daeab49b75dbca06ba6e5"></a>GPIO_11&#160;</td><td class="fielddoc"><p>GPIO11 - connected to LED_1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a9c0d0164730f9f641db357f5781643d0" name="ggaf65604147d0244c9b13cfdc865ad5393a9c0d0164730f9f641db357f5781643d0"></a>GPIO_12&#160;</td><td class="fielddoc"><p>GPIO12 - shared with USB_D- (not recommended for use) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393ad3c7eb7127bc6e6c1ecc8216c518c60b" name="ggaf65604147d0244c9b13cfdc865ad5393ad3c7eb7127bc6e6c1ecc8216c518c60b"></a>GPIO_13&#160;</td><td class="fielddoc"><p>GPIO13 - shared with USB_D+ (not recommended for use) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393ada33ca57455eb7fc3c6af46dd57fea41" name="ggaf65604147d0244c9b13cfdc865ad5393ada33ca57455eb7fc3c6af46dd57fea41"></a>GPIO_14&#160;</td><td class="fielddoc"><p>not available </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a10d7c4b9b8ab7cf7c5f77d99bf420849" name="ggaf65604147d0244c9b13cfdc865ad5393a10d7c4b9b8ab7cf7c5f77d99bf420849"></a>GPIO_15&#160;</td><td class="fielddoc"><p>GPIO15 - connected to SWITCH_2 (TECLA 2) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393af5c2b7f44743385580550aa81e4b4f31" name="ggaf65604147d0244c9b13cfdc865ad5393af5c2b7f44743385580550aa81e4b4f31"></a>GPIO_16&#160;</td><td class="fielddoc"><p>GPIO16 - shared with UART_PC TX </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a272b8d60ca888339e5095000b50ba5b1" name="ggaf65604147d0244c9b13cfdc865ad5393a272b8d60ca888339e5095000b50ba5b1"></a>GPIO_17&#160;</td><td class="fielddoc"><p>GPIO17 - shared with UART_PC RX </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917" name="ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917"></a>GPIO_18&#160;</td><td class="fielddoc"><p>GPIO18 - shared with UART_CONNECTOR TX and SPI CS2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847" name="ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847"></a>GPIO_19&#160;</td><td class="fielddoc"><p>GPIO19 - shared with UART_CONNECTOR RX and SPI CS1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95" name="ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95"></a>GPIO_20&#160;</td><td class="fielddoc"><p>GPIO20 - shared with SPI SCLK </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c" name="ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c"></a>GPIO_21&#160;</td><td class="fielddoc"><p>GPIO21 - shared with SPI MOSI <br  />
+ </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb" name="ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb"></a>GPIO_22&#160;</td><td class="fielddoc"><p>GPIO22 - shared with SPI MISO <br  />
+ </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f" name="ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f"></a>GPIO_23&#160;</td><td class="fielddoc"><p>GPIO23 </p>
+</td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="gpio__mcu_8h_source.html#l00051">51</a> del archivo <a class="el" href="gpio__mcu_8h_source.html">gpio_mcu.h</a>.</p>
+
+</div>
+</div>
+<a id="ga423620ef7d69894833f70cfc395caaa9" name="ga423620ef7d69894833f70cfc395caaa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga423620ef7d69894833f70cfc395caaa9">&#9670;&#160;</a></span>io_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ga423620ef7d69894833f70cfc395caaa9">io_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>GPIO driver for the ESP-EDU Board. </p>
+<p>This driver provide functions to configure and handle the ESP-EDU General Purpose Input-Outputs .</p>
+<dl class="section note"><dt>Nota</dt><dd>GPIO_4 and GPIO_15 are connected to ESP-EDU switches (only GPIO_15 is available in headers)</dd>
+<dd>
+GPIO_5, GPIO_10 and GPIO_11 are connected to ESP-EDU LEDs.</dd>
+<dd>
+GPIO_12 and GPIO_13 are not recommended for use, because using them will overwrite the flash and debug functionalities via USB.</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Albano Peñalva</dd></dl>
+<h1><a class="anchor" id="changelog"></a>
+Changelog</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Date   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">23/10/2023   </td><td class="markdownTableBodyLeft">Document creation   </td></tr>
+</table>
+<p>GPIO direction (input or output). </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="gga423620ef7d69894833f70cfc395caaa9aa1ea38ffc304a6c32480a65b5fec7302" name="gga423620ef7d69894833f70cfc395caaa9aa1ea38ffc304a6c32480a65b5fec7302"></a>GPIO_INPUT&#160;</td><td class="fielddoc"><p>Input with pull-up resistor </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516" name="gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516"></a>GPIO_OUTPUT&#160;</td><td class="fielddoc"><p>Output </p>
+</td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="gpio__mcu_8h_source.html#l00042">42</a> del archivo <a class="el" href="gpio__mcu_8h_source.html">gpio_mcu.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="gad5488fbc04a198d3d3fd3d1b04e6c5f5" name="gad5488fbc04a198d3d3fd3d1b04e6c5f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad5488fbc04a198d3d3fd3d1b04e6c5f5">&#9670;&#160;</a></span>GPIOActivInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPIOActivInt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a></td>          <td class="paramname"><span class="paramname"><em>pin</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>ptr_int_func</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>edge</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configure GPIO input interruption. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>GPIO number </td></tr>
+    <tr><td class="paramname">ptr_int_func</td><td>Pointer to callback function </td></tr>
+    <tr><td class="paramname">edge</td><td>true: positive edge - false: negative edge </td></tr>
+    <tr><td class="paramname">args</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="gpio__mcu_8c_source.html#l00105">105</a> del archivo <a class="el" href="gpio__mcu_8c_source.html">gpio_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="switch_8c_source.html#l00047">SwitchActivInt()</a>.</p>
+
+</div>
+</div>
+<a id="gaa3ab377728bae4c84463cb75c266b60b" name="gaa3ab377728bae4c84463cb75c266b60b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa3ab377728bae4c84463cb75c266b60b">&#9670;&#160;</a></span>GPIODeinit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPIODeinit </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>GPIO de-initialization. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="gpio__mcu_8c_source.html#l00130">130</a> del archivo <a class="el" href="gpio__mcu_8c_source.html">gpio_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="hc__sr04_8c_source.html#l00089">HcSr04Deinit()</a> y <a class="el" href="lcditse0803_8c_source.html#l00101">LcdItsE0803DeInit()</a>.</p>
+
+</div>
+</div>
+<a id="ga10240d283f64bd1b09fca664fda27964" name="ga10240d283f64bd1b09fca664fda27964"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga10240d283f64bd1b09fca664fda27964">&#9670;&#160;</a></span>GPIOInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPIOInit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a></td>          <td class="paramname"><span class="paramname"><em>pin</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ga423620ef7d69894833f70cfc395caaa9">io_t</a></td>          <td class="paramname"><span class="paramname"><em>io</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>GPIO initialization. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>GPIO number </td></tr>
+    <tr><td class="paramname">io</td><td>GPIO direction </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="gpio__mcu_8c_source.html#l00067">67</a> del archivo <a class="el" href="gpio__mcu_8c_source.html">gpio_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="gpio__mcu_8h_source.html#l00066">GPIO_14</a>, <a class="el" href="gpio__mcu_8h_source.html#l00075">GPIO_23</a>, <a class="el" href="gpio__mcu_8h_source.html#l00043">GPIO_INPUT</a>, <a class="el" href="gpio__mcu_8h_source.html#l00044">GPIO_OUTPUT</a> y <a class="el" href="gpio__mcu_8c_source.html#l00022">digital_io_t::mode</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="practica_8c_source.html#l00230">app_main()</a>, <a class="el" href="hc__sr04_8c_source.html#l00034">HcSr04Init()</a>, <a class="el" href="hx711_8c_source.html#l00047">HX711_Init()</a>, <a class="el" href="ili9341_8c_source.html#l00272">ILI9341Init()</a>, <a class="el" href="l293_8c_source.html#l00040">L293Init()</a>, <a class="el" href="lcditse0803_8c_source.html#l00037">LcdItsE0803Init()</a>, <a class="el" href="led_8c_source.html#l00031">LedsInit()</a> y <a class="el" href="switch_8c_source.html#l00029">SwitchesInit()</a>.</p>
+
+</div>
+</div>
+<a id="ga3f43faf280a63697678036bdbd434c46" name="ga3f43faf280a63697678036bdbd434c46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3f43faf280a63697678036bdbd434c46">&#9670;&#160;</a></span>GPIOInputFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPIOInputFilter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a></td>          <td class="paramname"><span class="paramname"><em>pin</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configure an input glitch filter to a GPIO. </p>
+<dl class="section note"><dt>Nota</dt><dd>You can add filters to up to 8 GPIO</dd></dl>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>GPIO number </td></tr>
+    <tr><td class="paramname">filter</td><td>filter number </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="gpio__mcu_8c_source.html#l00119">119</a> del archivo <a class="el" href="gpio__mcu_8c_source.html">gpio_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="gpio__mcu_8c_source.html#l00057">filter_config</a> y <a class="el" href="gpio__mcu_8c_source.html#l00019">FILTER_QTY</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="switch_8c_source.html#l00029">SwitchesInit()</a>.</p>
+
+</div>
+</div>
+<a id="ga30ed9d97406129b9b6390154a7479d70" name="ga30ed9d97406129b9b6390154a7479d70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga30ed9d97406129b9b6390154a7479d70">&#9670;&#160;</a></span>GPIOOff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPIOOff </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a></td>          <td class="paramname"><span class="paramname"><em>pin</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change GPIO state to low. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>GPIO number </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="gpio__mcu_8c_source.html#l00086">86</a> del archivo <a class="el" href="gpio__mcu_8c_source.html">gpio_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="practica_8c_source.html#l00230">app_main()</a>, <a class="el" href="hc__sr04_8c_source.html#l00045">HcSr04ReadDistanceInCentimeters()</a>, <a class="el" href="hc__sr04_8c_source.html#l00067">HcSr04ReadDistanceInInches()</a>, <a class="el" href="hx711_8c_source.html#l00164">HX711_powerDown()</a>, <a class="el" href="hx711_8c_source.html#l00171">HX711_powerUp()</a>, <a class="el" href="hx711_8c_source.html#l00081">HX711_read()</a>, <a class="el" href="hx711_8c_source.html#l00062">HX711_setGain()</a>, <a class="el" href="l293_8c_source.html#l00051">L293SetSpeed()</a>, <a class="el" href="lcditse0803_8c_source.html#l00087">LcdItsE0803Off()</a>, <a class="el" href="lcditse0803_8c_source.html#l00054">LcdItsE0803Write()</a>, <a class="el" href="led_8c_source.html#l00065">LedOff()</a>, <a class="el" href="led_8c_source.html#l00031">LedsInit()</a>, <a class="el" href="led_8c_source.html#l00105">LedsOffAll()</a>, <a class="el" href="practica_8c_source.html#l00124">NoCalentarAgua()</a>, <a class="el" href="practica_8c_source.html#l00072">NoDispensarAgua()</a>, <a class="el" href="hx711_8c_source.html#l00029">shiftIn()</a> y <a class="el" href="ili9341_8c_source.html#l00196">WriteLCD()</a>.</p>
+
+</div>
+</div>
+<a id="gaba62250f2b0e73a98b6f35fb6078fdb1" name="gaba62250f2b0e73a98b6f35fb6078fdb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaba62250f2b0e73a98b6f35fb6078fdb1">&#9670;&#160;</a></span>GPIOOn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPIOOn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a></td>          <td class="paramname"><span class="paramname"><em>pin</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change GPIO state to high. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>GPIO number </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="gpio__mcu_8c_source.html#l00081">81</a> del archivo <a class="el" href="gpio__mcu_8c_source.html">gpio_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="practica_8c_source.html#l00117">CalentarAgua()</a>, <a class="el" href="practica_8c_source.html#l00065">DispensarAgua()</a>, <a class="el" href="hc__sr04_8c_source.html#l00045">HcSr04ReadDistanceInCentimeters()</a>, <a class="el" href="hc__sr04_8c_source.html#l00067">HcSr04ReadDistanceInInches()</a>, <a class="el" href="hx711_8c_source.html#l00164">HX711_powerDown()</a>, <a class="el" href="hx711_8c_source.html#l00081">HX711_read()</a>, <a class="el" href="ili9341_8c_source.html#l00272">ILI9341Init()</a>, <a class="el" href="l293_8c_source.html#l00051">L293SetSpeed()</a>, <a class="el" href="lcditse0803_8c_source.html#l00087">LcdItsE0803Off()</a>, <a class="el" href="lcditse0803_8c_source.html#l00054">LcdItsE0803Write()</a>, <a class="el" href="led_8c_source.html#l00046">LedOn()</a>, <a class="el" href="hx711_8c_source.html#l00029">shiftIn()</a> y <a class="el" href="ili9341_8c_source.html#l00196">WriteLCD()</a>.</p>
+
+</div>
+</div>
+<a id="gab42a477acc6064150000fb4a1bd4305c" name="gab42a477acc6064150000fb4a1bd4305c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab42a477acc6064150000fb4a1bd4305c">&#9670;&#160;</a></span>GPIORead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GPIORead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a></td>          <td class="paramname"><span class="paramname"><em>pin</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads GPIO state. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true GPIO input high </dd>
+<dd>
+false GPIO input low </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="gpio__mcu_8c_source.html#l00101">101</a> del archivo <a class="el" href="gpio__mcu_8c_source.html">gpio_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="hc__sr04_8c_source.html#l00045">HcSr04ReadDistanceInCentimeters()</a>, <a class="el" href="hc__sr04_8c_source.html#l00067">HcSr04ReadDistanceInInches()</a>, <a class="el" href="hx711_8c_source.html#l00057">HX711_isReady()</a>, <a class="el" href="hx711_8c_source.html#l00081">HX711_read()</a>, <a class="el" href="hx711_8c_source.html#l00029">shiftIn()</a> y <a class="el" href="switch_8c_source.html#l00038">SwitchesRead()</a>.</p>
+
+</div>
+</div>
+<a id="gaff44adf38b055e964fe7e89834eabccc" name="gaff44adf38b055e964fe7e89834eabccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaff44adf38b055e964fe7e89834eabccc">&#9670;&#160;</a></span>GPIOState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPIOState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a></td>          <td class="paramname"><span class="paramname"><em>pin</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change GPIO state. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>GPIO number </td></tr>
+    <tr><td class="paramname">state</td><td>GPIO state (true: high - false: low) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="gpio__mcu_8c_source.html#l00091">91</a> del archivo <a class="el" href="gpio__mcu_8c_source.html">gpio_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="lcditse0803_8c_source.html#l00029">LcdItsE0803BCDtoPin()</a> y <a class="el" href="led_8c_source.html#l00113">LedsMask()</a>.</p>
+
+</div>
+</div>
+<a id="gacf7eae149edbe60c38faeb4b634b75b6" name="gacf7eae149edbe60c38faeb4b634b75b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacf7eae149edbe60c38faeb4b634b75b6">&#9670;&#160;</a></span>GPIOToggle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPIOToggle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a></td>          <td class="paramname"><span class="paramname"><em>pin</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Invert GPIO state. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>GPIO number </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="gpio__mcu_8c_source.html#l00096">96</a> del archivo <a class="el" href="gpio__mcu_8c_source.html">gpio_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="led_8c_source.html#l00084">LedToggle()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

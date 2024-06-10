@@ -1,0 +1,188 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/inc/ble\+\_\+hid\+\_\+mcu.h}
+\hypertarget{ble__hid__mcu_8h}{}\label{ble__hid__mcu_8h}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/ble\_hid\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/ble\_hid\_mcu.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{ble\+\_\+status}} \mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em BLE driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{group___b_l_e_gaed078c594a86d36a49f51710e35c405b}{keyboard\+\_\+cmd}} \mbox{\hyperlink{group___b_l_e_ga528f1243a7bb2eb10a2140592c67e879}{keyboard\+\_\+cmd\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Keyboard/\+Keypad Usage IDs. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{group___b_l_e_ga5f72a05c6c7165f5270a63ffba14035b}{key\+\_\+mask}} \mbox{\hyperlink{group___b_l_e_gab3d8494d4d57a81a068b2b569cb0051e}{key\+\_\+mask\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Mask of modifier keys to be pressed together with any key. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{group___b_l_e_ga2a99f5333cc8031aac3511049bea8211}{mouse\+\_\+cmd}} \mbox{\hyperlink{group___b_l_e_gad70fe6ba1d3a0ac8b4603c11f6de43b2}{mouse\+\_\+cmd\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Mouse commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{ble\+\_\+status}} \{ \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4}{BLE\+\_\+\+OFF}}
+, \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47abe3828521b028796e567225bfbc5a978}{BLE\+\_\+\+DISCONNECTED}}
+, \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399}{BLE\+\_\+\+CONNECTED}}
+ \}
+\begin{DoxyCompactList}\small\item\em BLE driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___b_l_e_gaed078c594a86d36a49f51710e35c405b}{keyboard\+\_\+cmd}} \{ \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba600732ab58224a41d74b86d4a40916f2}{HID\+\_\+\+KEY\+\_\+\+RESERVED}} = 0
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5413afa6a28a21dd52f07db101f2d139}{HID\+\_\+\+KEY\+\_\+A}} = 4
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babb0b25fe8c201dc75b72c7b078f745d6}{HID\+\_\+\+KEY\+\_\+B}} = 5
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba932c610512cc99157654c3997bc2b922}{HID\+\_\+\+KEY\+\_\+C}} = 6
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babc172093417a4c40a7443eee551e9700}{HID\+\_\+\+KEY\+\_\+D}} = 7
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baff7192b9ddd4228e02c44b6fb2d7bf85}{HID\+\_\+\+KEY\+\_\+E}} = 8
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bacc002ca9f0f3bdc01b4de42d00e5560b}{HID\+\_\+\+KEY\+\_\+F}} = 9
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1eadd56346bbd64b1c33fa5393f65bda}{HID\+\_\+\+KEY\+\_\+G}} = 10
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4bfc341fccde664ec9267af6e705ba0c}{HID\+\_\+\+KEY\+\_\+H}} = 11
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bafcd25dc5bba218f7097698f8f49fdc45}{HID\+\_\+\+KEY\+\_\+I}} = 12
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba2a78196208c634941d63429cd1e1df7a}{HID\+\_\+\+KEY\+\_\+J}} = 13
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4ceddaaaa90d84f0afb3e1ee9a35a976}{HID\+\_\+\+KEY\+\_\+K}} = 14
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf5de66adc9eb2aa183eab1e23f977894}{HID\+\_\+\+KEY\+\_\+L}} = 15
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4f8174feca1eb72901576c4e24c8f8a9}{HID\+\_\+\+KEY\+\_\+M}} = 16
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab4d202043e8b0b7a8c2d4c519fd1eb07}{HID\+\_\+\+KEY\+\_\+N}} = 17
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bad8884ef7e77722099e6bd61265f6564c}{HID\+\_\+\+KEY\+\_\+O}} = 18
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baca0480331288d15eccec9f072f123817}{HID\+\_\+\+KEY\+\_\+P}} = 19
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba05fb920f8129f57dd350036f17fbe519}{HID\+\_\+\+KEY\+\_\+Q}} = 20
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba037de00c763ae6b270895b7a5f0f57a7}{HID\+\_\+\+KEY\+\_\+R}} = 21
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae6a84e8474b6c3e8f9f7d344408cfa0b}{HID\+\_\+\+KEY\+\_\+S}} = 22
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba893799f48b30c438349335556a0e15b6}{HID\+\_\+\+KEY\+\_\+T}} = 23
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab3c7c9f3a73e83623c651cdfddddeb05}{HID\+\_\+\+KEY\+\_\+U}} = 24
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba02f14e6303b4d2e4e46747324d649dda}{HID\+\_\+\+KEY\+\_\+V}} = 25
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badf81a88f3f92f15e2abec83911bf3732}{HID\+\_\+\+KEY\+\_\+W}} = 26
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9f3b8bb63f6628db9a1678b72ec12b6d}{HID\+\_\+\+KEY\+\_\+X}} = 27
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4ca2ebe26c09f2400a8ebc0aa445ce89}{HID\+\_\+\+KEY\+\_\+Y}} = 28
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa5cd01ad23ede98de1ae176920b8fc8f}{HID\+\_\+\+KEY\+\_\+Z}} = 29
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba039ced168420140b97e2d0676e1bb12a}{HID\+\_\+\+KEY\+\_\+1}} = 30
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae98dd71460def5e66fcf32e9783b96ea}{HID\+\_\+\+KEY\+\_\+2}} = 31
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf58d848786f8d2dfac702f7fae178311}{HID\+\_\+\+KEY\+\_\+3}} = 32
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba17019d72e84302486f72f7d8101baca5}{HID\+\_\+\+KEY\+\_\+4}} = 33
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf32ab36da2e30066c9ed2816596011c8}{HID\+\_\+\+KEY\+\_\+5}} = 34
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae16b76c1bf9f7aa58a1b1c556a6b6022}{HID\+\_\+\+KEY\+\_\+6}} = 35
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5887a1854f7d0787121bd75034cdd726}{HID\+\_\+\+KEY\+\_\+7}} = 36
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1761228849d7dc2b84d0565d3337b2e2}{HID\+\_\+\+KEY\+\_\+8}} = 37
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba758aec2540a6a2153702d6905c44ce52}{HID\+\_\+\+KEY\+\_\+9}} = 38
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba856ca663233681e789ef4aa94c44ebaf}{HID\+\_\+\+KEY\+\_\+0}} = 39
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bafa33f1938e7862c2f24591e265a74b27}{HID\+\_\+\+KEY\+\_\+\+RETURN}} = 40
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab535b93c13d1bf14aeba8184bf75133f}{HID\+\_\+\+KEY\+\_\+\+ESCAPE}} = 41
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae8f5051cb476c3e9253b008094c431fc}{HID\+\_\+\+KEY\+\_\+\+DELETE}} = 42
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5a6c79e8ea85f6593c06d19098d69a03}{HID\+\_\+\+KEY\+\_\+\+TAB}} = 43
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badcc65069cf17c64428f0a139aac5a5e4}{HID\+\_\+\+KEY\+\_\+\+SPACEBAR}} = 44
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa59864204064d3e8fac5271b69a7da23}{HID\+\_\+\+KEY\+\_\+\+MINUS}} = 45
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bac8d82858905175ba79c24b0be1b1b1a8}{HID\+\_\+\+KEY\+\_\+\+EQUAL}} = 46
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4115c92565e61e98577b27f9c76bb6a0}{HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+BRKT}} = 47
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab743223a2bcb984ed057b65c710133a9}{HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+BRKT}} = 48
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba504a41e2ed19db2bfbfee5337c9106ec}{HID\+\_\+\+KEY\+\_\+\+BACK\+\_\+\+SLASH}} = 49
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba44aa982b84c552d2074c5776cce6494d}{HID\+\_\+\+KEY\+\_\+\+SEMI\+\_\+\+COLON}} = 51
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8fc22fb25f352a33a2fe25cea0468223}{HID\+\_\+\+KEY\+\_\+\+SGL\+\_\+\+QUOTE}} = 52
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf33f8c506a4c1712b1ff9a4306e5363a}{HID\+\_\+\+KEY\+\_\+\+GRV\+\_\+\+ACCENT}} = 53
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa81aa5b3424f02fdf02295de47b11b19}{HID\+\_\+\+KEY\+\_\+\+COMMA}} = 54
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba403fe927ebb0014e2c1b3dc25e1d9779}{HID\+\_\+\+KEY\+\_\+\+DOT}} = 55
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba051d27ff8304a9f5a6c8c0a1e5e07c9c}{HID\+\_\+\+KEY\+\_\+\+FWD\+\_\+\+SLASH}} = 56
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba033946a3fae42a1184c78e15e7f7efa0}{HID\+\_\+\+KEY\+\_\+\+CAPS\+\_\+\+LOCK}} = 57
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9642163abbbad8aa5c7088c8529aadd7}{HID\+\_\+\+KEY\+\_\+\+F1}} = 58
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9ce331f5f41ba3e3e05f485bc2d4138e}{HID\+\_\+\+KEY\+\_\+\+F2}} = 59
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba76adde1d9295cf62e7efb35e27911a1e}{HID\+\_\+\+KEY\+\_\+\+F3}} = 60
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa9956a2b95afe1a05fda65db5cc66467}{HID\+\_\+\+KEY\+\_\+\+F4}} = 61
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bace9e8d409d981f193f69fc5b29f38ca7}{HID\+\_\+\+KEY\+\_\+\+F5}} = 62
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babc92147e725c8108c18f4e03005afbdc}{HID\+\_\+\+KEY\+\_\+\+F6}} = 63
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1e2eabf8b9fa6cbfea613696b2c4122a}{HID\+\_\+\+KEY\+\_\+\+F7}} = 64
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5092add2863231d273ba60cd583ebe33}{HID\+\_\+\+KEY\+\_\+\+F8}} = 65
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5a09deabde1a3a44378b7de44dad27b6}{HID\+\_\+\+KEY\+\_\+\+F9}} = 66
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bac2c4a3aec85b4d8171de4429ccabbe19}{HID\+\_\+\+KEY\+\_\+\+F10}} = 67
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba76bb35a0f71733b0a0f1bd7e3837064c}{HID\+\_\+\+KEY\+\_\+\+F11}} = 68
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab44ba4426c1574f4b296794b7bfe2172}{HID\+\_\+\+KEY\+\_\+\+F12}} = 69
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa55c5b4499682b21ee1874266785deb7}{HID\+\_\+\+KEY\+\_\+\+PRNT\+\_\+\+SCREEN}} = 70
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba2d026746bc41257642b93e2e412a28d3}{HID\+\_\+\+KEY\+\_\+\+SCROLL\+\_\+\+LOCK}} = 71
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1905733a0fe81f78e0752e3b0bb99c69}{HID\+\_\+\+KEY\+\_\+\+PAUSE}} = 72
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1e1c320cea0644c3dc38da06c865837b}{HID\+\_\+\+KEY\+\_\+\+INSERT}} = 73
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5fc1127fe9014018f4831cbf272c883b}{HID\+\_\+\+KEY\+\_\+\+HOME}} = 74
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba09c7ee2581a02243437e005a9cfe73e7}{HID\+\_\+\+KEY\+\_\+\+PAGE\+\_\+\+UP}} = 75
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5abb5c0d3fe30ed7ca3a23ee6a40888f}{HID\+\_\+\+KEY\+\_\+\+DELETE\+\_\+\+FWD}} = 76
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8f933f0f6e5a1a3c3cdc1819ffcdce63}{HID\+\_\+\+KEY\+\_\+\+END}} = 77
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badd1c4c03849f79aceea29114b543ccee}{HID\+\_\+\+KEY\+\_\+\+PAGE\+\_\+\+DOWN}} = 78
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1f58efdc6ce6bfe844ced30e2893f1bb}{HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+ARROW}} = 79
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babb6ba38ae1164feaa8fceb9fb94d6bbb}{HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+ARROW}} = 80
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba31a4c371435ac01a032c682812771fd6}{HID\+\_\+\+KEY\+\_\+\+DOWN\+\_\+\+ARROW}} = 81
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9e8d12c384d14c2c1938c7f3ae5df5d9}{HID\+\_\+\+KEY\+\_\+\+UP\+\_\+\+ARROW}} = 82
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba63316298f3a9bb3a3c500221996f9c78}{HID\+\_\+\+KEY\+\_\+\+NUM\+\_\+\+LOCK}} = 83
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba90e28beee115680cfae34d6d4caaf7bd}{HID\+\_\+\+KEY\+\_\+\+DIVIDE}} = 84
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8067563067963b46369415db862818bc}{HID\+\_\+\+KEY\+\_\+\+MULTIPLY}} = 85
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf2e95cd26b0a24d2d31d5e2047490cb4}{HID\+\_\+\+KEY\+\_\+\+SUBTRACT}} = 86
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba3f6b24f24e21cd4423b21a50fbf0b868}{HID\+\_\+\+KEY\+\_\+\+ADD}} = 87
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baeeab6ddad27c449cbc44ca2458912a75}{HID\+\_\+\+KEY\+\_\+\+ENTER}} = 88
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bafc37c6a510a5d8a513338845b8f3155a}{HID\+\_\+\+KEYPAD\+\_\+1}} = 89
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba04d2523223a843c8a2ecd1cfcbb367ac}{HID\+\_\+\+KEYPAD\+\_\+2}} = 90
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bacddf6dfc0143b5a60cc9bb853dfe64c1}{HID\+\_\+\+KEYPAD\+\_\+3}} = 91
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5e6007af8b18713a334522fcf82ee114}{HID\+\_\+\+KEYPAD\+\_\+4}} = 92
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba7f0c78a823adb7616223ccb3573a3b48}{HID\+\_\+\+KEYPAD\+\_\+5}} = 93
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4858467756d6f6524436312f49a15b6e}{HID\+\_\+\+KEYPAD\+\_\+6}} = 94
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1c2945e65e29846af0356eb9b844ea41}{HID\+\_\+\+KEYPAD\+\_\+7}} = 95
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bace92bad17097ebdac57f6258f9102002}{HID\+\_\+\+KEYPAD\+\_\+8}} = 96
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae14513b31e23bf60bc9b2a5746f3b91f}{HID\+\_\+\+KEYPAD\+\_\+9}} = 97
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba26479ce80a4fb7b3776cd39be35bdb8f}{HID\+\_\+\+KEYPAD\+\_\+0}} = 98
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba003a94b6ac7179e7dde387fb7d112e16}{HID\+\_\+\+KEYPAD\+\_\+\+DOT}} = 99
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bac3735a425236beedcb56c8d194100550}{HID\+\_\+\+KEY\+\_\+\+MUTE}} = 127
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae4266b9ae5cd6533d9d65394466b0b2d}{HID\+\_\+\+KEY\+\_\+\+VOLUME\+\_\+\+UP}} = 128
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baed6ecfe7b4461f4cf01962d0bbfe4055}{HID\+\_\+\+KEY\+\_\+\+VOLUME\+\_\+\+DOWN}} = 129
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8f38dd4bfdd188ecdf91223c7c86c296}{HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+CTRL}} = 224
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8cc88ec22abb9c700a62ff08ac19dc5a}{HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+SHIFT}} = 225
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba148b38cbefe926253ab179ad585fa9b7}{HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+ALT}} = 226
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bad495e5139be2c91b681cf4b0b0990668}{HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+GUI}} = 227
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bacfde4acd578e5e4df72b91b36cb81e1d}{HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+CTRL}} = 228
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba130bbf55268a6e107c45cd074389c83b}{HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+SHIFT}} = 229
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba11dccdfd97d8c04bdc013428689bc3a5}{HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+ALT}} = 230
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badfe9a8659711338d18e8b2ffcabfb2b8}{HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+GUI}} = 231
+ \}
+\begin{DoxyCompactList}\small\item\em Keyboard/\+Keypad Usage IDs. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___b_l_e_ga5f72a05c6c7165f5270a63ffba14035b}{key\+\_\+mask}} \{ \newline
+\mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035bae8d5d21a5fea1a0d6d9231b606ec1187}{LEFT\+\_\+\+CONTROL\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0)
+, \mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba3d608f93849fc015d9794cb8d704aa76}{LEFT\+\_\+\+SHIFT\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1)
+, \mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba5db10c52a33d019b8f3d7664bed7be0e}{LEFT\+\_\+\+ALT\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2)
+, \mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035bab7fb954fa02a79c03210c70e8e298e7a}{LEFT\+\_\+\+GUI\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3)
+, \newline
+\mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba064de832473bf23c95b4c4daed275fe5}{RIGHT\+\_\+\+CONTROL\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4)
+, \mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba2f2627eb6653c51d2e20551fb679ea55}{RIGHT\+\_\+\+SHIFT\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 5)
+, \mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba9a543241dbf9bd28c431035b3827ac8b}{RIGHT\+\_\+\+ALT\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 6)
+, \mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035bad86cf5872495b6ce57ce67dc4cf0d92b}{RIGHT\+\_\+\+GUI\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 7)
+ \}
+\begin{DoxyCompactList}\small\item\em Mask of modifier keys to be pressed together with any key. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___b_l_e_ga2a99f5333cc8031aac3511049bea8211}{mouse\+\_\+cmd}} \{ \mbox{\hyperlink{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211a10144627495fe6bd5f6d48af227352d0}{HID\+\_\+\+NO\+\_\+\+BUTTON}} = 0
+, \mbox{\hyperlink{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211aa9074dc36ad6303afc552a8b2e6c84fd}{HID\+\_\+\+MOUSE\+\_\+\+LEFT}} = 253
+, \mbox{\hyperlink{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211ae4757cf58be5b9851fa24f6474f086d4}{HID\+\_\+\+MOUSE\+\_\+\+MIDDLE}} = 254
+, \mbox{\hyperlink{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211a55ddb88a702acbd88e5571f91f157cd9}{HID\+\_\+\+MOUSE\+\_\+\+RIGHT}} = 255
+ \}
+\begin{DoxyCompactList}\small\item\em Mouse commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___b_l_e_ga94512d231afe9cff7e7aa8eff3a18fba}{Ble\+Hid\+Init}} (char \texorpdfstring{$\ast$}{*}hid\+\_\+dev\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Bluetooth initialization as a HID device. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}} \mbox{\hyperlink{group___b_l_e_ga67558f92332c3d7edc94278eb7a45cfc}{Ble\+Hid\+Status}} (void)
+\begin{DoxyCompactList}\small\item\em Gets BLE connection status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_ga28150d6c4fe3eedd6e784d272d0e56ca}{Ble\+Hid\+Send\+Keyboard}} (\mbox{\hyperlink{group___b_l_e_gab3d8494d4d57a81a068b2b569cb0051e}{key\+\_\+mask\+\_\+t}} special\+\_\+key\+\_\+mask, \mbox{\hyperlink{group___b_l_e_ga528f1243a7bb2eb10a2140592c67e879}{keyboard\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{group___b_l_e_gaed078c594a86d36a49f51710e35c405b}{keyboard\+\_\+cmd}}, uint8\+\_\+t num\+\_\+key)
+\begin{DoxyCompactList}\small\item\em Send a group of keys to be pressed together. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_gae4f1c4c5da8317a9c16d13e418e82a2e}{Ble\+Hid\+Send\+Mouse}} (\mbox{\hyperlink{group___b_l_e_gad70fe6ba1d3a0ac8b4603c11f6de43b2}{mouse\+\_\+cmd\+\_\+t}} mouse\+\_\+button, int8\+\_\+t delta\+\_\+x, int8\+\_\+t delta\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Send mouse position and click event. \end{DoxyCompactList}\end{DoxyCompactItemize}

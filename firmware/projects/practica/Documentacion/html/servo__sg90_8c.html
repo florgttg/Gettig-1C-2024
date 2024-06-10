@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Practica de parcial: Referencia del archivo C:/Repositorios/EProgramable_FIUNER/firmware/drivers/devices/src/servo_sg90.c</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Practica de parcial<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Cebador automatico de mate</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('servo__sg90_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo servo_sg90.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="servo__sg90_8h_source.html">servo_sg90.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pwm__mcu_8h_source.html">pwm_mcu.h</a>&quot;</code><br />
+</div>
+<p><a href="servo__sg90_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:a7d9c36e285f4f83cc8d30e9ccfe403af" id="r_a7d9c36e285f4f83cc8d30e9ccfe403af"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d9c36e285f4f83cc8d30e9ccfe403af">SERVO_FREQ</a>&#160;&#160;&#160;50</td></tr>
+<tr class="separator:a7d9c36e285f4f83cc8d30e9ccfe403af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f903d11ea01f21e16f57f14974c760e" id="r_a7f903d11ea01f21e16f57f14974c760e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f903d11ea01f21e16f57f14974c760e">MIN_ANG</a>&#160;&#160;&#160;-90</td></tr>
+<tr class="separator:a7f903d11ea01f21e16f57f14974c760e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14d0d7dac5180a42ef983d554f07d54c" id="r_a14d0d7dac5180a42ef983d554f07d54c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14d0d7dac5180a42ef983d554f07d54c">MAX_ANG</a>&#160;&#160;&#160;90</td></tr>
+<tr class="separator:a14d0d7dac5180a42ef983d554f07d54c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99ea7d692f294ea773d8dd1becfa5281" id="r_a99ea7d692f294ea773d8dd1becfa5281"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99ea7d692f294ea773d8dd1becfa5281">ANG_RANGE</a>&#160;&#160;&#160;180.0</td></tr>
+<tr class="separator:a99ea7d692f294ea773d8dd1becfa5281"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fcd914889df46acf623f7d9a81654d7" id="r_a5fcd914889df46acf623f7d9a81654d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fcd914889df46acf623f7d9a81654d7">PERIOD_MS</a>&#160;&#160;&#160;20.0</td></tr>
+<tr class="separator:a5fcd914889df46acf623f7d9a81654d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5cace30d280065bab0b3ca1c0188e8f" id="r_ac5cace30d280065bab0b3ca1c0188e8f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5cace30d280065bab0b3ca1c0188e8f">PULSEW_MS</a>&#160;&#160;&#160;1.0</td></tr>
+<tr class="separator:ac5cace30d280065bab0b3ca1c0188e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b321fc8474a410f24deb460c4fa014e" id="r_a9b321fc8474a410f24deb460c4fa014e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b321fc8474a410f24deb460c4fa014e">PERCENT</a>&#160;&#160;&#160;100.0</td></tr>
+<tr class="separator:a9b321fc8474a410f24deb460c4fa014e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a03ba1a24bc9550bccedcb7ed8f014553" id="r_a03ba1a24bc9550bccedcb7ed8f014553"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03ba1a24bc9550bccedcb7ed8f014553">Angle2DutyCicle</a> (int8_t angle)</td></tr>
+<tr class="separator:a03ba1a24bc9550bccedcb7ed8f014553"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad3b35d6ee8bdf69b0cceac96862fa8e7" id="r_gad3b35d6ee8bdf69b0cceac96862fa8e7"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_e_r_v_o.html#gad3b35d6ee8bdf69b0cceac96862fa8e7">ServoInit</a> (<a class="el" href="group___s_e_r_v_o.html#ga6567a5d72a1ac2085e1ed97840b2deae">servo_out_t</a> servo, <a class="el" href="group___g_i_o_p.html#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a> gpio)</td></tr>
+<tr class="memdesc:gad3b35d6ee8bdf69b0cceac96862fa8e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Servo initialization.  <br /></td></tr>
+<tr class="separator:gad3b35d6ee8bdf69b0cceac96862fa8e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac63abba15fdb98a070e8da53d87cd80d" id="r_gac63abba15fdb98a070e8da53d87cd80d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_e_r_v_o.html#gac63abba15fdb98a070e8da53d87cd80d">ServoMove</a> (<a class="el" href="group___s_e_r_v_o.html#ga6567a5d72a1ac2085e1ed97840b2deae">servo_out_t</a> servo, int8_t ang)</td></tr>
+<tr class="memdesc:gac63abba15fdb98a070e8da53d87cd80d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change servo angle.  <br /></td></tr>
+<tr class="separator:gac63abba15fdb98a070e8da53d87cd80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de «define»</h2>
+<a id="a99ea7d692f294ea773d8dd1becfa5281" name="a99ea7d692f294ea773d8dd1becfa5281"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99ea7d692f294ea773d8dd1becfa5281">&#9670;&#160;</a></span>ANG_RANGE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ANG_RANGE&#160;&#160;&#160;180.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="servo__sg90_8c_source.html#l00009">9</a> del archivo <a class="el" href="servo__sg90_8c_source.html">servo_sg90.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="servo__sg90_8c_source.html#l00022">Angle2DutyCicle()</a>.</p>
+
+</div>
+</div>
+<a id="a14d0d7dac5180a42ef983d554f07d54c" name="a14d0d7dac5180a42ef983d554f07d54c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14d0d7dac5180a42ef983d554f07d54c">&#9670;&#160;</a></span>MAX_ANG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_ANG&#160;&#160;&#160;90</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="servo__sg90_8c_source.html#l00008">8</a> del archivo <a class="el" href="servo__sg90_8c_source.html">servo_sg90.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="servo__sg90_8c_source.html#l00022">Angle2DutyCicle()</a> y <a class="el" href="servo__sg90_8c_source.html#l00051">ServoMove()</a>.</p>
+
+</div>
+</div>
+<a id="a7f903d11ea01f21e16f57f14974c760e" name="a7f903d11ea01f21e16f57f14974c760e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f903d11ea01f21e16f57f14974c760e">&#9670;&#160;</a></span>MIN_ANG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MIN_ANG&#160;&#160;&#160;-90</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="servo__sg90_8c_source.html#l00007">7</a> del archivo <a class="el" href="servo__sg90_8c_source.html">servo_sg90.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="servo__sg90_8c_source.html#l00051">ServoMove()</a>.</p>
+
+</div>
+</div>
+<a id="a9b321fc8474a410f24deb460c4fa014e" name="a9b321fc8474a410f24deb460c4fa014e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b321fc8474a410f24deb460c4fa014e">&#9670;&#160;</a></span>PERCENT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PERCENT&#160;&#160;&#160;100.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="servo__sg90_8c_source.html#l00012">12</a> del archivo <a class="el" href="servo__sg90_8c_source.html">servo_sg90.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="servo__sg90_8c_source.html#l00022">Angle2DutyCicle()</a>.</p>
+
+</div>
+</div>
+<a id="a5fcd914889df46acf623f7d9a81654d7" name="a5fcd914889df46acf623f7d9a81654d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fcd914889df46acf623f7d9a81654d7">&#9670;&#160;</a></span>PERIOD_MS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PERIOD_MS&#160;&#160;&#160;20.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="servo__sg90_8c_source.html#l00010">10</a> del archivo <a class="el" href="servo__sg90_8c_source.html">servo_sg90.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="servo__sg90_8c_source.html#l00022">Angle2DutyCicle()</a>.</p>
+
+</div>
+</div>
+<a id="ac5cace30d280065bab0b3ca1c0188e8f" name="ac5cace30d280065bab0b3ca1c0188e8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5cace30d280065bab0b3ca1c0188e8f">&#9670;&#160;</a></span>PULSEW_MS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PULSEW_MS&#160;&#160;&#160;1.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="servo__sg90_8c_source.html#l00011">11</a> del archivo <a class="el" href="servo__sg90_8c_source.html">servo_sg90.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="servo__sg90_8c_source.html#l00022">Angle2DutyCicle()</a>.</p>
+
+</div>
+</div>
+<a id="a7d9c36e285f4f83cc8d30e9ccfe403af" name="a7d9c36e285f4f83cc8d30e9ccfe403af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d9c36e285f4f83cc8d30e9ccfe403af">&#9670;&#160;</a></span>SERVO_FREQ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SERVO_FREQ&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="servo__sg90_8c_source.html#l00006">6</a> del archivo <a class="el" href="servo__sg90_8c_source.html">servo_sg90.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="servo__sg90_8c_source.html#l00033">ServoInit()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="a03ba1a24bc9550bccedcb7ed8f014553" name="a03ba1a24bc9550bccedcb7ed8f014553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03ba1a24bc9550bccedcb7ed8f014553">&#9670;&#160;</a></span>Angle2DutyCicle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Angle2DutyCicle </td>
+          <td>(</td>
+          <td class="paramtype">int8_t</td>          <td class="paramname"><span class="paramname"><em>angle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="servo__sg90_8c_source.html#l00022">22</a> del archivo <a class="el" href="servo__sg90_8c_source.html">servo_sg90.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="servo__sg90_8c_source.html#l00009">ANG_RANGE</a>, <a class="el" href="servo__sg90_8c_source.html#l00008">MAX_ANG</a>, <a class="el" href="servo__sg90_8c_source.html#l00012">PERCENT</a>, <a class="el" href="servo__sg90_8c_source.html#l00010">PERIOD_MS</a> y <a class="el" href="servo__sg90_8c_source.html#l00011">PULSEW_MS</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="servo__sg90_8c_source.html#l00051">ServoMove()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_fcba15287a7fba83beff6e7e8c7a3a80.html">firmware</a></li><li class="navelem"><a class="el" href="dir_d771f3729bc48f700515c8c6c400e99b.html">drivers</a></li><li class="navelem"><a class="el" href="dir_7f308ea91af7ba00bd2379b2a292bcdf.html">devices</a></li><li class="navelem"><a class="el" href="dir_6d71182a2f5b197121e17f68990d396a.html">src</a></li><li class="navelem"><a class="el" href="servo__sg90_8c.html">servo_sg90.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

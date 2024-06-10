@@ -1,0 +1,152 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/src/servo\+\_\+sg90.c}
+\hypertarget{servo__sg90_8c}{}\label{servo__sg90_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/servo\_sg90.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/servo\_sg90.c}}
+{\ttfamily \#include "{}servo\+\_\+sg90.\+h"{}}\newline
+{\ttfamily \#include "{}pwm\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{servo__sg90_8c_a7d9c36e285f4f83cc8d30e9ccfe403af}{SERVO\+\_\+\+FREQ}}~50
+\item 
+\#define \mbox{\hyperlink{servo__sg90_8c_a7f903d11ea01f21e16f57f14974c760e}{MIN\+\_\+\+ANG}}~-\/90
+\item 
+\#define \mbox{\hyperlink{servo__sg90_8c_a14d0d7dac5180a42ef983d554f07d54c}{MAX\+\_\+\+ANG}}~90
+\item 
+\#define \mbox{\hyperlink{servo__sg90_8c_a99ea7d692f294ea773d8dd1becfa5281}{ANG\+\_\+\+RANGE}}~180.\+0
+\item 
+\#define \mbox{\hyperlink{servo__sg90_8c_a5fcd914889df46acf623f7d9a81654d7}{PERIOD\+\_\+\+MS}}~20.\+0
+\item 
+\#define \mbox{\hyperlink{servo__sg90_8c_ac5cace30d280065bab0b3ca1c0188e8f}{PULSEW\+\_\+\+MS}}~1.\+0
+\item 
+\#define \mbox{\hyperlink{servo__sg90_8c_a9b321fc8474a410f24deb460c4fa014e}{PERCENT}}~100.\+0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{servo__sg90_8c_a03ba1a24bc9550bccedcb7ed8f014553}{Angle2\+Duty\+Cicle}} (int8\+\_\+t angle)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___s_e_r_v_o_gad3b35d6ee8bdf69b0cceac96862fa8e7}{Servo\+Init}} (\mbox{\hyperlink{group___s_e_r_v_o_ga6567a5d72a1ac2085e1ed97840b2deae}{servo\+\_\+out\+\_\+t}} servo, \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} gpio)
+\begin{DoxyCompactList}\small\item\em Servo initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___s_e_r_v_o_gac63abba15fdb98a070e8da53d87cd80d}{Servo\+Move}} (\mbox{\hyperlink{group___s_e_r_v_o_ga6567a5d72a1ac2085e1ed97840b2deae}{servo\+\_\+out\+\_\+t}} servo, int8\+\_\+t ang)
+\begin{DoxyCompactList}\small\item\em Change servo angle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{servo__sg90_8c_a99ea7d692f294ea773d8dd1becfa5281}\label{servo__sg90_8c_a99ea7d692f294ea773d8dd1becfa5281} 
+\index{servo\_sg90.c@{servo\_sg90.c}!ANG\_RANGE@{ANG\_RANGE}}
+\index{ANG\_RANGE@{ANG\_RANGE}!servo\_sg90.c@{servo\_sg90.c}}
+\doxysubsubsection{\texorpdfstring{ANG\_RANGE}{ANG\_RANGE}}
+{\footnotesize\ttfamily \#define ANG\+\_\+\+RANGE~180.\+0}
+
+
+
+Definición en la línea \mbox{\hyperlink{servo__sg90_8c_source_l00009}{9}} del archivo \mbox{\hyperlink{servo__sg90_8c_source}{servo\+\_\+sg90.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{servo__sg90_8c_source_l00022}{Angle2\+Duty\+Cicle()}}.
+
+\Hypertarget{servo__sg90_8c_a14d0d7dac5180a42ef983d554f07d54c}\label{servo__sg90_8c_a14d0d7dac5180a42ef983d554f07d54c} 
+\index{servo\_sg90.c@{servo\_sg90.c}!MAX\_ANG@{MAX\_ANG}}
+\index{MAX\_ANG@{MAX\_ANG}!servo\_sg90.c@{servo\_sg90.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_ANG}{MAX\_ANG}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+ANG~90}
+
+
+
+Definición en la línea \mbox{\hyperlink{servo__sg90_8c_source_l00008}{8}} del archivo \mbox{\hyperlink{servo__sg90_8c_source}{servo\+\_\+sg90.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{servo__sg90_8c_source_l00022}{Angle2\+Duty\+Cicle()}} y \mbox{\hyperlink{servo__sg90_8c_source_l00051}{Servo\+Move()}}.
+
+\Hypertarget{servo__sg90_8c_a7f903d11ea01f21e16f57f14974c760e}\label{servo__sg90_8c_a7f903d11ea01f21e16f57f14974c760e} 
+\index{servo\_sg90.c@{servo\_sg90.c}!MIN\_ANG@{MIN\_ANG}}
+\index{MIN\_ANG@{MIN\_ANG}!servo\_sg90.c@{servo\_sg90.c}}
+\doxysubsubsection{\texorpdfstring{MIN\_ANG}{MIN\_ANG}}
+{\footnotesize\ttfamily \#define MIN\+\_\+\+ANG~-\/90}
+
+
+
+Definición en la línea \mbox{\hyperlink{servo__sg90_8c_source_l00007}{7}} del archivo \mbox{\hyperlink{servo__sg90_8c_source}{servo\+\_\+sg90.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{servo__sg90_8c_source_l00051}{Servo\+Move()}}.
+
+\Hypertarget{servo__sg90_8c_a9b321fc8474a410f24deb460c4fa014e}\label{servo__sg90_8c_a9b321fc8474a410f24deb460c4fa014e} 
+\index{servo\_sg90.c@{servo\_sg90.c}!PERCENT@{PERCENT}}
+\index{PERCENT@{PERCENT}!servo\_sg90.c@{servo\_sg90.c}}
+\doxysubsubsection{\texorpdfstring{PERCENT}{PERCENT}}
+{\footnotesize\ttfamily \#define PERCENT~100.\+0}
+
+
+
+Definición en la línea \mbox{\hyperlink{servo__sg90_8c_source_l00012}{12}} del archivo \mbox{\hyperlink{servo__sg90_8c_source}{servo\+\_\+sg90.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{servo__sg90_8c_source_l00022}{Angle2\+Duty\+Cicle()}}.
+
+\Hypertarget{servo__sg90_8c_a5fcd914889df46acf623f7d9a81654d7}\label{servo__sg90_8c_a5fcd914889df46acf623f7d9a81654d7} 
+\index{servo\_sg90.c@{servo\_sg90.c}!PERIOD\_MS@{PERIOD\_MS}}
+\index{PERIOD\_MS@{PERIOD\_MS}!servo\_sg90.c@{servo\_sg90.c}}
+\doxysubsubsection{\texorpdfstring{PERIOD\_MS}{PERIOD\_MS}}
+{\footnotesize\ttfamily \#define PERIOD\+\_\+\+MS~20.\+0}
+
+
+
+Definición en la línea \mbox{\hyperlink{servo__sg90_8c_source_l00010}{10}} del archivo \mbox{\hyperlink{servo__sg90_8c_source}{servo\+\_\+sg90.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{servo__sg90_8c_source_l00022}{Angle2\+Duty\+Cicle()}}.
+
+\Hypertarget{servo__sg90_8c_ac5cace30d280065bab0b3ca1c0188e8f}\label{servo__sg90_8c_ac5cace30d280065bab0b3ca1c0188e8f} 
+\index{servo\_sg90.c@{servo\_sg90.c}!PULSEW\_MS@{PULSEW\_MS}}
+\index{PULSEW\_MS@{PULSEW\_MS}!servo\_sg90.c@{servo\_sg90.c}}
+\doxysubsubsection{\texorpdfstring{PULSEW\_MS}{PULSEW\_MS}}
+{\footnotesize\ttfamily \#define PULSEW\+\_\+\+MS~1.\+0}
+
+
+
+Definición en la línea \mbox{\hyperlink{servo__sg90_8c_source_l00011}{11}} del archivo \mbox{\hyperlink{servo__sg90_8c_source}{servo\+\_\+sg90.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{servo__sg90_8c_source_l00022}{Angle2\+Duty\+Cicle()}}.
+
+\Hypertarget{servo__sg90_8c_a7d9c36e285f4f83cc8d30e9ccfe403af}\label{servo__sg90_8c_a7d9c36e285f4f83cc8d30e9ccfe403af} 
+\index{servo\_sg90.c@{servo\_sg90.c}!SERVO\_FREQ@{SERVO\_FREQ}}
+\index{SERVO\_FREQ@{SERVO\_FREQ}!servo\_sg90.c@{servo\_sg90.c}}
+\doxysubsubsection{\texorpdfstring{SERVO\_FREQ}{SERVO\_FREQ}}
+{\footnotesize\ttfamily \#define SERVO\+\_\+\+FREQ~50}
+
+
+
+Definición en la línea \mbox{\hyperlink{servo__sg90_8c_source_l00006}{6}} del archivo \mbox{\hyperlink{servo__sg90_8c_source}{servo\+\_\+sg90.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{servo__sg90_8c_source_l00033}{Servo\+Init()}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{servo__sg90_8c_a03ba1a24bc9550bccedcb7ed8f014553}\label{servo__sg90_8c_a03ba1a24bc9550bccedcb7ed8f014553} 
+\index{servo\_sg90.c@{servo\_sg90.c}!Angle2DutyCicle@{Angle2DutyCicle}}
+\index{Angle2DutyCicle@{Angle2DutyCicle}!servo\_sg90.c@{servo\_sg90.c}}
+\doxysubsubsection{\texorpdfstring{Angle2DutyCicle()}{Angle2DutyCicle()}}
+{\footnotesize\ttfamily uint8\+\_\+t Angle2\+Duty\+Cicle (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{angle }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{servo__sg90_8c_source_l00022}{22}} del archivo \mbox{\hyperlink{servo__sg90_8c_source}{servo\+\_\+sg90.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{servo__sg90_8c_source_l00009}{ANG\+\_\+\+RANGE}}, \mbox{\hyperlink{servo__sg90_8c_source_l00008}{MAX\+\_\+\+ANG}}, \mbox{\hyperlink{servo__sg90_8c_source_l00012}{PERCENT}}, \mbox{\hyperlink{servo__sg90_8c_source_l00010}{PERIOD\+\_\+\+MS}} y \mbox{\hyperlink{servo__sg90_8c_source_l00011}{PULSEW\+\_\+\+MS}}.
+
+
+
+Referenciado por \mbox{\hyperlink{servo__sg90_8c_source_l00051}{Servo\+Move()}}.
+

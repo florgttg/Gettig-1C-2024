@@ -1,0 +1,373 @@
+\doxysubsubsection{Analog IO}
+\hypertarget{group___analog___i_o}{}\label{group___analog___i_o}\index{Analog IO@{Analog IO}}
+\doxysubsubsubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structanalog__input__config__t}{analog\+\_\+input\+\_\+config\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Analog inputs config structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___analog___i_o_ga4aa2a4ab86ce00c23035e5cee2e7fc7e}{DAC}}~0
+\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___analog___i_o_ga4ebdf50515e5d73c58c24fd1491770dc}{adc\+\_\+ch}} \mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em AD and DA Converter driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{group___analog___i_o_ga51acd785c14953090a3507d4fa8e5939}{adc\+\_\+mode}} \mbox{\hyperlink{group___analog___i_o_ga3e4744e022398e776a8dbdd97903a629}{adc\+\_\+mode\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___analog___i_o_ga4ebdf50515e5d73c58c24fd1491770dc}{adc\+\_\+ch}} \{ \mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca839bb189c047995024b04db6c0dbb29f}{CH0}} = 0
+, \mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e}{CH1}}
+, \mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dcae574b39c34bd88c27ea641014831e53a}{CH2}}
+, \mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dcaaee6d12bf63ae430250764aa97e9e429}{CH3}}
+ \}
+\begin{DoxyCompactList}\small\item\em AD and DA Converter driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___analog___i_o_ga51acd785c14953090a3507d4fa8e5939}{adc\+\_\+mode}} \{ \mbox{\hyperlink{group___analog___i_o_gga51acd785c14953090a3507d4fa8e5939a3b0a8cf9a7759ea8b7c9494eb7fb3dd4}{ADC\+\_\+\+SINGLE}}
+, \mbox{\hyperlink{group___analog___i_o_gga51acd785c14953090a3507d4fa8e5939a2c63a9e4a7bd5a4da1cb97f40f1cb49d}{ADC\+\_\+\+CONTINUOUS}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___analog___i_o_ga24ce5556aa4682468220b982f151cdfe}{Analog\+Input\+Init}} (\mbox{\hyperlink{structanalog__input__config__t}{analog\+\_\+input\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}config)
+\begin{DoxyCompactList}\small\item\em Analog input initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___analog___i_o_gab57399e946247652a096a0e2d3a1b69a}{Analog\+Output\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Analog output initialization (DAC) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___analog___i_o_gab5ae00a35744f407072230979e593fd9}{Analog\+Input\+Read\+Single}} (\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}} channel, uint16\+\_\+t \texorpdfstring{$\ast$}{*}value)
+\begin{DoxyCompactList}\small\item\em Read single channel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___analog___i_o_ga59d18db7ff84dc756b4a66f5331a23eb}{Analog\+Start\+Continuous}} (\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}} channel)
+\begin{DoxyCompactList}\small\item\em Start convertion for ADC module in continuous mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___analog___i_o_gaea40f5dd5d020c0854734479d52458c2}{Analog\+Stop\+Continuous}} (\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}} channel)
+\begin{DoxyCompactList}\small\item\em Stop convertion for ADC module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___analog___i_o_ga042e3964ac18e816a5eb4dfca78bb223}{Analog\+Input\+Read\+Continuous}} (\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}} channel, uint16\+\_\+t \texorpdfstring{$\ast$}{*}values)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___analog___i_o_gac3a4df81e78216c7d552c0b9d8b1128d}{Analog\+Raw2mV}} (uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Convert raw value from ADC to mV, using a calibration curve. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___analog___i_o_gad3fea4064bfa31ae309d4da542347198}{Analog\+Output\+Write}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Digital-\/to-\/\+Analog convert. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de «define»}
+\Hypertarget{group___analog___i_o_ga4aa2a4ab86ce00c23035e5cee2e7fc7e}\label{group___analog___i_o_ga4aa2a4ab86ce00c23035e5cee2e7fc7e} 
+\index{Analog IO@{Analog IO}!DAC@{DAC}}
+\index{DAC@{DAC}!Analog IO@{Analog IO}}
+\doxysubsubsubsubsection{\texorpdfstring{DAC}{DAC}}
+{\footnotesize\ttfamily \#define DAC~0}
+
+DAC pin. Override CH0 declaration 
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8h_source_l00042}{42}} del archivo \mbox{\hyperlink{analog__io__mcu_8h_source}{analog\+\_\+io\+\_\+mcu.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de «typedef»}
+\Hypertarget{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}\label{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830} 
+\index{Analog IO@{Analog IO}!adc\_ch\_t@{adc\_ch\_t}}
+\index{adc\_ch\_t@{adc\_ch\_t}!Analog IO@{Analog IO}}
+\doxysubsubsubsubsection{\texorpdfstring{adc\_ch\_t}{adc\_ch\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___analog___i_o_ga4ebdf50515e5d73c58c24fd1491770dc}{adc\+\_\+ch}} \mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}}}
+
+
+
+AD and DA Converter driver for the ESP-\/\+EDU Board. 
+
+This driver provide functions to configure and handle the ESP-\/\+EDU Analogs Inputs/\+Outputs.
+
+\begin{DoxyNote}{Nota}
+The ESP-\/\+EDU have 4 analog inputs and 1 analog output, but the designated pin for the latter is shared with analog output 0 (CH0).
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 24/02/2024   &Document creation   \\\cline{1-2}
+\end{longtabu}
+\Hypertarget{group___analog___i_o_ga3e4744e022398e776a8dbdd97903a629}\label{group___analog___i_o_ga3e4744e022398e776a8dbdd97903a629} 
+\index{Analog IO@{Analog IO}!adc\_mode\_t@{adc\_mode\_t}}
+\index{adc\_mode\_t@{adc\_mode\_t}!Analog IO@{Analog IO}}
+\doxysubsubsubsubsection{\texorpdfstring{adc\_mode\_t}{adc\_mode\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___analog___i_o_ga51acd785c14953090a3507d4fa8e5939}{adc\+\_\+mode}} \mbox{\hyperlink{group___analog___i_o_ga3e4744e022398e776a8dbdd97903a629}{adc\+\_\+mode\+\_\+t}}}
+
+
+
+\doxysubsubsubsection{Documentación de enumeraciones}
+\Hypertarget{group___analog___i_o_ga4ebdf50515e5d73c58c24fd1491770dc}\label{group___analog___i_o_ga4ebdf50515e5d73c58c24fd1491770dc} 
+\index{Analog IO@{Analog IO}!adc\_ch@{adc\_ch}}
+\index{adc\_ch@{adc\_ch}!Analog IO@{Analog IO}}
+\doxysubsubsubsubsection{\texorpdfstring{adc\_ch}{adc\_ch}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___analog___i_o_ga4ebdf50515e5d73c58c24fd1491770dc}{adc\+\_\+ch}}}
+
+
+
+AD and DA Converter driver for the ESP-\/\+EDU Board. 
+
+This driver provide functions to configure and handle the ESP-\/\+EDU Analogs Inputs/\+Outputs.
+
+\begin{DoxyNote}{Nota}
+The ESP-\/\+EDU have 4 analog inputs and 1 analog output, but the designated pin for the latter is shared with analog output 0 (CH0).
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 24/02/2024   &Document creation   \\\cline{1-2}
+\end{longtabu}
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CH0@{CH0}!Analog IO@{Analog IO}}\index{Analog IO@{Analog IO}!CH0@{CH0}}}\Hypertarget{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca839bb189c047995024b04db6c0dbb29f}\label{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca839bb189c047995024b04db6c0dbb29f} 
+CH0&Channel 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CH1@{CH1}!Analog IO@{Analog IO}}\index{Analog IO@{Analog IO}!CH1@{CH1}}}\Hypertarget{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e}\label{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e} 
+CH1&Channel 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CH2@{CH2}!Analog IO@{Analog IO}}\index{Analog IO@{Analog IO}!CH2@{CH2}}}\Hypertarget{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dcae574b39c34bd88c27ea641014831e53a}\label{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dcae574b39c34bd88c27ea641014831e53a} 
+CH2&Channel 2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CH3@{CH3}!Analog IO@{Analog IO}}\index{Analog IO@{Analog IO}!CH3@{CH3}}}\Hypertarget{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dcaaee6d12bf63ae430250764aa97e9e429}\label{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dcaaee6d12bf63ae430250764aa97e9e429} 
+CH3&Channel 3 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8h_source_l00030}{30}} del archivo \mbox{\hyperlink{analog__io__mcu_8h_source}{analog\+\_\+io\+\_\+mcu.\+h}}.
+
+\Hypertarget{group___analog___i_o_ga51acd785c14953090a3507d4fa8e5939}\label{group___analog___i_o_ga51acd785c14953090a3507d4fa8e5939} 
+\index{Analog IO@{Analog IO}!adc\_mode@{adc\_mode}}
+\index{adc\_mode@{adc\_mode}!Analog IO@{Analog IO}}
+\doxysubsubsubsubsection{\texorpdfstring{adc\_mode}{adc\_mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___analog___i_o_ga51acd785c14953090a3507d4fa8e5939}{adc\+\_\+mode}}}
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC\_SINGLE@{ADC\_SINGLE}!Analog IO@{Analog IO}}\index{Analog IO@{Analog IO}!ADC\_SINGLE@{ADC\_SINGLE}}}\Hypertarget{group___analog___i_o_gga51acd785c14953090a3507d4fa8e5939a3b0a8cf9a7759ea8b7c9494eb7fb3dd4}\label{group___analog___i_o_gga51acd785c14953090a3507d4fa8e5939a3b0a8cf9a7759ea8b7c9494eb7fb3dd4} 
+ADC\+\_\+\+SINGLE&Single read \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC\_CONTINUOUS@{ADC\_CONTINUOUS}!Analog IO@{Analog IO}}\index{Analog IO@{Analog IO}!ADC\_CONTINUOUS@{ADC\_CONTINUOUS}}}\Hypertarget{group___analog___i_o_gga51acd785c14953090a3507d4fa8e5939a2c63a9e4a7bd5a4da1cb97f40f1cb49d}\label{group___analog___i_o_gga51acd785c14953090a3507d4fa8e5939a2c63a9e4a7bd5a4da1cb97f40f1cb49d} 
+ADC\+\_\+\+CONTINUOUS&Continuous read \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8h_source_l00037}{37}} del archivo \mbox{\hyperlink{analog__io__mcu_8h_source}{analog\+\_\+io\+\_\+mcu.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___analog___i_o_ga24ce5556aa4682468220b982f151cdfe}\label{group___analog___i_o_ga24ce5556aa4682468220b982f151cdfe} 
+\index{Analog IO@{Analog IO}!AnalogInputInit@{AnalogInputInit}}
+\index{AnalogInputInit@{AnalogInputInit}!Analog IO@{Analog IO}}
+\doxysubsubsubsubsection{\texorpdfstring{AnalogInputInit()}{AnalogInputInit()}}
+{\footnotesize\ttfamily void Analog\+Input\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structanalog__input__config__t}{analog\+\_\+input\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{config }\end{DoxyParamCaption})}
+
+
+
+Analog input initialization. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em config} & Analog inputs config structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+null 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00045}{45}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{analog__io__mcu_8c_source_l00024}{adc1\+\_\+single}}, \mbox{\hyperlink{analog__io__mcu_8c_source_l00027}{adc1\+\_\+single\+\_\+used}}, \mbox{\hyperlink{analog__io__mcu_8c_source_l00021}{ADC\+\_\+\+ATTENUATION}}, \mbox{\hyperlink{analog__io__mcu_8c_source_l00020}{ADC\+\_\+\+BITWIDTH}}, \mbox{\hyperlink{analog__io__mcu_8c_source_l00023}{adc\+\_\+calibration\+\_\+single}}, \mbox{\hyperlink{analog__io__mcu_8c_source_l00035}{adc\+\_\+config\+\_\+single}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00039}{ADC\+\_\+\+CONTINUOUS}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00038}{ADC\+\_\+\+SINGLE}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00031}{CH0}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00032}{CH1}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00033}{CH2}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00034}{CH3}}, \mbox{\hyperlink{analog__io__mcu_8c_source_l00031}{init\+\_\+config\+\_\+single}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00049}{analog\+\_\+input\+\_\+config\+\_\+t\+::input}} y \mbox{\hyperlink{analog__io__mcu_8h_source_l00050}{analog\+\_\+input\+\_\+config\+\_\+t\+::mode}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}}.
+
+\Hypertarget{group___analog___i_o_ga042e3964ac18e816a5eb4dfca78bb223}\label{group___analog___i_o_ga042e3964ac18e816a5eb4dfca78bb223} 
+\index{Analog IO@{Analog IO}!AnalogInputReadContinuous@{AnalogInputReadContinuous}}
+\index{AnalogInputReadContinuous@{AnalogInputReadContinuous}!Analog IO@{Analog IO}}
+\doxysubsubsubsubsection{\texorpdfstring{AnalogInputReadContinuous()}{AnalogInputReadContinuous()}}
+{\footnotesize\ttfamily void Analog\+Input\+Read\+Continuous (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}}}]{channel,  }\item[{uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{values }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em channel} & Channel selected. \\
+\hline
+{\em values} & Read variable array \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00130}{130}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+\Hypertarget{group___analog___i_o_gab5ae00a35744f407072230979e593fd9}\label{group___analog___i_o_gab5ae00a35744f407072230979e593fd9} 
+\index{Analog IO@{Analog IO}!AnalogInputReadSingle@{AnalogInputReadSingle}}
+\index{AnalogInputReadSingle@{AnalogInputReadSingle}!Analog IO@{Analog IO}}
+\doxysubsubsubsubsection{\texorpdfstring{AnalogInputReadSingle()}{AnalogInputReadSingle()}}
+{\footnotesize\ttfamily void Analog\+Input\+Read\+Single (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}}}]{channel,  }\item[{uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+
+
+Read single channel. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em channel} & Channel selected \\
+\hline
+{\em value} & Read variable pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+null 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00105}{105}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{analog__io__mcu_8c_source_l00024}{adc1\+\_\+single}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00031}{CH0}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00032}{CH1}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00033}{CH2}} y \mbox{\hyperlink{analog__io__mcu_8h_source_l00034}{CH3}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00188}{Task\+\_\+\+Controlar\+\_\+\+Temperatura()}}.
+
+\Hypertarget{group___analog___i_o_gab57399e946247652a096a0e2d3a1b69a}\label{group___analog___i_o_gab57399e946247652a096a0e2d3a1b69a} 
+\index{Analog IO@{Analog IO}!AnalogOutputInit@{AnalogOutputInit}}
+\index{AnalogOutputInit@{AnalogOutputInit}!Analog IO@{Analog IO}}
+\doxysubsubsubsubsection{\texorpdfstring{AnalogOutputInit()}{AnalogOutputInit()}}
+{\footnotesize\ttfamily void Analog\+Output\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Analog output initialization (DAC) 
+
+\begin{DoxyReturn}{Devuelve}
+null 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00095}{95}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{analog__io__mcu_8c_source_l00026}{dac}}.
+
+\Hypertarget{group___analog___i_o_gad3fea4064bfa31ae309d4da542347198}\label{group___analog___i_o_gad3fea4064bfa31ae309d4da542347198} 
+\index{Analog IO@{Analog IO}!AnalogOutputWrite@{AnalogOutputWrite}}
+\index{AnalogOutputWrite@{AnalogOutputWrite}!Analog IO@{Analog IO}}
+\doxysubsubsubsubsection{\texorpdfstring{AnalogOutputWrite()}{AnalogOutputWrite()}}
+{\footnotesize\ttfamily void Analog\+Output\+Write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Digital-\/to-\/\+Analog convert. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em value} & Digital value to convert (from 0 to 255) \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00140}{140}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{analog__io__mcu_8c_source_l00026}{dac}}.
+
+\Hypertarget{group___analog___i_o_gac3a4df81e78216c7d552c0b9d8b1128d}\label{group___analog___i_o_gac3a4df81e78216c7d552c0b9d8b1128d} 
+\index{Analog IO@{Analog IO}!AnalogRaw2mV@{AnalogRaw2mV}}
+\index{AnalogRaw2mV@{AnalogRaw2mV}!Analog IO@{Analog IO}}
+\doxysubsubsubsubsection{\texorpdfstring{AnalogRaw2mV()}{AnalogRaw2mV()}}
+{\footnotesize\ttfamily uint16\+\_\+t Analog\+Raw2mV (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Convert raw value from ADC to mV, using a calibration curve. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em value} & Raw value from ADC. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+uint16\+\_\+t Calibrated value from ADC in mV. 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00134}{134}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{analog__io__mcu_8c_source_l00023}{adc\+\_\+calibration\+\_\+single}}.
+
+\Hypertarget{group___analog___i_o_ga59d18db7ff84dc756b4a66f5331a23eb}\label{group___analog___i_o_ga59d18db7ff84dc756b4a66f5331a23eb} 
+\index{Analog IO@{Analog IO}!AnalogStartContinuous@{AnalogStartContinuous}}
+\index{AnalogStartContinuous@{AnalogStartContinuous}!Analog IO@{Analog IO}}
+\doxysubsubsubsubsection{\texorpdfstring{AnalogStartContinuous()}{AnalogStartContinuous()}}
+{\footnotesize\ttfamily void Analog\+Start\+Continuous (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
+
+
+
+Start convertion for ADC module in continuous mode. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em channel} & Channel selected \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00122}{122}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+
+\Hypertarget{group___analog___i_o_gaea40f5dd5d020c0854734479d52458c2}\label{group___analog___i_o_gaea40f5dd5d020c0854734479d52458c2} 
+\index{Analog IO@{Analog IO}!AnalogStopContinuous@{AnalogStopContinuous}}
+\index{AnalogStopContinuous@{AnalogStopContinuous}!Analog IO@{Analog IO}}
+\doxysubsubsubsubsection{\texorpdfstring{AnalogStopContinuous()}{AnalogStopContinuous()}}
+{\footnotesize\ttfamily void Analog\+Stop\+Continuous (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\+\_\+ch\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
+
+
+
+Stop convertion for ADC module. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em channel} & Channel selected \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{analog__io__mcu_8c_source_l00126}{126}} del archivo \mbox{\hyperlink{analog__io__mcu_8c_source}{analog\+\_\+io\+\_\+mcu.\+c}}.
+

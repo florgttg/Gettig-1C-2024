@@ -1,0 +1,42 @@
+\doxysection{ble\+\_\+mcu.\+h}
+\hypertarget{ble__mcu_8h_source}{}\label{ble__mcu_8h_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/ble\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/ble\_mcu.h}}
+\mbox{\hyperlink{ble__mcu_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ BLE\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ BLE\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00026}00026\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00029}00029\ \textcolor{comment}{/*==================[macros]=================================================*/}}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00030}\mbox{\hyperlink{group___b_l_e_gaf5100161e34455dbc660d45f8ffb5373}{00030}}\ \textcolor{preprocessor}{\#define\ BLE\_NO\_INT\ \ 0\ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00031}00031\ \textcolor{comment}{/*==================[typedef]================================================*/}}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00038}\mbox{\hyperlink{group___b_l_e_gae207a1d79a9762a3a3701e091bbb22c9}{00038}}\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{group___b_l_e_gae207a1d79a9762a3a3701e091bbb22c9}{read\_func}})\ (uint8\_t\ *\ data,\ uint8\_t\ length);}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00043}\mbox{\hyperlink{structble__config__t}{00043}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00044}\mbox{\hyperlink{structble__config__t_a47b2e510fe20902fa67e2644118db42e}{00044}}\ \ \ \ \ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{structble__config__t_a47b2e510fe20902fa67e2644118db42e}{device\_name}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00045}\mbox{\hyperlink{structble__config__t_a331819affab0b6948eb77bb32a9c8a63}{00045}}\ \ \ \ \ \mbox{\hyperlink{group___b_l_e_gae207a1d79a9762a3a3701e091bbb22c9}{read\_func}}\ \mbox{\hyperlink{structble__config__t_a331819affab0b6948eb77bb32a9c8a63}{func\_p}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00046}00046\ \}\ \mbox{\hyperlink{structble__config__t}{ble\_config\_t}};}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00051}\mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{00051}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{ble\_status}}\ \{}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00052}\mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4}{00052}}\ \ \ \ \ \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4}{BLE\_OFF}},\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00053}\mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47abe3828521b028796e567225bfbc5a978}{00053}}\ \ \ \ \ \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47abe3828521b028796e567225bfbc5a978}{BLE\_DISCONNECTED}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399}{BLE\_CONNECTED}}\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00055}\mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399}{00055}}\ \}\ \mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\_status\_t}};}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00056}00056\ \textcolor{comment}{/*==================[external\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00058}00058\ \textcolor{comment}{/*==================[external\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00066}00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___b_l_e_ga8001369ce247b2413afd6d8a14fe8d82}{BleInit}}(\mbox{\hyperlink{structble__config__t}{ble\_config\_t}}\ *\ ble\_device);}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00073}00073\ \mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\_status\_t}}\ \mbox{\hyperlink{group___b_l_e_ga45f64ecb9f703ecc50b85b6967e85bd5}{BleStatus}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00080}00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___b_l_e_gae0bdc932377c439b2a2e601dd9b9d56d}{BleSendByte}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *data);}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00087}00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___b_l_e_ga68083cec5599456e78a536031e3b61b8}{BleSendString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg);}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00095}00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___b_l_e_gad7b70ab491715ae295497f0714e05539}{BleSendBuffer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *data,\ uint8\_t\ nbytes);}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00100}00100\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ BLE\_MCU\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{ble__mcu_8h_source_l00102}00102\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

@@ -1,0 +1,1137 @@
+\doxysubsubsection{ILI9341}
+\hypertarget{group___i_l_i9341}{}\label{group___i_l_i9341}\index{ILI9341@{ILI9341}}
+
+
+TFT LCD RGB 240x320 ILI9341 driver.  
+
+
+\doxysubsubsubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga0f07262d5faa91c725fa69a2847303d5}{ILI9341\+\_\+\+WIDTH}}~240
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga19b26d4d6ae752db7302c9cbb8688d51}{ILI9341\+\_\+\+HEIGHT}}~320
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga77c432b28a66dde602c46e7fcba4cc08}{ILI9341\+\_\+\+PIXEL\+\_\+\+MAX}}~76800
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga50166b9a65012fb2f8fe0a0d5f519fa3}{ILI9341\+\_\+\+BLACK}}~0x0000  /\texorpdfstring{$\ast$}{*}   0,   0,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gacaae04786d06f0ba08c8bea6b714b572}{ILI9341\+\_\+\+NAVY}}~0x000F  /\texorpdfstring{$\ast$}{*}   0,   0, 128 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga5a9d46f3af002ee1edc832257f3683a3}{ILI9341\+\_\+\+DARKGREEN}}~0x03\+E0  /\texorpdfstring{$\ast$}{*}   0, 128,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gadbc78927dc7105782714d69048580576}{ILI9341\+\_\+\+DARKCYAN}}~0x03\+EF  /\texorpdfstring{$\ast$}{*}   0, 128, 128 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga8fdcfa7e66294fbedf701b2822a9c6e9}{ILI9341\+\_\+\+MAROON}}~0x7800  /\texorpdfstring{$\ast$}{*} 128,   0,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga4371aa3db522c197cae529a235553071}{ILI9341\+\_\+\+PURPLE}}~0x780F  /\texorpdfstring{$\ast$}{*} 128,   0, 128 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gae8f5be0a5e731a047a1a7b5edaa0e46f}{ILI9341\+\_\+\+OLIVE}}~0x7\+BE0  /\texorpdfstring{$\ast$}{*} 128, 128,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga35990ea476b079cd6746056777fadfd8}{ILI9341\+\_\+\+LIGHTGREY}}~0x\+C618  /\texorpdfstring{$\ast$}{*} 192, 192, 192 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga56f69dad2de457c03d71ea0b38395c41}{ILI9341\+\_\+\+DARKGREY}}~0x7\+BEF  /\texorpdfstring{$\ast$}{*} 128, 128, 128 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gaa15cf651d66764cb8024808d6ea48eef}{ILI9341\+\_\+\+BLUE}}~0x001F  /\texorpdfstring{$\ast$}{*}   0,   0, 255 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga7753f9cc58d6e16ab69548349247922e}{ILI9341\+\_\+\+BLUE2}}~0x051D
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga2eb4b5e896b0b144970f33002134bb98}{ILI9341\+\_\+\+GREEN}}~0x07\+E0  /\texorpdfstring{$\ast$}{*}   0, 255,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gac7917ebbf25b3d806541ee4ed658b6c4}{ILI9341\+\_\+\+GREEN2}}~0x\+B723
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gaf04ea4a1f89418c734ba76739a2e730f}{ILI9341\+\_\+\+CYAN}}~0x07\+FF  /\texorpdfstring{$\ast$}{*}   0, 255, 255 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga4ebe718620305116033cb3f969cfc08b}{ILI9341\+\_\+\+RED}}~0x\+F800  /\texorpdfstring{$\ast$}{*} 255,   0,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gae858232678ff269cf0edd404aabcb989}{ILI9341\+\_\+\+MAGENTA}}~0x\+F81F  /\texorpdfstring{$\ast$}{*} 255,   0, 255 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga0313d113622009bfd9b6011fc9bffcc9}{ILI9341\+\_\+\+YELLOW}}~0x\+FFE0  /\texorpdfstring{$\ast$}{*} 255, 255,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga604507ef031b95291b2d177088fe03e4}{ILI9341\+\_\+\+WHITE}}~0x\+FFFF  /\texorpdfstring{$\ast$}{*} 255, 255, 255 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga857910d1b98cb9d77a29c2beb5af949d}{ILI9341\+\_\+\+ORANGE}}~0x\+FBE4
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gae518d9f896bf8456a175a5a04b49c7f3}{ILI9341\+\_\+\+ORANGE2}}~0x\+FD20  /\texorpdfstring{$\ast$}{*} 255, 165,   0 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga5f9867862411a57b73cecbc0155e7507}{ILI9341\+\_\+\+GREENYELLOW}}~0x\+AFE5  /\texorpdfstring{$\ast$}{*} 173, 255,  47 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_gad39cea2dab75ccfd9d83fab73ce1a56d}{ILI9341\+\_\+\+PINK}}~0x\+F81F
+\item 
+\#define \mbox{\hyperlink{group___i_l_i9341_ga204e287c2484d745d3332e5b1e67ae2f}{ILI9341\+\_\+\+BROWN}}~0x\+BBCA
+\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___i_l_i9341_ga46360a506ec04c0ca618ee229bdad248}{ili9341\+\_\+orientation}} \mbox{\hyperlink{group___i_l_i9341_gafd244eb5252344eaf17669b9d2fddcdc}{ili9341\+\_\+orientation\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Possible orientations for LCD. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___i_l_i9341_ga46360a506ec04c0ca618ee229bdad248}{ili9341\+\_\+orientation}} \{ \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a8a91947a781dff5aa13fee4123fc4017}{ILI9341\+\_\+\+Portrait\+\_\+1}}
+, \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a5355240517a88f9c791c786f52c25a0b}{ILI9341\+\_\+\+Portrait\+\_\+2}}
+, \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a4a306e50be2b7a9f5ff45ed5a6a5ab6d}{ILI9341\+\_\+\+Landscape\+\_\+1}}
+, \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a80467f7bb95409c5d6f7d943896d3c5c}{ILI9341\+\_\+\+Landscape\+\_\+2}}
+ \}
+\begin{DoxyCompactList}\small\item\em Possible orientations for LCD. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___i_l_i9341_ga5f72d1febbb1e77c2b50876ba8caf40c}{ILI9341\+Init}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} spi\+\_\+dev, uint8\+\_\+t gpio\+\_\+dc, uint8\+\_\+t gpio\+\_\+rst)
+\begin{DoxyCompactList}\small\item\em Initializes ILI9341 LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341\+Draw\+Pixel}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws single pixel to LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gadbfd33ee5866c7e8283e5d29d2843b5f}{ILI9341\+Fill}} (uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Fills entire LCD with color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga7b187b4cb92aa6b28a51fbfd5153aa2b}{ILI9341\+Rotate}} (\mbox{\hyperlink{group___i_l_i9341_gafd244eb5252344eaf17669b9d2fddcdc}{ili9341\+\_\+orientation\+\_\+t}} orientation)
+\begin{DoxyCompactList}\small\item\em Rotates LCD to specific orientation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gaf40f745e33f77553ed8756b0cdbff963}{ILI9341\+Draw\+Char}} (uint16\+\_\+t x, uint16\+\_\+t y, char data, \mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, uint16\+\_\+t foreground, uint16\+\_\+t background)
+\begin{DoxyCompactList}\small\item\em Draw a single character on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gaec5d3fe0bb17f07ae65da260587e73ce}{ILI9341\+Draw\+Icon}} (uint16\+\_\+t x, uint16\+\_\+t y, \mbox{\hyperlink{group___i_c_o_n_s_ga945c9cb2ded81b38da222e91d09df40b}{icon\+\_\+t}} icon, \mbox{\hyperlink{structicon__font__t}{icon\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}icon\+\_\+font, uint16\+\_\+t foreground, uint16\+\_\+t background)
+\begin{DoxyCompactList}\small\item\em Draw a single character on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gaf1f38ba35089e77b713750c4e25e2476}{ILI9341\+Draw\+Int}} (uint16\+\_\+t x, uint16\+\_\+t y, uint32\+\_\+t num, uint8\+\_\+t dig, \mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, uint16\+\_\+t foreground, uint16\+\_\+t background)
+\begin{DoxyCompactList}\small\item\em Draw an integer on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa}{ILI9341\+Draw\+String}} (uint16\+\_\+t x, uint16\+\_\+t y, char \texorpdfstring{$\ast$}{*}str, \mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, uint16\+\_\+t foreground, uint16\+\_\+t background)
+\begin{DoxyCompactList}\small\item\em Draw a string on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga5044d1ea4ba5b9b9244bc13898a514d2}{ILI9341\+Get\+String\+Size}} (char \texorpdfstring{$\ast$}{*}str, \mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, uint16\+\_\+t \texorpdfstring{$\ast$}{*}width, uint16\+\_\+t \texorpdfstring{$\ast$}{*}height)
+\begin{DoxyCompactList}\small\item\em Gets width and height of box with text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341\+Draw\+Line}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws line on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga90867195c7e57957fe9db4913beeee45}{ILI9341\+Draw\+Rectangle}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws rectangle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_gae317015706c9711c49b9419cd3d89823}{ILI9341\+Draw\+Filled\+Rectangle}} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws filled rectangle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga232a7c83cb705bd8c14d57dee26d0db7}{ILI9341\+Draw\+Circle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t r, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws circle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga12d38b5bae7cf33dce21b97e9ed7f114}{ILI9341\+Draw\+Filled\+Circle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t r, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws filled circle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga91597ef98cf09f7d8870917f9b5ebea4}{ILI9341\+Draw\+Triangle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, int16\+\_\+t x2, int16\+\_\+t y2, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws triangle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga371e40bd6e120c18f7fff4a5a0f292b2}{ILI9341\+Draw\+Filled\+Triangle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, int16\+\_\+t x2, int16\+\_\+t y2, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draws filled triangle on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_l_i9341_ga6fcf1346ba44bd098e41392eab653318}{ILI9341\+Draw\+Picture}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t width, uint16\+\_\+t height, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}pic)
+\begin{DoxyCompactList}\small\item\em Draw a picture on the LCD. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___i_l_i9341_gafae878cd3134badb186d4f6eae0c5de9}{ILI9341\+De\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em De-\/initializes ILI9341 LCD. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+TFT LCD RGB 240x320 ILI9341 driver. 
+
+\begin{DoxyNote}{Nota}
+This driver provide functions to configure and control a 240x320 pixels TFT color display connected to the ESP-\/\+EDU. It uses a SPI port and 3 GPIOs to communicate with the ILI9341 LCD driver chip.
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\begin{DoxyNote}{Nota}
+Hardware connections\+:
+\end{DoxyNote}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Display   }&\cellcolor{\tableheadbgcolor}\textbf{ ESP-\/\+EDU    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Display   }&\cellcolor{\tableheadbgcolor}\textbf{ ESP-\/\+EDU    }\\\cline{1-2}
+\endhead
+\PBS\centering SDO/\+MISO   &GPIO\+\_\+22    \\\cline{1-2}
+\PBS\centering LED   &3V3    \\\cline{1-2}
+\PBS\centering SCK   &GPIO\+\_\+20    \\\cline{1-2}
+\PBS\centering SDI/\+MOSI   &GPIO\+\_\+21    \\\cline{1-2}
+\PBS\centering DC/\+RS   &GPIOx    \\\cline{1-2}
+\PBS\centering RESET   &GPIOx    \\\cline{1-2}
+\PBS\centering CS   &GPIOx    \\\cline{1-2}
+\PBS\centering GND   &GND    \\\cline{1-2}
+\PBS\centering VCC   &3V3   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 18/01/2024   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+\doxysubsubsubsection{Documentación de «define»}
+\Hypertarget{group___i_l_i9341_ga50166b9a65012fb2f8fe0a0d5f519fa3}\label{group___i_l_i9341_ga50166b9a65012fb2f8fe0a0d5f519fa3} 
+\index{ILI9341@{ILI9341}!ILI9341\_BLACK@{ILI9341\_BLACK}}
+\index{ILI9341\_BLACK@{ILI9341\_BLACK}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_BLACK}{ILI9341\_BLACK}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+BLACK~0x0000  /\texorpdfstring{$\ast$}{*}   0,   0,   0 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00050}{50}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_gaa15cf651d66764cb8024808d6ea48eef}\label{group___i_l_i9341_gaa15cf651d66764cb8024808d6ea48eef} 
+\index{ILI9341@{ILI9341}!ILI9341\_BLUE@{ILI9341\_BLUE}}
+\index{ILI9341\_BLUE@{ILI9341\_BLUE}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_BLUE}{ILI9341\_BLUE}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+BLUE~0x001F  /\texorpdfstring{$\ast$}{*}   0,   0, 255 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00059}{59}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_ga7753f9cc58d6e16ab69548349247922e}\label{group___i_l_i9341_ga7753f9cc58d6e16ab69548349247922e} 
+\index{ILI9341@{ILI9341}!ILI9341\_BLUE2@{ILI9341\_BLUE2}}
+\index{ILI9341\_BLUE2@{ILI9341\_BLUE2}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_BLUE2}{ILI9341\_BLUE2}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+BLUE2~0x051D}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00060}{60}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_ga204e287c2484d745d3332e5b1e67ae2f}\label{group___i_l_i9341_ga204e287c2484d745d3332e5b1e67ae2f} 
+\index{ILI9341@{ILI9341}!ILI9341\_BROWN@{ILI9341\_BROWN}}
+\index{ILI9341\_BROWN@{ILI9341\_BROWN}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_BROWN}{ILI9341\_BROWN}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+BROWN~0x\+BBCA}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00072}{72}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_gaf04ea4a1f89418c734ba76739a2e730f}\label{group___i_l_i9341_gaf04ea4a1f89418c734ba76739a2e730f} 
+\index{ILI9341@{ILI9341}!ILI9341\_CYAN@{ILI9341\_CYAN}}
+\index{ILI9341\_CYAN@{ILI9341\_CYAN}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_CYAN}{ILI9341\_CYAN}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+CYAN~0x07\+FF  /\texorpdfstring{$\ast$}{*}   0, 255, 255 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00063}{63}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_gadbc78927dc7105782714d69048580576}\label{group___i_l_i9341_gadbc78927dc7105782714d69048580576} 
+\index{ILI9341@{ILI9341}!ILI9341\_DARKCYAN@{ILI9341\_DARKCYAN}}
+\index{ILI9341\_DARKCYAN@{ILI9341\_DARKCYAN}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_DARKCYAN}{ILI9341\_DARKCYAN}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+DARKCYAN~0x03\+EF  /\texorpdfstring{$\ast$}{*}   0, 128, 128 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00053}{53}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_ga5a9d46f3af002ee1edc832257f3683a3}\label{group___i_l_i9341_ga5a9d46f3af002ee1edc832257f3683a3} 
+\index{ILI9341@{ILI9341}!ILI9341\_DARKGREEN@{ILI9341\_DARKGREEN}}
+\index{ILI9341\_DARKGREEN@{ILI9341\_DARKGREEN}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_DARKGREEN}{ILI9341\_DARKGREEN}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+DARKGREEN~0x03\+E0  /\texorpdfstring{$\ast$}{*}   0, 128,   0 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00052}{52}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_ga56f69dad2de457c03d71ea0b38395c41}\label{group___i_l_i9341_ga56f69dad2de457c03d71ea0b38395c41} 
+\index{ILI9341@{ILI9341}!ILI9341\_DARKGREY@{ILI9341\_DARKGREY}}
+\index{ILI9341\_DARKGREY@{ILI9341\_DARKGREY}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_DARKGREY}{ILI9341\_DARKGREY}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+DARKGREY~0x7\+BEF  /\texorpdfstring{$\ast$}{*} 128, 128, 128 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00058}{58}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_ga2eb4b5e896b0b144970f33002134bb98}\label{group___i_l_i9341_ga2eb4b5e896b0b144970f33002134bb98} 
+\index{ILI9341@{ILI9341}!ILI9341\_GREEN@{ILI9341\_GREEN}}
+\index{ILI9341\_GREEN@{ILI9341\_GREEN}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_GREEN}{ILI9341\_GREEN}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+GREEN~0x07\+E0  /\texorpdfstring{$\ast$}{*}   0, 255,   0 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00061}{61}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_gac7917ebbf25b3d806541ee4ed658b6c4}\label{group___i_l_i9341_gac7917ebbf25b3d806541ee4ed658b6c4} 
+\index{ILI9341@{ILI9341}!ILI9341\_GREEN2@{ILI9341\_GREEN2}}
+\index{ILI9341\_GREEN2@{ILI9341\_GREEN2}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_GREEN2}{ILI9341\_GREEN2}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+GREEN2~0x\+B723}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00062}{62}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_ga5f9867862411a57b73cecbc0155e7507}\label{group___i_l_i9341_ga5f9867862411a57b73cecbc0155e7507} 
+\index{ILI9341@{ILI9341}!ILI9341\_GREENYELLOW@{ILI9341\_GREENYELLOW}}
+\index{ILI9341\_GREENYELLOW@{ILI9341\_GREENYELLOW}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_GREENYELLOW}{ILI9341\_GREENYELLOW}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+GREENYELLOW~0x\+AFE5  /\texorpdfstring{$\ast$}{*} 173, 255,  47 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00070}{70}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_ga19b26d4d6ae752db7302c9cbb8688d51}\label{group___i_l_i9341_ga19b26d4d6ae752db7302c9cbb8688d51} 
+\index{ILI9341@{ILI9341}!ILI9341\_HEIGHT@{ILI9341\_HEIGHT}}
+\index{ILI9341\_HEIGHT@{ILI9341\_HEIGHT}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_HEIGHT}{ILI9341\_HEIGHT}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+HEIGHT~320}
+
+LCD height in pixels 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00047}{47}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00317}{ILI9341\+Rotate()}}.
+
+\Hypertarget{group___i_l_i9341_ga35990ea476b079cd6746056777fadfd8}\label{group___i_l_i9341_ga35990ea476b079cd6746056777fadfd8} 
+\index{ILI9341@{ILI9341}!ILI9341\_LIGHTGREY@{ILI9341\_LIGHTGREY}}
+\index{ILI9341\_LIGHTGREY@{ILI9341\_LIGHTGREY}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_LIGHTGREY}{ILI9341\_LIGHTGREY}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+LIGHTGREY~0x\+C618  /\texorpdfstring{$\ast$}{*} 192, 192, 192 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00057}{57}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_gae858232678ff269cf0edd404aabcb989}\label{group___i_l_i9341_gae858232678ff269cf0edd404aabcb989} 
+\index{ILI9341@{ILI9341}!ILI9341\_MAGENTA@{ILI9341\_MAGENTA}}
+\index{ILI9341\_MAGENTA@{ILI9341\_MAGENTA}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_MAGENTA}{ILI9341\_MAGENTA}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+MAGENTA~0x\+F81F  /\texorpdfstring{$\ast$}{*} 255,   0, 255 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00065}{65}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_ga8fdcfa7e66294fbedf701b2822a9c6e9}\label{group___i_l_i9341_ga8fdcfa7e66294fbedf701b2822a9c6e9} 
+\index{ILI9341@{ILI9341}!ILI9341\_MAROON@{ILI9341\_MAROON}}
+\index{ILI9341\_MAROON@{ILI9341\_MAROON}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_MAROON}{ILI9341\_MAROON}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+MAROON~0x7800  /\texorpdfstring{$\ast$}{*} 128,   0,   0 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00054}{54}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_gacaae04786d06f0ba08c8bea6b714b572}\label{group___i_l_i9341_gacaae04786d06f0ba08c8bea6b714b572} 
+\index{ILI9341@{ILI9341}!ILI9341\_NAVY@{ILI9341\_NAVY}}
+\index{ILI9341\_NAVY@{ILI9341\_NAVY}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_NAVY}{ILI9341\_NAVY}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+NAVY~0x000F  /\texorpdfstring{$\ast$}{*}   0,   0, 128 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00051}{51}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_gae8f5be0a5e731a047a1a7b5edaa0e46f}\label{group___i_l_i9341_gae8f5be0a5e731a047a1a7b5edaa0e46f} 
+\index{ILI9341@{ILI9341}!ILI9341\_OLIVE@{ILI9341\_OLIVE}}
+\index{ILI9341\_OLIVE@{ILI9341\_OLIVE}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_OLIVE}{ILI9341\_OLIVE}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+OLIVE~0x7\+BE0  /\texorpdfstring{$\ast$}{*} 128, 128,   0 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00056}{56}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_ga857910d1b98cb9d77a29c2beb5af949d}\label{group___i_l_i9341_ga857910d1b98cb9d77a29c2beb5af949d} 
+\index{ILI9341@{ILI9341}!ILI9341\_ORANGE@{ILI9341\_ORANGE}}
+\index{ILI9341\_ORANGE@{ILI9341\_ORANGE}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_ORANGE}{ILI9341\_ORANGE}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+ORANGE~0x\+FBE4}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00068}{68}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_gae518d9f896bf8456a175a5a04b49c7f3}\label{group___i_l_i9341_gae518d9f896bf8456a175a5a04b49c7f3} 
+\index{ILI9341@{ILI9341}!ILI9341\_ORANGE2@{ILI9341\_ORANGE2}}
+\index{ILI9341\_ORANGE2@{ILI9341\_ORANGE2}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_ORANGE2}{ILI9341\_ORANGE2}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+ORANGE2~0x\+FD20  /\texorpdfstring{$\ast$}{*} 255, 165,   0 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00069}{69}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_gad39cea2dab75ccfd9d83fab73ce1a56d}\label{group___i_l_i9341_gad39cea2dab75ccfd9d83fab73ce1a56d} 
+\index{ILI9341@{ILI9341}!ILI9341\_PINK@{ILI9341\_PINK}}
+\index{ILI9341\_PINK@{ILI9341\_PINK}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_PINK}{ILI9341\_PINK}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+PINK~0x\+F81F}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00071}{71}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_ga77c432b28a66dde602c46e7fcba4cc08}\label{group___i_l_i9341_ga77c432b28a66dde602c46e7fcba4cc08} 
+\index{ILI9341@{ILI9341}!ILI9341\_PIXEL\_MAX@{ILI9341\_PIXEL\_MAX}}
+\index{ILI9341\_PIXEL\_MAX@{ILI9341\_PIXEL\_MAX}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_PIXEL\_MAX}{ILI9341\_PIXEL\_MAX}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+PIXEL\+\_\+\+MAX~76800}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00048}{48}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_ga4371aa3db522c197cae529a235553071}\label{group___i_l_i9341_ga4371aa3db522c197cae529a235553071} 
+\index{ILI9341@{ILI9341}!ILI9341\_PURPLE@{ILI9341\_PURPLE}}
+\index{ILI9341\_PURPLE@{ILI9341\_PURPLE}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_PURPLE}{ILI9341\_PURPLE}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+PURPLE~0x780F  /\texorpdfstring{$\ast$}{*} 128,   0, 128 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00055}{55}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_ga4ebe718620305116033cb3f969cfc08b}\label{group___i_l_i9341_ga4ebe718620305116033cb3f969cfc08b} 
+\index{ILI9341@{ILI9341}!ILI9341\_RED@{ILI9341\_RED}}
+\index{ILI9341\_RED@{ILI9341\_RED}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_RED}{ILI9341\_RED}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+RED~0x\+F800  /\texorpdfstring{$\ast$}{*} 255,   0,   0 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00064}{64}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+\Hypertarget{group___i_l_i9341_ga604507ef031b95291b2d177088fe03e4}\label{group___i_l_i9341_ga604507ef031b95291b2d177088fe03e4} 
+\index{ILI9341@{ILI9341}!ILI9341\_WHITE@{ILI9341\_WHITE}}
+\index{ILI9341\_WHITE@{ILI9341\_WHITE}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_WHITE}{ILI9341\_WHITE}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+WHITE~0x\+FFFF  /\texorpdfstring{$\ast$}{*} 255, 255, 255 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00067}{67}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00272}{ILI9341\+Init()}}.
+
+\Hypertarget{group___i_l_i9341_ga0f07262d5faa91c725fa69a2847303d5}\label{group___i_l_i9341_ga0f07262d5faa91c725fa69a2847303d5} 
+\index{ILI9341@{ILI9341}!ILI9341\_WIDTH@{ILI9341\_WIDTH}}
+\index{ILI9341\_WIDTH@{ILI9341\_WIDTH}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_WIDTH}{ILI9341\_WIDTH}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+WIDTH~240}
+
+LCD width in pixels 
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00046}{46}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00317}{ILI9341\+Rotate()}}.
+
+\Hypertarget{group___i_l_i9341_ga0313d113622009bfd9b6011fc9bffcc9}\label{group___i_l_i9341_ga0313d113622009bfd9b6011fc9bffcc9} 
+\index{ILI9341@{ILI9341}!ILI9341\_YELLOW@{ILI9341\_YELLOW}}
+\index{ILI9341\_YELLOW@{ILI9341\_YELLOW}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341\_YELLOW}{ILI9341\_YELLOW}}
+{\footnotesize\ttfamily \#define ILI9341\+\_\+\+YELLOW~0x\+FFE0  /\texorpdfstring{$\ast$}{*} 255, 255,   0 \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00066}{66}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de «typedef»}
+\Hypertarget{group___i_l_i9341_gafd244eb5252344eaf17669b9d2fddcdc}\label{group___i_l_i9341_gafd244eb5252344eaf17669b9d2fddcdc} 
+\index{ILI9341@{ILI9341}!ili9341\_orientation\_t@{ili9341\_orientation\_t}}
+\index{ili9341\_orientation\_t@{ili9341\_orientation\_t}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ili9341\_orientation\_t}{ili9341\_orientation\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___i_l_i9341_ga46360a506ec04c0ca618ee229bdad248}{ili9341\+\_\+orientation}} \mbox{\hyperlink{group___i_l_i9341_gafd244eb5252344eaf17669b9d2fddcdc}{ili9341\+\_\+orientation\+\_\+t}}}
+
+
+
+Possible orientations for LCD. 
+
+
+
+\doxysubsubsubsection{Documentación de enumeraciones}
+\Hypertarget{group___i_l_i9341_ga46360a506ec04c0ca618ee229bdad248}\label{group___i_l_i9341_ga46360a506ec04c0ca618ee229bdad248} 
+\index{ILI9341@{ILI9341}!ili9341\_orientation@{ili9341\_orientation}}
+\index{ili9341\_orientation@{ili9341\_orientation}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ili9341\_orientation}{ili9341\_orientation}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___i_l_i9341_ga46360a506ec04c0ca618ee229bdad248}{ili9341\+\_\+orientation}}}
+
+
+
+Possible orientations for LCD. 
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ILI9341\_Portrait\_1@{ILI9341\_Portrait\_1}!ILI9341@{ILI9341}}\index{ILI9341@{ILI9341}!ILI9341\_Portrait\_1@{ILI9341\_Portrait\_1}}}\Hypertarget{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a8a91947a781dff5aa13fee4123fc4017}\label{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a8a91947a781dff5aa13fee4123fc4017} 
+ILI9341\+\_\+\+Portrait\+\_\+1&Portrait orientation mode 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ILI9341\_Portrait\_2@{ILI9341\_Portrait\_2}!ILI9341@{ILI9341}}\index{ILI9341@{ILI9341}!ILI9341\_Portrait\_2@{ILI9341\_Portrait\_2}}}\Hypertarget{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a5355240517a88f9c791c786f52c25a0b}\label{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a5355240517a88f9c791c786f52c25a0b} 
+ILI9341\+\_\+\+Portrait\+\_\+2&Portrait orientation mode 2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ILI9341\_Landscape\_1@{ILI9341\_Landscape\_1}!ILI9341@{ILI9341}}\index{ILI9341@{ILI9341}!ILI9341\_Landscape\_1@{ILI9341\_Landscape\_1}}}\Hypertarget{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a4a306e50be2b7a9f5ff45ed5a6a5ab6d}\label{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a4a306e50be2b7a9f5ff45ed5a6a5ab6d} 
+ILI9341\+\_\+\+Landscape\+\_\+1&Landscape orientation mode 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ILI9341\_Landscape\_2@{ILI9341\_Landscape\_2}!ILI9341@{ILI9341}}\index{ILI9341@{ILI9341}!ILI9341\_Landscape\_2@{ILI9341\_Landscape\_2}}}\Hypertarget{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a80467f7bb95409c5d6f7d943896d3c5c}\label{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a80467f7bb95409c5d6f7d943896d3c5c} 
+ILI9341\+\_\+\+Landscape\+\_\+2&Landscape orientation mode 2 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8h_source_l00077}{77}} del archivo \mbox{\hyperlink{ili9341_8h_source}{ili9341.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___i_l_i9341_gafae878cd3134badb186d4f6eae0c5de9}\label{group___i_l_i9341_gafae878cd3134badb186d4f6eae0c5de9} 
+\index{ILI9341@{ILI9341}!ILI9341DeInit@{ILI9341DeInit}}
+\index{ILI9341DeInit@{ILI9341DeInit}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DeInit()}{ILI9341DeInit()}}
+{\footnotesize\ttfamily uint8\+\_\+t ILI9341\+De\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+De-\/initializes ILI9341 LCD. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em 1} & when success, 0 when fails \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00833}{833}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+\Hypertarget{group___i_l_i9341_gaf40f745e33f77553ed8756b0cdbff963}\label{group___i_l_i9341_gaf40f745e33f77553ed8756b0cdbff963} 
+\index{ILI9341@{ILI9341}!ILI9341DrawChar@{ILI9341DrawChar}}
+\index{ILI9341DrawChar@{ILI9341DrawChar}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DrawChar()}{ILI9341DrawChar()}}
+{\footnotesize\ttfamily void ILI9341\+Draw\+Char (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{char}]{data,  }\item[{\mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{uint16\+\_\+t}]{foreground,  }\item[{uint16\+\_\+t}]{background }\end{DoxyParamCaption})}
+
+
+
+Draw a single character on the LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x} & X position of top left corner \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Y position of top left corner \\
+\hline
+\mbox{\texttt{ in}}  & {\em data} & Character to be displayed \\
+\hline
+\mbox{\texttt{ in}}  & {\em font} & Pointer to used font \\
+\hline
+\mbox{\texttt{ in}}  & {\em foreground} & Color for char (RGB565) \\
+\hline
+\mbox{\texttt{ in}}  & {\em background} & Color for char background (RGB565) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00352}{352}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{fonts_8h_source_l00046}{Font\+\_\+t\+::data}}, \mbox{\hyperlink{fonts_8h_source_l00044}{Font\+\_\+t\+::font\+\_\+height}}, \mbox{\hyperlink{ili9341_8c_source_l00065}{High\+Byte}}, \mbox{\hyperlink{fonts_8h_source_l00045}{Font\+\_\+t\+::info}}, \mbox{\hyperlink{ili9341_8c_source_l00066}{Low\+Byte}}, \mbox{\hyperlink{ili9341_8c_source_l00025}{MAX\+\_\+\+VALUE\+\_\+\+SIZE}}, \mbox{\hyperlink{ili9341_8c_source_l00042}{MEM\+\_\+\+WRITE}}, \mbox{\hyperlink{ili9341_8c_source_l00024}{MSK\+\_\+\+BIT8}}, \mbox{\hyperlink{ili9341_8c_source_l00019}{NULL}}, \mbox{\hyperlink{fonts_8h_source_l00038}{char\+\_\+info\+\_\+t\+::offset}}, \mbox{\hyperlink{ili9341_8c_source_l00212}{Set\+Cursor\+Position()}}, \mbox{\hyperlink{fonts_8h_source_l00037}{char\+\_\+info\+\_\+t\+::width}}, \mbox{\hyperlink{ili9341_8c_source_l00072}{orientation\+\_\+properties\+\_\+t\+::width}} y \mbox{\hyperlink{ili9341_8c_source_l00196}{Write\+LCD()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00476}{ILI9341\+Draw\+Int()}} y \mbox{\hyperlink{ili9341_8c_source_l00491}{ILI9341\+Draw\+String()}}.
+
+\Hypertarget{group___i_l_i9341_ga232a7c83cb705bd8c14d57dee26d0db7}\label{group___i_l_i9341_ga232a7c83cb705bd8c14d57dee26d0db7} 
+\index{ILI9341@{ILI9341}!ILI9341DrawCircle@{ILI9341DrawCircle}}
+\index{ILI9341DrawCircle@{ILI9341DrawCircle}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DrawCircle()}{ILI9341DrawCircle()}}
+{\footnotesize\ttfamily void ILI9341\+Draw\+Circle (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x0,  }\item[{int16\+\_\+t}]{y0,  }\item[{int16\+\_\+t}]{r,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws circle on the LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x0} & X coordinate of center circle point \\
+\hline
+\mbox{\texttt{ in}}  & {\em y0} & Y coordinate of center circle point \\
+\hline
+\mbox{\texttt{ in}}  & {\em r} & Circle radius \\
+\hline
+\mbox{\texttt{ in}}  & {\em color} & Circle color (RGB565) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00613}{613}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00305}{ILI9341\+Draw\+Pixel()}}.
+
+\Hypertarget{group___i_l_i9341_ga12d38b5bae7cf33dce21b97e9ed7f114}\label{group___i_l_i9341_ga12d38b5bae7cf33dce21b97e9ed7f114} 
+\index{ILI9341@{ILI9341}!ILI9341DrawFilledCircle@{ILI9341DrawFilledCircle}}
+\index{ILI9341DrawFilledCircle@{ILI9341DrawFilledCircle}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DrawFilledCircle()}{ILI9341DrawFilledCircle()}}
+{\footnotesize\ttfamily void ILI9341\+Draw\+Filled\+Circle (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x0,  }\item[{int16\+\_\+t}]{y0,  }\item[{int16\+\_\+t}]{r,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws filled circle on the LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x0} & X coordinate of center circle point \\
+\hline
+\mbox{\texttt{ in}}  & {\em y0} & Y coordinate of center circle point \\
+\hline
+\mbox{\texttt{ in}}  & {\em r} & Circle radius \\
+\hline
+\mbox{\texttt{ in}}  & {\em color} & Circle color (RGB565) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00649}{649}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00537}{ILI9341\+Draw\+Line()}} y \mbox{\hyperlink{ili9341_8c_source_l00305}{ILI9341\+Draw\+Pixel()}}.
+
+\Hypertarget{group___i_l_i9341_gae317015706c9711c49b9419cd3d89823}\label{group___i_l_i9341_gae317015706c9711c49b9419cd3d89823} 
+\index{ILI9341@{ILI9341}!ILI9341DrawFilledRectangle@{ILI9341DrawFilledRectangle}}
+\index{ILI9341DrawFilledRectangle@{ILI9341DrawFilledRectangle}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DrawFilledRectangle()}{ILI9341DrawFilledRectangle()}}
+{\footnotesize\ttfamily void ILI9341\+Draw\+Filled\+Rectangle (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x0,  }\item[{uint16\+\_\+t}]{y0,  }\item[{uint16\+\_\+t}]{x1,  }\item[{uint16\+\_\+t}]{y1,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws filled rectangle on the LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x0} & X coordinate of top left point \\
+\hline
+\mbox{\texttt{ in}}  & {\em y0} & Y coordinate of top left point \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1} & X coordinate of bottom right point \\
+\hline
+\mbox{\texttt{ in}}  & {\em y1} & Y coordinate of bottom right point \\
+\hline
+\mbox{\texttt{ in}}  & {\em color} & Rectangle color (RGB565) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00609}{609}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00234}{Fill()}}.
+
+\Hypertarget{group___i_l_i9341_ga371e40bd6e120c18f7fff4a5a0f292b2}\label{group___i_l_i9341_ga371e40bd6e120c18f7fff4a5a0f292b2} 
+\index{ILI9341@{ILI9341}!ILI9341DrawFilledTriangle@{ILI9341DrawFilledTriangle}}
+\index{ILI9341DrawFilledTriangle@{ILI9341DrawFilledTriangle}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DrawFilledTriangle()}{ILI9341DrawFilledTriangle()}}
+{\footnotesize\ttfamily void ILI9341\+Draw\+Filled\+Triangle (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x0,  }\item[{int16\+\_\+t}]{y0,  }\item[{int16\+\_\+t}]{x1,  }\item[{int16\+\_\+t}]{y1,  }\item[{int16\+\_\+t}]{x2,  }\item[{int16\+\_\+t}]{y2,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws filled triangle on the LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x0} & X coordinate of vertex \\
+\hline
+\mbox{\texttt{ in}}  & {\em y0} & Y coordinate of vertex \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1} & X coordinate of vertex \\
+\hline
+\mbox{\texttt{ in}}  & {\em y1} & Y coordinate of vertex \\
+\hline
+\mbox{\texttt{ in}}  & {\em x2} & X coordinate of vertex \\
+\hline
+\mbox{\texttt{ in}}  & {\em y2} & Y coordinate of vertex \\
+\hline
+\mbox{\texttt{ in}}  & {\em color} & Triangle color (RGB565) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00688}{688}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00537}{ILI9341\+Draw\+Line()}}.
+
+\Hypertarget{group___i_l_i9341_gaec5d3fe0bb17f07ae65da260587e73ce}\label{group___i_l_i9341_gaec5d3fe0bb17f07ae65da260587e73ce} 
+\index{ILI9341@{ILI9341}!ILI9341DrawIcon@{ILI9341DrawIcon}}
+\index{ILI9341DrawIcon@{ILI9341DrawIcon}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DrawIcon()}{ILI9341DrawIcon()}}
+{\footnotesize\ttfamily void ILI9341\+Draw\+Icon (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{\mbox{\hyperlink{group___i_c_o_n_s_ga945c9cb2ded81b38da222e91d09df40b}{icon\+\_\+t}}}]{icon,  }\item[{\mbox{\hyperlink{structicon__font__t}{icon\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{icon\+\_\+font,  }\item[{uint16\+\_\+t}]{foreground,  }\item[{uint16\+\_\+t}]{background }\end{DoxyParamCaption})}
+
+
+
+Draw a single character on the LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x} & X position of top left corner \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Y position of top left corner \\
+\hline
+\mbox{\texttt{ in}}  & {\em icon} & Icon to be displayed \\
+\hline
+\mbox{\texttt{ in}}  & {\em icon\+\_\+font} & Pointer to used font \\
+\hline
+\mbox{\texttt{ in}}  & {\em foreground} & Color for icon (RGB565) \\
+\hline
+\mbox{\texttt{ in}}  & {\em background} & Color for icon background (RGB565) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00414}{414}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{icons_8h_source_l00108}{icon\+\_\+font\+\_\+t\+::data}}, \mbox{\hyperlink{icons_8h_source_l00105}{icon\+\_\+font\+\_\+t\+::height}}, \mbox{\hyperlink{ili9341_8c_source_l00065}{High\+Byte}}, \mbox{\hyperlink{ili9341_8c_source_l00066}{Low\+Byte}}, \mbox{\hyperlink{ili9341_8c_source_l00025}{MAX\+\_\+\+VALUE\+\_\+\+SIZE}}, \mbox{\hyperlink{ili9341_8c_source_l00042}{MEM\+\_\+\+WRITE}}, \mbox{\hyperlink{ili9341_8c_source_l00024}{MSK\+\_\+\+BIT8}}, \mbox{\hyperlink{ili9341_8c_source_l00019}{NULL}}, \mbox{\hyperlink{icons_8h_source_l00107}{icon\+\_\+font\+\_\+t\+::offset}}, \mbox{\hyperlink{ili9341_8c_source_l00212}{Set\+Cursor\+Position()}}, \mbox{\hyperlink{icons_8h_source_l00106}{icon\+\_\+font\+\_\+t\+::width}}, \mbox{\hyperlink{ili9341_8c_source_l00072}{orientation\+\_\+properties\+\_\+t\+::width}} y \mbox{\hyperlink{ili9341_8c_source_l00196}{Write\+LCD()}}.
+
+\Hypertarget{group___i_l_i9341_gaf1f38ba35089e77b713750c4e25e2476}\label{group___i_l_i9341_gaf1f38ba35089e77b713750c4e25e2476} 
+\index{ILI9341@{ILI9341}!ILI9341DrawInt@{ILI9341DrawInt}}
+\index{ILI9341DrawInt@{ILI9341DrawInt}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DrawInt()}{ILI9341DrawInt()}}
+{\footnotesize\ttfamily void ILI9341\+Draw\+Int (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint32\+\_\+t}]{num,  }\item[{uint8\+\_\+t}]{dig,  }\item[{\mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{uint16\+\_\+t}]{foreground,  }\item[{uint16\+\_\+t}]{background }\end{DoxyParamCaption})}
+
+
+
+Draw an integer on the LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x} & X position of top left corner \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Y position of top left corner \\
+\hline
+\mbox{\texttt{ in}}  & {\em num} & Number to be displayed \\
+\hline
+\mbox{\texttt{ in}}  & {\em dig} & Number of digits to display \\
+\hline
+\mbox{\texttt{ in}}  & {\em font} & Pointer to used font \\
+\hline
+\mbox{\texttt{ in}}  & {\em foreground} & Color for char (RGB565) \\
+\hline
+\mbox{\texttt{ in}}  & {\em background} & Color for char background (RGB565) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00476}{476}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00352}{ILI9341\+Draw\+Char()}}, \mbox{\hyperlink{fonts_8h_source_l00045}{Font\+\_\+t\+::info}} y \mbox{\hyperlink{fonts_8h_source_l00037}{char\+\_\+info\+\_\+t\+::width}}.
+
+\Hypertarget{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}\label{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49} 
+\index{ILI9341@{ILI9341}!ILI9341DrawLine@{ILI9341DrawLine}}
+\index{ILI9341DrawLine@{ILI9341DrawLine}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DrawLine()}{ILI9341DrawLine()}}
+{\footnotesize\ttfamily void ILI9341\+Draw\+Line (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x0,  }\item[{uint16\+\_\+t}]{y0,  }\item[{uint16\+\_\+t}]{x1,  }\item[{uint16\+\_\+t}]{y1,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws line on the LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x0} & X coordinate of starting point \\
+\hline
+\mbox{\texttt{ in}}  & {\em y0} & Y coordinate of starting point \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1} & X coordinate of ending point \\
+\hline
+\mbox{\texttt{ in}}  & {\em y1} & Y coordinate of ending point \\
+\hline
+\mbox{\texttt{ in}}  & {\em color} & Line color (RGB565) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em \mbox{[}in\mbox{]}} & None \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00537}{537}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00028}{DOWN}}, \mbox{\hyperlink{ili9341_8c_source_l00234}{Fill()}}, \mbox{\hyperlink{ili9341_8c_source_l00073}{orientation\+\_\+properties\+\_\+t\+::height}}, \mbox{\hyperlink{ili9341_8c_source_l00305}{ILI9341\+Draw\+Pixel()}}, \mbox{\hyperlink{ili9341_8c_source_l00026}{LEFT}}, \mbox{\hyperlink{ili9341_8c_source_l00027}{RIGHT}}, \mbox{\hyperlink{ili9341_8c_source_l00029}{UP}} y \mbox{\hyperlink{ili9341_8c_source_l00072}{orientation\+\_\+properties\+\_\+t\+::width}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00649}{ILI9341\+Draw\+Filled\+Circle()}}, \mbox{\hyperlink{ili9341_8c_source_l00688}{ILI9341\+Draw\+Filled\+Triangle()}}, \mbox{\hyperlink{ili9341_8c_source_l00602}{ILI9341\+Draw\+Rectangle()}} y \mbox{\hyperlink{ili9341_8c_source_l00682}{ILI9341\+Draw\+Triangle()}}.
+
+\Hypertarget{group___i_l_i9341_ga6fcf1346ba44bd098e41392eab653318}\label{group___i_l_i9341_ga6fcf1346ba44bd098e41392eab653318} 
+\index{ILI9341@{ILI9341}!ILI9341DrawPicture@{ILI9341DrawPicture}}
+\index{ILI9341DrawPicture@{ILI9341DrawPicture}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DrawPicture()}{ILI9341DrawPicture()}}
+{\footnotesize\ttfamily void ILI9341\+Draw\+Picture (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{width,  }\item[{uint16\+\_\+t}]{height,  }\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{pic }\end{DoxyParamCaption})}
+
+
+
+Draw a picture on the LCD. 
+
+\begin{DoxyNote}{Nota}
+Pictures must be converted to uint8\+\_\+t array. For that porpouse you can use \href{http://www.digole.com/tools/PicturetoC_Hex_converter.php}{\texttt{ http\+://www.\+digole.\+com/tools/\+Pictureto\+C\+\_\+\+Hex\+\_\+converter.\+php}}, selecting the option "{}65\+K Color (2 bytes/pixel)"{} 
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x} & X position of top left corner of picture \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Y position of top left corner of picture \\
+\hline
+\mbox{\texttt{ in}}  & {\em width} & Picture width in pixels \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & Picture height in pixels \\
+\hline
+\mbox{\texttt{ in}}  & {\em pic} & Pointer to first byte of picture \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00802}{802}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00025}{MAX\+\_\+\+VALUE\+\_\+\+SIZE}}, \mbox{\hyperlink{ili9341_8c_source_l00042}{MEM\+\_\+\+WRITE}}, \mbox{\hyperlink{ili9341_8c_source_l00019}{NULL}}, \mbox{\hyperlink{ili9341_8c_source_l00212}{Set\+Cursor\+Position()}} y \mbox{\hyperlink{ili9341_8c_source_l00196}{Write\+LCD()}}.
+
+\Hypertarget{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}\label{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752} 
+\index{ILI9341@{ILI9341}!ILI9341DrawPixel@{ILI9341DrawPixel}}
+\index{ILI9341DrawPixel@{ILI9341DrawPixel}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DrawPixel()}{ILI9341DrawPixel()}}
+{\footnotesize\ttfamily void ILI9341\+Draw\+Pixel (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws single pixel to LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x} & X position for pixel \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Y position for pixel \\
+\hline
+\mbox{\texttt{ in}}  & {\em color} & Color of pixel (RGB565) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00305}{305}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00065}{High\+Byte}}, \mbox{\hyperlink{ili9341_8c_source_l00066}{Low\+Byte}}, \mbox{\hyperlink{ili9341_8c_source_l00042}{MEM\+\_\+\+WRITE}}, \mbox{\hyperlink{ili9341_8c_source_l00212}{Set\+Cursor\+Position()}} y \mbox{\hyperlink{ili9341_8c_source_l00196}{Write\+LCD()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00613}{ILI9341\+Draw\+Circle()}}, \mbox{\hyperlink{ili9341_8c_source_l00649}{ILI9341\+Draw\+Filled\+Circle()}} y \mbox{\hyperlink{ili9341_8c_source_l00537}{ILI9341\+Draw\+Line()}}.
+
+\Hypertarget{group___i_l_i9341_ga90867195c7e57957fe9db4913beeee45}\label{group___i_l_i9341_ga90867195c7e57957fe9db4913beeee45} 
+\index{ILI9341@{ILI9341}!ILI9341DrawRectangle@{ILI9341DrawRectangle}}
+\index{ILI9341DrawRectangle@{ILI9341DrawRectangle}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DrawRectangle()}{ILI9341DrawRectangle()}}
+{\footnotesize\ttfamily void ILI9341\+Draw\+Rectangle (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x0,  }\item[{uint16\+\_\+t}]{y0,  }\item[{uint16\+\_\+t}]{x1,  }\item[{uint16\+\_\+t}]{y1,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws rectangle on the LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x0} & X coordinate of top left point \\
+\hline
+\mbox{\texttt{ in}}  & {\em y0} & Y coordinate of top left point \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1} & X coordinate of bottom right point \\
+\hline
+\mbox{\texttt{ in}}  & {\em y1} & Y coordinate of bottom right point \\
+\hline
+\mbox{\texttt{ in}}  & {\em color} & Rectangle color (RGB565) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00602}{602}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00537}{ILI9341\+Draw\+Line()}}.
+
+\Hypertarget{group___i_l_i9341_ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa}\label{group___i_l_i9341_ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa} 
+\index{ILI9341@{ILI9341}!ILI9341DrawString@{ILI9341DrawString}}
+\index{ILI9341DrawString@{ILI9341DrawString}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DrawString()}{ILI9341DrawString()}}
+{\footnotesize\ttfamily void ILI9341\+Draw\+String (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{\mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{uint16\+\_\+t}]{foreground,  }\item[{uint16\+\_\+t}]{background }\end{DoxyParamCaption})}
+
+
+
+Draw a string on the LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x} & X position of top left corner of first character in string \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Y position of top left corner of first character in string \\
+\hline
+\mbox{\texttt{ in}}  & {\em str} & Pointer to first character \\
+\hline
+\mbox{\texttt{ in}}  & {\em font} & Pointer to used font \\
+\hline
+\mbox{\texttt{ in}}  & {\em foreground} & Color for string (RGB565) \\
+\hline
+\mbox{\texttt{ in}}  & {\em background} & Color for string background (RGB565) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00491}{491}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{fonts_8h_source_l00044}{Font\+\_\+t\+::font\+\_\+height}}, \mbox{\hyperlink{ili9341_8c_source_l00352}{ILI9341\+Draw\+Char()}}, \mbox{\hyperlink{fonts_8h_source_l00045}{Font\+\_\+t\+::info}} y \mbox{\hyperlink{fonts_8h_source_l00037}{char\+\_\+info\+\_\+t\+::width}}.
+
+\Hypertarget{group___i_l_i9341_ga91597ef98cf09f7d8870917f9b5ebea4}\label{group___i_l_i9341_ga91597ef98cf09f7d8870917f9b5ebea4} 
+\index{ILI9341@{ILI9341}!ILI9341DrawTriangle@{ILI9341DrawTriangle}}
+\index{ILI9341DrawTriangle@{ILI9341DrawTriangle}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341DrawTriangle()}{ILI9341DrawTriangle()}}
+{\footnotesize\ttfamily void ILI9341\+Draw\+Triangle (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x0,  }\item[{int16\+\_\+t}]{y0,  }\item[{int16\+\_\+t}]{x1,  }\item[{int16\+\_\+t}]{y1,  }\item[{int16\+\_\+t}]{x2,  }\item[{int16\+\_\+t}]{y2,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws triangle on the LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em x0} & X coordinate of vertex \\
+\hline
+\mbox{\texttt{ in}}  & {\em y0} & Y coordinate of vertex \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1} & X coordinate of vertex \\
+\hline
+\mbox{\texttt{ in}}  & {\em y1} & Y coordinate of vertex \\
+\hline
+\mbox{\texttt{ in}}  & {\em x2} & X coordinate of vertex \\
+\hline
+\mbox{\texttt{ in}}  & {\em y2} & Y coordinate of vertex \\
+\hline
+\mbox{\texttt{ in}}  & {\em color} & Triangle color (RGB565) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00682}{682}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00537}{ILI9341\+Draw\+Line()}}.
+
+\Hypertarget{group___i_l_i9341_gadbfd33ee5866c7e8283e5d29d2843b5f}\label{group___i_l_i9341_gadbfd33ee5866c7e8283e5d29d2843b5f} 
+\index{ILI9341@{ILI9341}!ILI9341Fill@{ILI9341Fill}}
+\index{ILI9341Fill@{ILI9341Fill}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341Fill()}{ILI9341Fill()}}
+{\footnotesize\ttfamily void ILI9341\+Fill (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Fills entire LCD with color. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em color} & Color to be used in fill (RGB565) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00313}{313}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00234}{Fill()}}, \mbox{\hyperlink{ili9341_8c_source_l00073}{orientation\+\_\+properties\+\_\+t\+::height}} y \mbox{\hyperlink{ili9341_8c_source_l00072}{orientation\+\_\+properties\+\_\+t\+::width}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ili9341_8c_source_l00272}{ILI9341\+Init()}}.
+
+\Hypertarget{group___i_l_i9341_ga5044d1ea4ba5b9b9244bc13898a514d2}\label{group___i_l_i9341_ga5044d1ea4ba5b9b9244bc13898a514d2} 
+\index{ILI9341@{ILI9341}!ILI9341GetStringSize@{ILI9341GetStringSize}}
+\index{ILI9341GetStringSize@{ILI9341GetStringSize}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341GetStringSize()}{ILI9341GetStringSize()}}
+{\footnotesize\ttfamily void ILI9341\+Get\+String\+Size (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{\mbox{\hyperlink{struct_font__t}{Font\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{width,  }\item[{uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{height }\end{DoxyParamCaption})}
+
+
+
+Gets width and height of box with text. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em str} & Pointer to first character \\
+\hline
+\mbox{\texttt{ in}}  & {\em font} & Pointer to used font \\
+\hline
+\mbox{\texttt{ out}}  & {\em width} & Pointer to variable to store width \\
+\hline
+\mbox{\texttt{ out}}  & {\em height} & Pointer to variable to store height \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00524}{524}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{fonts_8h_source_l00044}{Font\+\_\+t\+::font\+\_\+height}}, \mbox{\hyperlink{fonts_8h_source_l00045}{Font\+\_\+t\+::info}} y \mbox{\hyperlink{fonts_8h_source_l00037}{char\+\_\+info\+\_\+t\+::width}}.
+
+\Hypertarget{group___i_l_i9341_ga5f72d1febbb1e77c2b50876ba8caf40c}\label{group___i_l_i9341_ga5f72d1febbb1e77c2b50876ba8caf40c} 
+\index{ILI9341@{ILI9341}!ILI9341Init@{ILI9341Init}}
+\index{ILI9341Init@{ILI9341Init}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341Init()}{ILI9341Init()}}
+{\footnotesize\ttfamily uint8\+\_\+t ILI9341\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}}}]{spi\+\_\+dev,  }\item[{uint8\+\_\+t}]{gpio\+\_\+dc,  }\item[{uint8\+\_\+t}]{gpio\+\_\+rst }\end{DoxyParamCaption})}
+
+
+
+Initializes ILI9341 LCD. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em spi\+\_\+dev} & Number of SPI device to control LCD driver \\
+\hline
+\mbox{\texttt{ in}}  & {\em gpio\+\_\+dc} & Number of GPIO pin to use as data/command \\
+\hline
+\mbox{\texttt{ in}}  & {\em gpio\+\_\+rst} & Number of GPIO pin to use as hardware reset \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em 1} & when success, 0 when fails \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00272}{272}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{delay__mcu_8c_source_l00063}{Delay\+Ms()}}, \mbox{\hyperlink{delay__mcu_8c_source_l00087}{Delay\+Us()}}, \mbox{\hyperlink{spi__mcu_8h_source_l00065}{spi\+\_\+mcu\+\_\+config\+\_\+t\+::device}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00044}{GPIO\+\_\+\+OUTPUT}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00067}{GPIOInit()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}}, \mbox{\hyperlink{ili9341_8h_source_l00067}{ILI9341\+\_\+\+WHITE}}, \mbox{\hyperlink{ili9341_8c_source_l00313}{ILI9341\+Fill()}}, \mbox{\hyperlink{ili9341_8c_source_l00147}{lcd\+\_\+init}}, \mbox{\hyperlink{ili9341_8c_source_l00172}{lcd\+\_\+on}}, \mbox{\hyperlink{ili9341_8c_source_l00170}{lcd\+\_\+reset}}, \mbox{\hyperlink{ili9341_8c_source_l00171}{lcd\+\_\+sleep\+\_\+out}}, \mbox{\hyperlink{ili9341_8c_source_l00177}{spi\+\_\+conf}} y \mbox{\hyperlink{ili9341_8c_source_l00196}{Write\+LCD()}}.
+
+\Hypertarget{group___i_l_i9341_ga7b187b4cb92aa6b28a51fbfd5153aa2b}\label{group___i_l_i9341_ga7b187b4cb92aa6b28a51fbfd5153aa2b} 
+\index{ILI9341@{ILI9341}!ILI9341Rotate@{ILI9341Rotate}}
+\index{ILI9341Rotate@{ILI9341Rotate}!ILI9341@{ILI9341}}
+\doxysubsubsubsubsection{\texorpdfstring{ILI9341Rotate()}{ILI9341Rotate()}}
+{\footnotesize\ttfamily void ILI9341\+Rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___i_l_i9341_gafd244eb5252344eaf17669b9d2fddcdc}{ili9341\+\_\+orientation\+\_\+t}}}]{orientation }\end{DoxyParamCaption})}
+
+
+
+Rotates LCD to specific orientation. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em orientation} & LCD orientation \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\texorpdfstring{$<$}{<} Row Address Order (MY) = 0, Column Address Order (MX) = 1, Row/\+Column Exchange (MV) = 0
+
+\texorpdfstring{$<$}{<} Row Address Order (MY) = 1, Column Address Order (MX) = 1, Row/\+Column Exchange (MV) = 0
+
+\texorpdfstring{$<$}{<} Row Address Order (MY) = 0, Column Address Order (MX) = 0, Row/\+Column Exchange (MV) = 1
+
+\texorpdfstring{$<$}{<} Row Address Order (MY) = 1, Column Address Order (MX) = 1, Row/\+Column Exchange (MV) = 1
+
+Definición en la línea \mbox{\hyperlink{ili9341_8c_source_l00317}{317}} del archivo \mbox{\hyperlink{ili9341_8c_source}{ili9341.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ili9341_8c_source_l00073}{orientation\+\_\+properties\+\_\+t\+::height}}, \mbox{\hyperlink{ili9341_8h_source_l00047}{ILI9341\+\_\+\+HEIGHT}}, \mbox{\hyperlink{ili9341_8h_source_l00080}{ILI9341\+\_\+\+Landscape\+\_\+1}}, \mbox{\hyperlink{ili9341_8h_source_l00081}{ILI9341\+\_\+\+Landscape\+\_\+2}}, \mbox{\hyperlink{ili9341_8h_source_l00078}{ILI9341\+\_\+\+Portrait\+\_\+1}}, \mbox{\hyperlink{ili9341_8h_source_l00079}{ILI9341\+\_\+\+Portrait\+\_\+2}}, \mbox{\hyperlink{ili9341_8h_source_l00046}{ILI9341\+\_\+\+WIDTH}}, \mbox{\hyperlink{ili9341_8c_source_l00043}{MEM\+\_\+\+ACC\+\_\+\+CTRL}}, \mbox{\hyperlink{ili9341_8c_source_l00074}{orientation\+\_\+properties\+\_\+t\+::orientation}}, \mbox{\hyperlink{ili9341_8c_source_l00072}{orientation\+\_\+properties\+\_\+t\+::width}} y \mbox{\hyperlink{ili9341_8c_source_l00196}{Write\+LCD()}}.
+

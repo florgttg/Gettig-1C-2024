@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Practica de parcial: Referencia del archivo C:/Repositorios/EProgramable_FIUNER/firmware/drivers/devices/src/l293.c</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Practica de parcial<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Cebador automatico de mate</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('l293_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo l293.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="l293_8h_source.html">l293.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gpio__mcu_8h_source.html">gpio_mcu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pwm__mcu_8h_source.html">pwm_mcu.h</a>&quot;</code><br />
+</div>
+<p><a href="l293_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:adb97e4c966e121b68ae86c89f36fffdc" id="r_adb97e4c966e121b68ae86c89f36fffdc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb97e4c966e121b68ae86c89f36fffdc">MAX_F_SPEED</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:adb97e4c966e121b68ae86c89f36fffdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0985a011a5c3cb2b9fbdfea4d3785cc7" id="r_a0985a011a5c3cb2b9fbdfea4d3785cc7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0985a011a5c3cb2b9fbdfea4d3785cc7">MAX_B_SPEED</a>&#160;&#160;&#160;-100</td></tr>
+<tr class="separator:a0985a011a5c3cb2b9fbdfea4d3785cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76fe84d83b8d236bd4f0d20d7e2ed06f" id="r_a76fe84d83b8d236bd4f0d20d7e2ed06f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76fe84d83b8d236bd4f0d20d7e2ed06f">PWM_FREQ</a>&#160;&#160;&#160;50</td></tr>
+<tr class="separator:a76fe84d83b8d236bd4f0d20d7e2ed06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd07fcfd4e2395bed1eff37875839375" id="r_abd07fcfd4e2395bed1eff37875839375"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd07fcfd4e2395bed1eff37875839375">N_MOTORS</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:abd07fcfd4e2395bed1eff37875839375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a594a434c0a3b20b83e831e4e1e767f3b" id="r_a594a434c0a3b20b83e831e4e1e767f3b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a594a434c0a3b20b83e831e4e1e767f3b">EN_1_2</a>&#160;&#160;&#160;<a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb">GPIO_22</a></td></tr>
+<tr class="separator:a594a434c0a3b20b83e831e4e1e767f3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3846181cf670f578e43772faa4bd3f75" id="r_a3846181cf670f578e43772faa4bd3f75"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3846181cf670f578e43772faa4bd3f75">A_1</a>&#160;&#160;&#160;<a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c">GPIO_21</a></td></tr>
+<tr class="separator:a3846181cf670f578e43772faa4bd3f75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01e92799f99fb681f6db217e5fcce84d" id="r_a01e92799f99fb681f6db217e5fcce84d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01e92799f99fb681f6db217e5fcce84d">A_2</a>&#160;&#160;&#160;<a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95">GPIO_20</a></td></tr>
+<tr class="separator:a01e92799f99fb681f6db217e5fcce84d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8c0b3ab4b1036bb369de9b5d409b361" id="r_ac8c0b3ab4b1036bb369de9b5d409b361"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8c0b3ab4b1036bb369de9b5d409b361">EN_3_4</a>&#160;&#160;&#160;<a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847">GPIO_19</a></td></tr>
+<tr class="separator:ac8c0b3ab4b1036bb369de9b5d409b361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a304db09cca37e303ccb2af2b5e669b84" id="r_a304db09cca37e303ccb2af2b5e669b84"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a304db09cca37e303ccb2af2b5e669b84">A_3</a>&#160;&#160;&#160;<a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917">GPIO_18</a></td></tr>
+<tr class="separator:a304db09cca37e303ccb2af2b5e669b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45c10761257fe9b986909363bec442a7" id="r_a45c10761257fe9b986909363bec442a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45c10761257fe9b986909363bec442a7">A_4</a>&#160;&#160;&#160;<a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d">GPIO_9</a></td></tr>
+<tr class="separator:a45c10761257fe9b986909363bec442a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:gadd2a75e90415afd4e8667c8975232759" id="r_gadd2a75e90415afd4e8667c8975232759"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l293_d.html#gadd2a75e90415afd4e8667c8975232759">L293Init</a> (void)</td></tr>
+<tr class="memdesc:gadd2a75e90415afd4e8667c8975232759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes L293 driver.  <br /></td></tr>
+<tr class="separator:gadd2a75e90415afd4e8667c8975232759"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6e47e21a27ca3aba1909e2b4deeb726c" id="r_ga6e47e21a27ca3aba1909e2b4deeb726c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l293_d.html#ga6e47e21a27ca3aba1909e2b4deeb726c">L293SetSpeed</a> (<a class="el" href="group___l293_d.html#ga88a4b61016074d859a35a819185870c5">l293_motor_t</a> motor, int8_t speed)</td></tr>
+<tr class="memdesc:ga6e47e21a27ca3aba1909e2b4deeb726c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes L293 driver.  <br /></td></tr>
+<tr class="separator:ga6e47e21a27ca3aba1909e2b4deeb726c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1608250d3f606f95a2fc076ee5e55f02" id="r_ga1608250d3f606f95a2fc076ee5e55f02"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___l293_d.html#ga1608250d3f606f95a2fc076ee5e55f02">L293DeInit</a> (void)</td></tr>
+<tr class="memdesc:ga1608250d3f606f95a2fc076ee5e55f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initializes L293 Driver.  <br /></td></tr>
+<tr class="separator:ga1608250d3f606f95a2fc076ee5e55f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de «define»</h2>
+<a id="a3846181cf670f578e43772faa4bd3f75" name="a3846181cf670f578e43772faa4bd3f75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3846181cf670f578e43772faa4bd3f75">&#9670;&#160;</a></span>A_1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define A_1&#160;&#160;&#160;<a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c">GPIO_21</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="l293_8c_source.html#l00022">22</a> del archivo <a class="el" href="l293_8c_source.html">l293.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="l293_8c_source.html#l00040">L293Init()</a> y <a class="el" href="l293_8c_source.html#l00051">L293SetSpeed()</a>.</p>
+
+</div>
+</div>
+<a id="a01e92799f99fb681f6db217e5fcce84d" name="a01e92799f99fb681f6db217e5fcce84d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01e92799f99fb681f6db217e5fcce84d">&#9670;&#160;</a></span>A_2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define A_2&#160;&#160;&#160;<a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95">GPIO_20</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="l293_8c_source.html#l00023">23</a> del archivo <a class="el" href="l293_8c_source.html">l293.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="l293_8c_source.html#l00040">L293Init()</a> y <a class="el" href="l293_8c_source.html#l00051">L293SetSpeed()</a>.</p>
+
+</div>
+</div>
+<a id="a304db09cca37e303ccb2af2b5e669b84" name="a304db09cca37e303ccb2af2b5e669b84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a304db09cca37e303ccb2af2b5e669b84">&#9670;&#160;</a></span>A_3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define A_3&#160;&#160;&#160;<a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917">GPIO_18</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="l293_8c_source.html#l00025">25</a> del archivo <a class="el" href="l293_8c_source.html">l293.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="l293_8c_source.html#l00040">L293Init()</a> y <a class="el" href="l293_8c_source.html#l00051">L293SetSpeed()</a>.</p>
+
+</div>
+</div>
+<a id="a45c10761257fe9b986909363bec442a7" name="a45c10761257fe9b986909363bec442a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45c10761257fe9b986909363bec442a7">&#9670;&#160;</a></span>A_4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define A_4&#160;&#160;&#160;<a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d">GPIO_9</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="l293_8c_source.html#l00026">26</a> del archivo <a class="el" href="l293_8c_source.html">l293.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="l293_8c_source.html#l00040">L293Init()</a> y <a class="el" href="l293_8c_source.html#l00051">L293SetSpeed()</a>.</p>
+
+</div>
+</div>
+<a id="a594a434c0a3b20b83e831e4e1e767f3b" name="a594a434c0a3b20b83e831e4e1e767f3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a594a434c0a3b20b83e831e4e1e767f3b">&#9670;&#160;</a></span>EN_1_2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EN_1_2&#160;&#160;&#160;<a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb">GPIO_22</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="l293_8c_source.html#l00021">21</a> del archivo <a class="el" href="l293_8c_source.html">l293.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="l293_8c_source.html#l00040">L293Init()</a>.</p>
+
+</div>
+</div>
+<a id="ac8c0b3ab4b1036bb369de9b5d409b361" name="ac8c0b3ab4b1036bb369de9b5d409b361"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8c0b3ab4b1036bb369de9b5d409b361">&#9670;&#160;</a></span>EN_3_4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EN_3_4&#160;&#160;&#160;<a class="el" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847">GPIO_19</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="l293_8c_source.html#l00024">24</a> del archivo <a class="el" href="l293_8c_source.html">l293.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="l293_8c_source.html#l00040">L293Init()</a>.</p>
+
+</div>
+</div>
+<a id="a0985a011a5c3cb2b9fbdfea4d3785cc7" name="a0985a011a5c3cb2b9fbdfea4d3785cc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0985a011a5c3cb2b9fbdfea4d3785cc7">&#9670;&#160;</a></span>MAX_B_SPEED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_B_SPEED&#160;&#160;&#160;-100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Max backward speed </p>
+
+<p class="definition">Definición en la línea <a class="el" href="l293_8c_source.html#l00018">18</a> del archivo <a class="el" href="l293_8c_source.html">l293.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="l293_8c_source.html#l00051">L293SetSpeed()</a>.</p>
+
+</div>
+</div>
+<a id="adb97e4c966e121b68ae86c89f36fffdc" name="adb97e4c966e121b68ae86c89f36fffdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb97e4c966e121b68ae86c89f36fffdc">&#9670;&#160;</a></span>MAX_F_SPEED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_F_SPEED&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Max foward speed <br  />
+ </p>
+
+<p class="definition">Definición en la línea <a class="el" href="l293_8c_source.html#l00017">17</a> del archivo <a class="el" href="l293_8c_source.html">l293.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="l293_8c_source.html#l00051">L293SetSpeed()</a>.</p>
+
+</div>
+</div>
+<a id="abd07fcfd4e2395bed1eff37875839375" name="abd07fcfd4e2395bed1eff37875839375"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd07fcfd4e2395bed1eff37875839375">&#9670;&#160;</a></span>N_MOTORS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define N_MOTORS&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of motors </p>
+
+<p class="definition">Definición en la línea <a class="el" href="l293_8c_source.html#l00020">20</a> del archivo <a class="el" href="l293_8c_source.html">l293.c</a>.</p>
+
+</div>
+</div>
+<a id="a76fe84d83b8d236bd4f0d20d7e2ed06f" name="a76fe84d83b8d236bd4f0d20d7e2ed06f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76fe84d83b8d236bd4f0d20d7e2ed06f">&#9670;&#160;</a></span>PWM_FREQ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PWM_FREQ&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>PWM frequency (Hz) </p>
+
+<p class="definition">Definición en la línea <a class="el" href="l293_8c_source.html#l00019">19</a> del archivo <a class="el" href="l293_8c_source.html">l293.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="l293_8c_source.html#l00040">L293Init()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_fcba15287a7fba83beff6e7e8c7a3a80.html">firmware</a></li><li class="navelem"><a class="el" href="dir_d771f3729bc48f700515c8c6c400e99b.html">drivers</a></li><li class="navelem"><a class="el" href="dir_7f308ea91af7ba00bd2379b2a292bcdf.html">devices</a></li><li class="navelem"><a class="el" href="dir_6d71182a2f5b197121e17f68990d396a.html">src</a></li><li class="navelem"><a class="el" href="l293_8c.html">l293.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

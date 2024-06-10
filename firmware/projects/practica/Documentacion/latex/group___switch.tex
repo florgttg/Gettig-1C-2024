@@ -1,0 +1,180 @@
+\doxysubsubsection{Switch}
+\hypertarget{group___switch}{}\label{group___switch}\index{Switch@{Switch}}
+\doxysubsubsubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___switch_ga8caa2df6d25fea5a14eb4533df1d5cfa}{switches}} \mbox{\hyperlink{group___switch_ga7e3732d4e527fda09473b232e502f54e}{switch\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Switches driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___switch_ga8caa2df6d25fea5a14eb4533df1d5cfa}{switches}} \{ \mbox{\hyperlink{group___switch_gga8caa2df6d25fea5a14eb4533df1d5cfaa24caa46485c5fec2211b3ebd8a1eee77}{SWITCH\+\_\+1}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0)
+, \mbox{\hyperlink{group___switch_gga8caa2df6d25fea5a14eb4533df1d5cfaa73fda67835d5d51aa9251fee781a7434}{SWITCH\+\_\+2}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1)
+ \}
+\begin{DoxyCompactList}\small\item\em Switches driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \mbox{\hyperlink{group___switch_ga8eb2865a73bf2d2b9fd6760958a0cc3c}{Switches\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em ESP-\/\+EDU switches initialization. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{group___switch_gae2e64bab117e3f8ffc08ecae51f5e262}{Switches\+Read}} (void)
+\begin{DoxyCompactList}\small\item\em Read all the switches state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___switch_ga9847b9081e3cb39dd3ec01eaee8323b2}{Switch\+Activ\+Int}} (\mbox{\hyperlink{group___switch_ga7e3732d4e527fda09473b232e502f54e}{switch\+\_\+t}} tec, void \texorpdfstring{$\ast$}{*}ptr\+Int\+Func, void \texorpdfstring{$\ast$}{*}args)
+\begin{DoxyCompactList}\small\item\em Enables the interruption of a particular key and assigns a callback function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de «typedef»}
+\Hypertarget{group___switch_ga7e3732d4e527fda09473b232e502f54e}\label{group___switch_ga7e3732d4e527fda09473b232e502f54e} 
+\index{Switch@{Switch}!switch\_t@{switch\_t}}
+\index{switch\_t@{switch\_t}!Switch@{Switch}}
+\doxysubsubsubsubsection{\texorpdfstring{switch\_t}{switch\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___switch_ga8caa2df6d25fea5a14eb4533df1d5cfa}{switches}} \mbox{\hyperlink{group___switch_ga7e3732d4e527fda09473b232e502f54e}{switch\+\_\+t}}}
+
+
+
+Switches driver for the ESP-\/\+EDU Board. 
+
+\begin{DoxyNote}{Nota}
+ESP-\/\+EDU have 2 switches connected to GPIO\+\_\+4 and GPIO\+\_\+15. The latter is also routed to J2 connector.
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 23/10/2023   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+\doxysubsubsubsection{Documentación de enumeraciones}
+\Hypertarget{group___switch_ga8caa2df6d25fea5a14eb4533df1d5cfa}\label{group___switch_ga8caa2df6d25fea5a14eb4533df1d5cfa} 
+\index{Switch@{Switch}!switches@{switches}}
+\index{switches@{switches}!Switch@{Switch}}
+\doxysubsubsubsubsection{\texorpdfstring{switches}{switches}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___switch_ga8caa2df6d25fea5a14eb4533df1d5cfa}{switches}}}
+
+
+
+Switches driver for the ESP-\/\+EDU Board. 
+
+\begin{DoxyNote}{Nota}
+ESP-\/\+EDU have 2 switches connected to GPIO\+\_\+4 and GPIO\+\_\+15. The latter is also routed to J2 connector.
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 23/10/2023   &Document creation   \\\cline{1-2}
+\end{longtabu}
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SWITCH\_1@{SWITCH\_1}!Switch@{Switch}}\index{Switch@{Switch}!SWITCH\_1@{SWITCH\_1}}}\Hypertarget{group___switch_gga8caa2df6d25fea5a14eb4533df1d5cfaa24caa46485c5fec2211b3ebd8a1eee77}\label{group___switch_gga8caa2df6d25fea5a14eb4533df1d5cfaa24caa46485c5fec2211b3ebd8a1eee77} 
+SWITCH\+\_\+1&Routed to GPIO\+\_\+4 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SWITCH\_2@{SWITCH\_2}!Switch@{Switch}}\index{Switch@{Switch}!SWITCH\_2@{SWITCH\_2}}}\Hypertarget{group___switch_gga8caa2df6d25fea5a14eb4533df1d5cfaa73fda67835d5d51aa9251fee781a7434}\label{group___switch_gga8caa2df6d25fea5a14eb4533df1d5cfaa73fda67835d5d51aa9251fee781a7434} 
+SWITCH\+\_\+2&Routed to GPIO\+\_\+15 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{switch_8h_source_l00031}{31}} del archivo \mbox{\hyperlink{switch_8h_source}{switch.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___switch_ga9847b9081e3cb39dd3ec01eaee8323b2}\label{group___switch_ga9847b9081e3cb39dd3ec01eaee8323b2} 
+\index{Switch@{Switch}!SwitchActivInt@{SwitchActivInt}}
+\index{SwitchActivInt@{SwitchActivInt}!Switch@{Switch}}
+\doxysubsubsubsubsection{\texorpdfstring{SwitchActivInt()}{SwitchActivInt()}}
+{\footnotesize\ttfamily void Switch\+Activ\+Int (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___switch_ga7e3732d4e527fda09473b232e502f54e}{switch\+\_\+t}}}]{tec,  }\item[{void \texorpdfstring{$\ast$}{*}}]{ptr\+Int\+Func,  }\item[{void \texorpdfstring{$\ast$}{*}}]{args }\end{DoxyParamCaption})}
+
+
+
+Enables the interruption of a particular key and assigns a callback function. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em tec} & Selected switch \\
+\hline
+{\em ptr\+Int\+Func} & Pointer to callback function \\
+\hline
+{\em args} & Pointer to callback function parameters \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{switch_8c_source_l00047}{47}} del archivo \mbox{\hyperlink{switch_8c_source}{switch.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{switch_8c_source_l00016}{GPIO\+\_\+\+SWITCH1}}, \mbox{\hyperlink{switch_8c_source_l00017}{GPIO\+\_\+\+SWITCH2}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00105}{GPIOActiv\+Int()}}, \mbox{\hyperlink{switch_8h_source_l00032}{SWITCH\+\_\+1}} y \mbox{\hyperlink{switch_8h_source_l00033}{SWITCH\+\_\+2}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}}.
+
+\Hypertarget{group___switch_ga8eb2865a73bf2d2b9fd6760958a0cc3c}\label{group___switch_ga8eb2865a73bf2d2b9fd6760958a0cc3c} 
+\index{Switch@{Switch}!SwitchesInit@{SwitchesInit}}
+\index{SwitchesInit@{SwitchesInit}!Switch@{Switch}}
+\doxysubsubsubsubsection{\texorpdfstring{SwitchesInit()}{SwitchesInit()}}
+{\footnotesize\ttfamily int8\+\_\+t Switches\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+ESP-\/\+EDU switches initialization. 
+
+\begin{DoxyReturn}{Devuelve}
+int8\+\_\+t 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{switch_8c_source_l00029}{29}} del archivo \mbox{\hyperlink{switch_8c_source}{switch.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__mcu_8h_source_l00043}{GPIO\+\_\+\+INPUT}}, \mbox{\hyperlink{switch_8c_source_l00016}{GPIO\+\_\+\+SWITCH1}}, \mbox{\hyperlink{switch_8c_source_l00017}{GPIO\+\_\+\+SWITCH2}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00067}{GPIOInit()}} y \mbox{\hyperlink{gpio__mcu_8c_source_l00119}{GPIOInput\+Filter()}}.
+
+\Hypertarget{group___switch_gae2e64bab117e3f8ffc08ecae51f5e262}\label{group___switch_gae2e64bab117e3f8ffc08ecae51f5e262} 
+\index{Switch@{Switch}!SwitchesRead@{SwitchesRead}}
+\index{SwitchesRead@{SwitchesRead}!Switch@{Switch}}
+\doxysubsubsubsubsection{\texorpdfstring{SwitchesRead()}{SwitchesRead()}}
+{\footnotesize\ttfamily int8\+\_\+t Switches\+Read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Read all the switches state. 
+
+\begin{DoxyReturn}{Devuelve}
+int8\+\_\+t 0 if no key pressed, SWITCH\+\_\+1, SWITCH\+\_\+2 or (SWITCH\+\_\+1 \texorpdfstring{$\vert$}{|} SWITCH\+\_\+2) in other case. 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{switch_8c_source_l00038}{38}} del archivo \mbox{\hyperlink{switch_8c_source}{switch.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{switch_8c_source_l00016}{GPIO\+\_\+\+SWITCH1}}, \mbox{\hyperlink{switch_8c_source_l00017}{GPIO\+\_\+\+SWITCH2}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00101}{GPIORead()}}, \mbox{\hyperlink{switch_8h_source_l00032}{SWITCH\+\_\+1}} y \mbox{\hyperlink{switch_8h_source_l00033}{SWITCH\+\_\+2}}.
+

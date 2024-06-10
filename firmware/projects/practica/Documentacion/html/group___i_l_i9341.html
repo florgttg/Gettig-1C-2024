@@ -1,0 +1,1757 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Practica de parcial: ILI9341</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Practica de parcial<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Cebador automatico de mate</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('group___i_l_i9341.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#typedef-members">typedefs</a> &#124;
+<a href="#enum-members">Enumeraciones</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle"><div class="title">ILI9341<div class="ingroups"><a class="el" href="group___drivers___programable.html">Drivers Programable</a> &raquo; <a class="el" href="group___drivers___devices.html">Drivers devices</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>TFT LCD RGB 240x320 ILI9341 driver.  
+<a href="#details">Más...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:ga0f07262d5faa91c725fa69a2847303d5" id="r_ga0f07262d5faa91c725fa69a2847303d5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0f07262d5faa91c725fa69a2847303d5">ILI9341_WIDTH</a>&#160;&#160;&#160;240</td></tr>
+<tr class="separator:ga0f07262d5faa91c725fa69a2847303d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19b26d4d6ae752db7302c9cbb8688d51" id="r_ga19b26d4d6ae752db7302c9cbb8688d51"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga19b26d4d6ae752db7302c9cbb8688d51">ILI9341_HEIGHT</a>&#160;&#160;&#160;320</td></tr>
+<tr class="separator:ga19b26d4d6ae752db7302c9cbb8688d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77c432b28a66dde602c46e7fcba4cc08" id="r_ga77c432b28a66dde602c46e7fcba4cc08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga77c432b28a66dde602c46e7fcba4cc08">ILI9341_PIXEL_MAX</a>&#160;&#160;&#160;76800</td></tr>
+<tr class="separator:ga77c432b28a66dde602c46e7fcba4cc08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50166b9a65012fb2f8fe0a0d5f519fa3" id="r_ga50166b9a65012fb2f8fe0a0d5f519fa3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga50166b9a65012fb2f8fe0a0d5f519fa3">ILI9341_BLACK</a>&#160;&#160;&#160;0x0000  /*   0,   0,   0 */</td></tr>
+<tr class="separator:ga50166b9a65012fb2f8fe0a0d5f519fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacaae04786d06f0ba08c8bea6b714b572" id="r_gacaae04786d06f0ba08c8bea6b714b572"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacaae04786d06f0ba08c8bea6b714b572">ILI9341_NAVY</a>&#160;&#160;&#160;0x000F 	/*   0,   0, 128 */</td></tr>
+<tr class="separator:gacaae04786d06f0ba08c8bea6b714b572"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a9d46f3af002ee1edc832257f3683a3" id="r_ga5a9d46f3af002ee1edc832257f3683a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5a9d46f3af002ee1edc832257f3683a3">ILI9341_DARKGREEN</a>&#160;&#160;&#160;0x03E0  /*   0, 128,   0 */</td></tr>
+<tr class="separator:ga5a9d46f3af002ee1edc832257f3683a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadbc78927dc7105782714d69048580576" id="r_gadbc78927dc7105782714d69048580576"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadbc78927dc7105782714d69048580576">ILI9341_DARKCYAN</a>&#160;&#160;&#160;0x03EF  /*   0, 128, 128 */</td></tr>
+<tr class="separator:gadbc78927dc7105782714d69048580576"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8fdcfa7e66294fbedf701b2822a9c6e9" id="r_ga8fdcfa7e66294fbedf701b2822a9c6e9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8fdcfa7e66294fbedf701b2822a9c6e9">ILI9341_MAROON</a>&#160;&#160;&#160;0x7800  /* 128,   0,   0 */</td></tr>
+<tr class="separator:ga8fdcfa7e66294fbedf701b2822a9c6e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4371aa3db522c197cae529a235553071" id="r_ga4371aa3db522c197cae529a235553071"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4371aa3db522c197cae529a235553071">ILI9341_PURPLE</a>&#160;&#160;&#160;0x780F  /* 128,   0, 128 */</td></tr>
+<tr class="separator:ga4371aa3db522c197cae529a235553071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8f5be0a5e731a047a1a7b5edaa0e46f" id="r_gae8f5be0a5e731a047a1a7b5edaa0e46f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae8f5be0a5e731a047a1a7b5edaa0e46f">ILI9341_OLIVE</a>&#160;&#160;&#160;0x7BE0  /* 128, 128,   0 */</td></tr>
+<tr class="separator:gae8f5be0a5e731a047a1a7b5edaa0e46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35990ea476b079cd6746056777fadfd8" id="r_ga35990ea476b079cd6746056777fadfd8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga35990ea476b079cd6746056777fadfd8">ILI9341_LIGHTGREY</a>&#160;&#160;&#160;0xC618  /* 192, 192, 192 */</td></tr>
+<tr class="separator:ga35990ea476b079cd6746056777fadfd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga56f69dad2de457c03d71ea0b38395c41" id="r_ga56f69dad2de457c03d71ea0b38395c41"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga56f69dad2de457c03d71ea0b38395c41">ILI9341_DARKGREY</a>&#160;&#160;&#160;0x7BEF  /* 128, 128, 128 */</td></tr>
+<tr class="separator:ga56f69dad2de457c03d71ea0b38395c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa15cf651d66764cb8024808d6ea48eef" id="r_gaa15cf651d66764cb8024808d6ea48eef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa15cf651d66764cb8024808d6ea48eef">ILI9341_BLUE</a>&#160;&#160;&#160;0x001F  /*   0,   0, 255 */</td></tr>
+<tr class="separator:gaa15cf651d66764cb8024808d6ea48eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7753f9cc58d6e16ab69548349247922e" id="r_ga7753f9cc58d6e16ab69548349247922e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7753f9cc58d6e16ab69548349247922e">ILI9341_BLUE2</a>&#160;&#160;&#160;0x051D</td></tr>
+<tr class="separator:ga7753f9cc58d6e16ab69548349247922e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2eb4b5e896b0b144970f33002134bb98" id="r_ga2eb4b5e896b0b144970f33002134bb98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2eb4b5e896b0b144970f33002134bb98">ILI9341_GREEN</a>&#160;&#160;&#160;0x07E0  /*   0, 255,   0 */</td></tr>
+<tr class="separator:ga2eb4b5e896b0b144970f33002134bb98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac7917ebbf25b3d806541ee4ed658b6c4" id="r_gac7917ebbf25b3d806541ee4ed658b6c4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac7917ebbf25b3d806541ee4ed658b6c4">ILI9341_GREEN2</a>&#160;&#160;&#160;0xB723</td></tr>
+<tr class="separator:gac7917ebbf25b3d806541ee4ed658b6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf04ea4a1f89418c734ba76739a2e730f" id="r_gaf04ea4a1f89418c734ba76739a2e730f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf04ea4a1f89418c734ba76739a2e730f">ILI9341_CYAN</a>&#160;&#160;&#160;0x07FF  /*   0, 255, 255 */</td></tr>
+<tr class="separator:gaf04ea4a1f89418c734ba76739a2e730f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ebe718620305116033cb3f969cfc08b" id="r_ga4ebe718620305116033cb3f969cfc08b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4ebe718620305116033cb3f969cfc08b">ILI9341_RED</a>&#160;&#160;&#160;0xF800  /* 255,   0,   0 */</td></tr>
+<tr class="separator:ga4ebe718620305116033cb3f969cfc08b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae858232678ff269cf0edd404aabcb989" id="r_gae858232678ff269cf0edd404aabcb989"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae858232678ff269cf0edd404aabcb989">ILI9341_MAGENTA</a>&#160;&#160;&#160;0xF81F  /* 255,   0, 255 */</td></tr>
+<tr class="separator:gae858232678ff269cf0edd404aabcb989"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0313d113622009bfd9b6011fc9bffcc9" id="r_ga0313d113622009bfd9b6011fc9bffcc9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0313d113622009bfd9b6011fc9bffcc9">ILI9341_YELLOW</a>&#160;&#160;&#160;0xFFE0  /* 255, 255,   0 */</td></tr>
+<tr class="separator:ga0313d113622009bfd9b6011fc9bffcc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga604507ef031b95291b2d177088fe03e4" id="r_ga604507ef031b95291b2d177088fe03e4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga604507ef031b95291b2d177088fe03e4">ILI9341_WHITE</a>&#160;&#160;&#160;0xFFFF  /* 255, 255, 255 */</td></tr>
+<tr class="separator:ga604507ef031b95291b2d177088fe03e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga857910d1b98cb9d77a29c2beb5af949d" id="r_ga857910d1b98cb9d77a29c2beb5af949d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga857910d1b98cb9d77a29c2beb5af949d">ILI9341_ORANGE</a>&#160;&#160;&#160;0xFBE4</td></tr>
+<tr class="separator:ga857910d1b98cb9d77a29c2beb5af949d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae518d9f896bf8456a175a5a04b49c7f3" id="r_gae518d9f896bf8456a175a5a04b49c7f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae518d9f896bf8456a175a5a04b49c7f3">ILI9341_ORANGE2</a>&#160;&#160;&#160;0xFD20  /* 255, 165,   0 */</td></tr>
+<tr class="separator:gae518d9f896bf8456a175a5a04b49c7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5f9867862411a57b73cecbc0155e7507" id="r_ga5f9867862411a57b73cecbc0155e7507"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5f9867862411a57b73cecbc0155e7507">ILI9341_GREENYELLOW</a>&#160;&#160;&#160;0xAFE5  /* 173, 255,  47 */</td></tr>
+<tr class="separator:ga5f9867862411a57b73cecbc0155e7507"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad39cea2dab75ccfd9d83fab73ce1a56d" id="r_gad39cea2dab75ccfd9d83fab73ce1a56d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad39cea2dab75ccfd9d83fab73ce1a56d">ILI9341_PINK</a>&#160;&#160;&#160;0xF81F</td></tr>
+<tr class="separator:gad39cea2dab75ccfd9d83fab73ce1a56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga204e287c2484d745d3332e5b1e67ae2f" id="r_ga204e287c2484d745d3332e5b1e67ae2f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga204e287c2484d745d3332e5b1e67ae2f">ILI9341_BROWN</a>&#160;&#160;&#160;0xBBCA</td></tr>
+<tr class="separator:ga204e287c2484d745d3332e5b1e67ae2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+typedefs</h2></td></tr>
+<tr class="memitem:gafd244eb5252344eaf17669b9d2fddcdc" id="r_gafd244eb5252344eaf17669b9d2fddcdc"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="#ga46360a506ec04c0ca618ee229bdad248">ili9341_orientation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafd244eb5252344eaf17669b9d2fddcdc">ili9341_orientation_t</a></td></tr>
+<tr class="memdesc:gafd244eb5252344eaf17669b9d2fddcdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Possible orientations for LCD.  <br /></td></tr>
+<tr class="separator:gafd244eb5252344eaf17669b9d2fddcdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumeraciones</h2></td></tr>
+<tr class="memitem:ga46360a506ec04c0ca618ee229bdad248" id="r_ga46360a506ec04c0ca618ee229bdad248"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga46360a506ec04c0ca618ee229bdad248">ili9341_orientation</a> { <a class="el" href="#gga46360a506ec04c0ca618ee229bdad248a8a91947a781dff5aa13fee4123fc4017">ILI9341_Portrait_1</a>
+, <a class="el" href="#gga46360a506ec04c0ca618ee229bdad248a5355240517a88f9c791c786f52c25a0b">ILI9341_Portrait_2</a>
+, <a class="el" href="#gga46360a506ec04c0ca618ee229bdad248a4a306e50be2b7a9f5ff45ed5a6a5ab6d">ILI9341_Landscape_1</a>
+, <a class="el" href="#gga46360a506ec04c0ca618ee229bdad248a80467f7bb95409c5d6f7d943896d3c5c">ILI9341_Landscape_2</a>
+ }</td></tr>
+<tr class="memdesc:ga46360a506ec04c0ca618ee229bdad248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Possible orientations for LCD.  <a href="#ga46360a506ec04c0ca618ee229bdad248">Más...</a><br /></td></tr>
+<tr class="separator:ga46360a506ec04c0ca618ee229bdad248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ga5f72d1febbb1e77c2b50876ba8caf40c" id="r_ga5f72d1febbb1e77c2b50876ba8caf40c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5f72d1febbb1e77c2b50876ba8caf40c">ILI9341Init</a> (<a class="el" href="group___s_p_i.html#ga7d468ea862538a179a76e97b9085f075">spi_dev_t</a> spi_dev, uint8_t gpio_dc, uint8_t gpio_rst)</td></tr>
+<tr class="memdesc:ga5f72d1febbb1e77c2b50876ba8caf40c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes ILI9341 LCD.  <br /></td></tr>
+<tr class="separator:ga5f72d1febbb1e77c2b50876ba8caf40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga73585c8169e7a54bc906df9ba1b82752" id="r_ga73585c8169e7a54bc906df9ba1b82752"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga73585c8169e7a54bc906df9ba1b82752">ILI9341DrawPixel</a> (uint16_t x, uint16_t y, uint16_t color)</td></tr>
+<tr class="memdesc:ga73585c8169e7a54bc906df9ba1b82752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws single pixel to LCD.  <br /></td></tr>
+<tr class="separator:ga73585c8169e7a54bc906df9ba1b82752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadbfd33ee5866c7e8283e5d29d2843b5f" id="r_gadbfd33ee5866c7e8283e5d29d2843b5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadbfd33ee5866c7e8283e5d29d2843b5f">ILI9341Fill</a> (uint16_t color)</td></tr>
+<tr class="memdesc:gadbfd33ee5866c7e8283e5d29d2843b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills entire LCD with color.  <br /></td></tr>
+<tr class="separator:gadbfd33ee5866c7e8283e5d29d2843b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b187b4cb92aa6b28a51fbfd5153aa2b" id="r_ga7b187b4cb92aa6b28a51fbfd5153aa2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7b187b4cb92aa6b28a51fbfd5153aa2b">ILI9341Rotate</a> (<a class="el" href="#gafd244eb5252344eaf17669b9d2fddcdc">ili9341_orientation_t</a> orientation)</td></tr>
+<tr class="memdesc:ga7b187b4cb92aa6b28a51fbfd5153aa2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates LCD to specific orientation.  <br /></td></tr>
+<tr class="separator:ga7b187b4cb92aa6b28a51fbfd5153aa2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf40f745e33f77553ed8756b0cdbff963" id="r_gaf40f745e33f77553ed8756b0cdbff963"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf40f745e33f77553ed8756b0cdbff963">ILI9341DrawChar</a> (uint16_t x, uint16_t y, char data, <a class="el" href="struct_font__t.html">Font_t</a> *font, uint16_t foreground, uint16_t background)</td></tr>
+<tr class="memdesc:gaf40f745e33f77553ed8756b0cdbff963"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a single character on the LCD.  <br /></td></tr>
+<tr class="separator:gaf40f745e33f77553ed8756b0cdbff963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec5d3fe0bb17f07ae65da260587e73ce" id="r_gaec5d3fe0bb17f07ae65da260587e73ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaec5d3fe0bb17f07ae65da260587e73ce">ILI9341DrawIcon</a> (uint16_t x, uint16_t y, <a class="el" href="group___i_c_o_n_s.html#ga945c9cb2ded81b38da222e91d09df40b">icon_t</a> icon, <a class="el" href="structicon__font__t.html">icon_font_t</a> *icon_font, uint16_t foreground, uint16_t background)</td></tr>
+<tr class="memdesc:gaec5d3fe0bb17f07ae65da260587e73ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a single character on the LCD.  <br /></td></tr>
+<tr class="separator:gaec5d3fe0bb17f07ae65da260587e73ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf1f38ba35089e77b713750c4e25e2476" id="r_gaf1f38ba35089e77b713750c4e25e2476"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf1f38ba35089e77b713750c4e25e2476">ILI9341DrawInt</a> (uint16_t x, uint16_t y, uint32_t num, uint8_t dig, <a class="el" href="struct_font__t.html">Font_t</a> *font, uint16_t foreground, uint16_t background)</td></tr>
+<tr class="memdesc:gaf1f38ba35089e77b713750c4e25e2476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw an integer on the LCD.  <br /></td></tr>
+<tr class="separator:gaf1f38ba35089e77b713750c4e25e2476"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa" id="r_ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa">ILI9341DrawString</a> (uint16_t x, uint16_t y, char *str, <a class="el" href="struct_font__t.html">Font_t</a> *font, uint16_t foreground, uint16_t background)</td></tr>
+<tr class="memdesc:ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a string on the LCD.  <br /></td></tr>
+<tr class="separator:ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5044d1ea4ba5b9b9244bc13898a514d2" id="r_ga5044d1ea4ba5b9b9244bc13898a514d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5044d1ea4ba5b9b9244bc13898a514d2">ILI9341GetStringSize</a> (char *str, <a class="el" href="struct_font__t.html">Font_t</a> *font, uint16_t *width, uint16_t *height)</td></tr>
+<tr class="memdesc:ga5044d1ea4ba5b9b9244bc13898a514d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets width and height of box with text.  <br /></td></tr>
+<tr class="separator:ga5044d1ea4ba5b9b9244bc13898a514d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga479dc2df6cfdfa86bf9c5123721f8e49" id="r_ga479dc2df6cfdfa86bf9c5123721f8e49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga479dc2df6cfdfa86bf9c5123721f8e49">ILI9341DrawLine</a> (uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color)</td></tr>
+<tr class="memdesc:ga479dc2df6cfdfa86bf9c5123721f8e49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws line on the LCD.  <br /></td></tr>
+<tr class="separator:ga479dc2df6cfdfa86bf9c5123721f8e49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90867195c7e57957fe9db4913beeee45" id="r_ga90867195c7e57957fe9db4913beeee45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga90867195c7e57957fe9db4913beeee45">ILI9341DrawRectangle</a> (uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color)</td></tr>
+<tr class="memdesc:ga90867195c7e57957fe9db4913beeee45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws rectangle on the LCD.  <br /></td></tr>
+<tr class="separator:ga90867195c7e57957fe9db4913beeee45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae317015706c9711c49b9419cd3d89823" id="r_gae317015706c9711c49b9419cd3d89823"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae317015706c9711c49b9419cd3d89823">ILI9341DrawFilledRectangle</a> (uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color)</td></tr>
+<tr class="memdesc:gae317015706c9711c49b9419cd3d89823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws filled rectangle on the LCD.  <br /></td></tr>
+<tr class="separator:gae317015706c9711c49b9419cd3d89823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga232a7c83cb705bd8c14d57dee26d0db7" id="r_ga232a7c83cb705bd8c14d57dee26d0db7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga232a7c83cb705bd8c14d57dee26d0db7">ILI9341DrawCircle</a> (int16_t x0, int16_t y0, int16_t r, uint16_t color)</td></tr>
+<tr class="memdesc:ga232a7c83cb705bd8c14d57dee26d0db7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws circle on the LCD.  <br /></td></tr>
+<tr class="separator:ga232a7c83cb705bd8c14d57dee26d0db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12d38b5bae7cf33dce21b97e9ed7f114" id="r_ga12d38b5bae7cf33dce21b97e9ed7f114"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga12d38b5bae7cf33dce21b97e9ed7f114">ILI9341DrawFilledCircle</a> (int16_t x0, int16_t y0, int16_t r, uint16_t color)</td></tr>
+<tr class="memdesc:ga12d38b5bae7cf33dce21b97e9ed7f114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws filled circle on the LCD.  <br /></td></tr>
+<tr class="separator:ga12d38b5bae7cf33dce21b97e9ed7f114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga91597ef98cf09f7d8870917f9b5ebea4" id="r_ga91597ef98cf09f7d8870917f9b5ebea4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga91597ef98cf09f7d8870917f9b5ebea4">ILI9341DrawTriangle</a> (int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color)</td></tr>
+<tr class="memdesc:ga91597ef98cf09f7d8870917f9b5ebea4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws triangle on the LCD.  <br /></td></tr>
+<tr class="separator:ga91597ef98cf09f7d8870917f9b5ebea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga371e40bd6e120c18f7fff4a5a0f292b2" id="r_ga371e40bd6e120c18f7fff4a5a0f292b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga371e40bd6e120c18f7fff4a5a0f292b2">ILI9341DrawFilledTriangle</a> (int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color)</td></tr>
+<tr class="memdesc:ga371e40bd6e120c18f7fff4a5a0f292b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws filled triangle on the LCD.  <br /></td></tr>
+<tr class="separator:ga371e40bd6e120c18f7fff4a5a0f292b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6fcf1346ba44bd098e41392eab653318" id="r_ga6fcf1346ba44bd098e41392eab653318"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6fcf1346ba44bd098e41392eab653318">ILI9341DrawPicture</a> (uint16_t x, uint16_t y, uint16_t width, uint16_t height, const uint8_t *pic)</td></tr>
+<tr class="memdesc:ga6fcf1346ba44bd098e41392eab653318"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a picture on the LCD.  <br /></td></tr>
+<tr class="separator:ga6fcf1346ba44bd098e41392eab653318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafae878cd3134badb186d4f6eae0c5de9" id="r_gafae878cd3134badb186d4f6eae0c5de9"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafae878cd3134badb186d4f6eae0c5de9">ILI9341DeInit</a> (void)</td></tr>
+<tr class="memdesc:gafae878cd3134badb186d4f6eae0c5de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initializes ILI9341 LCD.  <br /></td></tr>
+<tr class="separator:gafae878cd3134badb186d4f6eae0c5de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<p>TFT LCD RGB 240x320 ILI9341 driver. </p>
+<dl class="section note"><dt>Nota</dt><dd>This driver provide functions to configure and control a 240x320 pixels TFT color display connected to the ESP-EDU. It uses a SPI port and 3 GPIOs to communicate with the ILI9341 LCD driver chip.</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Albano Peñalva</dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Hardware connections:</dd></dl>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Display   </th><th class="markdownTableHeadLeft">ESP-EDU    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">SDO/MISO   </td><td class="markdownTableBodyLeft">GPIO_22    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">LED   </td><td class="markdownTableBodyLeft">3V3    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">SCK   </td><td class="markdownTableBodyLeft">GPIO_20    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">SDI/MOSI   </td><td class="markdownTableBodyLeft">GPIO_21    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">DC/RS   </td><td class="markdownTableBodyLeft">GPIOx    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">RESET   </td><td class="markdownTableBodyLeft">GPIOx    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">CS   </td><td class="markdownTableBodyLeft">GPIOx    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">GND   </td><td class="markdownTableBodyLeft">GND    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">VCC   </td><td class="markdownTableBodyLeft">3V3   </td></tr>
+</table>
+<h1><a class="anchor" id="changelog"></a>
+Changelog</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Date   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">18/01/2024   </td><td class="markdownTableBodyLeft">Document creation   </td></tr>
+</table>
+<h2 class="groupheader">Documentación de «define»</h2>
+<a id="ga50166b9a65012fb2f8fe0a0d5f519fa3" name="ga50166b9a65012fb2f8fe0a0d5f519fa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga50166b9a65012fb2f8fe0a0d5f519fa3">&#9670;&#160;</a></span>ILI9341_BLACK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_BLACK&#160;&#160;&#160;0x0000  /*   0,   0,   0 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00050">50</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="gaa15cf651d66764cb8024808d6ea48eef" name="gaa15cf651d66764cb8024808d6ea48eef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa15cf651d66764cb8024808d6ea48eef">&#9670;&#160;</a></span>ILI9341_BLUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_BLUE&#160;&#160;&#160;0x001F  /*   0,   0, 255 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00059">59</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="ga7753f9cc58d6e16ab69548349247922e" name="ga7753f9cc58d6e16ab69548349247922e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7753f9cc58d6e16ab69548349247922e">&#9670;&#160;</a></span>ILI9341_BLUE2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_BLUE2&#160;&#160;&#160;0x051D</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00060">60</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="ga204e287c2484d745d3332e5b1e67ae2f" name="ga204e287c2484d745d3332e5b1e67ae2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga204e287c2484d745d3332e5b1e67ae2f">&#9670;&#160;</a></span>ILI9341_BROWN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_BROWN&#160;&#160;&#160;0xBBCA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00072">72</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="gaf04ea4a1f89418c734ba76739a2e730f" name="gaf04ea4a1f89418c734ba76739a2e730f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf04ea4a1f89418c734ba76739a2e730f">&#9670;&#160;</a></span>ILI9341_CYAN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_CYAN&#160;&#160;&#160;0x07FF  /*   0, 255, 255 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00063">63</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="gadbc78927dc7105782714d69048580576" name="gadbc78927dc7105782714d69048580576"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadbc78927dc7105782714d69048580576">&#9670;&#160;</a></span>ILI9341_DARKCYAN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_DARKCYAN&#160;&#160;&#160;0x03EF  /*   0, 128, 128 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00053">53</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="ga5a9d46f3af002ee1edc832257f3683a3" name="ga5a9d46f3af002ee1edc832257f3683a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5a9d46f3af002ee1edc832257f3683a3">&#9670;&#160;</a></span>ILI9341_DARKGREEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_DARKGREEN&#160;&#160;&#160;0x03E0  /*   0, 128,   0 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00052">52</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="ga56f69dad2de457c03d71ea0b38395c41" name="ga56f69dad2de457c03d71ea0b38395c41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga56f69dad2de457c03d71ea0b38395c41">&#9670;&#160;</a></span>ILI9341_DARKGREY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_DARKGREY&#160;&#160;&#160;0x7BEF  /* 128, 128, 128 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00058">58</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="ga2eb4b5e896b0b144970f33002134bb98" name="ga2eb4b5e896b0b144970f33002134bb98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2eb4b5e896b0b144970f33002134bb98">&#9670;&#160;</a></span>ILI9341_GREEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_GREEN&#160;&#160;&#160;0x07E0  /*   0, 255,   0 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00061">61</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="gac7917ebbf25b3d806541ee4ed658b6c4" name="gac7917ebbf25b3d806541ee4ed658b6c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac7917ebbf25b3d806541ee4ed658b6c4">&#9670;&#160;</a></span>ILI9341_GREEN2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_GREEN2&#160;&#160;&#160;0xB723</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00062">62</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="ga5f9867862411a57b73cecbc0155e7507" name="ga5f9867862411a57b73cecbc0155e7507"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5f9867862411a57b73cecbc0155e7507">&#9670;&#160;</a></span>ILI9341_GREENYELLOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_GREENYELLOW&#160;&#160;&#160;0xAFE5  /* 173, 255,  47 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00070">70</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="ga19b26d4d6ae752db7302c9cbb8688d51" name="ga19b26d4d6ae752db7302c9cbb8688d51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga19b26d4d6ae752db7302c9cbb8688d51">&#9670;&#160;</a></span>ILI9341_HEIGHT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_HEIGHT&#160;&#160;&#160;320</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LCD height in pixels </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00047">47</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ili9341_8c_source.html#l00317">ILI9341Rotate()</a>.</p>
+
+</div>
+</div>
+<a id="ga35990ea476b079cd6746056777fadfd8" name="ga35990ea476b079cd6746056777fadfd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga35990ea476b079cd6746056777fadfd8">&#9670;&#160;</a></span>ILI9341_LIGHTGREY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_LIGHTGREY&#160;&#160;&#160;0xC618  /* 192, 192, 192 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00057">57</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="gae858232678ff269cf0edd404aabcb989" name="gae858232678ff269cf0edd404aabcb989"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae858232678ff269cf0edd404aabcb989">&#9670;&#160;</a></span>ILI9341_MAGENTA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_MAGENTA&#160;&#160;&#160;0xF81F  /* 255,   0, 255 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00065">65</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="ga8fdcfa7e66294fbedf701b2822a9c6e9" name="ga8fdcfa7e66294fbedf701b2822a9c6e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8fdcfa7e66294fbedf701b2822a9c6e9">&#9670;&#160;</a></span>ILI9341_MAROON</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_MAROON&#160;&#160;&#160;0x7800  /* 128,   0,   0 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00054">54</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="gacaae04786d06f0ba08c8bea6b714b572" name="gacaae04786d06f0ba08c8bea6b714b572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacaae04786d06f0ba08c8bea6b714b572">&#9670;&#160;</a></span>ILI9341_NAVY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_NAVY&#160;&#160;&#160;0x000F 	/*   0,   0, 128 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00051">51</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="gae8f5be0a5e731a047a1a7b5edaa0e46f" name="gae8f5be0a5e731a047a1a7b5edaa0e46f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae8f5be0a5e731a047a1a7b5edaa0e46f">&#9670;&#160;</a></span>ILI9341_OLIVE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_OLIVE&#160;&#160;&#160;0x7BE0  /* 128, 128,   0 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00056">56</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="ga857910d1b98cb9d77a29c2beb5af949d" name="ga857910d1b98cb9d77a29c2beb5af949d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga857910d1b98cb9d77a29c2beb5af949d">&#9670;&#160;</a></span>ILI9341_ORANGE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_ORANGE&#160;&#160;&#160;0xFBE4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00068">68</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="gae518d9f896bf8456a175a5a04b49c7f3" name="gae518d9f896bf8456a175a5a04b49c7f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae518d9f896bf8456a175a5a04b49c7f3">&#9670;&#160;</a></span>ILI9341_ORANGE2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_ORANGE2&#160;&#160;&#160;0xFD20  /* 255, 165,   0 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00069">69</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="gad39cea2dab75ccfd9d83fab73ce1a56d" name="gad39cea2dab75ccfd9d83fab73ce1a56d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad39cea2dab75ccfd9d83fab73ce1a56d">&#9670;&#160;</a></span>ILI9341_PINK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_PINK&#160;&#160;&#160;0xF81F</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00071">71</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="ga77c432b28a66dde602c46e7fcba4cc08" name="ga77c432b28a66dde602c46e7fcba4cc08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga77c432b28a66dde602c46e7fcba4cc08">&#9670;&#160;</a></span>ILI9341_PIXEL_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_PIXEL_MAX&#160;&#160;&#160;76800</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00048">48</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="ga4371aa3db522c197cae529a235553071" name="ga4371aa3db522c197cae529a235553071"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4371aa3db522c197cae529a235553071">&#9670;&#160;</a></span>ILI9341_PURPLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_PURPLE&#160;&#160;&#160;0x780F  /* 128,   0, 128 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00055">55</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="ga4ebe718620305116033cb3f969cfc08b" name="ga4ebe718620305116033cb3f969cfc08b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4ebe718620305116033cb3f969cfc08b">&#9670;&#160;</a></span>ILI9341_RED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_RED&#160;&#160;&#160;0xF800  /* 255,   0,   0 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00064">64</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<a id="ga604507ef031b95291b2d177088fe03e4" name="ga604507ef031b95291b2d177088fe03e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga604507ef031b95291b2d177088fe03e4">&#9670;&#160;</a></span>ILI9341_WHITE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_WHITE&#160;&#160;&#160;0xFFFF  /* 255, 255, 255 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00067">67</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ili9341_8c_source.html#l00272">ILI9341Init()</a>.</p>
+
+</div>
+</div>
+<a id="ga0f07262d5faa91c725fa69a2847303d5" name="ga0f07262d5faa91c725fa69a2847303d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0f07262d5faa91c725fa69a2847303d5">&#9670;&#160;</a></span>ILI9341_WIDTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_WIDTH&#160;&#160;&#160;240</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LCD width in pixels </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00046">46</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ili9341_8c_source.html#l00317">ILI9341Rotate()</a>.</p>
+
+</div>
+</div>
+<a id="ga0313d113622009bfd9b6011fc9bffcc9" name="ga0313d113622009bfd9b6011fc9bffcc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0313d113622009bfd9b6011fc9bffcc9">&#9670;&#160;</a></span>ILI9341_YELLOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ILI9341_YELLOW&#160;&#160;&#160;0xFFE0  /* 255, 255,   0 */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00066">66</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de «typedef»</h2>
+<a id="gafd244eb5252344eaf17669b9d2fddcdc" name="gafd244eb5252344eaf17669b9d2fddcdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafd244eb5252344eaf17669b9d2fddcdc">&#9670;&#160;</a></span>ili9341_orientation_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="#ga46360a506ec04c0ca618ee229bdad248">ili9341_orientation</a> <a class="el" href="#gafd244eb5252344eaf17669b9d2fddcdc">ili9341_orientation_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Possible orientations for LCD. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de enumeraciones</h2>
+<a id="ga46360a506ec04c0ca618ee229bdad248" name="ga46360a506ec04c0ca618ee229bdad248"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga46360a506ec04c0ca618ee229bdad248">&#9670;&#160;</a></span>ili9341_orientation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ga46360a506ec04c0ca618ee229bdad248">ili9341_orientation</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Possible orientations for LCD. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="gga46360a506ec04c0ca618ee229bdad248a8a91947a781dff5aa13fee4123fc4017" name="gga46360a506ec04c0ca618ee229bdad248a8a91947a781dff5aa13fee4123fc4017"></a>ILI9341_Portrait_1&#160;</td><td class="fielddoc"><p>Portrait orientation mode 1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga46360a506ec04c0ca618ee229bdad248a5355240517a88f9c791c786f52c25a0b" name="gga46360a506ec04c0ca618ee229bdad248a5355240517a88f9c791c786f52c25a0b"></a>ILI9341_Portrait_2&#160;</td><td class="fielddoc"><p>Portrait orientation mode 2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga46360a506ec04c0ca618ee229bdad248a4a306e50be2b7a9f5ff45ed5a6a5ab6d" name="gga46360a506ec04c0ca618ee229bdad248a4a306e50be2b7a9f5ff45ed5a6a5ab6d"></a>ILI9341_Landscape_1&#160;</td><td class="fielddoc"><p>Landscape orientation mode 1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga46360a506ec04c0ca618ee229bdad248a80467f7bb95409c5d6f7d943896d3c5c" name="gga46360a506ec04c0ca618ee229bdad248a80467f7bb95409c5d6f7d943896d3c5c"></a>ILI9341_Landscape_2&#160;</td><td class="fielddoc"><p>Landscape orientation mode 2 </p>
+</td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8h_source.html#l00077">77</a> del archivo <a class="el" href="ili9341_8h_source.html">ili9341.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="gafae878cd3134badb186d4f6eae0c5de9" name="gafae878cd3134badb186d4f6eae0c5de9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafae878cd3134badb186d4f6eae0c5de9">&#9670;&#160;</a></span>ILI9341DeInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t ILI9341DeInit </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>De-initializes ILI9341 LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">1</td><td>when success, 0 when fails </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00833">833</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+</div>
+</div>
+<a id="gaf40f745e33f77553ed8756b0cdbff963" name="gaf40f745e33f77553ed8756b0cdbff963"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf40f745e33f77553ed8756b0cdbff963">&#9670;&#160;</a></span>ILI9341DrawChar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341DrawChar </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>y</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>data</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_font__t.html">Font_t</a> *</td>          <td class="paramname"><span class="paramname"><em>font</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>foreground</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>background</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw a single character on the LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>X position of top left corner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Y position of top left corner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Character to be displayed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>Pointer to used font </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">foreground</td><td>Color for char (RGB565) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">background</td><td>Color for char background (RGB565) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00352">352</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="fonts_8h_source.html#l00046">Font_t::data</a>, <a class="el" href="fonts_8h_source.html#l00044">Font_t::font_height</a>, <a class="el" href="ili9341_8c_source.html#l00065">HighByte</a>, <a class="el" href="fonts_8h_source.html#l00045">Font_t::info</a>, <a class="el" href="ili9341_8c_source.html#l00066">LowByte</a>, <a class="el" href="ili9341_8c_source.html#l00025">MAX_VALUE_SIZE</a>, <a class="el" href="ili9341_8c_source.html#l00042">MEM_WRITE</a>, <a class="el" href="ili9341_8c_source.html#l00024">MSK_BIT8</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>, <a class="el" href="fonts_8h_source.html#l00038">char_info_t::offset</a>, <a class="el" href="ili9341_8c_source.html#l00212">SetCursorPosition()</a>, <a class="el" href="fonts_8h_source.html#l00037">char_info_t::width</a>, <a class="el" href="ili9341_8c_source.html#l00072">orientation_properties_t::width</a> y <a class="el" href="ili9341_8c_source.html#l00196">WriteLCD()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ili9341_8c_source.html#l00476">ILI9341DrawInt()</a> y <a class="el" href="ili9341_8c_source.html#l00491">ILI9341DrawString()</a>.</p>
+
+</div>
+</div>
+<a id="ga232a7c83cb705bd8c14d57dee26d0db7" name="ga232a7c83cb705bd8c14d57dee26d0db7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga232a7c83cb705bd8c14d57dee26d0db7">&#9670;&#160;</a></span>ILI9341DrawCircle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341DrawCircle </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>r</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws circle on the LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x0</td><td>X coordinate of center circle point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y0</td><td>Y coordinate of center circle point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Circle radius </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Circle color (RGB565) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00613">613</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ili9341_8c_source.html#l00305">ILI9341DrawPixel()</a>.</p>
+
+</div>
+</div>
+<a id="ga12d38b5bae7cf33dce21b97e9ed7f114" name="ga12d38b5bae7cf33dce21b97e9ed7f114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga12d38b5bae7cf33dce21b97e9ed7f114">&#9670;&#160;</a></span>ILI9341DrawFilledCircle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341DrawFilledCircle </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>r</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws filled circle on the LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x0</td><td>X coordinate of center circle point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y0</td><td>Y coordinate of center circle point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>Circle radius </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Circle color (RGB565) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00649">649</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ili9341_8c_source.html#l00537">ILI9341DrawLine()</a> y <a class="el" href="ili9341_8c_source.html#l00305">ILI9341DrawPixel()</a>.</p>
+
+</div>
+</div>
+<a id="gae317015706c9711c49b9419cd3d89823" name="gae317015706c9711c49b9419cd3d89823"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae317015706c9711c49b9419cd3d89823">&#9670;&#160;</a></span>ILI9341DrawFilledRectangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341DrawFilledRectangle </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>x0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>y0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>x1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>y1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws filled rectangle on the LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x0</td><td>X coordinate of top left point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y0</td><td>Y coordinate of top left point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1</td><td>X coordinate of bottom right point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y1</td><td>Y coordinate of bottom right point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Rectangle color (RGB565) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00609">609</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ili9341_8c_source.html#l00234">Fill()</a>.</p>
+
+</div>
+</div>
+<a id="ga371e40bd6e120c18f7fff4a5a0f292b2" name="ga371e40bd6e120c18f7fff4a5a0f292b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga371e40bd6e120c18f7fff4a5a0f292b2">&#9670;&#160;</a></span>ILI9341DrawFilledTriangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341DrawFilledTriangle </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x2</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y2</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws filled triangle on the LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x0</td><td>X coordinate of vertex </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y0</td><td>Y coordinate of vertex </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1</td><td>X coordinate of vertex </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y1</td><td>Y coordinate of vertex </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x2</td><td>X coordinate of vertex </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y2</td><td>Y coordinate of vertex </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Triangle color (RGB565) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00688">688</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ili9341_8c_source.html#l00537">ILI9341DrawLine()</a>.</p>
+
+</div>
+</div>
+<a id="gaec5d3fe0bb17f07ae65da260587e73ce" name="gaec5d3fe0bb17f07ae65da260587e73ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaec5d3fe0bb17f07ae65da260587e73ce">&#9670;&#160;</a></span>ILI9341DrawIcon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341DrawIcon </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>y</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_c_o_n_s.html#ga945c9cb2ded81b38da222e91d09df40b">icon_t</a></td>          <td class="paramname"><span class="paramname"><em>icon</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structicon__font__t.html">icon_font_t</a> *</td>          <td class="paramname"><span class="paramname"><em>icon_font</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>foreground</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>background</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw a single character on the LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>X position of top left corner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Y position of top left corner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">icon</td><td>Icon to be displayed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">icon_font</td><td>Pointer to used font </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">foreground</td><td>Color for icon (RGB565) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">background</td><td>Color for icon background (RGB565) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00414">414</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="icons_8h_source.html#l00108">icon_font_t::data</a>, <a class="el" href="icons_8h_source.html#l00105">icon_font_t::height</a>, <a class="el" href="ili9341_8c_source.html#l00065">HighByte</a>, <a class="el" href="ili9341_8c_source.html#l00066">LowByte</a>, <a class="el" href="ili9341_8c_source.html#l00025">MAX_VALUE_SIZE</a>, <a class="el" href="ili9341_8c_source.html#l00042">MEM_WRITE</a>, <a class="el" href="ili9341_8c_source.html#l00024">MSK_BIT8</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>, <a class="el" href="icons_8h_source.html#l00107">icon_font_t::offset</a>, <a class="el" href="ili9341_8c_source.html#l00212">SetCursorPosition()</a>, <a class="el" href="icons_8h_source.html#l00106">icon_font_t::width</a>, <a class="el" href="ili9341_8c_source.html#l00072">orientation_properties_t::width</a> y <a class="el" href="ili9341_8c_source.html#l00196">WriteLCD()</a>.</p>
+
+</div>
+</div>
+<a id="gaf1f38ba35089e77b713750c4e25e2476" name="gaf1f38ba35089e77b713750c4e25e2476"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf1f38ba35089e77b713750c4e25e2476">&#9670;&#160;</a></span>ILI9341DrawInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341DrawInt </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>y</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>num</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>dig</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_font__t.html">Font_t</a> *</td>          <td class="paramname"><span class="paramname"><em>font</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>foreground</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>background</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw an integer on the LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>X position of top left corner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Y position of top left corner </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td>Number to be displayed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dig</td><td>Number of digits to display </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>Pointer to used font </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">foreground</td><td>Color for char (RGB565) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">background</td><td>Color for char background (RGB565) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00476">476</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ili9341_8c_source.html#l00352">ILI9341DrawChar()</a>, <a class="el" href="fonts_8h_source.html#l00045">Font_t::info</a> y <a class="el" href="fonts_8h_source.html#l00037">char_info_t::width</a>.</p>
+
+</div>
+</div>
+<a id="ga479dc2df6cfdfa86bf9c5123721f8e49" name="ga479dc2df6cfdfa86bf9c5123721f8e49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga479dc2df6cfdfa86bf9c5123721f8e49">&#9670;&#160;</a></span>ILI9341DrawLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341DrawLine </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>x0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>y0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>x1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>y1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws line on the LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x0</td><td>X coordinate of starting point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y0</td><td>Y coordinate of starting point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1</td><td>X coordinate of ending point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y1</td><td>Y coordinate of ending point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Line color (RGB565) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">[in]</td><td>None </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00537">537</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ili9341_8c_source.html#l00028">DOWN</a>, <a class="el" href="ili9341_8c_source.html#l00234">Fill()</a>, <a class="el" href="ili9341_8c_source.html#l00073">orientation_properties_t::height</a>, <a class="el" href="ili9341_8c_source.html#l00305">ILI9341DrawPixel()</a>, <a class="el" href="ili9341_8c_source.html#l00026">LEFT</a>, <a class="el" href="ili9341_8c_source.html#l00027">RIGHT</a>, <a class="el" href="ili9341_8c_source.html#l00029">UP</a> y <a class="el" href="ili9341_8c_source.html#l00072">orientation_properties_t::width</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ili9341_8c_source.html#l00649">ILI9341DrawFilledCircle()</a>, <a class="el" href="ili9341_8c_source.html#l00688">ILI9341DrawFilledTriangle()</a>, <a class="el" href="ili9341_8c_source.html#l00602">ILI9341DrawRectangle()</a> y <a class="el" href="ili9341_8c_source.html#l00682">ILI9341DrawTriangle()</a>.</p>
+
+</div>
+</div>
+<a id="ga6fcf1346ba44bd098e41392eab653318" name="ga6fcf1346ba44bd098e41392eab653318"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6fcf1346ba44bd098e41392eab653318">&#9670;&#160;</a></span>ILI9341DrawPicture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341DrawPicture </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>y</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>height</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>pic</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw a picture on the LCD. </p>
+<dl class="section note"><dt>Nota</dt><dd>Pictures must be converted to uint8_t array. For that porpouse you can use <a href="http://www.digole.com/tools/PicturetoC_Hex_converter.php">http://www.digole.com/tools/PicturetoC_Hex_converter.php</a>, selecting the option "65K Color (2 bytes/pixel)" </dd></dl>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>X position of top left corner of picture </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Y position of top left corner of picture </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">width</td><td>Picture width in pixels </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">height</td><td>Picture height in pixels </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pic</td><td>Pointer to first byte of picture </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00802">802</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ili9341_8c_source.html#l00025">MAX_VALUE_SIZE</a>, <a class="el" href="ili9341_8c_source.html#l00042">MEM_WRITE</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>, <a class="el" href="ili9341_8c_source.html#l00212">SetCursorPosition()</a> y <a class="el" href="ili9341_8c_source.html#l00196">WriteLCD()</a>.</p>
+
+</div>
+</div>
+<a id="ga73585c8169e7a54bc906df9ba1b82752" name="ga73585c8169e7a54bc906df9ba1b82752"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga73585c8169e7a54bc906df9ba1b82752">&#9670;&#160;</a></span>ILI9341DrawPixel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341DrawPixel </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>y</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws single pixel to LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>X position for pixel </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Y position for pixel </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Color of pixel (RGB565) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00305">305</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ili9341_8c_source.html#l00065">HighByte</a>, <a class="el" href="ili9341_8c_source.html#l00066">LowByte</a>, <a class="el" href="ili9341_8c_source.html#l00042">MEM_WRITE</a>, <a class="el" href="ili9341_8c_source.html#l00212">SetCursorPosition()</a> y <a class="el" href="ili9341_8c_source.html#l00196">WriteLCD()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ili9341_8c_source.html#l00613">ILI9341DrawCircle()</a>, <a class="el" href="ili9341_8c_source.html#l00649">ILI9341DrawFilledCircle()</a> y <a class="el" href="ili9341_8c_source.html#l00537">ILI9341DrawLine()</a>.</p>
+
+</div>
+</div>
+<a id="ga90867195c7e57957fe9db4913beeee45" name="ga90867195c7e57957fe9db4913beeee45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga90867195c7e57957fe9db4913beeee45">&#9670;&#160;</a></span>ILI9341DrawRectangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341DrawRectangle </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>x0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>y0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>x1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>y1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws rectangle on the LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x0</td><td>X coordinate of top left point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y0</td><td>Y coordinate of top left point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1</td><td>X coordinate of bottom right point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y1</td><td>Y coordinate of bottom right point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Rectangle color (RGB565) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00602">602</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ili9341_8c_source.html#l00537">ILI9341DrawLine()</a>.</p>
+
+</div>
+</div>
+<a id="ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa" name="ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa">&#9670;&#160;</a></span>ILI9341DrawString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341DrawString </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>y</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>str</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_font__t.html">Font_t</a> *</td>          <td class="paramname"><span class="paramname"><em>font</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>foreground</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>background</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw a string on the LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>X position of top left corner of first character in string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Y position of top left corner of first character in string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>Pointer to first character </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>Pointer to used font </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">foreground</td><td>Color for string (RGB565) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">background</td><td>Color for string background (RGB565) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00491">491</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="fonts_8h_source.html#l00044">Font_t::font_height</a>, <a class="el" href="ili9341_8c_source.html#l00352">ILI9341DrawChar()</a>, <a class="el" href="fonts_8h_source.html#l00045">Font_t::info</a> y <a class="el" href="fonts_8h_source.html#l00037">char_info_t::width</a>.</p>
+
+</div>
+</div>
+<a id="ga91597ef98cf09f7d8870917f9b5ebea4" name="ga91597ef98cf09f7d8870917f9b5ebea4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga91597ef98cf09f7d8870917f9b5ebea4">&#9670;&#160;</a></span>ILI9341DrawTriangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341DrawTriangle </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>x2</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>y2</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws triangle on the LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x0</td><td>X coordinate of vertex </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y0</td><td>Y coordinate of vertex </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1</td><td>X coordinate of vertex </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y1</td><td>Y coordinate of vertex </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x2</td><td>X coordinate of vertex </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y2</td><td>Y coordinate of vertex </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Triangle color (RGB565) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00682">682</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ili9341_8c_source.html#l00537">ILI9341DrawLine()</a>.</p>
+
+</div>
+</div>
+<a id="gadbfd33ee5866c7e8283e5d29d2843b5f" name="gadbfd33ee5866c7e8283e5d29d2843b5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadbfd33ee5866c7e8283e5d29d2843b5f">&#9670;&#160;</a></span>ILI9341Fill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341Fill </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fills entire LCD with color. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>Color to be used in fill (RGB565) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00313">313</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ili9341_8c_source.html#l00234">Fill()</a>, <a class="el" href="ili9341_8c_source.html#l00073">orientation_properties_t::height</a> y <a class="el" href="ili9341_8c_source.html#l00072">orientation_properties_t::width</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ili9341_8c_source.html#l00272">ILI9341Init()</a>.</p>
+
+</div>
+</div>
+<a id="ga5044d1ea4ba5b9b9244bc13898a514d2" name="ga5044d1ea4ba5b9b9244bc13898a514d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5044d1ea4ba5b9b9244bc13898a514d2">&#9670;&#160;</a></span>ILI9341GetStringSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341GetStringSize </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>str</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_font__t.html">Font_t</a> *</td>          <td class="paramname"><span class="paramname"><em>font</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *</td>          <td class="paramname"><span class="paramname"><em>width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *</td>          <td class="paramname"><span class="paramname"><em>height</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets width and height of box with text. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>Pointer to first character </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>Pointer to used font </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">width</td><td>Pointer to variable to store width </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">height</td><td>Pointer to variable to store height </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00524">524</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="fonts_8h_source.html#l00044">Font_t::font_height</a>, <a class="el" href="fonts_8h_source.html#l00045">Font_t::info</a> y <a class="el" href="fonts_8h_source.html#l00037">char_info_t::width</a>.</p>
+
+</div>
+</div>
+<a id="ga5f72d1febbb1e77c2b50876ba8caf40c" name="ga5f72d1febbb1e77c2b50876ba8caf40c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5f72d1febbb1e77c2b50876ba8caf40c">&#9670;&#160;</a></span>ILI9341Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t ILI9341Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i.html#ga7d468ea862538a179a76e97b9085f075">spi_dev_t</a></td>          <td class="paramname"><span class="paramname"><em>spi_dev</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>gpio_dc</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>gpio_rst</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes ILI9341 LCD. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">spi_dev</td><td>Number of SPI device to control LCD driver </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">gpio_dc</td><td>Number of GPIO pin to use as data/command </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">gpio_rst</td><td>Number of GPIO pin to use as hardware reset </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">1</td><td>when success, 0 when fails </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00272">272</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="delay__mcu_8c_source.html#l00063">DelayMs()</a>, <a class="el" href="delay__mcu_8c_source.html#l00087">DelayUs()</a>, <a class="el" href="spi__mcu_8h_source.html#l00065">spi_mcu_config_t::device</a>, <a class="el" href="gpio__mcu_8h_source.html#l00044">GPIO_OUTPUT</a>, <a class="el" href="gpio__mcu_8c_source.html#l00067">GPIOInit()</a>, <a class="el" href="gpio__mcu_8c_source.html#l00081">GPIOOn()</a>, <a class="el" href="ili9341_8h_source.html#l00067">ILI9341_WHITE</a>, <a class="el" href="ili9341_8c_source.html#l00313">ILI9341Fill()</a>, <a class="el" href="ili9341_8c_source.html#l00147">lcd_init</a>, <a class="el" href="ili9341_8c_source.html#l00172">lcd_on</a>, <a class="el" href="ili9341_8c_source.html#l00170">lcd_reset</a>, <a class="el" href="ili9341_8c_source.html#l00171">lcd_sleep_out</a>, <a class="el" href="ili9341_8c_source.html#l00177">spi_conf</a> y <a class="el" href="ili9341_8c_source.html#l00196">WriteLCD()</a>.</p>
+
+</div>
+</div>
+<a id="ga7b187b4cb92aa6b28a51fbfd5153aa2b" name="ga7b187b4cb92aa6b28a51fbfd5153aa2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7b187b4cb92aa6b28a51fbfd5153aa2b">&#9670;&#160;</a></span>ILI9341Rotate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ILI9341Rotate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#gafd244eb5252344eaf17669b9d2fddcdc">ili9341_orientation_t</a></td>          <td class="paramname"><span class="paramname"><em>orientation</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rotates LCD to specific orientation. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">orientation</td><td>LCD orientation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>&lt; Row Address Order (MY) = 0, Column Address Order (MX) = 1, Row/Column Exchange (MV) = 0</p>
+<p>&lt; Row Address Order (MY) = 1, Column Address Order (MX) = 1, Row/Column Exchange (MV) = 0</p>
+<p>&lt; Row Address Order (MY) = 0, Column Address Order (MX) = 0, Row/Column Exchange (MV) = 1</p>
+<p>&lt; Row Address Order (MY) = 1, Column Address Order (MX) = 1, Row/Column Exchange (MV) = 1</p>
+
+<p class="definition">Definición en la línea <a class="el" href="ili9341_8c_source.html#l00317">317</a> del archivo <a class="el" href="ili9341_8c_source.html">ili9341.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ili9341_8c_source.html#l00073">orientation_properties_t::height</a>, <a class="el" href="ili9341_8h_source.html#l00047">ILI9341_HEIGHT</a>, <a class="el" href="ili9341_8h_source.html#l00080">ILI9341_Landscape_1</a>, <a class="el" href="ili9341_8h_source.html#l00081">ILI9341_Landscape_2</a>, <a class="el" href="ili9341_8h_source.html#l00078">ILI9341_Portrait_1</a>, <a class="el" href="ili9341_8h_source.html#l00079">ILI9341_Portrait_2</a>, <a class="el" href="ili9341_8h_source.html#l00046">ILI9341_WIDTH</a>, <a class="el" href="ili9341_8c_source.html#l00043">MEM_ACC_CTRL</a>, <a class="el" href="ili9341_8c_source.html#l00074">orientation_properties_t::orientation</a>, <a class="el" href="ili9341_8c_source.html#l00072">orientation_properties_t::width</a> y <a class="el" href="ili9341_8c_source.html#l00196">WriteLCD()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Practica de parcial: Referencia del archivo C:/Repositorios/EProgramable_FIUNER/firmware/drivers/devices/src/buzzer.c</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Practica de parcial<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Cebador automatico de mate</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('buzzer_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo buzzer.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="buzzer_8h_source.html">buzzer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="delay__mcu_8h_source.html">delay_mcu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pwm__mcu_8h_source.html">pwm_mcu.h</a>&quot;</code><br />
+</div>
+<p><a href="buzzer_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:a1a3c56336e03b5e68030bf8fe8cc87ca" id="r_a1a3c56336e03b5e68030bf8fe8cc87ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a3c56336e03b5e68030bf8fe8cc87ca">PWM_BUZZER</a>&#160;&#160;&#160;<a class="el" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542">PWM_3</a></td></tr>
+<tr class="separator:a1a3c56336e03b5e68030bf8fe8cc87ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0de934e7c029888d399e2101aa735387" id="r_a0de934e7c029888d399e2101aa735387"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0de934e7c029888d399e2101aa735387">PWM_DC</a>&#160;&#160;&#160;50</td></tr>
+<tr class="separator:a0de934e7c029888d399e2101aa735387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e48086ec95b10d9c33a4bd2b21892c9" id="r_a8e48086ec95b10d9c33a4bd2b21892c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e48086ec95b10d9c33a4bd2b21892c9">OCTAVE_OFFSET</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a8e48086ec95b10d9c33a4bd2b21892c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a7a929bf65cbc777bab7e533a2755cfad" id="r_a7a929bf65cbc777bab7e533a2755cfad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a929bf65cbc777bab7e533a2755cfad">isDigit</a> (char c)</td></tr>
+<tr class="separator:a7a929bf65cbc777bab7e533a2755cfad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d103b0bfc6281c22588fb656fb88988" id="r_ga2d103b0bfc6281c22588fb656fb88988"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_u_z_z_e_r.html#ga2d103b0bfc6281c22588fb656fb88988">BuzzerInit</a> (<a class="el" href="group___g_i_o_p.html#gac6f7bd4f7ee306a4519f04641cbf2d67">gpio_t</a> pin)</td></tr>
+<tr class="memdesc:ga2d103b0bfc6281c22588fb656fb88988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buzzer initialization.  <br /></td></tr>
+<tr class="separator:ga2d103b0bfc6281c22588fb656fb88988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5c945426454a12192b5dd46a36f45310" id="r_ga5c945426454a12192b5dd46a36f45310"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_u_z_z_e_r.html#ga5c945426454a12192b5dd46a36f45310">BuzzerOn</a> (void)</td></tr>
+<tr class="memdesc:ga5c945426454a12192b5dd46a36f45310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn on the buzzer.  <br /></td></tr>
+<tr class="separator:ga5c945426454a12192b5dd46a36f45310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5044339a4b4f968150ea884a334ddbd8" id="r_ga5044339a4b4f968150ea884a334ddbd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_u_z_z_e_r.html#ga5044339a4b4f968150ea884a334ddbd8">BuzzerOff</a> (void)</td></tr>
+<tr class="memdesc:ga5044339a4b4f968150ea884a334ddbd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn off the buzzer.  <br /></td></tr>
+<tr class="separator:ga5044339a4b4f968150ea884a334ddbd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga082170de2e447ecd09c20c8cdee5826c" id="r_ga082170de2e447ecd09c20c8cdee5826c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_u_z_z_e_r.html#ga082170de2e447ecd09c20c8cdee5826c">BuzzerSetFrec</a> (uint16_t freq)</td></tr>
+<tr class="memdesc:ga082170de2e447ecd09c20c8cdee5826c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change buzzer tone.  <br /></td></tr>
+<tr class="separator:ga082170de2e447ecd09c20c8cdee5826c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc0f6e3af015c16185274e9bb7641cca" id="r_gabc0f6e3af015c16185274e9bb7641cca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_u_z_z_e_r.html#gabc0f6e3af015c16185274e9bb7641cca">BuzzerPlayTone</a> (uint16_t freq, uint16_t duration)</td></tr>
+<tr class="memdesc:gabc0f6e3af015c16185274e9bb7641cca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays a single tone for a duration of time.  <br /></td></tr>
+<tr class="separator:gabc0f6e3af015c16185274e9bb7641cca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadff25be12628da232d5ad1fbc2dd7aaa" id="r_gadff25be12628da232d5ad1fbc2dd7aaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_u_z_z_e_r.html#gadff25be12628da232d5ad1fbc2dd7aaa">BuzzerPlayRtttl</a> (const char *rtttl_melody)</td></tr>
+<tr class="memdesc:gadff25be12628da232d5ad1fbc2dd7aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays a melody stored in format RTTTL (Ring Tone Text Transfer Language).  <br /></td></tr>
+<tr class="separator:gadff25be12628da232d5ad1fbc2dd7aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga05804b2cf66e533061b26b491f5d7826" id="r_ga05804b2cf66e533061b26b491f5d7826"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_u_z_z_e_r.html#ga05804b2cf66e533061b26b491f5d7826">BuzzerDeinit</a> (void)</td></tr>
+<tr class="memdesc:ga05804b2cf66e533061b26b491f5d7826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buzzer de-initialization.  <br /></td></tr>
+<tr class="separator:ga05804b2cf66e533061b26b491f5d7826"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a9d463f5b2109b54fc8e58f9d48505f62" id="r_a9d463f5b2109b54fc8e58f9d48505f62"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d463f5b2109b54fc8e58f9d48505f62">notes</a> []</td></tr>
+<tr class="separator:a9d463f5b2109b54fc8e58f9d48505f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Albano Peñalva (<a href="#" onclick="location.href='mai'+'lto:'+'alb'+'an'+'o.p'+'en'+'alv'+'a@'+'une'+'r.'+'edu'+'.a'+'r'; return false;">alban<span class="obfuscator">.nosp@m.</span>o.pe<span class="obfuscator">.nosp@m.</span>nalva<span class="obfuscator">.nosp@m.</span>@une<span class="obfuscator">.nosp@m.</span>r.edu<span class="obfuscator">.nosp@m.</span>.ar</a>) </dd></dl>
+<dl class="section version"><dt>Versión</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Fecha</dt><dd>2024-04-08</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024 </dd></dl>
+
+<p class="definition">Definición en el archivo <a class="el" href="buzzer_8c_source.html">buzzer.c</a>.</p>
+</div><h2 class="groupheader">Documentación de «define»</h2>
+<a id="a8e48086ec95b10d9c33a4bd2b21892c9" name="a8e48086ec95b10d9c33a4bd2b21892c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e48086ec95b10d9c33a4bd2b21892c9">&#9670;&#160;</a></span>OCTAVE_OFFSET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OCTAVE_OFFSET&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="buzzer_8c_source.html#l00019">19</a> del archivo <a class="el" href="buzzer_8c_source.html">buzzer.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="buzzer_8c_source.html#l00068">BuzzerPlayRtttl()</a>.</p>
+
+</div>
+</div>
+<a id="a1a3c56336e03b5e68030bf8fe8cc87ca" name="a1a3c56336e03b5e68030bf8fe8cc87ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a3c56336e03b5e68030bf8fe8cc87ca">&#9670;&#160;</a></span>PWM_BUZZER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PWM_BUZZER&#160;&#160;&#160;<a class="el" href="group___p_w_m.html#gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542">PWM_3</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="buzzer_8c_source.html#l00017">17</a> del archivo <a class="el" href="buzzer_8c_source.html">buzzer.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="buzzer_8c_source.html#l00043">BuzzerInit()</a>, <a class="el" href="buzzer_8c_source.html#l00053">BuzzerOff()</a>, <a class="el" href="buzzer_8c_source.html#l00049">BuzzerOn()</a>, <a class="el" href="buzzer_8c_source.html#l00061">BuzzerPlayTone()</a> y <a class="el" href="buzzer_8c_source.html#l00057">BuzzerSetFrec()</a>.</p>
+
+</div>
+</div>
+<a id="a0de934e7c029888d399e2101aa735387" name="a0de934e7c029888d399e2101aa735387"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0de934e7c029888d399e2101aa735387">&#9670;&#160;</a></span>PWM_DC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PWM_DC&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="buzzer_8c_source.html#l00018">18</a> del archivo <a class="el" href="buzzer_8c_source.html">buzzer.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="buzzer_8c_source.html#l00043">BuzzerInit()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="a7a929bf65cbc777bab7e533a2755cfad" name="a7a929bf65cbc777bab7e533a2755cfad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a929bf65cbc777bab7e533a2755cfad">&#9670;&#160;</a></span>isDigit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isDigit </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>c</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="buzzer_8c_source.html#l00035">35</a> del archivo <a class="el" href="buzzer_8c_source.html">buzzer.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="buzzer_8c_source.html#l00068">BuzzerPlayRtttl()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="a9d463f5b2109b54fc8e58f9d48505f62" name="a9d463f5b2109b54fc8e58f9d48505f62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d463f5b2109b54fc8e58f9d48505f62">&#9670;&#160;</a></span>notes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t notes[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    0,</div>
+<div class="line">    <a class="code hl_define" href="group___b_u_z_z_e_r.html#gadbed706152a3d7114327fc5af3c7e07c">NOTE_C4</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#gae9a1fa0e819ea29161a72b6840dd0ffc">NOTE_CS4</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga6162f78ec6fc3457a077602a77e36992">NOTE_D4</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga638f884f0226cff11eff97ba96fbce88">NOTE_DS4</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga147e4663d8161df841c418859a70f66f">NOTE_E4</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#gaff20d9abb2ef6f25afeb44245129eba6">NOTE_F4</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga3ca197d6b74ace12c6cc9e53f47b7a6a">NOTE_FS4</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga588324691d836c7cdf1dd8cc071eeecc">NOTE_G4</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#gac446a7c56b75b56451b6712833bfd31f">NOTE_GS4</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga4ede898d3fa744ffb02d5e9b66994ef3">NOTE_A4</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#gaaf4ee3ef21f5803c75089341e7e3f50d">NOTE_AS4</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga9ed6d5c8563ae60e6d2716e13d261386">NOTE_B4</a>,</div>
+<div class="line">    <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga8afb484cf5507628f20dd2822a5b2e79">NOTE_C5</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga8f01a2997f769170cc4f20287aca5339">NOTE_CS5</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga37abdd5b16959e6265e7de75022f5dde">NOTE_D5</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga7943ad2d66e53367906e04e8af1c086a">NOTE_DS5</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga441475178599565b3dd4572cebbdf28c">NOTE_E5</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga88cbd6246f212e3bcbecbb032c8e2000">NOTE_F5</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga84727bb42a42a0b6af92403750f91557">NOTE_FS5</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#gaf71ac5d772736db7a12fd9f9521dd475">NOTE_G5</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga1d0d4526c7554185499a7207359bda67">NOTE_GS5</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga304d30fa9be20c63c38c57787d037855">NOTE_A5</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga9eb288f3153b75a074d08dce3765298e">NOTE_AS5</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga88aac44b58d74d5aa5749e17a22b8cdd">NOTE_B5</a>,</div>
+<div class="line">    <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga54087ffb7da518f038a39025b2a9ee7e">NOTE_C6</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga469d61024f06d70e36b5a201e02290dd">NOTE_CS6</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga811db0f526f36b57a6798aaf31c8d70c">NOTE_D6</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga24a650a77ce62398dafbd1bcce98eb59">NOTE_DS6</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga857f52119eedaadce999e3918ae9959f">NOTE_E6</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#gadfe1a899865ae2952aa2d9ed5e790b79">NOTE_F6</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#gab4ebb3f662ea22dd29c2887d1d217af6">NOTE_FS6</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#gabc6a20319564cb37b2de2d3ef3b90c56">NOTE_G6</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga97b306e8336c0e303e366ad2cdacbee0">NOTE_GS6</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga398204aee459448c88756450dec5917e">NOTE_A6</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#gaa79cf5cf202add769c2b5e3bac36b07e">NOTE_AS6</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga918042b793d057bd1038d859bc769ec0">NOTE_B6</a>,</div>
+<div class="line">    <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga4a673e851d3b7e3b56a7cd83fba56cc3">NOTE_C7</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga9a1638b00a6bdc7d49ca174d866506d8">NOTE_CS7</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#gaedb563ef21585da30f0b764af28c0756">NOTE_D7</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga45831ac60d64e86e43e199135ea76716">NOTE_DS7</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga94435ecff4dd7454e8f12714c3bddd32">NOTE_E7</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga9e4b9940ccfc472459ccc30f2b4292f8">NOTE_F7</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga7de2a8e90d9295b995d63190ec927532">NOTE_FS7</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#gafabef1046812185e7c9b348c4ed42ff0">NOTE_G7</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga2103012b7aab268027be083fb9527aef">NOTE_GS7</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga8d2565a45b2dc04fdd20d687ba9a2adf">NOTE_A7</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga3cf820bf5e8bac30a1d1d6f5b0a80278">NOTE_AS7</a>, <a class="code hl_define" href="group___b_u_z_z_e_r.html#ga65fb6be656e33eec5ebd43f99bdde43c">NOTE_B7</a></div>
+<div class="line">}</div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga147e4663d8161df841c418859a70f66f"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga147e4663d8161df841c418859a70f66f">NOTE_E4</a></div><div class="ttdeci">#define NOTE_E4</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00069">buzzer.h:69</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga1d0d4526c7554185499a7207359bda67"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga1d0d4526c7554185499a7207359bda67">NOTE_GS5</a></div><div class="ttdeci">#define NOTE_GS5</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00085">buzzer.h:85</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga2103012b7aab268027be083fb9527aef"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga2103012b7aab268027be083fb9527aef">NOTE_GS7</a></div><div class="ttdeci">#define NOTE_GS7</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00109">buzzer.h:109</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga24a650a77ce62398dafbd1bcce98eb59"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga24a650a77ce62398dafbd1bcce98eb59">NOTE_DS6</a></div><div class="ttdeci">#define NOTE_DS6</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00092">buzzer.h:92</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga304d30fa9be20c63c38c57787d037855"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga304d30fa9be20c63c38c57787d037855">NOTE_A5</a></div><div class="ttdeci">#define NOTE_A5</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00086">buzzer.h:86</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga37abdd5b16959e6265e7de75022f5dde"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga37abdd5b16959e6265e7de75022f5dde">NOTE_D5</a></div><div class="ttdeci">#define NOTE_D5</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00079">buzzer.h:79</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga398204aee459448c88756450dec5917e"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga398204aee459448c88756450dec5917e">NOTE_A6</a></div><div class="ttdeci">#define NOTE_A6</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00098">buzzer.h:98</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga3ca197d6b74ace12c6cc9e53f47b7a6a"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga3ca197d6b74ace12c6cc9e53f47b7a6a">NOTE_FS4</a></div><div class="ttdeci">#define NOTE_FS4</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00071">buzzer.h:71</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga3cf820bf5e8bac30a1d1d6f5b0a80278"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga3cf820bf5e8bac30a1d1d6f5b0a80278">NOTE_AS7</a></div><div class="ttdeci">#define NOTE_AS7</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00111">buzzer.h:111</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga441475178599565b3dd4572cebbdf28c"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga441475178599565b3dd4572cebbdf28c">NOTE_E5</a></div><div class="ttdeci">#define NOTE_E5</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00081">buzzer.h:81</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga45831ac60d64e86e43e199135ea76716"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga45831ac60d64e86e43e199135ea76716">NOTE_DS7</a></div><div class="ttdeci">#define NOTE_DS7</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00104">buzzer.h:104</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga469d61024f06d70e36b5a201e02290dd"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga469d61024f06d70e36b5a201e02290dd">NOTE_CS6</a></div><div class="ttdeci">#define NOTE_CS6</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00090">buzzer.h:90</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga4a673e851d3b7e3b56a7cd83fba56cc3"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga4a673e851d3b7e3b56a7cd83fba56cc3">NOTE_C7</a></div><div class="ttdeci">#define NOTE_C7</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00101">buzzer.h:101</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga4ede898d3fa744ffb02d5e9b66994ef3"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga4ede898d3fa744ffb02d5e9b66994ef3">NOTE_A4</a></div><div class="ttdeci">#define NOTE_A4</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00074">buzzer.h:74</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga54087ffb7da518f038a39025b2a9ee7e"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga54087ffb7da518f038a39025b2a9ee7e">NOTE_C6</a></div><div class="ttdeci">#define NOTE_C6</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00089">buzzer.h:89</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga588324691d836c7cdf1dd8cc071eeecc"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga588324691d836c7cdf1dd8cc071eeecc">NOTE_G4</a></div><div class="ttdeci">#define NOTE_G4</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00072">buzzer.h:72</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga6162f78ec6fc3457a077602a77e36992"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga6162f78ec6fc3457a077602a77e36992">NOTE_D4</a></div><div class="ttdeci">#define NOTE_D4</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00067">buzzer.h:67</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga638f884f0226cff11eff97ba96fbce88"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga638f884f0226cff11eff97ba96fbce88">NOTE_DS4</a></div><div class="ttdeci">#define NOTE_DS4</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00068">buzzer.h:68</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga65fb6be656e33eec5ebd43f99bdde43c"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga65fb6be656e33eec5ebd43f99bdde43c">NOTE_B7</a></div><div class="ttdeci">#define NOTE_B7</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00112">buzzer.h:112</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga7943ad2d66e53367906e04e8af1c086a"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga7943ad2d66e53367906e04e8af1c086a">NOTE_DS5</a></div><div class="ttdeci">#define NOTE_DS5</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00080">buzzer.h:80</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga7de2a8e90d9295b995d63190ec927532"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga7de2a8e90d9295b995d63190ec927532">NOTE_FS7</a></div><div class="ttdeci">#define NOTE_FS7</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00107">buzzer.h:107</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga811db0f526f36b57a6798aaf31c8d70c"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga811db0f526f36b57a6798aaf31c8d70c">NOTE_D6</a></div><div class="ttdeci">#define NOTE_D6</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00091">buzzer.h:91</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga84727bb42a42a0b6af92403750f91557"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga84727bb42a42a0b6af92403750f91557">NOTE_FS5</a></div><div class="ttdeci">#define NOTE_FS5</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00083">buzzer.h:83</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga857f52119eedaadce999e3918ae9959f"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga857f52119eedaadce999e3918ae9959f">NOTE_E6</a></div><div class="ttdeci">#define NOTE_E6</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00093">buzzer.h:93</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga88aac44b58d74d5aa5749e17a22b8cdd"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga88aac44b58d74d5aa5749e17a22b8cdd">NOTE_B5</a></div><div class="ttdeci">#define NOTE_B5</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00088">buzzer.h:88</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga88cbd6246f212e3bcbecbb032c8e2000"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga88cbd6246f212e3bcbecbb032c8e2000">NOTE_F5</a></div><div class="ttdeci">#define NOTE_F5</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00082">buzzer.h:82</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga8afb484cf5507628f20dd2822a5b2e79"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga8afb484cf5507628f20dd2822a5b2e79">NOTE_C5</a></div><div class="ttdeci">#define NOTE_C5</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00077">buzzer.h:77</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga8d2565a45b2dc04fdd20d687ba9a2adf"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga8d2565a45b2dc04fdd20d687ba9a2adf">NOTE_A7</a></div><div class="ttdeci">#define NOTE_A7</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00110">buzzer.h:110</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga8f01a2997f769170cc4f20287aca5339"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga8f01a2997f769170cc4f20287aca5339">NOTE_CS5</a></div><div class="ttdeci">#define NOTE_CS5</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00078">buzzer.h:78</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga918042b793d057bd1038d859bc769ec0"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga918042b793d057bd1038d859bc769ec0">NOTE_B6</a></div><div class="ttdeci">#define NOTE_B6</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00100">buzzer.h:100</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga94435ecff4dd7454e8f12714c3bddd32"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga94435ecff4dd7454e8f12714c3bddd32">NOTE_E7</a></div><div class="ttdeci">#define NOTE_E7</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00105">buzzer.h:105</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga97b306e8336c0e303e366ad2cdacbee0"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga97b306e8336c0e303e366ad2cdacbee0">NOTE_GS6</a></div><div class="ttdeci">#define NOTE_GS6</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00097">buzzer.h:97</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga9a1638b00a6bdc7d49ca174d866506d8"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga9a1638b00a6bdc7d49ca174d866506d8">NOTE_CS7</a></div><div class="ttdeci">#define NOTE_CS7</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00102">buzzer.h:102</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga9e4b9940ccfc472459ccc30f2b4292f8"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga9e4b9940ccfc472459ccc30f2b4292f8">NOTE_F7</a></div><div class="ttdeci">#define NOTE_F7</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00106">buzzer.h:106</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga9eb288f3153b75a074d08dce3765298e"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga9eb288f3153b75a074d08dce3765298e">NOTE_AS5</a></div><div class="ttdeci">#define NOTE_AS5</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00087">buzzer.h:87</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_ga9ed6d5c8563ae60e6d2716e13d261386"><div class="ttname"><a href="group___b_u_z_z_e_r.html#ga9ed6d5c8563ae60e6d2716e13d261386">NOTE_B4</a></div><div class="ttdeci">#define NOTE_B4</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00076">buzzer.h:76</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_gaa79cf5cf202add769c2b5e3bac36b07e"><div class="ttname"><a href="group___b_u_z_z_e_r.html#gaa79cf5cf202add769c2b5e3bac36b07e">NOTE_AS6</a></div><div class="ttdeci">#define NOTE_AS6</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00099">buzzer.h:99</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_gaaf4ee3ef21f5803c75089341e7e3f50d"><div class="ttname"><a href="group___b_u_z_z_e_r.html#gaaf4ee3ef21f5803c75089341e7e3f50d">NOTE_AS4</a></div><div class="ttdeci">#define NOTE_AS4</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00075">buzzer.h:75</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_gab4ebb3f662ea22dd29c2887d1d217af6"><div class="ttname"><a href="group___b_u_z_z_e_r.html#gab4ebb3f662ea22dd29c2887d1d217af6">NOTE_FS6</a></div><div class="ttdeci">#define NOTE_FS6</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00095">buzzer.h:95</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_gabc6a20319564cb37b2de2d3ef3b90c56"><div class="ttname"><a href="group___b_u_z_z_e_r.html#gabc6a20319564cb37b2de2d3ef3b90c56">NOTE_G6</a></div><div class="ttdeci">#define NOTE_G6</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00096">buzzer.h:96</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_gac446a7c56b75b56451b6712833bfd31f"><div class="ttname"><a href="group___b_u_z_z_e_r.html#gac446a7c56b75b56451b6712833bfd31f">NOTE_GS4</a></div><div class="ttdeci">#define NOTE_GS4</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00073">buzzer.h:73</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_gadbed706152a3d7114327fc5af3c7e07c"><div class="ttname"><a href="group___b_u_z_z_e_r.html#gadbed706152a3d7114327fc5af3c7e07c">NOTE_C4</a></div><div class="ttdeci">#define NOTE_C4</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00065">buzzer.h:65</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_gadfe1a899865ae2952aa2d9ed5e790b79"><div class="ttname"><a href="group___b_u_z_z_e_r.html#gadfe1a899865ae2952aa2d9ed5e790b79">NOTE_F6</a></div><div class="ttdeci">#define NOTE_F6</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00094">buzzer.h:94</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_gae9a1fa0e819ea29161a72b6840dd0ffc"><div class="ttname"><a href="group___b_u_z_z_e_r.html#gae9a1fa0e819ea29161a72b6840dd0ffc">NOTE_CS4</a></div><div class="ttdeci">#define NOTE_CS4</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00066">buzzer.h:66</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_gaedb563ef21585da30f0b764af28c0756"><div class="ttname"><a href="group___b_u_z_z_e_r.html#gaedb563ef21585da30f0b764af28c0756">NOTE_D7</a></div><div class="ttdeci">#define NOTE_D7</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00103">buzzer.h:103</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_gaf71ac5d772736db7a12fd9f9521dd475"><div class="ttname"><a href="group___b_u_z_z_e_r.html#gaf71ac5d772736db7a12fd9f9521dd475">NOTE_G5</a></div><div class="ttdeci">#define NOTE_G5</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00084">buzzer.h:84</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_gafabef1046812185e7c9b348c4ed42ff0"><div class="ttname"><a href="group___b_u_z_z_e_r.html#gafabef1046812185e7c9b348c4ed42ff0">NOTE_G7</a></div><div class="ttdeci">#define NOTE_G7</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00108">buzzer.h:108</a></div></div>
+<div class="ttc" id="agroup___b_u_z_z_e_r_html_gaff20d9abb2ef6f25afeb44245129eba6"><div class="ttname"><a href="group___b_u_z_z_e_r.html#gaff20d9abb2ef6f25afeb44245129eba6">NOTE_F4</a></div><div class="ttdeci">#define NOTE_F4</div><div class="ttdef"><b>Definition</b> <a href="buzzer_8h_source.html#l00070">buzzer.h:70</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definición en la línea <a class="el" href="buzzer_8c_source.html#l00025">25</a> del archivo <a class="el" href="buzzer_8c_source.html">buzzer.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="buzzer_8c_source.html#l00068">BuzzerPlayRtttl()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_fcba15287a7fba83beff6e7e8c7a3a80.html">firmware</a></li><li class="navelem"><a class="el" href="dir_d771f3729bc48f700515c8c6c400e99b.html">drivers</a></li><li class="navelem"><a class="el" href="dir_7f308ea91af7ba00bd2379b2a292bcdf.html">devices</a></li><li class="navelem"><a class="el" href="dir_6d71182a2f5b197121e17f68990d396a.html">src</a></li><li class="navelem"><a class="el" href="buzzer_8c.html">buzzer.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

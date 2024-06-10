@@ -1,0 +1,156 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/src/hx711.c}
+\hypertarget{hx711_8c}{}\label{hx711_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/hx711.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/hx711.c}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}hx711.\+h"{}}\newline
+{\ttfamily \#include $<$delay\+\_\+mcu.\+h$>$}\newline
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___drivers___devices_gaacc0fa70a56783b9a18f6ae8a6b37487}{shift\+In}} (void)
+\item 
+void \mbox{\hyperlink{group___drivers___devices_ga0253b5770d7658f386b17e6846be30bb}{HX711\+\_\+\+Init}} (uint8\+\_\+t gain, \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pd\+\_\+sck, \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} dout)
+\begin{DoxyCompactList}\small\item\em The HX711 amplifier is a breakout board that allows you to easily read load cells to measure weight. It communicates with the EDU-\/\+ESP board via I2C. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group___drivers___devices_ga71638214415227f49d5a68c1ab7ac5fc}{HX711\+\_\+is\+Ready}} (void)
+\begin{DoxyCompactList}\small\item\em Check if HX711 is ready. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_ga015618a3aeb885f497bb4e49703f0533}{HX711\+\_\+set\+Gain}} (uint8\+\_\+t gain)
+\begin{DoxyCompactList}\small\item\em Set the gain factor; takes effect only after a call to read() channel A can be set for a 128 or 64 gain; channel B has a fixed 32 gain depending on the parameter, the channel is also set to either A or B. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___drivers___devices_ga98ffbaa5e4a9d05cbe26d4f11c852b43}{HX711\+\_\+read}} (void)
+\begin{DoxyCompactList}\small\item\em Waits for the chip to be ready and returns a reading. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___drivers___devices_ga624121c6e72709fa80dec71b0bb5a09e}{HX711\+\_\+read\+Average}} (uint8\+\_\+t times)
+\begin{DoxyCompactList}\small\item\em Returns an average reading. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{hx711_8c_ae916f766337367c141d9d497bf0f2d55}{HX711\+\_\+get\+Value}} (uint8\+\_\+t times)
+\item 
+float \mbox{\hyperlink{hx711_8c_a4fbf16bf5edd9e2a5e589d1704c5c295}{HX711\+\_\+get\+Units}} (uint8\+\_\+t times)
+\item 
+void \mbox{\hyperlink{group___drivers___devices_ga49825990854e1a686bec6827116bd21a}{HX711\+\_\+tare}} (uint8\+\_\+t times)
+\begin{DoxyCompactList}\small\item\em Set the OFFSET value for tare weight. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_ga7f8fa1c373124a450721cd2f7c37ca65}{HX711\+\_\+set\+Scale}} (float scale)
+\begin{DoxyCompactList}\small\item\em Set the SCALE value; this value is used to convert the raw data to "{}human readable"{} data (measure units) \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group___drivers___devices_ga5f85e38a6bd3628b18a7fa39696e1734}{HX711\+\_\+get\+Scale}} (void)
+\begin{DoxyCompactList}\small\item\em Get the current SCALE. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_gafeb43438890820a40cac639b45e2f68e}{HX711\+\_\+set\+Offset}} (double offset)
+\item 
+double \mbox{\hyperlink{group___drivers___devices_ga88b64b36ae1198175c714bcb1d12824d}{HX711\+\_\+get\+Offset}} (void)
+\begin{DoxyCompactList}\small\item\em Get the current OFFSET. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_ga6f16f71a0f63a246364ac964488ac9eb}{HX711\+\_\+power\+Down}} (void)
+\begin{DoxyCompactList}\small\item\em Puts the chip into power down mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_gaefe09edcab845b980ff9f23cb196a914}{HX711\+\_\+power\+Up}} (void)
+\begin{DoxyCompactList}\small\item\em Wakes up the chip after power down mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{hx711_8c_a97ebc8630db48de37f04b63467584ff0}{GAIN}}
+\item 
+double \mbox{\hyperlink{hx711_8c_aadec65200168fbdddae5840dde5b48ac}{OFFSET}}
+\item 
+float \mbox{\hyperlink{hx711_8c_a11d946235bb0123edad7b8947df9ac8a}{SCALE}}
+\item 
+\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} \mbox{\hyperlink{hx711_8c_a3ca2bc0ce568857412fd5f0b338d5aa6}{internal\+\_\+pd\+\_\+sck}}
+\item 
+\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} \mbox{\hyperlink{hx711_8c_a1ff6a94e6be9161d2d7e32a7a592ca0d}{internal\+\_\+dout}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{hx711_8c_a4fbf16bf5edd9e2a5e589d1704c5c295}\label{hx711_8c_a4fbf16bf5edd9e2a5e589d1704c5c295} 
+\index{hx711.c@{hx711.c}!HX711\_getUnits@{HX711\_getUnits}}
+\index{HX711\_getUnits@{HX711\_getUnits}!hx711.c@{hx711.c}}
+\doxysubsubsection{\texorpdfstring{HX711\_getUnits()}{HX711\_getUnits()}}
+{\footnotesize\ttfamily float HX711\+\_\+get\+Units (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{times }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00133}{133}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{group___drivers___devices_gab948b825f1a8bb789ffc918a9d56a0a9}{HX711\+\_\+get\+\_\+value()}} y \mbox{\hyperlink{hx711_8c_source_l00021}{SCALE}}.
+
+\Hypertarget{hx711_8c_ae916f766337367c141d9d497bf0f2d55}\label{hx711_8c_ae916f766337367c141d9d497bf0f2d55} 
+\index{hx711.c@{hx711.c}!HX711\_getValue@{HX711\_getValue}}
+\index{HX711\_getValue@{HX711\_getValue}!hx711.c@{hx711.c}}
+\doxysubsubsection{\texorpdfstring{HX711\_getValue()}{HX711\_getValue()}}
+{\footnotesize\ttfamily double HX711\+\_\+get\+Value (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{times }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00128}{128}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{hx711_8c_source_l00117}{HX711\+\_\+read\+Average()}} y \mbox{\hyperlink{hx711_8c_source_l00020}{OFFSET}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{hx711_8c_a97ebc8630db48de37f04b63467584ff0}\label{hx711_8c_a97ebc8630db48de37f04b63467584ff0} 
+\index{hx711.c@{hx711.c}!GAIN@{GAIN}}
+\index{GAIN@{GAIN}!hx711.c@{hx711.c}}
+\doxysubsubsection{\texorpdfstring{GAIN}{GAIN}}
+{\footnotesize\ttfamily uint8\+\_\+t GAIN}
+
+Amplification factor 
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00019}{19}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hx711_8c_source_l00062}{HX711\+\_\+set\+Gain()}}.
+
+\Hypertarget{hx711_8c_a1ff6a94e6be9161d2d7e32a7a592ca0d}\label{hx711_8c_a1ff6a94e6be9161d2d7e32a7a592ca0d} 
+\index{hx711.c@{hx711.c}!internal\_dout@{internal\_dout}}
+\index{internal\_dout@{internal\_dout}!hx711.c@{hx711.c}}
+\doxysubsubsection{\texorpdfstring{internal\_dout}{internal\_dout}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} internal\+\_\+dout}
+
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00025}{25}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hx711_8c_source_l00047}{HX711\+\_\+\+Init()}}, \mbox{\hyperlink{hx711_8c_source_l00057}{HX711\+\_\+is\+Ready()}}, \mbox{\hyperlink{hx711_8c_source_l00081}{HX711\+\_\+read()}} y \mbox{\hyperlink{hx711_8c_source_l00029}{shift\+In()}}.
+
+\Hypertarget{hx711_8c_a3ca2bc0ce568857412fd5f0b338d5aa6}\label{hx711_8c_a3ca2bc0ce568857412fd5f0b338d5aa6} 
+\index{hx711.c@{hx711.c}!internal\_pd\_sck@{internal\_pd\_sck}}
+\index{internal\_pd\_sck@{internal\_pd\_sck}!hx711.c@{hx711.c}}
+\doxysubsubsection{\texorpdfstring{internal\_pd\_sck}{internal\_pd\_sck}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} internal\+\_\+pd\+\_\+sck}
+
+
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00024}{24}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hx711_8c_source_l00047}{HX711\+\_\+\+Init()}}, \mbox{\hyperlink{hx711_8c_source_l00164}{HX711\+\_\+power\+Down()}}, \mbox{\hyperlink{hx711_8c_source_l00171}{HX711\+\_\+power\+Up()}}, \mbox{\hyperlink{hx711_8c_source_l00081}{HX711\+\_\+read()}}, \mbox{\hyperlink{hx711_8c_source_l00062}{HX711\+\_\+set\+Gain()}} y \mbox{\hyperlink{hx711_8c_source_l00029}{shift\+In()}}.
+
+\Hypertarget{hx711_8c_aadec65200168fbdddae5840dde5b48ac}\label{hx711_8c_aadec65200168fbdddae5840dde5b48ac} 
+\index{hx711.c@{hx711.c}!OFFSET@{OFFSET}}
+\index{OFFSET@{OFFSET}!hx711.c@{hx711.c}}
+\doxysubsubsection{\texorpdfstring{OFFSET}{OFFSET}}
+{\footnotesize\ttfamily double OFFSET}
+
+Used for tare weight 
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00020}{20}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hx711_8c_source_l00159}{HX711\+\_\+get\+Offset()}}, \mbox{\hyperlink{hx711_8c_source_l00128}{HX711\+\_\+get\+Value()}} y \mbox{\hyperlink{hx711_8c_source_l00154}{HX711\+\_\+set\+Offset()}}.
+
+\Hypertarget{hx711_8c_a11d946235bb0123edad7b8947df9ac8a}\label{hx711_8c_a11d946235bb0123edad7b8947df9ac8a} 
+\index{hx711.c@{hx711.c}!SCALE@{SCALE}}
+\index{SCALE@{SCALE}!hx711.c@{hx711.c}}
+\doxysubsubsection{\texorpdfstring{SCALE}{SCALE}}
+{\footnotesize\ttfamily float SCALE}
+
+Used to return weight in grams, kg, ounces, whatever 
+
+Definición en la línea \mbox{\hyperlink{hx711_8c_source_l00021}{21}} del archivo \mbox{\hyperlink{hx711_8c_source}{hx711.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hx711_8c_source_l00149}{HX711\+\_\+get\+Scale()}}, \mbox{\hyperlink{hx711_8c_source_l00133}{HX711\+\_\+get\+Units()}} y \mbox{\hyperlink{hx711_8c_source_l00144}{HX711\+\_\+set\+Scale()}}.
+

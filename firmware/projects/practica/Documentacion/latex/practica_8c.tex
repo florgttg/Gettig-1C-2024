@@ -1,0 +1,579 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+Gettig-\/1\+C-\/2024/firmware/projects/practica/main/practica.c}
+\hypertarget{practica_8c}{}\label{practica_8c}\index{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/practica/main/practica.c@{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/practica/main/practica.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}freertos/\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/task.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}switch.\+h"{}}\newline
+{\ttfamily \#include "{}hc\+\_\+sr04.\+h"{}}\newline
+{\ttfamily \#include "{}timer\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}uart\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}analog\+\_\+io\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{practica_8c_a24be013253d09af009aa150234f2380f}{CONFIG\+\_\+\+TIMER\+\_\+\+SUMINISTRO}}~1000000
+\item 
+\#define \mbox{\hyperlink{practica_8c_af66de53e62872791e526222300e89a33}{CONFIG\+\_\+\+TIMER\+\_\+\+TEMPERATURA}}~1000000
+\item 
+\#define \mbox{\hyperlink{practica_8c_af6aaeea49bac11924cbeb98494c55e93}{GPIO\+\_\+\+BOMBA}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f}{GPIO\+\_\+23}}
+\item 
+\#define \mbox{\hyperlink{practica_8c_ad3a2d03fbcf61c403b113352e0106f1b}{GPIO\+\_\+\+RESISTENCIA}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a6213ab680cde9fe00f518cfb26a30a6b}{GPIO\+\_\+5}}
+\item 
+\#define \mbox{\hyperlink{practica_8c_acf990e574d67f431ce13363ffd086c2d}{GPIO\+\_\+\+SENSOR\+\_\+\+TEMPERATURA}}~\mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e}{CH1}}
+\item 
+\#define \mbox{\hyperlink{practica_8c_a3f6b7393a0541a11d130c6d3abc6b924}{VOLTAJE\+\_\+\+MIN}}~0.\+0
+\item 
+\#define \mbox{\hyperlink{practica_8c_a8e1431ba4d78678909016328c528f845}{VOLTAJE\+\_\+\+MAX}}~3300
+\item 
+\#define \mbox{\hyperlink{practica_8c_a2ee75b418485729e8dff4e7f4f8122e4}{TEMPERATURA\+\_\+\+MIN}}~-\/10.\+0
+\item 
+\#define \mbox{\hyperlink{practica_8c_a285e195ec8b4bc2321c5f906d98206ee}{TEMPERATURA\+\_\+\+MAX}}~100.\+0
+\item 
+\#define \mbox{\hyperlink{practica_8c_a08976a5dc99217b37a2237816780506c}{TEMPERATURA\+\_\+\+OBJETIVO}}~75.\+0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{practica_8c_acb2cc551e8fc1a07fe8e559166abf015}{Dispensar\+Agua}} ()
+\begin{DoxyCompactList}\small\item\em Activa la bomba para dispensar agua. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{practica_8c_a04be08c6a03169b81cd5d2374a4ae99b}{No\+Dispensar\+Agua}} ()
+\begin{DoxyCompactList}\small\item\em Desactiva la bomba para detener el suministro de agua. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{practica_8c_a372419d813f9cca424b23123b5863ac3}{Mostrar\+Mensaje}} (uint8\+\_\+t mensaje)
+\begin{DoxyCompactList}\small\item\em Envia mensajes a través de UART. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{practica_8c_a373f69ff466067736504ca6109f0d204}{Function\+Stop}} ()
+\begin{DoxyCompactList}\small\item\em Interrupcion que Detiene las operaciones del cebador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{practica_8c_a0febcf7c0dda3de61859f3046a104fc2}{Function\+Start}} ()
+\begin{DoxyCompactList}\small\item\em Inicia las operaciones del cebador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{practica_8c_addffabd0c759504a26e629fe8de363e3}{Calentar\+Agua}} ()
+\begin{DoxyCompactList}\small\item\em Activa la resistencia para calentar el agua. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{practica_8c_a802332a28794fbef8f1c119da428a6b4}{No\+Calentar\+Agua}} ()
+\begin{DoxyCompactList}\small\item\em Desactiva la resistencia para calentar el agua. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{practica_8c_a68927a4ea0d5880d3baf2e3fccb60647}{Convertir\+Voltaje\+ATemperatura}} (uint16\+\_\+t voltaje)
+\begin{DoxyCompactList}\small\item\em Convierte un valor de voltaje a temperatura. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{practica_8c_add76eb2337481be1dd353748abd8cd2f}{Task\+\_\+\+Suministrar\+\_\+\+Agua}} (void \texorpdfstring{$\ast$}{*}pv\+Parameter)
+\begin{DoxyCompactList}\small\item\em Tarea para suministrar agua basado en la distancia medida por el sensor ultrasonico. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{practica_8c_ac6ea1c1b2eb1ff146306d5c3e67d84d3}{Task\+\_\+\+Controlar\+\_\+\+Temperatura}} (void \texorpdfstring{$\ast$}{*}pv\+Parameter)
+\begin{DoxyCompactList}\small\item\em Tarea para controlar la temperatura del agua. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{practica_8c_a10506548c0166cec6195f808a27701d6}{Function\+TimerA}} (void \texorpdfstring{$\ast$}{*}param)
+\begin{DoxyCompactList}\small\item\em Función de callback para el timer de suministro de agua. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{practica_8c_aaac5cc84aba38aa4ab933e3a00e92dfd}{Function\+TimerB}} (void \texorpdfstring{$\ast$}{*}param)
+\begin{DoxyCompactList}\small\item\em Función de callback para el timer de control de temperatura. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{practica_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}{app\+\_\+main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{practica_8c_a3b9cb27813f95f6c13faaa135741d35e}{sumnistro\+\_\+task\+\_\+handle}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{practica_8c_a6c747c748df23984214857cddd20bc60}{temperatura\+\_\+task\+\_\+handle}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\item 
+bool \mbox{\hyperlink{practica_8c_ab376b87f96a574a793c03c53e75afec8}{start}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{practica_8c_a24be013253d09af009aa150234f2380f}\label{practica_8c_a24be013253d09af009aa150234f2380f} 
+\index{practica.c@{practica.c}!CONFIG\_TIMER\_SUMINISTRO@{CONFIG\_TIMER\_SUMINISTRO}}
+\index{CONFIG\_TIMER\_SUMINISTRO@{CONFIG\_TIMER\_SUMINISTRO}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{CONFIG\_TIMER\_SUMINISTRO}{CONFIG\_TIMER\_SUMINISTRO}}
+{\footnotesize\ttfamily \#define CONFIG\+\_\+\+TIMER\+\_\+\+SUMINISTRO~1000000}
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00044}{44}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}}.
+
+\Hypertarget{practica_8c_af66de53e62872791e526222300e89a33}\label{practica_8c_af66de53e62872791e526222300e89a33} 
+\index{practica.c@{practica.c}!CONFIG\_TIMER\_TEMPERATURA@{CONFIG\_TIMER\_TEMPERATURA}}
+\index{CONFIG\_TIMER\_TEMPERATURA@{CONFIG\_TIMER\_TEMPERATURA}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{CONFIG\_TIMER\_TEMPERATURA}{CONFIG\_TIMER\_TEMPERATURA}}
+{\footnotesize\ttfamily \#define CONFIG\+\_\+\+TIMER\+\_\+\+TEMPERATURA~1000000}
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00045}{45}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}}.
+
+\Hypertarget{practica_8c_af6aaeea49bac11924cbeb98494c55e93}\label{practica_8c_af6aaeea49bac11924cbeb98494c55e93} 
+\index{practica.c@{practica.c}!GPIO\_BOMBA@{GPIO\_BOMBA}}
+\index{GPIO\_BOMBA@{GPIO\_BOMBA}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_BOMBA}{GPIO\_BOMBA}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+BOMBA~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f}{GPIO\+\_\+23}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00047}{47}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}}, \mbox{\hyperlink{practica_8c_source_l00065}{Dispensar\+Agua()}} y \mbox{\hyperlink{practica_8c_source_l00072}{No\+Dispensar\+Agua()}}.
+
+\Hypertarget{practica_8c_ad3a2d03fbcf61c403b113352e0106f1b}\label{practica_8c_ad3a2d03fbcf61c403b113352e0106f1b} 
+\index{practica.c@{practica.c}!GPIO\_RESISTENCIA@{GPIO\_RESISTENCIA}}
+\index{GPIO\_RESISTENCIA@{GPIO\_RESISTENCIA}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_RESISTENCIA}{GPIO\_RESISTENCIA}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+RESISTENCIA~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a6213ab680cde9fe00f518cfb26a30a6b}{GPIO\+\_\+5}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00048}{48}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}}, \mbox{\hyperlink{practica_8c_source_l00117}{Calentar\+Agua()}} y \mbox{\hyperlink{practica_8c_source_l00124}{No\+Calentar\+Agua()}}.
+
+\Hypertarget{practica_8c_acf990e574d67f431ce13363ffd086c2d}\label{practica_8c_acf990e574d67f431ce13363ffd086c2d} 
+\index{practica.c@{practica.c}!GPIO\_SENSOR\_TEMPERATURA@{GPIO\_SENSOR\_TEMPERATURA}}
+\index{GPIO\_SENSOR\_TEMPERATURA@{GPIO\_SENSOR\_TEMPERATURA}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_SENSOR\_TEMPERATURA}{GPIO\_SENSOR\_TEMPERATURA}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+SENSOR\+\_\+\+TEMPERATURA~\mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e}{CH1}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00049}{49}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}} y \mbox{\hyperlink{practica_8c_source_l00188}{Task\+\_\+\+Controlar\+\_\+\+Temperatura()}}.
+
+\Hypertarget{practica_8c_a285e195ec8b4bc2321c5f906d98206ee}\label{practica_8c_a285e195ec8b4bc2321c5f906d98206ee} 
+\index{practica.c@{practica.c}!TEMPERATURA\_MAX@{TEMPERATURA\_MAX}}
+\index{TEMPERATURA\_MAX@{TEMPERATURA\_MAX}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{TEMPERATURA\_MAX}{TEMPERATURA\_MAX}}
+{\footnotesize\ttfamily \#define TEMPERATURA\+\_\+\+MAX~100.\+0}
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00054}{54}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00133}{Convertir\+Voltaje\+ATemperatura()}}.
+
+\Hypertarget{practica_8c_a2ee75b418485729e8dff4e7f4f8122e4}\label{practica_8c_a2ee75b418485729e8dff4e7f4f8122e4} 
+\index{practica.c@{practica.c}!TEMPERATURA\_MIN@{TEMPERATURA\_MIN}}
+\index{TEMPERATURA\_MIN@{TEMPERATURA\_MIN}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{TEMPERATURA\_MIN}{TEMPERATURA\_MIN}}
+{\footnotesize\ttfamily \#define TEMPERATURA\+\_\+\+MIN~-\/10.\+0}
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00053}{53}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00133}{Convertir\+Voltaje\+ATemperatura()}}.
+
+\Hypertarget{practica_8c_a08976a5dc99217b37a2237816780506c}\label{practica_8c_a08976a5dc99217b37a2237816780506c} 
+\index{practica.c@{practica.c}!TEMPERATURA\_OBJETIVO@{TEMPERATURA\_OBJETIVO}}
+\index{TEMPERATURA\_OBJETIVO@{TEMPERATURA\_OBJETIVO}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{TEMPERATURA\_OBJETIVO}{TEMPERATURA\_OBJETIVO}}
+{\footnotesize\ttfamily \#define TEMPERATURA\+\_\+\+OBJETIVO~75.\+0}
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00055}{55}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00188}{Task\+\_\+\+Controlar\+\_\+\+Temperatura()}}.
+
+\Hypertarget{practica_8c_a8e1431ba4d78678909016328c528f845}\label{practica_8c_a8e1431ba4d78678909016328c528f845} 
+\index{practica.c@{practica.c}!VOLTAJE\_MAX@{VOLTAJE\_MAX}}
+\index{VOLTAJE\_MAX@{VOLTAJE\_MAX}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{VOLTAJE\_MAX}{VOLTAJE\_MAX}}
+{\footnotesize\ttfamily \#define VOLTAJE\+\_\+\+MAX~3300}
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00052}{52}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00133}{Convertir\+Voltaje\+ATemperatura()}}.
+
+\Hypertarget{practica_8c_a3f6b7393a0541a11d130c6d3abc6b924}\label{practica_8c_a3f6b7393a0541a11d130c6d3abc6b924} 
+\index{practica.c@{practica.c}!VOLTAJE\_MIN@{VOLTAJE\_MIN}}
+\index{VOLTAJE\_MIN@{VOLTAJE\_MIN}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{VOLTAJE\_MIN}{VOLTAJE\_MIN}}
+{\footnotesize\ttfamily \#define VOLTAJE\+\_\+\+MIN~0.\+0}
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00051}{51}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00133}{Convertir\+Voltaje\+ATemperatura()}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{practica_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}\label{practica_8c_a630544a7f0a2cc40d8a7fefab7e2fe70} 
+\index{practica.c@{practica.c}!app\_main@{app\_main}}
+\index{app\_main@{app\_main}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{app\_main()}{app\_main()}}
+{\footnotesize\ttfamily void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\texorpdfstring{$<$}{<} baudrate (bits per second)
+
+\texorpdfstring{$<$}{<} Pointer to callback function to call when receiving data (= UART\+\_\+\+NO\+\_\+\+INT if not requiered)
+
+\texorpdfstring{$<$}{<} Pointer to callback function parameters
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00230}{230}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{analog__io__mcu_8h_source_l00038}{ADC\+\_\+\+SINGLE}}, \mbox{\hyperlink{analog__io__mcu_8c_source_l00045}{Analog\+Input\+Init()}}, \mbox{\hyperlink{practica_8c_source_l00044}{CONFIG\+\_\+\+TIMER\+\_\+\+SUMINISTRO}}, \mbox{\hyperlink{practica_8c_source_l00045}{CONFIG\+\_\+\+TIMER\+\_\+\+TEMPERATURA}}, \mbox{\hyperlink{practica_8c_source_l00110}{Function\+Start()}}, \mbox{\hyperlink{practica_8c_source_l00103}{Function\+Stop()}}, \mbox{\hyperlink{practica_8c_source_l00216}{Function\+Timer\+A()}}, \mbox{\hyperlink{practica_8c_source_l00224}{Function\+Timer\+B()}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00054}{GPIO\+\_\+2}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00055}{GPIO\+\_\+3}}, \mbox{\hyperlink{practica_8c_source_l00047}{GPIO\+\_\+\+BOMBA}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00044}{GPIO\+\_\+\+OUTPUT}}, \mbox{\hyperlink{practica_8c_source_l00048}{GPIO\+\_\+\+RESISTENCIA}}, \mbox{\hyperlink{practica_8c_source_l00049}{GPIO\+\_\+\+SENSOR\+\_\+\+TEMPERATURA}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00067}{GPIOInit()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}, \mbox{\hyperlink{hc__sr04_8c_source_l00034}{Hc\+Sr04\+Init()}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00049}{analog\+\_\+input\+\_\+config\+\_\+t\+::input}}, \mbox{\hyperlink{ili9341_8c_source_l00019}{NULL}}, \mbox{\hyperlink{uart__mcu_8h_source_l00039}{serial\+\_\+config\+\_\+t\+::port}}, \mbox{\hyperlink{practica_8c_source_l00058}{sumnistro\+\_\+task\+\_\+handle}}, \mbox{\hyperlink{switch_8h_source_l00032}{SWITCH\+\_\+1}}, \mbox{\hyperlink{switch_8h_source_l00033}{SWITCH\+\_\+2}}, \mbox{\hyperlink{switch_8c_source_l00047}{Switch\+Activ\+Int()}}, \mbox{\hyperlink{practica_8c_source_l00188}{Task\+\_\+\+Controlar\+\_\+\+Temperatura()}}, \mbox{\hyperlink{practica_8c_source_l00141}{Task\+\_\+\+Suministrar\+\_\+\+Agua()}}, \mbox{\hyperlink{practica_8c_source_l00059}{temperatura\+\_\+task\+\_\+handle}}, \mbox{\hyperlink{timer__mcu_8h_source_l00040}{timer\+\_\+config\+\_\+t\+::timer}}, \mbox{\hyperlink{timer__mcu_8h_source_l00032}{TIMER\+\_\+A}}, \mbox{\hyperlink{timer__mcu_8h_source_l00033}{TIMER\+\_\+B}}, \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}, \mbox{\hyperlink{timer__mcu_8c_source_l00110}{Timer\+Start()}}, \mbox{\hyperlink{uart__mcu_8h_source_l00032}{UART\+\_\+\+PC}} y \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+\Hypertarget{practica_8c_addffabd0c759504a26e629fe8de363e3}\label{practica_8c_addffabd0c759504a26e629fe8de363e3} 
+\index{practica.c@{practica.c}!CalentarAgua@{CalentarAgua}}
+\index{CalentarAgua@{CalentarAgua}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{CalentarAgua()}{CalentarAgua()}}
+{\footnotesize\ttfamily void Calentar\+Agua (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Activa la resistencia para calentar el agua. 
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00117}{117}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{practica_8c_source_l00048}{GPIO\+\_\+\+RESISTENCIA}} y \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00188}{Task\+\_\+\+Controlar\+\_\+\+Temperatura()}}.
+
+\Hypertarget{practica_8c_a68927a4ea0d5880d3baf2e3fccb60647}\label{practica_8c_a68927a4ea0d5880d3baf2e3fccb60647} 
+\index{practica.c@{practica.c}!ConvertirVoltajeATemperatura@{ConvertirVoltajeATemperatura}}
+\index{ConvertirVoltajeATemperatura@{ConvertirVoltajeATemperatura}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{ConvertirVoltajeATemperatura()}{ConvertirVoltajeATemperatura()}}
+{\footnotesize\ttfamily uint16\+\_\+t Convertir\+Voltaje\+ATemperatura (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{voltaje }\end{DoxyParamCaption})}
+
+
+
+Convierte un valor de voltaje a temperatura. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em voltaje} & Valor del voltaje en milivoltios. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Valor de la temperatura en grados Celsius. 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00133}{133}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{practica_8c_source_l00054}{TEMPERATURA\+\_\+\+MAX}}, \mbox{\hyperlink{practica_8c_source_l00053}{TEMPERATURA\+\_\+\+MIN}}, \mbox{\hyperlink{practica_8c_source_l00052}{VOLTAJE\+\_\+\+MAX}} y \mbox{\hyperlink{practica_8c_source_l00051}{VOLTAJE\+\_\+\+MIN}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00188}{Task\+\_\+\+Controlar\+\_\+\+Temperatura()}}.
+
+\Hypertarget{practica_8c_acb2cc551e8fc1a07fe8e559166abf015}\label{practica_8c_acb2cc551e8fc1a07fe8e559166abf015} 
+\index{practica.c@{practica.c}!DispensarAgua@{DispensarAgua}}
+\index{DispensarAgua@{DispensarAgua}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{DispensarAgua()}{DispensarAgua()}}
+{\footnotesize\ttfamily void Dispensar\+Agua (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Activa la bomba para dispensar agua. 
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00065}{65}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{practica_8c_source_l00047}{GPIO\+\_\+\+BOMBA}} y \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00141}{Task\+\_\+\+Suministrar\+\_\+\+Agua()}}.
+
+\Hypertarget{practica_8c_a0febcf7c0dda3de61859f3046a104fc2}\label{practica_8c_a0febcf7c0dda3de61859f3046a104fc2} 
+\index{practica.c@{practica.c}!FunctionStart@{FunctionStart}}
+\index{FunctionStart@{FunctionStart}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{FunctionStart()}{FunctionStart()}}
+{\footnotesize\ttfamily void Function\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Inicia las operaciones del cebador. 
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00110}{110}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{practica_8c_source_l00060}{start}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}}.
+
+\Hypertarget{practica_8c_a373f69ff466067736504ca6109f0d204}\label{practica_8c_a373f69ff466067736504ca6109f0d204} 
+\index{practica.c@{practica.c}!FunctionStop@{FunctionStop}}
+\index{FunctionStop@{FunctionStop}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{FunctionStop()}{FunctionStop()}}
+{\footnotesize\ttfamily void Function\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Interrupcion que Detiene las operaciones del cebador. 
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00103}{103}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{practica_8c_source_l00060}{start}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}}.
+
+\Hypertarget{practica_8c_a10506548c0166cec6195f808a27701d6}\label{practica_8c_a10506548c0166cec6195f808a27701d6} 
+\index{practica.c@{practica.c}!FunctionTimerA@{FunctionTimerA}}
+\index{FunctionTimerA@{FunctionTimerA}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{FunctionTimerA()}{FunctionTimerA()}}
+{\footnotesize\ttfamily void Function\+TimerA (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption})}
+
+
+
+Función de callback para el timer de suministro de agua. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em param} & Parámetro de la función. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00216}{216}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{practica_8c_source_l00058}{sumnistro\+\_\+task\+\_\+handle}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}}.
+
+\Hypertarget{practica_8c_aaac5cc84aba38aa4ab933e3a00e92dfd}\label{practica_8c_aaac5cc84aba38aa4ab933e3a00e92dfd} 
+\index{practica.c@{practica.c}!FunctionTimerB@{FunctionTimerB}}
+\index{FunctionTimerB@{FunctionTimerB}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{FunctionTimerB()}{FunctionTimerB()}}
+{\footnotesize\ttfamily void Function\+TimerB (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption})}
+
+
+
+Función de callback para el timer de control de temperatura. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em param} & Parámetro de la función. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00224}{224}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{practica_8c_source_l00059}{temperatura\+\_\+task\+\_\+handle}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}}.
+
+\Hypertarget{practica_8c_a372419d813f9cca424b23123b5863ac3}\label{practica_8c_a372419d813f9cca424b23123b5863ac3} 
+\index{practica.c@{practica.c}!MostrarMensaje@{MostrarMensaje}}
+\index{MostrarMensaje@{MostrarMensaje}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{MostrarMensaje()}{MostrarMensaje()}}
+{\footnotesize\ttfamily void Mostrar\+Mensaje (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{mensaje }\end{DoxyParamCaption})}
+
+
+
+Envia mensajes a través de UART. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em mensaje} & Código del mensaje a enviar. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00080}{80}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{uart__mcu_8h_source_l00032}{UART\+\_\+\+PC}} y \mbox{\hyperlink{uart__mcu_8c_source_l00193}{Uart\+Send\+String()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00188}{Task\+\_\+\+Controlar\+\_\+\+Temperatura()}} y \mbox{\hyperlink{practica_8c_source_l00141}{Task\+\_\+\+Suministrar\+\_\+\+Agua()}}.
+
+\Hypertarget{practica_8c_a802332a28794fbef8f1c119da428a6b4}\label{practica_8c_a802332a28794fbef8f1c119da428a6b4} 
+\index{practica.c@{practica.c}!NoCalentarAgua@{NoCalentarAgua}}
+\index{NoCalentarAgua@{NoCalentarAgua}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{NoCalentarAgua()}{NoCalentarAgua()}}
+{\footnotesize\ttfamily void No\+Calentar\+Agua (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Desactiva la resistencia para calentar el agua. 
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00124}{124}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{practica_8c_source_l00048}{GPIO\+\_\+\+RESISTENCIA}} y \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00188}{Task\+\_\+\+Controlar\+\_\+\+Temperatura()}}.
+
+\Hypertarget{practica_8c_a04be08c6a03169b81cd5d2374a4ae99b}\label{practica_8c_a04be08c6a03169b81cd5d2374a4ae99b} 
+\index{practica.c@{practica.c}!NoDispensarAgua@{NoDispensarAgua}}
+\index{NoDispensarAgua@{NoDispensarAgua}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{NoDispensarAgua()}{NoDispensarAgua()}}
+{\footnotesize\ttfamily void No\+Dispensar\+Agua (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Desactiva la bomba para detener el suministro de agua. 
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00072}{72}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{practica_8c_source_l00047}{GPIO\+\_\+\+BOMBA}} y \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00141}{Task\+\_\+\+Suministrar\+\_\+\+Agua()}}.
+
+\Hypertarget{practica_8c_ac6ea1c1b2eb1ff146306d5c3e67d84d3}\label{practica_8c_ac6ea1c1b2eb1ff146306d5c3e67d84d3} 
+\index{practica.c@{practica.c}!Task\_Controlar\_Temperatura@{Task\_Controlar\_Temperatura}}
+\index{Task\_Controlar\_Temperatura@{Task\_Controlar\_Temperatura}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{Task\_Controlar\_Temperatura()}{Task\_Controlar\_Temperatura()}}
+{\footnotesize\ttfamily void Task\+\_\+\+Controlar\+\_\+\+Temperatura (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameter }\end{DoxyParamCaption})}
+
+
+
+Tarea para controlar la temperatura del agua. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pv\+Parameter} & Parámetro de la tarea. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00188}{188}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{analog__io__mcu_8c_source_l00105}{Analog\+Input\+Read\+Single()}}, \mbox{\hyperlink{practica_8c_source_l00117}{Calentar\+Agua()}}, \mbox{\hyperlink{practica_8c_source_l00133}{Convertir\+Voltaje\+ATemperatura()}}, \mbox{\hyperlink{practica_8c_source_l00049}{GPIO\+\_\+\+SENSOR\+\_\+\+TEMPERATURA}}, \mbox{\hyperlink{practica_8c_source_l00080}{Mostrar\+Mensaje()}}, \mbox{\hyperlink{practica_8c_source_l00124}{No\+Calentar\+Agua()}}, \mbox{\hyperlink{practica_8c_source_l00060}{start}} y \mbox{\hyperlink{practica_8c_source_l00055}{TEMPERATURA\+\_\+\+OBJETIVO}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}}.
+
+\Hypertarget{practica_8c_add76eb2337481be1dd353748abd8cd2f}\label{practica_8c_add76eb2337481be1dd353748abd8cd2f} 
+\index{practica.c@{practica.c}!Task\_Suministrar\_Agua@{Task\_Suministrar\_Agua}}
+\index{Task\_Suministrar\_Agua@{Task\_Suministrar\_Agua}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{Task\_Suministrar\_Agua()}{Task\_Suministrar\_Agua()}}
+{\footnotesize\ttfamily void Task\+\_\+\+Suministrar\+\_\+\+Agua (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameter }\end{DoxyParamCaption})}
+
+
+
+Tarea para suministrar agua basado en la distancia medida por el sensor ultrasonico. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pv\+Parameter} & Parámetro de la tarea. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00141}{141}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{practica_8c_source_l00065}{Dispensar\+Agua()}}, \mbox{\hyperlink{hc__sr04_8c_source_l00045}{Hc\+Sr04\+Read\+Distance\+In\+Centimeters()}}, \mbox{\hyperlink{practica_8c_source_l00080}{Mostrar\+Mensaje()}}, \mbox{\hyperlink{practica_8c_source_l00072}{No\+Dispensar\+Agua()}} y \mbox{\hyperlink{practica_8c_source_l00060}{start}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{practica_8c_ab376b87f96a574a793c03c53e75afec8}\label{practica_8c_ab376b87f96a574a793c03c53e75afec8} 
+\index{practica.c@{practica.c}!start@{start}}
+\index{start@{start}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily bool start}
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00060}{60}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00110}{Function\+Start()}}, \mbox{\hyperlink{practica_8c_source_l00103}{Function\+Stop()}}, \mbox{\hyperlink{practica_8c_source_l00188}{Task\+\_\+\+Controlar\+\_\+\+Temperatura()}} y \mbox{\hyperlink{practica_8c_source_l00141}{Task\+\_\+\+Suministrar\+\_\+\+Agua()}}.
+
+\Hypertarget{practica_8c_a3b9cb27813f95f6c13faaa135741d35e}\label{practica_8c_a3b9cb27813f95f6c13faaa135741d35e} 
+\index{practica.c@{practica.c}!sumnistro\_task\_handle@{sumnistro\_task\_handle}}
+\index{sumnistro\_task\_handle@{sumnistro\_task\_handle}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{sumnistro\_task\_handle}{sumnistro\_task\_handle}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t sumnistro\+\_\+task\+\_\+handle = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00058}{58}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}} y \mbox{\hyperlink{practica_8c_source_l00216}{Function\+Timer\+A()}}.
+
+\Hypertarget{practica_8c_a6c747c748df23984214857cddd20bc60}\label{practica_8c_a6c747c748df23984214857cddd20bc60} 
+\index{practica.c@{practica.c}!temperatura\_task\_handle@{temperatura\_task\_handle}}
+\index{temperatura\_task\_handle@{temperatura\_task\_handle}!practica.c@{practica.c}}
+\doxysubsubsection{\texorpdfstring{temperatura\_task\_handle}{temperatura\_task\_handle}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t temperatura\+\_\+task\+\_\+handle = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{practica_8c_source_l00059}{59}} del archivo \mbox{\hyperlink{practica_8c_source}{practica.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{practica_8c_source_l00230}{app\+\_\+main()}} y \mbox{\hyperlink{practica_8c_source_l00224}{Function\+Timer\+B()}}.
+

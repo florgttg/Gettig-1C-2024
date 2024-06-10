@@ -1,0 +1,607 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Practica de parcial: Referencia del archivo C:/Repositorios/EProgramable_FIUNER/firmware/drivers/microcontroller/src/ble_mcu.c</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Practica de parcial<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Cebador automatico de mate</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('ble__mcu_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Estructuras de datos</a> &#124;
+<a href="#define-members">defines</a> &#124;
+<a href="#enum-members">Enumeraciones</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo ble_mcu.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="ble__mcu_8h_source.html">ble_mcu.h</a>&quot;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;nvs_flash.h&quot;</code><br />
+<code>#include &quot;esp_log.h&quot;</code><br />
+<code>#include &quot;esp_bt.h&quot;</code><br />
+<code>#include &quot;esp_gap_ble_api.h&quot;</code><br />
+<code>#include &quot;esp_gatts_api.h&quot;</code><br />
+<code>#include &quot;esp_bt_defs.h&quot;</code><br />
+<code>#include &quot;esp_bt_main.h&quot;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/task.h&quot;</code><br />
+<code>#include &quot;freertos/queue.h&quot;</code><br />
+</div>
+<p><a href="ble__mcu_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Estructuras de datos</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_c_m_d__t.html">CMD_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgatts__profile__inst.html">gatts_profile_inst</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:afc3d101f633a076cc1ca84b85b6224b2" id="r_afc3d101f633a076cc1ca84b85b6224b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc3d101f633a076cc1ca84b85b6224b2">TAG</a>&#160;&#160;&#160;&quot;ble_mcu&quot;</td></tr>
+<tr class="separator:afc3d101f633a076cc1ca84b85b6224b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ae3be7f0f25d3868bdfca3a8a212aa5" id="r_a1ae3be7f0f25d3868bdfca3a8a212aa5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ae3be7f0f25d3868bdfca3a8a212aa5">MTU_MAX_BYTES</a>&#160;&#160;&#160;20	 /* GATT Maximum Transmission Unit */</td></tr>
+<tr class="separator:a1ae3be7f0f25d3868bdfca3a8a212aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fb2dea7d964f6ed95dfac2897c4001d" id="r_a3fb2dea7d964f6ed95dfac2897c4001d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fb2dea7d964f6ed95dfac2897c4001d">PAYLOAD_SIZE</a>&#160;&#160;&#160;128  /* Maximun number of bytes transmitted in one transaction */</td></tr>
+<tr class="separator:a3fb2dea7d964f6ed95dfac2897c4001d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf1330d5851edcffbf764521c031ecab" id="r_adf1330d5851edcffbf764521c031ecab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf1330d5851edcffbf764521c031ecab">SPP_PROFILE_NUM</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:adf1330d5851edcffbf764521c031ecab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a586acfe75065c5989d1b3728f7096aa6" id="r_a586acfe75065c5989d1b3728f7096aa6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a586acfe75065c5989d1b3728f7096aa6">SPP_PROFILE_APP_IDX</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a586acfe75065c5989d1b3728f7096aa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a538f72549db4fcdae32d19eb41d8aeb6" id="r_a538f72549db4fcdae32d19eb41d8aeb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a538f72549db4fcdae32d19eb41d8aeb6">ESP_SPP_APP_ID</a>&#160;&#160;&#160;0x56</td></tr>
+<tr class="separator:a538f72549db4fcdae32d19eb41d8aeb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12513bc359ab601241128c2b3be4ce95" id="r_a12513bc359ab601241128c2b3be4ce95"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12513bc359ab601241128c2b3be4ce95">SPP_SVC_INST_ID</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a12513bc359ab601241128c2b3be4ce95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10581b03212a8f728d1abfb336b9c0df" id="r_a10581b03212a8f728d1abfb336b9c0df"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10581b03212a8f728d1abfb336b9c0df">SPP_DATA_MAX_LEN</a>&#160;&#160;&#160;(128) /* Maximun number of bytes transmitted in one transaction */</td></tr>
+<tr class="separator:a10581b03212a8f728d1abfb336b9c0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a918a456b84beb7bae7e4318b79b0d49b" id="r_a918a456b84beb7bae7e4318b79b0d49b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a918a456b84beb7bae7e4318b79b0d49b">ESP_GATT_UUID_SPP_SERVICE</a>&#160;&#160;&#160;0xFFE0  /* Service ID */</td></tr>
+<tr class="separator:a918a456b84beb7bae7e4318b79b0d49b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5b7bb4ada875356d890e5538d64777b" id="r_ab5b7bb4ada875356d890e5538d64777b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5b7bb4ada875356d890e5538d64777b">ESP_GATT_UUID_SPP_DATA_RECEIVE_NOTIFY</a>&#160;&#160;&#160;0xFFE1  /* Characteristic ID */</td></tr>
+<tr class="separator:ab5b7bb4ada875356d890e5538d64777b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d2f5677517e7c8fd4ee8e2287ebec3b" id="r_a5d2f5677517e7c8fd4ee8e2287ebec3b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d2f5677517e7c8fd4ee8e2287ebec3b">ADV_CONFIG_FLAG</a>&#160;&#160;&#160;(1 &lt;&lt; 0)</td></tr>
+<tr class="separator:a5d2f5677517e7c8fd4ee8e2287ebec3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad92fd6350531e23c955c71626296406c" id="r_ad92fd6350531e23c955c71626296406c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad92fd6350531e23c955c71626296406c">SCAN_RSP_CONFIG_FLAG</a>&#160;&#160;&#160;(1 &lt;&lt; 1)</td></tr>
+<tr class="separator:ad92fd6350531e23c955c71626296406c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumeraciones</h2></td></tr>
+<tr class="memitem:a0411cd49bb5b71852cecd93bcbf0ca2d" id="r_a0411cd49bb5b71852cecd93bcbf0ca2d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<a class="el" href="#a0411cd49bb5b71852cecd93bcbf0ca2da52ed58771180ac0a3df40c17786a259a">SPP_IDX_SVC</a>
+, <a class="el" href="#a0411cd49bb5b71852cecd93bcbf0ca2dad1ac8df3d9db24bad7cd052210031bac">SPP_IDX_SPP_DATA_RECV_NOTIFY_CHAR</a>
+, <a class="el" href="#a0411cd49bb5b71852cecd93bcbf0ca2da9e8e18c6909bcb4a02b60f46821fe949">SPP_IDX_SPP_DATA_NOTIFY_VAL</a>
+, <a class="el" href="#a0411cd49bb5b71852cecd93bcbf0ca2da56cafad58a63d5ef6adef33568bfb05c">SPP_IDX_SPP_DATA_NOTIFY_CFG</a>
+, <br />
+&#160;&#160;<a class="el" href="#a0411cd49bb5b71852cecd93bcbf0ca2daac45a705ecff8686e7b1b0141f5595f8">SPP_IDX_SPP_DATA_RECV_VAL</a>
+, <a class="el" href="#a0411cd49bb5b71852cecd93bcbf0ca2dad171daa449c6402705498aeb5f895ac1">SPP_IDX_SPP_DATA_RECV_CFG</a>
+, <a class="el" href="#a0411cd49bb5b71852cecd93bcbf0ca2dacc0fb9d26eb20a7f016ad45d0d748d9d">SPP_IDX_NB</a>
+<br />
+ }</td></tr>
+<tr class="separator:a0411cd49bb5b71852cecd93bcbf0ca2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f5993000dcac629765473232f3ca332" id="r_a1f5993000dcac629765473232f3ca332"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f5993000dcac629765473232f3ca332">comd_bt_ev_t</a> { <br />
+&#160;&#160;<a class="el" href="#a1f5993000dcac629765473232f3ca332a16315b66252c4ed9cb96edc99b813259">CMD_BLUETOOTH_CONNECT</a>
+, <a class="el" href="#a1f5993000dcac629765473232f3ca332ab11ef6e1ea48c8f765d975496b9df064">CMD_BLUETOOTH_AUTH</a>
+, <a class="el" href="#a1f5993000dcac629765473232f3ca332a31ef6fd9876f6c3b1183a3058d6a5710">CMD_BLUETOOTH_DATA</a>
+, <a class="el" href="#a1f5993000dcac629765473232f3ca332a2a96e055bfe7c58983219f7232db502a">CMD_BLUETOOTH_DISCONNECT</a>
+, <br />
+&#160;&#160;<a class="el" href="#a1f5993000dcac629765473232f3ca332a8edf41e28a36066b125d1d9c54585bf3">CMD_SEND_DATA</a>
+<br />
+ }</td></tr>
+<tr class="separator:a1f5993000dcac629765473232f3ca332"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a294c1257efb2b1dd77a1feb2b37750f0" id="r_a294c1257efb2b1dd77a1feb2b37750f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a294c1257efb2b1dd77a1feb2b37750f0">bluetooth_events_task</a> (void *arg)</td></tr>
+<tr class="separator:a294c1257efb2b1dd77a1feb2b37750f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8001369ce247b2413afd6d8a14fe8d82" id="r_ga8001369ce247b2413afd6d8a14fe8d82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e.html#ga8001369ce247b2413afd6d8a14fe8d82">BleInit</a> (<a class="el" href="structble__config__t.html">ble_config_t</a> *ble_device)</td></tr>
+<tr class="memdesc:ga8001369ce247b2413afd6d8a14fe8d82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bluetooth initialization.  <br /></td></tr>
+<tr class="separator:ga8001369ce247b2413afd6d8a14fe8d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga45f64ecb9f703ecc50b85b6967e85bd5" id="r_ga45f64ecb9f703ecc50b85b6967e85bd5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___b_l_e.html#gace12bf2f4052775366d0375947452f0d">ble_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e.html#ga45f64ecb9f703ecc50b85b6967e85bd5">BleStatus</a> (void)</td></tr>
+<tr class="memdesc:ga45f64ecb9f703ecc50b85b6967e85bd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets BLE connection status.  <br /></td></tr>
+<tr class="separator:ga45f64ecb9f703ecc50b85b6967e85bd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae0bdc932377c439b2a2e601dd9b9d56d" id="r_gae0bdc932377c439b2a2e601dd9b9d56d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e.html#gae0bdc932377c439b2a2e601dd9b9d56d">BleSendByte</a> (const char *data)</td></tr>
+<tr class="memdesc:gae0bdc932377c439b2a2e601dd9b9d56d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a single byte trough BLE (if connected)  <br /></td></tr>
+<tr class="separator:gae0bdc932377c439b2a2e601dd9b9d56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68083cec5599456e78a536031e3b61b8" id="r_ga68083cec5599456e78a536031e3b61b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e.html#ga68083cec5599456e78a536031e3b61b8">BleSendString</a> (const char *msg)</td></tr>
+<tr class="memdesc:ga68083cec5599456e78a536031e3b61b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a string trough BLE (if connected)  <br /></td></tr>
+<tr class="separator:ga68083cec5599456e78a536031e3b61b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7b70ab491715ae295497f0714e05539" id="r_gad7b70ab491715ae295497f0714e05539"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e.html#gad7b70ab491715ae295497f0714e05539">BleSendBuffer</a> (const char *data, uint8_t nbytes)</td></tr>
+<tr class="memdesc:gad7b70ab491715ae295497f0714e05539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send multiple bytes through serial port.  <br /></td></tr>
+<tr class="separator:gad7b70ab491715ae295497f0714e05539"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a47b2e510fe20902fa67e2644118db42e" id="r_a47b2e510fe20902fa67e2644118db42e"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47b2e510fe20902fa67e2644118db42e">device_name</a></td></tr>
+<tr class="separator:a47b2e510fe20902fa67e2644118db42e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfd3dc55e09cf18a25d61899f1c48194" id="r_adfd3dc55e09cf18a25d61899f1c48194"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfd3dc55e09cf18a25d61899f1c48194">ble_read_isr_p</a> )(uint8_t *data, uint8_t length)</td></tr>
+<tr class="separator:adfd3dc55e09cf18a25d61899f1c48194"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5361bd9ad8b63d5b91fea8a38d6242e1" id="r_a5361bd9ad8b63d5b91fea8a38d6242e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___b_l_e.html#gace12bf2f4052775366d0375947452f0d">ble_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5361bd9ad8b63d5b91fea8a38d6242e1">status</a> = <a class="el" href="group___b_l_e.html#ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4">BLE_OFF</a></td></tr>
+<tr class="separator:a5361bd9ad8b63d5b91fea8a38d6242e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0d8433b87f1fb35a8f2288f68802f99" id="r_ad0d8433b87f1fb35a8f2288f68802f99"><td class="memItemLeft" align="right" valign="top">QueueHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0d8433b87f1fb35a8f2288f68802f99">xQueueEvents</a> = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="separator:ad0d8433b87f1fb35a8f2288f68802f99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53afd88993a442ebd031bb8525c6a8c1" id="r_a53afd88993a442ebd031bb8525c6a8c1"><td class="memItemLeft" align="right" valign="top">QueueHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53afd88993a442ebd031bb8525c6a8c1">xQueueRead</a> = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="separator:a53afd88993a442ebd031bb8525c6a8c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Albano Peñalva (<a href="#" onclick="location.href='mai'+'lto:'+'alb'+'an'+'o.p'+'en'+'alv'+'a@'+'une'+'r.'+'edu'+'.a'+'r'; return false;">alban<span class="obfuscator">.nosp@m.</span>o.pe<span class="obfuscator">.nosp@m.</span>nalva<span class="obfuscator">.nosp@m.</span>@une<span class="obfuscator">.nosp@m.</span>r.edu<span class="obfuscator">.nosp@m.</span>.ar</a>) </dd></dl>
+<dl class="section version"><dt>Versión</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Fecha</dt><dd>2024-03-22</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024 </dd></dl>
+
+<p class="definition">Definición en el archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+</div><h2 class="groupheader">Documentación de «define»</h2>
+<a id="a5d2f5677517e7c8fd4ee8e2287ebec3b" name="a5d2f5677517e7c8fd4ee8e2287ebec3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d2f5677517e7c8fd4ee8e2287ebec3b">&#9670;&#160;</a></span>ADV_CONFIG_FLAG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADV_CONFIG_FLAG&#160;&#160;&#160;(1 &lt;&lt; 0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00053">53</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="ab5b7bb4ada875356d890e5538d64777b" name="ab5b7bb4ada875356d890e5538d64777b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5b7bb4ada875356d890e5538d64777b">&#9670;&#160;</a></span>ESP_GATT_UUID_SPP_DATA_RECEIVE_NOTIFY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ESP_GATT_UUID_SPP_DATA_RECEIVE_NOTIFY&#160;&#160;&#160;0xFFE1  /* Characteristic ID */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00051">51</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a918a456b84beb7bae7e4318b79b0d49b" name="a918a456b84beb7bae7e4318b79b0d49b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a918a456b84beb7bae7e4318b79b0d49b">&#9670;&#160;</a></span>ESP_GATT_UUID_SPP_SERVICE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ESP_GATT_UUID_SPP_SERVICE&#160;&#160;&#160;0xFFE0  /* Service ID */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00050">50</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a538f72549db4fcdae32d19eb41d8aeb6" name="a538f72549db4fcdae32d19eb41d8aeb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a538f72549db4fcdae32d19eb41d8aeb6">&#9670;&#160;</a></span>ESP_SPP_APP_ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ESP_SPP_APP_ID&#160;&#160;&#160;0x56</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00036">36</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__mcu_8c_source.html#l00452">BleInit()</a>.</p>
+
+</div>
+</div>
+<a id="a1ae3be7f0f25d3868bdfca3a8a212aa5" name="a1ae3be7f0f25d3868bdfca3a8a212aa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ae3be7f0f25d3868bdfca3a8a212aa5">&#9670;&#160;</a></span>MTU_MAX_BYTES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MTU_MAX_BYTES&#160;&#160;&#160;20	 /* GATT Maximum Transmission Unit */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00032">32</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__mcu_8c_source.html#l00406">bluetooth_events_task()</a>.</p>
+
+</div>
+</div>
+<a id="a3fb2dea7d964f6ed95dfac2897c4001d" name="a3fb2dea7d964f6ed95dfac2897c4001d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fb2dea7d964f6ed95dfac2897c4001d">&#9670;&#160;</a></span>PAYLOAD_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PAYLOAD_SIZE&#160;&#160;&#160;128  /* Maximun number of bytes transmitted in one transaction */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00033">33</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="ad92fd6350531e23c955c71626296406c" name="ad92fd6350531e23c955c71626296406c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad92fd6350531e23c955c71626296406c">&#9670;&#160;</a></span>SCAN_RSP_CONFIG_FLAG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SCAN_RSP_CONFIG_FLAG&#160;&#160;&#160;(1 &lt;&lt; 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00054">54</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a10581b03212a8f728d1abfb336b9c0df" name="a10581b03212a8f728d1abfb336b9c0df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10581b03212a8f728d1abfb336b9c0df">&#9670;&#160;</a></span>SPP_DATA_MAX_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPP_DATA_MAX_LEN&#160;&#160;&#160;(128) /* Maximun number of bytes transmitted in one transaction */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00038">38</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a586acfe75065c5989d1b3728f7096aa6" name="a586acfe75065c5989d1b3728f7096aa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a586acfe75065c5989d1b3728f7096aa6">&#9670;&#160;</a></span>SPP_PROFILE_APP_IDX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPP_PROFILE_APP_IDX&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00035">35</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="adf1330d5851edcffbf764521c031ecab" name="adf1330d5851edcffbf764521c031ecab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf1330d5851edcffbf764521c031ecab">&#9670;&#160;</a></span>SPP_PROFILE_NUM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPP_PROFILE_NUM&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00034">34</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a12513bc359ab601241128c2b3be4ce95" name="a12513bc359ab601241128c2b3be4ce95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12513bc359ab601241128c2b3be4ce95">&#9670;&#160;</a></span>SPP_SVC_INST_ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPP_SVC_INST_ID&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00037">37</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="afc3d101f633a076cc1ca84b85b6224b2" name="afc3d101f633a076cc1ca84b85b6224b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc3d101f633a076cc1ca84b85b6224b2">&#9670;&#160;</a></span>TAG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAG&#160;&#160;&#160;&quot;ble_mcu&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00031">31</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__mcu_8c_source.html#l00452">BleInit()</a> y <a class="el" href="ble__mcu_8c_source.html#l00406">bluetooth_events_task()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de enumeraciones</h2>
+<a id="a0411cd49bb5b71852cecd93bcbf0ca2d" name="a0411cd49bb5b71852cecd93bcbf0ca2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0411cd49bb5b71852cecd93bcbf0ca2d">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="a0411cd49bb5b71852cecd93bcbf0ca2da52ed58771180ac0a3df40c17786a259a" name="a0411cd49bb5b71852cecd93bcbf0ca2da52ed58771180ac0a3df40c17786a259a"></a>SPP_IDX_SVC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0411cd49bb5b71852cecd93bcbf0ca2dad1ac8df3d9db24bad7cd052210031bac" name="a0411cd49bb5b71852cecd93bcbf0ca2dad1ac8df3d9db24bad7cd052210031bac"></a>SPP_IDX_SPP_DATA_RECV_NOTIFY_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0411cd49bb5b71852cecd93bcbf0ca2da9e8e18c6909bcb4a02b60f46821fe949" name="a0411cd49bb5b71852cecd93bcbf0ca2da9e8e18c6909bcb4a02b60f46821fe949"></a>SPP_IDX_SPP_DATA_NOTIFY_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0411cd49bb5b71852cecd93bcbf0ca2da56cafad58a63d5ef6adef33568bfb05c" name="a0411cd49bb5b71852cecd93bcbf0ca2da56cafad58a63d5ef6adef33568bfb05c"></a>SPP_IDX_SPP_DATA_NOTIFY_CFG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0411cd49bb5b71852cecd93bcbf0ca2daac45a705ecff8686e7b1b0141f5595f8" name="a0411cd49bb5b71852cecd93bcbf0ca2daac45a705ecff8686e7b1b0141f5595f8"></a>SPP_IDX_SPP_DATA_RECV_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0411cd49bb5b71852cecd93bcbf0ca2dad171daa449c6402705498aeb5f895ac1" name="a0411cd49bb5b71852cecd93bcbf0ca2dad171daa449c6402705498aeb5f895ac1"></a>SPP_IDX_SPP_DATA_RECV_CFG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0411cd49bb5b71852cecd93bcbf0ca2dacc0fb9d26eb20a7f016ad45d0d748d9d" name="a0411cd49bb5b71852cecd93bcbf0ca2dacc0fb9d26eb20a7f016ad45d0d748d9d"></a>SPP_IDX_NB&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00040">40</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a1f5993000dcac629765473232f3ca332" name="a1f5993000dcac629765473232f3ca332"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f5993000dcac629765473232f3ca332">&#9670;&#160;</a></span>comd_bt_ev_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a1f5993000dcac629765473232f3ca332">comd_bt_ev_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="a1f5993000dcac629765473232f3ca332a16315b66252c4ed9cb96edc99b813259" name="a1f5993000dcac629765473232f3ca332a16315b66252c4ed9cb96edc99b813259"></a>CMD_BLUETOOTH_CONNECT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1f5993000dcac629765473232f3ca332ab11ef6e1ea48c8f765d975496b9df064" name="a1f5993000dcac629765473232f3ca332ab11ef6e1ea48c8f765d975496b9df064"></a>CMD_BLUETOOTH_AUTH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1f5993000dcac629765473232f3ca332a31ef6fd9876f6c3b1183a3058d6a5710" name="a1f5993000dcac629765473232f3ca332a31ef6fd9876f6c3b1183a3058d6a5710"></a>CMD_BLUETOOTH_DATA&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1f5993000dcac629765473232f3ca332a2a96e055bfe7c58983219f7232db502a" name="a1f5993000dcac629765473232f3ca332a2a96e055bfe7c58983219f7232db502a"></a>CMD_BLUETOOTH_DISCONNECT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1f5993000dcac629765473232f3ca332a8edf41e28a36066b125d1d9c54585bf3" name="a1f5993000dcac629765473232f3ca332a8edf41e28a36066b125d1d9c54585bf3"></a>CMD_SEND_DATA&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00057">57</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="a294c1257efb2b1dd77a1feb2b37750f0" name="a294c1257efb2b1dd77a1feb2b37750f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a294c1257efb2b1dd77a1feb2b37750f0">&#9670;&#160;</a></span>bluetooth_events_task()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bluetooth_events_task </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>arg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00406">406</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8h_source.html#l00039">BLE_CONNECTED</a>, <a class="el" href="ble__hid__mcu_8h_source.html#l00038">BLE_DISCONNECTED</a>, <a class="el" href="ble__mcu_8c_source.html#l00059">CMD_BLUETOOTH_AUTH</a>, <a class="el" href="ble__mcu_8c_source.html#l00058">CMD_BLUETOOTH_CONNECT</a>, <a class="el" href="ble__mcu_8c_source.html#l00060">CMD_BLUETOOTH_DATA</a>, <a class="el" href="ble__mcu_8c_source.html#l00061">CMD_BLUETOOTH_DISCONNECT</a>, <a class="el" href="ble__mcu_8c_source.html#l00062">CMD_SEND_DATA</a>, <a class="el" href="ble__mcu_8c_source.html#l00068">CMD_t::command</a>, <a class="el" href="ble__mcu_8c_source.html#l00069">CMD_t::length</a>, <a class="el" href="ble__mcu_8c_source.html#l00032">MTU_MAX_BYTES</a>, <a class="el" href="ble__mcu_8c_source.html#l00070">CMD_t::payload</a>, <a class="el" href="ble__mcu_8c_source.html#l00066">CMD_t::spp_conn_id</a>, <a class="el" href="ble__mcu_8c_source.html#l00067">CMD_t::spp_gatts_if</a>, <a class="el" href="ble__mcu_8c_source.html#l00043">SPP_IDX_SPP_DATA_NOTIFY_VAL</a>, <a class="el" href="ble__mcu_8c_source.html#l00076">status</a>, <a class="el" href="ble__mcu_8c_source.html#l00031">TAG</a>, <a class="el" href="ble__mcu_8c_source.html#l00093">xQueueEvents</a> y <a class="el" href="ble__mcu_8c_source.html#l00094">xQueueRead</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__mcu_8c_source.html#l00452">BleInit()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="adfd3dc55e09cf18a25d61899f1c48194" name="adfd3dc55e09cf18a25d61899f1c48194"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfd3dc55e09cf18a25d61899f1c48194">&#9670;&#160;</a></span>ble_read_isr_p</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* ble_read_isr_p) (uint8_t *data, uint8_t length) </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00075">75</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__mcu_8c_source.html#l00452">BleInit()</a>.</p>
+
+</div>
+</div>
+<a id="a47b2e510fe20902fa67e2644118db42e" name="a47b2e510fe20902fa67e2644118db42e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47b2e510fe20902fa67e2644118db42e">&#9670;&#160;</a></span>device_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* device_name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00074">74</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__mcu_8c_source.html#l00452">BleInit()</a>.</p>
+
+</div>
+</div>
+<a id="a5361bd9ad8b63d5b91fea8a38d6242e1" name="a5361bd9ad8b63d5b91fea8a38d6242e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5361bd9ad8b63d5b91fea8a38d6242e1">&#9670;&#160;</a></span>status</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___b_l_e.html#gace12bf2f4052775366d0375947452f0d">ble_status_t</a> status = <a class="el" href="group___b_l_e.html#ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4">BLE_OFF</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00076">76</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__mcu_8c_source.html#l00557">BleSendBuffer()</a>, <a class="el" href="ble__mcu_8c_source.html#l00534">BleSendByte()</a>, <a class="el" href="ble__mcu_8c_source.html#l00544">BleSendString()</a>, <a class="el" href="ble__mcu_8c_source.html#l00530">BleStatus()</a> y <a class="el" href="ble__mcu_8c_source.html#l00406">bluetooth_events_task()</a>.</p>
+
+</div>
+</div>
+<a id="ad0d8433b87f1fb35a8f2288f68802f99" name="ad0d8433b87f1fb35a8f2288f68802f99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0d8433b87f1fb35a8f2288f68802f99">&#9670;&#160;</a></span>xQueueEvents</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QueueHandle_t xQueueEvents = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00093">93</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__mcu_8c_source.html#l00452">BleInit()</a>, <a class="el" href="ble__mcu_8c_source.html#l00557">BleSendBuffer()</a>, <a class="el" href="ble__mcu_8c_source.html#l00534">BleSendByte()</a>, <a class="el" href="ble__mcu_8c_source.html#l00544">BleSendString()</a> y <a class="el" href="ble__mcu_8c_source.html#l00406">bluetooth_events_task()</a>.</p>
+
+</div>
+</div>
+<a id="a53afd88993a442ebd031bb8525c6a8c1" name="a53afd88993a442ebd031bb8525c6a8c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53afd88993a442ebd031bb8525c6a8c1">&#9670;&#160;</a></span>xQueueRead</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QueueHandle_t xQueueRead = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__mcu_8c_source.html#l00094">94</a> del archivo <a class="el" href="ble__mcu_8c_source.html">ble_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__mcu_8c_source.html#l00452">BleInit()</a> y <a class="el" href="ble__mcu_8c_source.html#l00406">bluetooth_events_task()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_fcba15287a7fba83beff6e7e8c7a3a80.html">firmware</a></li><li class="navelem"><a class="el" href="dir_d771f3729bc48f700515c8c6c400e99b.html">drivers</a></li><li class="navelem"><a class="el" href="dir_bc36ab89ecafc2a8b5ba798a6143b9d0.html">microcontroller</a></li><li class="navelem"><a class="el" href="dir_f1809a81d77850a6c3d2e8c4ffb742df.html">src</a></li><li class="navelem"><a class="el" href="ble__mcu_8c.html">ble_mcu.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>
