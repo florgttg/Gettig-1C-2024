@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Examen: UART</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Examen<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Irrigador de planta</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('group___u_a_r_t.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Estructuras de datos</a> &#124;
+<a href="#define-members">defines</a> &#124;
+<a href="#typedef-members">typedefs</a> &#124;
+<a href="#enum-members">Enumeraciones</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle"><div class="title">UART<div class="ingroups"><a class="el" href="group___drivers___programable.html">Drivers Programable</a> &raquo; <a class="el" href="group___drivers___microcontroller.html">Drivers microcontroller</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Estructuras de datos</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structserial__config__t.html">serial_config_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serial port configuration struct.  <a href="structserial__config__t.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:ga544040074fa1abddedb1eaade6994035" id="r_ga544040074fa1abddedb1eaade6994035"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga544040074fa1abddedb1eaade6994035">UART_NO_INT</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ga544040074fa1abddedb1eaade6994035"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART driver for the ESP-EDU Board.  <br /></td></tr>
+<tr class="separator:ga544040074fa1abddedb1eaade6994035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+typedefs</h2></td></tr>
+<tr class="memitem:ga6f1139887aa6a81c9577a04e72076595" id="r_ga6f1139887aa6a81c9577a04e72076595"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="#ga6e1a445bae87c4cfd26710dbd4657b77">uart_ports</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6f1139887aa6a81c9577a04e72076595">uart_mcu_port_t</a></td></tr>
+<tr class="memdesc:ga6f1139887aa6a81c9577a04e72076595"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of UART ports available in ESP-EDU.  <br /></td></tr>
+<tr class="separator:ga6f1139887aa6a81c9577a04e72076595"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumeraciones</h2></td></tr>
+<tr class="memitem:ga6e1a445bae87c4cfd26710dbd4657b77" id="r_ga6e1a445bae87c4cfd26710dbd4657b77"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6e1a445bae87c4cfd26710dbd4657b77">uart_ports</a> { <a class="el" href="#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>
+, <a class="el" href="#gga6e1a445bae87c4cfd26710dbd4657b77aab02e55aa3ae1d09e52cd7c916cd067f">UART_CONNECTOR</a>
+ }</td></tr>
+<tr class="memdesc:ga6e1a445bae87c4cfd26710dbd4657b77"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of UART ports available in ESP-EDU.  <a href="#ga6e1a445bae87c4cfd26710dbd4657b77">Más...</a><br /></td></tr>
+<tr class="separator:ga6e1a445bae87c4cfd26710dbd4657b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ga440f6a03dfd8b310f5fdf42c3bf20c42" id="r_ga440f6a03dfd8b310f5fdf42c3bf20c42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga440f6a03dfd8b310f5fdf42c3bf20c42">UartInit</a> (<a class="el" href="structserial__config__t.html">serial_config_t</a> *port_config)</td></tr>
+<tr class="memdesc:ga440f6a03dfd8b310f5fdf42c3bf20c42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serial port initialization.  <br /></td></tr>
+<tr class="separator:ga440f6a03dfd8b310f5fdf42c3bf20c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga37f1b16880c3ca70ed2e543566d555d2" id="r_ga37f1b16880c3ca70ed2e543566d555d2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga37f1b16880c3ca70ed2e543566d555d2">UartReadByte</a> (<a class="el" href="#ga6f1139887aa6a81c9577a04e72076595">uart_mcu_port_t</a> port, uint8_t *data)</td></tr>
+<tr class="memdesc:ga37f1b16880c3ca70ed2e543566d555d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a single byte from serial port.  <br /></td></tr>
+<tr class="separator:ga37f1b16880c3ca70ed2e543566d555d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec359d22a59e650a21a0666dad59656a" id="r_gaec359d22a59e650a21a0666dad59656a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaec359d22a59e650a21a0666dad59656a">UartReadBuffer</a> (<a class="el" href="#ga6f1139887aa6a81c9577a04e72076595">uart_mcu_port_t</a> port, uint8_t *data, uint16_t nbytes)</td></tr>
+<tr class="memdesc:gaec359d22a59e650a21a0666dad59656a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read multiple bytes from serial port.  <br /></td></tr>
+<tr class="separator:gaec359d22a59e650a21a0666dad59656a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb142fa2425b80bddba60121b1cf13f2" id="r_gaeb142fa2425b80bddba60121b1cf13f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaeb142fa2425b80bddba60121b1cf13f2">UartSendByte</a> (<a class="el" href="#ga6f1139887aa6a81c9577a04e72076595">uart_mcu_port_t</a> port, const char *data)</td></tr>
+<tr class="memdesc:gaeb142fa2425b80bddba60121b1cf13f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a single byte trough serial port.  <br /></td></tr>
+<tr class="separator:gaeb142fa2425b80bddba60121b1cf13f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60db217694ea24ad75fcedda3336a3a8" id="r_ga60db217694ea24ad75fcedda3336a3a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a> (<a class="el" href="#ga6f1139887aa6a81c9577a04e72076595">uart_mcu_port_t</a> port, const char *msg)</td></tr>
+<tr class="memdesc:ga60db217694ea24ad75fcedda3336a3a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a String trough serial port.  <br /></td></tr>
+<tr class="separator:ga60db217694ea24ad75fcedda3336a3a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga81fce0b6465799566af3cc8cc896c45e" id="r_ga81fce0b6465799566af3cc8cc896c45e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga81fce0b6465799566af3cc8cc896c45e">UartSendBuffer</a> (<a class="el" href="#ga6f1139887aa6a81c9577a04e72076595">uart_mcu_port_t</a> port, const char *data, uint8_t nbytes)</td></tr>
+<tr class="memdesc:ga81fce0b6465799566af3cc8cc896c45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send multiple bytes through serial port.  <br /></td></tr>
+<tr class="separator:ga81fce0b6465799566af3cc8cc896c45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00c7e785d2874c52bab6e4dba88a5e23" id="r_ga00c7e785d2874c52bab6e4dba88a5e23"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga00c7e785d2874c52bab6e4dba88a5e23">UartItoa</a> (uint32_t val, uint8_t base)</td></tr>
+<tr class="memdesc:ga00c7e785d2874c52bab6e4dba88a5e23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a number to a String (char array ended with '\0')  <br /></td></tr>
+<tr class="separator:ga00c7e785d2874c52bab6e4dba88a5e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<h2 class="groupheader">Documentación de «define»</h2>
+<a id="ga544040074fa1abddedb1eaade6994035" name="ga544040074fa1abddedb1eaade6994035"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga544040074fa1abddedb1eaade6994035">&#9670;&#160;</a></span>UART_NO_INT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UART_NO_INT&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UART driver for the ESP-EDU Board. </p>
+<dl class="section author"><dt>Autor</dt><dd>Albano Peñalva</dd></dl>
+<h1><a class="anchor" id="changelog"></a>
+Changelog</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Date   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">02/07/2024   </td><td class="markdownTableBodyLeft">Document creation   </td></tr>
+</table>
+<p>Flag used when no reading interruption is required </p>
+
+<p class="definition">Definición en la línea <a class="el" href="uart__mcu_8h_source.html#l00026">26</a> del archivo <a class="el" href="uart__mcu_8h_source.html">uart_mcu.h</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="uart__mcu_8c_source.html#l00107">UartInit()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de «typedef»</h2>
+<a id="ga6f1139887aa6a81c9577a04e72076595" name="ga6f1139887aa6a81c9577a04e72076595"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6f1139887aa6a81c9577a04e72076595">&#9670;&#160;</a></span>uart_mcu_port_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="#ga6e1a445bae87c4cfd26710dbd4657b77">uart_ports</a> <a class="el" href="#ga6f1139887aa6a81c9577a04e72076595">uart_mcu_port_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>List of UART ports available in ESP-EDU. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de enumeraciones</h2>
+<a id="ga6e1a445bae87c4cfd26710dbd4657b77" name="ga6e1a445bae87c4cfd26710dbd4657b77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6e1a445bae87c4cfd26710dbd4657b77">&#9670;&#160;</a></span>uart_ports</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ga6e1a445bae87c4cfd26710dbd4657b77">uart_ports</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>List of UART ports available in ESP-EDU. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056" name="gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056"></a>UART_PC&#160;</td><td class="fielddoc"><p>UART connected PC through USB port (indicated with UART) (also maped to TX: GPIO16, RX: GPIO17) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6e1a445bae87c4cfd26710dbd4657b77aab02e55aa3ae1d09e52cd7c916cd067f" name="gga6e1a445bae87c4cfd26710dbd4657b77aab02e55aa3ae1d09e52cd7c916cd067f"></a>UART_CONNECTOR&#160;</td><td class="fielddoc"><p>UART connected to J2 connector (TX: GPIO18, RX: GPIO19) </p>
+</td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="uart__mcu_8h_source.html#l00031">31</a> del archivo <a class="el" href="uart__mcu_8h_source.html">uart_mcu.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="ga440f6a03dfd8b310f5fdf42c3bf20c42" name="ga440f6a03dfd8b310f5fdf42c3bf20c42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga440f6a03dfd8b310f5fdf42c3bf20c42">&#9670;&#160;</a></span>UartInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UartInit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structserial__config__t.html">serial_config_t</a> *</td>          <td class="paramname"><span class="paramname"><em>port_config</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Serial port initialization. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port_config</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="uart__mcu_8c_source.html#l00107">107</a> del archivo <a class="el" href="uart__mcu_8c_source.html">uart_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="uart__mcu_8h_source.html#l00040">serial_config_t::baud_rate</a>, <a class="el" href="uart__mcu_8h_source.html#l00041">serial_config_t::func_p</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>, <a class="el" href="uart__mcu_8h_source.html#l00042">serial_config_t::param_p</a>, <a class="el" href="uart__mcu_8h_source.html#l00039">serial_config_t::port</a>, <a class="el" href="uart__mcu_8c_source.html#l00023">RX_BUFFER_SIZE</a>, <a class="el" href="uart__mcu_8c_source.html#l00022">TX_BUFFER_SIZE</a>, <a class="el" href="uart__mcu_8c_source.html#l00028">uart_conn_isr_p</a>, <a class="el" href="uart__mcu_8c_source.html#l00021">UART_CONN_RX</a>, <a class="el" href="uart__mcu_8c_source.html#l00020">UART_CONN_TX</a>, <a class="el" href="uart__mcu_8h_source.html#l00033">UART_CONNECTOR</a>, <a class="el" href="uart__mcu_8h_source.html#l00026">UART_NO_INT</a>, <a class="el" href="uart__mcu_8h_source.html#l00032">UART_PC</a> y <a class="el" href="uart__mcu_8c_source.html#l00027">uart_pc_isr_p</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="examen_8c_source.html#l00238">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="ga00c7e785d2874c52bab6e4dba88a5e23" name="ga00c7e785d2874c52bab6e4dba88a5e23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga00c7e785d2874c52bab6e4dba88a5e23">&#9670;&#160;</a></span>UartItoa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t * UartItoa </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>val</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>base</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert a number to a String (char array ended with '\0') </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>Number to be converted </td></tr>
+    <tr><td class="paramname">base</td><td>Base of the converted number (2: binary, 10: decimal, 16: hexadecimal) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>uint8_t* </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="uart__mcu_8c_source.html#l00222">222</a> del archivo <a class="el" href="uart__mcu_8c_source.html">uart_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="gaec359d22a59e650a21a0666dad59656a" name="gaec359d22a59e650a21a0666dad59656a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaec359d22a59e650a21a0666dad59656a">&#9670;&#160;</a></span>UartReadBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t UartReadBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ga6f1139887aa6a81c9577a04e72076595">uart_mcu_port_t</a></td>          <td class="paramname"><span class="paramname"><em>port</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>nbytes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read multiple bytes from serial port. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Port to read from </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to array where data will be stored </td></tr>
+    <tr><td class="paramname">nbytes</td><td>Number of bytes to be readed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>uint8_t </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="uart__mcu_8c_source.html#l00161">161</a> del archivo <a class="el" href="uart__mcu_8c_source.html">uart_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="uart__mcu_8c_source.html#l00025">READ_TIMEOUT</a>, <a class="el" href="uart__mcu_8h_source.html#l00033">UART_CONNECTOR</a> y <a class="el" href="uart__mcu_8h_source.html#l00032">UART_PC</a>.</p>
+
+</div>
+</div>
+<a id="ga37f1b16880c3ca70ed2e543566d555d2" name="ga37f1b16880c3ca70ed2e543566d555d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga37f1b16880c3ca70ed2e543566d555d2">&#9670;&#160;</a></span>UartReadByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t UartReadByte </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ga6f1139887aa6a81c9577a04e72076595">uart_mcu_port_t</a></td>          <td class="paramname"><span class="paramname"><em>port</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read a single byte from serial port. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Port to read from </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to variable where data will be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>uint8_t </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="uart__mcu_8c_source.html#l00142">142</a> del archivo <a class="el" href="uart__mcu_8c_source.html">uart_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="uart__mcu_8c_source.html#l00025">READ_TIMEOUT</a>, <a class="el" href="uart__mcu_8h_source.html#l00033">UART_CONNECTOR</a> y <a class="el" href="uart__mcu_8h_source.html#l00032">UART_PC</a>.</p>
+
+</div>
+</div>
+<a id="ga81fce0b6465799566af3cc8cc896c45e" name="ga81fce0b6465799566af3cc8cc896c45e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga81fce0b6465799566af3cc8cc896c45e">&#9670;&#160;</a></span>UartSendBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UartSendBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ga6f1139887aa6a81c9577a04e72076595">uart_mcu_port_t</a></td>          <td class="paramname"><span class="paramname"><em>port</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>data</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>nbytes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send multiple bytes through serial port. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Port for sending data </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to array of data to be transmitted </td></tr>
+    <tr><td class="paramname">nbytes</td><td>Number of bytes to be sended </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="uart__mcu_8c_source.html#l00209">209</a> del archivo <a class="el" href="uart__mcu_8c_source.html">uart_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="uart__mcu_8h_source.html#l00033">UART_CONNECTOR</a> y <a class="el" href="uart__mcu_8h_source.html#l00032">UART_PC</a>.</p>
+
+</div>
+</div>
+<a id="gaeb142fa2425b80bddba60121b1cf13f2" name="gaeb142fa2425b80bddba60121b1cf13f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeb142fa2425b80bddba60121b1cf13f2">&#9670;&#160;</a></span>UartSendByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UartSendByte </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ga6f1139887aa6a81c9577a04e72076595">uart_mcu_port_t</a></td>          <td class="paramname"><span class="paramname"><em>port</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send a single byte trough serial port. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Port for sending data </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to variable with data to be transmitted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="uart__mcu_8c_source.html#l00180">180</a> del archivo <a class="el" href="uart__mcu_8c_source.html">uart_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="uart__mcu_8h_source.html#l00033">UART_CONNECTOR</a> y <a class="el" href="uart__mcu_8h_source.html#l00032">UART_PC</a>.</p>
+
+</div>
+</div>
+<a id="ga60db217694ea24ad75fcedda3336a3a8" name="ga60db217694ea24ad75fcedda3336a3a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga60db217694ea24ad75fcedda3336a3a8">&#9670;&#160;</a></span>UartSendString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UartSendString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ga6f1139887aa6a81c9577a04e72076595">uart_mcu_port_t</a></td>          <td class="paramname"><span class="paramname"><em>port</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>msg</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send a String trough serial port. </p>
+<dl class="section note"><dt>Nota</dt><dd>Sends data untill finding the '\0' character (used to indicate a String end).</dd></dl>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Port for sending data </td></tr>
+    <tr><td class="paramname">msg</td><td>Pointer to string to be transmitted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="uart__mcu_8c_source.html#l00193">193</a> del archivo <a class="el" href="uart__mcu_8c_source.html">uart_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="uart__mcu_8h_source.html#l00033">UART_CONNECTOR</a> y <a class="el" href="uart__mcu_8h_source.html#l00032">UART_PC</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="examen_8c_source.html#l00145">Task_Mensajes()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

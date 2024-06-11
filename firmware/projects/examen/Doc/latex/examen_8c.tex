@@ -1,0 +1,575 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+Gettig-\/1\+C-\/2024/firmware/projects/examen/main/examen.c}
+\hypertarget{examen_8c}{}\label{examen_8c}\index{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/examen/main/examen.c@{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/examen/main/examen.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}freertos/\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/task.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}switch.\+h"{}}\newline
+{\ttfamily \#include "{}timer\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}uart\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}analog\+\_\+io\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{examen_8c_afd558b3d7002d69d70c7cdec30197ffc}{CONFIG\+\_\+\+TIMER\+\_\+\+UART}}~5000
+\item 
+\#define \mbox{\hyperlink{examen_8c_ae9ec39327ec7011c28701a4d97fc13d7}{CONFIG\+\_\+\+TIMER\+\_\+\+PH}}~3000
+\item 
+\#define \mbox{\hyperlink{examen_8c_af6aaeea49bac11924cbeb98494c55e93}{GPIO\+\_\+\+BOMBA}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f}{GPIO\+\_\+23}}
+\item 
+\#define \mbox{\hyperlink{examen_8c_a996bd9e7553cbe506d752103af28d797}{GPIO\+\_\+\+BOMBA\+\_\+\+ACIDO}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb}{GPIO\+\_\+22}}
+\item 
+\#define \mbox{\hyperlink{examen_8c_a54442c1f4bacbccf39a9cc0eb7ae98c1}{GPIO\+\_\+\+BOMBA\+\_\+\+BASICO}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c}{GPIO\+\_\+21}}
+\item 
+\#define \mbox{\hyperlink{examen_8c_a54f883ed55d10e1d328fac1448c43c4c}{GPIO\+\_\+\+SENSOR\+\_\+\+HUMEDAD}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a272b8d60ca888339e5095000b50ba5b1}{GPIO\+\_\+17}}
+\item 
+\#define \mbox{\hyperlink{examen_8c_a6cc41d446ac108df6f7be56a66072459}{GPIO\+\_\+\+SENSOR\+\_\+\+PH}}~\mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e}{CH1}}
+\item 
+\#define \mbox{\hyperlink{examen_8c_a8e1431ba4d78678909016328c528f845}{VOLTAJE\+\_\+\+MAX}}~3000
+\item 
+\#define \mbox{\hyperlink{examen_8c_a15cd0421f1e3f753ef78388e1a5f075d}{PH\+\_\+\+MAX}}~14
+\item 
+\#define \mbox{\hyperlink{examen_8c_a43ed726c72c75c3d92e4e725bb084c16}{PH\+\_\+\+ACIDO}}~6.\+7
+\item 
+\#define \mbox{\hyperlink{examen_8c_ac8e78a95c739a442d4ea7b0089cfc633}{PH\+\_\+\+BASICO}}~6
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{examen_8c_a1690ae8d043429a7b69c8296e50f51b2}{Prender\+Bomba}} (int bomba)
+\begin{DoxyCompactList}\small\item\em Activa la bombas para agregar agua y soluciones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{examen_8c_a9aa7874ee98a360f58110b0df99526a7}{Apagar\+Bomba}} (int bomba)
+\begin{DoxyCompactList}\small\item\em Desactiva la bomba para detener el suministro de agua y soluciones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{examen_8c_a373f69ff466067736504ca6109f0d204}{Function\+Stop}} ()
+\begin{DoxyCompactList}\small\item\em Interrupcion que Detiene el sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{examen_8c_a0febcf7c0dda3de61859f3046a104fc2}{Function\+Start}} ()
+\begin{DoxyCompactList}\small\item\em Interrupcion que inicia. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{examen_8c_a586c0f6b1e924064ac806361b233b2cd}{Convertir\+Voltaje\+APh}} (uint16\+\_\+t voltaje)
+\begin{DoxyCompactList}\small\item\em Convierte un valor de voltaje a ph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{examen_8c_a1ca66779c2fabc8b3be4475dc2be48e4}{Task\+\_\+\+Mensajes}} (void \texorpdfstring{$\ast$}{*}pv\+Parameter)
+\begin{DoxyCompactList}\small\item\em Tarea para enviar mensajes por la uart. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{examen_8c_a726d3cf5d084231e468f1890396d0e8f}{Task\+\_\+\+Control\+\_\+\+Humedad\+\_\+y\+\_\+\+Ph}} (void \texorpdfstring{$\ast$}{*}pv\+Parameter)
+\begin{DoxyCompactList}\small\item\em Tarea para controlar la humedad y el ph de la plantera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{examen_8c_a10506548c0166cec6195f808a27701d6}{Function\+TimerA}} (void \texorpdfstring{$\ast$}{*}param)
+\begin{DoxyCompactList}\small\item\em Función de callback para el timer para enviar mensajes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{examen_8c_aaac5cc84aba38aa4ab933e3a00e92dfd}{Function\+TimerB}} (void \texorpdfstring{$\ast$}{*}param)
+\begin{DoxyCompactList}\small\item\em Función de callback para el timer de control de humedad y ph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{examen_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}{app\+\_\+main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{examen_8c_a4e4967ac70f1e8a89b2fea62027a968c}{uart\+\_\+task\+\_\+handle}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{examen_8c_adf927715a4455ab407df6a9b96a337cf}{humedad\+\_\+ph\+\_\+task\+\_\+handle}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\item 
+bool \mbox{\hyperlink{examen_8c_ab376b87f96a574a793c03c53e75afec8}{start}}
+\item 
+bool \mbox{\hyperlink{examen_8c_ad564d79db65fdb47909af629a2842a68}{bomba\+\_\+phA}} =false
+\item 
+bool \mbox{\hyperlink{examen_8c_a7c09eb4d088b73b5992e667c9009e900}{bomba\+\_\+phB}} =false
+\item 
+bool \mbox{\hyperlink{examen_8c_acb15990da1c5074f7ac7fbfe7c302669}{bomba\+\_\+agua}} =false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{examen_8c_ae9ec39327ec7011c28701a4d97fc13d7}\label{examen_8c_ae9ec39327ec7011c28701a4d97fc13d7} 
+\index{examen.c@{examen.c}!CONFIG\_TIMER\_PH@{CONFIG\_TIMER\_PH}}
+\index{CONFIG\_TIMER\_PH@{CONFIG\_TIMER\_PH}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{CONFIG\_TIMER\_PH}{CONFIG\_TIMER\_PH}}
+{\footnotesize\ttfamily \#define CONFIG\+\_\+\+TIMER\+\_\+\+PH~3000}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00048}{48}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}}.
+
+\Hypertarget{examen_8c_afd558b3d7002d69d70c7cdec30197ffc}\label{examen_8c_afd558b3d7002d69d70c7cdec30197ffc} 
+\index{examen.c@{examen.c}!CONFIG\_TIMER\_UART@{CONFIG\_TIMER\_UART}}
+\index{CONFIG\_TIMER\_UART@{CONFIG\_TIMER\_UART}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{CONFIG\_TIMER\_UART}{CONFIG\_TIMER\_UART}}
+{\footnotesize\ttfamily \#define CONFIG\+\_\+\+TIMER\+\_\+\+UART~5000}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00047}{47}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}}.
+
+\Hypertarget{examen_8c_af6aaeea49bac11924cbeb98494c55e93}\label{examen_8c_af6aaeea49bac11924cbeb98494c55e93} 
+\index{examen.c@{examen.c}!GPIO\_BOMBA@{GPIO\_BOMBA}}
+\index{GPIO\_BOMBA@{GPIO\_BOMBA}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_BOMBA}{GPIO\_BOMBA}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+BOMBA~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f}{GPIO\+\_\+23}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00049}{49}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00099}{Apagar\+Bomba()}}, \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}} y \mbox{\hyperlink{examen_8c_source_l00077}{Prender\+Bomba()}}.
+
+\Hypertarget{examen_8c_a996bd9e7553cbe506d752103af28d797}\label{examen_8c_a996bd9e7553cbe506d752103af28d797} 
+\index{examen.c@{examen.c}!GPIO\_BOMBA\_ACIDO@{GPIO\_BOMBA\_ACIDO}}
+\index{GPIO\_BOMBA\_ACIDO@{GPIO\_BOMBA\_ACIDO}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_BOMBA\_ACIDO}{GPIO\_BOMBA\_ACIDO}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+BOMBA\+\_\+\+ACIDO~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb}{GPIO\+\_\+22}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00050}{50}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00099}{Apagar\+Bomba()}}, \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}} y \mbox{\hyperlink{examen_8c_source_l00077}{Prender\+Bomba()}}.
+
+\Hypertarget{examen_8c_a54442c1f4bacbccf39a9cc0eb7ae98c1}\label{examen_8c_a54442c1f4bacbccf39a9cc0eb7ae98c1} 
+\index{examen.c@{examen.c}!GPIO\_BOMBA\_BASICO@{GPIO\_BOMBA\_BASICO}}
+\index{GPIO\_BOMBA\_BASICO@{GPIO\_BOMBA\_BASICO}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_BOMBA\_BASICO}{GPIO\_BOMBA\_BASICO}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+BOMBA\+\_\+\+BASICO~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c}{GPIO\+\_\+21}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00051}{51}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00099}{Apagar\+Bomba()}}, \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}} y \mbox{\hyperlink{examen_8c_source_l00077}{Prender\+Bomba()}}.
+
+\Hypertarget{examen_8c_a54f883ed55d10e1d328fac1448c43c4c}\label{examen_8c_a54f883ed55d10e1d328fac1448c43c4c} 
+\index{examen.c@{examen.c}!GPIO\_SENSOR\_HUMEDAD@{GPIO\_SENSOR\_HUMEDAD}}
+\index{GPIO\_SENSOR\_HUMEDAD@{GPIO\_SENSOR\_HUMEDAD}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_SENSOR\_HUMEDAD}{GPIO\_SENSOR\_HUMEDAD}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+SENSOR\+\_\+\+HUMEDAD~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a272b8d60ca888339e5095000b50ba5b1}{GPIO\+\_\+17}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00053}{53}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}} y \mbox{\hyperlink{examen_8c_source_l00182}{Task\+\_\+\+Control\+\_\+\+Humedad\+\_\+y\+\_\+\+Ph()}}.
+
+\Hypertarget{examen_8c_a6cc41d446ac108df6f7be56a66072459}\label{examen_8c_a6cc41d446ac108df6f7be56a66072459} 
+\index{examen.c@{examen.c}!GPIO\_SENSOR\_PH@{GPIO\_SENSOR\_PH}}
+\index{GPIO\_SENSOR\_PH@{GPIO\_SENSOR\_PH}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_SENSOR\_PH}{GPIO\_SENSOR\_PH}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+SENSOR\+\_\+\+PH~\mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e}{CH1}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00054}{54}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}} y \mbox{\hyperlink{examen_8c_source_l00182}{Task\+\_\+\+Control\+\_\+\+Humedad\+\_\+y\+\_\+\+Ph()}}.
+
+\Hypertarget{examen_8c_a43ed726c72c75c3d92e4e725bb084c16}\label{examen_8c_a43ed726c72c75c3d92e4e725bb084c16} 
+\index{examen.c@{examen.c}!PH\_ACIDO@{PH\_ACIDO}}
+\index{PH\_ACIDO@{PH\_ACIDO}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{PH\_ACIDO}{PH\_ACIDO}}
+{\footnotesize\ttfamily \#define PH\+\_\+\+ACIDO~6.\+7}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00060}{60}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00182}{Task\+\_\+\+Control\+\_\+\+Humedad\+\_\+y\+\_\+\+Ph()}}.
+
+\Hypertarget{examen_8c_ac8e78a95c739a442d4ea7b0089cfc633}\label{examen_8c_ac8e78a95c739a442d4ea7b0089cfc633} 
+\index{examen.c@{examen.c}!PH\_BASICO@{PH\_BASICO}}
+\index{PH\_BASICO@{PH\_BASICO}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{PH\_BASICO}{PH\_BASICO}}
+{\footnotesize\ttfamily \#define PH\+\_\+\+BASICO~6}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00061}{61}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00182}{Task\+\_\+\+Control\+\_\+\+Humedad\+\_\+y\+\_\+\+Ph()}}.
+
+\Hypertarget{examen_8c_a15cd0421f1e3f753ef78388e1a5f075d}\label{examen_8c_a15cd0421f1e3f753ef78388e1a5f075d} 
+\index{examen.c@{examen.c}!PH\_MAX@{PH\_MAX}}
+\index{PH\_MAX@{PH\_MAX}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{PH\_MAX}{PH\_MAX}}
+{\footnotesize\ttfamily \#define PH\+\_\+\+MAX~14}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00059}{59}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00137}{Convertir\+Voltaje\+APh()}}.
+
+\Hypertarget{examen_8c_a8e1431ba4d78678909016328c528f845}\label{examen_8c_a8e1431ba4d78678909016328c528f845} 
+\index{examen.c@{examen.c}!VOLTAJE\_MAX@{VOLTAJE\_MAX}}
+\index{VOLTAJE\_MAX@{VOLTAJE\_MAX}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{VOLTAJE\_MAX}{VOLTAJE\_MAX}}
+{\footnotesize\ttfamily \#define VOLTAJE\+\_\+\+MAX~3000}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00057}{57}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00137}{Convertir\+Voltaje\+APh()}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{examen_8c_a9aa7874ee98a360f58110b0df99526a7}\label{examen_8c_a9aa7874ee98a360f58110b0df99526a7} 
+\index{examen.c@{examen.c}!ApagarBomba@{ApagarBomba}}
+\index{ApagarBomba@{ApagarBomba}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{ApagarBomba()}{ApagarBomba()}}
+{\footnotesize\ttfamily void Apagar\+Bomba (\begin{DoxyParamCaption}\item[{int}]{bomba }\end{DoxyParamCaption})}
+
+
+
+Desactiva la bomba para detener el suministro de agua y soluciones. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em bomba} & bomba que se va a desactivar \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00099}{99}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{examen_8c_source_l00069}{bomba\+\_\+agua}}, \mbox{\hyperlink{examen_8c_source_l00067}{bomba\+\_\+phA}}, \mbox{\hyperlink{examen_8c_source_l00068}{bomba\+\_\+phB}}, \mbox{\hyperlink{examen_8c_source_l00049}{GPIO\+\_\+\+BOMBA}}, \mbox{\hyperlink{examen_8c_source_l00050}{GPIO\+\_\+\+BOMBA\+\_\+\+ACIDO}}, \mbox{\hyperlink{examen_8c_source_l00051}{GPIO\+\_\+\+BOMBA\+\_\+\+BASICO}} y \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00182}{Task\+\_\+\+Control\+\_\+\+Humedad\+\_\+y\+\_\+\+Ph()}}.
+
+\Hypertarget{examen_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}\label{examen_8c_a630544a7f0a2cc40d8a7fefab7e2fe70} 
+\index{examen.c@{examen.c}!app\_main@{app\_main}}
+\index{app\_main@{app\_main}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{app\_main()}{app\_main()}}
+{\footnotesize\ttfamily void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\texorpdfstring{$<$}{<} baudrate (bits per second)
+
+\texorpdfstring{$<$}{<} Pointer to callback function to call when receiving data (= UART\+\_\+\+NO\+\_\+\+INT if not requiered)
+
+\texorpdfstring{$<$}{<} Pointer to callback function parameters
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00238}{238}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{analog__io__mcu_8h_source_l00038}{ADC\+\_\+\+SINGLE}}, \mbox{\hyperlink{analog__io__mcu_8c_source_l00045}{Analog\+Input\+Init()}}, \mbox{\hyperlink{examen_8c_source_l00048}{CONFIG\+\_\+\+TIMER\+\_\+\+PH}}, \mbox{\hyperlink{examen_8c_source_l00047}{CONFIG\+\_\+\+TIMER\+\_\+\+UART}}, \mbox{\hyperlink{examen_8c_source_l00127}{Function\+Start()}}, \mbox{\hyperlink{examen_8c_source_l00120}{Function\+Stop()}}, \mbox{\hyperlink{examen_8c_source_l00224}{Function\+Timer\+A()}}, \mbox{\hyperlink{examen_8c_source_l00232}{Function\+Timer\+B()}}, \mbox{\hyperlink{examen_8c_source_l00049}{GPIO\+\_\+\+BOMBA}}, \mbox{\hyperlink{examen_8c_source_l00050}{GPIO\+\_\+\+BOMBA\+\_\+\+ACIDO}}, \mbox{\hyperlink{examen_8c_source_l00051}{GPIO\+\_\+\+BOMBA\+\_\+\+BASICO}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00043}{GPIO\+\_\+\+INPUT}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00044}{GPIO\+\_\+\+OUTPUT}}, \mbox{\hyperlink{examen_8c_source_l00053}{GPIO\+\_\+\+SENSOR\+\_\+\+HUMEDAD}}, \mbox{\hyperlink{examen_8c_source_l00054}{GPIO\+\_\+\+SENSOR\+\_\+\+PH}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00067}{GPIOInit()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}, \mbox{\hyperlink{examen_8c_source_l00064}{humedad\+\_\+ph\+\_\+task\+\_\+handle}}, \mbox{\hyperlink{analog__io__mcu_8h_source_l00049}{analog\+\_\+input\+\_\+config\+\_\+t\+::input}}, \mbox{\hyperlink{ili9341_8c_source_l00019}{NULL}}, \mbox{\hyperlink{uart__mcu_8h_source_l00039}{serial\+\_\+config\+\_\+t\+::port}}, \mbox{\hyperlink{switch_8h_source_l00032}{SWITCH\+\_\+1}}, \mbox{\hyperlink{switch_8h_source_l00033}{SWITCH\+\_\+2}}, \mbox{\hyperlink{switch_8c_source_l00047}{Switch\+Activ\+Int()}}, \mbox{\hyperlink{switch_8c_source_l00029}{Switches\+Init()}}, \mbox{\hyperlink{examen_8c_source_l00182}{Task\+\_\+\+Control\+\_\+\+Humedad\+\_\+y\+\_\+\+Ph()}}, \mbox{\hyperlink{examen_8c_source_l00145}{Task\+\_\+\+Mensajes()}}, \mbox{\hyperlink{timer__mcu_8h_source_l00040}{timer\+\_\+config\+\_\+t\+::timer}}, \mbox{\hyperlink{timer__mcu_8h_source_l00032}{TIMER\+\_\+A}}, \mbox{\hyperlink{timer__mcu_8h_source_l00033}{TIMER\+\_\+B}}, \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}, \mbox{\hyperlink{timer__mcu_8c_source_l00110}{Timer\+Start()}}, \mbox{\hyperlink{uart__mcu_8h_source_l00032}{UART\+\_\+\+PC}}, \mbox{\hyperlink{examen_8c_source_l00063}{uart\+\_\+task\+\_\+handle}} y \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+\Hypertarget{examen_8c_a586c0f6b1e924064ac806361b233b2cd}\label{examen_8c_a586c0f6b1e924064ac806361b233b2cd} 
+\index{examen.c@{examen.c}!ConvertirVoltajeAPh@{ConvertirVoltajeAPh}}
+\index{ConvertirVoltajeAPh@{ConvertirVoltajeAPh}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{ConvertirVoltajeAPh()}{ConvertirVoltajeAPh()}}
+{\footnotesize\ttfamily uint16\+\_\+t Convertir\+Voltaje\+APh (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{voltaje }\end{DoxyParamCaption})}
+
+
+
+Convierte un valor de voltaje a ph. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em voltaje} & Valor del voltaje en milivoltios. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Valor del ph. 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00137}{137}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{examen_8c_source_l00059}{PH\+\_\+\+MAX}} y \mbox{\hyperlink{examen_8c_source_l00057}{VOLTAJE\+\_\+\+MAX}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00182}{Task\+\_\+\+Control\+\_\+\+Humedad\+\_\+y\+\_\+\+Ph()}}.
+
+\Hypertarget{examen_8c_a0febcf7c0dda3de61859f3046a104fc2}\label{examen_8c_a0febcf7c0dda3de61859f3046a104fc2} 
+\index{examen.c@{examen.c}!FunctionStart@{FunctionStart}}
+\index{FunctionStart@{FunctionStart}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{FunctionStart()}{FunctionStart()}}
+{\footnotesize\ttfamily void Function\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Interrupcion que inicia. 
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00127}{127}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{examen_8c_source_l00065}{start}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}}.
+
+\Hypertarget{examen_8c_a373f69ff466067736504ca6109f0d204}\label{examen_8c_a373f69ff466067736504ca6109f0d204} 
+\index{examen.c@{examen.c}!FunctionStop@{FunctionStop}}
+\index{FunctionStop@{FunctionStop}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{FunctionStop()}{FunctionStop()}}
+{\footnotesize\ttfamily void Function\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Interrupcion que Detiene el sistema. 
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00120}{120}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{examen_8c_source_l00065}{start}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}}.
+
+\Hypertarget{examen_8c_a10506548c0166cec6195f808a27701d6}\label{examen_8c_a10506548c0166cec6195f808a27701d6} 
+\index{examen.c@{examen.c}!FunctionTimerA@{FunctionTimerA}}
+\index{FunctionTimerA@{FunctionTimerA}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{FunctionTimerA()}{FunctionTimerA()}}
+{\footnotesize\ttfamily void Function\+TimerA (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption})}
+
+
+
+Función de callback para el timer para enviar mensajes. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em param} & Parámetro de la función. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00224}{224}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{examen_8c_source_l00063}{uart\+\_\+task\+\_\+handle}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}}.
+
+\Hypertarget{examen_8c_aaac5cc84aba38aa4ab933e3a00e92dfd}\label{examen_8c_aaac5cc84aba38aa4ab933e3a00e92dfd} 
+\index{examen.c@{examen.c}!FunctionTimerB@{FunctionTimerB}}
+\index{FunctionTimerB@{FunctionTimerB}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{FunctionTimerB()}{FunctionTimerB()}}
+{\footnotesize\ttfamily void Function\+TimerB (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption})}
+
+
+
+Función de callback para el timer de control de humedad y ph. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em param} & Parámetro de la función. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00232}{232}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{examen_8c_source_l00064}{humedad\+\_\+ph\+\_\+task\+\_\+handle}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}}.
+
+\Hypertarget{examen_8c_a1690ae8d043429a7b69c8296e50f51b2}\label{examen_8c_a1690ae8d043429a7b69c8296e50f51b2} 
+\index{examen.c@{examen.c}!PrenderBomba@{PrenderBomba}}
+\index{PrenderBomba@{PrenderBomba}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{PrenderBomba()}{PrenderBomba()}}
+{\footnotesize\ttfamily void Prender\+Bomba (\begin{DoxyParamCaption}\item[{int}]{bomba }\end{DoxyParamCaption})}
+
+
+
+Activa la bombas para agregar agua y soluciones. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em bomba} & bomba que se va a activar \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00077}{77}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{examen_8c_source_l00069}{bomba\+\_\+agua}}, \mbox{\hyperlink{examen_8c_source_l00067}{bomba\+\_\+phA}}, \mbox{\hyperlink{examen_8c_source_l00068}{bomba\+\_\+phB}}, \mbox{\hyperlink{examen_8c_source_l00049}{GPIO\+\_\+\+BOMBA}}, \mbox{\hyperlink{examen_8c_source_l00050}{GPIO\+\_\+\+BOMBA\+\_\+\+ACIDO}}, \mbox{\hyperlink{examen_8c_source_l00051}{GPIO\+\_\+\+BOMBA\+\_\+\+BASICO}} y \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00182}{Task\+\_\+\+Control\+\_\+\+Humedad\+\_\+y\+\_\+\+Ph()}}.
+
+\Hypertarget{examen_8c_a726d3cf5d084231e468f1890396d0e8f}\label{examen_8c_a726d3cf5d084231e468f1890396d0e8f} 
+\index{examen.c@{examen.c}!Task\_Control\_Humedad\_y\_Ph@{Task\_Control\_Humedad\_y\_Ph}}
+\index{Task\_Control\_Humedad\_y\_Ph@{Task\_Control\_Humedad\_y\_Ph}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{Task\_Control\_Humedad\_y\_Ph()}{Task\_Control\_Humedad\_y\_Ph()}}
+{\footnotesize\ttfamily void Task\+\_\+\+Control\+\_\+\+Humedad\+\_\+y\+\_\+\+Ph (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameter }\end{DoxyParamCaption})}
+
+
+
+Tarea para controlar la humedad y el ph de la plantera. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pv\+Parameter} & Parámetro de la tarea. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00182}{182}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{analog__io__mcu_8c_source_l00105}{Analog\+Input\+Read\+Single()}}, \mbox{\hyperlink{examen_8c_source_l00099}{Apagar\+Bomba()}}, \mbox{\hyperlink{examen_8c_source_l00137}{Convertir\+Voltaje\+APh()}}, \mbox{\hyperlink{examen_8c_source_l00053}{GPIO\+\_\+\+SENSOR\+\_\+\+HUMEDAD}}, \mbox{\hyperlink{examen_8c_source_l00054}{GPIO\+\_\+\+SENSOR\+\_\+\+PH}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00101}{GPIORead()}}, \mbox{\hyperlink{examen_8c_source_l00060}{PH\+\_\+\+ACIDO}}, \mbox{\hyperlink{examen_8c_source_l00061}{PH\+\_\+\+BASICO}}, \mbox{\hyperlink{examen_8c_source_l00077}{Prender\+Bomba()}} y \mbox{\hyperlink{examen_8c_source_l00065}{start}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}}.
+
+\Hypertarget{examen_8c_a1ca66779c2fabc8b3be4475dc2be48e4}\label{examen_8c_a1ca66779c2fabc8b3be4475dc2be48e4} 
+\index{examen.c@{examen.c}!Task\_Mensajes@{Task\_Mensajes}}
+\index{Task\_Mensajes@{Task\_Mensajes}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{Task\_Mensajes()}{Task\_Mensajes()}}
+{\footnotesize\ttfamily void Task\+\_\+\+Mensajes (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameter }\end{DoxyParamCaption})}
+
+
+
+Tarea para enviar mensajes por la uart. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pv\+Parameter} & Parámetro de la tarea. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00145}{145}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{examen_8c_source_l00069}{bomba\+\_\+agua}}, \mbox{\hyperlink{examen_8c_source_l00067}{bomba\+\_\+phA}}, \mbox{\hyperlink{examen_8c_source_l00068}{bomba\+\_\+phB}}, \mbox{\hyperlink{examen_8c_source_l00065}{start}}, \mbox{\hyperlink{uart__mcu_8h_source_l00032}{UART\+\_\+\+PC}} y \mbox{\hyperlink{uart__mcu_8c_source_l00193}{Uart\+Send\+String()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{examen_8c_acb15990da1c5074f7ac7fbfe7c302669}\label{examen_8c_acb15990da1c5074f7ac7fbfe7c302669} 
+\index{examen.c@{examen.c}!bomba\_agua@{bomba\_agua}}
+\index{bomba\_agua@{bomba\_agua}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{bomba\_agua}{bomba\_agua}}
+{\footnotesize\ttfamily bool bomba\+\_\+agua =false}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00069}{69}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00099}{Apagar\+Bomba()}}, \mbox{\hyperlink{examen_8c_source_l00077}{Prender\+Bomba()}} y \mbox{\hyperlink{examen_8c_source_l00145}{Task\+\_\+\+Mensajes()}}.
+
+\Hypertarget{examen_8c_ad564d79db65fdb47909af629a2842a68}\label{examen_8c_ad564d79db65fdb47909af629a2842a68} 
+\index{examen.c@{examen.c}!bomba\_phA@{bomba\_phA}}
+\index{bomba\_phA@{bomba\_phA}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{bomba\_phA}{bomba\_phA}}
+{\footnotesize\ttfamily bool bomba\+\_\+phA =false}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00067}{67}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00099}{Apagar\+Bomba()}}, \mbox{\hyperlink{examen_8c_source_l00077}{Prender\+Bomba()}} y \mbox{\hyperlink{examen_8c_source_l00145}{Task\+\_\+\+Mensajes()}}.
+
+\Hypertarget{examen_8c_a7c09eb4d088b73b5992e667c9009e900}\label{examen_8c_a7c09eb4d088b73b5992e667c9009e900} 
+\index{examen.c@{examen.c}!bomba\_phB@{bomba\_phB}}
+\index{bomba\_phB@{bomba\_phB}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{bomba\_phB}{bomba\_phB}}
+{\footnotesize\ttfamily bool bomba\+\_\+phB =false}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00068}{68}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00099}{Apagar\+Bomba()}}, \mbox{\hyperlink{examen_8c_source_l00077}{Prender\+Bomba()}} y \mbox{\hyperlink{examen_8c_source_l00145}{Task\+\_\+\+Mensajes()}}.
+
+\Hypertarget{examen_8c_adf927715a4455ab407df6a9b96a337cf}\label{examen_8c_adf927715a4455ab407df6a9b96a337cf} 
+\index{examen.c@{examen.c}!humedad\_ph\_task\_handle@{humedad\_ph\_task\_handle}}
+\index{humedad\_ph\_task\_handle@{humedad\_ph\_task\_handle}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{humedad\_ph\_task\_handle}{humedad\_ph\_task\_handle}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t humedad\+\_\+ph\+\_\+task\+\_\+handle = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00064}{64}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}} y \mbox{\hyperlink{examen_8c_source_l00232}{Function\+Timer\+B()}}.
+
+\Hypertarget{examen_8c_ab376b87f96a574a793c03c53e75afec8}\label{examen_8c_ab376b87f96a574a793c03c53e75afec8} 
+\index{examen.c@{examen.c}!start@{start}}
+\index{start@{start}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily bool start}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00065}{65}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00127}{Function\+Start()}}, \mbox{\hyperlink{examen_8c_source_l00120}{Function\+Stop()}}, \mbox{\hyperlink{examen_8c_source_l00182}{Task\+\_\+\+Control\+\_\+\+Humedad\+\_\+y\+\_\+\+Ph()}} y \mbox{\hyperlink{examen_8c_source_l00145}{Task\+\_\+\+Mensajes()}}.
+
+\Hypertarget{examen_8c_a4e4967ac70f1e8a89b2fea62027a968c}\label{examen_8c_a4e4967ac70f1e8a89b2fea62027a968c} 
+\index{examen.c@{examen.c}!uart\_task\_handle@{uart\_task\_handle}}
+\index{uart\_task\_handle@{uart\_task\_handle}!examen.c@{examen.c}}
+\doxysubsubsection{\texorpdfstring{uart\_task\_handle}{uart\_task\_handle}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t uart\+\_\+task\+\_\+handle = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{examen_8c_source_l00063}{63}} del archivo \mbox{\hyperlink{examen_8c_source}{examen.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}} y \mbox{\hyperlink{examen_8c_source_l00224}{Function\+Timer\+A()}}.
+

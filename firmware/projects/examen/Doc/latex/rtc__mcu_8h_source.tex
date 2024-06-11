@@ -1,0 +1,40 @@
+\doxysection{rtc\+\_\+mcu.\+h}
+\hypertarget{rtc__mcu_8h_source}{}\label{rtc__mcu_8h_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/rtc\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/rtc\_mcu.h}}
+\mbox{\hyperlink{rtc__mcu_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ RTC\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ RTC\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00032}00032\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00033}00033\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00034}00034\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00035}00035\ \textcolor{comment}{/*==================[macros]=================================================*/}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00036}\mbox{\hyperlink{group___r_t_c_ga61d0d319cb00c61aaaee21009da3157c}{00036}}\ \textcolor{preprocessor}{\#define\ MAX\_MONTH\ \ \ 12}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00037}\mbox{\hyperlink{group___r_t_c_gaa83dd816c7b33ef31213a741960873cf}{00037}}\ \textcolor{preprocessor}{\#define\ MAX\_MDAY\ \ \ \ 31}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00038}\mbox{\hyperlink{group___r_t_c_ga006244576eec139097bc7ccf78c7e62f}{00038}}\ \textcolor{preprocessor}{\#define\ MAX\_WDAY\ \ \ \ 7}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00039}\mbox{\hyperlink{group___r_t_c_ga1ad2ed8c56be0837d360fc179a456c74}{00039}}\ \textcolor{preprocessor}{\#define\ MAX\_HOUR\ \ \ \ 24}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00040}\mbox{\hyperlink{group___r_t_c_ga3f864a4db2a6709466cafd13f3cc0af2}{00040}}\ \textcolor{preprocessor}{\#define\ MAX\_MIN\ \ \ \ \ 59}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00041}\mbox{\hyperlink{group___r_t_c_gab96c94c7d4f72592fb0bd579675c89f2}{00041}}\ \textcolor{preprocessor}{\#define\ MAX\_SEC\ \ \ \ \ 59}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00042}00042\ \textcolor{comment}{/*==================[typedef]================================================*/}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00046}\mbox{\hyperlink{structrtc__t}{00046}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00047}\mbox{\hyperlink{structrtc__t_a57ca98d8f6d4baf0fe41c583c7dcb0d5}{00047}}\ \ \ \ uint16\_t\ \mbox{\hyperlink{structrtc__t_a57ca98d8f6d4baf0fe41c583c7dcb0d5}{year}};\ \ \ \ \ \ \ \textcolor{comment}{/*\ 1\ to\ 4095\ */}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00048}\mbox{\hyperlink{structrtc__t_a3e00faf7fbf9805e9ec4d2edd6339050}{00048}}\ \ \ \ uint8\_t\ \ \mbox{\hyperlink{structrtc__t_a3e00faf7fbf9805e9ec4d2edd6339050}{month}};\ \ \ \ \ \ \textcolor{comment}{/*\ 1\ to\ 12\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00049}\mbox{\hyperlink{structrtc__t_a8f4f1d1a3991d8405faca08fd1c3ea9b}{00049}}\ \ \ \ uint8\_t\ \ \mbox{\hyperlink{structrtc__t_a8f4f1d1a3991d8405faca08fd1c3ea9b}{mday}};\ \ \ \ \ \ \ \textcolor{comment}{/*\ 1\ to\ 31\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00050}\mbox{\hyperlink{structrtc__t_acf7d2d98117c452b351c130883b70eba}{00050}}\ \ \ \ uint8\_t\ \ \mbox{\hyperlink{structrtc__t_acf7d2d98117c452b351c130883b70eba}{wday}};\ \ \ \ \ \ \ \textcolor{comment}{/*\ 1\ to\ 7\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00051}\mbox{\hyperlink{structrtc__t_ae5af4ff48939d13d480f87e56a9385d6}{00051}}\ \ \ \ uint8\_t\ \ \mbox{\hyperlink{structrtc__t_ae5af4ff48939d13d480f87e56a9385d6}{hour}};\ \ \ \ \ \ \ \textcolor{comment}{/*\ 0\ to\ 23\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00052}\mbox{\hyperlink{structrtc__t_ac9b481208b43f7c37ed25e446bdec692}{00052}}\ \ \ \ uint8\_t\ \ \mbox{\hyperlink{structrtc__t_ac9b481208b43f7c37ed25e446bdec692}{min}};\ \ \ \ \ \textcolor{comment}{/*\ 0\ to\ 59\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00053}\mbox{\hyperlink{structrtc__t_ad1696900026b287a87c563b733a21bc3}{00053}}\ \ \ \ uint8\_t\ \ \mbox{\hyperlink{structrtc__t_ad1696900026b287a87c563b733a21bc3}{sec}};\ \ \ \ \ \textcolor{comment}{/*\ 0\ to\ 59\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00054}00054\ \}\ \mbox{\hyperlink{structrtc__t}{rtc\_t}};}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00055}00055\ \textcolor{comment}{/*==================[external\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00057}00057\ \textcolor{comment}{/*==================[external\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00066}00066\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group___r_t_c_ga5233b4ea4721ca1119fe81d7e4cbb472}{RtcConfig}}(\mbox{\hyperlink{structrtc__t}{rtc\_t}}\ *\ rtc);}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00073}00073\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___r_t_c_gabaac4488a0574f6a4871db4428918dba}{RtcRead}}(\mbox{\hyperlink{structrtc__t}{rtc\_t}}\ *\ rtc);}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00078}00078\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RTC\_MCU\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00080}00080\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+\DoxyCodeLine{\Hypertarget{rtc__mcu_8h_source_l00081}00081\ }
+
+\end{DoxyCode}

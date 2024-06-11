@@ -1,0 +1,148 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/src/ws2812b.c}
+\hypertarget{ws2812b_8c}{}\label{ws2812b_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/ws2812b.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/ws2812b.c}}
+{\ttfamily \#include "{}ws2812b.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/task.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+fast\+\_\+out\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}delay\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ws2812b_8c_aa9331d068b87e6429728b37d83e3d798}{RET\+\_\+\+CMD}}~(50)
+\item 
+\#define \mbox{\hyperlink{ws2812b_8c_add6d2693f5d356b091088437148f939b}{BIT\+\_\+0}}~(1)
+\item 
+\#define \mbox{\hyperlink{ws2812b_8c_a4ad58adf84157aebea2a98cc9402212a}{BIT\+\_\+7}}~(1$<$$<$7)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void IRAM\+\_\+\+ATTR \mbox{\hyperlink{ws2812b_8c_a77b8715bc283e04108cbecdf72e24b7d}{ws2812b\+Send\+High}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin)
+\item 
+void IRAM\+\_\+\+ATTR \mbox{\hyperlink{ws2812b_8c_a36657f62d50cb950ac553ad8afeefdc0}{ws2812b\+Send\+Low}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ws2812b_8c_af8b5a67621f64a435602bdfeca85d8c3}{ws2812b\+Gamma\+Correction}} (uint8\+\_\+t component)
+\item 
+void \mbox{\hyperlink{group___w_s2812_b_gab5724b524301eafce386e26782206b3c}{ws2812b\+Init}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin)
+\begin{DoxyCompactList}\small\item\em Neo\+Pixel initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___w_s2812_b_ga6efc852be97e10768f170756c0bde024}{ws2812b\+Send}} (\mbox{\hyperlink{group___w_s2812_b_ga10677d455b434a1fb0ac83c343551647}{rgb\+\_\+led\+\_\+t}} led\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Send color information to Neo\+Pixel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___w_s2812_b_ga7f917e1d76a1edff14b8bac723a169d8}{ws2812b\+Send\+Ret}} (void)
+\begin{DoxyCompactList}\small\item\em Send a ret command to Neo\+Pixel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} \mbox{\hyperlink{ws2812b_8c_a8bafab9eba59f18ef73103a6ec526585}{pin\+\_\+number}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{ws2812b_8c_add6d2693f5d356b091088437148f939b}\label{ws2812b_8c_add6d2693f5d356b091088437148f939b} 
+\index{ws2812b.c@{ws2812b.c}!BIT\_0@{BIT\_0}}
+\index{BIT\_0@{BIT\_0}!ws2812b.c@{ws2812b.c}}
+\doxysubsubsection{\texorpdfstring{BIT\_0}{BIT\_0}}
+{\footnotesize\ttfamily \#define BIT\+\_\+0~(1)}
+
+
+
+Definición en la línea \mbox{\hyperlink{ws2812b_8c_source_l00021}{21}} del archivo \mbox{\hyperlink{ws2812b_8c_source}{ws2812b.\+c}}.
+
+\Hypertarget{ws2812b_8c_a4ad58adf84157aebea2a98cc9402212a}\label{ws2812b_8c_a4ad58adf84157aebea2a98cc9402212a} 
+\index{ws2812b.c@{ws2812b.c}!BIT\_7@{BIT\_7}}
+\index{BIT\_7@{BIT\_7}!ws2812b.c@{ws2812b.c}}
+\doxysubsubsection{\texorpdfstring{BIT\_7}{BIT\_7}}
+{\footnotesize\ttfamily \#define BIT\+\_\+7~(1$<$$<$7)}
+
+
+
+Definición en la línea \mbox{\hyperlink{ws2812b_8c_source_l00022}{22}} del archivo \mbox{\hyperlink{ws2812b_8c_source}{ws2812b.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ws2812b_8c_source_l00340}{ws2812b\+Send()}}.
+
+\Hypertarget{ws2812b_8c_aa9331d068b87e6429728b37d83e3d798}\label{ws2812b_8c_aa9331d068b87e6429728b37d83e3d798} 
+\index{ws2812b.c@{ws2812b.c}!RET\_CMD@{RET\_CMD}}
+\index{RET\_CMD@{RET\_CMD}!ws2812b.c@{ws2812b.c}}
+\doxysubsubsection{\texorpdfstring{RET\_CMD}{RET\_CMD}}
+{\footnotesize\ttfamily \#define RET\+\_\+\+CMD~(50)}
+
+
+
+Definición en la línea \mbox{\hyperlink{ws2812b_8c_source_l00020}{20}} del archivo \mbox{\hyperlink{ws2812b_8c_source}{ws2812b.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ws2812b_8c_source_l00371}{ws2812b\+Send\+Ret()}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{ws2812b_8c_af8b5a67621f64a435602bdfeca85d8c3}\label{ws2812b_8c_af8b5a67621f64a435602bdfeca85d8c3} 
+\index{ws2812b.c@{ws2812b.c}!ws2812bGammaCorrection@{ws2812bGammaCorrection}}
+\index{ws2812bGammaCorrection@{ws2812bGammaCorrection}!ws2812b.c@{ws2812b.c}}
+\doxysubsubsection{\texorpdfstring{ws2812bGammaCorrection()}{ws2812bGammaCorrection()}}
+{\footnotesize\ttfamily uint8\+\_\+t ws2812b\+Gamma\+Correction (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{component }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{ws2812b_8c_source_l00329}{329}} del archivo \mbox{\hyperlink{ws2812b_8c_source}{ws2812b.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ws2812b_8c_source_l00340}{ws2812b\+Send()}}.
+
+\Hypertarget{ws2812b_8c_a77b8715bc283e04108cbecdf72e24b7d}\label{ws2812b_8c_a77b8715bc283e04108cbecdf72e24b7d} 
+\index{ws2812b.c@{ws2812b.c}!ws2812bSendHigh@{ws2812bSendHigh}}
+\index{ws2812bSendHigh@{ws2812bSendHigh}!ws2812b.c@{ws2812b.c}}
+\doxysubsubsection{\texorpdfstring{ws2812bSendHigh()}{ws2812bSendHigh()}}
+{\footnotesize\ttfamily void IRAM\+\_\+\+ATTR ws2812b\+Send\+High (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{pin }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{ws2812b_8c_source_l00050}{50}} del archivo \mbox{\hyperlink{ws2812b_8c_source}{ws2812b.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00054}{GPIOFast\+Write()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ws2812b_8c_source_l00340}{ws2812b\+Send()}}.
+
+\Hypertarget{ws2812b_8c_a36657f62d50cb950ac553ad8afeefdc0}\label{ws2812b_8c_a36657f62d50cb950ac553ad8afeefdc0} 
+\index{ws2812b.c@{ws2812b.c}!ws2812bSendLow@{ws2812bSendLow}}
+\index{ws2812bSendLow@{ws2812bSendLow}!ws2812b.c@{ws2812b.c}}
+\doxysubsubsection{\texorpdfstring{ws2812bSendLow()}{ws2812bSendLow()}}
+{\footnotesize\ttfamily void IRAM\+\_\+\+ATTR ws2812b\+Send\+Low (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}}}]{pin }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{ws2812b_8c_source_l00189}{189}} del archivo \mbox{\hyperlink{ws2812b_8c_source}{ws2812b.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00054}{GPIOFast\+Write()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ws2812b_8c_source_l00340}{ws2812b\+Send()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{ws2812b_8c_a8bafab9eba59f18ef73103a6ec526585}\label{ws2812b_8c_a8bafab9eba59f18ef73103a6ec526585} 
+\index{ws2812b.c@{ws2812b.c}!pin\_number@{pin\_number}}
+\index{pin\_number@{pin\_number}!ws2812b.c@{ws2812b.c}}
+\doxysubsubsection{\texorpdfstring{pin\_number}{pin\_number}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pin\+\_\+number}
+
+
+
+Definición en la línea \mbox{\hyperlink{ws2812b_8c_source_l00024}{24}} del archivo \mbox{\hyperlink{ws2812b_8c_source}{ws2812b.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ws2812b_8c_source_l00335}{ws2812b\+Init()}} y \mbox{\hyperlink{ws2812b_8c_source_l00340}{ws2812b\+Send()}}.
+

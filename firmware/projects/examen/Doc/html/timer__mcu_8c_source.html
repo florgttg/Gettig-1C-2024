@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Examen: Archivo de código fuente C:/Repositorios/EProgramable_FIUNER/firmware/drivers/microcontroller/src/timer_mcu.c</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Examen<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Irrigador de planta</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('timer__mcu_8c_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">timer_mcu.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="timer__mcu_8c.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/*==================[inclusions]=============================================*/</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="timer__mcu_8h.html">timer_mcu.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;driver/gptimer.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;freertos/FreeRTOS.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;freertos/task.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/*==================[macros and definitions]=================================*/</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="timer__mcu_8c.html#a0084affffdb426de14a2629cfe92c652">   18</a></span><span class="preprocessor">#define US_RESOLUTION_HZ    1000000 </span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="timer__mcu_8c.html#aa7a65675b0d17a71d0646e743bb4d1f0">   19</a></span><span class="preprocessor">#define RESET_COUNT_VALUE   0       </span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">/*==================[internal data declaration]==============================*/</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="timer__mcu_8c.html#adb4864b7053f61a0691085c9e7f48207">   21</a></span>gptimer_handle_t <a class="code hl_variable" href="timer__mcu_8c.html#adb4864b7053f61a0691085c9e7f48207">timer_a</a> = <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;        </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="timer__mcu_8c.html#aef94044d1e3bc38b47b43af16c59ea60">   22</a></span>gptimer_handle_t <a class="code hl_variable" href="timer__mcu_8c.html#aef94044d1e3bc38b47b43af16c59ea60">timer_b</a> = <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;        </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="timer__mcu_8c.html#a2939aafd32facea4e83f1b1a2573df8d">   23</a></span>gptimer_handle_t <a class="code hl_variable" href="timer__mcu_8c.html#a2939aafd32facea4e83f1b1a2573df8d">timer_c</a> = <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;        </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="timer__mcu_8c.html#a8cbe89279afcba4e146f4f4f851f55dd">   24</a></span><span class="keyword">const</span> gptimer_config_t <a class="code hl_variable" href="timer__mcu_8c.html#a8cbe89279afcba4e146f4f4f851f55dd">timer_config</a> = {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    .clk_src = GPTIMER_CLK_SRC_DEFAULT, </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    .direction = GPTIMER_COUNT_UP,      </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    .resolution_hz = <a class="code hl_define" href="timer__mcu_8c.html#a0084affffdb426de14a2629cfe92c652">US_RESOLUTION_HZ</a>,  </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="timer__mcu_8c.html#a3cf703184a43c9df961f5391e2fb1795">   29</a></span>void (*<a class="code hl_variable" href="timer__mcu_8c.html#a3cf703184a43c9df961f5391e2fb1795">timer_a_isr_p</a>)(<span class="keywordtype">void</span>*);   </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="timer__mcu_8c.html#a289b78452d903091ccd8f6b4021d195c">   30</a></span>void (*<a class="code hl_variable" href="timer__mcu_8c.html#a289b78452d903091ccd8f6b4021d195c">timer_b_isr_p</a>)(<span class="keywordtype">void</span>*);   </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="timer__mcu_8c.html#a86031d2b8cf8f83b53cbe749d9f62112">   31</a></span>void (*<a class="code hl_variable" href="timer__mcu_8c.html#a86031d2b8cf8f83b53cbe749d9f62112">timer_c_isr_p</a>)(<span class="keywordtype">void</span>*);   </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="timer__mcu_8c.html#a25f9388382a57a243263678e74268e73">   32</a></span><span class="keywordtype">void</span> *<a class="code hl_variable" href="timer__mcu_8c.html#a25f9388382a57a243263678e74268e73">timer_a_user_data</a>;    </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="timer__mcu_8c.html#a7cb36718dd13e907185633f7adaf4550">   33</a></span><span class="keywordtype">void</span> *<a class="code hl_variable" href="timer__mcu_8c.html#a7cb36718dd13e907185633f7adaf4550">timer_b_user_data</a>;    </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="timer__mcu_8c.html#ae84408911ab3b7bfd1fee20f7e016d4c">   34</a></span><span class="keywordtype">void</span> *<a class="code hl_variable" href="timer__mcu_8c.html#ae84408911ab3b7bfd1fee20f7e016d4c">timer_c_user_data</a>;    </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/*==================[internal functions declaration]=========================*/</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">static</span> <span class="keywordtype">bool</span> IRAM_ATTR timer_a_isr(gptimer_handle_t timer, <span class="keyword">const</span> gptimer_alarm_event_data_t *edata, <span class="keywordtype">void</span> *user_data){</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_variable" href="timer__mcu_8c.html#a3cf703184a43c9df961f5391e2fb1795">timer_a_isr_p</a>(<a class="code hl_variable" href="timer__mcu_8c.html#a25f9388382a57a243263678e74268e73">timer_a_user_data</a>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">static</span> <span class="keywordtype">bool</span> IRAM_ATTR timer_b_isr(gptimer_handle_t timer, <span class="keyword">const</span> gptimer_alarm_event_data_t *edata, <span class="keywordtype">void</span> *user_data){</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_variable" href="timer__mcu_8c.html#a289b78452d903091ccd8f6b4021d195c">timer_b_isr_p</a>(<a class="code hl_variable" href="timer__mcu_8c.html#a7cb36718dd13e907185633f7adaf4550">timer_b_user_data</a>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">static</span> <span class="keywordtype">bool</span> IRAM_ATTR timer_c_isr(gptimer_handle_t timer, <span class="keyword">const</span> gptimer_alarm_event_data_t *edata, <span class="keywordtype">void</span> *user_data){</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_variable" href="timer__mcu_8c.html#a86031d2b8cf8f83b53cbe749d9f62112">timer_c_isr_p</a>(<a class="code hl_variable" href="timer__mcu_8c.html#ae84408911ab3b7bfd1fee20f7e016d4c">timer_c_user_data</a>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">/*==================[internal data definition]===============================*/</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">/*==================[external data definition]===============================*/</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/*==================[internal functions definition]==========================*/</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">/*==================[external functions definition]==========================*/</span></div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="group___timer.html#gae8617c0d176463a60441464ad26563f6">   55</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___timer.html#gae8617c0d176463a60441464ad26563f6">TimerInit</a>(<a class="code hl_struct" href="structtimer__config__t.html">timer_config_t</a> *timer_ini){</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">switch</span>(timer_ini-&gt;<a class="code hl_variable" href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer</a>){</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598">TIMER_A</a>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <a class="code hl_variable" href="timer__mcu_8c.html#a3cf703184a43c9df961f5391e2fb1795">timer_a_isr_p</a> = timer_ini-&gt;<a class="code hl_variable" href="structtimer__config__t.html#a672985730d2c0cf9105559adc9759a3a">func_p</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <a class="code hl_variable" href="timer__mcu_8c.html#a25f9388382a57a243263678e74268e73">timer_a_user_data</a> = timer_ini-&gt;<a class="code hl_variable" href="structtimer__config__t.html#aad5f5715cb799d57b86e98fe3bf701e1">param_p</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            gptimer_new_timer(&amp;<a class="code hl_variable" href="timer__mcu_8c.html#a8cbe89279afcba4e146f4f4f851f55dd">timer_config</a>, &amp;<a class="code hl_variable" href="timer__mcu_8c.html#adb4864b7053f61a0691085c9e7f48207">timer_a</a>);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            gptimer_alarm_config_t alarm_config_a = {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                .alarm_count = timer_ini-&gt;<a class="code hl_variable" href="structtimer__config__t.html#a81b43df06332b4fef558297592bb7ff1">period</a>, </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                .reload_count = <a class="code hl_define" href="timer__mcu_8c.html#aa7a65675b0d17a71d0646e743bb4d1f0">RESET_COUNT_VALUE</a>,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                .flags.auto_reload_on_alarm = <span class="keyword">true</span>,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            };</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            gptimer_set_alarm_action(<a class="code hl_variable" href="timer__mcu_8c.html#adb4864b7053f61a0691085c9e7f48207">timer_a</a>, &amp;alarm_config_a);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            gptimer_event_callbacks_t alarm_a = {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                .on_alarm = timer_a_isr,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            };</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            gptimer_register_event_callbacks(<a class="code hl_variable" href="timer__mcu_8c.html#adb4864b7053f61a0691085c9e7f48207">timer_a</a>, &amp;alarm_a, <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            gptimer_enable(<a class="code hl_variable" href="timer__mcu_8c.html#adb4864b7053f61a0691085c9e7f48207">timer_a</a>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f">TIMER_B</a>:</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <a class="code hl_variable" href="timer__mcu_8c.html#a289b78452d903091ccd8f6b4021d195c">timer_b_isr_p</a> = timer_ini-&gt;<a class="code hl_variable" href="structtimer__config__t.html#a672985730d2c0cf9105559adc9759a3a">func_p</a>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <a class="code hl_variable" href="timer__mcu_8c.html#a7cb36718dd13e907185633f7adaf4550">timer_b_user_data</a> = timer_ini-&gt;<a class="code hl_variable" href="structtimer__config__t.html#aad5f5715cb799d57b86e98fe3bf701e1">param_p</a>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            gptimer_new_timer(&amp;<a class="code hl_variable" href="timer__mcu_8c.html#a8cbe89279afcba4e146f4f4f851f55dd">timer_config</a>, &amp;<a class="code hl_variable" href="timer__mcu_8c.html#aef94044d1e3bc38b47b43af16c59ea60">timer_b</a>);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            gptimer_alarm_config_t alarm_config_b = {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                .alarm_count = timer_ini-&gt;<a class="code hl_variable" href="structtimer__config__t.html#a81b43df06332b4fef558297592bb7ff1">period</a>, </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                .reload_count = <a class="code hl_define" href="timer__mcu_8c.html#aa7a65675b0d17a71d0646e743bb4d1f0">RESET_COUNT_VALUE</a>,</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                .flags.auto_reload_on_alarm = <span class="keyword">true</span>,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            };</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            gptimer_set_alarm_action(<a class="code hl_variable" href="timer__mcu_8c.html#aef94044d1e3bc38b47b43af16c59ea60">timer_b</a>, &amp;alarm_config_b);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            gptimer_event_callbacks_t alarm_b = {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                .on_alarm = timer_b_isr,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            };</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            gptimer_register_event_callbacks(<a class="code hl_variable" href="timer__mcu_8c.html#aef94044d1e3bc38b47b43af16c59ea60">timer_b</a>, &amp;alarm_b, <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            gptimer_enable(<a class="code hl_variable" href="timer__mcu_8c.html#aef94044d1e3bc38b47b43af16c59ea60">timer_b</a>);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d">TIMER_C</a>:</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <a class="code hl_variable" href="timer__mcu_8c.html#a86031d2b8cf8f83b53cbe749d9f62112">timer_c_isr_p</a> = timer_ini-&gt;<a class="code hl_variable" href="structtimer__config__t.html#a672985730d2c0cf9105559adc9759a3a">func_p</a>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <a class="code hl_variable" href="timer__mcu_8c.html#ae84408911ab3b7bfd1fee20f7e016d4c">timer_c_user_data</a> = timer_ini-&gt;<a class="code hl_variable" href="structtimer__config__t.html#aad5f5715cb799d57b86e98fe3bf701e1">param_p</a>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            gptimer_new_timer(&amp;<a class="code hl_variable" href="timer__mcu_8c.html#a8cbe89279afcba4e146f4f4f851f55dd">timer_config</a>, &amp;<a class="code hl_variable" href="timer__mcu_8c.html#a2939aafd32facea4e83f1b1a2573df8d">timer_c</a>);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            gptimer_alarm_config_t alarm_config_c = {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                .alarm_count = timer_ini-&gt;<a class="code hl_variable" href="structtimer__config__t.html#a81b43df06332b4fef558297592bb7ff1">period</a>, </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                .reload_count = <a class="code hl_define" href="timer__mcu_8c.html#aa7a65675b0d17a71d0646e743bb4d1f0">RESET_COUNT_VALUE</a>,</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                .flags.auto_reload_on_alarm = <span class="keyword">true</span>,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            };</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            gptimer_set_alarm_action(<a class="code hl_variable" href="timer__mcu_8c.html#a2939aafd32facea4e83f1b1a2573df8d">timer_c</a>, &amp;alarm_config_c);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            gptimer_event_callbacks_t alarm_c = {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                .on_alarm = timer_c_isr,</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            };</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            gptimer_register_event_callbacks(<a class="code hl_variable" href="timer__mcu_8c.html#a2939aafd32facea4e83f1b1a2573df8d">timer_c</a>, &amp;alarm_c, <a class="code hl_define" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            gptimer_enable(<a class="code hl_variable" href="timer__mcu_8c.html#a2939aafd32facea4e83f1b1a2573df8d">timer_c</a>);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}</div>
+</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="group___timer.html#ga0b1779c5b8f91cc83c8bfd127071ea2f">  110</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___timer.html#ga0b1779c5b8f91cc83c8bfd127071ea2f">TimerStart</a>(<a class="code hl_typedef" href="group___timer.html#ga5b93c89e9ca8359fa618753610f77a8d">timer_mcu_t</a> timer){</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">switch</span>(timer){</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598">TIMER_A</a>:</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            gptimer_start(<a class="code hl_variable" href="timer__mcu_8c.html#adb4864b7053f61a0691085c9e7f48207">timer_a</a>);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f">TIMER_B</a>:</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            gptimer_start(<a class="code hl_variable" href="timer__mcu_8c.html#aef94044d1e3bc38b47b43af16c59ea60">timer_b</a>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d">TIMER_C</a>:</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            gptimer_start(<a class="code hl_variable" href="timer__mcu_8c.html#a2939aafd32facea4e83f1b1a2573df8d">timer_c</a>);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}</div>
+</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="foldopen" id="foldopen00124" data-start="{" data-end="}">
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="group___timer.html#ga0860e7ffff656386879c7dcd600d0629">  124</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___timer.html#ga0860e7ffff656386879c7dcd600d0629">TimerStop</a>(<a class="code hl_typedef" href="group___timer.html#ga5b93c89e9ca8359fa618753610f77a8d">timer_mcu_t</a> timer){</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordflow">switch</span>(timer){</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598">TIMER_A</a>:</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            gptimer_stop(<a class="code hl_variable" href="timer__mcu_8c.html#adb4864b7053f61a0691085c9e7f48207">timer_a</a>);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f">TIMER_B</a>:</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            gptimer_stop(<a class="code hl_variable" href="timer__mcu_8c.html#aef94044d1e3bc38b47b43af16c59ea60">timer_b</a>);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d">TIMER_C</a>:</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            gptimer_stop(<a class="code hl_variable" href="timer__mcu_8c.html#a2939aafd32facea4e83f1b1a2573df8d">timer_c</a>);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
+</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="foldopen" id="foldopen00138" data-start="{" data-end="}">
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="group___timer.html#ga80ed309959e5a179f5676ed4af547fa1">  138</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___timer.html#ga80ed309959e5a179f5676ed4af547fa1">TimerReset</a>(<a class="code hl_typedef" href="group___timer.html#ga5b93c89e9ca8359fa618753610f77a8d">timer_mcu_t</a> timer){</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordflow">switch</span>(timer){</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598">TIMER_A</a>:</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            gptimer_set_raw_count(<a class="code hl_variable" href="timer__mcu_8c.html#adb4864b7053f61a0691085c9e7f48207">timer_a</a>, <a class="code hl_define" href="timer__mcu_8c.html#aa7a65675b0d17a71d0646e743bb4d1f0">RESET_COUNT_VALUE</a>);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f">TIMER_B</a>:</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            gptimer_set_raw_count(<a class="code hl_variable" href="timer__mcu_8c.html#aef94044d1e3bc38b47b43af16c59ea60">timer_b</a>, <a class="code hl_define" href="timer__mcu_8c.html#aa7a65675b0d17a71d0646e743bb4d1f0">RESET_COUNT_VALUE</a>);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d">TIMER_C</a>:</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            gptimer_set_raw_count(<a class="code hl_variable" href="timer__mcu_8c.html#a2939aafd32facea4e83f1b1a2573df8d">timer_c</a>, <a class="code hl_define" href="timer__mcu_8c.html#aa7a65675b0d17a71d0646e743bb4d1f0">RESET_COUNT_VALUE</a>);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>}</div>
+</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">/*==================[end of file]============================================*/</span></div>
+<div class="ttc" id="agroup___timer_html_ga0860e7ffff656386879c7dcd600d0629"><div class="ttname"><a href="group___timer.html#ga0860e7ffff656386879c7dcd600d0629">TimerStop</a></div><div class="ttdeci">void TimerStop(timer_mcu_t timer)</div><div class="ttdoc">Pause timer.</div><div class="ttdef"><b>Definition</b> <a href="#l00124">timer_mcu.c:124</a></div></div>
+<div class="ttc" id="agroup___timer_html_ga0b1779c5b8f91cc83c8bfd127071ea2f"><div class="ttname"><a href="group___timer.html#ga0b1779c5b8f91cc83c8bfd127071ea2f">TimerStart</a></div><div class="ttdeci">void TimerStart(timer_mcu_t timer)</div><div class="ttdoc">Start timer count.</div><div class="ttdef"><b>Definition</b> <a href="#l00110">timer_mcu.c:110</a></div></div>
+<div class="ttc" id="agroup___timer_html_ga5b93c89e9ca8359fa618753610f77a8d"><div class="ttname"><a href="group___timer.html#ga5b93c89e9ca8359fa618753610f77a8d">timer_mcu_t</a></div><div class="ttdeci">enum timers timer_mcu_t</div><div class="ttdoc">Timer driver for the ESP-EDU Board.</div></div>
+<div class="ttc" id="agroup___timer_html_ga80ed309959e5a179f5676ed4af547fa1"><div class="ttname"><a href="group___timer.html#ga80ed309959e5a179f5676ed4af547fa1">TimerReset</a></div><div class="ttdeci">void TimerReset(timer_mcu_t timer)</div><div class="ttdoc">Reset timer count to 0.</div><div class="ttdef"><b>Definition</b> <a href="#l00138">timer_mcu.c:138</a></div></div>
+<div class="ttc" id="agroup___timer_html_gae8617c0d176463a60441464ad26563f6"><div class="ttname"><a href="group___timer.html#gae8617c0d176463a60441464ad26563f6">TimerInit</a></div><div class="ttdeci">void TimerInit(timer_config_t *timer_ini)</div><div class="ttdoc">Timer initialization.</div><div class="ttdef"><b>Definition</b> <a href="#l00055">timer_mcu.c:55</a></div></div>
+<div class="ttc" id="agroup___timer_html_ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598"><div class="ttname"><a href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598">TIMER_A</a></div><div class="ttdeci">@ TIMER_A</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00032">timer_mcu.h:32</a></div></div>
+<div class="ttc" id="agroup___timer_html_ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f"><div class="ttname"><a href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f">TIMER_B</a></div><div class="ttdeci">@ TIMER_B</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00033">timer_mcu.h:33</a></div></div>
+<div class="ttc" id="agroup___timer_html_ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d"><div class="ttname"><a href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a77982cc924eb33d3ea2f8f541f757f9d">TIMER_C</a></div><div class="ttdeci">@ TIMER_C</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00035">timer_mcu.h:34</a></div></div>
+<div class="ttc" id="aili9341_8c_html_a070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdef"><b>Definition</b> <a href="ili9341_8c_source.html#l00019">ili9341.c:19</a></div></div>
+<div class="ttc" id="astructtimer__config__t_html"><div class="ttname"><a href="structtimer__config__t.html">timer_config_t</a></div><div class="ttdoc">Timer configuration struct.</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00039">timer_mcu.h:39</a></div></div>
+<div class="ttc" id="astructtimer__config__t_html_a672985730d2c0cf9105559adc9759a3a"><div class="ttname"><a href="structtimer__config__t.html#a672985730d2c0cf9105559adc9759a3a">timer_config_t::func_p</a></div><div class="ttdeci">void * func_p</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00042">timer_mcu.h:42</a></div></div>
+<div class="ttc" id="astructtimer__config__t_html_a81b43df06332b4fef558297592bb7ff1"><div class="ttname"><a href="structtimer__config__t.html#a81b43df06332b4fef558297592bb7ff1">timer_config_t::period</a></div><div class="ttdeci">uint32_t period</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00041">timer_mcu.h:41</a></div></div>
+<div class="ttc" id="astructtimer__config__t_html_aad5f5715cb799d57b86e98fe3bf701e1"><div class="ttname"><a href="structtimer__config__t.html#aad5f5715cb799d57b86e98fe3bf701e1">timer_config_t::param_p</a></div><div class="ttdeci">void * param_p</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00043">timer_mcu.h:43</a></div></div>
+<div class="ttc" id="astructtimer__config__t_html_ab83043b8038c5e630f6a2a05ea007e49"><div class="ttname"><a href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer_config_t::timer</a></div><div class="ttdeci">timer_mcu_t timer</div><div class="ttdef"><b>Definition</b> <a href="timer__mcu_8h_source.html#l00040">timer_mcu.h:40</a></div></div>
+<div class="ttc" id="atimer__mcu_8c_html_a0084affffdb426de14a2629cfe92c652"><div class="ttname"><a href="timer__mcu_8c.html#a0084affffdb426de14a2629cfe92c652">US_RESOLUTION_HZ</a></div><div class="ttdeci">#define US_RESOLUTION_HZ</div><div class="ttdef"><b>Definition</b> <a href="#l00018">timer_mcu.c:18</a></div></div>
+<div class="ttc" id="atimer__mcu_8c_html_a25f9388382a57a243263678e74268e73"><div class="ttname"><a href="timer__mcu_8c.html#a25f9388382a57a243263678e74268e73">timer_a_user_data</a></div><div class="ttdeci">void * timer_a_user_data</div><div class="ttdef"><b>Definition</b> <a href="#l00032">timer_mcu.c:32</a></div></div>
+<div class="ttc" id="atimer__mcu_8c_html_a289b78452d903091ccd8f6b4021d195c"><div class="ttname"><a href="timer__mcu_8c.html#a289b78452d903091ccd8f6b4021d195c">timer_b_isr_p</a></div><div class="ttdeci">void(* timer_b_isr_p)(void *)</div><div class="ttdef"><b>Definition</b> <a href="#l00030">timer_mcu.c:30</a></div></div>
+<div class="ttc" id="atimer__mcu_8c_html_a2939aafd32facea4e83f1b1a2573df8d"><div class="ttname"><a href="timer__mcu_8c.html#a2939aafd32facea4e83f1b1a2573df8d">timer_c</a></div><div class="ttdeci">gptimer_handle_t timer_c</div><div class="ttdef"><b>Definition</b> <a href="#l00023">timer_mcu.c:23</a></div></div>
+<div class="ttc" id="atimer__mcu_8c_html_a3cf703184a43c9df961f5391e2fb1795"><div class="ttname"><a href="timer__mcu_8c.html#a3cf703184a43c9df961f5391e2fb1795">timer_a_isr_p</a></div><div class="ttdeci">void(* timer_a_isr_p)(void *)</div><div class="ttdef"><b>Definition</b> <a href="#l00029">timer_mcu.c:29</a></div></div>
+<div class="ttc" id="atimer__mcu_8c_html_a7cb36718dd13e907185633f7adaf4550"><div class="ttname"><a href="timer__mcu_8c.html#a7cb36718dd13e907185633f7adaf4550">timer_b_user_data</a></div><div class="ttdeci">void * timer_b_user_data</div><div class="ttdef"><b>Definition</b> <a href="#l00033">timer_mcu.c:33</a></div></div>
+<div class="ttc" id="atimer__mcu_8c_html_a86031d2b8cf8f83b53cbe749d9f62112"><div class="ttname"><a href="timer__mcu_8c.html#a86031d2b8cf8f83b53cbe749d9f62112">timer_c_isr_p</a></div><div class="ttdeci">void(* timer_c_isr_p)(void *)</div><div class="ttdef"><b>Definition</b> <a href="#l00031">timer_mcu.c:31</a></div></div>
+<div class="ttc" id="atimer__mcu_8c_html_a8cbe89279afcba4e146f4f4f851f55dd"><div class="ttname"><a href="timer__mcu_8c.html#a8cbe89279afcba4e146f4f4f851f55dd">timer_config</a></div><div class="ttdeci">const gptimer_config_t timer_config</div><div class="ttdef"><b>Definition</b> <a href="#l00024">timer_mcu.c:24</a></div></div>
+<div class="ttc" id="atimer__mcu_8c_html_aa7a65675b0d17a71d0646e743bb4d1f0"><div class="ttname"><a href="timer__mcu_8c.html#aa7a65675b0d17a71d0646e743bb4d1f0">RESET_COUNT_VALUE</a></div><div class="ttdeci">#define RESET_COUNT_VALUE</div><div class="ttdef"><b>Definition</b> <a href="#l00019">timer_mcu.c:19</a></div></div>
+<div class="ttc" id="atimer__mcu_8c_html_adb4864b7053f61a0691085c9e7f48207"><div class="ttname"><a href="timer__mcu_8c.html#adb4864b7053f61a0691085c9e7f48207">timer_a</a></div><div class="ttdeci">gptimer_handle_t timer_a</div><div class="ttdef"><b>Definition</b> <a href="#l00021">timer_mcu.c:21</a></div></div>
+<div class="ttc" id="atimer__mcu_8c_html_ae84408911ab3b7bfd1fee20f7e016d4c"><div class="ttname"><a href="timer__mcu_8c.html#ae84408911ab3b7bfd1fee20f7e016d4c">timer_c_user_data</a></div><div class="ttdeci">void * timer_c_user_data</div><div class="ttdef"><b>Definition</b> <a href="#l00034">timer_mcu.c:34</a></div></div>
+<div class="ttc" id="atimer__mcu_8c_html_aef94044d1e3bc38b47b43af16c59ea60"><div class="ttname"><a href="timer__mcu_8c.html#aef94044d1e3bc38b47b43af16c59ea60">timer_b</a></div><div class="ttdeci">gptimer_handle_t timer_b</div><div class="ttdef"><b>Definition</b> <a href="#l00022">timer_mcu.c:22</a></div></div>
+<div class="ttc" id="atimer__mcu_8h_html"><div class="ttname"><a href="timer__mcu_8h.html">timer_mcu.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_fcba15287a7fba83beff6e7e8c7a3a80.html">firmware</a></li><li class="navelem"><a class="el" href="dir_d771f3729bc48f700515c8c6c400e99b.html">drivers</a></li><li class="navelem"><a class="el" href="dir_bc36ab89ecafc2a8b5ba798a6143b9d0.html">microcontroller</a></li><li class="navelem"><a class="el" href="dir_f1809a81d77850a6c3d2e8c4ffb742df.html">src</a></li><li class="navelem"><a class="el" href="timer__mcu_8c.html">timer_mcu.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

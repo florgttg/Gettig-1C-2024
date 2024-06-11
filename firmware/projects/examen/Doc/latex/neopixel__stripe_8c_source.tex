@@ -1,0 +1,168 @@
+\doxysection{neopixel\+\_\+stripe.\+c}
+\hypertarget{neopixel__stripe_8c_source}{}\label{neopixel__stripe_8c_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/neopixel\_stripe.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/neopixel\_stripe.c}}
+\mbox{\hyperlink{neopixel__stripe_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00012}00012\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{neopixel__stripe_8h}{neopixel\_stripe.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ws2812b_8h}{ws2812b.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00015}00015\ \textcolor{comment}{/*==================[macros\ and\ definitions]=================================*/}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00016}\mbox{\hyperlink{neopixel__stripe_8c_a7540dd68adcd7c70780fcb45d2aa0f83}{00016}}\ \textcolor{preprocessor}{\#define\ RED\_MSK\ \ \ \ \ \ \ \ \ 0x00FF0000}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00017}\mbox{\hyperlink{neopixel__stripe_8c_a09e619b992a50b34742d68754eff15e3}{00017}}\ \textcolor{preprocessor}{\#define\ GREEN\_MSK\ \ \ \ \ \ \ 0x0000FF00}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00018}\mbox{\hyperlink{neopixel__stripe_8c_ab821869451c5b9d4dcaec88d8cb00b41}{00018}}\ \textcolor{preprocessor}{\#define\ BLUE\_MSK\ \ \ \ \ \ \ \ 0x000000FF}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00019}\mbox{\hyperlink{neopixel__stripe_8c_a7b63a430cb1ca07c7feeb74a0626fcaa}{00019}}\ \textcolor{preprocessor}{\#define\ RED\_OFFSET\ \ \ \ \ \ 16}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00020}\mbox{\hyperlink{neopixel__stripe_8c_aea3275e63db7d1cb3df830ba4d27a838}{00020}}\ \textcolor{preprocessor}{\#define\ GREEN\_OFFSET\ \ \ \ 8}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00021}\mbox{\hyperlink{neopixel__stripe_8c_a62e3dbb5365407c155ed8c6ec346e8e1}{00021}}\ \textcolor{preprocessor}{\#define\ BLUE\_OFFSET\ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00022}\mbox{\hyperlink{neopixel__stripe_8c_a9e90c85256c4f5a45a78b71c3bc73a42}{00022}}\ \textcolor{preprocessor}{\#define\ MAX\_BRIGHT\ \ \ \ \ \ 255}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00023}\mbox{\hyperlink{neopixel__stripe_8c_a6c94edbcea161634d33b78aa6138f18a}{00023}}\ \textcolor{preprocessor}{\#define\ BRIGHT\_OFFSET\ \ \ 8}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00024}00024\ \textcolor{comment}{/*==================[internal\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00025}\mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{00025}}\ uint16\_t\ \mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\_length}};}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00026}\mbox{\hyperlink{neopixel__stripe_8c_a693d9d35a7e69903c6d6f96fbd08988f}{00026}}\ uint8\_t\ \mbox{\hyperlink{neopixel__stripe_8c_a693d9d35a7e69903c6d6f96fbd08988f}{stripe\_bright}}\ =\ \mbox{\hyperlink{neopixel__stripe_8c_a9e90c85256c4f5a45a78b71c3bc73a42}{MAX\_BRIGHT}};}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00027}\mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{00027}}\ \mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\_color\_t}}\ *\mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}};\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00028}00028\ \textcolor{comment}{/*==================[internal\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00030}00030\ \textcolor{comment}{/*==================[internal\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00032}00032\ \textcolor{comment}{/*==================[external\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00034}00034\ \textcolor{comment}{/*==================[internal\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00036}00036\ \textcolor{comment}{/*==================[external\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00038}\mbox{\hyperlink{group___neo_pixel___stripe_ga1dd960cb0564070aae4f05d455a21942}{00038}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___neo_pixel___stripe_ga1dd960cb0564070aae4f05d455a21942}{NeoPixelInit}}(\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ pin,\ uint16\_t\ len,\ \mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\_color\_t}}\ *color\_array)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00039}00039\ \ \ \ \ \mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\_length}}\ =\ len;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}}\ =\ color\_array;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{group___w_s2812_b_gab5724b524301eafce386e26782206b3c}{ws2812bInit}}(pin);}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00044}\mbox{\hyperlink{group___neo_pixel___stripe_ga7eda8ecf6370a5af575af2ca85eafa6d}{00044}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___neo_pixel___stripe_ga7eda8ecf6370a5af575af2ca85eafa6d}{NeoPixelAllOff}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{structrgb__led}{rgb\_led\_t}}\ led;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{group___w_s2812_b_ga7f917e1d76a1edff14b8bac723a169d8}{ws2812bSendRet}}();}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{group___w_s2812_b_ga7f917e1d76a1edff14b8bac723a169d8}{ws2812bSendRet}}();}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{group___w_s2812_b_ga7f917e1d76a1edff14b8bac723a169d8}{ws2812bSendRet}}();}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint16\_t\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\_length}};\ i++)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ led.\mbox{\hyperlink{structrgb__led_ad47d918910aaa51c73160ac85999d09c}{red}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ led.\mbox{\hyperlink{structrgb__led_a90d21fa503b626c00cdc8d94863d5877}{green}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ led.\mbox{\hyperlink{structrgb__led_a287b397e90d7b995c81ff54e741f96b2}{blue}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___w_s2812_b_ga6efc852be97e10768f170756c0bde024}{ws2812bSend}}(led);}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00055}00055\ \ \ \ \ \mbox{\hyperlink{group___w_s2812_b_ga7f917e1d76a1edff14b8bac723a169d8}{ws2812bSendRet}}();}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00058}\mbox{\hyperlink{group___neo_pixel___stripe_ga00aedd9bd24d607244a314348180bdb8}{00058}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___neo_pixel___stripe_ga00aedd9bd24d607244a314348180bdb8}{NeoPixelAllColor}}(\mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\_color\_t}}\ color)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint16\_t\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\_length}};\ i++)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}}[i]\ =\ color;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{group___neo_pixel___stripe_ga23ae424d3a323c2e315b3f89ba857a84}{NeoPixelSetArray}}(\mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}});}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00065}\mbox{\hyperlink{group___neo_pixel___stripe_ga7f53683e3207e9523fc201bdc79b6025}{00065}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___neo_pixel___stripe_ga7f53683e3207e9523fc201bdc79b6025}{NeoPixelSetPixel}}(uint16\_t\ pixel,\ \mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\_color\_t}}\ color)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}}[pixel]\ =\ color;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00067}00067\ \ \ \ \ \mbox{\hyperlink{group___neo_pixel___stripe_ga23ae424d3a323c2e315b3f89ba857a84}{NeoPixelSetArray}}(\mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}});}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00068}00068\ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00070}\mbox{\hyperlink{group___neo_pixel___stripe_ga23ae424d3a323c2e315b3f89ba857a84}{00070}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___neo_pixel___stripe_ga23ae424d3a323c2e315b3f89ba857a84}{NeoPixelSetArray}}(\mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\_color\_t}}\ *color\_array)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{structrgb__led}{rgb\_led\_t}}\ led;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00072}00072\ \ \ \ \ uint16\_t\ red,\ green,\ blue;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{group___w_s2812_b_ga7f917e1d76a1edff14b8bac723a169d8}{ws2812bSendRet}}();}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00074}00074\ \ \ \ \ \mbox{\hyperlink{group___w_s2812_b_ga7f917e1d76a1edff14b8bac723a169d8}{ws2812bSendRet}}();}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{group___w_s2812_b_ga7f917e1d76a1edff14b8bac723a169d8}{ws2812bSendRet}}();}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint16\_t\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\_length}};\ i++)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ red\ =\ ((color\_array[i]\ \&\ \mbox{\hyperlink{neopixel__stripe_8c_a7540dd68adcd7c70780fcb45d2aa0f83}{RED\_MSK}})\ >>\ \mbox{\hyperlink{neopixel__stripe_8c_a7b63a430cb1ca07c7feeb74a0626fcaa}{RED\_OFFSET}})\ *\ \mbox{\hyperlink{neopixel__stripe_8c_a693d9d35a7e69903c6d6f96fbd08988f}{stripe\_bright}};}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ green\ =\ ((color\_array[i]\ \&\ \mbox{\hyperlink{neopixel__stripe_8c_a09e619b992a50b34742d68754eff15e3}{GREEN\_MSK}})\ >>\ \mbox{\hyperlink{neopixel__stripe_8c_aea3275e63db7d1cb3df830ba4d27a838}{GREEN\_OFFSET}})\ *\ \mbox{\hyperlink{neopixel__stripe_8c_a693d9d35a7e69903c6d6f96fbd08988f}{stripe\_bright}};}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ blue\ =\ ((color\_array[i]\ \&\ \mbox{\hyperlink{neopixel__stripe_8c_ab821869451c5b9d4dcaec88d8cb00b41}{BLUE\_MSK}})\ >>\ \mbox{\hyperlink{neopixel__stripe_8c_a62e3dbb5365407c155ed8c6ec346e8e1}{BLUE\_OFFSET}})\ *\ \mbox{\hyperlink{neopixel__stripe_8c_a693d9d35a7e69903c6d6f96fbd08988f}{stripe\_bright}};}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ led.\mbox{\hyperlink{structrgb__led_ad47d918910aaa51c73160ac85999d09c}{red}}\ =\ red\ >>\ \mbox{\hyperlink{neopixel__stripe_8c_a6c94edbcea161634d33b78aa6138f18a}{BRIGHT\_OFFSET}};}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ led.\mbox{\hyperlink{structrgb__led_a90d21fa503b626c00cdc8d94863d5877}{green}}\ =\ green\ >>\ \mbox{\hyperlink{neopixel__stripe_8c_a6c94edbcea161634d33b78aa6138f18a}{BRIGHT\_OFFSET}};}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ led.\mbox{\hyperlink{structrgb__led_a287b397e90d7b995c81ff54e741f96b2}{blue}}\ =\ blue\ >>\ \mbox{\hyperlink{neopixel__stripe_8c_a6c94edbcea161634d33b78aa6138f18a}{BRIGHT\_OFFSET}};}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___w_s2812_b_ga6efc852be97e10768f170756c0bde024}{ws2812bSend}}(led);}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00085}00085\ \ \ \ \ \mbox{\hyperlink{group___w_s2812_b_ga7f917e1d76a1edff14b8bac723a169d8}{ws2812bSendRet}}();}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00086}00086\ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00088}\mbox{\hyperlink{group___neo_pixel___stripe_gac95515e3889b8cebd2f8bf0e72590d33}{00088}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___neo_pixel___stripe_gac95515e3889b8cebd2f8bf0e72590d33}{NeoPixelShift}}(\textcolor{keywordtype}{bool}\ upwards)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00089}00089\ \ \ \ \ \mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\_color\_t}}\ carry;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{if}(upwards)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ carry\ =\ \mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}}[\mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\_length}}-\/1];}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint16\_t\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\_length}}-\/1;\ i++)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}}[\mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\_length}}-\/1-\/i]\ =\ \mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}}[\mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\_length}}-\/2-\/i];\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}}[0]\ =\ carry;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00097}00097\ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ carry\ =\ \mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}}[0];}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint16\_t\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\_length}}-\/1;\ i++)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}}[i]\ =\ \mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}}[i+1];\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}}[\mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\_length}}-\/1]\ =\ carry;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00103}00103\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00104}00104\ \ \ \ \ \mbox{\hyperlink{group___neo_pixel___stripe_ga23ae424d3a323c2e315b3f89ba857a84}{NeoPixelSetArray}}(\mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}});}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00105}00105\ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00107}\mbox{\hyperlink{group___neo_pixel___stripe_gacebd73c47572bd32b7f578e3dd98cc2f}{00107}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___neo_pixel___stripe_gacebd73c47572bd32b7f578e3dd98cc2f}{NeoPixelBrightness}}(uint8\_t\ bright)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00108}00108\ \ \ \ \ \mbox{\hyperlink{neopixel__stripe_8c_a693d9d35a7e69903c6d6f96fbd08988f}{stripe\_bright}}\ =\ bright;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00109}00109\ \ \ \ \ \mbox{\hyperlink{group___neo_pixel___stripe_ga23ae424d3a323c2e315b3f89ba857a84}{NeoPixelSetArray}}(\mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}});}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00110}00110\ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00112}\mbox{\hyperlink{group___neo_pixel___stripe_gaa286fdaba2147e99c24195745ad30dba}{00112}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___neo_pixel___stripe_gaa286fdaba2147e99c24195745ad30dba}{NeoPixelRainbow}}(uint16\_t\ first\_hue,\ uint8\_t\ sat,\ uint8\_t\ val,\ uint8\_t\ reps)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00113}00113\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint16\_t\ i=0;\ i<\mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\_length}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ uint16\_t\ hue\ =\ first\_hue\ +\ (i\ *\ reps\ *\ 65536)\ /\ \mbox{\hyperlink{neopixel__stripe_8c_ae38763002b01e6e45dda23bd0a2309ea}{stripe\_length}};}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\_color\_t}}\ color\ =\ \mbox{\hyperlink{group___neo_pixel___stripe_ga1f293711b6af3e20c821fd26c7089111}{NeoPixelHSV2Color}}(hue,\ sat,\ val);}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}}[i]\ =\ color;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00117}00117\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00118}00118\ \ \ \ \ \mbox{\hyperlink{group___neo_pixel___stripe_ga23ae424d3a323c2e315b3f89ba857a84}{NeoPixelSetArray}}(\mbox{\hyperlink{neopixel__stripe_8c_a676ea64a29acbfc17f5512646b1ec925}{stripe\_colors}});}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00119}00119\ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00121}\mbox{\hyperlink{group___neo_pixel___stripe_gaf687598b356c6dab43afa17df8014a22}{00121}}\ \mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\_color\_t}}\ \mbox{\hyperlink{group___neo_pixel___stripe_gaf687598b356c6dab43afa17df8014a22}{NeoPixelRgb2Color}}(uint8\_t\ red,\ uint8\_t\ green,\ uint8\_t\ blue)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{return}\ (red\ <<\ \mbox{\hyperlink{neopixel__stripe_8c_a7b63a430cb1ca07c7feeb74a0626fcaa}{RED\_OFFSET}})\ |\ (green\ <<\ \mbox{\hyperlink{neopixel__stripe_8c_aea3275e63db7d1cb3df830ba4d27a838}{GREEN\_OFFSET}})\ |\ (blue\ <<\ \mbox{\hyperlink{neopixel__stripe_8c_a62e3dbb5365407c155ed8c6ec346e8e1}{BLUE\_OFFSET}});}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00123}00123\ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00125}\mbox{\hyperlink{group___neo_pixel___stripe_ga1f293711b6af3e20c821fd26c7089111}{00125}}\ \mbox{\hyperlink{group___neo_pixel___stripe_ga46c58082e9d85e6503e36f0e2306bb39}{neopixel\_color\_t}}\ \mbox{\hyperlink{group___neo_pixel___stripe_ga1f293711b6af3e20c821fd26c7089111}{NeoPixelHSV2Color}}(uint16\_t\ hue,\ uint8\_t\ sat,\ uint8\_t\ val)\{}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00127}00127\ \ \ uint8\_t\ r,\ g,\ b;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00129}00129\ \ \ hue\ =\ (hue\ *\ 1530L\ +\ 32768)\ /\ 65536;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00130}00130\ \ \ \textcolor{comment}{//\ Convert\ hue\ to\ R,G,B\ (nested\ ifs\ faster\ than\ divide+mod+switch):}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00131}00131\ \ \ \textcolor{keywordflow}{if}\ (hue\ <\ 510)\ \{\ \textcolor{comment}{//\ Red\ to\ Green-\/1}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00132}00132\ \ \ \ \ b\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00133}00133\ \ \ \ \ \textcolor{keywordflow}{if}\ (hue\ <\ 255)\ \{\ \textcolor{comment}{//\ \ \ Red\ to\ Yellow-\/1}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00134}00134\ \ \ \ \ \ \ r\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00135}00135\ \ \ \ \ \ \ g\ =\ hue;\ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ g\ =\ 0\ to\ 254}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00136}00136\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ Yellow\ to\ Green-\/1}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00137}00137\ \ \ \ \ \ \ r\ =\ 510\ -\/\ hue;\ \textcolor{comment}{//\ \ \ \ \ r\ =\ 255\ to\ 1}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00138}00138\ \ \ \ \ \ \ g\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00139}00139\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00140}00140\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hue\ <\ 1020)\ \{\ \textcolor{comment}{//\ Green\ to\ Blue-\/1}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00141}00141\ \ \ \ \ r\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00142}00142\ \ \ \ \ \textcolor{keywordflow}{if}\ (hue\ <\ 765)\ \{\ \textcolor{comment}{//\ \ \ Green\ to\ Cyan-\/1}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00143}00143\ \ \ \ \ \ \ g\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00144}00144\ \ \ \ \ \ \ b\ =\ hue\ -\/\ 510;\ \ \textcolor{comment}{//\ \ \ \ \ b\ =\ 0\ to\ 254}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00145}00145\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ Cyan\ to\ Blue-\/1}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00146}00146\ \ \ \ \ \ \ g\ =\ 1020\ -\/\ hue;\ \textcolor{comment}{//\ \ \ \ \ g\ =\ 255\ to\ 1}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00147}00147\ \ \ \ \ \ \ b\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00148}00148\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00149}00149\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hue\ <\ 1530)\ \{\ \textcolor{comment}{//\ Blue\ to\ Red-\/1}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00150}00150\ \ \ \ \ g\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00151}00151\ \ \ \ \ \textcolor{keywordflow}{if}\ (hue\ <\ 1275)\ \{\ \textcolor{comment}{//\ \ \ Blue\ to\ Magenta-\/1}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00152}00152\ \ \ \ \ \ \ r\ =\ hue\ -\/\ 1020;\ \textcolor{comment}{//\ \ \ \ \ r\ =\ 0\ to\ 254}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00153}00153\ \ \ \ \ \ \ b\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00154}00154\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ \ \ Magenta\ to\ Red-\/1}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00155}00155\ \ \ \ \ \ \ r\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00156}00156\ \ \ \ \ \ \ b\ =\ 1530\ -\/\ hue;\ \textcolor{comment}{//\ \ \ \ \ b\ =\ 255\ to\ 1}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00157}00157\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00158}00158\ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ Last\ 0.5\ Red\ (quicker\ than\ \%\ operator)}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00159}00159\ \ \ \ \ r\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00160}00160\ \ \ \ \ g\ =\ b\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00161}00161\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00163}00163\ \ \ \textcolor{comment}{//\ Apply\ saturation\ and\ value\ to\ R,G,B,\ pack\ into\ 32-\/bit\ result:}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00164}00164\ \ \ uint32\_t\ v1\ =\ 1\ +\ val;\ \ \textcolor{comment}{//\ 1\ to\ 256;\ allows\ >>8\ instead\ of\ /255}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00165}00165\ \ \ uint16\_t\ s1\ =\ 1\ +\ sat;\ \ \textcolor{comment}{//\ 1\ to\ 256;\ same\ reason}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00166}00166\ \ \ uint8\_t\ s2\ =\ 255\ -\/\ sat;\ \textcolor{comment}{//\ 255\ to\ 0}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00167}00167\ \ \ \textcolor{keywordflow}{return}\ ((((((r\ *\ s1)\ >>\ 8)\ +\ s2)\ *\ v1)\ \&\ 0xff00)\ <<\ 8)\ |}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ (((((g\ *\ s1)\ >>\ 8)\ +\ s2)\ *\ v1)\ \&\ 0xff00)\ |}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \ (((((b\ *\ s1)\ >>\ 8)\ +\ s2)\ *\ v1)\ >>\ 8);}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00170}00170\ \}}
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{neopixel__stripe_8c_source_l00172}00172\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

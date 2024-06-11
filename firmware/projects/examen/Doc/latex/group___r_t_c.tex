@@ -1,0 +1,202 @@
+\doxysubsubsection{Real Time Clock}
+\hypertarget{group___r_t_c}{}\label{group___r_t_c}\index{Real Time Clock@{Real Time Clock}}
+\doxysubsubsubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structrtc__t}{rtc\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Date and time structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___r_t_c_ga61d0d319cb00c61aaaee21009da3157c}{MAX\+\_\+\+MONTH}}~12
+\begin{DoxyCompactList}\small\item\em GPIO driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___r_t_c_gaa83dd816c7b33ef31213a741960873cf}{MAX\+\_\+\+MDAY}}~31
+\item 
+\#define \mbox{\hyperlink{group___r_t_c_ga006244576eec139097bc7ccf78c7e62f}{MAX\+\_\+\+WDAY}}~7
+\item 
+\#define \mbox{\hyperlink{group___r_t_c_ga1ad2ed8c56be0837d360fc179a456c74}{MAX\+\_\+\+HOUR}}~24
+\item 
+\#define \mbox{\hyperlink{group___r_t_c_ga3f864a4db2a6709466cafd13f3cc0af2}{MAX\+\_\+\+MIN}}~59
+\item 
+\#define \mbox{\hyperlink{group___r_t_c_gab96c94c7d4f72592fb0bd579675c89f2}{MAX\+\_\+\+SEC}}~59
+\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{group___r_t_c_ga5233b4ea4721ca1119fe81d7e4cbb472}{Rtc\+Config}} (\mbox{\hyperlink{structrtc__t}{rtc\+\_\+t}} \texorpdfstring{$\ast$}{*}rtc)
+\begin{DoxyCompactList}\small\item\em Initial configuration of Date and Time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___r_t_c_gabaac4488a0574f6a4871db4428918dba}{Rtc\+Read}} (\mbox{\hyperlink{structrtc__t}{rtc\+\_\+t}} \texorpdfstring{$\ast$}{*}rtc)
+\begin{DoxyCompactList}\small\item\em Reads actual date and time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de «define»}
+\Hypertarget{group___r_t_c_ga1ad2ed8c56be0837d360fc179a456c74}\label{group___r_t_c_ga1ad2ed8c56be0837d360fc179a456c74} 
+\index{Real Time Clock@{Real Time Clock}!MAX\_HOUR@{MAX\_HOUR}}
+\index{MAX\_HOUR@{MAX\_HOUR}!Real Time Clock@{Real Time Clock}}
+\doxysubsubsubsubsection{\texorpdfstring{MAX\_HOUR}{MAX\_HOUR}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+HOUR~24}
+
+
+
+Definición en la línea \mbox{\hyperlink{rtc__mcu_8h_source_l00039}{39}} del archivo \mbox{\hyperlink{rtc__mcu_8h_source}{rtc\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{rtc__mcu_8c_source_l00029}{Rtc\+Config()}}.
+
+\Hypertarget{group___r_t_c_gaa83dd816c7b33ef31213a741960873cf}\label{group___r_t_c_gaa83dd816c7b33ef31213a741960873cf} 
+\index{Real Time Clock@{Real Time Clock}!MAX\_MDAY@{MAX\_MDAY}}
+\index{MAX\_MDAY@{MAX\_MDAY}!Real Time Clock@{Real Time Clock}}
+\doxysubsubsubsubsection{\texorpdfstring{MAX\_MDAY}{MAX\_MDAY}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+MDAY~31}
+
+
+
+Definición en la línea \mbox{\hyperlink{rtc__mcu_8h_source_l00037}{37}} del archivo \mbox{\hyperlink{rtc__mcu_8h_source}{rtc\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{rtc__mcu_8c_source_l00029}{Rtc\+Config()}}.
+
+\Hypertarget{group___r_t_c_ga3f864a4db2a6709466cafd13f3cc0af2}\label{group___r_t_c_ga3f864a4db2a6709466cafd13f3cc0af2} 
+\index{Real Time Clock@{Real Time Clock}!MAX\_MIN@{MAX\_MIN}}
+\index{MAX\_MIN@{MAX\_MIN}!Real Time Clock@{Real Time Clock}}
+\doxysubsubsubsubsection{\texorpdfstring{MAX\_MIN}{MAX\_MIN}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+MIN~59}
+
+
+
+Definición en la línea \mbox{\hyperlink{rtc__mcu_8h_source_l00040}{40}} del archivo \mbox{\hyperlink{rtc__mcu_8h_source}{rtc\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{rtc__mcu_8c_source_l00029}{Rtc\+Config()}}.
+
+\Hypertarget{group___r_t_c_ga61d0d319cb00c61aaaee21009da3157c}\label{group___r_t_c_ga61d0d319cb00c61aaaee21009da3157c} 
+\index{Real Time Clock@{Real Time Clock}!MAX\_MONTH@{MAX\_MONTH}}
+\index{MAX\_MONTH@{MAX\_MONTH}!Real Time Clock@{Real Time Clock}}
+\doxysubsubsubsubsection{\texorpdfstring{MAX\_MONTH}{MAX\_MONTH}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+MONTH~12}
+
+
+
+GPIO driver for the ESP-\/\+EDU Board. 
+
+This driver provide functions to configure and handle the ESP-\/\+EDU General Purpose Input-\/\+Outputs .
+
+\begin{DoxyNote}{Nota}
+GPIO\+\_\+4 and GPIO\+\_\+15 are connected to ESP-\/\+EDU switches (only GPIO\+\_\+15 is available in headers)
+
+GPIO\+\_\+5, GPIO\+\_\+10 and GPIO\+\_\+11 are connected to ESP-\/\+EDU LEDs.
+
+GPIO\+\_\+12 and GPIO\+\_\+13 are not recommended for use, because using them will overwrite the flash and debug functionalities via USB.
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 23/10/2023   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+Definición en la línea \mbox{\hyperlink{rtc__mcu_8h_source_l00036}{36}} del archivo \mbox{\hyperlink{rtc__mcu_8h_source}{rtc\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{rtc__mcu_8c_source_l00029}{Rtc\+Config()}}.
+
+\Hypertarget{group___r_t_c_gab96c94c7d4f72592fb0bd579675c89f2}\label{group___r_t_c_gab96c94c7d4f72592fb0bd579675c89f2} 
+\index{Real Time Clock@{Real Time Clock}!MAX\_SEC@{MAX\_SEC}}
+\index{MAX\_SEC@{MAX\_SEC}!Real Time Clock@{Real Time Clock}}
+\doxysubsubsubsubsection{\texorpdfstring{MAX\_SEC}{MAX\_SEC}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+SEC~59}
+
+
+
+Definición en la línea \mbox{\hyperlink{rtc__mcu_8h_source_l00041}{41}} del archivo \mbox{\hyperlink{rtc__mcu_8h_source}{rtc\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{rtc__mcu_8c_source_l00029}{Rtc\+Config()}}.
+
+\Hypertarget{group___r_t_c_ga006244576eec139097bc7ccf78c7e62f}\label{group___r_t_c_ga006244576eec139097bc7ccf78c7e62f} 
+\index{Real Time Clock@{Real Time Clock}!MAX\_WDAY@{MAX\_WDAY}}
+\index{MAX\_WDAY@{MAX\_WDAY}!Real Time Clock@{Real Time Clock}}
+\doxysubsubsubsubsection{\texorpdfstring{MAX\_WDAY}{MAX\_WDAY}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+WDAY~7}
+
+
+
+Definición en la línea \mbox{\hyperlink{rtc__mcu_8h_source_l00038}{38}} del archivo \mbox{\hyperlink{rtc__mcu_8h_source}{rtc\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{rtc__mcu_8c_source_l00029}{Rtc\+Config()}}.
+
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___r_t_c_ga5233b4ea4721ca1119fe81d7e4cbb472}\label{group___r_t_c_ga5233b4ea4721ca1119fe81d7e4cbb472} 
+\index{Real Time Clock@{Real Time Clock}!RtcConfig@{RtcConfig}}
+\index{RtcConfig@{RtcConfig}!Real Time Clock@{Real Time Clock}}
+\doxysubsubsubsubsection{\texorpdfstring{RtcConfig()}{RtcConfig()}}
+{\footnotesize\ttfamily bool Rtc\+Config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structrtc__t}{rtc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rtc }\end{DoxyParamCaption})}
+
+
+
+Initial configuration of Date and Time. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em rtc} & Pointer to structure containing initial date and time. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true Correct configuration. 
+
+false Invalid parameters. 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{rtc__mcu_8c_source_l00029}{29}} del archivo \mbox{\hyperlink{rtc__mcu_8c_source}{rtc\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{rtc__mcu_8h_source_l00051}{rtc\+\_\+t\+::hour}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00039}{MAX\+\_\+\+HOUR}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00037}{MAX\+\_\+\+MDAY}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00040}{MAX\+\_\+\+MIN}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00036}{MAX\+\_\+\+MONTH}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00041}{MAX\+\_\+\+SEC}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00038}{MAX\+\_\+\+WDAY}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00049}{rtc\+\_\+t\+::mday}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00052}{rtc\+\_\+t\+::min}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00048}{rtc\+\_\+t\+::month}}, \mbox{\hyperlink{ili9341_8c_source_l00019}{NULL}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00053}{rtc\+\_\+t\+::sec}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00050}{rtc\+\_\+t\+::wday}} y \mbox{\hyperlink{rtc__mcu_8h_source_l00047}{rtc\+\_\+t\+::year}}.
+
+\Hypertarget{group___r_t_c_gabaac4488a0574f6a4871db4428918dba}\label{group___r_t_c_gabaac4488a0574f6a4871db4428918dba} 
+\index{Real Time Clock@{Real Time Clock}!RtcRead@{RtcRead}}
+\index{RtcRead@{RtcRead}!Real Time Clock@{Real Time Clock}}
+\doxysubsubsubsubsection{\texorpdfstring{RtcRead()}{RtcRead()}}
+{\footnotesize\ttfamily void Rtc\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structrtc__t}{rtc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rtc }\end{DoxyParamCaption})}
+
+
+
+Reads actual date and time. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em rtc} & Pointer to structure to store actual date and time. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{rtc__mcu_8c_source_l00051}{51}} del archivo \mbox{\hyperlink{rtc__mcu_8c_source}{rtc\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{rtc__mcu_8h_source_l00051}{rtc\+\_\+t\+::hour}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00049}{rtc\+\_\+t\+::mday}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00052}{rtc\+\_\+t\+::min}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00048}{rtc\+\_\+t\+::month}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00053}{rtc\+\_\+t\+::sec}}, \mbox{\hyperlink{rtc__mcu_8h_source_l00050}{rtc\+\_\+t\+::wday}} y \mbox{\hyperlink{rtc__mcu_8h_source_l00047}{rtc\+\_\+t\+::year}}.
+

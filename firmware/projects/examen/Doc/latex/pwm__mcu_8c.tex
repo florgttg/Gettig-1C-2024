@@ -1,0 +1,76 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/src/pwm\+\_\+mcu.c}
+\hypertarget{pwm__mcu_8c}{}\label{pwm__mcu_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/pwm\_mcu.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/pwm\_mcu.c}}
+{\ttfamily \#include "{}pwm\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}driver/ledc.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pwm__mcu_8c_a701d2222601b84faafa94cb1909df104}{DC\+\_\+\+MAX}}~1023
+\item 
+\#define \mbox{\hyperlink{pwm__mcu_8c_a684bac99a5de1348b0cf76f80c31ae3d}{DC\+\_\+100}}~100
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_w_m_ga50ba8fd6442b4799b8fb9b2e2b859bbd}{PWMInit}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out, \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} gpio, uint16\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Single PWM output inicialization in selected GPIO. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___p_w_m_ga6fe31ebdc570ccdd776a7d4178566062}{PWMOn}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out)
+\begin{DoxyCompactList}\small\item\em Resume PWM output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___p_w_m_ga43660d2e059ccf15efea7fff6a5fbfe4}{PWMOff}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out)
+\begin{DoxyCompactList}\small\item\em Pause PWM output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba}{PWMSet\+Duty\+Cycle}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out, uint8\+\_\+t duty\+\_\+cycle)
+\begin{DoxyCompactList}\small\item\em Change PWM duty cycle of an PWM output. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_w_m_ga223ccf708bb17d7bfb4ffb77d57c0501}{PWMSet\+Freq}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out, uint32\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Change frequency of an PWM output. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_w_m_gad2556985508ded35e34bccc1e974fe6b}{PWMDeinit}} (\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\+\_\+out\+\_\+t}} out)
+\begin{DoxyCompactList}\small\item\em PWM output de-\/inicialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva (\href{mailto:albano.penalva@uner.edu.ar}{\texttt{ albano.\+penalva@uner.\+edu.\+ar}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2024-\/01-\/23
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+Definición en el archivo \mbox{\hyperlink{pwm__mcu_8c_source}{pwm\+\_\+mcu.\+c}}.
+
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{pwm__mcu_8c_a684bac99a5de1348b0cf76f80c31ae3d}\label{pwm__mcu_8c_a684bac99a5de1348b0cf76f80c31ae3d} 
+\index{pwm\_mcu.c@{pwm\_mcu.c}!DC\_100@{DC\_100}}
+\index{DC\_100@{DC\_100}!pwm\_mcu.c@{pwm\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{DC\_100}{DC\_100}}
+{\footnotesize\ttfamily \#define DC\+\_\+100~100}
+
+
+
+Definición en la línea \mbox{\hyperlink{pwm__mcu_8c_source_l00017}{17}} del archivo \mbox{\hyperlink{pwm__mcu_8c_source}{pwm\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{pwm__mcu_8c_source_l00115}{PWMSet\+Duty\+Cycle()}}.
+
+\Hypertarget{pwm__mcu_8c_a701d2222601b84faafa94cb1909df104}\label{pwm__mcu_8c_a701d2222601b84faafa94cb1909df104} 
+\index{pwm\_mcu.c@{pwm\_mcu.c}!DC\_MAX@{DC\_MAX}}
+\index{DC\_MAX@{DC\_MAX}!pwm\_mcu.c@{pwm\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{DC\_MAX}{DC\_MAX}}
+{\footnotesize\ttfamily \#define DC\+\_\+\+MAX~1023}
+
+
+
+Definición en la línea \mbox{\hyperlink{pwm__mcu_8c_source_l00016}{16}} del archivo \mbox{\hyperlink{pwm__mcu_8c_source}{pwm\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{pwm__mcu_8c_source_l00115}{PWMSet\+Duty\+Cycle()}}.
+

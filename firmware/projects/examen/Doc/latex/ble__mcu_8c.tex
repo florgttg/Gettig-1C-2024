@@ -1,0 +1,421 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/src/ble\+\_\+mcu.c}
+\hypertarget{ble__mcu_8c}{}\label{ble__mcu_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/ble\_mcu.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/ble\_mcu.c}}
+{\ttfamily \#include "{}ble\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}nvs\+\_\+flash.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+log.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+bt.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+gap\+\_\+ble\+\_\+api.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+gatts\+\_\+api.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+bt\+\_\+defs.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+bt\+\_\+main.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/task.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/queue.\+h"{}}\newline
+\doxysubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_m_d__t}{CMD\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structgatts__profile__inst}{gatts\+\_\+profile\+\_\+inst}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ble__mcu_8c_afc3d101f633a076cc1ca84b85b6224b2}{TAG}}~"{}ble\+\_\+mcu"{}
+\item 
+\#define \mbox{\hyperlink{ble__mcu_8c_a1ae3be7f0f25d3868bdfca3a8a212aa5}{MTU\+\_\+\+MAX\+\_\+\+BYTES}}~20  /\texorpdfstring{$\ast$}{*} GATT Maximum Transmission Unit \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{ble__mcu_8c_a3fb2dea7d964f6ed95dfac2897c4001d}{PAYLOAD\+\_\+\+SIZE}}~128  /\texorpdfstring{$\ast$}{*} Maximun number of bytes transmitted in one transaction \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{ble__mcu_8c_adf1330d5851edcffbf764521c031ecab}{SPP\+\_\+\+PROFILE\+\_\+\+NUM}}~1
+\item 
+\#define \mbox{\hyperlink{ble__mcu_8c_a586acfe75065c5989d1b3728f7096aa6}{SPP\+\_\+\+PROFILE\+\_\+\+APP\+\_\+\+IDX}}~0
+\item 
+\#define \mbox{\hyperlink{ble__mcu_8c_a538f72549db4fcdae32d19eb41d8aeb6}{ESP\+\_\+\+SPP\+\_\+\+APP\+\_\+\+ID}}~0x56
+\item 
+\#define \mbox{\hyperlink{ble__mcu_8c_a12513bc359ab601241128c2b3be4ce95}{SPP\+\_\+\+SVC\+\_\+\+INST\+\_\+\+ID}}~0
+\item 
+\#define \mbox{\hyperlink{ble__mcu_8c_a10581b03212a8f728d1abfb336b9c0df}{SPP\+\_\+\+DATA\+\_\+\+MAX\+\_\+\+LEN}}~(128) /\texorpdfstring{$\ast$}{*} Maximun number of bytes transmitted in one transaction \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{ble__mcu_8c_a918a456b84beb7bae7e4318b79b0d49b}{ESP\+\_\+\+GATT\+\_\+\+UUID\+\_\+\+SPP\+\_\+\+SERVICE}}~0x\+FFE0  /\texorpdfstring{$\ast$}{*} Service ID \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{ble__mcu_8c_ab5b7bb4ada875356d890e5538d64777b}{ESP\+\_\+\+GATT\+\_\+\+UUID\+\_\+\+SPP\+\_\+\+DATA\+\_\+\+RECEIVE\+\_\+\+NOTIFY}}~0x\+FFE1  /\texorpdfstring{$\ast$}{*} Characteristic ID \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{ble__mcu_8c_a5d2f5677517e7c8fd4ee8e2287ebec3b}{ADV\+\_\+\+CONFIG\+\_\+\+FLAG}}~(1 $<$$<$ 0)
+\item 
+\#define \mbox{\hyperlink{ble__mcu_8c_ad92fd6350531e23c955c71626296406c}{SCAN\+\_\+\+RSP\+\_\+\+CONFIG\+\_\+\+FLAG}}~(1 $<$$<$ 1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \newline
+\mbox{\hyperlink{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2da52ed58771180ac0a3df40c17786a259a}{SPP\+\_\+\+IDX\+\_\+\+SVC}}
+, \mbox{\hyperlink{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2dad1ac8df3d9db24bad7cd052210031bac}{SPP\+\_\+\+IDX\+\_\+\+SPP\+\_\+\+DATA\+\_\+\+RECV\+\_\+\+NOTIFY\+\_\+\+CHAR}}
+, \mbox{\hyperlink{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2da9e8e18c6909bcb4a02b60f46821fe949}{SPP\+\_\+\+IDX\+\_\+\+SPP\+\_\+\+DATA\+\_\+\+NOTIFY\+\_\+\+VAL}}
+, \mbox{\hyperlink{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2da56cafad58a63d5ef6adef33568bfb05c}{SPP\+\_\+\+IDX\+\_\+\+SPP\+\_\+\+DATA\+\_\+\+NOTIFY\+\_\+\+CFG}}
+, \newline
+\mbox{\hyperlink{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2daac45a705ecff8686e7b1b0141f5595f8}{SPP\+\_\+\+IDX\+\_\+\+SPP\+\_\+\+DATA\+\_\+\+RECV\+\_\+\+VAL}}
+, \mbox{\hyperlink{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2dad171daa449c6402705498aeb5f895ac1}{SPP\+\_\+\+IDX\+\_\+\+SPP\+\_\+\+DATA\+\_\+\+RECV\+\_\+\+CFG}}
+, \mbox{\hyperlink{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2dacc0fb9d26eb20a7f016ad45d0d748d9d}{SPP\+\_\+\+IDX\+\_\+\+NB}}
+ \}
+\item 
+enum \mbox{\hyperlink{ble__mcu_8c_a1f5993000dcac629765473232f3ca332}{comd\+\_\+bt\+\_\+ev\+\_\+t}} \{ \newline
+\mbox{\hyperlink{ble__mcu_8c_a1f5993000dcac629765473232f3ca332a16315b66252c4ed9cb96edc99b813259}{CMD\+\_\+\+BLUETOOTH\+\_\+\+CONNECT}}
+, \mbox{\hyperlink{ble__mcu_8c_a1f5993000dcac629765473232f3ca332ab11ef6e1ea48c8f765d975496b9df064}{CMD\+\_\+\+BLUETOOTH\+\_\+\+AUTH}}
+, \mbox{\hyperlink{ble__mcu_8c_a1f5993000dcac629765473232f3ca332a31ef6fd9876f6c3b1183a3058d6a5710}{CMD\+\_\+\+BLUETOOTH\+\_\+\+DATA}}
+, \mbox{\hyperlink{ble__mcu_8c_a1f5993000dcac629765473232f3ca332a2a96e055bfe7c58983219f7232db502a}{CMD\+\_\+\+BLUETOOTH\+\_\+\+DISCONNECT}}
+, \newline
+\mbox{\hyperlink{ble__mcu_8c_a1f5993000dcac629765473232f3ca332a8edf41e28a36066b125d1d9c54585bf3}{CMD\+\_\+\+SEND\+\_\+\+DATA}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ble__mcu_8c_a294c1257efb2b1dd77a1feb2b37750f0}{bluetooth\+\_\+events\+\_\+task}} (void \texorpdfstring{$\ast$}{*}arg)
+\item 
+void \mbox{\hyperlink{group___b_l_e_ga8001369ce247b2413afd6d8a14fe8d82}{Ble\+Init}} (\mbox{\hyperlink{structble__config__t}{ble\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}ble\+\_\+device)
+\begin{DoxyCompactList}\small\item\em Bluetooth initialization. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}} \mbox{\hyperlink{group___b_l_e_ga45f64ecb9f703ecc50b85b6967e85bd5}{Ble\+Status}} (void)
+\begin{DoxyCompactList}\small\item\em Gets BLE connection status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_gae0bdc932377c439b2a2e601dd9b9d56d}{Ble\+Send\+Byte}} (const char \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Send a single byte trough BLE (if connected) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_ga68083cec5599456e78a536031e3b61b8}{Ble\+Send\+String}} (const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Send a string trough BLE (if connected) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_gad7b70ab491715ae295497f0714e05539}{Ble\+Send\+Buffer}} (const char \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t nbytes)
+\begin{DoxyCompactList}\small\item\em Send multiple bytes through serial port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ble__mcu_8c_a47b2e510fe20902fa67e2644118db42e}{device\+\_\+name}}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ble__mcu_8c_adfd3dc55e09cf18a25d61899f1c48194}{ble\+\_\+read\+\_\+isr\+\_\+p}} )(uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t length)
+\item 
+\mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}} \mbox{\hyperlink{ble__mcu_8c_a5361bd9ad8b63d5b91fea8a38d6242e1}{status}} = \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4}{BLE\+\_\+\+OFF}}
+\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{ble__mcu_8c_ad0d8433b87f1fb35a8f2288f68802f99}{x\+Queue\+Events}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{ble__mcu_8c_a53afd88993a442ebd031bb8525c6a8c1}{x\+Queue\+Read}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva (\href{mailto:albano.penalva@uner.edu.ar}{\texttt{ albano.\+penalva@uner.\+edu.\+ar}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2024-\/03-\/22
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+Definición en el archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{ble__mcu_8c_a5d2f5677517e7c8fd4ee8e2287ebec3b}\label{ble__mcu_8c_a5d2f5677517e7c8fd4ee8e2287ebec3b} 
+\index{ble\_mcu.c@{ble\_mcu.c}!ADV\_CONFIG\_FLAG@{ADV\_CONFIG\_FLAG}}
+\index{ADV\_CONFIG\_FLAG@{ADV\_CONFIG\_FLAG}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{ADV\_CONFIG\_FLAG}{ADV\_CONFIG\_FLAG}}
+{\footnotesize\ttfamily \#define ADV\+\_\+\+CONFIG\+\_\+\+FLAG~(1 $<$$<$ 0)}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00053}{53}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+\Hypertarget{ble__mcu_8c_ab5b7bb4ada875356d890e5538d64777b}\label{ble__mcu_8c_ab5b7bb4ada875356d890e5538d64777b} 
+\index{ble\_mcu.c@{ble\_mcu.c}!ESP\_GATT\_UUID\_SPP\_DATA\_RECEIVE\_NOTIFY@{ESP\_GATT\_UUID\_SPP\_DATA\_RECEIVE\_NOTIFY}}
+\index{ESP\_GATT\_UUID\_SPP\_DATA\_RECEIVE\_NOTIFY@{ESP\_GATT\_UUID\_SPP\_DATA\_RECEIVE\_NOTIFY}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{ESP\_GATT\_UUID\_SPP\_DATA\_RECEIVE\_NOTIFY}{ESP\_GATT\_UUID\_SPP\_DATA\_RECEIVE\_NOTIFY}}
+{\footnotesize\ttfamily \#define ESP\+\_\+\+GATT\+\_\+\+UUID\+\_\+\+SPP\+\_\+\+DATA\+\_\+\+RECEIVE\+\_\+\+NOTIFY~0x\+FFE1  /\texorpdfstring{$\ast$}{*} Characteristic ID \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00051}{51}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+\Hypertarget{ble__mcu_8c_a918a456b84beb7bae7e4318b79b0d49b}\label{ble__mcu_8c_a918a456b84beb7bae7e4318b79b0d49b} 
+\index{ble\_mcu.c@{ble\_mcu.c}!ESP\_GATT\_UUID\_SPP\_SERVICE@{ESP\_GATT\_UUID\_SPP\_SERVICE}}
+\index{ESP\_GATT\_UUID\_SPP\_SERVICE@{ESP\_GATT\_UUID\_SPP\_SERVICE}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{ESP\_GATT\_UUID\_SPP\_SERVICE}{ESP\_GATT\_UUID\_SPP\_SERVICE}}
+{\footnotesize\ttfamily \#define ESP\+\_\+\+GATT\+\_\+\+UUID\+\_\+\+SPP\+\_\+\+SERVICE~0x\+FFE0  /\texorpdfstring{$\ast$}{*} Service ID \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00050}{50}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+\Hypertarget{ble__mcu_8c_a538f72549db4fcdae32d19eb41d8aeb6}\label{ble__mcu_8c_a538f72549db4fcdae32d19eb41d8aeb6} 
+\index{ble\_mcu.c@{ble\_mcu.c}!ESP\_SPP\_APP\_ID@{ESP\_SPP\_APP\_ID}}
+\index{ESP\_SPP\_APP\_ID@{ESP\_SPP\_APP\_ID}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{ESP\_SPP\_APP\_ID}{ESP\_SPP\_APP\_ID}}
+{\footnotesize\ttfamily \#define ESP\+\_\+\+SPP\+\_\+\+APP\+\_\+\+ID~0x56}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00036}{36}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ble__mcu_8c_source_l00452}{Ble\+Init()}}.
+
+\Hypertarget{ble__mcu_8c_a1ae3be7f0f25d3868bdfca3a8a212aa5}\label{ble__mcu_8c_a1ae3be7f0f25d3868bdfca3a8a212aa5} 
+\index{ble\_mcu.c@{ble\_mcu.c}!MTU\_MAX\_BYTES@{MTU\_MAX\_BYTES}}
+\index{MTU\_MAX\_BYTES@{MTU\_MAX\_BYTES}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{MTU\_MAX\_BYTES}{MTU\_MAX\_BYTES}}
+{\footnotesize\ttfamily \#define MTU\+\_\+\+MAX\+\_\+\+BYTES~20  /\texorpdfstring{$\ast$}{*} GATT Maximum Transmission Unit \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00032}{32}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ble__mcu_8c_source_l00406}{bluetooth\+\_\+events\+\_\+task()}}.
+
+\Hypertarget{ble__mcu_8c_a3fb2dea7d964f6ed95dfac2897c4001d}\label{ble__mcu_8c_a3fb2dea7d964f6ed95dfac2897c4001d} 
+\index{ble\_mcu.c@{ble\_mcu.c}!PAYLOAD\_SIZE@{PAYLOAD\_SIZE}}
+\index{PAYLOAD\_SIZE@{PAYLOAD\_SIZE}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{PAYLOAD\_SIZE}{PAYLOAD\_SIZE}}
+{\footnotesize\ttfamily \#define PAYLOAD\+\_\+\+SIZE~128  /\texorpdfstring{$\ast$}{*} Maximun number of bytes transmitted in one transaction \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00033}{33}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+\Hypertarget{ble__mcu_8c_ad92fd6350531e23c955c71626296406c}\label{ble__mcu_8c_ad92fd6350531e23c955c71626296406c} 
+\index{ble\_mcu.c@{ble\_mcu.c}!SCAN\_RSP\_CONFIG\_FLAG@{SCAN\_RSP\_CONFIG\_FLAG}}
+\index{SCAN\_RSP\_CONFIG\_FLAG@{SCAN\_RSP\_CONFIG\_FLAG}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{SCAN\_RSP\_CONFIG\_FLAG}{SCAN\_RSP\_CONFIG\_FLAG}}
+{\footnotesize\ttfamily \#define SCAN\+\_\+\+RSP\+\_\+\+CONFIG\+\_\+\+FLAG~(1 $<$$<$ 1)}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00054}{54}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+\Hypertarget{ble__mcu_8c_a10581b03212a8f728d1abfb336b9c0df}\label{ble__mcu_8c_a10581b03212a8f728d1abfb336b9c0df} 
+\index{ble\_mcu.c@{ble\_mcu.c}!SPP\_DATA\_MAX\_LEN@{SPP\_DATA\_MAX\_LEN}}
+\index{SPP\_DATA\_MAX\_LEN@{SPP\_DATA\_MAX\_LEN}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{SPP\_DATA\_MAX\_LEN}{SPP\_DATA\_MAX\_LEN}}
+{\footnotesize\ttfamily \#define SPP\+\_\+\+DATA\+\_\+\+MAX\+\_\+\+LEN~(128) /\texorpdfstring{$\ast$}{*} Maximun number of bytes transmitted in one transaction \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00038}{38}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+\Hypertarget{ble__mcu_8c_a586acfe75065c5989d1b3728f7096aa6}\label{ble__mcu_8c_a586acfe75065c5989d1b3728f7096aa6} 
+\index{ble\_mcu.c@{ble\_mcu.c}!SPP\_PROFILE\_APP\_IDX@{SPP\_PROFILE\_APP\_IDX}}
+\index{SPP\_PROFILE\_APP\_IDX@{SPP\_PROFILE\_APP\_IDX}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{SPP\_PROFILE\_APP\_IDX}{SPP\_PROFILE\_APP\_IDX}}
+{\footnotesize\ttfamily \#define SPP\+\_\+\+PROFILE\+\_\+\+APP\+\_\+\+IDX~0}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00035}{35}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+\Hypertarget{ble__mcu_8c_adf1330d5851edcffbf764521c031ecab}\label{ble__mcu_8c_adf1330d5851edcffbf764521c031ecab} 
+\index{ble\_mcu.c@{ble\_mcu.c}!SPP\_PROFILE\_NUM@{SPP\_PROFILE\_NUM}}
+\index{SPP\_PROFILE\_NUM@{SPP\_PROFILE\_NUM}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{SPP\_PROFILE\_NUM}{SPP\_PROFILE\_NUM}}
+{\footnotesize\ttfamily \#define SPP\+\_\+\+PROFILE\+\_\+\+NUM~1}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00034}{34}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+\Hypertarget{ble__mcu_8c_a12513bc359ab601241128c2b3be4ce95}\label{ble__mcu_8c_a12513bc359ab601241128c2b3be4ce95} 
+\index{ble\_mcu.c@{ble\_mcu.c}!SPP\_SVC\_INST\_ID@{SPP\_SVC\_INST\_ID}}
+\index{SPP\_SVC\_INST\_ID@{SPP\_SVC\_INST\_ID}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{SPP\_SVC\_INST\_ID}{SPP\_SVC\_INST\_ID}}
+{\footnotesize\ttfamily \#define SPP\+\_\+\+SVC\+\_\+\+INST\+\_\+\+ID~0}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00037}{37}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+\Hypertarget{ble__mcu_8c_afc3d101f633a076cc1ca84b85b6224b2}\label{ble__mcu_8c_afc3d101f633a076cc1ca84b85b6224b2} 
+\index{ble\_mcu.c@{ble\_mcu.c}!TAG@{TAG}}
+\index{TAG@{TAG}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{TAG}{TAG}}
+{\footnotesize\ttfamily \#define TAG~"{}ble\+\_\+mcu"{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00031}{31}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ble__mcu_8c_source_l00452}{Ble\+Init()}} y \mbox{\hyperlink{ble__mcu_8c_source_l00406}{bluetooth\+\_\+events\+\_\+task()}}.
+
+
+
+\doxysubsection{Documentación de enumeraciones}
+\Hypertarget{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2d}\label{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2d} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPP\_IDX\_SVC@{SPP\_IDX\_SVC}!ble\_mcu.c@{ble\_mcu.c}}\index{ble\_mcu.c@{ble\_mcu.c}!SPP\_IDX\_SVC@{SPP\_IDX\_SVC}}}\Hypertarget{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2da52ed58771180ac0a3df40c17786a259a}\label{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2da52ed58771180ac0a3df40c17786a259a} 
+SPP\+\_\+\+IDX\+\_\+\+SVC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPP\_IDX\_SPP\_DATA\_RECV\_NOTIFY\_CHAR@{SPP\_IDX\_SPP\_DATA\_RECV\_NOTIFY\_CHAR}!ble\_mcu.c@{ble\_mcu.c}}\index{ble\_mcu.c@{ble\_mcu.c}!SPP\_IDX\_SPP\_DATA\_RECV\_NOTIFY\_CHAR@{SPP\_IDX\_SPP\_DATA\_RECV\_NOTIFY\_CHAR}}}\Hypertarget{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2dad1ac8df3d9db24bad7cd052210031bac}\label{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2dad1ac8df3d9db24bad7cd052210031bac} 
+SPP\+\_\+\+IDX\+\_\+\+SPP\+\_\+\+DATA\+\_\+\+RECV\+\_\+\+NOTIFY\+\_\+\+CHAR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPP\_IDX\_SPP\_DATA\_NOTIFY\_VAL@{SPP\_IDX\_SPP\_DATA\_NOTIFY\_VAL}!ble\_mcu.c@{ble\_mcu.c}}\index{ble\_mcu.c@{ble\_mcu.c}!SPP\_IDX\_SPP\_DATA\_NOTIFY\_VAL@{SPP\_IDX\_SPP\_DATA\_NOTIFY\_VAL}}}\Hypertarget{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2da9e8e18c6909bcb4a02b60f46821fe949}\label{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2da9e8e18c6909bcb4a02b60f46821fe949} 
+SPP\+\_\+\+IDX\+\_\+\+SPP\+\_\+\+DATA\+\_\+\+NOTIFY\+\_\+\+VAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPP\_IDX\_SPP\_DATA\_NOTIFY\_CFG@{SPP\_IDX\_SPP\_DATA\_NOTIFY\_CFG}!ble\_mcu.c@{ble\_mcu.c}}\index{ble\_mcu.c@{ble\_mcu.c}!SPP\_IDX\_SPP\_DATA\_NOTIFY\_CFG@{SPP\_IDX\_SPP\_DATA\_NOTIFY\_CFG}}}\Hypertarget{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2da56cafad58a63d5ef6adef33568bfb05c}\label{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2da56cafad58a63d5ef6adef33568bfb05c} 
+SPP\+\_\+\+IDX\+\_\+\+SPP\+\_\+\+DATA\+\_\+\+NOTIFY\+\_\+\+CFG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPP\_IDX\_SPP\_DATA\_RECV\_VAL@{SPP\_IDX\_SPP\_DATA\_RECV\_VAL}!ble\_mcu.c@{ble\_mcu.c}}\index{ble\_mcu.c@{ble\_mcu.c}!SPP\_IDX\_SPP\_DATA\_RECV\_VAL@{SPP\_IDX\_SPP\_DATA\_RECV\_VAL}}}\Hypertarget{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2daac45a705ecff8686e7b1b0141f5595f8}\label{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2daac45a705ecff8686e7b1b0141f5595f8} 
+SPP\+\_\+\+IDX\+\_\+\+SPP\+\_\+\+DATA\+\_\+\+RECV\+\_\+\+VAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPP\_IDX\_SPP\_DATA\_RECV\_CFG@{SPP\_IDX\_SPP\_DATA\_RECV\_CFG}!ble\_mcu.c@{ble\_mcu.c}}\index{ble\_mcu.c@{ble\_mcu.c}!SPP\_IDX\_SPP\_DATA\_RECV\_CFG@{SPP\_IDX\_SPP\_DATA\_RECV\_CFG}}}\Hypertarget{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2dad171daa449c6402705498aeb5f895ac1}\label{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2dad171daa449c6402705498aeb5f895ac1} 
+SPP\+\_\+\+IDX\+\_\+\+SPP\+\_\+\+DATA\+\_\+\+RECV\+\_\+\+CFG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPP\_IDX\_NB@{SPP\_IDX\_NB}!ble\_mcu.c@{ble\_mcu.c}}\index{ble\_mcu.c@{ble\_mcu.c}!SPP\_IDX\_NB@{SPP\_IDX\_NB}}}\Hypertarget{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2dacc0fb9d26eb20a7f016ad45d0d748d9d}\label{ble__mcu_8c_a0411cd49bb5b71852cecd93bcbf0ca2dacc0fb9d26eb20a7f016ad45d0d748d9d} 
+SPP\+\_\+\+IDX\+\_\+\+NB&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00040}{40}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+\Hypertarget{ble__mcu_8c_a1f5993000dcac629765473232f3ca332}\label{ble__mcu_8c_a1f5993000dcac629765473232f3ca332} 
+\index{ble\_mcu.c@{ble\_mcu.c}!comd\_bt\_ev\_t@{comd\_bt\_ev\_t}}
+\index{comd\_bt\_ev\_t@{comd\_bt\_ev\_t}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{comd\_bt\_ev\_t}{comd\_bt\_ev\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ble__mcu_8c_a1f5993000dcac629765473232f3ca332}{comd\+\_\+bt\+\_\+ev\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_BLUETOOTH\_CONNECT@{CMD\_BLUETOOTH\_CONNECT}!ble\_mcu.c@{ble\_mcu.c}}\index{ble\_mcu.c@{ble\_mcu.c}!CMD\_BLUETOOTH\_CONNECT@{CMD\_BLUETOOTH\_CONNECT}}}\Hypertarget{ble__mcu_8c_a1f5993000dcac629765473232f3ca332a16315b66252c4ed9cb96edc99b813259}\label{ble__mcu_8c_a1f5993000dcac629765473232f3ca332a16315b66252c4ed9cb96edc99b813259} 
+CMD\+\_\+\+BLUETOOTH\+\_\+\+CONNECT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_BLUETOOTH\_AUTH@{CMD\_BLUETOOTH\_AUTH}!ble\_mcu.c@{ble\_mcu.c}}\index{ble\_mcu.c@{ble\_mcu.c}!CMD\_BLUETOOTH\_AUTH@{CMD\_BLUETOOTH\_AUTH}}}\Hypertarget{ble__mcu_8c_a1f5993000dcac629765473232f3ca332ab11ef6e1ea48c8f765d975496b9df064}\label{ble__mcu_8c_a1f5993000dcac629765473232f3ca332ab11ef6e1ea48c8f765d975496b9df064} 
+CMD\+\_\+\+BLUETOOTH\+\_\+\+AUTH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_BLUETOOTH\_DATA@{CMD\_BLUETOOTH\_DATA}!ble\_mcu.c@{ble\_mcu.c}}\index{ble\_mcu.c@{ble\_mcu.c}!CMD\_BLUETOOTH\_DATA@{CMD\_BLUETOOTH\_DATA}}}\Hypertarget{ble__mcu_8c_a1f5993000dcac629765473232f3ca332a31ef6fd9876f6c3b1183a3058d6a5710}\label{ble__mcu_8c_a1f5993000dcac629765473232f3ca332a31ef6fd9876f6c3b1183a3058d6a5710} 
+CMD\+\_\+\+BLUETOOTH\+\_\+\+DATA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_BLUETOOTH\_DISCONNECT@{CMD\_BLUETOOTH\_DISCONNECT}!ble\_mcu.c@{ble\_mcu.c}}\index{ble\_mcu.c@{ble\_mcu.c}!CMD\_BLUETOOTH\_DISCONNECT@{CMD\_BLUETOOTH\_DISCONNECT}}}\Hypertarget{ble__mcu_8c_a1f5993000dcac629765473232f3ca332a2a96e055bfe7c58983219f7232db502a}\label{ble__mcu_8c_a1f5993000dcac629765473232f3ca332a2a96e055bfe7c58983219f7232db502a} 
+CMD\+\_\+\+BLUETOOTH\+\_\+\+DISCONNECT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMD\_SEND\_DATA@{CMD\_SEND\_DATA}!ble\_mcu.c@{ble\_mcu.c}}\index{ble\_mcu.c@{ble\_mcu.c}!CMD\_SEND\_DATA@{CMD\_SEND\_DATA}}}\Hypertarget{ble__mcu_8c_a1f5993000dcac629765473232f3ca332a8edf41e28a36066b125d1d9c54585bf3}\label{ble__mcu_8c_a1f5993000dcac629765473232f3ca332a8edf41e28a36066b125d1d9c54585bf3} 
+CMD\+\_\+\+SEND\+\_\+\+DATA&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00057}{57}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{ble__mcu_8c_a294c1257efb2b1dd77a1feb2b37750f0}\label{ble__mcu_8c_a294c1257efb2b1dd77a1feb2b37750f0} 
+\index{ble\_mcu.c@{ble\_mcu.c}!bluetooth\_events\_task@{bluetooth\_events\_task}}
+\index{bluetooth\_events\_task@{bluetooth\_events\_task}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{bluetooth\_events\_task()}{bluetooth\_events\_task()}}
+{\footnotesize\ttfamily void bluetooth\+\_\+events\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00406}{406}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__hid__mcu_8h_source_l00039}{BLE\+\_\+\+CONNECTED}}, \mbox{\hyperlink{ble__hid__mcu_8h_source_l00038}{BLE\+\_\+\+DISCONNECTED}}, \mbox{\hyperlink{ble__mcu_8c_source_l00059}{CMD\+\_\+\+BLUETOOTH\+\_\+\+AUTH}}, \mbox{\hyperlink{ble__mcu_8c_source_l00058}{CMD\+\_\+\+BLUETOOTH\+\_\+\+CONNECT}}, \mbox{\hyperlink{ble__mcu_8c_source_l00060}{CMD\+\_\+\+BLUETOOTH\+\_\+\+DATA}}, \mbox{\hyperlink{ble__mcu_8c_source_l00061}{CMD\+\_\+\+BLUETOOTH\+\_\+\+DISCONNECT}}, \mbox{\hyperlink{ble__mcu_8c_source_l00062}{CMD\+\_\+\+SEND\+\_\+\+DATA}}, \mbox{\hyperlink{ble__mcu_8c_source_l00068}{CMD\+\_\+t\+::command}}, \mbox{\hyperlink{ble__mcu_8c_source_l00069}{CMD\+\_\+t\+::length}}, \mbox{\hyperlink{ble__mcu_8c_source_l00032}{MTU\+\_\+\+MAX\+\_\+\+BYTES}}, \mbox{\hyperlink{ble__mcu_8c_source_l00070}{CMD\+\_\+t\+::payload}}, \mbox{\hyperlink{ble__mcu_8c_source_l00066}{CMD\+\_\+t\+::spp\+\_\+conn\+\_\+id}}, \mbox{\hyperlink{ble__mcu_8c_source_l00067}{CMD\+\_\+t\+::spp\+\_\+gatts\+\_\+if}}, \mbox{\hyperlink{ble__mcu_8c_source_l00043}{SPP\+\_\+\+IDX\+\_\+\+SPP\+\_\+\+DATA\+\_\+\+NOTIFY\+\_\+\+VAL}}, \mbox{\hyperlink{ble__mcu_8c_source_l00076}{status}}, \mbox{\hyperlink{ble__mcu_8c_source_l00031}{TAG}}, \mbox{\hyperlink{ble__mcu_8c_source_l00093}{x\+Queue\+Events}} y \mbox{\hyperlink{ble__mcu_8c_source_l00094}{x\+Queue\+Read}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ble__mcu_8c_source_l00452}{Ble\+Init()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{ble__mcu_8c_adfd3dc55e09cf18a25d61899f1c48194}\label{ble__mcu_8c_adfd3dc55e09cf18a25d61899f1c48194} 
+\index{ble\_mcu.c@{ble\_mcu.c}!ble\_read\_isr\_p@{ble\_read\_isr\_p}}
+\index{ble\_read\_isr\_p@{ble\_read\_isr\_p}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{ble\_read\_isr\_p}{ble\_read\_isr\_p}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} ble\+\_\+read\+\_\+isr\+\_\+p) (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t length) (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data,  }\item[{uint8\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00075}{75}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ble__mcu_8c_source_l00452}{Ble\+Init()}}.
+
+\Hypertarget{ble__mcu_8c_a47b2e510fe20902fa67e2644118db42e}\label{ble__mcu_8c_a47b2e510fe20902fa67e2644118db42e} 
+\index{ble\_mcu.c@{ble\_mcu.c}!device\_name@{device\_name}}
+\index{device\_name@{device\_name}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{device\_name}{device\_name}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} device\+\_\+name}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00074}{74}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ble__mcu_8c_source_l00452}{Ble\+Init()}}.
+
+\Hypertarget{ble__mcu_8c_a5361bd9ad8b63d5b91fea8a38d6242e1}\label{ble__mcu_8c_a5361bd9ad8b63d5b91fea8a38d6242e1} 
+\index{ble\_mcu.c@{ble\_mcu.c}!status@{status}}
+\index{status@{status}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}} status = \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4}{BLE\+\_\+\+OFF}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00076}{76}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ble__mcu_8c_source_l00557}{Ble\+Send\+Buffer()}}, \mbox{\hyperlink{ble__mcu_8c_source_l00534}{Ble\+Send\+Byte()}}, \mbox{\hyperlink{ble__mcu_8c_source_l00544}{Ble\+Send\+String()}}, \mbox{\hyperlink{ble__mcu_8c_source_l00530}{Ble\+Status()}} y \mbox{\hyperlink{ble__mcu_8c_source_l00406}{bluetooth\+\_\+events\+\_\+task()}}.
+
+\Hypertarget{ble__mcu_8c_ad0d8433b87f1fb35a8f2288f68802f99}\label{ble__mcu_8c_ad0d8433b87f1fb35a8f2288f68802f99} 
+\index{ble\_mcu.c@{ble\_mcu.c}!xQueueEvents@{xQueueEvents}}
+\index{xQueueEvents@{xQueueEvents}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{xQueueEvents}{xQueueEvents}}
+{\footnotesize\ttfamily Queue\+Handle\+\_\+t x\+Queue\+Events = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00093}{93}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ble__mcu_8c_source_l00452}{Ble\+Init()}}, \mbox{\hyperlink{ble__mcu_8c_source_l00557}{Ble\+Send\+Buffer()}}, \mbox{\hyperlink{ble__mcu_8c_source_l00534}{Ble\+Send\+Byte()}}, \mbox{\hyperlink{ble__mcu_8c_source_l00544}{Ble\+Send\+String()}} y \mbox{\hyperlink{ble__mcu_8c_source_l00406}{bluetooth\+\_\+events\+\_\+task()}}.
+
+\Hypertarget{ble__mcu_8c_a53afd88993a442ebd031bb8525c6a8c1}\label{ble__mcu_8c_a53afd88993a442ebd031bb8525c6a8c1} 
+\index{ble\_mcu.c@{ble\_mcu.c}!xQueueRead@{xQueueRead}}
+\index{xQueueRead@{xQueueRead}!ble\_mcu.c@{ble\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{xQueueRead}{xQueueRead}}
+{\footnotesize\ttfamily Queue\+Handle\+\_\+t x\+Queue\+Read = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00094}{94}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ble__mcu_8c_source_l00452}{Ble\+Init()}} y \mbox{\hyperlink{ble__mcu_8c_source_l00406}{bluetooth\+\_\+events\+\_\+task()}}.
+

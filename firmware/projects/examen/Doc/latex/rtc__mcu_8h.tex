@@ -1,0 +1,31 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/inc/rtc\+\_\+mcu.h}
+\hypertarget{rtc__mcu_8h}{}\label{rtc__mcu_8h}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/rtc\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/rtc\_mcu.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structrtc__t}{rtc\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Date and time structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___r_t_c_ga61d0d319cb00c61aaaee21009da3157c}{MAX\+\_\+\+MONTH}}~12
+\begin{DoxyCompactList}\small\item\em GPIO driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___r_t_c_gaa83dd816c7b33ef31213a741960873cf}{MAX\+\_\+\+MDAY}}~31
+\item 
+\#define \mbox{\hyperlink{group___r_t_c_ga006244576eec139097bc7ccf78c7e62f}{MAX\+\_\+\+WDAY}}~7
+\item 
+\#define \mbox{\hyperlink{group___r_t_c_ga1ad2ed8c56be0837d360fc179a456c74}{MAX\+\_\+\+HOUR}}~24
+\item 
+\#define \mbox{\hyperlink{group___r_t_c_ga3f864a4db2a6709466cafd13f3cc0af2}{MAX\+\_\+\+MIN}}~59
+\item 
+\#define \mbox{\hyperlink{group___r_t_c_gab96c94c7d4f72592fb0bd579675c89f2}{MAX\+\_\+\+SEC}}~59
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{group___r_t_c_ga5233b4ea4721ca1119fe81d7e4cbb472}{Rtc\+Config}} (\mbox{\hyperlink{structrtc__t}{rtc\+\_\+t}} \texorpdfstring{$\ast$}{*}rtc)
+\begin{DoxyCompactList}\small\item\em Initial configuration of Date and Time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___r_t_c_gabaac4488a0574f6a4871db4428918dba}{Rtc\+Read}} (\mbox{\hyperlink{structrtc__t}{rtc\+\_\+t}} \texorpdfstring{$\ast$}{*}rtc)
+\begin{DoxyCompactList}\small\item\em Reads actual date and time. \end{DoxyCompactList}\end{DoxyCompactItemize}

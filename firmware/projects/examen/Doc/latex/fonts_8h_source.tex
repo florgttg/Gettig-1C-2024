@@ -1,0 +1,41 @@
+\doxysection{fonts.\+h}
+\hypertarget{fonts_8h_source}{}\label{fonts_8h_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/fonts.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/fonts.h}}
+\mbox{\hyperlink{fonts_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ FONTS\_H\_}}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ FONTS\_H\_}}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00028}00028\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00030}00030\ \textcolor{comment}{/*==================[macros]=================================================*/}}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00032}00032\ \textcolor{comment}{/*==================[typedef]================================================*/}}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00036}\mbox{\hyperlink{structchar__info__t}{00036}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00037}\mbox{\hyperlink{structchar__info__t_a09a2a45f731b02946ff6d3cd15c1a476}{00037}}\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structchar__info__t_a09a2a45f731b02946ff6d3cd15c1a476}{width}};\ \ \ \ \ \textcolor{comment}{/*<!\ Character\ width\ in\ pixels\ */}}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00038}\mbox{\hyperlink{structchar__info__t_ac681806181c80437cfab37335f62ff39}{00038}}\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structchar__info__t_ac681806181c80437cfab37335f62ff39}{offset}};\ \ \textcolor{comment}{/*<!\ Chracter\ position\ in\ font\ array\ */}}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00039}00039\ \}\ \mbox{\hyperlink{structchar__info__t}{char\_info\_t}};}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00043}\mbox{\hyperlink{struct_font__t}{00043}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00044}\mbox{\hyperlink{struct_font__t_a60d2fe30ac50afa789e7058b4f22d0ef}{00044}}\ \ \ \ \ uint8\_t\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_font__t_a60d2fe30ac50afa789e7058b4f22d0ef}{font\_height}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00045}\mbox{\hyperlink{struct_font__t_af23dace797a41b40ec0e97b24c7feae9}{00045}}\ \ \ \ \ \mbox{\hyperlink{structchar__info__t}{char\_info\_t}}\ \ *\mbox{\hyperlink{struct_font__t_af23dace797a41b40ec0e97b24c7feae9}{info}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00046}\mbox{\hyperlink{struct_font__t_a579f5164b5b16e18ddcdb0296ef81799}{00046}}\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ \ \ *\mbox{\hyperlink{struct_font__t_a579f5164b5b16e18ddcdb0296ef81799}{data}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00047}00047\ \}\ \mbox{\hyperlink{struct_font__t}{Font\_t}};}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00049}00049\ \textcolor{comment}{/*==================[external\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00053}00053\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_font__t}{Font\_t}}\ \mbox{\hyperlink{group___i_c_o_n_s_ga96c13a7633909daa23faf1b5b185552d}{font\_11}};}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00058}00058\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_font__t}{Font\_t}}\ \mbox{\hyperlink{group___i_c_o_n_s_ga3a43430cdda2e2e8253724fe1bd81d7d}{font\_19}};}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00063}00063\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_font__t}{Font\_t}}\ \mbox{\hyperlink{group___i_c_o_n_s_gacb2bb6bded5ed7e20abd6cf504164b62}{font\_22}};}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00068}00068\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_font__t}{Font\_t}}\ \mbox{\hyperlink{group___i_c_o_n_s_ga413a8dcdab8681bcdcc9e217392b2bd5}{font\_30}};}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00073}00073\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_font__t}{Font\_t}}\ \mbox{\hyperlink{group___i_c_o_n_s_gac400c8a085a491b76fbf5df77c3e8a5b}{font\_59}};}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00078}00078\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_font__t}{Font\_t}}\ \mbox{\hyperlink{group___i_c_o_n_s_ga89bac9cd0521397acf6351b0f2ade820}{font\_89}};}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00080}00080\ \textcolor{comment}{/*==================[external\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00085}00085\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ FONTS\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{fonts_8h_source_l00087}00087\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

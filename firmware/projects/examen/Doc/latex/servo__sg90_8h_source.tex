@@ -1,0 +1,32 @@
+\doxysection{servo\+\_\+sg90.\+h}
+\hypertarget{servo__sg90_8h_source}{}\label{servo__sg90_8h_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/servo\_sg90.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/servo\_sg90.h}}
+\mbox{\hyperlink{servo__sg90_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ SERVO\_SG90\_H}}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ SERVO\_SG90\_H}}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00024}00024\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio__mcu_8h}{gpio\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00028}00028\ \textcolor{comment}{/*==================[macros]=================================================*/}}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00030}00030\ \textcolor{comment}{/*==================[typedef]================================================*/}}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00031}\mbox{\hyperlink{group___s_e_r_v_o_ga7d2476d006aaacd66b6795d84541a02f}{00031}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{group___s_e_r_v_o_ga7d2476d006aaacd66b6795d84541a02f}{servo\_out}}\ \{}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00032}\mbox{\hyperlink{group___s_e_r_v_o_gga7d2476d006aaacd66b6795d84541a02fae55d97065021a1ed543b21c04e6b48cb}{00032}}\ \ \ \ \ \mbox{\hyperlink{group___s_e_r_v_o_gga7d2476d006aaacd66b6795d84541a02fae55d97065021a1ed543b21c04e6b48cb}{SERVO\_0}},\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00033}\mbox{\hyperlink{group___s_e_r_v_o_gga7d2476d006aaacd66b6795d84541a02fa244dd246e77a39dc50d6bc5d6cc14938}{00033}}\ \ \ \ \ \mbox{\hyperlink{group___s_e_r_v_o_gga7d2476d006aaacd66b6795d84541a02fa244dd246e77a39dc50d6bc5d6cc14938}{SERVO\_1}},\ }
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00034}\mbox{\hyperlink{group___s_e_r_v_o_gga7d2476d006aaacd66b6795d84541a02fa290278b94cfe920ee48e38106df523ed}{00034}}\ \ \ \ \ \mbox{\hyperlink{group___s_e_r_v_o_gga7d2476d006aaacd66b6795d84541a02fa290278b94cfe920ee48e38106df523ed}{SERVO\_2}},\ }
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{group___s_e_r_v_o_gga7d2476d006aaacd66b6795d84541a02fabb19ef803bacaa28877cd543d0b2f90e}{SERVO\_3}}\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00036}\mbox{\hyperlink{group___s_e_r_v_o_gga7d2476d006aaacd66b6795d84541a02fabb19ef803bacaa28877cd543d0b2f90e}{00036}}\ \}\ \mbox{\hyperlink{group___s_e_r_v_o_ga6567a5d72a1ac2085e1ed97840b2deae}{servo\_out\_t}};}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00037}00037\ \textcolor{comment}{/*==================[external\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00039}00039\ \textcolor{comment}{/*==================[external\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00047}00047\ uint8\_t\ \mbox{\hyperlink{group___s_e_r_v_o_gad3b35d6ee8bdf69b0cceac96862fa8e7}{ServoInit}}(\mbox{\hyperlink{group___s_e_r_v_o_ga6567a5d72a1ac2085e1ed97840b2deae}{servo\_out\_t}}\ servo,\ \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ gpio);}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00056}00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___s_e_r_v_o_gac63abba15fdb98a070e8da53d87cd80d}{ServoMove}}(\mbox{\hyperlink{group___s_e_r_v_o_ga6567a5d72a1ac2085e1ed97840b2deae}{servo\_out\_t}}\ servo,\ int8\_t\ ang);}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00062}00062\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \#ifndef\ SERVO\_SG90\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00064}00064\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+\DoxyCodeLine{\Hypertarget{servo__sg90_8h_source_l00065}00065\ }
+
+\end{DoxyCode}

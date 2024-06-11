@@ -1,0 +1,93 @@
+\doxysection{Referencia de la estructura serial\+\_\+config\+\_\+t}
+\hypertarget{structserial__config__t}{}\label{structserial__config__t}\index{serial\_config\_t@{serial\_config\_t}}
+
+
+Serial port configuration struct.  
+
+
+
+
+{\ttfamily \#include $<$uart\+\_\+mcu.\+h$>$}
+
+\doxysubsubsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} \mbox{\hyperlink{structserial__config__t_a27067c816e8c5402c7be0da9780678b0}{port}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structserial__config__t_a148f33bbcda8087a77d8ba30f7e3c502}{baud\+\_\+rate}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structserial__config__t_a672985730d2c0cf9105559adc9759a3a}{func\+\_\+p}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structserial__config__t_aad5f5715cb799d57b86e98fe3bf701e1}{param\+\_\+p}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Serial port configuration struct. 
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8h_source_l00038}{38}} del archivo \mbox{\hyperlink{uart__mcu_8h_source}{uart\+\_\+mcu.\+h}}.
+
+
+
+\doxysubsection{Documentación de campos}
+\Hypertarget{structserial__config__t_a148f33bbcda8087a77d8ba30f7e3c502}\label{structserial__config__t_a148f33bbcda8087a77d8ba30f7e3c502} 
+\index{serial\_config\_t@{serial\_config\_t}!baud\_rate@{baud\_rate}}
+\index{baud\_rate@{baud\_rate}!serial\_config\_t@{serial\_config\_t}}
+\doxysubsubsection{\texorpdfstring{baud\_rate}{baud\_rate}}
+{\footnotesize\ttfamily uint32\+\_\+t baud\+\_\+rate}
+
+baudrate (bits per second) 
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8h_source_l00040}{40}} del archivo \mbox{\hyperlink{uart__mcu_8h_source}{uart\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+\Hypertarget{structserial__config__t_a672985730d2c0cf9105559adc9759a3a}\label{structserial__config__t_a672985730d2c0cf9105559adc9759a3a} 
+\index{serial\_config\_t@{serial\_config\_t}!func\_p@{func\_p}}
+\index{func\_p@{func\_p}!serial\_config\_t@{serial\_config\_t}}
+\doxysubsubsection{\texorpdfstring{func\_p}{func\_p}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} func\+\_\+p}
+
+Pointer to callback function to call when receiving data (= UART\+\_\+\+NO\+\_\+\+INT if not requiered) 
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8h_source_l00041}{41}} del archivo \mbox{\hyperlink{uart__mcu_8h_source}{uart\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+\Hypertarget{structserial__config__t_aad5f5715cb799d57b86e98fe3bf701e1}\label{structserial__config__t_aad5f5715cb799d57b86e98fe3bf701e1} 
+\index{serial\_config\_t@{serial\_config\_t}!param\_p@{param\_p}}
+\index{param\_p@{param\_p}!serial\_config\_t@{serial\_config\_t}}
+\doxysubsubsection{\texorpdfstring{param\_p}{param\_p}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} param\+\_\+p}
+
+Pointer to callback function parameters 
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8h_source_l00042}{42}} del archivo \mbox{\hyperlink{uart__mcu_8h_source}{uart\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+\Hypertarget{structserial__config__t_a27067c816e8c5402c7be0da9780678b0}\label{structserial__config__t_a27067c816e8c5402c7be0da9780678b0} 
+\index{serial\_config\_t@{serial\_config\_t}!port@{port}}
+\index{port@{port}!serial\_config\_t@{serial\_config\_t}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___u_a_r_t_ga6f1139887aa6a81c9577a04e72076595}{uart\+\_\+mcu\+\_\+port\+\_\+t}} port}
+
+port 
+
+Definición en la línea \mbox{\hyperlink{uart__mcu_8h_source_l00039}{39}} del archivo \mbox{\hyperlink{uart__mcu_8h_source}{uart\+\_\+mcu.\+h}}.
+
+
+
+Referenciado por \mbox{\hyperlink{examen_8c_source_l00238}{app\+\_\+main()}} y \mbox{\hyperlink{uart__mcu_8c_source_l00107}{Uart\+Init()}}.
+
+
+
+La documentación de esta estructura está generada del siguiente archivo\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/inc/\mbox{\hyperlink{uart__mcu_8h}{uart\+\_\+mcu.\+h}}\end{DoxyCompactItemize}

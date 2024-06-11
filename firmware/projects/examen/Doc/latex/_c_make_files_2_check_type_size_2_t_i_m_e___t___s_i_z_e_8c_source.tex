@@ -1,0 +1,56 @@
+\doxysection{TIME\+\_\+\+T\+\_\+\+SIZE.\+c}
+\hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source}{}\label{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source}\index{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/examen/build/CMakeFiles/CheckTypeSize/TIME\_T\_SIZE.c@{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/examen/build/CMakeFiles/CheckTypeSize/TIME\_T\_SIZE.c}}
+\mbox{\hyperlink{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00006}00006\ \textcolor{preprocessor}{\#undef\ KEY}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00007}00007\ \textcolor{preprocessor}{\#if\ defined(\_\_i386)}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00008}00008\ \textcolor{preprocessor}{\#\ define\ KEY\ '\_','\_','i','3','8','6'}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00009}00009\ \textcolor{preprocessor}{\#elif\ defined(\_\_x86\_64)}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00010}00010\ \textcolor{preprocessor}{\#\ define\ KEY\ '\_','\_','x','8','6','\_','6','4'}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00011}00011\ \textcolor{preprocessor}{\#elif\ defined(\_\_PPC64\_\_)}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00012}00012\ \textcolor{preprocessor}{\#\ define\ KEY\ '\_','\_','P','P','C','6','4','\_','\_'}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00013}00013\ \textcolor{preprocessor}{\#elif\ defined(\_\_ppc64\_\_)}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00014}00014\ \textcolor{preprocessor}{\#\ define\ KEY\ '\_','\_','p','p','c','6','4','\_','\_'}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00015}00015\ \textcolor{preprocessor}{\#elif\ defined(\_\_PPC\_\_)}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00016}00016\ \textcolor{preprocessor}{\#\ define\ KEY\ '\_','\_','P','P','C','\_','\_'}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00017}00017\ \textcolor{preprocessor}{\#elif\ defined(\_\_ppc\_\_)}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00018}00018\ \textcolor{preprocessor}{\#\ define\ KEY\ '\_','\_','p','p','c','\_','\_'}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00019}00019\ \textcolor{preprocessor}{\#elif\ defined(\_\_aarch64\_\_)}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00020}00020\ \textcolor{preprocessor}{\#\ define\ KEY\ '\_','\_','a','a','r','c','h','6','4','\_','\_'}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00021}00021\ \textcolor{preprocessor}{\#elif\ defined(\_\_ARM\_ARCH\_7A\_\_)}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00022}00022\ \textcolor{preprocessor}{\#\ define\ KEY\ '\_','\_','A','R','M','\_','A','R','C','H','\_','7','A','\_','\_'}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00023}00023\ \textcolor{preprocessor}{\#elif\ defined(\_\_ARM\_ARCH\_7S\_\_)}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00024}00024\ \textcolor{preprocessor}{\#\ define\ KEY\ '\_','\_','A','R','M','\_','A','R','C','H','\_','7','S','\_','\_'}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00025}00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00027}\mbox{\hyperlink{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_a70ed59adcb4159ac551058053e649640}{00027}}\ \textcolor{preprocessor}{\#define\ SIZE\ (sizeof(time\_t))}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00028}00028\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ info\_size[]\ =\ \ \{\textcolor{charliteral}{'I'},\ \textcolor{charliteral}{'N'},\ \textcolor{charliteral}{'F'},\ \textcolor{charliteral}{'O'},\ \textcolor{charliteral}{':'},\ \textcolor{charliteral}{'s'},\textcolor{charliteral}{'i'},\textcolor{charliteral}{'z'},\textcolor{charliteral}{'e'},\textcolor{charliteral}{'['},}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00029}00029\ \ \ (\textcolor{charliteral}{'0'}\ +\ ((\mbox{\hyperlink{bootloader_2_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_a70ed59adcb4159ac551058053e649640}{SIZE}}\ /\ 10000)\%10)),}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00030}00030\ \ \ (\textcolor{charliteral}{'0'}\ +\ ((\mbox{\hyperlink{bootloader_2_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_a70ed59adcb4159ac551058053e649640}{SIZE}}\ /\ 1000)\%10)),}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00031}00031\ \ \ (\textcolor{charliteral}{'0'}\ +\ ((\mbox{\hyperlink{bootloader_2_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_a70ed59adcb4159ac551058053e649640}{SIZE}}\ /\ 100)\%10)),}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00032}00032\ \ \ (\textcolor{charliteral}{'0'}\ +\ ((\mbox{\hyperlink{bootloader_2_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_a70ed59adcb4159ac551058053e649640}{SIZE}}\ /\ 10)\%10)),}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00033}00033\ \ \ (\textcolor{charliteral}{'0'}\ +\ \ (\mbox{\hyperlink{bootloader_2_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_a70ed59adcb4159ac551058053e649640}{SIZE}}\ \ \ \ \%\ 10)),}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00034}00034\ \ \ \textcolor{charliteral}{']'},}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00035}00035\ \textcolor{preprocessor}{\#ifdef\ KEY}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00036}00036\ \ \ \textcolor{charliteral}{'\ '},\textcolor{charliteral}{'k'},\textcolor{charliteral}{'e'},\textcolor{charliteral}{'y'},\textcolor{charliteral}{'['},\ KEY,\ \textcolor{charliteral}{']'},}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00037}00037\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00038}00038\ \ \ \textcolor{charliteral}{'\(\backslash\)0'}\};}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00040}00040\ \textcolor{preprocessor}{\#ifdef\ \_\_CLASSIC\_C\_\_}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00041}00041\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{bootloader_2_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}}(argc,\ argv)\ \textcolor{keywordtype}{int}\ argc;\ \textcolor{keywordtype}{char}\ *argv[];}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00042}00042\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00043}\mbox{\hyperlink{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_a0ddf1224851353fc92bfbff6f499fa97}{00043}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{bootloader_2_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[])}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00044}00044\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00045}00045\ \{}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00046}00046\ \ \ \textcolor{keywordtype}{int}\ require\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00047}00047\ \ \ require\ +=\ info\_size[argc];}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00048}00048\ \ \ (void)argv;}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00049}00049\ \ \ \textcolor{keywordflow}{return}\ require;}
+\DoxyCodeLine{\Hypertarget{_c_make_files_2_check_type_size_2_t_i_m_e___t___s_i_z_e_8c_source_l00050}00050\ \}}
+
+\end{DoxyCode}
