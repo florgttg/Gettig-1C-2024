@@ -47,6 +47,9 @@
         },
         {
             "path": "projects/practica"
+        },
+        {
+            "path": "projects/examen"
         }
     ],
     "settings": {
