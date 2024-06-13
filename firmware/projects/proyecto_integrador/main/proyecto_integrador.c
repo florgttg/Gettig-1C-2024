@@ -36,31 +36,43 @@
 #include "ble_hid_mcu.h"
 #include "switch.h"
 #include "ADXL335.h"
+#include "timer_mcu.h"
 /*==================[macros and definitions]=================================*/
-#define CONFIG_BLINK_PERIOD 500
-#define DELAY_MEASURE 400
-#define LED_BT LED_1
+#define CONFIG_TIMER_VUELO 400
+#define CONFIG_TIMER_CONTROLES 1000
+
 
 /*==================[internal data definition]===============================*/
-bool click = false;
-TaskHandle_t acel_task_handle = NULL;
+bool start = false;
+
+TaskHandle_t volar_task_handle = NULL;
+TaskHandle_t controles_task_handle = NULL;
 
 /*==================[internal functions declaration]=========================*/
+
 /**
- * @brief Función que envía un comando de teclado de la tecla espacio a través de Bluetooth.
+ * @brief Función que envía un comando de teclado de la barra espaciadora a través de Bluetooth.
  *
  */
-void FuncTecla0(void)
+void TeclaBarra(void)
 {
-	// keyboard_cmd_t space = HID_KEY_SPACEBAR;
-	// BleHidSendKeyboard(0, &space, 1);
+	keyboard_cmd_t up = HID_KEY_UP_ARROW;
+	BleHidSendKeyboard(0, &up, 1);
+	start = !start;
+}
+/**
+ * @brief Función que calibra el acelerometro.
+ *
+ */
+void Calibrar(void)
+{
 	ADXL335Calibration();
 }
 /**
  * @brief Función que envía un comando de teclado de la tecla flecha arriba a través de Bluetooth.
  *
  */
-void FuncTecla1(void)
+void TeclaArriba(void)
 {
 	keyboard_cmd_t up = HID_KEY_UP_ARROW;
 	BleHidSendKeyboard(0, &up, 1);
@@ -69,72 +81,85 @@ void FuncTecla1(void)
  * @brief Función que envía un comando de teclado de la tecla flecha abajo a través de Bluetooth.
  *
  */
-void FuncTecla2(void)
+void TeclaAbajo(void)
 {
 	keyboard_cmd_t down = HID_KEY_DOWN_ARROW;
 	BleHidSendKeyboard(0, &down, 1);
 }
-void AcelerometroTask(void *pvParameter)
+/**
+ * @brief Función que recibe la lectura del acelerometro.
+ *
+ */
+void Task_Volar(void *pvParameter)
 {
-	float acel_x0 = 0, acel_y0 = 0, acel_z0 = 0;
-	float acel_x, acel_y, acel_z;
-	float umbral_y = 100;
 	while (1)
 	{
-		// if (BleHidStatus() == BLE_CONNECTED)
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		if (start)
 		{
-			acel_x = ReadXValue();
-			acel_y = ReadYValue();
-			acel_z = ReadZValue();
-
-			if ((acel_y - acel_y0) > umbral_y)
-			{
-				FuncTecla2();
-				acel_y0 = acel_y;
-			}
-			else if ((acel_y0 - acel_y) > umbral_y)
-{
-				FuncTecla1();
-			acel_y0 = acel_y;
 		}
-		else(acel_y0 = acel_y);
-		printf("el valor de x %f,y %f,z %f   \n", acel_x, acel_y, acel_z);
 	}
-	vTaskDelay(DELAY_MEASURE / portTICK_PERIOD_MS);
-}
 }
 
+void Task_Controles(void *pvParameter)
+{
+	// Chequea que el bluetooth este correctamente conectado con el led1
+	while (1)
+	{
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+
+	}
+}
+
+/**
+ * @brief Función de callback para el timer A.
+ * @param param Parámetro de la función.
+ */
+void FunctionTimerA(void *param)
+{
+	vTaskNotifyGiveFromISR(volar_task_handle, pdFALSE);
+}
+/**
+ * @brief Función de callback para el timer B.
+ * @param param Parámetro de la función.
+ */
+void FunctionTimerB(void *param)
+{
+	vTaskNotifyGiveFromISR(controles_task_handle, pdFALSE);
+}
 /*==================[external functions definition]==========================*/
 void app_main(void)
 {
 	LedsInit();
-	// Teclas
-	SwitchesInit();
-	SwitchActivInt(SWITCH_1, FuncTecla0, 0);
-	SwitchActivInt(SWITCH_2, FuncTecla2, 0);
-	// Inicializa bluetooth
-	BleHidInit("EP_HID");
-
 	ADXL335Init();
-	xTaskCreate(&AcelerometroTask, "ACELEROMETRO", 4096, NULL, 5, &acel_task_handle);
+	SwitchesInit();
+	BleHidInit("EP_HID"); // Inicializa bluetooth
 
-	// Chequea que el bluetooth este correctamente conectado con el led1
-	while (1)
-	{
-		vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
-		switch (BleHidStatus())
-		{
-		case BLE_OFF:
-			LedOff(LED_BT);
-			break;
-		case BLE_DISCONNECTED:
-			LedToggle(LED_BT);
-			break;
-		case BLE_CONNECTED:
-			LedOn(LED_BT);
-			break;
-		}
-	}
+	// ESTO CON INTERRUPCIONES
+	SwitchActivInt(SWITCH_1, &Calibrar, NULL);
+	SwitchActivInt(SWITCH_2, &TeclaBarra, NULL);
+
+	// Configuración del timer para control del vuelo del pajaro
+	timer_config_t timer_vuelo = {
+		.timer = TIMER_A,
+		.period = CONFIG_TIMER_VUELO,
+		.func_p = FunctionTimerA,
+		.param_p = NULL};
+	TimerInit(&timer_vuelo);
+
+	// Configuración del timer para control de bluetooth
+	timer_config_t timer_controles = {
+		.timer = TIMER_B,
+		.period = CONFIG_TIMER_CONTROLES,
+		.func_p = FunctionTimerB,
+		.param_p = NULL};
+	TimerInit(&timer_controles);
+
+	xTaskCreate(&Task_Volar, "Task_Volar", 4096, NULL, 5, &volar_task_handle);
+	xTaskCreate(&Task_Controles, "Task_control", 2048, NULL, 4, &controles_task_handle);
+
+	TimerStart(timer_vuelo.timer);
+	TimerStart(timer_controles.timer);
 }
 
 /*==================[end of file]============================================*/
