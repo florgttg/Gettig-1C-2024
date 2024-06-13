@@ -42,6 +42,10 @@
 #define CONFIG_TIMER_CONTROLES 1000
 
 
+
+#define LED_BT LED_1
+#define LED_START LED_3
+
 /*==================[internal data definition]===============================*/
 bool start = false;
 
@@ -107,6 +111,29 @@ void Task_Controles(void *pvParameter)
 	while (1)
 	{
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		switch (BleHidStatus())
+        {
+        case BLE_OFF:
+            LedOff(LED_BT);
+            break;
+        case BLE_DISCONNECTED:
+            LedToggle(LED_BT);
+            break;
+        case BLE_CONNECTED:
+            LedOn(LED_BT);
+            break;
+        }
+
+
+        if (start)
+        {
+            LedOn(LED_START);
+        }
+        else
+        {
+            LedOff(LED_START);
+        }
+
 
 	}
 }
