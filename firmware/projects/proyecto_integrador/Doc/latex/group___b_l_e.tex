@@ -1,0 +1,1187 @@
+\doxysubsubsection{Bluetooth Low Energy}
+\hypertarget{group___b_l_e}{}\label{group___b_l_e}\index{Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structble__config__t}{ble\+\_\+config\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em BLE configuration struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___b_l_e_gaf5100161e34455dbc660d45f8ffb5373}{BLE\+\_\+\+NO\+\_\+\+INT}}~0
+\begin{DoxyCompactList}\small\item\em BLE driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{ble\+\_\+status}} \mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em BLE driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{group___b_l_e_gaed078c594a86d36a49f51710e35c405b}{keyboard\+\_\+cmd}} \mbox{\hyperlink{group___b_l_e_ga528f1243a7bb2eb10a2140592c67e879}{keyboard\+\_\+cmd\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Keyboard/\+Keypad Usage IDs. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{group___b_l_e_ga5f72a05c6c7165f5270a63ffba14035b}{key\+\_\+mask}} \mbox{\hyperlink{group___b_l_e_gab3d8494d4d57a81a068b2b569cb0051e}{key\+\_\+mask\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Mask of modifier keys to be pressed together with any key. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{group___b_l_e_ga2a99f5333cc8031aac3511049bea8211}{mouse\+\_\+cmd}} \mbox{\hyperlink{group___b_l_e_gad70fe6ba1d3a0ac8b4603c11f6de43b2}{mouse\+\_\+cmd\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Mouse commands. \end{DoxyCompactList}\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___b_l_e_gae207a1d79a9762a3a3701e091bbb22c9}{read\+\_\+func}}) (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Prototype of callback function for reading received data. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{ble\+\_\+status}} \mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em BLE connection status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{ble\+\_\+status}} \{ \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4}{BLE\+\_\+\+OFF}}
+, \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47abe3828521b028796e567225bfbc5a978}{BLE\+\_\+\+DISCONNECTED}}
+, \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399}{BLE\+\_\+\+CONNECTED}}
+ \}
+\begin{DoxyCompactList}\small\item\em BLE driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___b_l_e_gaed078c594a86d36a49f51710e35c405b}{keyboard\+\_\+cmd}} \{ \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba600732ab58224a41d74b86d4a40916f2}{HID\+\_\+\+KEY\+\_\+\+RESERVED}} = 0
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5413afa6a28a21dd52f07db101f2d139}{HID\+\_\+\+KEY\+\_\+A}} = 4
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babb0b25fe8c201dc75b72c7b078f745d6}{HID\+\_\+\+KEY\+\_\+B}} = 5
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba932c610512cc99157654c3997bc2b922}{HID\+\_\+\+KEY\+\_\+C}} = 6
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babc172093417a4c40a7443eee551e9700}{HID\+\_\+\+KEY\+\_\+D}} = 7
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baff7192b9ddd4228e02c44b6fb2d7bf85}{HID\+\_\+\+KEY\+\_\+E}} = 8
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bacc002ca9f0f3bdc01b4de42d00e5560b}{HID\+\_\+\+KEY\+\_\+F}} = 9
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1eadd56346bbd64b1c33fa5393f65bda}{HID\+\_\+\+KEY\+\_\+G}} = 10
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4bfc341fccde664ec9267af6e705ba0c}{HID\+\_\+\+KEY\+\_\+H}} = 11
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bafcd25dc5bba218f7097698f8f49fdc45}{HID\+\_\+\+KEY\+\_\+I}} = 12
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba2a78196208c634941d63429cd1e1df7a}{HID\+\_\+\+KEY\+\_\+J}} = 13
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4ceddaaaa90d84f0afb3e1ee9a35a976}{HID\+\_\+\+KEY\+\_\+K}} = 14
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf5de66adc9eb2aa183eab1e23f977894}{HID\+\_\+\+KEY\+\_\+L}} = 15
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4f8174feca1eb72901576c4e24c8f8a9}{HID\+\_\+\+KEY\+\_\+M}} = 16
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab4d202043e8b0b7a8c2d4c519fd1eb07}{HID\+\_\+\+KEY\+\_\+N}} = 17
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bad8884ef7e77722099e6bd61265f6564c}{HID\+\_\+\+KEY\+\_\+O}} = 18
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baca0480331288d15eccec9f072f123817}{HID\+\_\+\+KEY\+\_\+P}} = 19
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba05fb920f8129f57dd350036f17fbe519}{HID\+\_\+\+KEY\+\_\+Q}} = 20
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba037de00c763ae6b270895b7a5f0f57a7}{HID\+\_\+\+KEY\+\_\+R}} = 21
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae6a84e8474b6c3e8f9f7d344408cfa0b}{HID\+\_\+\+KEY\+\_\+S}} = 22
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba893799f48b30c438349335556a0e15b6}{HID\+\_\+\+KEY\+\_\+T}} = 23
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab3c7c9f3a73e83623c651cdfddddeb05}{HID\+\_\+\+KEY\+\_\+U}} = 24
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba02f14e6303b4d2e4e46747324d649dda}{HID\+\_\+\+KEY\+\_\+V}} = 25
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badf81a88f3f92f15e2abec83911bf3732}{HID\+\_\+\+KEY\+\_\+W}} = 26
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9f3b8bb63f6628db9a1678b72ec12b6d}{HID\+\_\+\+KEY\+\_\+X}} = 27
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4ca2ebe26c09f2400a8ebc0aa445ce89}{HID\+\_\+\+KEY\+\_\+Y}} = 28
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa5cd01ad23ede98de1ae176920b8fc8f}{HID\+\_\+\+KEY\+\_\+Z}} = 29
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba039ced168420140b97e2d0676e1bb12a}{HID\+\_\+\+KEY\+\_\+1}} = 30
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae98dd71460def5e66fcf32e9783b96ea}{HID\+\_\+\+KEY\+\_\+2}} = 31
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf58d848786f8d2dfac702f7fae178311}{HID\+\_\+\+KEY\+\_\+3}} = 32
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba17019d72e84302486f72f7d8101baca5}{HID\+\_\+\+KEY\+\_\+4}} = 33
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf32ab36da2e30066c9ed2816596011c8}{HID\+\_\+\+KEY\+\_\+5}} = 34
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae16b76c1bf9f7aa58a1b1c556a6b6022}{HID\+\_\+\+KEY\+\_\+6}} = 35
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5887a1854f7d0787121bd75034cdd726}{HID\+\_\+\+KEY\+\_\+7}} = 36
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1761228849d7dc2b84d0565d3337b2e2}{HID\+\_\+\+KEY\+\_\+8}} = 37
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba758aec2540a6a2153702d6905c44ce52}{HID\+\_\+\+KEY\+\_\+9}} = 38
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba856ca663233681e789ef4aa94c44ebaf}{HID\+\_\+\+KEY\+\_\+0}} = 39
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bafa33f1938e7862c2f24591e265a74b27}{HID\+\_\+\+KEY\+\_\+\+RETURN}} = 40
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab535b93c13d1bf14aeba8184bf75133f}{HID\+\_\+\+KEY\+\_\+\+ESCAPE}} = 41
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae8f5051cb476c3e9253b008094c431fc}{HID\+\_\+\+KEY\+\_\+\+DELETE}} = 42
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5a6c79e8ea85f6593c06d19098d69a03}{HID\+\_\+\+KEY\+\_\+\+TAB}} = 43
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badcc65069cf17c64428f0a139aac5a5e4}{HID\+\_\+\+KEY\+\_\+\+SPACEBAR}} = 44
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa59864204064d3e8fac5271b69a7da23}{HID\+\_\+\+KEY\+\_\+\+MINUS}} = 45
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bac8d82858905175ba79c24b0be1b1b1a8}{HID\+\_\+\+KEY\+\_\+\+EQUAL}} = 46
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4115c92565e61e98577b27f9c76bb6a0}{HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+BRKT}} = 47
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab743223a2bcb984ed057b65c710133a9}{HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+BRKT}} = 48
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba504a41e2ed19db2bfbfee5337c9106ec}{HID\+\_\+\+KEY\+\_\+\+BACK\+\_\+\+SLASH}} = 49
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba44aa982b84c552d2074c5776cce6494d}{HID\+\_\+\+KEY\+\_\+\+SEMI\+\_\+\+COLON}} = 51
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8fc22fb25f352a33a2fe25cea0468223}{HID\+\_\+\+KEY\+\_\+\+SGL\+\_\+\+QUOTE}} = 52
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf33f8c506a4c1712b1ff9a4306e5363a}{HID\+\_\+\+KEY\+\_\+\+GRV\+\_\+\+ACCENT}} = 53
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa81aa5b3424f02fdf02295de47b11b19}{HID\+\_\+\+KEY\+\_\+\+COMMA}} = 54
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba403fe927ebb0014e2c1b3dc25e1d9779}{HID\+\_\+\+KEY\+\_\+\+DOT}} = 55
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba051d27ff8304a9f5a6c8c0a1e5e07c9c}{HID\+\_\+\+KEY\+\_\+\+FWD\+\_\+\+SLASH}} = 56
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba033946a3fae42a1184c78e15e7f7efa0}{HID\+\_\+\+KEY\+\_\+\+CAPS\+\_\+\+LOCK}} = 57
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9642163abbbad8aa5c7088c8529aadd7}{HID\+\_\+\+KEY\+\_\+\+F1}} = 58
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9ce331f5f41ba3e3e05f485bc2d4138e}{HID\+\_\+\+KEY\+\_\+\+F2}} = 59
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba76adde1d9295cf62e7efb35e27911a1e}{HID\+\_\+\+KEY\+\_\+\+F3}} = 60
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa9956a2b95afe1a05fda65db5cc66467}{HID\+\_\+\+KEY\+\_\+\+F4}} = 61
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bace9e8d409d981f193f69fc5b29f38ca7}{HID\+\_\+\+KEY\+\_\+\+F5}} = 62
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babc92147e725c8108c18f4e03005afbdc}{HID\+\_\+\+KEY\+\_\+\+F6}} = 63
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1e2eabf8b9fa6cbfea613696b2c4122a}{HID\+\_\+\+KEY\+\_\+\+F7}} = 64
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5092add2863231d273ba60cd583ebe33}{HID\+\_\+\+KEY\+\_\+\+F8}} = 65
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5a09deabde1a3a44378b7de44dad27b6}{HID\+\_\+\+KEY\+\_\+\+F9}} = 66
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bac2c4a3aec85b4d8171de4429ccabbe19}{HID\+\_\+\+KEY\+\_\+\+F10}} = 67
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba76bb35a0f71733b0a0f1bd7e3837064c}{HID\+\_\+\+KEY\+\_\+\+F11}} = 68
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab44ba4426c1574f4b296794b7bfe2172}{HID\+\_\+\+KEY\+\_\+\+F12}} = 69
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa55c5b4499682b21ee1874266785deb7}{HID\+\_\+\+KEY\+\_\+\+PRNT\+\_\+\+SCREEN}} = 70
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba2d026746bc41257642b93e2e412a28d3}{HID\+\_\+\+KEY\+\_\+\+SCROLL\+\_\+\+LOCK}} = 71
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1905733a0fe81f78e0752e3b0bb99c69}{HID\+\_\+\+KEY\+\_\+\+PAUSE}} = 72
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1e1c320cea0644c3dc38da06c865837b}{HID\+\_\+\+KEY\+\_\+\+INSERT}} = 73
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5fc1127fe9014018f4831cbf272c883b}{HID\+\_\+\+KEY\+\_\+\+HOME}} = 74
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba09c7ee2581a02243437e005a9cfe73e7}{HID\+\_\+\+KEY\+\_\+\+PAGE\+\_\+\+UP}} = 75
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5abb5c0d3fe30ed7ca3a23ee6a40888f}{HID\+\_\+\+KEY\+\_\+\+DELETE\+\_\+\+FWD}} = 76
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8f933f0f6e5a1a3c3cdc1819ffcdce63}{HID\+\_\+\+KEY\+\_\+\+END}} = 77
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badd1c4c03849f79aceea29114b543ccee}{HID\+\_\+\+KEY\+\_\+\+PAGE\+\_\+\+DOWN}} = 78
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1f58efdc6ce6bfe844ced30e2893f1bb}{HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+ARROW}} = 79
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babb6ba38ae1164feaa8fceb9fb94d6bbb}{HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+ARROW}} = 80
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba31a4c371435ac01a032c682812771fd6}{HID\+\_\+\+KEY\+\_\+\+DOWN\+\_\+\+ARROW}} = 81
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9e8d12c384d14c2c1938c7f3ae5df5d9}{HID\+\_\+\+KEY\+\_\+\+UP\+\_\+\+ARROW}} = 82
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba63316298f3a9bb3a3c500221996f9c78}{HID\+\_\+\+KEY\+\_\+\+NUM\+\_\+\+LOCK}} = 83
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba90e28beee115680cfae34d6d4caaf7bd}{HID\+\_\+\+KEY\+\_\+\+DIVIDE}} = 84
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8067563067963b46369415db862818bc}{HID\+\_\+\+KEY\+\_\+\+MULTIPLY}} = 85
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf2e95cd26b0a24d2d31d5e2047490cb4}{HID\+\_\+\+KEY\+\_\+\+SUBTRACT}} = 86
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba3f6b24f24e21cd4423b21a50fbf0b868}{HID\+\_\+\+KEY\+\_\+\+ADD}} = 87
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baeeab6ddad27c449cbc44ca2458912a75}{HID\+\_\+\+KEY\+\_\+\+ENTER}} = 88
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bafc37c6a510a5d8a513338845b8f3155a}{HID\+\_\+\+KEYPAD\+\_\+1}} = 89
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba04d2523223a843c8a2ecd1cfcbb367ac}{HID\+\_\+\+KEYPAD\+\_\+2}} = 90
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bacddf6dfc0143b5a60cc9bb853dfe64c1}{HID\+\_\+\+KEYPAD\+\_\+3}} = 91
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5e6007af8b18713a334522fcf82ee114}{HID\+\_\+\+KEYPAD\+\_\+4}} = 92
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba7f0c78a823adb7616223ccb3573a3b48}{HID\+\_\+\+KEYPAD\+\_\+5}} = 93
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4858467756d6f6524436312f49a15b6e}{HID\+\_\+\+KEYPAD\+\_\+6}} = 94
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1c2945e65e29846af0356eb9b844ea41}{HID\+\_\+\+KEYPAD\+\_\+7}} = 95
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bace92bad17097ebdac57f6258f9102002}{HID\+\_\+\+KEYPAD\+\_\+8}} = 96
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae14513b31e23bf60bc9b2a5746f3b91f}{HID\+\_\+\+KEYPAD\+\_\+9}} = 97
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba26479ce80a4fb7b3776cd39be35bdb8f}{HID\+\_\+\+KEYPAD\+\_\+0}} = 98
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba003a94b6ac7179e7dde387fb7d112e16}{HID\+\_\+\+KEYPAD\+\_\+\+DOT}} = 99
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bac3735a425236beedcb56c8d194100550}{HID\+\_\+\+KEY\+\_\+\+MUTE}} = 127
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae4266b9ae5cd6533d9d65394466b0b2d}{HID\+\_\+\+KEY\+\_\+\+VOLUME\+\_\+\+UP}} = 128
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baed6ecfe7b4461f4cf01962d0bbfe4055}{HID\+\_\+\+KEY\+\_\+\+VOLUME\+\_\+\+DOWN}} = 129
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8f38dd4bfdd188ecdf91223c7c86c296}{HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+CTRL}} = 224
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8cc88ec22abb9c700a62ff08ac19dc5a}{HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+SHIFT}} = 225
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba148b38cbefe926253ab179ad585fa9b7}{HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+ALT}} = 226
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bad495e5139be2c91b681cf4b0b0990668}{HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+GUI}} = 227
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bacfde4acd578e5e4df72b91b36cb81e1d}{HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+CTRL}} = 228
+, \newline
+\mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba130bbf55268a6e107c45cd074389c83b}{HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+SHIFT}} = 229
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba11dccdfd97d8c04bdc013428689bc3a5}{HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+ALT}} = 230
+, \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badfe9a8659711338d18e8b2ffcabfb2b8}{HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+GUI}} = 231
+ \}
+\begin{DoxyCompactList}\small\item\em Keyboard/\+Keypad Usage IDs. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___b_l_e_ga5f72a05c6c7165f5270a63ffba14035b}{key\+\_\+mask}} \{ \newline
+\mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035bae8d5d21a5fea1a0d6d9231b606ec1187}{LEFT\+\_\+\+CONTROL\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0)
+, \mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba3d608f93849fc015d9794cb8d704aa76}{LEFT\+\_\+\+SHIFT\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1)
+, \mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba5db10c52a33d019b8f3d7664bed7be0e}{LEFT\+\_\+\+ALT\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2)
+, \mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035bab7fb954fa02a79c03210c70e8e298e7a}{LEFT\+\_\+\+GUI\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3)
+, \newline
+\mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba064de832473bf23c95b4c4daed275fe5}{RIGHT\+\_\+\+CONTROL\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4)
+, \mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba2f2627eb6653c51d2e20551fb679ea55}{RIGHT\+\_\+\+SHIFT\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 5)
+, \mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba9a543241dbf9bd28c431035b3827ac8b}{RIGHT\+\_\+\+ALT\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 6)
+, \mbox{\hyperlink{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035bad86cf5872495b6ce57ce67dc4cf0d92b}{RIGHT\+\_\+\+GUI\+\_\+\+KEY\+\_\+\+MASK}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 7)
+ \}
+\begin{DoxyCompactList}\small\item\em Mask of modifier keys to be pressed together with any key. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___b_l_e_ga2a99f5333cc8031aac3511049bea8211}{mouse\+\_\+cmd}} \{ \mbox{\hyperlink{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211a10144627495fe6bd5f6d48af227352d0}{HID\+\_\+\+NO\+\_\+\+BUTTON}} = 0
+, \mbox{\hyperlink{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211aa9074dc36ad6303afc552a8b2e6c84fd}{HID\+\_\+\+MOUSE\+\_\+\+LEFT}} = 253
+, \mbox{\hyperlink{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211ae4757cf58be5b9851fa24f6474f086d4}{HID\+\_\+\+MOUSE\+\_\+\+MIDDLE}} = 254
+, \mbox{\hyperlink{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211a55ddb88a702acbd88e5571f91f157cd9}{HID\+\_\+\+MOUSE\+\_\+\+RIGHT}} = 255
+ \}
+\begin{DoxyCompactList}\small\item\em Mouse commands. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{ble\+\_\+status}} \{ \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4}{BLE\+\_\+\+OFF}}
+, \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47abe3828521b028796e567225bfbc5a978}{BLE\+\_\+\+DISCONNECTED}}
+, \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399}{BLE\+\_\+\+CONNECTED}}
+ \}
+\begin{DoxyCompactList}\small\item\em BLE connection status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___b_l_e_ga94512d231afe9cff7e7aa8eff3a18fba}{Ble\+Hid\+Init}} (char \texorpdfstring{$\ast$}{*}hid\+\_\+dev\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Bluetooth initialization as a HID device. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}} \mbox{\hyperlink{group___b_l_e_ga67558f92332c3d7edc94278eb7a45cfc}{Ble\+Hid\+Status}} (void)
+\begin{DoxyCompactList}\small\item\em Gets BLE connection status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_ga28150d6c4fe3eedd6e784d272d0e56ca}{Ble\+Hid\+Send\+Keyboard}} (\mbox{\hyperlink{group___b_l_e_gab3d8494d4d57a81a068b2b569cb0051e}{key\+\_\+mask\+\_\+t}} special\+\_\+key\+\_\+mask, \mbox{\hyperlink{group___b_l_e_ga528f1243a7bb2eb10a2140592c67e879}{keyboard\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{group___b_l_e_gaed078c594a86d36a49f51710e35c405b}{keyboard\+\_\+cmd}}, uint8\+\_\+t num\+\_\+key)
+\begin{DoxyCompactList}\small\item\em Send a group of keys to be pressed together. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_gae4f1c4c5da8317a9c16d13e418e82a2e}{Ble\+Hid\+Send\+Mouse}} (\mbox{\hyperlink{group___b_l_e_gad70fe6ba1d3a0ac8b4603c11f6de43b2}{mouse\+\_\+cmd\+\_\+t}} mouse\+\_\+button, int8\+\_\+t delta\+\_\+x, int8\+\_\+t delta\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Send mouse position and click event. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_ga8001369ce247b2413afd6d8a14fe8d82}{Ble\+Init}} (\mbox{\hyperlink{structble__config__t}{ble\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}ble\+\_\+device)
+\begin{DoxyCompactList}\small\item\em Bluetooth initialization. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}} \mbox{\hyperlink{group___b_l_e_ga45f64ecb9f703ecc50b85b6967e85bd5}{Ble\+Status}} (void)
+\begin{DoxyCompactList}\small\item\em Gets BLE connection status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_gae0bdc932377c439b2a2e601dd9b9d56d}{Ble\+Send\+Byte}} (const char \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Send a single byte trough BLE (if connected) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_ga68083cec5599456e78a536031e3b61b8}{Ble\+Send\+String}} (const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Send a string trough BLE (if connected) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_gad7b70ab491715ae295497f0714e05539}{Ble\+Send\+Buffer}} (const char \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t nbytes)
+\begin{DoxyCompactList}\small\item\em Send multiple bytes through serial port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de «define»}
+\Hypertarget{group___b_l_e_gaf5100161e34455dbc660d45f8ffb5373}\label{group___b_l_e_gaf5100161e34455dbc660d45f8ffb5373} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BLE\_NO\_INT@{BLE\_NO\_INT}}
+\index{BLE\_NO\_INT@{BLE\_NO\_INT}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{BLE\_NO\_INT}{BLE\_NO\_INT}}
+{\footnotesize\ttfamily \#define BLE\+\_\+\+NO\+\_\+\+INT~0}
+
+
+
+BLE driver for the ESP-\/\+EDU Board. 
+
+\begin{DoxyNote}{Nota}
+This driver emulates HM-\/10 functionalities (same services and characteristics), so it can be used to communicate with common Android apps, like "{}\+Bluetooth Electronics"{} (\href{https://play.google.com/store/apps/details?id=com.keuwl.arduinobluetooth}{\texttt{ https\+://play.\+google.\+com/store/apps/details?id=com.\+keuwl.\+arduinobluetooth}})
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 22/03/2024   &Document creation   \\\cline{1-2}
+\end{longtabu}
+Flag used when no reading interruption is required 
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8h_source_l00030}{30}} del archivo \mbox{\hyperlink{ble__mcu_8h_source}{ble\+\_\+mcu.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de «typedef»}
+\Hypertarget{group___b_l_e_gace12bf2f4052775366d0375947452f0d}\label{group___b_l_e_gace12bf2f4052775366d0375947452f0d} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!ble\_status\_t@{ble\_status\_t}}
+\index{ble\_status\_t@{ble\_status\_t}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{ble\_status\_t}{ble\_status\_t}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{ble\+\_\+status}} \mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}}}
+
+
+
+BLE driver for the ESP-\/\+EDU Board. 
+
+\begin{DoxyNote}{Nota}
+This driver emulates HM-\/10 functionalities (same services and characteristics), so it can be used to communicate with common Android apps, like "{}\+Bluetooth Electronics"{} (\href{https://play.google.com/store/apps/details?id=com.keuwl.arduinobluetooth}{\texttt{ https\+://play.\+google.\+com/store/apps/details?id=com.\+keuwl.\+arduinobluetooth}})
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 22/03/2024   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+BLE connection status \Hypertarget{group___b_l_e_gace12bf2f4052775366d0375947452f0d}\label{group___b_l_e_gace12bf2f4052775366d0375947452f0d} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!ble\_status\_t@{ble\_status\_t}}
+\index{ble\_status\_t@{ble\_status\_t}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{ble\_status\_t}{ble\_status\_t}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{ble\+\_\+status}} \mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}}}
+
+
+
+BLE connection status. 
+
+\Hypertarget{group___b_l_e_gab3d8494d4d57a81a068b2b569cb0051e}\label{group___b_l_e_gab3d8494d4d57a81a068b2b569cb0051e} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!key\_mask\_t@{key\_mask\_t}}
+\index{key\_mask\_t@{key\_mask\_t}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{key\_mask\_t}{key\_mask\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___b_l_e_ga5f72a05c6c7165f5270a63ffba14035b}{key\+\_\+mask}} \mbox{\hyperlink{group___b_l_e_gab3d8494d4d57a81a068b2b569cb0051e}{key\+\_\+mask\+\_\+t}}}
+
+
+
+Mask of modifier keys to be pressed together with any key. 
+
+\Hypertarget{group___b_l_e_ga528f1243a7bb2eb10a2140592c67e879}\label{group___b_l_e_ga528f1243a7bb2eb10a2140592c67e879} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!keyboard\_cmd\_t@{keyboard\_cmd\_t}}
+\index{keyboard\_cmd\_t@{keyboard\_cmd\_t}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{keyboard\_cmd\_t}{keyboard\_cmd\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___b_l_e_gaed078c594a86d36a49f51710e35c405b}{keyboard\+\_\+cmd}} \mbox{\hyperlink{group___b_l_e_ga528f1243a7bb2eb10a2140592c67e879}{keyboard\+\_\+cmd\+\_\+t}}}
+
+
+
+Keyboard/\+Keypad Usage IDs. 
+
+\Hypertarget{group___b_l_e_gad70fe6ba1d3a0ac8b4603c11f6de43b2}\label{group___b_l_e_gad70fe6ba1d3a0ac8b4603c11f6de43b2} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!mouse\_cmd\_t@{mouse\_cmd\_t}}
+\index{mouse\_cmd\_t@{mouse\_cmd\_t}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{mouse\_cmd\_t}{mouse\_cmd\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{group___b_l_e_ga2a99f5333cc8031aac3511049bea8211}{mouse\+\_\+cmd}} \mbox{\hyperlink{group___b_l_e_gad70fe6ba1d3a0ac8b4603c11f6de43b2}{mouse\+\_\+cmd\+\_\+t}}}
+
+
+
+Mouse commands. 
+
+\Hypertarget{group___b_l_e_gae207a1d79a9762a3a3701e091bbb22c9}\label{group___b_l_e_gae207a1d79a9762a3a3701e091bbb22c9} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!read\_func@{read\_func}}
+\index{read\_func@{read\_func}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{read\_func}{read\_func}}
+{\footnotesize\ttfamily typedef void(\texorpdfstring{$\ast$}{*} read\+\_\+func) (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t length)}
+
+
+
+Prototype of callback function for reading received data. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em data} & pointer to received data array \\
+\hline
+{\em length} & number of bytes of received data \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8h_source_l00038}{38}} del archivo \mbox{\hyperlink{ble__mcu_8h_source}{ble\+\_\+mcu.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de enumeraciones}
+\Hypertarget{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}\label{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!ble\_status@{ble\_status}}
+\index{ble\_status@{ble\_status}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{ble\_status}{ble\_status}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{ble\+\_\+status}}}
+
+
+
+BLE driver for the ESP-\/\+EDU Board. 
+
+\begin{DoxyNote}{Nota}
+This driver emulates HM-\/10 functionalities (same services and characteristics), so it can be used to communicate with common Android apps, like "{}\+Bluetooth Electronics"{} (\href{https://play.google.com/store/apps/details?id=com.keuwl.arduinobluetooth}{\texttt{ https\+://play.\+google.\+com/store/apps/details?id=com.\+keuwl.\+arduinobluetooth}})
+\end{DoxyNote}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 22/03/2024   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+BLE connection status \begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLE\_OFF@{BLE\_OFF}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BLE\_OFF@{BLE\_OFF}}}\Hypertarget{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4}\label{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4} 
+BLE\+\_\+\+OFF&BLE inactive \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLE\_DISCONNECTED@{BLE\_DISCONNECTED}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BLE\_DISCONNECTED@{BLE\_DISCONNECTED}}}\Hypertarget{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47abe3828521b028796e567225bfbc5a978}\label{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47abe3828521b028796e567225bfbc5a978} 
+BLE\+\_\+\+DISCONNECTED&BLE device disconnected \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLE\_CONNECTED@{BLE\_CONNECTED}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BLE\_CONNECTED@{BLE\_CONNECTED}}}\Hypertarget{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399}\label{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399} 
+BLE\+\_\+\+CONNECTED&BLE device connected \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8h_source_l00036}{36}} del archivo \mbox{\hyperlink{ble__hid__mcu_8h_source}{ble\+\_\+hid\+\_\+mcu.\+h}}.
+
+\Hypertarget{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}\label{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!ble\_status@{ble\_status}}
+\index{ble\_status@{ble\_status}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{ble\_status}{ble\_status}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{ble\+\_\+status}}}
+
+
+
+BLE connection status. 
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLE\_OFF@{BLE\_OFF}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BLE\_OFF@{BLE\_OFF}}}\Hypertarget{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4}\label{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4} 
+BLE\+\_\+\+OFF&BLE inactive \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLE\_DISCONNECTED@{BLE\_DISCONNECTED}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BLE\_DISCONNECTED@{BLE\_DISCONNECTED}}}\Hypertarget{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47abe3828521b028796e567225bfbc5a978}\label{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47abe3828521b028796e567225bfbc5a978} 
+BLE\+\_\+\+DISCONNECTED&BLE device disconnected \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLE\_CONNECTED@{BLE\_CONNECTED}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BLE\_CONNECTED@{BLE\_CONNECTED}}}\Hypertarget{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399}\label{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399} 
+BLE\+\_\+\+CONNECTED&BLE device connected \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8h_source_l00051}{51}} del archivo \mbox{\hyperlink{ble__mcu_8h_source}{ble\+\_\+mcu.\+h}}.
+
+\Hypertarget{group___b_l_e_ga5f72a05c6c7165f5270a63ffba14035b}\label{group___b_l_e_ga5f72a05c6c7165f5270a63ffba14035b} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!key\_mask@{key\_mask}}
+\index{key\_mask@{key\_mask}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{key\_mask}{key\_mask}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___b_l_e_ga5f72a05c6c7165f5270a63ffba14035b}{key\+\_\+mask}}}
+
+
+
+Mask of modifier keys to be pressed together with any key. 
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT\_CONTROL\_KEY\_MASK@{LEFT\_CONTROL\_KEY\_MASK}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!LEFT\_CONTROL\_KEY\_MASK@{LEFT\_CONTROL\_KEY\_MASK}}}\Hypertarget{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035bae8d5d21a5fea1a0d6d9231b606ec1187}\label{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035bae8d5d21a5fea1a0d6d9231b606ec1187} 
+LEFT\+\_\+\+CONTROL\+\_\+\+KEY\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT\_SHIFT\_KEY\_MASK@{LEFT\_SHIFT\_KEY\_MASK}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!LEFT\_SHIFT\_KEY\_MASK@{LEFT\_SHIFT\_KEY\_MASK}}}\Hypertarget{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba3d608f93849fc015d9794cb8d704aa76}\label{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba3d608f93849fc015d9794cb8d704aa76} 
+LEFT\+\_\+\+SHIFT\+\_\+\+KEY\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT\_ALT\_KEY\_MASK@{LEFT\_ALT\_KEY\_MASK}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!LEFT\_ALT\_KEY\_MASK@{LEFT\_ALT\_KEY\_MASK}}}\Hypertarget{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba5db10c52a33d019b8f3d7664bed7be0e}\label{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba5db10c52a33d019b8f3d7664bed7be0e} 
+LEFT\+\_\+\+ALT\+\_\+\+KEY\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT\_GUI\_KEY\_MASK@{LEFT\_GUI\_KEY\_MASK}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!LEFT\_GUI\_KEY\_MASK@{LEFT\_GUI\_KEY\_MASK}}}\Hypertarget{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035bab7fb954fa02a79c03210c70e8e298e7a}\label{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035bab7fb954fa02a79c03210c70e8e298e7a} 
+LEFT\+\_\+\+GUI\+\_\+\+KEY\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT\_CONTROL\_KEY\_MASK@{RIGHT\_CONTROL\_KEY\_MASK}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!RIGHT\_CONTROL\_KEY\_MASK@{RIGHT\_CONTROL\_KEY\_MASK}}}\Hypertarget{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba064de832473bf23c95b4c4daed275fe5}\label{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba064de832473bf23c95b4c4daed275fe5} 
+RIGHT\+\_\+\+CONTROL\+\_\+\+KEY\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT\_SHIFT\_KEY\_MASK@{RIGHT\_SHIFT\_KEY\_MASK}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!RIGHT\_SHIFT\_KEY\_MASK@{RIGHT\_SHIFT\_KEY\_MASK}}}\Hypertarget{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba2f2627eb6653c51d2e20551fb679ea55}\label{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba2f2627eb6653c51d2e20551fb679ea55} 
+RIGHT\+\_\+\+SHIFT\+\_\+\+KEY\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT\_ALT\_KEY\_MASK@{RIGHT\_ALT\_KEY\_MASK}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!RIGHT\_ALT\_KEY\_MASK@{RIGHT\_ALT\_KEY\_MASK}}}\Hypertarget{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba9a543241dbf9bd28c431035b3827ac8b}\label{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035ba9a543241dbf9bd28c431035b3827ac8b} 
+RIGHT\+\_\+\+ALT\+\_\+\+KEY\+\_\+\+MASK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT\_GUI\_KEY\_MASK@{RIGHT\_GUI\_KEY\_MASK}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!RIGHT\_GUI\_KEY\_MASK@{RIGHT\_GUI\_KEY\_MASK}}}\Hypertarget{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035bad86cf5872495b6ce57ce67dc4cf0d92b}\label{group___b_l_e_gga5f72a05c6c7165f5270a63ffba14035bad86cf5872495b6ce57ce67dc4cf0d92b} 
+RIGHT\+\_\+\+GUI\+\_\+\+KEY\+\_\+\+MASK&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8h_source_l00156}{156}} del archivo \mbox{\hyperlink{ble__hid__mcu_8h_source}{ble\+\_\+hid\+\_\+mcu.\+h}}.
+
+\Hypertarget{group___b_l_e_gaed078c594a86d36a49f51710e35c405b}\label{group___b_l_e_gaed078c594a86d36a49f51710e35c405b} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!keyboard\_cmd@{keyboard\_cmd}}
+\index{keyboard\_cmd@{keyboard\_cmd}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{keyboard\_cmd}{keyboard\_cmd}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___b_l_e_gaed078c594a86d36a49f51710e35c405b}{keyboard\+\_\+cmd}}}
+
+
+
+Keyboard/\+Keypad Usage IDs. 
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_RESERVED@{HID\_KEY\_RESERVED}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_RESERVED@{HID\_KEY\_RESERVED}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba600732ab58224a41d74b86d4a40916f2}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba600732ab58224a41d74b86d4a40916f2} 
+HID\+\_\+\+KEY\+\_\+\+RESERVED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_A@{HID\_KEY\_A}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_A@{HID\_KEY\_A}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5413afa6a28a21dd52f07db101f2d139}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5413afa6a28a21dd52f07db101f2d139} 
+HID\+\_\+\+KEY\+\_\+A&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_B@{HID\_KEY\_B}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_B@{HID\_KEY\_B}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babb0b25fe8c201dc75b72c7b078f745d6}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babb0b25fe8c201dc75b72c7b078f745d6} 
+HID\+\_\+\+KEY\+\_\+B&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_C@{HID\_KEY\_C}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_C@{HID\_KEY\_C}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba932c610512cc99157654c3997bc2b922}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba932c610512cc99157654c3997bc2b922} 
+HID\+\_\+\+KEY\+\_\+C&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_D@{HID\_KEY\_D}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_D@{HID\_KEY\_D}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babc172093417a4c40a7443eee551e9700}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babc172093417a4c40a7443eee551e9700} 
+HID\+\_\+\+KEY\+\_\+D&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_E@{HID\_KEY\_E}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_E@{HID\_KEY\_E}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baff7192b9ddd4228e02c44b6fb2d7bf85}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baff7192b9ddd4228e02c44b6fb2d7bf85} 
+HID\+\_\+\+KEY\+\_\+E&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_F@{HID\_KEY\_F}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_F@{HID\_KEY\_F}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bacc002ca9f0f3bdc01b4de42d00e5560b}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bacc002ca9f0f3bdc01b4de42d00e5560b} 
+HID\+\_\+\+KEY\+\_\+F&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_G@{HID\_KEY\_G}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_G@{HID\_KEY\_G}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1eadd56346bbd64b1c33fa5393f65bda}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1eadd56346bbd64b1c33fa5393f65bda} 
+HID\+\_\+\+KEY\+\_\+G&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_H@{HID\_KEY\_H}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_H@{HID\_KEY\_H}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4bfc341fccde664ec9267af6e705ba0c}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4bfc341fccde664ec9267af6e705ba0c} 
+HID\+\_\+\+KEY\+\_\+H&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_I@{HID\_KEY\_I}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_I@{HID\_KEY\_I}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bafcd25dc5bba218f7097698f8f49fdc45}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bafcd25dc5bba218f7097698f8f49fdc45} 
+HID\+\_\+\+KEY\+\_\+I&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_J@{HID\_KEY\_J}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_J@{HID\_KEY\_J}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba2a78196208c634941d63429cd1e1df7a}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba2a78196208c634941d63429cd1e1df7a} 
+HID\+\_\+\+KEY\+\_\+J&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_K@{HID\_KEY\_K}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_K@{HID\_KEY\_K}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4ceddaaaa90d84f0afb3e1ee9a35a976}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4ceddaaaa90d84f0afb3e1ee9a35a976} 
+HID\+\_\+\+KEY\+\_\+K&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_L@{HID\_KEY\_L}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_L@{HID\_KEY\_L}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf5de66adc9eb2aa183eab1e23f977894}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf5de66adc9eb2aa183eab1e23f977894} 
+HID\+\_\+\+KEY\+\_\+L&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_M@{HID\_KEY\_M}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_M@{HID\_KEY\_M}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4f8174feca1eb72901576c4e24c8f8a9}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4f8174feca1eb72901576c4e24c8f8a9} 
+HID\+\_\+\+KEY\+\_\+M&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_N@{HID\_KEY\_N}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_N@{HID\_KEY\_N}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab4d202043e8b0b7a8c2d4c519fd1eb07}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab4d202043e8b0b7a8c2d4c519fd1eb07} 
+HID\+\_\+\+KEY\+\_\+N&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_O@{HID\_KEY\_O}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_O@{HID\_KEY\_O}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bad8884ef7e77722099e6bd61265f6564c}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bad8884ef7e77722099e6bd61265f6564c} 
+HID\+\_\+\+KEY\+\_\+O&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_P@{HID\_KEY\_P}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_P@{HID\_KEY\_P}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baca0480331288d15eccec9f072f123817}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baca0480331288d15eccec9f072f123817} 
+HID\+\_\+\+KEY\+\_\+P&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_Q@{HID\_KEY\_Q}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_Q@{HID\_KEY\_Q}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba05fb920f8129f57dd350036f17fbe519}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba05fb920f8129f57dd350036f17fbe519} 
+HID\+\_\+\+KEY\+\_\+Q&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_R@{HID\_KEY\_R}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_R@{HID\_KEY\_R}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba037de00c763ae6b270895b7a5f0f57a7}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba037de00c763ae6b270895b7a5f0f57a7} 
+HID\+\_\+\+KEY\+\_\+R&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_S@{HID\_KEY\_S}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_S@{HID\_KEY\_S}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae6a84e8474b6c3e8f9f7d344408cfa0b}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae6a84e8474b6c3e8f9f7d344408cfa0b} 
+HID\+\_\+\+KEY\+\_\+S&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_T@{HID\_KEY\_T}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_T@{HID\_KEY\_T}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba893799f48b30c438349335556a0e15b6}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba893799f48b30c438349335556a0e15b6} 
+HID\+\_\+\+KEY\+\_\+T&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_U@{HID\_KEY\_U}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_U@{HID\_KEY\_U}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab3c7c9f3a73e83623c651cdfddddeb05}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab3c7c9f3a73e83623c651cdfddddeb05} 
+HID\+\_\+\+KEY\+\_\+U&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_V@{HID\_KEY\_V}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_V@{HID\_KEY\_V}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba02f14e6303b4d2e4e46747324d649dda}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba02f14e6303b4d2e4e46747324d649dda} 
+HID\+\_\+\+KEY\+\_\+V&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_W@{HID\_KEY\_W}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_W@{HID\_KEY\_W}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badf81a88f3f92f15e2abec83911bf3732}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badf81a88f3f92f15e2abec83911bf3732} 
+HID\+\_\+\+KEY\+\_\+W&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_X@{HID\_KEY\_X}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_X@{HID\_KEY\_X}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9f3b8bb63f6628db9a1678b72ec12b6d}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9f3b8bb63f6628db9a1678b72ec12b6d} 
+HID\+\_\+\+KEY\+\_\+X&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_Y@{HID\_KEY\_Y}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_Y@{HID\_KEY\_Y}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4ca2ebe26c09f2400a8ebc0aa445ce89}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4ca2ebe26c09f2400a8ebc0aa445ce89} 
+HID\+\_\+\+KEY\+\_\+Y&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_Z@{HID\_KEY\_Z}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_Z@{HID\_KEY\_Z}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa5cd01ad23ede98de1ae176920b8fc8f}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa5cd01ad23ede98de1ae176920b8fc8f} 
+HID\+\_\+\+KEY\+\_\+Z&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_1@{HID\_KEY\_1}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_1@{HID\_KEY\_1}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba039ced168420140b97e2d0676e1bb12a}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba039ced168420140b97e2d0676e1bb12a} 
+HID\+\_\+\+KEY\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_2@{HID\_KEY\_2}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_2@{HID\_KEY\_2}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae98dd71460def5e66fcf32e9783b96ea}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae98dd71460def5e66fcf32e9783b96ea} 
+HID\+\_\+\+KEY\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_3@{HID\_KEY\_3}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_3@{HID\_KEY\_3}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf58d848786f8d2dfac702f7fae178311}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf58d848786f8d2dfac702f7fae178311} 
+HID\+\_\+\+KEY\+\_\+3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_4@{HID\_KEY\_4}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_4@{HID\_KEY\_4}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba17019d72e84302486f72f7d8101baca5}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba17019d72e84302486f72f7d8101baca5} 
+HID\+\_\+\+KEY\+\_\+4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_5@{HID\_KEY\_5}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_5@{HID\_KEY\_5}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf32ab36da2e30066c9ed2816596011c8}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf32ab36da2e30066c9ed2816596011c8} 
+HID\+\_\+\+KEY\+\_\+5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_6@{HID\_KEY\_6}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_6@{HID\_KEY\_6}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae16b76c1bf9f7aa58a1b1c556a6b6022}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae16b76c1bf9f7aa58a1b1c556a6b6022} 
+HID\+\_\+\+KEY\+\_\+6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_7@{HID\_KEY\_7}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_7@{HID\_KEY\_7}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5887a1854f7d0787121bd75034cdd726}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5887a1854f7d0787121bd75034cdd726} 
+HID\+\_\+\+KEY\+\_\+7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_8@{HID\_KEY\_8}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_8@{HID\_KEY\_8}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1761228849d7dc2b84d0565d3337b2e2}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1761228849d7dc2b84d0565d3337b2e2} 
+HID\+\_\+\+KEY\+\_\+8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_9@{HID\_KEY\_9}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_9@{HID\_KEY\_9}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba758aec2540a6a2153702d6905c44ce52}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba758aec2540a6a2153702d6905c44ce52} 
+HID\+\_\+\+KEY\+\_\+9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_0@{HID\_KEY\_0}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_0@{HID\_KEY\_0}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba856ca663233681e789ef4aa94c44ebaf}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba856ca663233681e789ef4aa94c44ebaf} 
+HID\+\_\+\+KEY\+\_\+0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_RETURN@{HID\_KEY\_RETURN}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_RETURN@{HID\_KEY\_RETURN}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bafa33f1938e7862c2f24591e265a74b27}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bafa33f1938e7862c2f24591e265a74b27} 
+HID\+\_\+\+KEY\+\_\+\+RETURN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_ESCAPE@{HID\_KEY\_ESCAPE}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_ESCAPE@{HID\_KEY\_ESCAPE}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab535b93c13d1bf14aeba8184bf75133f}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab535b93c13d1bf14aeba8184bf75133f} 
+HID\+\_\+\+KEY\+\_\+\+ESCAPE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_DELETE@{HID\_KEY\_DELETE}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_DELETE@{HID\_KEY\_DELETE}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae8f5051cb476c3e9253b008094c431fc}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae8f5051cb476c3e9253b008094c431fc} 
+HID\+\_\+\+KEY\+\_\+\+DELETE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_TAB@{HID\_KEY\_TAB}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_TAB@{HID\_KEY\_TAB}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5a6c79e8ea85f6593c06d19098d69a03}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5a6c79e8ea85f6593c06d19098d69a03} 
+HID\+\_\+\+KEY\+\_\+\+TAB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_SPACEBAR@{HID\_KEY\_SPACEBAR}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_SPACEBAR@{HID\_KEY\_SPACEBAR}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badcc65069cf17c64428f0a139aac5a5e4}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badcc65069cf17c64428f0a139aac5a5e4} 
+HID\+\_\+\+KEY\+\_\+\+SPACEBAR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_MINUS@{HID\_KEY\_MINUS}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_MINUS@{HID\_KEY\_MINUS}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa59864204064d3e8fac5271b69a7da23}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa59864204064d3e8fac5271b69a7da23} 
+HID\+\_\+\+KEY\+\_\+\+MINUS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_EQUAL@{HID\_KEY\_EQUAL}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_EQUAL@{HID\_KEY\_EQUAL}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bac8d82858905175ba79c24b0be1b1b1a8}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bac8d82858905175ba79c24b0be1b1b1a8} 
+HID\+\_\+\+KEY\+\_\+\+EQUAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_LEFT\_BRKT@{HID\_KEY\_LEFT\_BRKT}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_LEFT\_BRKT@{HID\_KEY\_LEFT\_BRKT}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4115c92565e61e98577b27f9c76bb6a0}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4115c92565e61e98577b27f9c76bb6a0} 
+HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+BRKT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_RIGHT\_BRKT@{HID\_KEY\_RIGHT\_BRKT}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_RIGHT\_BRKT@{HID\_KEY\_RIGHT\_BRKT}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab743223a2bcb984ed057b65c710133a9}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab743223a2bcb984ed057b65c710133a9} 
+HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+BRKT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_BACK\_SLASH@{HID\_KEY\_BACK\_SLASH}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_BACK\_SLASH@{HID\_KEY\_BACK\_SLASH}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba504a41e2ed19db2bfbfee5337c9106ec}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba504a41e2ed19db2bfbfee5337c9106ec} 
+HID\+\_\+\+KEY\+\_\+\+BACK\+\_\+\+SLASH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_SEMI\_COLON@{HID\_KEY\_SEMI\_COLON}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_SEMI\_COLON@{HID\_KEY\_SEMI\_COLON}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba44aa982b84c552d2074c5776cce6494d}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba44aa982b84c552d2074c5776cce6494d} 
+HID\+\_\+\+KEY\+\_\+\+SEMI\+\_\+\+COLON&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_SGL\_QUOTE@{HID\_KEY\_SGL\_QUOTE}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_SGL\_QUOTE@{HID\_KEY\_SGL\_QUOTE}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8fc22fb25f352a33a2fe25cea0468223}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8fc22fb25f352a33a2fe25cea0468223} 
+HID\+\_\+\+KEY\+\_\+\+SGL\+\_\+\+QUOTE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_GRV\_ACCENT@{HID\_KEY\_GRV\_ACCENT}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_GRV\_ACCENT@{HID\_KEY\_GRV\_ACCENT}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf33f8c506a4c1712b1ff9a4306e5363a}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf33f8c506a4c1712b1ff9a4306e5363a} 
+HID\+\_\+\+KEY\+\_\+\+GRV\+\_\+\+ACCENT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_COMMA@{HID\_KEY\_COMMA}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_COMMA@{HID\_KEY\_COMMA}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa81aa5b3424f02fdf02295de47b11b19}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa81aa5b3424f02fdf02295de47b11b19} 
+HID\+\_\+\+KEY\+\_\+\+COMMA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_DOT@{HID\_KEY\_DOT}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_DOT@{HID\_KEY\_DOT}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba403fe927ebb0014e2c1b3dc25e1d9779}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba403fe927ebb0014e2c1b3dc25e1d9779} 
+HID\+\_\+\+KEY\+\_\+\+DOT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_FWD\_SLASH@{HID\_KEY\_FWD\_SLASH}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_FWD\_SLASH@{HID\_KEY\_FWD\_SLASH}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba051d27ff8304a9f5a6c8c0a1e5e07c9c}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba051d27ff8304a9f5a6c8c0a1e5e07c9c} 
+HID\+\_\+\+KEY\+\_\+\+FWD\+\_\+\+SLASH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_CAPS\_LOCK@{HID\_KEY\_CAPS\_LOCK}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_CAPS\_LOCK@{HID\_KEY\_CAPS\_LOCK}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba033946a3fae42a1184c78e15e7f7efa0}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba033946a3fae42a1184c78e15e7f7efa0} 
+HID\+\_\+\+KEY\+\_\+\+CAPS\+\_\+\+LOCK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_F1@{HID\_KEY\_F1}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_F1@{HID\_KEY\_F1}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9642163abbbad8aa5c7088c8529aadd7}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9642163abbbad8aa5c7088c8529aadd7} 
+HID\+\_\+\+KEY\+\_\+\+F1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_F2@{HID\_KEY\_F2}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_F2@{HID\_KEY\_F2}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9ce331f5f41ba3e3e05f485bc2d4138e}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9ce331f5f41ba3e3e05f485bc2d4138e} 
+HID\+\_\+\+KEY\+\_\+\+F2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_F3@{HID\_KEY\_F3}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_F3@{HID\_KEY\_F3}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba76adde1d9295cf62e7efb35e27911a1e}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba76adde1d9295cf62e7efb35e27911a1e} 
+HID\+\_\+\+KEY\+\_\+\+F3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_F4@{HID\_KEY\_F4}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_F4@{HID\_KEY\_F4}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa9956a2b95afe1a05fda65db5cc66467}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa9956a2b95afe1a05fda65db5cc66467} 
+HID\+\_\+\+KEY\+\_\+\+F4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_F5@{HID\_KEY\_F5}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_F5@{HID\_KEY\_F5}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bace9e8d409d981f193f69fc5b29f38ca7}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bace9e8d409d981f193f69fc5b29f38ca7} 
+HID\+\_\+\+KEY\+\_\+\+F5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_F6@{HID\_KEY\_F6}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_F6@{HID\_KEY\_F6}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babc92147e725c8108c18f4e03005afbdc}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babc92147e725c8108c18f4e03005afbdc} 
+HID\+\_\+\+KEY\+\_\+\+F6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_F7@{HID\_KEY\_F7}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_F7@{HID\_KEY\_F7}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1e2eabf8b9fa6cbfea613696b2c4122a}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1e2eabf8b9fa6cbfea613696b2c4122a} 
+HID\+\_\+\+KEY\+\_\+\+F7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_F8@{HID\_KEY\_F8}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_F8@{HID\_KEY\_F8}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5092add2863231d273ba60cd583ebe33}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5092add2863231d273ba60cd583ebe33} 
+HID\+\_\+\+KEY\+\_\+\+F8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_F9@{HID\_KEY\_F9}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_F9@{HID\_KEY\_F9}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5a09deabde1a3a44378b7de44dad27b6}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5a09deabde1a3a44378b7de44dad27b6} 
+HID\+\_\+\+KEY\+\_\+\+F9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_F10@{HID\_KEY\_F10}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_F10@{HID\_KEY\_F10}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bac2c4a3aec85b4d8171de4429ccabbe19}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bac2c4a3aec85b4d8171de4429ccabbe19} 
+HID\+\_\+\+KEY\+\_\+\+F10&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_F11@{HID\_KEY\_F11}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_F11@{HID\_KEY\_F11}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba76bb35a0f71733b0a0f1bd7e3837064c}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba76bb35a0f71733b0a0f1bd7e3837064c} 
+HID\+\_\+\+KEY\+\_\+\+F11&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_F12@{HID\_KEY\_F12}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_F12@{HID\_KEY\_F12}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab44ba4426c1574f4b296794b7bfe2172}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bab44ba4426c1574f4b296794b7bfe2172} 
+HID\+\_\+\+KEY\+\_\+\+F12&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_PRNT\_SCREEN@{HID\_KEY\_PRNT\_SCREEN}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_PRNT\_SCREEN@{HID\_KEY\_PRNT\_SCREEN}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa55c5b4499682b21ee1874266785deb7}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baa55c5b4499682b21ee1874266785deb7} 
+HID\+\_\+\+KEY\+\_\+\+PRNT\+\_\+\+SCREEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_SCROLL\_LOCK@{HID\_KEY\_SCROLL\_LOCK}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_SCROLL\_LOCK@{HID\_KEY\_SCROLL\_LOCK}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba2d026746bc41257642b93e2e412a28d3}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba2d026746bc41257642b93e2e412a28d3} 
+HID\+\_\+\+KEY\+\_\+\+SCROLL\+\_\+\+LOCK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_PAUSE@{HID\_KEY\_PAUSE}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_PAUSE@{HID\_KEY\_PAUSE}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1905733a0fe81f78e0752e3b0bb99c69}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1905733a0fe81f78e0752e3b0bb99c69} 
+HID\+\_\+\+KEY\+\_\+\+PAUSE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_INSERT@{HID\_KEY\_INSERT}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_INSERT@{HID\_KEY\_INSERT}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1e1c320cea0644c3dc38da06c865837b}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1e1c320cea0644c3dc38da06c865837b} 
+HID\+\_\+\+KEY\+\_\+\+INSERT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_HOME@{HID\_KEY\_HOME}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_HOME@{HID\_KEY\_HOME}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5fc1127fe9014018f4831cbf272c883b}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5fc1127fe9014018f4831cbf272c883b} 
+HID\+\_\+\+KEY\+\_\+\+HOME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_PAGE\_UP@{HID\_KEY\_PAGE\_UP}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_PAGE\_UP@{HID\_KEY\_PAGE\_UP}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba09c7ee2581a02243437e005a9cfe73e7}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba09c7ee2581a02243437e005a9cfe73e7} 
+HID\+\_\+\+KEY\+\_\+\+PAGE\+\_\+\+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_DELETE\_FWD@{HID\_KEY\_DELETE\_FWD}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_DELETE\_FWD@{HID\_KEY\_DELETE\_FWD}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5abb5c0d3fe30ed7ca3a23ee6a40888f}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5abb5c0d3fe30ed7ca3a23ee6a40888f} 
+HID\+\_\+\+KEY\+\_\+\+DELETE\+\_\+\+FWD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_END@{HID\_KEY\_END}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_END@{HID\_KEY\_END}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8f933f0f6e5a1a3c3cdc1819ffcdce63}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8f933f0f6e5a1a3c3cdc1819ffcdce63} 
+HID\+\_\+\+KEY\+\_\+\+END&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_PAGE\_DOWN@{HID\_KEY\_PAGE\_DOWN}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_PAGE\_DOWN@{HID\_KEY\_PAGE\_DOWN}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badd1c4c03849f79aceea29114b543ccee}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badd1c4c03849f79aceea29114b543ccee} 
+HID\+\_\+\+KEY\+\_\+\+PAGE\+\_\+\+DOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_RIGHT\_ARROW@{HID\_KEY\_RIGHT\_ARROW}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_RIGHT\_ARROW@{HID\_KEY\_RIGHT\_ARROW}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1f58efdc6ce6bfe844ced30e2893f1bb}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1f58efdc6ce6bfe844ced30e2893f1bb} 
+HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+ARROW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_LEFT\_ARROW@{HID\_KEY\_LEFT\_ARROW}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_LEFT\_ARROW@{HID\_KEY\_LEFT\_ARROW}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babb6ba38ae1164feaa8fceb9fb94d6bbb}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405babb6ba38ae1164feaa8fceb9fb94d6bbb} 
+HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+ARROW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_DOWN\_ARROW@{HID\_KEY\_DOWN\_ARROW}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_DOWN\_ARROW@{HID\_KEY\_DOWN\_ARROW}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba31a4c371435ac01a032c682812771fd6}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba31a4c371435ac01a032c682812771fd6} 
+HID\+\_\+\+KEY\+\_\+\+DOWN\+\_\+\+ARROW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_UP\_ARROW@{HID\_KEY\_UP\_ARROW}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_UP\_ARROW@{HID\_KEY\_UP\_ARROW}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9e8d12c384d14c2c1938c7f3ae5df5d9}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9e8d12c384d14c2c1938c7f3ae5df5d9} 
+HID\+\_\+\+KEY\+\_\+\+UP\+\_\+\+ARROW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_NUM\_LOCK@{HID\_KEY\_NUM\_LOCK}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_NUM\_LOCK@{HID\_KEY\_NUM\_LOCK}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba63316298f3a9bb3a3c500221996f9c78}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba63316298f3a9bb3a3c500221996f9c78} 
+HID\+\_\+\+KEY\+\_\+\+NUM\+\_\+\+LOCK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_DIVIDE@{HID\_KEY\_DIVIDE}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_DIVIDE@{HID\_KEY\_DIVIDE}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba90e28beee115680cfae34d6d4caaf7bd}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba90e28beee115680cfae34d6d4caaf7bd} 
+HID\+\_\+\+KEY\+\_\+\+DIVIDE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_MULTIPLY@{HID\_KEY\_MULTIPLY}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_MULTIPLY@{HID\_KEY\_MULTIPLY}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8067563067963b46369415db862818bc}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8067563067963b46369415db862818bc} 
+HID\+\_\+\+KEY\+\_\+\+MULTIPLY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_SUBTRACT@{HID\_KEY\_SUBTRACT}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_SUBTRACT@{HID\_KEY\_SUBTRACT}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf2e95cd26b0a24d2d31d5e2047490cb4}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baf2e95cd26b0a24d2d31d5e2047490cb4} 
+HID\+\_\+\+KEY\+\_\+\+SUBTRACT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_ADD@{HID\_KEY\_ADD}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_ADD@{HID\_KEY\_ADD}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba3f6b24f24e21cd4423b21a50fbf0b868}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba3f6b24f24e21cd4423b21a50fbf0b868} 
+HID\+\_\+\+KEY\+\_\+\+ADD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_ENTER@{HID\_KEY\_ENTER}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_ENTER@{HID\_KEY\_ENTER}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baeeab6ddad27c449cbc44ca2458912a75}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baeeab6ddad27c449cbc44ca2458912a75} 
+HID\+\_\+\+KEY\+\_\+\+ENTER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEYPAD\_1@{HID\_KEYPAD\_1}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEYPAD\_1@{HID\_KEYPAD\_1}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bafc37c6a510a5d8a513338845b8f3155a}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bafc37c6a510a5d8a513338845b8f3155a} 
+HID\+\_\+\+KEYPAD\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEYPAD\_2@{HID\_KEYPAD\_2}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEYPAD\_2@{HID\_KEYPAD\_2}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba04d2523223a843c8a2ecd1cfcbb367ac}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba04d2523223a843c8a2ecd1cfcbb367ac} 
+HID\+\_\+\+KEYPAD\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEYPAD\_3@{HID\_KEYPAD\_3}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEYPAD\_3@{HID\_KEYPAD\_3}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bacddf6dfc0143b5a60cc9bb853dfe64c1}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bacddf6dfc0143b5a60cc9bb853dfe64c1} 
+HID\+\_\+\+KEYPAD\+\_\+3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEYPAD\_4@{HID\_KEYPAD\_4}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEYPAD\_4@{HID\_KEYPAD\_4}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5e6007af8b18713a334522fcf82ee114}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba5e6007af8b18713a334522fcf82ee114} 
+HID\+\_\+\+KEYPAD\+\_\+4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEYPAD\_5@{HID\_KEYPAD\_5}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEYPAD\_5@{HID\_KEYPAD\_5}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba7f0c78a823adb7616223ccb3573a3b48}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba7f0c78a823adb7616223ccb3573a3b48} 
+HID\+\_\+\+KEYPAD\+\_\+5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEYPAD\_6@{HID\_KEYPAD\_6}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEYPAD\_6@{HID\_KEYPAD\_6}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4858467756d6f6524436312f49a15b6e}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba4858467756d6f6524436312f49a15b6e} 
+HID\+\_\+\+KEYPAD\+\_\+6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEYPAD\_7@{HID\_KEYPAD\_7}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEYPAD\_7@{HID\_KEYPAD\_7}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1c2945e65e29846af0356eb9b844ea41}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba1c2945e65e29846af0356eb9b844ea41} 
+HID\+\_\+\+KEYPAD\+\_\+7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEYPAD\_8@{HID\_KEYPAD\_8}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEYPAD\_8@{HID\_KEYPAD\_8}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bace92bad17097ebdac57f6258f9102002}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bace92bad17097ebdac57f6258f9102002} 
+HID\+\_\+\+KEYPAD\+\_\+8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEYPAD\_9@{HID\_KEYPAD\_9}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEYPAD\_9@{HID\_KEYPAD\_9}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae14513b31e23bf60bc9b2a5746f3b91f}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae14513b31e23bf60bc9b2a5746f3b91f} 
+HID\+\_\+\+KEYPAD\+\_\+9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEYPAD\_0@{HID\_KEYPAD\_0}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEYPAD\_0@{HID\_KEYPAD\_0}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba26479ce80a4fb7b3776cd39be35bdb8f}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba26479ce80a4fb7b3776cd39be35bdb8f} 
+HID\+\_\+\+KEYPAD\+\_\+0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEYPAD\_DOT@{HID\_KEYPAD\_DOT}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEYPAD\_DOT@{HID\_KEYPAD\_DOT}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba003a94b6ac7179e7dde387fb7d112e16}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba003a94b6ac7179e7dde387fb7d112e16} 
+HID\+\_\+\+KEYPAD\+\_\+\+DOT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_MUTE@{HID\_KEY\_MUTE}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_MUTE@{HID\_KEY\_MUTE}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bac3735a425236beedcb56c8d194100550}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bac3735a425236beedcb56c8d194100550} 
+HID\+\_\+\+KEY\+\_\+\+MUTE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_VOLUME\_UP@{HID\_KEY\_VOLUME\_UP}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_VOLUME\_UP@{HID\_KEY\_VOLUME\_UP}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae4266b9ae5cd6533d9d65394466b0b2d}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bae4266b9ae5cd6533d9d65394466b0b2d} 
+HID\+\_\+\+KEY\+\_\+\+VOLUME\+\_\+\+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_VOLUME\_DOWN@{HID\_KEY\_VOLUME\_DOWN}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_VOLUME\_DOWN@{HID\_KEY\_VOLUME\_DOWN}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baed6ecfe7b4461f4cf01962d0bbfe4055}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405baed6ecfe7b4461f4cf01962d0bbfe4055} 
+HID\+\_\+\+KEY\+\_\+\+VOLUME\+\_\+\+DOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_LEFT\_CTRL@{HID\_KEY\_LEFT\_CTRL}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_LEFT\_CTRL@{HID\_KEY\_LEFT\_CTRL}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8f38dd4bfdd188ecdf91223c7c86c296}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8f38dd4bfdd188ecdf91223c7c86c296} 
+HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+CTRL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_LEFT\_SHIFT@{HID\_KEY\_LEFT\_SHIFT}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_LEFT\_SHIFT@{HID\_KEY\_LEFT\_SHIFT}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8cc88ec22abb9c700a62ff08ac19dc5a}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba8cc88ec22abb9c700a62ff08ac19dc5a} 
+HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+SHIFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_LEFT\_ALT@{HID\_KEY\_LEFT\_ALT}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_LEFT\_ALT@{HID\_KEY\_LEFT\_ALT}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba148b38cbefe926253ab179ad585fa9b7}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba148b38cbefe926253ab179ad585fa9b7} 
+HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+ALT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_LEFT\_GUI@{HID\_KEY\_LEFT\_GUI}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_LEFT\_GUI@{HID\_KEY\_LEFT\_GUI}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bad495e5139be2c91b681cf4b0b0990668}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bad495e5139be2c91b681cf4b0b0990668} 
+HID\+\_\+\+KEY\+\_\+\+LEFT\+\_\+\+GUI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_RIGHT\_CTRL@{HID\_KEY\_RIGHT\_CTRL}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_RIGHT\_CTRL@{HID\_KEY\_RIGHT\_CTRL}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bacfde4acd578e5e4df72b91b36cb81e1d}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405bacfde4acd578e5e4df72b91b36cb81e1d} 
+HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+CTRL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_RIGHT\_SHIFT@{HID\_KEY\_RIGHT\_SHIFT}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_RIGHT\_SHIFT@{HID\_KEY\_RIGHT\_SHIFT}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba130bbf55268a6e107c45cd074389c83b}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba130bbf55268a6e107c45cd074389c83b} 
+HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+SHIFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_RIGHT\_ALT@{HID\_KEY\_RIGHT\_ALT}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_RIGHT\_ALT@{HID\_KEY\_RIGHT\_ALT}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba11dccdfd97d8c04bdc013428689bc3a5}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba11dccdfd97d8c04bdc013428689bc3a5} 
+HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+ALT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_KEY\_RIGHT\_GUI@{HID\_KEY\_RIGHT\_GUI}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_KEY\_RIGHT\_GUI@{HID\_KEY\_RIGHT\_GUI}}}\Hypertarget{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badfe9a8659711338d18e8b2ffcabfb2b8}\label{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badfe9a8659711338d18e8b2ffcabfb2b8} 
+HID\+\_\+\+KEY\+\_\+\+RIGHT\+\_\+\+GUI&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8h_source_l00044}{44}} del archivo \mbox{\hyperlink{ble__hid__mcu_8h_source}{ble\+\_\+hid\+\_\+mcu.\+h}}.
+
+\Hypertarget{group___b_l_e_ga2a99f5333cc8031aac3511049bea8211}\label{group___b_l_e_ga2a99f5333cc8031aac3511049bea8211} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!mouse\_cmd@{mouse\_cmd}}
+\index{mouse\_cmd@{mouse\_cmd}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{mouse\_cmd}{mouse\_cmd}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___b_l_e_ga2a99f5333cc8031aac3511049bea8211}{mouse\+\_\+cmd}}}
+
+
+
+Mouse commands. 
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_NO\_BUTTON@{HID\_NO\_BUTTON}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_NO\_BUTTON@{HID\_NO\_BUTTON}}}\Hypertarget{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211a10144627495fe6bd5f6d48af227352d0}\label{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211a10144627495fe6bd5f6d48af227352d0} 
+HID\+\_\+\+NO\+\_\+\+BUTTON&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_MOUSE\_LEFT@{HID\_MOUSE\_LEFT}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_MOUSE\_LEFT@{HID\_MOUSE\_LEFT}}}\Hypertarget{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211aa9074dc36ad6303afc552a8b2e6c84fd}\label{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211aa9074dc36ad6303afc552a8b2e6c84fd} 
+HID\+\_\+\+MOUSE\+\_\+\+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_MOUSE\_MIDDLE@{HID\_MOUSE\_MIDDLE}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_MOUSE\_MIDDLE@{HID\_MOUSE\_MIDDLE}}}\Hypertarget{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211ae4757cf58be5b9851fa24f6474f086d4}\label{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211ae4757cf58be5b9851fa24f6474f086d4} 
+HID\+\_\+\+MOUSE\+\_\+\+MIDDLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HID\_MOUSE\_RIGHT@{HID\_MOUSE\_RIGHT}!Bluetooth Low Energy@{Bluetooth Low Energy}}\index{Bluetooth Low Energy@{Bluetooth Low Energy}!HID\_MOUSE\_RIGHT@{HID\_MOUSE\_RIGHT}}}\Hypertarget{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211a55ddb88a702acbd88e5571f91f157cd9}\label{group___b_l_e_gga2a99f5333cc8031aac3511049bea8211a55ddb88a702acbd88e5571f91f157cd9} 
+HID\+\_\+\+MOUSE\+\_\+\+RIGHT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8h_source_l00169}{169}} del archivo \mbox{\hyperlink{ble__hid__mcu_8h_source}{ble\+\_\+hid\+\_\+mcu.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___b_l_e_ga94512d231afe9cff7e7aa8eff3a18fba}\label{group___b_l_e_ga94512d231afe9cff7e7aa8eff3a18fba} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BleHidInit@{BleHidInit}}
+\index{BleHidInit@{BleHidInit}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{BleHidInit()}{BleHidInit()}}
+{\footnotesize\ttfamily void Ble\+Hid\+Init (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{hid\+\_\+dev\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Bluetooth initialization as a HID device. 
+
+\begin{DoxyNote}{Nota}
+It\textquotesingle{}ll start advertising automatically after initialization.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parámetros}
+{\em hid\+\_\+dev\+\_\+name} & Device name \\
+\hline
+\end{DoxyParams}
+register the callback function to the gap module
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8c_source_l01366}{1366}} del archivo \mbox{\hyperlink{ble__hid__mcu_8c_source}{ble\+\_\+hid\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__hid__mcu_8c_source_l00435}{device\+\_\+name}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00024}{ESP\+\_\+\+ERROR\+\_\+\+CHECK}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l00991}{esp\+\_\+hidd\+\_\+profile\+\_\+init()}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l00972}{esp\+\_\+hidd\+\_\+register\+\_\+callbacks()}} y \mbox{\hyperlink{ble__hid__mcu_8c_source_l00031}{TAG}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00198}{app\+\_\+main()}}.
+
+\Hypertarget{group___b_l_e_ga28150d6c4fe3eedd6e784d272d0e56ca}\label{group___b_l_e_ga28150d6c4fe3eedd6e784d272d0e56ca} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BleHidSendKeyboard@{BleHidSendKeyboard}}
+\index{BleHidSendKeyboard@{BleHidSendKeyboard}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{BleHidSendKeyboard()}{BleHidSendKeyboard()}}
+{\footnotesize\ttfamily void Ble\+Hid\+Send\+Keyboard (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___b_l_e_gab3d8494d4d57a81a068b2b569cb0051e}{key\+\_\+mask\+\_\+t}}}]{special\+\_\+key\+\_\+mask,  }\item[{\mbox{\hyperlink{group___b_l_e_ga528f1243a7bb2eb10a2140592c67e879}{keyboard\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{keyboard\+\_\+cmd,  }\item[{uint8\+\_\+t}]{num\+\_\+key }\end{DoxyParamCaption})}
+
+
+
+Send a group of keys to be pressed together. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em special\+\_\+key\+\_\+mask} & Modifier keys mask \\
+\hline
+{\em keyboard\+\_\+cmd} & Array with keys (max\+: 6) \\
+\hline
+{\em num\+\_\+key} & Number of keys (in keyboard\+\_\+cmd array) to be pressed together (max\+: 6) \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8c_source_l01421}{1421}} del archivo \mbox{\hyperlink{ble__hid__mcu_8c_source}{ble\+\_\+hid\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__hid__mcu_8h_source_l00039}{BLE\+\_\+\+CONNECTED}}, \mbox{\hyperlink{mpu6050_8c_source_l00021}{buffer}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l00390}{hidd\+\_\+le\+\_\+env\+\_\+t\+::gatt\+\_\+if}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l01043}{hid\+\_\+dev\+\_\+send\+\_\+report()}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l00034}{HID\+\_\+\+KEYBOARD\+\_\+\+IN\+\_\+\+RPT\+\_\+\+LEN}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l00101}{HID\+\_\+\+REPORT\+\_\+\+TYPE\+\_\+\+INPUT}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l00062}{HID\+\_\+\+RPT\+\_\+\+ID\+\_\+\+KEY\+\_\+\+IN}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l00434}{hidd\+\_\+le\+\_\+env}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l00954}{status}} y \mbox{\hyperlink{ble__hid__mcu_8c_source_l00031}{TAG}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00095}{Tecla\+Abajo()}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00086}{Tecla\+Arriba()}} y \mbox{\hyperlink{proyecto__integrador_8c_source_l00068}{Tecla\+Barra()}}.
+
+\Hypertarget{group___b_l_e_gae4f1c4c5da8317a9c16d13e418e82a2e}\label{group___b_l_e_gae4f1c4c5da8317a9c16d13e418e82a2e} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BleHidSendMouse@{BleHidSendMouse}}
+\index{BleHidSendMouse@{BleHidSendMouse}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{BleHidSendMouse()}{BleHidSendMouse()}}
+{\footnotesize\ttfamily void Ble\+Hid\+Send\+Mouse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___b_l_e_gad70fe6ba1d3a0ac8b4603c11f6de43b2}{mouse\+\_\+cmd\+\_\+t}}}]{mouse\+\_\+button,  }\item[{int8\+\_\+t}]{delta\+\_\+x,  }\item[{int8\+\_\+t}]{delta\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Send mouse position and click event. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em mouse\+\_\+button} & Button to be clicked \\
+\hline
+{\em delta\+\_\+x} & X cursor relative position \\
+\hline
+{\em delta\+\_\+y} & Y cursor relative position \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8c_source_l01443}{1443}} del archivo \mbox{\hyperlink{ble__hid__mcu_8c_source}{ble\+\_\+hid\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__hid__mcu_8h_source_l00039}{BLE\+\_\+\+CONNECTED}}, \mbox{\hyperlink{mpu6050_8c_source_l00021}{buffer}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l00390}{hidd\+\_\+le\+\_\+env\+\_\+t\+::gatt\+\_\+if}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l01043}{hid\+\_\+dev\+\_\+send\+\_\+report()}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l00038}{HID\+\_\+\+MOUSE\+\_\+\+IN\+\_\+\+RPT\+\_\+\+LEN}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l00101}{HID\+\_\+\+REPORT\+\_\+\+TYPE\+\_\+\+INPUT}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l00061}{HID\+\_\+\+RPT\+\_\+\+ID\+\_\+\+MOUSE\+\_\+\+IN}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l00434}{hidd\+\_\+le\+\_\+env}} y \mbox{\hyperlink{ble__hid__mcu_8c_source_l00954}{status}}.
+
+\Hypertarget{group___b_l_e_ga67558f92332c3d7edc94278eb7a45cfc}\label{group___b_l_e_ga67558f92332c3d7edc94278eb7a45cfc} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BleHidStatus@{BleHidStatus}}
+\index{BleHidStatus@{BleHidStatus}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{BleHidStatus()}{BleHidStatus()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}} Ble\+Hid\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets BLE connection status. 
+
+\begin{DoxyReturn}{Devuelve}
+ble\+\_\+status\+\_\+t Connection status 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{ble__hid__mcu_8c_source_l01417}{1417}} del archivo \mbox{\hyperlink{ble__hid__mcu_8c_source}{ble\+\_\+hid\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__hid__mcu_8c_source_l00954}{status}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00145}{Task\+\_\+\+Controles()}}.
+
+\Hypertarget{group___b_l_e_ga8001369ce247b2413afd6d8a14fe8d82}\label{group___b_l_e_ga8001369ce247b2413afd6d8a14fe8d82} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BleInit@{BleInit}}
+\index{BleInit@{BleInit}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{BleInit()}{BleInit()}}
+{\footnotesize\ttfamily void Ble\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structble__config__t}{ble\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ble\+\_\+device }\end{DoxyParamCaption})}
+
+
+
+Bluetooth initialization. 
+
+\begin{DoxyNote}{Nota}
+It\textquotesingle{}ll start advertising automatically after initialization.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parámetros}
+{\em ble\+\_\+device} & BLE configuration struct \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00452}{452}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__mcu_8c_source_l00075}{ble\+\_\+read\+\_\+isr\+\_\+p}}, \mbox{\hyperlink{ble__mcu_8c_source_l00406}{bluetooth\+\_\+events\+\_\+task()}}, \mbox{\hyperlink{ble__mcu_8h_source_l00044}{ble\+\_\+config\+\_\+t\+::device\+\_\+name}}, \mbox{\hyperlink{ble__mcu_8c_source_l00074}{device\+\_\+name}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00024}{ESP\+\_\+\+ERROR\+\_\+\+CHECK}}, \mbox{\hyperlink{ble__mcu_8c_source_l00036}{ESP\+\_\+\+SPP\+\_\+\+APP\+\_\+\+ID}}, \mbox{\hyperlink{ble__mcu_8h_source_l00045}{ble\+\_\+config\+\_\+t\+::func\+\_\+p}}, \mbox{\hyperlink{ili9341_8c_source_l00019}{NULL}}, \mbox{\hyperlink{ble__mcu_8c_source_l00031}{TAG}}, \mbox{\hyperlink{ble__mcu_8c_source_l00093}{x\+Queue\+Events}} y \mbox{\hyperlink{ble__mcu_8c_source_l00094}{x\+Queue\+Read}}.
+
+\Hypertarget{group___b_l_e_gad7b70ab491715ae295497f0714e05539}\label{group___b_l_e_gad7b70ab491715ae295497f0714e05539} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BleSendBuffer@{BleSendBuffer}}
+\index{BleSendBuffer@{BleSendBuffer}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{BleSendBuffer()}{BleSendBuffer()}}
+{\footnotesize\ttfamily void Ble\+Send\+Buffer (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{data,  }\item[{uint8\+\_\+t}]{nbytes }\end{DoxyParamCaption})}
+
+
+
+Send multiple bytes through serial port. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em data} & Pointer to array of data to be transmitted \\
+\hline
+{\em nbytes} & Number of bytes to be sended \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00557}{557}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__hid__mcu_8h_source_l00039}{BLE\+\_\+\+CONNECTED}}, \mbox{\hyperlink{ble__mcu_8c_source_l00062}{CMD\+\_\+\+SEND\+\_\+\+DATA}}, \mbox{\hyperlink{ble__mcu_8c_source_l00068}{CMD\+\_\+t\+::command}}, \mbox{\hyperlink{ble__mcu_8c_source_l00069}{CMD\+\_\+t\+::length}}, \mbox{\hyperlink{ble__mcu_8c_source_l00070}{CMD\+\_\+t\+::payload}}, \mbox{\hyperlink{ble__mcu_8c_source_l00076}{status}} y \mbox{\hyperlink{ble__mcu_8c_source_l00093}{x\+Queue\+Events}}.
+
+\Hypertarget{group___b_l_e_gae0bdc932377c439b2a2e601dd9b9d56d}\label{group___b_l_e_gae0bdc932377c439b2a2e601dd9b9d56d} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BleSendByte@{BleSendByte}}
+\index{BleSendByte@{BleSendByte}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{BleSendByte()}{BleSendByte()}}
+{\footnotesize\ttfamily void Ble\+Send\+Byte (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Send a single byte trough BLE (if connected) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em data} & Pointer to variable with data to be transmitted \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00534}{534}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__hid__mcu_8h_source_l00039}{BLE\+\_\+\+CONNECTED}}, \mbox{\hyperlink{ble__mcu_8c_source_l00062}{CMD\+\_\+\+SEND\+\_\+\+DATA}}, \mbox{\hyperlink{ble__mcu_8c_source_l00068}{CMD\+\_\+t\+::command}}, \mbox{\hyperlink{ble__mcu_8c_source_l00069}{CMD\+\_\+t\+::length}}, \mbox{\hyperlink{ble__mcu_8c_source_l00070}{CMD\+\_\+t\+::payload}}, \mbox{\hyperlink{ble__mcu_8c_source_l00076}{status}} y \mbox{\hyperlink{ble__mcu_8c_source_l00093}{x\+Queue\+Events}}.
+
+\Hypertarget{group___b_l_e_ga68083cec5599456e78a536031e3b61b8}\label{group___b_l_e_ga68083cec5599456e78a536031e3b61b8} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BleSendString@{BleSendString}}
+\index{BleSendString@{BleSendString}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{BleSendString()}{BleSendString()}}
+{\footnotesize\ttfamily void Ble\+Send\+String (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})}
+
+
+
+Send a string trough BLE (if connected) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em msg} & Pointer to string to be transmitted \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00544}{544}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__hid__mcu_8h_source_l00039}{BLE\+\_\+\+CONNECTED}}, \mbox{\hyperlink{ble__mcu_8c_source_l00062}{CMD\+\_\+\+SEND\+\_\+\+DATA}}, \mbox{\hyperlink{ble__mcu_8c_source_l00068}{CMD\+\_\+t\+::command}}, \mbox{\hyperlink{ble__mcu_8c_source_l00069}{CMD\+\_\+t\+::length}}, \mbox{\hyperlink{ble__mcu_8c_source_l00070}{CMD\+\_\+t\+::payload}}, \mbox{\hyperlink{ble__mcu_8c_source_l00076}{status}} y \mbox{\hyperlink{ble__mcu_8c_source_l00093}{x\+Queue\+Events}}.
+
+\Hypertarget{group___b_l_e_ga45f64ecb9f703ecc50b85b6967e85bd5}\label{group___b_l_e_ga45f64ecb9f703ecc50b85b6967e85bd5} 
+\index{Bluetooth Low Energy@{Bluetooth Low Energy}!BleStatus@{BleStatus}}
+\index{BleStatus@{BleStatus}!Bluetooth Low Energy@{Bluetooth Low Energy}}
+\doxysubsubsubsubsection{\texorpdfstring{BleStatus()}{BleStatus()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}} Ble\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets BLE connection status. 
+
+\begin{DoxyReturn}{Devuelve}
+ble\+\_\+status\+\_\+t Connection status 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{ble__mcu_8c_source_l00530}{530}} del archivo \mbox{\hyperlink{ble__mcu_8c_source}{ble\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__mcu_8c_source_l00076}{status}}.
+

@@ -1,0 +1,85 @@
+\doxysubsubsection{GIOP\+\_\+\+FAST}
+\hypertarget{group___g_i_o_p___f_a_s_t}{}\label{group___g_i_o_p___f_a_s_t}\index{GIOP\_FAST@{GIOP\_FAST}}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___g_i_o_p___f_a_s_t_ga56ea073ca6d7ef523095bf1da50fb8c1}{GPIOFast\+Init}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} \texorpdfstring{$\ast$}{*}pin\+\_\+list, uint8\+\_\+t pin\+\_\+qty)
+\begin{DoxyCompactList}\small\item\em GPIO driver to use gpio ouputs with faster functions than gpio\+\_\+mcu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___g_i_o_p___f_a_s_t_ga49597fb98997e713d9a0f660192491da}{GPIOFast\+Write}} (uint16\+\_\+t value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___g_i_o_p___f_a_s_t_ga56ea073ca6d7ef523095bf1da50fb8c1}\label{group___g_i_o_p___f_a_s_t_ga56ea073ca6d7ef523095bf1da50fb8c1} 
+\index{GIOP\_FAST@{GIOP\_FAST}!GPIOFastInit@{GPIOFastInit}}
+\index{GPIOFastInit@{GPIOFastInit}!GIOP\_FAST@{GIOP\_FAST}}
+\doxysubsubsubsubsection{\texorpdfstring{GPIOFastInit()}{GPIOFastInit()}}
+{\footnotesize\ttfamily void GPIOFast\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{pin\+\_\+list,  }\item[{uint8\+\_\+t}]{pin\+\_\+qty }\end{DoxyParamCaption})}
+
+
+
+GPIO driver to use gpio ouputs with faster functions than gpio\+\_\+mcu. 
+
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 20/11/2023   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pin\+\_\+list} & \\
+\hline
+{\em pin\+\_\+qty} & \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00034}{34}} del archivo \mbox{\hyperlink{gpio__fast__out__mcu_8c_source}{gpio\+\_\+fast\+\_\+out\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00022}{bundleA}}, \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00023}{bundle\+A\+\_\+gpios}} y \mbox{\hyperlink{i2c__mcu_8c_source_l00024}{ESP\+\_\+\+ERROR\+\_\+\+CHECK}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ws2812b_8c_source_l00335}{ws2812b\+Init()}}.
+
+\Hypertarget{group___g_i_o_p___f_a_s_t_ga49597fb98997e713d9a0f660192491da}\label{group___g_i_o_p___f_a_s_t_ga49597fb98997e713d9a0f660192491da} 
+\index{GIOP\_FAST@{GIOP\_FAST}!GPIOFastWrite@{GPIOFastWrite}}
+\index{GPIOFastWrite@{GPIOFastWrite}!GIOP\_FAST@{GIOP\_FAST}}
+\doxysubsubsubsubsection{\texorpdfstring{GPIOFastWrite()}{GPIOFastWrite()}}
+{\footnotesize\ttfamily void GPIOFast\+Write (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parámetros}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00054}{54}} del archivo \mbox{\hyperlink{gpio__fast__out__mcu_8c_source}{gpio\+\_\+fast\+\_\+out\+\_\+mcu.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00022}{bundleA}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ws2812b_8c_source_l00050}{ws2812b\+Send\+High()}}, \mbox{\hyperlink{ws2812b_8c_source_l00189}{ws2812b\+Send\+Low()}} y \mbox{\hyperlink{ws2812b_8c_source_l00371}{ws2812b\+Send\+Ret()}}.
+

@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Proyecto Integrador: Archivo de código fuente C:/Repositorios/EProgramable_FIUNER/firmware/drivers/devices/inc/fonts.h</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Proyecto Integrador<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Gamificacion de ejerciocios de fisioterapia</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('fonts_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">fonts.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="fonts_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef FONTS_H_</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define FONTS_H_</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/*==================[inclusions]=============================================*/</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/*==================[macros]=================================================*/</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/*==================[typedef]================================================*/</span></div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structchar__info__t.html">   36</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structchar__info__t.html#a09a2a45f731b02946ff6d3cd15c1a476">   37</a></span>    uint8_t <a class="code hl_variable" href="structchar__info__t.html#a09a2a45f731b02946ff6d3cd15c1a476">width</a>;      <span class="comment">/*&lt;! Character width in pixels */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structchar__info__t.html#ac681806181c80437cfab37335f62ff39">   38</a></span>    uint16_t <a class="code hl_variable" href="structchar__info__t.html#ac681806181c80437cfab37335f62ff39">offset</a>;    <span class="comment">/*&lt;! Chracter position in font array */</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>} <a class="code hl_struct" href="structchar__info__t.html">char_info_t</a>;</div>
+</div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="struct_font__t.html">   43</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="struct_font__t.html#a60d2fe30ac50afa789e7058b4f22d0ef">   44</a></span>    uint8_t         <a class="code hl_variable" href="struct_font__t.html#a60d2fe30ac50afa789e7058b4f22d0ef">font_height</a>;    </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="struct_font__t.html#af23dace797a41b40ec0e97b24c7feae9">   45</a></span>    <a class="code hl_struct" href="structchar__info__t.html">char_info_t</a>     *<a class="code hl_variable" href="struct_font__t.html#af23dace797a41b40ec0e97b24c7feae9">info</a>;          </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="struct_font__t.html#a579f5164b5b16e18ddcdb0296ef81799">   46</a></span>    <span class="keyword">const</span> uint8_t   *<a class="code hl_variable" href="struct_font__t.html#a579f5164b5b16e18ddcdb0296ef81799">data</a>;          </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>} <a class="code hl_struct" href="struct_font__t.html">Font_t</a>;</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/*==================[external data declaration]==============================*/</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_font__t.html">Font_t</a> <a class="code hl_variable" href="group___i_c_o_n_s.html#ga96c13a7633909daa23faf1b5b185552d">font_11</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_font__t.html">Font_t</a> <a class="code hl_variable" href="group___i_c_o_n_s.html#ga3a43430cdda2e2e8253724fe1bd81d7d">font_19</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_font__t.html">Font_t</a> <a class="code hl_variable" href="group___i_c_o_n_s.html#gacb2bb6bded5ed7e20abd6cf504164b62">font_22</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_font__t.html">Font_t</a> <a class="code hl_variable" href="group___i_c_o_n_s.html#ga413a8dcdab8681bcdcc9e217392b2bd5">font_30</a>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_font__t.html">Font_t</a> <a class="code hl_variable" href="group___i_c_o_n_s.html#gac400c8a085a491b76fbf5df77c3e8a5b">font_59</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_font__t.html">Font_t</a> <a class="code hl_variable" href="group___i_c_o_n_s.html#ga89bac9cd0521397acf6351b0f2ade820">font_89</a>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">/*==================[external functions declaration]=========================*/</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif </span><span class="comment">/* FONTS_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">/*==================[end of file]============================================*/</span></div>
+<div class="ttc" id="agroup___i_c_o_n_s_html_ga3a43430cdda2e2e8253724fe1bd81d7d"><div class="ttname"><a href="group___i_c_o_n_s.html#ga3a43430cdda2e2e8253724fe1bd81d7d">font_19</a></div><div class="ttdeci">Font_t font_19</div><div class="ttdoc">19 pixels font height structure</div><div class="ttdef"><b>Definition</b> <a href="fonts_8c_source.html#l23659">fonts.c:23659</a></div></div>
+<div class="ttc" id="agroup___i_c_o_n_s_html_ga413a8dcdab8681bcdcc9e217392b2bd5"><div class="ttname"><a href="group___i_c_o_n_s.html#ga413a8dcdab8681bcdcc9e217392b2bd5">font_30</a></div><div class="ttdeci">Font_t font_30</div><div class="ttdoc">22 pixels font height structure</div><div class="ttdef"><b>Definition</b> <a href="fonts_8c_source.html#l23671">fonts.c:23671</a></div></div>
+<div class="ttc" id="agroup___i_c_o_n_s_html_ga89bac9cd0521397acf6351b0f2ade820"><div class="ttname"><a href="group___i_c_o_n_s.html#ga89bac9cd0521397acf6351b0f2ade820">font_89</a></div><div class="ttdeci">Font_t font_89</div><div class="ttdoc">89 pixels font height structure</div><div class="ttdef"><b>Definition</b> <a href="fonts_8c_source.html#l23683">fonts.c:23683</a></div></div>
+<div class="ttc" id="agroup___i_c_o_n_s_html_ga96c13a7633909daa23faf1b5b185552d"><div class="ttname"><a href="group___i_c_o_n_s.html#ga96c13a7633909daa23faf1b5b185552d">font_11</a></div><div class="ttdeci">Font_t font_11</div><div class="ttdoc">11 pixels font height structure</div><div class="ttdef"><b>Definition</b> <a href="fonts_8c_source.html#l23653">fonts.c:23653</a></div></div>
+<div class="ttc" id="agroup___i_c_o_n_s_html_gac400c8a085a491b76fbf5df77c3e8a5b"><div class="ttname"><a href="group___i_c_o_n_s.html#gac400c8a085a491b76fbf5df77c3e8a5b">font_59</a></div><div class="ttdeci">Font_t font_59</div><div class="ttdoc">59 pixels font height structure</div><div class="ttdef"><b>Definition</b> <a href="fonts_8c_source.html#l23677">fonts.c:23677</a></div></div>
+<div class="ttc" id="agroup___i_c_o_n_s_html_gacb2bb6bded5ed7e20abd6cf504164b62"><div class="ttname"><a href="group___i_c_o_n_s.html#gacb2bb6bded5ed7e20abd6cf504164b62">font_22</a></div><div class="ttdeci">Font_t font_22</div><div class="ttdoc">22 pixels font height structure</div><div class="ttdef"><b>Definition</b> <a href="fonts_8c_source.html#l23665">fonts.c:23665</a></div></div>
+<div class="ttc" id="astruct_font__t_html"><div class="ttname"><a href="struct_font__t.html">Font_t</a></div><div class="ttdoc">Font structure.</div><div class="ttdef"><b>Definition</b> <a href="#l00043">fonts.h:43</a></div></div>
+<div class="ttc" id="astruct_font__t_html_a579f5164b5b16e18ddcdb0296ef81799"><div class="ttname"><a href="struct_font__t.html#a579f5164b5b16e18ddcdb0296ef81799">Font_t::data</a></div><div class="ttdeci">const uint8_t * data</div><div class="ttdef"><b>Definition</b> <a href="#l00046">fonts.h:46</a></div></div>
+<div class="ttc" id="astruct_font__t_html_a60d2fe30ac50afa789e7058b4f22d0ef"><div class="ttname"><a href="struct_font__t.html#a60d2fe30ac50afa789e7058b4f22d0ef">Font_t::font_height</a></div><div class="ttdeci">uint8_t font_height</div><div class="ttdef"><b>Definition</b> <a href="#l00044">fonts.h:44</a></div></div>
+<div class="ttc" id="astruct_font__t_html_af23dace797a41b40ec0e97b24c7feae9"><div class="ttname"><a href="struct_font__t.html#af23dace797a41b40ec0e97b24c7feae9">Font_t::info</a></div><div class="ttdeci">char_info_t * info</div><div class="ttdef"><b>Definition</b> <a href="#l00045">fonts.h:45</a></div></div>
+<div class="ttc" id="astructchar__info__t_html"><div class="ttname"><a href="structchar__info__t.html">char_info_t</a></div><div class="ttdoc">Fonts for LCD display.</div><div class="ttdef"><b>Definition</b> <a href="#l00036">fonts.h:36</a></div></div>
+<div class="ttc" id="astructchar__info__t_html_a09a2a45f731b02946ff6d3cd15c1a476"><div class="ttname"><a href="structchar__info__t.html#a09a2a45f731b02946ff6d3cd15c1a476">char_info_t::width</a></div><div class="ttdeci">uint8_t width</div><div class="ttdef"><b>Definition</b> <a href="#l00037">fonts.h:37</a></div></div>
+<div class="ttc" id="astructchar__info__t_html_ac681806181c80437cfab37335f62ff39"><div class="ttname"><a href="structchar__info__t.html#ac681806181c80437cfab37335f62ff39">char_info_t::offset</a></div><div class="ttdeci">uint16_t offset</div><div class="ttdef"><b>Definition</b> <a href="#l00038">fonts.h:38</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_fcba15287a7fba83beff6e7e8c7a3a80.html">firmware</a></li><li class="navelem"><a class="el" href="dir_d771f3729bc48f700515c8c6c400e99b.html">drivers</a></li><li class="navelem"><a class="el" href="dir_7f308ea91af7ba00bd2379b2a292bcdf.html">devices</a></li><li class="navelem"><a class="el" href="dir_7434c8e53b2b67f7e652dbb5de76370a.html">inc</a></li><li class="navelem"><a class="el" href="fonts_8h.html">fonts.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

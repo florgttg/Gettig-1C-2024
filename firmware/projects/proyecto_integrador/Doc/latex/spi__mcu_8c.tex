@@ -1,0 +1,355 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/src/spi\+\_\+mcu.c}
+\hypertarget{spi__mcu_8c}{}\label{spi__mcu_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/spi\_mcu.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/spi\_mcu.c}}
+{\ttfamily \#include "{}spi\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}driver/spi\+\_\+master.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{spi__mcu_8c_a4ffa0949bfda52d9c7b37fcb148cbb53}{PIN\+\_\+\+NUM\+\_\+\+MISO}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb}{GPIO\+\_\+22}}
+\item 
+\#define \mbox{\hyperlink{spi__mcu_8c_a060569807a8819489e6a7b4ee17ad67b}{PIN\+\_\+\+NUM\+\_\+\+MOSI}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c}{GPIO\+\_\+21}}
+\item 
+\#define \mbox{\hyperlink{spi__mcu_8c_a756bcaa6e44d1879623a058849c66fbb}{PIN\+\_\+\+NUM\+\_\+\+CLK}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95}{GPIO\+\_\+20}}
+\item 
+\#define \mbox{\hyperlink{spi__mcu_8c_aa2f6abf259e3a90857564314975b6eeb}{PIN\+\_\+\+NUM\+\_\+\+CS1}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847}{GPIO\+\_\+19}}
+\item 
+\#define \mbox{\hyperlink{spi__mcu_8c_a137551b499589b9dffe6148f9b4d3b46}{PIN\+\_\+\+NUM\+\_\+\+CS2}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917}{GPIO\+\_\+18}}
+\item 
+\#define \mbox{\hyperlink{spi__mcu_8c_a1c0520aae302b46de9931f0a4a757a15}{PIN\+\_\+\+NUM\+\_\+\+CS3}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d}{GPIO\+\_\+9}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___s_p_i_gab45316fbf89f00655b81427e3e709596}{Spi\+Init}} (\mbox{\hyperlink{structspi__mcu__config__t}{spi\+\_\+mcu\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}spi)
+\begin{DoxyCompactList}\small\item\em Initialize SPI module with the corresponding configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___s_p_i_ga401e936d7c4a7ec7866bd93d6e3e3a8d}{Spi\+Read}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} device, uint8\+\_\+t \texorpdfstring{$\ast$}{*}rx\+\_\+buffer, uint32\+\_\+t rx\+\_\+buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Read data from SPI port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___s_p_i_ga8895abd934fb22a652c828b72f3eda13}{Spi\+Write}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} device, uint8\+\_\+t \texorpdfstring{$\ast$}{*}tx\+\_\+buffer, uint32\+\_\+t tx\+\_\+buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Write data from SPI port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___s_p_i_gabc656b4da81a1183cf8b8b67679d6e49}{Spi\+Read\+Write}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} device, uint8\+\_\+t \texorpdfstring{$\ast$}{*}tx\+\_\+buffer, uint8\+\_\+t \texorpdfstring{$\ast$}{*}rx\+\_\+buffer, uint32\+\_\+t buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Write and Read data simultaneous from SPI port. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___s_p_i_gac082e2d0f13dd3a3c67e4f30c71fcacf}{Spi\+De\+Init}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} device)
+\begin{DoxyCompactList}\small\item\em De-\/\+Initialize SPI module with the corresponding configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+spi\+\_\+device\+\_\+handle\+\_\+t \mbox{\hyperlink{spi__mcu_8c_a0a237932925279e740ad2f35122bda9c}{spi\+\_\+1}}
+\item 
+spi\+\_\+device\+\_\+handle\+\_\+t \mbox{\hyperlink{spi__mcu_8c_a350c5eeed9a7697071fd6fcf68de2a39}{spi\+\_\+2}}
+\item 
+spi\+\_\+device\+\_\+handle\+\_\+t \mbox{\hyperlink{spi__mcu_8c_ab651aa3ee48bd9dd7d95fe01cadba037}{spi\+\_\+3}}
+\item 
+const spi\+\_\+bus\+\_\+config\+\_\+t \mbox{\hyperlink{spi__mcu_8c_acff5631217f27db20d7049cd58791eaf}{bus\+\_\+cfg}}
+\item 
+\mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{transfer\+\_\+mode\+\_\+t}} \mbox{\hyperlink{spi__mcu_8c_a7fb397c433c08910058254af2f985ef3}{transfer\+\_\+mode\+\_\+1}}
+\item 
+\mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{transfer\+\_\+mode\+\_\+t}} \mbox{\hyperlink{spi__mcu_8c_a35ee3b7edb1f4729718629aefd3aecf4}{transfer\+\_\+mode\+\_\+2}}
+\item 
+\mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{transfer\+\_\+mode\+\_\+t}} \mbox{\hyperlink{spi__mcu_8c_a1009dbf10491aa42036acc69d855e829}{transfer\+\_\+mode\+\_\+3}}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{spi__mcu_8c_aa9b8f1cd5882222c979d585bd8bafcd9}{spi\+\_\+1\+\_\+isr\+\_\+p}} )(void \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{spi__mcu_8c_ad19e020791d9f0a24d4b07a7f568e1c4}{spi\+\_\+2\+\_\+isr\+\_\+p}} )(void \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{spi__mcu_8c_a69ecc920251934d2d9d311a9fc25ef68}{spi\+\_\+3\+\_\+isr\+\_\+p}} )(void \texorpdfstring{$\ast$}{*})
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{spi__mcu_8c_a44572ba7fd2411e129e231e167dffbab}{spi\+\_\+1\+\_\+user\+\_\+data}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{spi__mcu_8c_ab0fdc32c261fde185ce71d1bc39fa74f}{spi\+\_\+2\+\_\+user\+\_\+data}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{spi__mcu_8c_a9364697c61d08e5cf1a5b37e61cd373f}{spi\+\_\+3\+\_\+user\+\_\+data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva (\href{mailto:albano.penalva@uner.edu.ar}{\texttt{ albano.\+penalva@uner.\+edu.\+ar}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2024-\/02-\/09
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+Definición en el archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{spi__mcu_8c_a756bcaa6e44d1879623a058849c66fbb}\label{spi__mcu_8c_a756bcaa6e44d1879623a058849c66fbb} 
+\index{spi\_mcu.c@{spi\_mcu.c}!PIN\_NUM\_CLK@{PIN\_NUM\_CLK}}
+\index{PIN\_NUM\_CLK@{PIN\_NUM\_CLK}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_NUM\_CLK}{PIN\_NUM\_CLK}}
+{\footnotesize\ttfamily \#define PIN\+\_\+\+NUM\+\_\+\+CLK~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95}{GPIO\+\_\+20}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00021}{21}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+\Hypertarget{spi__mcu_8c_aa2f6abf259e3a90857564314975b6eeb}\label{spi__mcu_8c_aa2f6abf259e3a90857564314975b6eeb} 
+\index{spi\_mcu.c@{spi\_mcu.c}!PIN\_NUM\_CS1@{PIN\_NUM\_CS1}}
+\index{PIN\_NUM\_CS1@{PIN\_NUM\_CS1}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_NUM\_CS1}{PIN\_NUM\_CS1}}
+{\footnotesize\ttfamily \#define PIN\+\_\+\+NUM\+\_\+\+CS1~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847}{GPIO\+\_\+19}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00022}{22}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{spi__mcu_8c_a137551b499589b9dffe6148f9b4d3b46}\label{spi__mcu_8c_a137551b499589b9dffe6148f9b4d3b46} 
+\index{spi\_mcu.c@{spi\_mcu.c}!PIN\_NUM\_CS2@{PIN\_NUM\_CS2}}
+\index{PIN\_NUM\_CS2@{PIN\_NUM\_CS2}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_NUM\_CS2}{PIN\_NUM\_CS2}}
+{\footnotesize\ttfamily \#define PIN\+\_\+\+NUM\+\_\+\+CS2~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917}{GPIO\+\_\+18}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00023}{23}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{spi__mcu_8c_a1c0520aae302b46de9931f0a4a757a15}\label{spi__mcu_8c_a1c0520aae302b46de9931f0a4a757a15} 
+\index{spi\_mcu.c@{spi\_mcu.c}!PIN\_NUM\_CS3@{PIN\_NUM\_CS3}}
+\index{PIN\_NUM\_CS3@{PIN\_NUM\_CS3}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_NUM\_CS3}{PIN\_NUM\_CS3}}
+{\footnotesize\ttfamily \#define PIN\+\_\+\+NUM\+\_\+\+CS3~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d}{GPIO\+\_\+9}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00024}{24}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{spi__mcu_8c_a4ffa0949bfda52d9c7b37fcb148cbb53}\label{spi__mcu_8c_a4ffa0949bfda52d9c7b37fcb148cbb53} 
+\index{spi\_mcu.c@{spi\_mcu.c}!PIN\_NUM\_MISO@{PIN\_NUM\_MISO}}
+\index{PIN\_NUM\_MISO@{PIN\_NUM\_MISO}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_NUM\_MISO}{PIN\_NUM\_MISO}}
+{\footnotesize\ttfamily \#define PIN\+\_\+\+NUM\+\_\+\+MISO~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb}{GPIO\+\_\+22}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00019}{19}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+\Hypertarget{spi__mcu_8c_a060569807a8819489e6a7b4ee17ad67b}\label{spi__mcu_8c_a060569807a8819489e6a7b4ee17ad67b} 
+\index{spi\_mcu.c@{spi\_mcu.c}!PIN\_NUM\_MOSI@{PIN\_NUM\_MOSI}}
+\index{PIN\_NUM\_MOSI@{PIN\_NUM\_MOSI}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_NUM\_MOSI}{PIN\_NUM\_MOSI}}
+{\footnotesize\ttfamily \#define PIN\+\_\+\+NUM\+\_\+\+MOSI~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c}{GPIO\+\_\+21}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00020}{20}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{spi__mcu_8c_acff5631217f27db20d7049cd58791eaf}\label{spi__mcu_8c_acff5631217f27db20d7049cd58791eaf} 
+\index{spi\_mcu.c@{spi\_mcu.c}!bus\_cfg@{bus\_cfg}}
+\index{bus\_cfg@{bus\_cfg}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{bus\_cfg}{bus\_cfg}}
+{\footnotesize\ttfamily const spi\+\_\+bus\+\_\+config\+\_\+t bus\+\_\+cfg}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .miso\_io\_num\ =\ \mbox{\hyperlink{spi__mcu_8c_a4ffa0949bfda52d9c7b37fcb148cbb53}{PIN\_NUM\_MISO}},}
+\DoxyCodeLine{\ \ \ \ .mosi\_io\_num\ =\ \mbox{\hyperlink{spi__mcu_8c_a060569807a8819489e6a7b4ee17ad67b}{PIN\_NUM\_MOSI}},}
+\DoxyCodeLine{\ \ \ \ .sclk\_io\_num\ =\ \mbox{\hyperlink{spi__mcu_8c_a756bcaa6e44d1879623a058849c66fbb}{PIN\_NUM\_CLK}},}
+\DoxyCodeLine{\ \ \ \ .quadwp\_io\_num\ =\ -\/1,}
+\DoxyCodeLine{\ \ \ \ .quadhd\_io\_num\ =\ -\/1,}
+\DoxyCodeLine{\ \ \ \ .max\_transfer\_sz\ =\ 4092}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00027}{27}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{spi__mcu_8c_a0a237932925279e740ad2f35122bda9c}\label{spi__mcu_8c_a0a237932925279e740ad2f35122bda9c} 
+\index{spi\_mcu.c@{spi\_mcu.c}!spi\_1@{spi\_1}}
+\index{spi\_1@{spi\_1}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{spi\_1}{spi\_1}}
+{\footnotesize\ttfamily spi\+\_\+device\+\_\+handle\+\_\+t spi\+\_\+1}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00026}{26}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}, \mbox{\hyperlink{spi__mcu_8c_source_l00105}{Spi\+Read()}}, \mbox{\hyperlink{spi__mcu_8c_source_l00184}{Spi\+Read\+Write()}} y \mbox{\hyperlink{spi__mcu_8c_source_l00145}{Spi\+Write()}}.
+
+\Hypertarget{spi__mcu_8c_aa9b8f1cd5882222c979d585bd8bafcd9}\label{spi__mcu_8c_aa9b8f1cd5882222c979d585bd8bafcd9} 
+\index{spi\_mcu.c@{spi\_mcu.c}!spi\_1\_isr\_p@{spi\_1\_isr\_p}}
+\index{spi\_1\_isr\_p@{spi\_1\_isr\_p}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{spi\_1\_isr\_p}{spi\_1\_isr\_p}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} spi\+\_\+1\+\_\+isr\+\_\+p) (void \texorpdfstring{$\ast$}{*}) (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00036}{36}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{spi__mcu_8c_a44572ba7fd2411e129e231e167dffbab}\label{spi__mcu_8c_a44572ba7fd2411e129e231e167dffbab} 
+\index{spi\_mcu.c@{spi\_mcu.c}!spi\_1\_user\_data@{spi\_1\_user\_data}}
+\index{spi\_1\_user\_data@{spi\_1\_user\_data}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{spi\_1\_user\_data}{spi\_1\_user\_data}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} spi\+\_\+1\+\_\+user\+\_\+data}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00039}{39}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{spi__mcu_8c_a350c5eeed9a7697071fd6fcf68de2a39}\label{spi__mcu_8c_a350c5eeed9a7697071fd6fcf68de2a39} 
+\index{spi\_mcu.c@{spi\_mcu.c}!spi\_2@{spi\_2}}
+\index{spi\_2@{spi\_2}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{spi\_2}{spi\_2}}
+{\footnotesize\ttfamily spi\+\_\+device\+\_\+handle\+\_\+t spi\+\_\+2}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00026}{26}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}, \mbox{\hyperlink{spi__mcu_8c_source_l00105}{Spi\+Read()}}, \mbox{\hyperlink{spi__mcu_8c_source_l00184}{Spi\+Read\+Write()}} y \mbox{\hyperlink{spi__mcu_8c_source_l00145}{Spi\+Write()}}.
+
+\Hypertarget{spi__mcu_8c_ad19e020791d9f0a24d4b07a7f568e1c4}\label{spi__mcu_8c_ad19e020791d9f0a24d4b07a7f568e1c4} 
+\index{spi\_mcu.c@{spi\_mcu.c}!spi\_2\_isr\_p@{spi\_2\_isr\_p}}
+\index{spi\_2\_isr\_p@{spi\_2\_isr\_p}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{spi\_2\_isr\_p}{spi\_2\_isr\_p}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} spi\+\_\+2\+\_\+isr\+\_\+p) (void \texorpdfstring{$\ast$}{*}) (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00037}{37}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{spi__mcu_8c_ab0fdc32c261fde185ce71d1bc39fa74f}\label{spi__mcu_8c_ab0fdc32c261fde185ce71d1bc39fa74f} 
+\index{spi\_mcu.c@{spi\_mcu.c}!spi\_2\_user\_data@{spi\_2\_user\_data}}
+\index{spi\_2\_user\_data@{spi\_2\_user\_data}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{spi\_2\_user\_data}{spi\_2\_user\_data}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} spi\+\_\+2\+\_\+user\+\_\+data}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00040}{40}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{spi__mcu_8c_ab651aa3ee48bd9dd7d95fe01cadba037}\label{spi__mcu_8c_ab651aa3ee48bd9dd7d95fe01cadba037} 
+\index{spi\_mcu.c@{spi\_mcu.c}!spi\_3@{spi\_3}}
+\index{spi\_3@{spi\_3}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{spi\_3}{spi\_3}}
+{\footnotesize\ttfamily spi\+\_\+device\+\_\+handle\+\_\+t spi\+\_\+3}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00026}{26}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}, \mbox{\hyperlink{spi__mcu_8c_source_l00105}{Spi\+Read()}}, \mbox{\hyperlink{spi__mcu_8c_source_l00184}{Spi\+Read\+Write()}} y \mbox{\hyperlink{spi__mcu_8c_source_l00145}{Spi\+Write()}}.
+
+\Hypertarget{spi__mcu_8c_a69ecc920251934d2d9d311a9fc25ef68}\label{spi__mcu_8c_a69ecc920251934d2d9d311a9fc25ef68} 
+\index{spi\_mcu.c@{spi\_mcu.c}!spi\_3\_isr\_p@{spi\_3\_isr\_p}}
+\index{spi\_3\_isr\_p@{spi\_3\_isr\_p}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{spi\_3\_isr\_p}{spi\_3\_isr\_p}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} spi\+\_\+3\+\_\+isr\+\_\+p) (void \texorpdfstring{$\ast$}{*}) (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00038}{38}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{spi__mcu_8c_a9364697c61d08e5cf1a5b37e61cd373f}\label{spi__mcu_8c_a9364697c61d08e5cf1a5b37e61cd373f} 
+\index{spi\_mcu.c@{spi\_mcu.c}!spi\_3\_user\_data@{spi\_3\_user\_data}}
+\index{spi\_3\_user\_data@{spi\_3\_user\_data}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{spi\_3\_user\_data}{spi\_3\_user\_data}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} spi\+\_\+3\+\_\+user\+\_\+data}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00041}{41}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}.
+
+\Hypertarget{spi__mcu_8c_a7fb397c433c08910058254af2f985ef3}\label{spi__mcu_8c_a7fb397c433c08910058254af2f985ef3} 
+\index{spi\_mcu.c@{spi\_mcu.c}!transfer\_mode\_1@{transfer\_mode\_1}}
+\index{transfer\_mode\_1@{transfer\_mode\_1}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{transfer\_mode\_1}{transfer\_mode\_1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{transfer\+\_\+mode\+\_\+t}} transfer\+\_\+mode\+\_\+1}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00035}{35}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}, \mbox{\hyperlink{spi__mcu_8c_source_l00105}{Spi\+Read()}}, \mbox{\hyperlink{spi__mcu_8c_source_l00184}{Spi\+Read\+Write()}} y \mbox{\hyperlink{spi__mcu_8c_source_l00145}{Spi\+Write()}}.
+
+\Hypertarget{spi__mcu_8c_a35ee3b7edb1f4729718629aefd3aecf4}\label{spi__mcu_8c_a35ee3b7edb1f4729718629aefd3aecf4} 
+\index{spi\_mcu.c@{spi\_mcu.c}!transfer\_mode\_2@{transfer\_mode\_2}}
+\index{transfer\_mode\_2@{transfer\_mode\_2}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{transfer\_mode\_2}{transfer\_mode\_2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{transfer\+\_\+mode\+\_\+t}} transfer\+\_\+mode\+\_\+2}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00035}{35}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}, \mbox{\hyperlink{spi__mcu_8c_source_l00105}{Spi\+Read()}}, \mbox{\hyperlink{spi__mcu_8c_source_l00184}{Spi\+Read\+Write()}} y \mbox{\hyperlink{spi__mcu_8c_source_l00145}{Spi\+Write()}}.
+
+\Hypertarget{spi__mcu_8c_a1009dbf10491aa42036acc69d855e829}\label{spi__mcu_8c_a1009dbf10491aa42036acc69d855e829} 
+\index{spi\_mcu.c@{spi\_mcu.c}!transfer\_mode\_3@{transfer\_mode\_3}}
+\index{transfer\_mode\_3@{transfer\_mode\_3}!spi\_mcu.c@{spi\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{transfer\_mode\_3}{transfer\_mode\_3}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{transfer\+\_\+mode\+\_\+t}} transfer\+\_\+mode\+\_\+3}
+
+
+
+Definición en la línea \mbox{\hyperlink{spi__mcu_8c_source_l00035}{35}} del archivo \mbox{\hyperlink{spi__mcu_8c_source}{spi\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{spi__mcu_8c_source_l00059}{Spi\+Init()}}, \mbox{\hyperlink{spi__mcu_8c_source_l00105}{Spi\+Read()}}, \mbox{\hyperlink{spi__mcu_8c_source_l00184}{Spi\+Read\+Write()}} y \mbox{\hyperlink{spi__mcu_8c_source_l00145}{Spi\+Write()}}.
+

@@ -1,0 +1,54 @@
+\doxysection{gpio\+\_\+fast\+\_\+out\+\_\+mcu.\+c}
+\hypertarget{gpio__fast__out__mcu_8c_source}{}\label{gpio__fast__out__mcu_8c_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/gpio\_fast\_out\_mcu.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/gpio\_fast\_out\_mcu.c}}
+\mbox{\hyperlink{gpio__fast__out__mcu_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00012}00012\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio__fast__out__mcu_8h}{gpio\_fast\_out\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio__mcu_8h}{gpio\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}driver/gpio.h"{}}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}driver/dedic\_gpio.h"{}}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00019}00019\ \textcolor{comment}{/*==================[macros\ and\ definitions]=================================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00021}00021\ \textcolor{comment}{/*==================[internal\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00022}\mbox{\hyperlink{gpio__fast__out__mcu_8c_a49b3a59d5cb43369da07eeec78bdeb78}{00022}}\ dedic\_gpio\_bundle\_handle\_t\ \mbox{\hyperlink{gpio__fast__out__mcu_8c_a49b3a59d5cb43369da07eeec78bdeb78}{bundleA}}\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00023}\mbox{\hyperlink{gpio__fast__out__mcu_8c_a618b0d089ac040bd855239d414877886}{00023}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gpio__fast__out__mcu_8c_a618b0d089ac040bd855239d414877886}{bundleA\_gpios}}[16];}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00024}00024\ \textcolor{comment}{/*==================[internal\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00026}00026\ \textcolor{comment}{/*==================[internal\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00028}00028\ \textcolor{comment}{/*==================[external\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00030}00030\ \textcolor{comment}{/*==================[internal\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00032}00032\ \textcolor{comment}{/*==================[external\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00034}\mbox{\hyperlink{group___g_i_o_p___f_a_s_t_ga56ea073ca6d7ef523095bf1da50fb8c1}{00034}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___g_i_o_p___f_a_s_t_ga56ea073ca6d7ef523095bf1da50fb8c1}{GPIOFastInit}}(\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ *pin\_list,\ uint8\_t\ pin\_qty)\{}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00035}00035\ \ \ \ \ memcpy(\mbox{\hyperlink{gpio__fast__out__mcu_8c_a618b0d089ac040bd855239d414877886}{bundleA\_gpios}},\ pin\_list,\ pin\_qty);}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00036}00036\ \ \ \ \ gpio\_config\_t\ io\_conf\ =\ \{}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ .mode\ =\ GPIO\_MODE\_OUTPUT,}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00038}00038\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ pin\_qty;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ io\_conf.pin\_bit\_mask\ =\ 1ULL\ <<\ \mbox{\hyperlink{gpio__fast__out__mcu_8c_a618b0d089ac040bd855239d414877886}{bundleA\_gpios}}[i];}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ gpio\_config(\&io\_conf);}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ Create\ bundleA,\ output\ only}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00044}00044\ \ \ \ \ dedic\_gpio\_bundle\_config\_t\ bundleA\_config\ =\ \{}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ .gpio\_array\ =\ \mbox{\hyperlink{gpio__fast__out__mcu_8c_a618b0d089ac040bd855239d414877886}{bundleA\_gpios}},}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ .array\_size\ =\ pin\_qty,}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ .flags\ =\ \{}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ .out\_en\ =\ 1,}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00050}00050\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00051}00051\ \ \ \ \ \mbox{\hyperlink{i2c__mcu_8c_a7d1b7992aa421f10dc473db899dcff8b}{ESP\_ERROR\_CHECK}}(dedic\_gpio\_new\_bundle(\&bundleA\_config,\ \&\mbox{\hyperlink{gpio__fast__out__mcu_8c_a49b3a59d5cb43369da07eeec78bdeb78}{bundleA}}));}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00054}\mbox{\hyperlink{group___g_i_o_p___f_a_s_t_ga49597fb98997e713d9a0f660192491da}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___g_i_o_p___f_a_s_t_ga49597fb98997e713d9a0f660192491da}{GPIOFastWrite}}(uint16\_t\ value)\{}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00055}00055\ \ \ \ \ dedic\_gpio\_bundle\_write(\mbox{\hyperlink{gpio__fast__out__mcu_8c_a49b3a59d5cb43369da07eeec78bdeb78}{bundleA}},\ 0xFF,\ value);}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{gpio__fast__out__mcu_8c_source_l00058}00058\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

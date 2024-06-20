@@ -1,0 +1,93 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/src/i2c\+\_\+mcu.c}
+\hypertarget{i2c__mcu_8c}{}\label{i2c__mcu_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/i2c\_mcu.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/i2c\_mcu.c}}
+{\ttfamily \#include $<$esp\+\_\+log.\+h$>$}\newline
+{\ttfamily \#include $<$esp\+\_\+err.\+h$>$}\newline
+{\ttfamily \#include $<$freertos/\+Free\+RTOS.\+h$>$}\newline
+{\ttfamily \#include $<$freertos/task.\+h$>$}\newline
+{\ttfamily \#include "{}i2c\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{i2c__mcu_8c_ad4a5ae6760ae60ffc730f60541657628}{I2\+C\+\_\+\+NUM}}~I2\+C\+\_\+\+NUM\+\_\+0
+\item 
+\#define \mbox{\hyperlink{i2c__mcu_8c_a7d1b7992aa421f10dc473db899dcff8b}{ESP\+\_\+\+ERROR\+\_\+\+CHECK}}(x)~do \{ esp\+\_\+err\+\_\+t rc = (x); if (rc != ESP\+\_\+\+OK) \{ ESP\+\_\+\+LOGE("{}err"{}, "{}esp\+\_\+err\+\_\+t = \%d"{}, rc); /\texorpdfstring{$\ast$}{*}assert(0 \&\& \#x);\texorpdfstring{$\ast$}{*}/\} \} while(0);
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{group___i2_c_gae2cec986d327013569df22dd2945ff58}{I2\+C\+\_\+initialize}} (uint32\+\_\+t clock\+Rate\+Hz)
+\begin{DoxyCompactList}\small\item\em Initialize I2\+C0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i2_c_ga7dba17bc71077c236ff1e4af407448a7}{I2\+C\+\_\+enable}} (bool is\+Enabled)
+\begin{DoxyCompactList}\small\item\em Enable or disable I2C. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{group___i2_c_ga9ff51515a73e2748e863f88b94453806}{I2\+C\+\_\+read\+Bit}} (uint8\+\_\+t \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{dev\+Addr}}, uint8\+\_\+t reg\+Addr, uint8\+\_\+t bit\+Num, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Read a single bit from an 8-\/bit device register. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{group___i2_c_ga45576a616bac63831ccbb0d803e02937}{I2\+C\+\_\+read\+Bits}} (uint8\+\_\+t \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{dev\+Addr}}, uint8\+\_\+t reg\+Addr, uint8\+\_\+t bit\+Start, uint8\+\_\+t length, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Read multiple bits from an 8-\/bit device register. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{group___i2_c_ga4a21b6f9f325022b28bad83c9eb9896c}{I2\+C\+\_\+read\+Byte}} (uint8\+\_\+t \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{dev\+Addr}}, uint8\+\_\+t reg\+Addr, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Read single byte from an 8-\/bit device register. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{group___i2_c_ga63ed6aeafd8e26b0cf22f5477746c123}{I2\+C\+\_\+read\+Bytes}} (uint8\+\_\+t \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{dev\+Addr}}, uint8\+\_\+t reg\+Addr, uint8\+\_\+t length, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Read multiple bytes from an 8-\/bit device register. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___i2_c_gabfa0fda26a1a14f65a058f8d6dc2b55b}{I2\+C\+\_\+write\+Word}} (uint8\+\_\+t \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{dev\+Addr}}, uint8\+\_\+t reg\+Addr, uint16\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write word from an 16-\/bit device register. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i2_c_ga1900aab43da6013cadb944301c929562}{I2\+C\+\_\+\+Select\+Register}} (uint8\+\_\+t \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{dev\+Addr}}, uint8\+\_\+t reg)
+\begin{DoxyCompactList}\small\item\em Select a register. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___i2_c_gadddc908cb8cdad77fc824cca1ac2f077}{I2\+C\+\_\+write\+Bit}} (uint8\+\_\+t \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{dev\+Addr}}, uint8\+\_\+t reg\+Addr, uint8\+\_\+t bit\+Num, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em write a single bit in an 8-\/bit device register. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___i2_c_gacb23109c5269fd39be9c926552924eea}{I2\+C\+\_\+write\+Bits}} (uint8\+\_\+t \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{dev\+Addr}}, uint8\+\_\+t reg\+Addr, uint8\+\_\+t bit\+Start, uint8\+\_\+t length, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write multiple bits in an 8-\/bit device register. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___i2_c_ga6525bb5162f38b6350d6bc3a3c9c98d7}{I2\+C\+\_\+write\+Byte}} (uint8\+\_\+t \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{dev\+Addr}}, uint8\+\_\+t reg\+Addr, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write single byte to an 8-\/bit device register. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___i2_c_ga58d10cf019bafffc7f9b4c2a0b019b53}{I2\+C\+\_\+write\+Bytes}} (uint8\+\_\+t \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{dev\+Addr}}, uint8\+\_\+t reg\+Addr, uint8\+\_\+t length, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Write multiple bytes to device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{group___i2_c_ga3c1b580e0f8d3bffbb1087265be558d2}{I2\+C\+\_\+read\+Word}} (uint8\+\_\+t \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{dev\+Addr}}, uint8\+\_\+t reg\+Addr, uint16\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Read word from an 16-\/bit device register. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Juan Cerrudo (\href{mailto:juan.cerrudo@uner.edu.ar}{\texttt{ juan.\+cerrudo@uner.\+edu.\+ar}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2024-\/01-\/30
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+Definición en el archivo \mbox{\hyperlink{i2c__mcu_8c_source}{i2c\+\_\+mcu.\+c}}.
+
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{i2c__mcu_8c_a7d1b7992aa421f10dc473db899dcff8b}\label{i2c__mcu_8c_a7d1b7992aa421f10dc473db899dcff8b} 
+\index{i2c\_mcu.c@{i2c\_mcu.c}!ESP\_ERROR\_CHECK@{ESP\_ERROR\_CHECK}}
+\index{ESP\_ERROR\_CHECK@{ESP\_ERROR\_CHECK}!i2c\_mcu.c@{i2c\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{ESP\_ERROR\_CHECK}{ESP\_ERROR\_CHECK}}
+{\footnotesize\ttfamily \#define ESP\+\_\+\+ERROR\+\_\+\+CHECK(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~do \{ esp\+\_\+err\+\_\+t rc = (x); if (rc != ESP\+\_\+\+OK) \{ ESP\+\_\+\+LOGE("{}err"{}, "{}esp\+\_\+err\+\_\+t = \%d"{}, rc); /\texorpdfstring{$\ast$}{*}assert(0 \&\& \#x);\texorpdfstring{$\ast$}{*}/\} \} while(0);}
+
+
+
+Definición en la línea \mbox{\hyperlink{i2c__mcu_8c_source_l00024}{24}} del archivo \mbox{\hyperlink{i2c__mcu_8c_source}{i2c\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{ble__hid__mcu_8c_source_l01366}{Ble\+Hid\+Init()}}, \mbox{\hyperlink{ble__mcu_8c_source_l00452}{Ble\+Init()}}, \mbox{\hyperlink{gpio__fast__out__mcu_8c_source_l00034}{GPIOFast\+Init()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00126}{I2\+C\+\_\+read\+Bytes()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00153}{I2\+C\+\_\+\+Select\+Register()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00214}{I2\+C\+\_\+write\+Byte()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00236}{I2\+C\+\_\+write\+Bytes()}} y \mbox{\hyperlink{mpu6050_8c_source_l00025}{MPU6050\+\_\+\+Read\+Register()}}.
+
+\Hypertarget{i2c__mcu_8c_ad4a5ae6760ae60ffc730f60541657628}\label{i2c__mcu_8c_ad4a5ae6760ae60ffc730f60541657628} 
+\index{i2c\_mcu.c@{i2c\_mcu.c}!I2C\_NUM@{I2C\_NUM}}
+\index{I2C\_NUM@{I2C\_NUM}!i2c\_mcu.c@{i2c\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_NUM}{I2C\_NUM}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+NUM~I2\+C\+\_\+\+NUM\+\_\+0}
+
+
+
+Definición en la línea \mbox{\hyperlink{i2c__mcu_8c_source_l00021}{21}} del archivo \mbox{\hyperlink{i2c__mcu_8c_source}{i2c\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{i2c__mcu_8c_source_l00126}{I2\+C\+\_\+read\+Bytes()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00153}{I2\+C\+\_\+\+Select\+Register()}}, \mbox{\hyperlink{i2c__mcu_8c_source_l00214}{I2\+C\+\_\+write\+Byte()}} y \mbox{\hyperlink{i2c__mcu_8c_source_l00236}{I2\+C\+\_\+write\+Bytes()}}.
+

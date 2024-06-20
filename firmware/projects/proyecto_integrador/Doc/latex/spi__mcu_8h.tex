@@ -1,0 +1,45 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/inc/spi\+\_\+mcu.h}
+\hypertarget{spi__mcu_8h}{}\label{spi__mcu_8h}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/spi\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/spi\_mcu.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structspi__mcu__config__t}{spi\+\_\+mcu\+\_\+config\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em SPI configuration structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{group___s_p_i_ga919e4040af605e210f6c5f4c6fe13a12}{spi\+\_\+devices}} \mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em SPI driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___s_p_i_ga919e4040af605e210f6c5f4c6fe13a12}{spi\+\_\+devices}} \{ \mbox{\hyperlink{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12aa4b24f86e59b845990862af6481c321f}{SPI\+\_\+1}}
+, \mbox{\hyperlink{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12a78d05bc33881e02031f9bb60dc5312ee}{SPI\+\_\+2}}
+, \mbox{\hyperlink{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12a58b58ba7b098bbfb9fbb252304863a63}{SPI\+\_\+3}}
+ \}
+\begin{DoxyCompactList}\small\item\em SPI driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___s_p_i_ga7ddb86ccba25a168f889234061e21692}{clk\+\_\+mode\+\_\+t}} \{ \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a8c818ffe07c247353de39ebce7a017c2}{MODE0}} = 0
+, \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692ac96709e78c1f5f5e077b68b1c65d141d}{MODE1}} = 1
+, \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a7e24ffb02d34c2b3a679095809eafc55}{MODE2}} = 2
+, \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a7b316658e8633844a318cde3660e5a77}{MODE3}} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em SPI phase and polarity. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{transfer\+\_\+mode\+\_\+t}} \{ \mbox{\hyperlink{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa0cb4f6c37501162dcdcd5686e2efea9a}{SPI\+\_\+\+POLLING}}
+, \mbox{\hyperlink{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa70e1201d8d9010717b07818bf975c5ed}{SPI\+\_\+\+INTERRUPT}}
+ \}
+\begin{DoxyCompactList}\small\item\em SPI transfer modes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___s_p_i_gab45316fbf89f00655b81427e3e709596}{Spi\+Init}} (\mbox{\hyperlink{structspi__mcu__config__t}{spi\+\_\+mcu\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}spi)
+\begin{DoxyCompactList}\small\item\em Initialize SPI module with the corresponding configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___s_p_i_ga401e936d7c4a7ec7866bd93d6e3e3a8d}{Spi\+Read}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} device, uint8\+\_\+t \texorpdfstring{$\ast$}{*}rx\+\_\+buffer, uint32\+\_\+t rx\+\_\+buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Read data from SPI port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___s_p_i_ga8895abd934fb22a652c828b72f3eda13}{Spi\+Write}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} device, uint8\+\_\+t \texorpdfstring{$\ast$}{*}tx\+\_\+buffer, uint32\+\_\+t tx\+\_\+buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Write data from SPI port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___s_p_i_gabc656b4da81a1183cf8b8b67679d6e49}{Spi\+Read\+Write}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} device, uint8\+\_\+t \texorpdfstring{$\ast$}{*}tx\+\_\+buffer, uint8\+\_\+t \texorpdfstring{$\ast$}{*}rx\+\_\+buffer, uint32\+\_\+t buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Write and Read data simultaneous from SPI port. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___s_p_i_gac082e2d0f13dd3a3c67e4f30c71fcacf}{Spi\+De\+Init}} (\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\+\_\+dev\+\_\+t}} device)
+\begin{DoxyCompactList}\small\item\em De-\/\+Initialize SPI module with the corresponding configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}

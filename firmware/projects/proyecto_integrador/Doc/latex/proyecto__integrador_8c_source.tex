@@ -1,0 +1,168 @@
+\doxysection{proyecto\+\_\+integrador.\+c}
+\hypertarget{proyecto__integrador_8c_source}{}\label{proyecto__integrador_8c_source}\index{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/proyecto\_integrador/main/proyecto\_integrador.c@{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/proyecto\_integrador/main/proyecto\_integrador.c}}
+\mbox{\hyperlink{proyecto__integrador_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00035}00035\ \textcolor{comment}{/*==================[inclusions]=======\ ======================================*/}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00036}00036\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00037}00037\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00038}00038\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00039}00039\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00040}00040\ \textcolor{preprocessor}{\#include\ "{}freertos/FreeRTOS.h"{}}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00041}00041\ \textcolor{preprocessor}{\#include\ "{}freertos/task.h"{}}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00043}00043\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio__mcu_8h}{gpio\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00044}00044\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{led_8h}{led.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00045}00045\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ble__hid__mcu_8h}{ble\_hid\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00046}00046\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{switch_8h}{switch.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00047}00047\ \textcolor{preprocessor}{\#include\ "{}ADXL335.h"{}}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00048}00048\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{timer__mcu_8h}{timer\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00049}00049\ \textcolor{comment}{/*==================[macros\ and\ definitions]=================================*/}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00050}\mbox{\hyperlink{proyecto__integrador_8c_a086c5713e35d79f7ccb5b3213a59b2fd}{00050}}\ \textcolor{preprocessor}{\#define\ CONFIG\_TIMER\_VUELO\ 100000}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00051}\mbox{\hyperlink{proyecto__integrador_8c_a0782d3b9e79b2ef5eefef51d5b58a39d}{00051}}\ \textcolor{preprocessor}{\#define\ CONFIG\_TIMER\_CONTROLES\ 1000}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00053}\mbox{\hyperlink{proyecto__integrador_8c_a7a3ccd8a43b5c5e8a4d573780da1fd4a}{00053}}\ \textcolor{preprocessor}{\#define\ LED\_BT\ LED\_1}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00054}\mbox{\hyperlink{proyecto__integrador_8c_ae0af85b0f645ffd6e7376a0f689a10fb}{00054}}\ \textcolor{preprocessor}{\#define\ LED\_START\ LED\_3}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00056}00056\ \textcolor{comment}{/*==================[internal\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00057}\mbox{\hyperlink{proyecto__integrador_8c_ab376b87f96a574a793c03c53e75afec8}{00057}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{proyecto__integrador_8c_ab376b87f96a574a793c03c53e75afec8}{start}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00059}\mbox{\hyperlink{proyecto__integrador_8c_a03add7d850328814dbea59f72b4e3762}{00059}}\ TaskHandle\_t\ \mbox{\hyperlink{proyecto__integrador_8c_a03add7d850328814dbea59f72b4e3762}{volar\_task\_handle}}\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00060}\mbox{\hyperlink{proyecto__integrador_8c_a2d4e575f11f80f95ee9e5926054bd5bb}{00060}}\ TaskHandle\_t\ \mbox{\hyperlink{proyecto__integrador_8c_a2d4e575f11f80f95ee9e5926054bd5bb}{controles\_task\_handle}}\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00062}00062\ \textcolor{comment}{/*==================[internal\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00068}\mbox{\hyperlink{proyecto__integrador_8c_a045088801edfb3f18dae88c10c1d0bd0}{00068}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{proyecto__integrador_8c_a045088801edfb3f18dae88c10c1d0bd0}{TeclaBarra}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00069}00069\ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00070}00070\ \ \ \ \ \mbox{\hyperlink{group___b_l_e_ga528f1243a7bb2eb10a2140592c67e879}{keyboard\_cmd\_t}}\ barra\ =\ \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405badcc65069cf17c64428f0a139aac5a5e4}{HID\_KEY\_SPACEBAR}};}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{group___b_l_e_ga28150d6c4fe3eedd6e784d272d0e56ca}{BleHidSendKeyboard}}(0,\ \&barra,\ 1);}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{proyecto__integrador_8c_ab376b87f96a574a793c03c53e75afec8}{start}}\ =\ !\mbox{\hyperlink{proyecto__integrador_8c_ab376b87f96a574a793c03c53e75afec8}{start}};}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00073}00073\ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00078}\mbox{\hyperlink{proyecto__integrador_8c_a3dce832fa0cab13e288fb7424ac51f50}{00078}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{proyecto__integrador_8c_a3dce832fa0cab13e288fb7424ac51f50}{Calibrar}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00079}00079\ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00080}00080\ \ \ \ \ ADXL335Calibration();}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00086}\mbox{\hyperlink{proyecto__integrador_8c_a99437f7aa9e5d11b47fa932296838a64}{00086}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{proyecto__integrador_8c_a99437f7aa9e5d11b47fa932296838a64}{TeclaArriba}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00087}00087\ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00088}00088\ \ \ \ \ \mbox{\hyperlink{group___b_l_e_ga528f1243a7bb2eb10a2140592c67e879}{keyboard\_cmd\_t}}\ up\ =\ \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba9e8d12c384d14c2c1938c7f3ae5df5d9}{HID\_KEY\_UP\_ARROW}};}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00089}00089\ \ \ \ \ \mbox{\hyperlink{group___b_l_e_ga28150d6c4fe3eedd6e784d272d0e56ca}{BleHidSendKeyboard}}(0,\ \&up,\ 1);}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00090}00090\ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00095}\mbox{\hyperlink{proyecto__integrador_8c_a203632894056c52015b6e49d6642500d}{00095}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{proyecto__integrador_8c_a203632894056c52015b6e49d6642500d}{TeclaAbajo}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00096}00096\ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00097}00097\ \ \ \ \ \mbox{\hyperlink{group___b_l_e_ga528f1243a7bb2eb10a2140592c67e879}{keyboard\_cmd\_t}}\ down\ =\ \mbox{\hyperlink{group___b_l_e_ggaed078c594a86d36a49f51710e35c405ba31a4c371435ac01a032c682812771fd6}{HID\_KEY\_DOWN\_ARROW}};}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00098}00098\ \ \ \ \ \mbox{\hyperlink{group___b_l_e_ga28150d6c4fe3eedd6e784d272d0e56ca}{BleHidSendKeyboard}}(0,\ \&down,\ 1);}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00099}00099\ \ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00105}\mbox{\hyperlink{proyecto__integrador_8c_a789190c117d776b4a78b19732953b2fd}{00105}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{proyecto__integrador_8c_a789190c117d776b4a78b19732953b2fd}{Task\_Volar}}(\textcolor{keywordtype}{void}\ *pvParameter)}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00106}00106\ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00107}00107\ \ \ \ \ \textcolor{keywordtype}{float}\ acel\_x,\ acel\_y,\ acel\_z;}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00108}00108\ \ \ \ \ \textcolor{keywordtype}{float}\ angulo\_anterior\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00109}00109\ \ \ \ \ \textcolor{keywordtype}{float}\ angulo;\ \textcolor{comment}{//\ angulo\ plano\ yz}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00110}00110\ \ \ \ \ \textcolor{keywordtype}{float}\ angulo\_umbral\_up\ =\ 8;}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00111}00111\ \ \ \ \ \textcolor{keywordtype}{float}\ angulo\_umbral\_down\ =\ -\/8;}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00112}00112\ \ \ \ \ \textcolor{keywordtype}{float}\ diferencia\_angulos;}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00113}00113\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00114}00114\ \ \ \ \ \{\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ ulTaskNotifyTake(pdTRUE,\ portMAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{proyecto__integrador_8c_ab376b87f96a574a793c03c53e75afec8}{start}})}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ acel\_x\ =\ ReadXValue();}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ acel\_y\ =\ ReadYValue();}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ acel\_z\ =\ ReadZValue();}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ angulo\ =\ atan2(acel\_y,\ acel\_z)\ *\ 180\ /\ M\_PI;\ \textcolor{comment}{//\ Convertir\ a\ grados}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//printf("{}El\ ángulo\ de\ inclinación\ en\ el\ plano\ YZ\ es:\ \%.2f\ grados\(\backslash\)n"{},\ angulo);}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ diferencia\_angulos\ =\ angulo\_anterior\ -\/\ angulo;}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ printf("{}La\ diferencia\ de\ angulos\ es\ :\ \%f\ grados\(\backslash\)n"{},\ diferencia\_angulos);}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((diferencia\_angulos)\ >\ angulo\_umbral\_up)}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{proyecto__integrador_8c_a99437f7aa9e5d11b47fa932296838a64}{TeclaArriba}}();}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ angulo\_anterior\ =\ angulo;}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((diferencia\_angulos)\ <\ angulo\_umbral\_down)}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{proyecto__integrador_8c_a203632894056c52015b6e49d6642500d}{TeclaAbajo}}();}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ angulo\_anterior\ =\ angulo;}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00140}00140\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00141}00141\ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00145}\mbox{\hyperlink{proyecto__integrador_8c_a5a27e54af574b3ae191a8c80099e239a}{00145}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{proyecto__integrador_8c_a5a27e54af574b3ae191a8c80099e239a}{Task\_Controles}}(\textcolor{keywordtype}{void}\ *pvParameter)}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00146}00146\ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00147}00147\ \ \ \ \ \textcolor{comment}{//\ Chequea\ que\ el\ bluetooth\ este\ correctamente\ conectado\ con\ el\ led1}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00148}00148\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00149}00149\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ ulTaskNotifyTake(pdTRUE,\ portMAX\_DELAY);}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{group___b_l_e_ga67558f92332c3d7edc94278eb7a45cfc}{BleHidStatus}}())}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4}{BLE\_OFF}}:}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___l_e_d_ga4fd07c9f7fab15d0d07389a38f4a39d8}{LedOff}}(\mbox{\hyperlink{proyecto__integrador_8c_a7a3ccd8a43b5c5e8a4d573780da1fd4a}{LED\_BT}});}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47abe3828521b028796e567225bfbc5a978}{BLE\_DISCONNECTED}}:}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___l_e_d_ga787ec5815e0eb2680bf1845562731beb}{LedToggle}}(\mbox{\hyperlink{proyecto__integrador_8c_a7a3ccd8a43b5c5e8a4d573780da1fd4a}{LED\_BT}});}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399}{BLE\_CONNECTED}}:}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___l_e_d_ga883021aaef65f080a52b1852172ecbc3}{LedOn}}(\mbox{\hyperlink{proyecto__integrador_8c_a7a3ccd8a43b5c5e8a4d573780da1fd4a}{LED\_BT}});}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{proyecto__integrador_8c_ab376b87f96a574a793c03c53e75afec8}{start}})}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___l_e_d_ga883021aaef65f080a52b1852172ecbc3}{LedOn}}(\mbox{\hyperlink{proyecto__integrador_8c_ae0af85b0f645ffd6e7376a0f689a10fb}{LED\_START}});}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___l_e_d_ga4fd07c9f7fab15d0d07389a38f4a39d8}{LedOff}}(\mbox{\hyperlink{proyecto__integrador_8c_ae0af85b0f645ffd6e7376a0f689a10fb}{LED\_START}});}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00172}00172\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00173}00173\ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00179}\mbox{\hyperlink{proyecto__integrador_8c_a10506548c0166cec6195f808a27701d6}{00179}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{proyecto__integrador_8c_a10506548c0166cec6195f808a27701d6}{FunctionTimerA}}(\textcolor{keywordtype}{void}\ *param)}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00180}00180\ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00181}00181\ \ \ \ \ vTaskNotifyGiveFromISR(\mbox{\hyperlink{proyecto__integrador_8c_a03add7d850328814dbea59f72b4e3762}{volar\_task\_handle}},\ pdFALSE);}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00182}00182\ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00187}\mbox{\hyperlink{proyecto__integrador_8c_aaac5cc84aba38aa4ab933e3a00e92dfd}{00187}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{proyecto__integrador_8c_aaac5cc84aba38aa4ab933e3a00e92dfd}{FunctionTimerB}}(\textcolor{keywordtype}{void}\ *param)}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00188}00188\ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00189}00189\ \ \ \ \ vTaskNotifyGiveFromISR(\mbox{\hyperlink{proyecto__integrador_8c_a2d4e575f11f80f95ee9e5926054bd5bb}{controles\_task\_handle}},\ pdFALSE);}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00190}00190\ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00191}00191\ \textcolor{comment}{/*==================[external\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00198}\mbox{\hyperlink{proyecto__integrador_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}{00198}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{proyecto__integrador_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}{app\_main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00199}00199\ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00200}00200\ \ \ \ \ \mbox{\hyperlink{group___l_e_d_gacba669c3e8f52e45d1bea50c2e63b250}{LedsInit}}();}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00201}00201\ \ \ \ \ ADXL335Init();}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00202}00202\ \ \ \ \ \mbox{\hyperlink{group___switch_ga8eb2865a73bf2d2b9fd6760958a0cc3c}{SwitchesInit}}();}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00203}00203\ \ \ \ \ \mbox{\hyperlink{group___b_l_e_ga94512d231afe9cff7e7aa8eff3a18fba}{BleHidInit}}(\textcolor{stringliteral}{"{}EP\_HID"{}});\ \textcolor{comment}{//\ Inicializa\ bluetooth}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00205}00205\ \ \ \ \ \textcolor{comment}{//\ ESTO\ CON\ INTERRUPCIONES}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00206}00206\ \ \ \ \ \mbox{\hyperlink{group___switch_ga9847b9081e3cb39dd3ec01eaee8323b2}{SwitchActivInt}}(\mbox{\hyperlink{group___switch_gga8caa2df6d25fea5a14eb4533df1d5cfaa24caa46485c5fec2211b3ebd8a1eee77}{SWITCH\_1}},\ \&\mbox{\hyperlink{proyecto__integrador_8c_a3dce832fa0cab13e288fb7424ac51f50}{Calibrar}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00207}00207\ \ \ \ \ \mbox{\hyperlink{group___switch_ga9847b9081e3cb39dd3ec01eaee8323b2}{SwitchActivInt}}(\mbox{\hyperlink{group___switch_gga8caa2df6d25fea5a14eb4533df1d5cfaa73fda67835d5d51aa9251fee781a7434}{SWITCH\_2}},\ \&\mbox{\hyperlink{proyecto__integrador_8c_a045088801edfb3f18dae88c10c1d0bd0}{TeclaBarra}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00209}00209\ \ \ \ \ \textcolor{comment}{//\ Configuración\ del\ timer\ para\ control\ del\ vuelo\ del\ pajaro}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00210}00210\ \ \ \ \ \mbox{\hyperlink{structtimer__config__t}{timer\_config\_t}}\ timer\_vuelo\ =\ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00211}00211\ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{structtimer__config__t_ab83043b8038c5e630f6a2a05ea007e49}{timer}}\ =\ \mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598}{TIMER\_A}},}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ .period\ =\ \mbox{\hyperlink{proyecto__integrador_8c_a086c5713e35d79f7ccb5b3213a59b2fd}{CONFIG\_TIMER\_VUELO}},}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00213}00213\ \ \ \ \ \ \ \ \ .func\_p\ =\ \mbox{\hyperlink{proyecto__integrador_8c_a10506548c0166cec6195f808a27701d6}{FunctionTimerA}},}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ .param\_p\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\};}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00215}00215\ \ \ \ \ \mbox{\hyperlink{group___timer_gae8617c0d176463a60441464ad26563f6}{TimerInit}}(\&timer\_vuelo);}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00217}00217\ \ \ \ \ \textcolor{comment}{//\ Configuración\ del\ timer\ para\ control\ de\ bluetooth}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00218}00218\ \ \ \ \ \mbox{\hyperlink{structtimer__config__t}{timer\_config\_t}}\ timer\_controles\ =\ \{}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{structtimer__config__t_ab83043b8038c5e630f6a2a05ea007e49}{timer}}\ =\ \mbox{\hyperlink{group___timer_ggacc4e64394d03a6e790f8e52c674534d9a7537925211db58591cb5eeb7ebc7f44f}{TIMER\_B}},}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ .period\ =\ \mbox{\hyperlink{proyecto__integrador_8c_a0782d3b9e79b2ef5eefef51d5b58a39d}{CONFIG\_TIMER\_CONTROLES}},}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ .func\_p\ =\ \mbox{\hyperlink{proyecto__integrador_8c_aaac5cc84aba38aa4ab933e3a00e92dfd}{FunctionTimerB}},}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00222}00222\ \ \ \ \ \ \ \ \ .param\_p\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\};}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00223}00223\ \ \ \ \ \mbox{\hyperlink{group___timer_gae8617c0d176463a60441464ad26563f6}{TimerInit}}(\&timer\_controles);}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00225}00225\ \ \ \ \ xTaskCreate(\&\mbox{\hyperlink{proyecto__integrador_8c_a789190c117d776b4a78b19732953b2fd}{Task\_Volar}},\ \textcolor{stringliteral}{"{}Task\_Volar"{}},\ 4096,\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ 5,\ \&\mbox{\hyperlink{proyecto__integrador_8c_a03add7d850328814dbea59f72b4e3762}{volar\_task\_handle}});}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00226}00226\ \ \ \ \ xTaskCreate(\&\mbox{\hyperlink{proyecto__integrador_8c_a5a27e54af574b3ae191a8c80099e239a}{Task\_Controles}},\ \textcolor{stringliteral}{"{}Task\_control"{}},\ 2048,\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ 4,\ \&\mbox{\hyperlink{proyecto__integrador_8c_a2d4e575f11f80f95ee9e5926054bd5bb}{controles\_task\_handle}});}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00228}00228\ \ \ \ \ \mbox{\hyperlink{group___timer_ga0b1779c5b8f91cc83c8bfd127071ea2f}{TimerStart}}(timer\_vuelo.\mbox{\hyperlink{structtimer__config__t_ab83043b8038c5e630f6a2a05ea007e49}{timer}});}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00229}00229\ \ \ \ \ \mbox{\hyperlink{group___timer_ga0b1779c5b8f91cc83c8bfd127071ea2f}{TimerStart}}(timer\_controles.\mbox{\hyperlink{structtimer__config__t_ab83043b8038c5e630f6a2a05ea007e49}{timer}});}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00230}00230\ \}}
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{proyecto__integrador_8c_source_l00232}00232\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

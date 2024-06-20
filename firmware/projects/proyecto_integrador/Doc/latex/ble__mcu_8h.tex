@@ -1,0 +1,42 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/inc/ble\+\_\+mcu.h}
+\hypertarget{ble__mcu_8h}{}\label{ble__mcu_8h}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/ble\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/ble\_mcu.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structble__config__t}{ble\+\_\+config\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em BLE configuration struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___b_l_e_gaf5100161e34455dbc660d45f8ffb5373}{BLE\+\_\+\+NO\+\_\+\+INT}}~0
+\begin{DoxyCompactList}\small\item\em BLE driver for the ESP-\/\+EDU Board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___b_l_e_gae207a1d79a9762a3a3701e091bbb22c9}{read\+\_\+func}}) (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Prototype of callback function for reading received data. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{ble\+\_\+status}} \mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em BLE connection status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___b_l_e_gab13ed63d3b157b93f1e6d98e3d6a7b47}{ble\+\_\+status}} \{ \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4}{BLE\+\_\+\+OFF}}
+, \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47abe3828521b028796e567225bfbc5a978}{BLE\+\_\+\+DISCONNECTED}}
+, \mbox{\hyperlink{group___b_l_e_ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399}{BLE\+\_\+\+CONNECTED}}
+ \}
+\begin{DoxyCompactList}\small\item\em BLE connection status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___b_l_e_ga8001369ce247b2413afd6d8a14fe8d82}{Ble\+Init}} (\mbox{\hyperlink{structble__config__t}{ble\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}ble\+\_\+device)
+\begin{DoxyCompactList}\small\item\em Bluetooth initialization. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___b_l_e_gace12bf2f4052775366d0375947452f0d}{ble\+\_\+status\+\_\+t}} \mbox{\hyperlink{group___b_l_e_ga45f64ecb9f703ecc50b85b6967e85bd5}{Ble\+Status}} (void)
+\begin{DoxyCompactList}\small\item\em Gets BLE connection status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_gae0bdc932377c439b2a2e601dd9b9d56d}{Ble\+Send\+Byte}} (const char \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Send a single byte trough BLE (if connected) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_ga68083cec5599456e78a536031e3b61b8}{Ble\+Send\+String}} (const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Send a string trough BLE (if connected) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___b_l_e_gad7b70ab491715ae295497f0714e05539}{Ble\+Send\+Buffer}} (const char \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t nbytes)
+\begin{DoxyCompactList}\small\item\em Send multiple bytes through serial port. \end{DoxyCompactList}\end{DoxyCompactItemize}
