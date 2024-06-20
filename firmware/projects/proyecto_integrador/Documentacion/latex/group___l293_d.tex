@@ -1,0 +1,184 @@
+\doxysubsubsection{L293D}
+\hypertarget{group___l293_d}{}\label{group___l293_d}\index{L293D@{L293D}}
+
+
+Quadruple half-\/H driver.  
+
+
+\doxysubsubsubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___l293_d_ga88a4b61016074d859a35a819185870c5}{l293\+\_\+motor\+\_\+t}} \{ \mbox{\hyperlink{group___l293_d_gga88a4b61016074d859a35a819185870c5a3941188d2d90aed5042e2a4e12f5e1a0}{MOTOR\+\_\+1}}
+, \mbox{\hyperlink{group___l293_d_gga88a4b61016074d859a35a819185870c5a4c392a2fa3fb63f41fd473e50bf197b0}{MOTOR\+\_\+2}}
+ \}
+\begin{DoxyCompactList}\small\item\em Motors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l293_d_gadd2a75e90415afd4e8667c8975232759}{L293\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes L293 driver. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l293_d_ga6e47e21a27ca3aba1909e2b4deeb726c}{L293\+Set\+Speed}} (\mbox{\hyperlink{group___l293_d_ga88a4b61016074d859a35a819185870c5}{l293\+\_\+motor\+\_\+t}} motor, int8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Initializes L293 driver. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___l293_d_ga1608250d3f606f95a2fc076ee5e55f02}{L293\+De\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em De-\/initializes L293 Driver. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Descripción detallada}
+Quadruple half-\/H driver. 
+
+This driver provide functions to configure and control a dual DC motor driver using the L293D.
+
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva
+\end{DoxyAuthor}
+\begin{DoxyNote}{Nota}
+Hardware connections\+:
+\end{DoxyNote}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ L293D   }&\cellcolor{\tableheadbgcolor}\textbf{ EDU-\/\+CIAA    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ L293D   }&\cellcolor{\tableheadbgcolor}\textbf{ EDU-\/\+CIAA    }\\\cline{1-2}
+\endhead
+\PBS\centering 5V   &5V    \\\cline{1-2}
+\PBS\centering GND   &GND    \\\cline{1-2}
+\PBS\centering 1,2EN   &GPIO\+\_\+22    \\\cline{1-2}
+\PBS\centering 1A   &GPIO\+\_\+21    \\\cline{1-2}
+\PBS\centering 2A   &GPIO\+\_\+20    \\\cline{1-2}
+\PBS\centering 3,4EN   &GPIO\+\_\+19    \\\cline{1-2}
+\PBS\centering 3A   &GPIO\+\_\+18    \\\cline{1-2}
+\PBS\centering 4A   &GPIO\+\_\+9   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{index_changelog}{}\doxysubsubsubsection{\texorpdfstring{Changelog}{Changelog}}\label{index_changelog}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Date   }&\cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering 17/05/2024   &Document creation   \\\cline{1-2}
+\end{longtabu}
+
+
+\doxysubsubsubsection{Documentación de enumeraciones}
+\Hypertarget{group___l293_d_ga88a4b61016074d859a35a819185870c5}\label{group___l293_d_ga88a4b61016074d859a35a819185870c5} 
+\index{L293D@{L293D}!l293\_motor\_t@{l293\_motor\_t}}
+\index{l293\_motor\_t@{l293\_motor\_t}!L293D@{L293D}}
+\doxysubsubsubsubsection{\texorpdfstring{l293\_motor\_t}{l293\_motor\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___l293_d_ga88a4b61016074d859a35a819185870c5}{l293\+\_\+motor\+\_\+t}}}
+
+
+
+Motors. 
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOTOR\_1@{MOTOR\_1}!L293D@{L293D}}\index{L293D@{L293D}!MOTOR\_1@{MOTOR\_1}}}\Hypertarget{group___l293_d_gga88a4b61016074d859a35a819185870c5a3941188d2d90aed5042e2a4e12f5e1a0}\label{group___l293_d_gga88a4b61016074d859a35a819185870c5a3941188d2d90aed5042e2a4e12f5e1a0} 
+MOTOR\+\_\+1&Motor 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOTOR\_2@{MOTOR\_2}!L293D@{L293D}}\index{L293D@{L293D}!MOTOR\_2@{MOTOR\_2}}}\Hypertarget{group___l293_d_gga88a4b61016074d859a35a819185870c5a4c392a2fa3fb63f41fd473e50bf197b0}\label{group___l293_d_gga88a4b61016074d859a35a819185870c5a4c392a2fa3fb63f41fd473e50bf197b0} 
+MOTOR\+\_\+2&Motor 2 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definición en la línea \mbox{\hyperlink{l293_8h_source_l00046}{46}} del archivo \mbox{\hyperlink{l293_8h_source}{l293.\+h}}.
+
+
+
+\doxysubsubsubsection{Documentación de funciones}
+\Hypertarget{group___l293_d_ga1608250d3f606f95a2fc076ee5e55f02}\label{group___l293_d_ga1608250d3f606f95a2fc076ee5e55f02} 
+\index{L293D@{L293D}!L293DeInit@{L293DeInit}}
+\index{L293DeInit@{L293DeInit}!L293D@{L293D}}
+\doxysubsubsubsubsection{\texorpdfstring{L293DeInit()}{L293DeInit()}}
+{\footnotesize\ttfamily uint8\+\_\+t L293\+De\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+De-\/initializes L293 Driver. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em 1} & when success, 0 when fails \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{l293_8c_source_l00101}{101}} del archivo \mbox{\hyperlink{l293_8c_source}{l293.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{pwm__mcu_8h_source_l00034}{PWM\+\_\+0}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00035}{PWM\+\_\+1}} y \mbox{\hyperlink{pwm__mcu_8c_source_l00098}{PWMOff()}}.
+
+\Hypertarget{group___l293_d_gadd2a75e90415afd4e8667c8975232759}\label{group___l293_d_gadd2a75e90415afd4e8667c8975232759} 
+\index{L293D@{L293D}!L293Init@{L293Init}}
+\index{L293Init@{L293Init}!L293D@{L293D}}
+\doxysubsubsubsubsection{\texorpdfstring{L293Init()}{L293Init()}}
+{\footnotesize\ttfamily uint8\+\_\+t L293\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initializes L293 driver. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em 1} & when success, 0 when fails \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{l293_8c_source_l00040}{40}} del archivo \mbox{\hyperlink{l293_8c_source}{l293.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{l293_8c_source_l00022}{A\+\_\+1}}, \mbox{\hyperlink{l293_8c_source_l00023}{A\+\_\+2}}, \mbox{\hyperlink{l293_8c_source_l00025}{A\+\_\+3}}, \mbox{\hyperlink{l293_8c_source_l00026}{A\+\_\+4}}, \mbox{\hyperlink{l293_8c_source_l00021}{EN\+\_\+1\+\_\+2}}, \mbox{\hyperlink{l293_8c_source_l00024}{EN\+\_\+3\+\_\+4}}, \mbox{\hyperlink{gpio__mcu_8h_source_l00044}{GPIO\+\_\+\+OUTPUT}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00067}{GPIOInit()}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00034}{PWM\+\_\+0}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00035}{PWM\+\_\+1}}, \mbox{\hyperlink{l293_8c_source_l00019}{PWM\+\_\+\+FREQ}} y \mbox{\hyperlink{pwm__mcu_8c_source_l00039}{PWMInit()}}.
+
+\Hypertarget{group___l293_d_ga6e47e21a27ca3aba1909e2b4deeb726c}\label{group___l293_d_ga6e47e21a27ca3aba1909e2b4deeb726c} 
+\index{L293D@{L293D}!L293SetSpeed@{L293SetSpeed}}
+\index{L293SetSpeed@{L293SetSpeed}!L293D@{L293D}}
+\doxysubsubsubsubsection{\texorpdfstring{L293SetSpeed()}{L293SetSpeed()}}
+{\footnotesize\ttfamily uint8\+\_\+t L293\+Set\+Speed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___l293_d_ga88a4b61016074d859a35a819185870c5}{l293\+\_\+motor\+\_\+t}}}]{motor,  }\item[{int8\+\_\+t}]{speed }\end{DoxyParamCaption})}
+
+
+
+Initializes L293 driver. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\texttt{ in}}  & {\em motor} & motor to be configured \\
+\hline
+\mbox{\texttt{ in}}  & {\em speed} & from -\/100 to 100 0\+: stop 1 to 100\+: foward -\/1 to -\/100\+: backward \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em 1} & when success, 0 when fails \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea \mbox{\hyperlink{l293_8c_source_l00051}{51}} del archivo \mbox{\hyperlink{l293_8c_source}{l293.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{l293_8c_source_l00022}{A\+\_\+1}}, \mbox{\hyperlink{l293_8c_source_l00023}{A\+\_\+2}}, \mbox{\hyperlink{l293_8c_source_l00025}{A\+\_\+3}}, \mbox{\hyperlink{l293_8c_source_l00026}{A\+\_\+4}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00086}{GPIOOff()}}, \mbox{\hyperlink{gpio__mcu_8c_source_l00081}{GPIOOn()}}, \mbox{\hyperlink{l293_8c_source_l00018}{MAX\+\_\+\+B\+\_\+\+SPEED}}, \mbox{\hyperlink{l293_8c_source_l00017}{MAX\+\_\+\+F\+\_\+\+SPEED}}, \mbox{\hyperlink{l293_8h_source_l00048}{MOTOR\+\_\+1}}, \mbox{\hyperlink{l293_8h_source_l00049}{MOTOR\+\_\+2}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00034}{PWM\+\_\+0}}, \mbox{\hyperlink{pwm__mcu_8h_source_l00035}{PWM\+\_\+1}} y \mbox{\hyperlink{pwm__mcu_8c_source_l00115}{PWMSet\+Duty\+Cycle()}}.
+

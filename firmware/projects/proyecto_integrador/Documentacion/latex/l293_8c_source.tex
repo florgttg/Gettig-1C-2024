@@ -1,0 +1,101 @@
+\doxysection{l293.\+c}
+\hypertarget{l293_8c_source}{}\label{l293_8c_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/l293.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/l293.c}}
+\mbox{\hyperlink{l293_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00012}00012\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{l293_8h}{l293.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio__mcu_8h}{gpio\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{pwm__mcu_8h}{pwm\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00016}00016\ \textcolor{comment}{/*==================[macros\ and\ definitions]=================================*/}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00017}\mbox{\hyperlink{l293_8c_adb97e4c966e121b68ae86c89f36fffdc}{00017}}\ \textcolor{preprocessor}{\#define\ MAX\_F\_SPEED\ \ \ \ \ 100\ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00018}\mbox{\hyperlink{l293_8c_a0985a011a5c3cb2b9fbdfea4d3785cc7}{00018}}\ \textcolor{preprocessor}{\#define\ MAX\_B\_SPEED\ \ \ \ \ -\/100\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00019}\mbox{\hyperlink{l293_8c_a76fe84d83b8d236bd4f0d20d7e2ed06f}{00019}}\ \textcolor{preprocessor}{\#define\ PWM\_FREQ\ \ \ \ \ \ \ \ 50\ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00020}\mbox{\hyperlink{l293_8c_abd07fcfd4e2395bed1eff37875839375}{00020}}\ \textcolor{preprocessor}{\#define\ N\_MOTORS\ \ \ \ \ \ \ \ 2\ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00021}\mbox{\hyperlink{l293_8c_a594a434c0a3b20b83e831e4e1e767f3b}{00021}}\ \textcolor{preprocessor}{\#define\ EN\_1\_2\ \ \ \ \ \ \ \ \ \ GPIO\_22}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00022}\mbox{\hyperlink{l293_8c_a3846181cf670f578e43772faa4bd3f75}{00022}}\ \textcolor{preprocessor}{\#define\ A\_1\ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_21}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00023}\mbox{\hyperlink{l293_8c_a01e92799f99fb681f6db217e5fcce84d}{00023}}\ \textcolor{preprocessor}{\#define\ A\_2\ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_20}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00024}\mbox{\hyperlink{l293_8c_ac8c0b3ab4b1036bb369de9b5d409b361}{00024}}\ \textcolor{preprocessor}{\#define\ EN\_3\_4\ \ \ \ \ \ \ \ \ \ GPIO\_19}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00025}\mbox{\hyperlink{l293_8c_a304db09cca37e303ccb2af2b5e669b84}{00025}}\ \textcolor{preprocessor}{\#define\ A\_3\ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_18}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00026}\mbox{\hyperlink{l293_8c_a45c10761257fe9b986909363bec442a7}{00026}}\ \textcolor{preprocessor}{\#define\ A\_4\ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_9}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00027}00027\ \textcolor{comment}{/*==================[typedef]================================================*/}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00029}00029\ \textcolor{comment}{/*==================[internal\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00031}00031\ \textcolor{comment}{/*==================[internal\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00033}00033\ \textcolor{comment}{/*==================[internal\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00035}00035\ \textcolor{comment}{/*==================[internal\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00037}00037\ \textcolor{comment}{/*==================[external\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00039}00039\ \textcolor{comment}{/*==================[external\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00040}\mbox{\hyperlink{group___l293_d_gadd2a75e90415afd4e8667c8975232759}{00040}}\ uint8\_t\ \mbox{\hyperlink{group___l293_d_gadd2a75e90415afd4e8667c8975232759}{L293Init}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{group___p_w_m_ga50ba8fd6442b4799b8fb9b2e2b859bbd}{PWMInit}}(\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\_0}},\ \mbox{\hyperlink{l293_8c_a594a434c0a3b20b83e831e4e1e767f3b}{EN\_1\_2}},\ \mbox{\hyperlink{l293_8c_a76fe84d83b8d236bd4f0d20d7e2ed06f}{PWM\_FREQ}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{group___p_w_m_ga50ba8fd6442b4799b8fb9b2e2b859bbd}{PWMInit}}(\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}},\ \mbox{\hyperlink{l293_8c_ac8c0b3ab4b1036bb369de9b5d409b361}{EN\_3\_4}},\ \mbox{\hyperlink{l293_8c_a76fe84d83b8d236bd4f0d20d7e2ed06f}{PWM\_FREQ}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{l293_8c_a3846181cf670f578e43772faa4bd3f75}{A\_1}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{l293_8c_a01e92799f99fb681f6db217e5fcce84d}{A\_2}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{l293_8c_a304db09cca37e303ccb2af2b5e669b84}{A\_3}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(\mbox{\hyperlink{l293_8c_a45c10761257fe9b986909363bec442a7}{A\_4}},\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00051}\mbox{\hyperlink{group___l293_d_ga6e47e21a27ca3aba1909e2b4deeb726c}{00051}}\ uint8\_t\ \mbox{\hyperlink{group___l293_d_ga6e47e21a27ca3aba1909e2b4deeb726c}{L293SetSpeed}}(\mbox{\hyperlink{group___l293_d_ga88a4b61016074d859a35a819185870c5}{l293\_motor\_t}}\ motor,\ int8\_t\ speed)\{}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00052}00052\ \ \ \ \ uint8\_t\ err\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{switch}(motor)\{}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___l293_d_gga88a4b61016074d859a35a819185870c5a3941188d2d90aed5042e2a4e12f5e1a0}{MOTOR\_1}}:}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(speed\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba}{PWMSetDutyCycle}}(\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\_0}},\ speed);}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{l293_8c_a3846181cf670f578e43772faa4bd3f75}{A\_1}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{l293_8c_a01e92799f99fb681f6db217e5fcce84d}{A\_2}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(speed\ >\ 0)\{}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (speed\ >\ \mbox{\hyperlink{l293_8c_adb97e4c966e121b68ae86c89f36fffdc}{MAX\_F\_SPEED}})\ speed\ =\ \mbox{\hyperlink{l293_8c_adb97e4c966e121b68ae86c89f36fffdc}{MAX\_F\_SPEED}};}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba}{PWMSetDutyCycle}}(\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\_0}},\ speed);}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{l293_8c_a3846181cf670f578e43772faa4bd3f75}{A\_1}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{l293_8c_a01e92799f99fb681f6db217e5fcce84d}{A\_2}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(speed\ <\ 0)\{}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (speed\ <\ \mbox{\hyperlink{l293_8c_a0985a011a5c3cb2b9fbdfea4d3785cc7}{MAX\_B\_SPEED}})\ speed\ =\ \mbox{\hyperlink{l293_8c_a0985a011a5c3cb2b9fbdfea4d3785cc7}{MAX\_B\_SPEED}};}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba}{PWMSetDutyCycle}}(\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\_0}},\ -\/speed);}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{l293_8c_a3846181cf670f578e43772faa4bd3f75}{A\_1}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{l293_8c_a01e92799f99fb681f6db217e5fcce84d}{A\_2}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___l293_d_gga88a4b61016074d859a35a819185870c5a4c392a2fa3fb63f41fd473e50bf197b0}{MOTOR\_2}}:}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(speed\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba}{PWMSetDutyCycle}}(\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}},\ speed);}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{l293_8c_a304db09cca37e303ccb2af2b5e669b84}{A\_3}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{l293_8c_a45c10761257fe9b986909363bec442a7}{A\_4}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(speed\ >\ 0)\{}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (speed\ >\ \mbox{\hyperlink{l293_8c_adb97e4c966e121b68ae86c89f36fffdc}{MAX\_F\_SPEED}})\ speed\ =\ \mbox{\hyperlink{l293_8c_adb97e4c966e121b68ae86c89f36fffdc}{MAX\_F\_SPEED}};}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba}{PWMSetDutyCycle}}(\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}},\ speed);}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{l293_8c_a304db09cca37e303ccb2af2b5e669b84}{A\_3}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{l293_8c_a45c10761257fe9b986909363bec442a7}{A\_4}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(speed\ <\ 0)\{}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (speed\ <\ \mbox{\hyperlink{l293_8c_a0985a011a5c3cb2b9fbdfea4d3785cc7}{MAX\_B\_SPEED}})\ speed\ =\ \mbox{\hyperlink{l293_8c_a0985a011a5c3cb2b9fbdfea4d3785cc7}{MAX\_B\_SPEED}};}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba}{PWMSetDutyCycle}}(\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}},\ -\/speed);}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(\mbox{\hyperlink{l293_8c_a304db09cca37e303ccb2af2b5e669b84}{A\_3}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(\mbox{\hyperlink{l293_8c_a45c10761257fe9b986909363bec442a7}{A\_4}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ err\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{return}\ err;}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00099}00099\ \}}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00101}\mbox{\hyperlink{group___l293_d_ga1608250d3f606f95a2fc076ee5e55f02}{00101}}\ uint8\_t\ \mbox{\hyperlink{group___l293_d_ga1608250d3f606f95a2fc076ee5e55f02}{L293DeInit}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00102}00102\ \ \ \ \ \mbox{\hyperlink{group___p_w_m_ga43660d2e059ccf15efea7fff6a5fbfe4}{PWMOff}}(\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\_0}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00103}00103\ \ \ \ \ \mbox{\hyperlink{group___p_w_m_ga43660d2e059ccf15efea7fff6a5fbfe4}{PWMOff}}(\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}});}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{l293_8c_source_l00105}00105\ \}}
+
+\end{DoxyCode}

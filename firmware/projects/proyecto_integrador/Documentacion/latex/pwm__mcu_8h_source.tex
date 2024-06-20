@@ -1,0 +1,39 @@
+\doxysection{pwm\+\_\+mcu.\+h}
+\hypertarget{pwm__mcu_8h_source}{}\label{pwm__mcu_8h_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/pwm\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/pwm\_mcu.h}}
+\mbox{\hyperlink{pwm__mcu_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ PWM\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ PWM\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00027}00027\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{gpio__mcu_8h}{gpio\_mcu.h}}>}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00030}00030\ \textcolor{comment}{/*==================[macros]=================================================*/}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00032}00032\ \textcolor{comment}{/*==================[typedef]================================================*/}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00033}\mbox{\hyperlink{group___p_w_m_ga5800a2bada92ba802e1cbdb0307f0c7b}{00033}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{group___p_w_m_ga5800a2bada92ba802e1cbdb0307f0c7b}{pwm\_out}}\ \{}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00034}\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{00034}}\ \ \ \ \ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba857e21e20c27df92dec4574fcddfd740}{PWM\_0}},\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00035}\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{00035}}\ \ \ \ \ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7baea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}},\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00036}\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6}{00036}}\ \ \ \ \ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7bab8296af41c4fdd6fd2dc62d6c761bdf6}{PWM\_2}},\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00037}00037\ \ \ \ \ \mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542}{PWM\_3}}\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00038}\mbox{\hyperlink{group___p_w_m_gga5800a2bada92ba802e1cbdb0307f0c7ba44646d1313a5c911c1500447f531f542}{00038}}\ \}\ \mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\_out\_t}};}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00039}00039\ \textcolor{comment}{/*==================[internal\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00041}00041\ \textcolor{comment}{/*==================[internal\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00053}00053\ uint8\_t\ \mbox{\hyperlink{group___p_w_m_ga50ba8fd6442b4799b8fb9b2e2b859bbd}{PWMInit}}(\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\_out\_t}}\ out,\ \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ gpio,\ uint16\_t\ freq);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00060}00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_m_ga6fe31ebdc570ccdd776a7d4178566062}{PWMOn}}(\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\_out\_t}}\ out);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00067}00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_m_ga43660d2e059ccf15efea7fff6a5fbfe4}{PWMOff}}(\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\_out\_t}}\ out);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00075}00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_m_ga427d00e7908ad5bc30e8a71dd07159ba}{PWMSetDutyCycle}}(\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\_out\_t}}\ out,\ uint8\_t\ duty\_cycle);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00084}00084\ uint8\_t\ \mbox{\hyperlink{group___p_w_m_ga223ccf708bb17d7bfb4ffb77d57c0501}{PWMSetFreq}}(\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\_out\_t}}\ out,\ uint32\_t\ freq);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00092}00092\ uint8\_t\ \mbox{\hyperlink{group___p_w_m_gad2556985508ded35e34bccc1e974fe6b}{PWMDeinit}}(\mbox{\hyperlink{group___p_w_m_ga1d363970f0a2cf766d46868c4e88c41a}{pwm\_out\_t}}\ out);}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00097}00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PWM\_MCU\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{pwm__mcu_8h_source_l00099}00099\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

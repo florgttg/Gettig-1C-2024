@@ -1,0 +1,181 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/src/lcditse0803.c}
+\hypertarget{lcditse0803_8c}{}\label{lcditse0803_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/lcditse0803.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/lcditse0803.c}}
+{\ttfamily \#include "{}lcditse0803.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lcditse0803_8c_a905b3247404e978fc5c06cdc007568a4}{GPIO\+\_\+\+BCD\+\_\+1}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95}{GPIO\+\_\+20}}
+\item 
+\#define \mbox{\hyperlink{lcditse0803_8c_a979e11510604c3d0dab7d26b513465f4}{GPIO\+\_\+\+BCD\+\_\+2}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c}{GPIO\+\_\+21}}
+\item 
+\#define \mbox{\hyperlink{lcditse0803_8c_ad44f73d4822c2731f9a1e0553a53bacc}{GPIO\+\_\+\+BCD\+\_\+3}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb}{GPIO\+\_\+22}}
+\item 
+\#define \mbox{\hyperlink{lcditse0803_8c_a4f9dbd73c9383706e6de83e31f5a45b5}{GPIO\+\_\+\+BCD\+\_\+4}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f}{GPIO\+\_\+23}}
+\item 
+\#define \mbox{\hyperlink{lcditse0803_8c_ab01195514d15a19e1c38b772d08ceb0e}{GPIO\+\_\+\+SEL\+\_\+1}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847}{GPIO\+\_\+19}}
+\item 
+\#define \mbox{\hyperlink{lcditse0803_8c_a20227f4ac122fad255580f73943bd114}{GPIO\+\_\+\+SEL\+\_\+2}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917}{GPIO\+\_\+18}}
+\item 
+\#define \mbox{\hyperlink{lcditse0803_8c_ab6ee35f7022901c51f374ba4ceac51b7}{GPIO\+\_\+\+SEL\+\_\+3}}~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d}{GPIO\+\_\+9}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{lcditse0803_8c_a52c775a96cee096ac36021a44b40459f}{Lcd\+Its\+E0803\+BCDto\+Pin}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Aux function to load a digit to the LCD Display. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga1c08a1458380c8f0a02a3763d14c8bf3}{Lcd\+Its\+E0803\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Driver for using the 3 digits numeric display in ESP-\/\+EDU. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga77a9887ee733d3212c3e4996c47f1b9d}{Lcd\+Its\+E0803\+Write}} (uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Function to display value a LCD Module for EDU-\/\+CIAA. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga748187a90cb737541071dcd01c67db51}{Lcd\+Its\+E0803\+Read}} (void)
+\begin{DoxyCompactList}\small\item\em Read value displayed in LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_gae84766fe1e3b5550b1ca4bbc70f00504}{Lcd\+Its\+E0803\+Off}} (void)
+\begin{DoxyCompactList}\small\item\em Turn off display. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___l_c_d___i_t_s_e0803_ga38ac54150b5921cb9ec4897f62868a68}{Lcd\+Its\+E0803\+De\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em ESP-\/\+EDU LCD Module initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva (\href{mailto:albano.penalva@uner.edu.ar}{\texttt{ albano.\+penalva@uner.\+edu.\+ar}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2023-\/10-\/20
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+Definición en el archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{lcditse0803_8c_a905b3247404e978fc5c06cdc007568a4}\label{lcditse0803_8c_a905b3247404e978fc5c06cdc007568a4} 
+\index{lcditse0803.c@{lcditse0803.c}!GPIO\_BCD\_1@{GPIO\_BCD\_1}}
+\index{GPIO\_BCD\_1@{GPIO\_BCD\_1}!lcditse0803.c@{lcditse0803.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_BCD\_1}{GPIO\_BCD\_1}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+BCD\+\_\+1~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95}{GPIO\+\_\+20}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{lcditse0803_8c_source_l00016}{16}} del archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{lcditse0803_8c_source_l00029}{Lcd\+Its\+E0803\+BCDto\+Pin()}} y \mbox{\hyperlink{lcditse0803_8c_source_l00037}{Lcd\+Its\+E0803\+Init()}}.
+
+\Hypertarget{lcditse0803_8c_a979e11510604c3d0dab7d26b513465f4}\label{lcditse0803_8c_a979e11510604c3d0dab7d26b513465f4} 
+\index{lcditse0803.c@{lcditse0803.c}!GPIO\_BCD\_2@{GPIO\_BCD\_2}}
+\index{GPIO\_BCD\_2@{GPIO\_BCD\_2}!lcditse0803.c@{lcditse0803.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_BCD\_2}{GPIO\_BCD\_2}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+BCD\+\_\+2~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c}{GPIO\+\_\+21}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{lcditse0803_8c_source_l00017}{17}} del archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{lcditse0803_8c_source_l00029}{Lcd\+Its\+E0803\+BCDto\+Pin()}} y \mbox{\hyperlink{lcditse0803_8c_source_l00037}{Lcd\+Its\+E0803\+Init()}}.
+
+\Hypertarget{lcditse0803_8c_ad44f73d4822c2731f9a1e0553a53bacc}\label{lcditse0803_8c_ad44f73d4822c2731f9a1e0553a53bacc} 
+\index{lcditse0803.c@{lcditse0803.c}!GPIO\_BCD\_3@{GPIO\_BCD\_3}}
+\index{GPIO\_BCD\_3@{GPIO\_BCD\_3}!lcditse0803.c@{lcditse0803.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_BCD\_3}{GPIO\_BCD\_3}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+BCD\+\_\+3~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb}{GPIO\+\_\+22}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{lcditse0803_8c_source_l00018}{18}} del archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{lcditse0803_8c_source_l00029}{Lcd\+Its\+E0803\+BCDto\+Pin()}} y \mbox{\hyperlink{lcditse0803_8c_source_l00037}{Lcd\+Its\+E0803\+Init()}}.
+
+\Hypertarget{lcditse0803_8c_a4f9dbd73c9383706e6de83e31f5a45b5}\label{lcditse0803_8c_a4f9dbd73c9383706e6de83e31f5a45b5} 
+\index{lcditse0803.c@{lcditse0803.c}!GPIO\_BCD\_4@{GPIO\_BCD\_4}}
+\index{GPIO\_BCD\_4@{GPIO\_BCD\_4}!lcditse0803.c@{lcditse0803.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_BCD\_4}{GPIO\_BCD\_4}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+BCD\+\_\+4~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f}{GPIO\+\_\+23}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{lcditse0803_8c_source_l00019}{19}} del archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{lcditse0803_8c_source_l00029}{Lcd\+Its\+E0803\+BCDto\+Pin()}} y \mbox{\hyperlink{lcditse0803_8c_source_l00037}{Lcd\+Its\+E0803\+Init()}}.
+
+\Hypertarget{lcditse0803_8c_ab01195514d15a19e1c38b772d08ceb0e}\label{lcditse0803_8c_ab01195514d15a19e1c38b772d08ceb0e} 
+\index{lcditse0803.c@{lcditse0803.c}!GPIO\_SEL\_1@{GPIO\_SEL\_1}}
+\index{GPIO\_SEL\_1@{GPIO\_SEL\_1}!lcditse0803.c@{lcditse0803.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_SEL\_1}{GPIO\_SEL\_1}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+SEL\+\_\+1~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847}{GPIO\+\_\+19}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{lcditse0803_8c_source_l00020}{20}} del archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{lcditse0803_8c_source_l00037}{Lcd\+Its\+E0803\+Init()}}, \mbox{\hyperlink{lcditse0803_8c_source_l00087}{Lcd\+Its\+E0803\+Off()}} y \mbox{\hyperlink{lcditse0803_8c_source_l00054}{Lcd\+Its\+E0803\+Write()}}.
+
+\Hypertarget{lcditse0803_8c_a20227f4ac122fad255580f73943bd114}\label{lcditse0803_8c_a20227f4ac122fad255580f73943bd114} 
+\index{lcditse0803.c@{lcditse0803.c}!GPIO\_SEL\_2@{GPIO\_SEL\_2}}
+\index{GPIO\_SEL\_2@{GPIO\_SEL\_2}!lcditse0803.c@{lcditse0803.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_SEL\_2}{GPIO\_SEL\_2}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+SEL\+\_\+2~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917}{GPIO\+\_\+18}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{lcditse0803_8c_source_l00021}{21}} del archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{lcditse0803_8c_source_l00037}{Lcd\+Its\+E0803\+Init()}}, \mbox{\hyperlink{lcditse0803_8c_source_l00087}{Lcd\+Its\+E0803\+Off()}} y \mbox{\hyperlink{lcditse0803_8c_source_l00054}{Lcd\+Its\+E0803\+Write()}}.
+
+\Hypertarget{lcditse0803_8c_ab6ee35f7022901c51f374ba4ceac51b7}\label{lcditse0803_8c_ab6ee35f7022901c51f374ba4ceac51b7} 
+\index{lcditse0803.c@{lcditse0803.c}!GPIO\_SEL\_3@{GPIO\_SEL\_3}}
+\index{GPIO\_SEL\_3@{GPIO\_SEL\_3}!lcditse0803.c@{lcditse0803.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_SEL\_3}{GPIO\_SEL\_3}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+SEL\+\_\+3~\mbox{\hyperlink{group___g_i_o_p_ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d}{GPIO\+\_\+9}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{lcditse0803_8c_source_l00022}{22}} del archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{lcditse0803_8c_source_l00037}{Lcd\+Its\+E0803\+Init()}}, \mbox{\hyperlink{lcditse0803_8c_source_l00087}{Lcd\+Its\+E0803\+Off()}} y \mbox{\hyperlink{lcditse0803_8c_source_l00054}{Lcd\+Its\+E0803\+Write()}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{lcditse0803_8c_a52c775a96cee096ac36021a44b40459f}\label{lcditse0803_8c_a52c775a96cee096ac36021a44b40459f} 
+\index{lcditse0803.c@{lcditse0803.c}!LcdItsE0803BCDtoPin@{LcdItsE0803BCDtoPin}}
+\index{LcdItsE0803BCDtoPin@{LcdItsE0803BCDtoPin}!lcditse0803.c@{lcditse0803.c}}
+\doxysubsubsection{\texorpdfstring{LcdItsE0803BCDtoPin()}{LcdItsE0803BCDtoPin()}}
+{\footnotesize\ttfamily bool Lcd\+Its\+E0803\+BCDto\+Pin (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Aux function to load a digit to the LCD Display. 
+
+
+
+Definición en la línea \mbox{\hyperlink{lcditse0803_8c_source_l00029}{29}} del archivo \mbox{\hyperlink{lcditse0803_8c_source}{lcditse0803.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{lcditse0803_8c_source_l00016}{GPIO\+\_\+\+BCD\+\_\+1}}, \mbox{\hyperlink{lcditse0803_8c_source_l00017}{GPIO\+\_\+\+BCD\+\_\+2}}, \mbox{\hyperlink{lcditse0803_8c_source_l00018}{GPIO\+\_\+\+BCD\+\_\+3}}, \mbox{\hyperlink{lcditse0803_8c_source_l00019}{GPIO\+\_\+\+BCD\+\_\+4}} y \mbox{\hyperlink{gpio__mcu_8c_source_l00091}{GPIOState()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{lcditse0803_8c_source_l00087}{Lcd\+Its\+E0803\+Off()}} y \mbox{\hyperlink{lcditse0803_8c_source_l00054}{Lcd\+Its\+E0803\+Write()}}.
+

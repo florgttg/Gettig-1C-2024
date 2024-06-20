@@ -1,0 +1,793 @@
+\doxysection{ili9341.\+c}
+\hypertarget{ili9341_8c_source}{}\label{ili9341_8c_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/ili9341.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/ili9341.c}}
+\mbox{\hyperlink{ili9341_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00012}00012\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ili9341_8h}{ili9341.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fonts_8h}{fonts.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{spi__mcu_8h}{spi\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio__mcu_8h}{gpio\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{delay__mcu_8h}{delay\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00018}00018\ \textcolor{comment}{/*==================[macros\ and\ definitions]=================================*/}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00019}\mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{00019}}\ \textcolor{preprocessor}{\#define\ NULL\ 0}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00021}\mbox{\hyperlink{ili9341_8c_a5a96556b55f3bf5350e836859a37280d}{00021}}\ \textcolor{preprocessor}{\#define\ SPI\_BR\ 20000000\ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00022}\mbox{\hyperlink{ili9341_8c_a5caebf870bad746770549a3e5fa09495}{00022}}\ \textcolor{preprocessor}{\#define\ MAX\_PIXEL\ 320*240*2\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00023}\mbox{\hyperlink{ili9341_8c_a2a5ba1ed97aac125f32742e00a237ec8}{00023}}\ \textcolor{preprocessor}{\#define\ MSK\_BIT16\ 0x8000\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00024}\mbox{\hyperlink{ili9341_8c_ab5379db10c252da57952bf8ce5eb7d0e}{00024}}\ \textcolor{preprocessor}{\#define\ MSK\_BIT8\ 0x80\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00025}\mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{00025}}\ \textcolor{preprocessor}{\#define\ MAX\_VALUE\_SIZE\ 256\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00026}\mbox{\hyperlink{ili9341_8c_a437ef08681e7210d6678427030446a54}{00026}}\ \textcolor{preprocessor}{\#define\ LEFT\ -\/1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00027}\mbox{\hyperlink{ili9341_8c_a80fb826a684cf3f0d306b22aa100ddac}{00027}}\ \textcolor{preprocessor}{\#define\ RIGHT\ 1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00028}\mbox{\hyperlink{ili9341_8c_a4193cd1c8c2e6ebd0e056fa2364a663f}{00028}}\ \textcolor{preprocessor}{\#define\ DOWN\ 1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00029}\mbox{\hyperlink{ili9341_8c_a1965eaca47dbf3f87acdafc2208f04eb}{00029}}\ \textcolor{preprocessor}{\#define\ UP\ -\/1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00031}00031\ \textcolor{comment}{/*\ Command\ List\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00032}\mbox{\hyperlink{ili9341_8c_ab702106cf3b3e96750b6845ded4e0299}{00032}}\ \textcolor{preprocessor}{\#define\ RESET\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x01\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00033}\mbox{\hyperlink{ili9341_8c_ae9a82b50c8748942c64e90f7f8629669}{00033}}\ \textcolor{preprocessor}{\#define\ SLEEP\_IN\ \ \ \ \ \ \ \ \ \ \ \ 0x10\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00034}\mbox{\hyperlink{ili9341_8c_a50d64363b3ecae17415811bf896e2930}{00034}}\ \textcolor{preprocessor}{\#define\ SLEEP\_OUT\ \ \ \ \ \ \ \ \ \ \ 0x11\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00035}\mbox{\hyperlink{ili9341_8c_a61f0dfed825350751d2c07c7c50a35ff}{00035}}\ \textcolor{preprocessor}{\#define\ DISPLAY\_INV\_OFF\ \ \ \ \ 0x20\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00036}\mbox{\hyperlink{ili9341_8c_aa9833fa99863f5c2648202085044620a}{00036}}\ \textcolor{preprocessor}{\#define\ DISPLAY\_INV\_ON\ \ \ \ \ \ 0x21\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00037}\mbox{\hyperlink{ili9341_8c_a7f0a97455f8ede6150b6b2c078a90f10}{00037}}\ \textcolor{preprocessor}{\#define\ GAMMA\_SET\ \ \ \ \ \ \ \ \ \ \ 0x26\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00038}\mbox{\hyperlink{ili9341_8c_ad2ec9831813c5e7069917aa4455af682}{00038}}\ \textcolor{preprocessor}{\#define\ DISPLAY\_OFF\ \ \ \ \ \ \ \ \ 0x28\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00039}\mbox{\hyperlink{ili9341_8c_a5ae6b05b3e1559c97f0d1b2daaaa0ee4}{00039}}\ \textcolor{preprocessor}{\#define\ DISPLAY\_ON\ \ \ \ \ \ \ \ \ \ 0x29\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00040}\mbox{\hyperlink{ili9341_8c_ac1ec6d9537a288a39f354c7133fb11c5}{00040}}\ \textcolor{preprocessor}{\#define\ COLUMN\_ADDR\_SET\ \ \ \ \ 0x2A\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00041}\mbox{\hyperlink{ili9341_8c_a7fa17eb97440c73b81ca87407c164aee}{00041}}\ \textcolor{preprocessor}{\#define\ PAGE\_ADDR\_SET\ \ \ \ \ \ \ 0x2B\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00042}\mbox{\hyperlink{ili9341_8c_aabb0fea5286144a240a956114bccce7a}{00042}}\ \textcolor{preprocessor}{\#define\ MEM\_WRITE\ \ \ \ \ \ \ \ \ \ \ 0x2C\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00043}\mbox{\hyperlink{ili9341_8c_ae707afd6326457b82a15bdcbfd99b8a8}{00043}}\ \textcolor{preprocessor}{\#define\ MEM\_ACC\_CTRL\ \ \ \ \ \ \ \ 0x36\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00044}\mbox{\hyperlink{ili9341_8c_a47ba113dfe8e8118575b3dcbedd9b3ec}{00044}}\ \textcolor{preprocessor}{\#define\ PIXEL\_FORMAT\_SET\ \ \ \ 0x3A\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00045}\mbox{\hyperlink{ili9341_8c_a65c7150109661fbdca94d5cf724c307b}{00045}}\ \textcolor{preprocessor}{\#define\ WRITE\_DISP\_BRIGHT\ \ \ 0x51\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00046}\mbox{\hyperlink{ili9341_8c_a47a04474c8c4fa05bd3ca427346a7cc1}{00046}}\ \textcolor{preprocessor}{\#define\ WRITE\_CTRL\_DISP\ \ \ \ \ 0x53\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00047}\mbox{\hyperlink{ili9341_8c_a798785f739c085efedff5ff9668f70c2}{00047}}\ \textcolor{preprocessor}{\#define\ RGB\_INTERFACE\ \ \ \ \ \ \ 0xB0\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00048}\mbox{\hyperlink{ili9341_8c_a7f2398c30b4b925af593fae3bb4168d0}{00048}}\ \textcolor{preprocessor}{\#define\ FRAME\_CTRL\ \ \ \ \ \ \ \ \ \ 0xB1\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00049}\mbox{\hyperlink{ili9341_8c_a3864c48a21a720ca2c2e3ea4cd904569}{00049}}\ \textcolor{preprocessor}{\#define\ BLANK\_PORCH\_CTRL\ \ \ \ 0xB5\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00050}\mbox{\hyperlink{ili9341_8c_ab17423783bb85a590da679a849ea5c57}{00050}}\ \textcolor{preprocessor}{\#define\ DISP\_FUN\_CTRL\ \ \ \ \ \ \ 0xB6\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00051}\mbox{\hyperlink{ili9341_8c_a7a8f9ebe145ba4ff3c8787208f244909}{00051}}\ \textcolor{preprocessor}{\#define\ PWR\_CTRL1\ \ \ \ \ \ \ \ \ \ \ 0xC0\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00052}\mbox{\hyperlink{ili9341_8c_adb301f832861ef36b7a9a48d8c77ced9}{00052}}\ \textcolor{preprocessor}{\#define\ PWR\_CTRL2\ \ \ \ \ \ \ \ \ \ \ 0xC1\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00053}\mbox{\hyperlink{ili9341_8c_a6aaf215e34abc207bc8e2f607ec7c7b3}{00053}}\ \textcolor{preprocessor}{\#define\ VCOM\_CTRL1\ \ \ \ \ \ \ \ \ \ 0xC5\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00054}\mbox{\hyperlink{ili9341_8c_a64425812670d1aa05fd620e20bfc3df7}{00054}}\ \textcolor{preprocessor}{\#define\ VCOM\_CTRL2\ \ \ \ \ \ \ \ \ \ 0xC7\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00055}\mbox{\hyperlink{ili9341_8c_adb7ea53332699577f0e0615520c484d1}{00055}}\ \textcolor{preprocessor}{\#define\ PWR\_CTRL\_A\ \ \ \ \ \ \ \ \ \ 0xCB\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00056}\mbox{\hyperlink{ili9341_8c_a4c878fb5f2335f89220d476a5214325a}{00056}}\ \textcolor{preprocessor}{\#define\ PWR\_CTRL\_B\ \ \ \ \ \ \ \ \ \ 0xCF\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00057}\mbox{\hyperlink{ili9341_8c_a964889b3527f09608fde445c20847b87}{00057}}\ \textcolor{preprocessor}{\#define\ POS\_GAMMA\ \ \ \ \ \ \ \ \ \ \ 0xE0\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00058}\mbox{\hyperlink{ili9341_8c_a31a6695f5a43385bbd0f5ee988170e06}{00058}}\ \textcolor{preprocessor}{\#define\ NEG\_GAMMA\ \ \ \ \ \ \ \ \ \ \ 0xE1\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00059}\mbox{\hyperlink{ili9341_8c_a12dc1e23eaceb49cbc5643e44ebcddac}{00059}}\ \textcolor{preprocessor}{\#define\ DRIV\_TIM\_CTRL\_A\ \ \ \ \ 0xE8\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00060}\mbox{\hyperlink{ili9341_8c_a5d38d9987627bf2e19312456b3ca399b}{00060}}\ \textcolor{preprocessor}{\#define\ DRIV\_TIM\_CTRL\_B\ \ \ \ \ 0xEA\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00061}\mbox{\hyperlink{ili9341_8c_a37fc0ccd6096f0b3961023d6689b84f2}{00061}}\ \textcolor{preprocessor}{\#define\ PWR\_ON\_CTRL\ \ \ \ \ \ \ \ \ 0xED\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00062}\mbox{\hyperlink{ili9341_8c_a27a2a53c2b01e4dd42e91cddecc41442}{00062}}\ \textcolor{preprocessor}{\#define\ EN\_3\_GAMMA\ \ \ \ \ \ \ \ \ \ 0xF2\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00063}\mbox{\hyperlink{ili9341_8c_adc200d26bdb86547d00275ba038936bf}{00063}}\ \textcolor{preprocessor}{\#define\ PUMP\_RATIO\_CTRL\ \ \ \ \ 0xF7\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00065}\mbox{\hyperlink{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0}{00065}}\ \textcolor{preprocessor}{\#define\ HighByte(x)\ x\ >>\ 8\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00066}\mbox{\hyperlink{ili9341_8c_aa9fad731fc07b249db66376d062050cd}{00066}}\ \textcolor{preprocessor}{\#define\ LowByte(x)\ x\ \&\ 0xFF\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00067}00067\ \textcolor{comment}{/*==================[typedef]================================================*/}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00071}\mbox{\hyperlink{structorientation__properties__t}{00071}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00072}\mbox{\hyperlink{structorientation__properties__t_ad0eab1042455a2067c812ab8071d5376}{00072}}\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structorientation__properties__t_ad0eab1042455a2067c812ab8071d5376}{width}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00073}\mbox{\hyperlink{structorientation__properties__t_a81c9f8d0b8c3b49d770be14dbe9f0d37}{00073}}\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structorientation__properties__t_a81c9f8d0b8c3b49d770be14dbe9f0d37}{height}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00074}\mbox{\hyperlink{structorientation__properties__t_ab224481ccf02fc28617576ddac47aa9b}{00074}}\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_gafd244eb5252344eaf17669b9d2fddcdc}{ili9341\_orientation\_t}}\ \mbox{\hyperlink{structorientation__properties__t_ab224481ccf02fc28617576ddac47aa9b}{orientation}};\ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00075}00075\ \}\ \mbox{\hyperlink{structorientation__properties__t}{orientation\_properties\_t}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00080}\mbox{\hyperlink{structlcd__cmd__t}{00080}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00081}\mbox{\hyperlink{structlcd__cmd__t_a4d43e8212bdc9dbee866506f04effcea}{00081}}\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structlcd__cmd__t_a4d43e8212bdc9dbee866506f04effcea}{cmd}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00082}\mbox{\hyperlink{structlcd__cmd__t_a7533a896b545f6fcffae3956eb5d3a6f}{00082}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structlcd__cmd__t_a7533a896b545f6fcffae3956eb5d3a6f}{databytes}};\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00083}\mbox{\hyperlink{structlcd__cmd__t_abe222f6d3581e7920dcad5306cc906a8}{00083}}\ \ \ \ \ uint8\_t\ *\mbox{\hyperlink{structlcd__cmd__t_abe222f6d3581e7920dcad5306cc906a8}{data}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00084}00084\ \}\ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00085}00085\ \textcolor{comment}{/*==================[internal\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00087}00087\ \textcolor{comment}{/*==================[internal\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00094}00094\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ *\ data);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00104}00104\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ili9341_8c_a3ced3a9e7189797ae4b2c5cc34cc1886}{SetCursorPosition}}(uint16\_t\ x0,\ uint16\_t\ y0,\ uint16\_t\ x1,\ uint16\_t\ y1);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00115}00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ili9341_8c_a1398b648b9ae023e8c33ac565fc9eaff}{Fill}}(uint16\_t\ x0,\ uint16\_t\ y0,\ uint16\_t\ x1,\ uint16\_t\ y1,\ uint16\_t\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00117}00117\ \textcolor{comment}{/*==================[internal\ data\ definition]===============================*/}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00121}\mbox{\hyperlink{ili9341_8c_a416313b8ca5aecccc037d6e3458677db}{00121}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a416313b8ca5aecccc037d6e3458677db}{pwr\_ctrl\_a}}[]\ =\ \{0x39,\ 0x2C,\ 0x00,\ 0x34,\ 0x02\};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00122}\mbox{\hyperlink{ili9341_8c_a438c9eddc4798e47d7c55f6301e1c6cc}{00122}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a438c9eddc4798e47d7c55f6301e1c6cc}{pwr\_ctrl\_b}}[]\ =\ \{0x00,\ 0xC1,\ 0x30\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00123}\mbox{\hyperlink{ili9341_8c_afc83c18e8d0854b8b4cdb9aca29c312b}{00123}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_afc83c18e8d0854b8b4cdb9aca29c312b}{driv\_tim\_ctrl\_a}}[]\ =\ \{0x85,\ 0x00,\ 0x78\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00124}\mbox{\hyperlink{ili9341_8c_a9f16309f2f64840481039f862dac26e6}{00124}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a9f16309f2f64840481039f862dac26e6}{driv\_tim\_ctrl\_b}}[]\ =\ \{0x00,\ 0x00\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00125}\mbox{\hyperlink{ili9341_8c_a50c4cc503302476f9c68c328d19f5e30}{00125}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a50c4cc503302476f9c68c328d19f5e30}{pwr\_on\_ctrl}}[]\ =\ \{0x64,\ 0x03,\ 0x12,\ 0x81\};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00126}\mbox{\hyperlink{ili9341_8c_a57cfbbe62f146bb9f1bf6493191053dd}{00126}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a57cfbbe62f146bb9f1bf6493191053dd}{pump\_ratio\_ctrl}}[]\ =\ \{0x20\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00127}\mbox{\hyperlink{ili9341_8c_afda58a19fb0b537ef8043dd8ff5d684a}{00127}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_afda58a19fb0b537ef8043dd8ff5d684a}{pwr\_ctrl1}}[]\ =\ \{0x23\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00128}\mbox{\hyperlink{ili9341_8c_a564f88fe64e9af6e6cac92d11b68a247}{00128}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a564f88fe64e9af6e6cac92d11b68a247}{pwr\_ctrl2}}[]\ =\ \{0x10\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00129}\mbox{\hyperlink{ili9341_8c_a30138cf575d97056dc44637ba2b5505e}{00129}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a30138cf575d97056dc44637ba2b5505e}{vcom\_ctrl1}}[]\ =\ \{0x3E,\ 0x28\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00130}\mbox{\hyperlink{ili9341_8c_a1c32b869895cdeaec2169dedde07196a}{00130}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a1c32b869895cdeaec2169dedde07196a}{vcom\_ctrl2}}[]\ =\ \{0x86\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00131}\mbox{\hyperlink{ili9341_8c_a1aec16dc7650a4729f08ed5e4b529b42}{00131}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a1aec16dc7650a4729f08ed5e4b529b42}{mem\_acc\_ctrl}}[]\ =\ \{0x48\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00132}\mbox{\hyperlink{ili9341_8c_a100d66d7e8beee36f57806d288f8af96}{00132}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a100d66d7e8beee36f57806d288f8af96}{pixel\_format\_set}}[]\ =\ \{0x55\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00133}\mbox{\hyperlink{ili9341_8c_aa3d2f2e1764e68edcf0585da630a8739}{00133}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_aa3d2f2e1764e68edcf0585da630a8739}{frame\_ctrl}}[]\ =\ \{0x00,\ 0x18\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00134}\mbox{\hyperlink{ili9341_8c_a1c5f9f3b3ce68b179a541aaeb825cd02}{00134}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a1c5f9f3b3ce68b179a541aaeb825cd02}{disp\_fun\_ctrl}}[]\ =\ \{0x0A,\ 0x82,\ 0x27\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00135}\mbox{\hyperlink{ili9341_8c_ad5c58f04847ba842f7ccb2979d40308d}{00135}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_ad5c58f04847ba842f7ccb2979d40308d}{en\_3\_gamma}}[]\ =\ \{0x02\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00136}\mbox{\hyperlink{ili9341_8c_a263ce7bccbcd1c94f9c234c101df296d}{00136}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a263ce7bccbcd1c94f9c234c101df296d}{column\_addr\_set}}[]\ =\ \{0x00,\ 0x00,\ 0x00,\ 0xEF\};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00137}\mbox{\hyperlink{ili9341_8c_a88412e782c5108da05d13e3e3bca06ff}{00137}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a88412e782c5108da05d13e3e3bca06ff}{page\_addr\_set}}[]\ =\ \{0x00,\ 0x00,\ 0x01,\ 0x3F\};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00138}\mbox{\hyperlink{ili9341_8c_a56f6a4cad6b1411383f78e0777d5a077}{00138}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a56f6a4cad6b1411383f78e0777d5a077}{gamma\_set}}[]\ =\ \{0x01\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00139}\mbox{\hyperlink{ili9341_8c_ae9f7984c806b71627776323c6d7e642a}{00139}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_ae9f7984c806b71627776323c6d7e642a}{pos\_gamma}}[]\ =\ \{0x0F,\ 0X31,\ 0X2B,\ 0X0C,\ 0X0E,\ 0X08,}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00140}00140\ \ \ \ \ 0X4E,\ 0XF1,\ 0X37,\ 0X07,\ 0X10,\ 0X03,\ 0X0E,\ 0X09,\ 0X00\};\ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00141}\mbox{\hyperlink{ili9341_8c_a9959a87a6f6cd807a52dc75801af8e6e}{00141}}\ uint8\_t\ \mbox{\hyperlink{ili9341_8c_a9959a87a6f6cd807a52dc75801af8e6e}{neg\_gamma}}[]\ =\ \{0x00,\ 0X0E,\ 0X14,\ 0X03,\ 0X11,\ 0X07,}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00142}00142\ \ \ \ \ 0X31,\ 0XC1,\ 0X48,\ 0X08,\ 0X0F,\ 0X0C,\ 0X31,\ 0X36,\ 0X0F\};\ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00147}\mbox{\hyperlink{ili9341_8c_a663c460e092a1eea379439ac9014b80c}{00147}}\ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ \mbox{\hyperlink{ili9341_8c_a663c460e092a1eea379439ac9014b80c}{lcd\_init}}[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00148}00148\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_adb7ea53332699577f0e0615520c484d1}{PWR\_CTRL\_A}},\ 5,\ \mbox{\hyperlink{ili9341_8c_a416313b8ca5aecccc037d6e3458677db}{pwr\_ctrl\_a}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00149}00149\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a4c878fb5f2335f89220d476a5214325a}{PWR\_CTRL\_B}},\ 3,\ \mbox{\hyperlink{ili9341_8c_a438c9eddc4798e47d7c55f6301e1c6cc}{pwr\_ctrl\_b}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00150}00150\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a12dc1e23eaceb49cbc5643e44ebcddac}{DRIV\_TIM\_CTRL\_A}},\ 3,\ \mbox{\hyperlink{ili9341_8c_afc83c18e8d0854b8b4cdb9aca29c312b}{driv\_tim\_ctrl\_a}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00151}00151\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a5d38d9987627bf2e19312456b3ca399b}{DRIV\_TIM\_CTRL\_B}},\ 2,\ \mbox{\hyperlink{ili9341_8c_a9f16309f2f64840481039f862dac26e6}{driv\_tim\_ctrl\_b}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00152}00152\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a37fc0ccd6096f0b3961023d6689b84f2}{PWR\_ON\_CTRL}},\ 4,\ \mbox{\hyperlink{ili9341_8c_a50c4cc503302476f9c68c328d19f5e30}{pwr\_on\_ctrl}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00153}00153\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_adc200d26bdb86547d00275ba038936bf}{PUMP\_RATIO\_CTRL}},\ 1,\ \mbox{\hyperlink{ili9341_8c_a57cfbbe62f146bb9f1bf6493191053dd}{pump\_ratio\_ctrl}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00154}00154\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a7a8f9ebe145ba4ff3c8787208f244909}{PWR\_CTRL1}},\ 1,\ \mbox{\hyperlink{ili9341_8c_afda58a19fb0b537ef8043dd8ff5d684a}{pwr\_ctrl1}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00155}00155\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_adb301f832861ef36b7a9a48d8c77ced9}{PWR\_CTRL2}},\ 1,\ \mbox{\hyperlink{ili9341_8c_a564f88fe64e9af6e6cac92d11b68a247}{pwr\_ctrl2}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00156}00156\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a6aaf215e34abc207bc8e2f607ec7c7b3}{VCOM\_CTRL1}},\ 2,\ \mbox{\hyperlink{ili9341_8c_a30138cf575d97056dc44637ba2b5505e}{vcom\_ctrl1}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00157}00157\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a64425812670d1aa05fd620e20bfc3df7}{VCOM\_CTRL2}},\ 1,\ \mbox{\hyperlink{ili9341_8c_a1c32b869895cdeaec2169dedde07196a}{vcom\_ctrl2}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00158}00158\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_ae707afd6326457b82a15bdcbfd99b8a8}{MEM\_ACC\_CTRL}},\ 1,\ \mbox{\hyperlink{ili9341_8c_a1aec16dc7650a4729f08ed5e4b529b42}{mem\_acc\_ctrl}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00159}00159\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a47ba113dfe8e8118575b3dcbedd9b3ec}{PIXEL\_FORMAT\_SET}},\ 1,\ \mbox{\hyperlink{ili9341_8c_a100d66d7e8beee36f57806d288f8af96}{pixel\_format\_set}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00160}00160\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a7f2398c30b4b925af593fae3bb4168d0}{FRAME\_CTRL}},\ 2,\ \mbox{\hyperlink{ili9341_8c_aa3d2f2e1764e68edcf0585da630a8739}{frame\_ctrl}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00161}00161\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_ab17423783bb85a590da679a849ea5c57}{DISP\_FUN\_CTRL}},\ 3,\ \mbox{\hyperlink{ili9341_8c_a1c5f9f3b3ce68b179a541aaeb825cd02}{disp\_fun\_ctrl}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00162}00162\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a27a2a53c2b01e4dd42e91cddecc41442}{EN\_3\_GAMMA}},\ 1,\ \mbox{\hyperlink{ili9341_8c_ad5c58f04847ba842f7ccb2979d40308d}{en\_3\_gamma}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00163}00163\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_ac1ec6d9537a288a39f354c7133fb11c5}{COLUMN\_ADDR\_SET}},\ 4,\ \mbox{\hyperlink{ili9341_8c_a263ce7bccbcd1c94f9c234c101df296d}{column\_addr\_set}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00164}00164\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a7fa17eb97440c73b81ca87407c164aee}{PAGE\_ADDR\_SET}},\ 4,\ \mbox{\hyperlink{ili9341_8c_a88412e782c5108da05d13e3e3bca06ff}{page\_addr\_set}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00165}00165\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a7f0a97455f8ede6150b6b2c078a90f10}{GAMMA\_SET}},\ 1,\ \mbox{\hyperlink{ili9341_8c_a56f6a4cad6b1411383f78e0777d5a077}{gamma\_set}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00166}00166\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a964889b3527f09608fde445c20847b87}{POS\_GAMMA}},\ 15,\ \mbox{\hyperlink{ili9341_8c_ae9f7984c806b71627776323c6d7e642a}{pos\_gamma}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00167}00167\ \ \ \ \ \{\mbox{\hyperlink{ili9341_8c_a31a6695f5a43385bbd0f5ee988170e06}{NEG\_GAMMA}},\ 15,\ \mbox{\hyperlink{ili9341_8c_a9959a87a6f6cd807a52dc75801af8e6e}{neg\_gamma}}\},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00168}00168\ \};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00170}\mbox{\hyperlink{ili9341_8c_a33d60197da1424cb4c13eab6b01a0d39}{00170}}\ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ \mbox{\hyperlink{ili9341_8c_a33d60197da1424cb4c13eab6b01a0d39}{lcd\_reset}}\ =\ \{\mbox{\hyperlink{ili9341_8c_ab702106cf3b3e96750b6845ded4e0299}{RESET}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00171}\mbox{\hyperlink{ili9341_8c_a2bfe0d561287fb1d78f7f2fe50207ee1}{00171}}\ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ \mbox{\hyperlink{ili9341_8c_a2bfe0d561287fb1d78f7f2fe50207ee1}{lcd\_sleep\_out}}\ =\ \{\mbox{\hyperlink{ili9341_8c_a50d64363b3ecae17415811bf896e2930}{SLEEP\_OUT}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\};\ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00172}\mbox{\hyperlink{ili9341_8c_a11fe1fd4be5bc0f028d673b9e3ea047b}{00172}}\ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ \mbox{\hyperlink{ili9341_8c_a11fe1fd4be5bc0f028d673b9e3ea047b}{lcd\_on}}\ =\ \{\mbox{\hyperlink{ili9341_8c_a5ae6b05b3e1559c97f0d1b2daaaa0ee4}{DISPLAY\_ON}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00174}00174\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00175}00175\ \textcolor{comment}{\ *\ @brief:\ SPI\ port\ configuration\ compatible\ with\ LCD\ interface}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00176}00176\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00177}\mbox{\hyperlink{ili9341_8c_aa7f1bcccbdc2615169d9c57878b037a0}{00177}}\ \mbox{\hyperlink{structspi__mcu__config__t}{spi\_mcu\_config\_t}}\ \mbox{\hyperlink{ili9341_8c_aa7f1bcccbdc2615169d9c57878b037a0}{spi\_conf}}\ =\ \{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00178}00178\ \ \ \ \ .\mbox{\hyperlink{structspi__mcu__config__t_ab742c16164c5199448894aa0930a6e75}{device}}\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00179}00179\ \ \ \ \ .clk\_mode\ =\ \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a8c818ffe07c247353de39ebce7a017c2}{MODE0}},\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00180}00180\ \ \ \ \ .bitrate\ =\ \mbox{\hyperlink{ili9341_8c_a5a96556b55f3bf5350e836859a37280d}{SPI\_BR}},\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00181}00181\ \ \ \ \ .transfer\_mode\ =\ \mbox{\hyperlink{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa0cb4f6c37501162dcdcd5686e2efea9a}{SPI\_POLLING}},\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00182}00182\ \ \ \ \ .func\_p\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00183}00183\ \ \ \ \ .param\_p\ =\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\ \};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00185}00185\ \textcolor{keyword}{static}\ \mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\_dev\_t}}\ ili9341\_spi;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00186}00186\ \textcolor{keyword}{static}\ \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\_t}}\ ili9341\_dc,\ ili9341\_rst;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00188}00188\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structorientation__properties__t}{orientation\_properties\_t}}\ lcd\_orientation\ =\ \{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga0f07262d5faa91c725fa69a2847303d5}{ILI9341\_WIDTH}},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga19b26d4d6ae752db7302c9cbb8688d51}{ILI9341\_HEIGHT}},}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a8a91947a781dff5aa13fee4123fc4017}{ILI9341\_Portrait\_1}}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00192}00192\ \};\ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00194}00194\ \textcolor{comment}{/*==================[internal\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00196}\mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{00196}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ *\ data)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00197}00197\ \ \ \ \ \mbox{\hyperlink{group___s_p_i_gab45316fbf89f00655b81427e3e709596}{SpiInit}}(\&\mbox{\hyperlink{ili9341_8c_aa7f1bcccbdc2615169d9c57878b037a0}{spi\_conf}});}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00198}00198\ \ \ \ \ \textcolor{comment}{/*\ If\ command\ is\ NULL\ don't\ send\ command\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00199}00199\ \ \ \ \ \textcolor{keywordflow}{if}\ (data-\/>\mbox{\hyperlink{structlcd__cmd__t_a4d43e8212bdc9dbee866506f04effcea}{cmd}}\ !=\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Send\ command\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga30ed9d97406129b9b6390154a7479d70}{GPIOOff}}(ili9341\_dc);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___s_p_i_ga8895abd934fb22a652c828b72f3eda13}{SpiWrite}}(ili9341\_spi,\ \&data-\/>\mbox{\hyperlink{structlcd__cmd__t_a4d43e8212bdc9dbee866506f04effcea}{cmd}},\ 1);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00203}00203\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00204}00204\ \ \ \ \ \textcolor{comment}{/*\ If\ there\ are\ parameters\ or\ data\ to\ send\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00205}00205\ \ \ \ \ \textcolor{keywordflow}{if}\ (data-\/>\mbox{\hyperlink{structlcd__cmd__t_a7533a896b545f6fcffae3956eb5d3a6f}{databytes}}\ !=\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Send\ parameters\ or\ data\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(ili9341\_dc);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00208}00208\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___s_p_i_ga8895abd934fb22a652c828b72f3eda13}{SpiWrite}}(ili9341\_spi,\ data-\/>\mbox{\hyperlink{structlcd__cmd__t_abe222f6d3581e7920dcad5306cc906a8}{data}},\ data-\/>\mbox{\hyperlink{structlcd__cmd__t_a7533a896b545f6fcffae3956eb5d3a6f}{databytes}});}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00209}00209\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00210}00210\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00212}\mbox{\hyperlink{ili9341_8c_a3ced3a9e7189797ae4b2c5cc34cc1886}{00212}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ili9341_8c_a3ced3a9e7189797ae4b2c5cc34cc1886}{SetCursorPosition}}(uint16\_t\ x0,\ uint16\_t\ y0,\ uint16\_t\ x1,\ uint16\_t\ y1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00213}00213\ \ \ \ \ \textcolor{keyword}{static}\ uint16\_t\ aux;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00214}00214\ \ \ \ \ \textcolor{comment}{/*\ The\ lower\ column\ must\ be\ send\ first\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00215}00215\ \ \ \ \ \textcolor{keywordflow}{if}\ (x0\ >\ x1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ aux\ =\ x0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ x0\ =\ x1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ x1\ =\ aux;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00219}00219\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00220}00220\ \ \ \ \ \textcolor{comment}{/*\ The\ lower\ row\ must\ be\ send\ first\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00221}00221\ \ \ \ \ \textcolor{keywordflow}{if}\ (y0\ >\ y1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00222}00222\ \ \ \ \ \ \ \ \ aux\ =\ y0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00223}00223\ \ \ \ \ \ \ \ \ y0\ =\ y1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00224}00224\ \ \ \ \ \ \ \ \ y1\ =\ aux;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00225}00225\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00226}00226\ \ \ \ \ uint8\_t\ columns[]\ =\ \{\mbox{\hyperlink{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0}{HighByte}}(x0),\ \mbox{\hyperlink{ili9341_8c_aa9fad731fc07b249db66376d062050cd}{LowByte}}(x0),\ \mbox{\hyperlink{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0}{HighByte}}(x1),\ \mbox{\hyperlink{ili9341_8c_aa9fad731fc07b249db66376d062050cd}{LowByte}}(x1)\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00227}00227\ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_columns\ =\ \{\mbox{\hyperlink{ili9341_8c_ac1ec6d9537a288a39f354c7133fb11c5}{COLUMN\_ADDR\_SET}},\ 4,\ columns\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00228}00228\ \ \ \ \ uint8\_t\ rows[]\ =\ \{\mbox{\hyperlink{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0}{HighByte}}(y0),\ \mbox{\hyperlink{ili9341_8c_aa9fad731fc07b249db66376d062050cd}{LowByte}}(y0),\ \mbox{\hyperlink{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0}{HighByte}}(y1),\ \mbox{\hyperlink{ili9341_8c_aa9fad731fc07b249db66376d062050cd}{LowByte}}(y1)\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00229}00229\ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_rows\ =\ \{\mbox{\hyperlink{ili9341_8c_a7fa17eb97440c73b81ca87407c164aee}{PAGE\_ADDR\_SET}},\ 4,\ rows\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00230}00230\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_columns);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00231}00231\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_rows);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00232}00232\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00234}\mbox{\hyperlink{ili9341_8c_a1398b648b9ae023e8c33ac565fc9eaff}{00234}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ili9341_8c_a1398b648b9ae023e8c33ac565fc9eaff}{Fill}}(uint16\_t\ x0,\ uint16\_t\ y0,\ uint16\_t\ x1,\ uint16\_t\ y1,\ uint16\_t\ color)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00235}00235\ \ \ \ \ \textcolor{keyword}{static}\ uint16\_t\ i;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00236}00236\ \ \ \ \ \textcolor{keyword}{static}\ int32\_t\ bytes\_count;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00237}00237\ \ \ \ \ \textcolor{keyword}{static}\ int16\_t\ x\_dist,\ y\_dist;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00238}00238\ \ \ \ \ \textcolor{keyword}{static}\ uint8\_t\ pixel[\mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00240}00240\ \ \ \ \ x\_dist\ =\ x1\ -\/\ x0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00241}00241\ \ \ \ \ y\_dist\ =\ y1\ -\/\ y0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00242}00242\ \ \ \ \ \textcolor{keywordflow}{if}\ (x0\ >\ x1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ x\_dist\ =\ -\/\ x\_dist;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00244}00244\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00245}00245\ \ \ \ \ \textcolor{keywordflow}{if}\ (y0\ >\ y1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ y\_dist\ =\ -\/\ y\_dist;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00247}00247\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00248}00248\ \ \ \ \ \textcolor{comment}{/*\ Number\ of\ bytes\ to\ write.\ We\ have\ to\ write\ 2\ bytes/pixel\ (16bits\ color)\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00249}00249\ \ \ \ \ bytes\_count\ =\ (x\_dist\ +\ 1)\ *\ (y\_dist\ +\ 1)\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00250}00250\ \ \ \ \ \textcolor{comment}{/*\ Define\ area\ to\ fill\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00251}00251\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_a3ced3a9e7189797ae4b2c5cc34cc1886}{SetCursorPosition}}(x0,\ y0,\ x1,\ y1);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00253}00253\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}};\ i\ +=\ 2)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ pixel[i]\ =\ \mbox{\hyperlink{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0}{HighByte}}(color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ pixel[i\ +\ 1]\ =\ \mbox{\hyperlink{ili9341_8c_aa9fad731fc07b249db66376d062050cd}{LowByte}}(color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00256}00256\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00257}00257\ \ \ \ \ \textcolor{comment}{/*\ Start\ writing\ LCD\ memory\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00258}00258\ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_write\ =\ \{\mbox{\hyperlink{ili9341_8c_aabb0fea5286144a240a956114bccce7a}{MEM\_WRITE}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00259}00259\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_write);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00261}00261\ \ \ \ \ \textcolor{keywordflow}{while}(bytes\_count\ -\/\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}\ >\ 0)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00262}00262\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_pixel\ =\ \{\mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}},\ pixel\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00263}00263\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_pixel);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00264}00264\ \ \ \ \ \ \ \ \ bytes\_count\ -\/=\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00265}00265\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00266}00266\ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_pixel\ =\ \{\mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ bytes\_count,\ pixel\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00267}00267\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_pixel);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00268}00268\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00270}00270\ \textcolor{comment}{/*==================[external\ functions\ definition]==========================*/}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00272}\mbox{\hyperlink{group___i_l_i9341_ga5f72d1febbb1e77c2b50876ba8caf40c}{00272}}\ uint8\_t\ \mbox{\hyperlink{group___i_l_i9341_ga5f72d1febbb1e77c2b50876ba8caf40c}{ILI9341Init}}(\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\_dev\_t}}\ spi\_dev,\ uint8\_t\ gpio\_dc,\ uint8\_t\ gpio\_rst)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00273}00273\ \ \ \ \ \textcolor{comment}{/*\ SPI\ configuration\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00274}00274\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa7f1bcccbdc2615169d9c57878b037a0}{spi\_conf}}.\mbox{\hyperlink{structspi__mcu__config__t_ab742c16164c5199448894aa0930a6e75}{device}}\ =\ spi\_dev;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00275}00275\ \ \ \ \ ili9341\_spi\ =\ spi\_dev;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00276}00276\ \ \ \ \ \textcolor{comment}{/*\ GPIOs\ configuration\ and\ initialization\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00277}00277\ \ \ \ \ ili9341\_dc\ =\ gpio\_dc;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00278}00278\ \ \ \ \ ili9341\_rst\ =\ gpio\_rst;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00279}00279\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(ili9341\_dc,\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00280}00280\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_ga10240d283f64bd1b09fca664fda27964}{GPIOInit}}(ili9341\_rst,\ \mbox{\hyperlink{group___g_i_o_p_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516}{GPIO\_OUTPUT}});}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00281}00281\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00282}00282\ \ \ \ \ \textcolor{comment}{/*\ RST\ must\ be\ held\ low\ for\ minimum\ 10µsec\ after\ VCC\ have\ been\ applied\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00283}00283\ \ \ \ \ \mbox{\hyperlink{group___delay_ga92e1b2564bacd20071bcd06b697f52f8}{DelayUs}}(10);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00284}00284\ \ \ \ \ \mbox{\hyperlink{group___g_i_o_p_gaba62250f2b0e73a98b6f35fb6078fdb1}{GPIOOn}}(ili9341\_rst);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00285}00285\ \ \ \ \ \textcolor{comment}{/*\ Wait\ more\ than\ 10µsec\ after\ RST\ high\ before\ sending\ a\ command\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00286}00286\ \ \ \ \ \mbox{\hyperlink{group___delay_ga92e1b2564bacd20071bcd06b697f52f8}{DelayUs}}(10);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00287}00287\ \ \ \ \ \textcolor{comment}{/*\ It\ will\ be\ necessary\ to\ wait\ 5msec\ before\ sending\ new\ command\ following\ software\ reset\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00288}00288\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&\mbox{\hyperlink{ili9341_8c_a33d60197da1424cb4c13eab6b01a0d39}{lcd\_reset}});}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00289}00289\ \ \ \ \ \mbox{\hyperlink{group___delay_gad436d587a00f4ef2ede7ea6644f07aa1}{DelayMs}}(5);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00290}00290\ \ \ \ \ \textcolor{comment}{/*\ Send\ initial\ configuration\ to\ LCD\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00291}00291\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{ili9341_8c_a663c460e092a1eea379439ac9014b80c}{lcd\_init}})/\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}});\ i++)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00292}00292\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&\mbox{\hyperlink{ili9341_8c_a663c460e092a1eea379439ac9014b80c}{lcd\_init}}[i]);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00293}00293\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00294}00294\ \ \ \ \ \textcolor{comment}{/*\ It\ will\ be\ necessary\ to\ wait\ 5msec\ before\ sending\ next\ command\ after\ sleep\ out\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00295}00295\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&\mbox{\hyperlink{ili9341_8c_a2bfe0d561287fb1d78f7f2fe50207ee1}{lcd\_sleep\_out}});}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00296}00296\ \ \ \ \ \mbox{\hyperlink{group___delay_gad436d587a00f4ef2ede7ea6644f07aa1}{DelayMs}}(10);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00297}00297\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&\mbox{\hyperlink{ili9341_8c_a11fe1fd4be5bc0f028d673b9e3ea047b}{lcd\_on}});}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00298}00298\ \ \ \ \ \mbox{\hyperlink{group___delay_gad436d587a00f4ef2ede7ea6644f07aa1}{DelayMs}}(20);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00299}00299\ \ \ \ \ \textcolor{comment}{/*\ Start\ screen\ on\ White\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00300}00300\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_gadbfd33ee5866c7e8283e5d29d2843b5f}{ILI9341Fill}}(\mbox{\hyperlink{group___i_l_i9341_ga604507ef031b95291b2d177088fe03e4}{ILI9341\_WHITE}});}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00301}00301\ \ \ \ \ \mbox{\hyperlink{group___delay_gad436d587a00f4ef2ede7ea6644f07aa1}{DelayMs}}(20);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00302}00302\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00303}00303\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00305}\mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{00305}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(uint16\_t\ x,\ uint16\_t\ y,\ uint16\_t\ color)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00306}00306\ \ \ \ \ \textcolor{comment}{/*\ Define\ area\ (pixel)\ to\ fill\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00307}00307\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_a3ced3a9e7189797ae4b2c5cc34cc1886}{SetCursorPosition}}(x,\ y,\ x,\ y);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00308}00308\ \ \ \ \ uint8\_t\ pixels[]\ =\ \{\mbox{\hyperlink{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0}{HighByte}}(color),\ \mbox{\hyperlink{ili9341_8c_aa9fad731fc07b249db66376d062050cd}{LowByte}}(color)\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00309}00309\ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_pixels\ =\ \{\mbox{\hyperlink{ili9341_8c_aabb0fea5286144a240a956114bccce7a}{MEM\_WRITE}},\ \textcolor{keyword}{sizeof}(pixels),\ pixels\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00310}00310\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_pixels);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00311}00311\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00313}\mbox{\hyperlink{group___i_l_i9341_gadbfd33ee5866c7e8283e5d29d2843b5f}{00313}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_gadbfd33ee5866c7e8283e5d29d2843b5f}{ILI9341Fill}}(uint16\_t\ color)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00314}00314\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_a1398b648b9ae023e8c33ac565fc9eaff}{Fill}}(0,\ 0,\ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ad0eab1042455a2067c812ab8071d5376}{width}},\ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_a81c9f8d0b8c3b49d770be14dbe9f0d37}{height}},\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00315}00315\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00316}00316\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00317}\mbox{\hyperlink{group___i_l_i9341_ga7b187b4cb92aa6b28a51fbfd5153aa2b}{00317}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_ga7b187b4cb92aa6b28a51fbfd5153aa2b}{ILI9341Rotate}}(\mbox{\hyperlink{group___i_l_i9341_gafd244eb5252344eaf17669b9d2fddcdc}{ili9341\_orientation\_t}}\ orientation)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00318}00318\ \ \ \ \ uint8\_t\ mem\_acc[1];}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00319}00319\ \ \ \ \ \textcolor{keywordflow}{switch}(orientation)\ \{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00320}00320\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a8a91947a781dff5aa13fee4123fc4017}{ILI9341\_Portrait\_1}}:}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00321}00321\ \ \ \ \ \ \ \ \ mem\_acc[0]\ =\ 0x48;\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00322}00322\ \ \ \ \ \ \ \ \ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ad0eab1042455a2067c812ab8071d5376}{width}}\ =\ \mbox{\hyperlink{group___i_l_i9341_ga0f07262d5faa91c725fa69a2847303d5}{ILI9341\_WIDTH}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00323}00323\ \ \ \ \ \ \ \ \ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_a81c9f8d0b8c3b49d770be14dbe9f0d37}{height}}\ =\ \mbox{\hyperlink{group___i_l_i9341_ga19b26d4d6ae752db7302c9cbb8688d51}{ILI9341\_HEIGHT}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00324}00324\ \ \ \ \ \ \ \ \ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ab224481ccf02fc28617576ddac47aa9b}{orientation}}\ =\ \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a8a91947a781dff5aa13fee4123fc4017}{ILI9341\_Portrait\_1}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00325}00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00327}00327\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a5355240517a88f9c791c786f52c25a0b}{ILI9341\_Portrait\_2}}:}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00328}00328\ \ \ \ \ \ \ \ \ mem\_acc[0]\ =\ 0x88;\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00329}00329\ \ \ \ \ \ \ \ \ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ad0eab1042455a2067c812ab8071d5376}{width}}\ =\ \mbox{\hyperlink{group___i_l_i9341_ga0f07262d5faa91c725fa69a2847303d5}{ILI9341\_WIDTH}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00330}00330\ \ \ \ \ \ \ \ \ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_a81c9f8d0b8c3b49d770be14dbe9f0d37}{height}}\ =\ \mbox{\hyperlink{group___i_l_i9341_ga19b26d4d6ae752db7302c9cbb8688d51}{ILI9341\_HEIGHT}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00331}00331\ \ \ \ \ \ \ \ \ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ab224481ccf02fc28617576ddac47aa9b}{orientation}}\ =\ \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a5355240517a88f9c791c786f52c25a0b}{ILI9341\_Portrait\_2}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00332}00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00334}00334\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a4a306e50be2b7a9f5ff45ed5a6a5ab6d}{ILI9341\_Landscape\_1}}:}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00335}00335\ \ \ \ \ \ \ \ \ mem\_acc[0]\ =\ 0x28;\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00336}00336\ \ \ \ \ \ \ \ \ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ad0eab1042455a2067c812ab8071d5376}{width}}\ =\ \mbox{\hyperlink{group___i_l_i9341_ga19b26d4d6ae752db7302c9cbb8688d51}{ILI9341\_HEIGHT}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00337}00337\ \ \ \ \ \ \ \ \ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_a81c9f8d0b8c3b49d770be14dbe9f0d37}{height}}\ =\ \mbox{\hyperlink{group___i_l_i9341_ga0f07262d5faa91c725fa69a2847303d5}{ILI9341\_WIDTH}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00338}00338\ \ \ \ \ \ \ \ \ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ab224481ccf02fc28617576ddac47aa9b}{orientation}}\ =\ \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a4a306e50be2b7a9f5ff45ed5a6a5ab6d}{ILI9341\_Landscape\_1}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00339}00339\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00341}00341\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a80467f7bb95409c5d6f7d943896d3c5c}{ILI9341\_Landscape\_2}}:}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00342}00342\ \ \ \ \ \ \ \ \ mem\_acc[0]\ =\ 0xE8;\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00343}00343\ \ \ \ \ \ \ \ \ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ad0eab1042455a2067c812ab8071d5376}{width}}\ =\ \mbox{\hyperlink{group___i_l_i9341_ga19b26d4d6ae752db7302c9cbb8688d51}{ILI9341\_HEIGHT}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00344}00344\ \ \ \ \ \ \ \ \ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_a81c9f8d0b8c3b49d770be14dbe9f0d37}{height}}\ =\ \mbox{\hyperlink{group___i_l_i9341_ga0f07262d5faa91c725fa69a2847303d5}{ILI9341\_WIDTH}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00345}00345\ \ \ \ \ \ \ \ \ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ab224481ccf02fc28617576ddac47aa9b}{orientation}}\ =\ \mbox{\hyperlink{group___i_l_i9341_gga46360a506ec04c0ca618ee229bdad248a80467f7bb95409c5d6f7d943896d3c5c}{ILI9341\_Landscape\_2}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00346}00346\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00347}00347\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00348}00348\ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_mem\_acc\ =\ \{\mbox{\hyperlink{ili9341_8c_ae707afd6326457b82a15bdcbfd99b8a8}{MEM\_ACC\_CTRL}},\ 1,\ mem\_acc\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00349}00349\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_mem\_acc);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00350}00350\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00351}00351\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00352}\mbox{\hyperlink{group___i_l_i9341_gaf40f745e33f77553ed8756b0cdbff963}{00352}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_gaf40f745e33f77553ed8756b0cdbff963}{ILI9341DrawChar}}(uint16\_t\ x,\ uint16\_t\ y,\ \textcolor{keywordtype}{char}\ data,\ \mbox{\hyperlink{struct_font__t}{Font\_t}}*\ font,\ uint16\_t\ foreground,\ uint16\_t\ background)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00353}00353\ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ i,\ j,\ k;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00354}00354\ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ char\_row;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00355}00355\ \ \ \ \ \textcolor{keyword}{static}\ uint16\_t\ lcd\_x,\ lcd\_y;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00356}00356\ \ \ \ \ \textcolor{keyword}{static}\ int32\_t\ bytes\_count,\ bytes\_row;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00357}00357\ \ \ \ \ \textcolor{keyword}{static}\ uint8\_t\ pixel[\mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00359}00359\ \ \ \ \ \textcolor{comment}{/*\ Set\ coordinates\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00360}00360\ \ \ \ \ lcd\_x\ =\ x;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00361}00361\ \ \ \ \ lcd\_y\ =\ y;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00363}00363\ \ \ \ \ \textcolor{comment}{/*\ If\ at\ the\ end\ of\ a\ line\ of\ display,\ go\ to\ new\ line\ and\ set\ x\ to\ 0\ position\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00364}00364\ \ \ \ \ \textcolor{keywordflow}{if}\ ((lcd\_x\ +\ font-\/>info[data\ -\/\ \textcolor{charliteral}{'\ '}].width)\ >\ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ad0eab1042455a2067c812ab8071d5376}{width}})\ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00365}00365\ \ \ \ \ \ \ \ \ lcd\_y\ +=\ font-\/>font\_height;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00366}00366\ \ \ \ \ \ \ \ \ lcd\_x\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00367}00367\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00368}00368\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00369}00369\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_a3ced3a9e7189797ae4b2c5cc34cc1886}{SetCursorPosition}}(lcd\_x,\ lcd\_y,\ lcd\_x\ +\ font-\/>info[data\ -\/\ \textcolor{charliteral}{'\ '}].width\ -\/\ 1,\ lcd\_y\ +\ font-\/>font\_height\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00370}00370\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00371}00371\ \ \ \ \ \textcolor{comment}{/*\ Number\ of\ bytes\ to\ write.\ We\ have\ to\ write\ 2\ bytes/pixel\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00372}00372\ \ \ \ \ bytes\_count\ =\ font-\/>font\_height\ *\ font-\/>info[data\ -\/\ \textcolor{charliteral}{'\ '}].width\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00373}00373\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00374}00374\ \ \ \ \ \textcolor{comment}{/*\ Start\ writing\ LCD\ memory\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00375}00375\ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_write\ =\ \{\mbox{\hyperlink{ili9341_8c_aabb0fea5286144a240a956114bccce7a}{MEM\_WRITE}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00376}00376\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_write);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00377}00377\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00378}00378\ \ \ \ \ \textcolor{comment}{/*\ Draw\ font\ data\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00379}00379\ \ \ \ \ \textcolor{comment}{/*\ go\ through\ character\ rows\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00380}00380\ \ \ \ \ k\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00381}00381\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ font-\/>font\_height;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00382}00382\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00383}00383\ \ \ \ \ \ \ \ \ char\_row\ =\ font-\/>info[data\ -\/\ \textcolor{charliteral}{'\ '}].offset\ +\ i\ *\ ((font-\/>info[data\ -\/\ \textcolor{charliteral}{'\ '}].width\ +\ 7)\ /\ 8);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00384}00384\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ go\ through\ character\ columns\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00385}00385\ \ \ \ \ \ \ \ \ bytes\_row\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00386}00386\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ font-\/>info[data\ -\/\ \textcolor{charliteral}{'\ '}].width;\ j++)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00387}00387\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(j\ \%\ 8\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00388}00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bytes\_row++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00390}00390\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ If\ exceed\ buffer\ size,\ send\ buffer\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00391}00391\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((2\ *\ j\ +\ i\ *\ font-\/>info[data\ -\/\ \textcolor{charliteral}{'\ '}].width\ *\ 2\ -\/\ k\ *\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}\ +\ 1)\ >\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}})\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00392}00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_pixels\ =\ \{\mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}},\ pixel\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00393}00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_pixels);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bytes\_count\ -\/=\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ n=FontWidth\ first\ bits\ of\ the\ 16bits\ row\ data\ draws\ the\ corresponding\ part\ of\ a\ character\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00398}00398\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (font-\/>data[char\_row\ +\ bytes\_row]\ \&\ (\mbox{\hyperlink{ili9341_8c_ab5379db10c252da57952bf8ce5eb7d0e}{MSK\_BIT8}}\ >>\ (j\ \%\ 8)))\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ if\ bit\ =\ 1,\ draw\ put\ foreground\ color\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pixel[2\ *\ j\ +\ i\ *\ font-\/>info[data\ -\/\ \textcolor{charliteral}{'\ '}].width\ *\ 2\ -\/\ k\ *\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}]\ =\ \mbox{\hyperlink{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0}{HighByte}}(foreground);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pixel[2\ *\ j\ +\ i\ *\ font-\/>info[data\ -\/\ \textcolor{charliteral}{'\ '}].width\ *\ 2\ -\/\ k\ *\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}\ +\ 1]\ =\ \mbox{\hyperlink{ili9341_8c_aa9fad731fc07b249db66376d062050cd}{LowByte}}(foreground);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pixel[2\ *\ j\ +\ i\ *\ font-\/>info[data\ -\/\ \textcolor{charliteral}{'\ '}].width\ *\ 2\ -\/\ k\ *\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}]\ =\ \mbox{\hyperlink{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0}{HighByte}}(background);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pixel[2\ *\ j\ +\ i\ *\ font-\/>info[data\ -\/\ \textcolor{charliteral}{'\ '}].width\ *\ 2\ -\/\ k\ *\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}\ +\ 1]\ =\ \mbox{\hyperlink{ili9341_8c_aa9fad731fc07b249db66376d062050cd}{LowByte}}(background);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00407}00407\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00408}00408\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00409}00409\ \ \ \ \ \textcolor{comment}{/*\ Send\ the\ rest\ of\ the\ buffer\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00410}00410\ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_pixels\ =\ \{\mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ bytes\_count,\ pixel\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00411}00411\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_pixels);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00412}00412\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00413}00413\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00414}\mbox{\hyperlink{group___i_l_i9341_gaec5d3fe0bb17f07ae65da260587e73ce}{00414}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_gaec5d3fe0bb17f07ae65da260587e73ce}{ILI9341DrawIcon}}(uint16\_t\ x,\ uint16\_t\ y,\ \mbox{\hyperlink{group___i_c_o_n_s_ga945c9cb2ded81b38da222e91d09df40b}{icon\_t}}\ icon,\ \mbox{\hyperlink{structicon__font__t}{icon\_font\_t}}*\ icon\_font,\ uint16\_t\ foreground,\ uint16\_t\ background)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00415}00415\ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ i,\ j,\ k;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00416}00416\ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ char\_row;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00417}00417\ \ \ \ \ \textcolor{keyword}{static}\ uint16\_t\ lcd\_x,\ lcd\_y;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00418}00418\ \ \ \ \ \textcolor{keyword}{static}\ int32\_t\ bytes\_count,\ bytes\_row;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00419}00419\ \ \ \ \ \textcolor{keyword}{static}\ uint8\_t\ pixel[\mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00420}00420\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00421}00421\ \ \ \ \ \textcolor{comment}{/*\ Set\ coordinates\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00422}00422\ \ \ \ \ lcd\_x\ =\ x;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00423}00423\ \ \ \ \ lcd\_y\ =\ y;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00424}00424\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00425}00425\ \ \ \ \ \textcolor{comment}{/*\ If\ at\ the\ end\ of\ a\ line\ of\ display,\ go\ to\ new\ line\ and\ set\ x\ to\ 0\ position\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00426}00426\ \ \ \ \ \textcolor{keywordflow}{if}\ ((lcd\_x\ +\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_a09a2a45f731b02946ff6d3cd15c1a476}{width}})\ >\ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ad0eab1042455a2067c812ab8071d5376}{width}})\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00427}00427\ \ \ \ \ \ \ \ \ lcd\_y\ +=\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_adcf201a8aabf55cb352ec05331242594}{height}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00428}00428\ \ \ \ \ \ \ \ \ lcd\_x\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00429}00429\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00430}00430\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00431}00431\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_a3ced3a9e7189797ae4b2c5cc34cc1886}{SetCursorPosition}}(lcd\_x,\ lcd\_y,\ lcd\_x\ +\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_a09a2a45f731b02946ff6d3cd15c1a476}{width}}\ -\/\ 1,\ lcd\_y\ +\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_adcf201a8aabf55cb352ec05331242594}{height}}\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00432}00432\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00433}00433\ \ \ \ \ \textcolor{comment}{/*\ Number\ of\ bytes\ to\ write.\ We\ have\ to\ write\ 2\ bytes/pixel\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00434}00434\ \ \ \ \ bytes\_count\ =\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_adcf201a8aabf55cb352ec05331242594}{height}}\ *\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_a09a2a45f731b02946ff6d3cd15c1a476}{width}}\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00435}00435\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00436}00436\ \ \ \ \ \textcolor{comment}{/*\ Start\ writing\ LCD\ memory\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00437}00437\ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_write\ =\ \{\mbox{\hyperlink{ili9341_8c_aabb0fea5286144a240a956114bccce7a}{MEM\_WRITE}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00438}00438\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_write);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00439}00439\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00440}00440\ \ \ \ \ \textcolor{comment}{/*\ Draw\ font\ data\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00441}00441\ \ \ \ \ \textcolor{comment}{/*\ go\ through\ character\ rows\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00442}00442\ \ \ \ \ k\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00443}00443\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_adcf201a8aabf55cb352ec05331242594}{height}};\ i++)\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00444}00444\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00445}00445\ \ \ \ \ \ \ \ \ char\_row\ =\ icon\ *\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_ac681806181c80437cfab37335f62ff39}{offset}}\ +\ i\ *\ ((icon\_font-\/>\mbox{\hyperlink{structicon__font__t_a09a2a45f731b02946ff6d3cd15c1a476}{width}}\ +\ 7)\ /\ 8);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00446}00446\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ go\ through\ character\ columns\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00447}00447\ \ \ \ \ \ \ \ \ bytes\_row\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00448}00448\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_a09a2a45f731b02946ff6d3cd15c1a476}{width}};\ j++)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00449}00449\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(j\ \%\ 8\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00450}00450\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bytes\_row++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00451}00451\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00452}00452\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ If\ exceed\ buffer\ size,\ send\ buffer\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00453}00453\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((2\ *\ j\ +\ i\ *\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_a09a2a45f731b02946ff6d3cd15c1a476}{width}}\ *\ 2\ -\/\ k\ *\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}\ +\ 1)\ >\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}})\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00454}00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_pixels\ =\ \{\mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}},\ pixel\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00455}00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_pixels);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00456}00456\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bytes\_count\ -\/=\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00458}00458\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ n=FontWidth\ first\ bits\ of\ the\ 16bits\ row\ data\ draws\ the\ corresponding\ part\ of\ a\ character\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00460}00460\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (icon\_font-\/>\mbox{\hyperlink{structicon__font__t_a579f5164b5b16e18ddcdb0296ef81799}{data}}[char\_row\ +\ bytes\_row]\ \&\ (\mbox{\hyperlink{ili9341_8c_ab5379db10c252da57952bf8ce5eb7d0e}{MSK\_BIT8}}\ >>\ (j\ \%\ 8)))\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00461}00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ if\ bit\ =\ 1,\ draw\ put\ foreground\ color\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00462}00462\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pixel[2\ *\ j\ +\ i\ *\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_a09a2a45f731b02946ff6d3cd15c1a476}{width}}\ *\ 2\ -\/\ k\ *\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}]\ =\ \mbox{\hyperlink{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0}{HighByte}}(foreground);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00463}00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pixel[2\ *\ j\ +\ i\ *\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_a09a2a45f731b02946ff6d3cd15c1a476}{width}}\ *\ 2\ -\/\ k\ *\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}\ +\ 1]\ =\ \mbox{\hyperlink{ili9341_8c_aa9fad731fc07b249db66376d062050cd}{LowByte}}(foreground);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00464}00464\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00465}00465\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00466}00466\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pixel[2\ *\ j\ +\ i\ *\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_a09a2a45f731b02946ff6d3cd15c1a476}{width}}\ *\ 2\ -\/\ k\ *\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}]\ =\ \mbox{\hyperlink{ili9341_8c_aef10f880cc4161fd8dca2422fc2f04d0}{HighByte}}(background);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00467}00467\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pixel[2\ *\ j\ +\ i\ *\ icon\_font-\/>\mbox{\hyperlink{structicon__font__t_a09a2a45f731b02946ff6d3cd15c1a476}{width}}\ *\ 2\ -\/\ k\ *\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}\ +\ 1]\ =\ \mbox{\hyperlink{ili9341_8c_aa9fad731fc07b249db66376d062050cd}{LowByte}}(background);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00469}00469\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00470}00470\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00471}00471\ \ \ \ \ \textcolor{comment}{/*\ Send\ the\ rest\ of\ the\ buffer\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00472}00472\ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_pixels\ =\ \{\mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ bytes\_count,\ pixel\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00473}00473\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_pixels);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00474}00474\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00475}00475\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00476}\mbox{\hyperlink{group___i_l_i9341_gaf1f38ba35089e77b713750c4e25e2476}{00476}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_gaf1f38ba35089e77b713750c4e25e2476}{ILI9341DrawInt}}(uint16\_t\ x,\ uint16\_t\ y,\ uint32\_t\ num,\ uint8\_t\ dig,\ \mbox{\hyperlink{struct_font__t}{Font\_t}}*\ font,\ uint16\_t\ foreground,\ uint16\_t\ background)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00477}00477\ \ \ \ \ \textcolor{keyword}{static}\ uint16\_t\ i;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00478}00478\ \ \ \ \ \textcolor{keyword}{static}\ uint16\_t\ lcd\_x,\ lcd\_y;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00479}00479\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00480}00480\ \ \ \ \ \textcolor{comment}{/*\ Set\ coordinates\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00481}00481\ \ \ \ \ lcd\_x\ =\ x;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00482}00482\ \ \ \ \ lcd\_y\ =\ y;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00483}00483\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00484}00484\ \ \ \ \ \textcolor{keywordflow}{for}\ (i=0;\ i<dig;\ i++)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00485}00485\ \ \ \ \ \ \ \ \ lcd\_x\ =\ x\ +\ font-\/>info[num\%10\ +\ \textcolor{charliteral}{'0'}\ -\/\ \textcolor{charliteral}{'\ '}].width\ *\ (dig-\/1-\/i)\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00486}00486\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_gaf40f745e33f77553ed8756b0cdbff963}{ILI9341DrawChar}}(lcd\_x,\ lcd\_y,\ num\%10\ +\ \textcolor{charliteral}{'0'},\ font,\ foreground,\ background);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00487}00487\ \ \ \ \ \ \ \ \ num\ =\ num/10;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00488}00488\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00489}00489\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00490}00490\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00491}\mbox{\hyperlink{group___i_l_i9341_ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa}{00491}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_ga1dd6ea8dd3b21f3c5e4c08a5ed2346aa}{ILI9341DrawString}}(uint16\_t\ x,\ uint16\_t\ y,\ \textcolor{keywordtype}{char}*\ str,\ \mbox{\hyperlink{struct_font__t}{Font\_t}}\ *font,\ uint16\_t\ foreground,\ uint16\_t\ background)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00492}00492\ \ \ \ \ \textcolor{keyword}{static}\ uint16\_t\ lcd\_x,\ lcd\_y;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00493}00493\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00494}00494\ \ \ \ \ \textcolor{comment}{/*\ Set\ coordinates\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00495}00495\ \ \ \ \ lcd\_x\ =\ x;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00496}00496\ \ \ \ \ lcd\_y\ =\ y;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00497}00497\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00498}00498\ \ \ \ \ \textcolor{keywordflow}{while}\ (*str\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})\{\ \ \ \textcolor{comment}{/*\ End\ of\ string\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00499}00499\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ New\ line\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00500}00500\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*str\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00501}00501\ \ \ \ \ \ \ \ \ \ \ \ \ lcd\_y\ +=\ font-\/>font\_height\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00502}00502\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ if\ after\ \(\backslash\)n\ is\ also\ \(\backslash\)r,\ than\ go\ to\ the\ left\ of\ the\ screen\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00503}00503\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*(str\ +\ 1)\ ==\ \textcolor{charliteral}{'\(\backslash\)r'})\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00504}00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lcd\_x\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00505}00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00506}00506\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00507}00507\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00508}00508\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lcd\_x\ =\ x;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00509}00509\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00510}00510\ \ \ \ \ \ \ \ \ \ \ \ \ str++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00511}00511\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00512}00512\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (*str\ ==\ \textcolor{charliteral}{'\(\backslash\)r'})\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00513}00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00514}00514\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00515}00515\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00516}00516\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Put\ character\ to\ LCD\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00517}00517\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_gaf40f745e33f77553ed8756b0cdbff963}{ILI9341DrawChar}}(lcd\_x,\ lcd\_y,\ *str,\ font,\ foreground,\ background);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00518}00518\ \ \ \ \ \ \ \ \ lcd\_x\ +=\ font-\/>info[*str\ -\/\ \textcolor{charliteral}{'\ '}].width\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00519}00519\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Next\ character\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00520}00520\ \ \ \ \ \ \ \ \ str++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00521}00521\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00522}00522\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00523}00523\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00524}\mbox{\hyperlink{group___i_l_i9341_ga5044d1ea4ba5b9b9244bc13898a514d2}{00524}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_ga5044d1ea4ba5b9b9244bc13898a514d2}{ILI9341GetStringSize}}(\textcolor{keywordtype}{char}*\ str,\ \mbox{\hyperlink{struct_font__t}{Font\_t}}*\ font,\ uint16\_t*\ width,\ uint16\_t*\ height)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00525}00525\ \ \ \ \ \textcolor{keyword}{static}\ uint16\_t\ w;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00526}00526\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00527}00527\ \ \ \ \ *height\ =\ font-\/>font\_height;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00528}00528\ \ \ \ \ w\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00529}00529\ \ \ \ \ \textcolor{keywordflow}{while}\ (*str\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})\{\ \ \ \textcolor{comment}{/*\ End\ of\ string\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00530}00530\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00531}00531\ \ \ \ \ \ \ \ \ w\ +=\ font-\/>info[*str\ -\/\ \textcolor{charliteral}{'\ '}].width\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00532}00532\ \ \ \ \ \ \ \ \ str++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00533}00533\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00534}00534\ \ \ \ \ *width\ =\ w;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00535}00535\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00536}00536\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00537}\mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{00537}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(uint16\_t\ x0,\ uint16\_t\ y0,\ uint16\_t\ x1,\ uint16\_t\ y1,\ uint16\_t\ color)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00538}00538\ \ \ \ \ \textcolor{keyword}{static}\ int16\_t\ x\_dist,\ y\_dist,\ x\_grow,\ y\_grow,\ error,\ error\_2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00539}00539\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00540}00540\ \ \ \ \ \textcolor{comment}{/*\ Check\ for\ overflow\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00541}00541\ \ \ \ \ \textcolor{keywordflow}{if}\ (x0\ >=\ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ad0eab1042455a2067c812ab8071d5376}{width}})\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00542}00542\ \ \ \ \ \ \ \ \ x0\ =\ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ad0eab1042455a2067c812ab8071d5376}{width}}\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00543}00543\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00544}00544\ \ \ \ \ \textcolor{keywordflow}{if}\ (x1\ >=\ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ad0eab1042455a2067c812ab8071d5376}{width}})\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00545}00545\ \ \ \ \ \ \ \ \ x1\ =\ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_ad0eab1042455a2067c812ab8071d5376}{width}}\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00546}00546\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00547}00547\ \ \ \ \ \textcolor{keywordflow}{if}\ (y0\ >=\ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_a81c9f8d0b8c3b49d770be14dbe9f0d37}{height}})\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00548}00548\ \ \ \ \ \ \ \ \ y0\ =\ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_a81c9f8d0b8c3b49d770be14dbe9f0d37}{height}}\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00549}00549\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00550}00550\ \ \ \ \ \textcolor{keywordflow}{if}\ (y1\ >=\ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_a81c9f8d0b8c3b49d770be14dbe9f0d37}{height}})\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00551}00551\ \ \ \ \ \ \ \ \ y1\ =\ lcd\_orientation.\mbox{\hyperlink{structorientation__properties__t_a81c9f8d0b8c3b49d770be14dbe9f0d37}{height}}\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00552}00552\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00553}00553\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00554}00554\ \ \ \ \ \textcolor{comment}{/*\ Calculate\ x\ y\ distances\ and\ determine\ grow\ direction\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00555}00555\ \ \ \ \ x\_dist\ =\ x1\ -\/\ x0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00556}00556\ \ \ \ \ y\_dist\ =\ y1\ -\/\ y0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00557}00557\ \ \ \ \ \textcolor{keywordflow}{if}\ (x0\ >\ x1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00558}00558\ \ \ \ \ \ \ \ \ x\_dist\ =\ -\/x\_dist;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00559}00559\ \ \ \ \ \ \ \ \ x\_grow\ =\ \mbox{\hyperlink{ili9341_8c_a437ef08681e7210d6678427030446a54}{LEFT}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00560}00560\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00561}00561\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00562}00562\ \ \ \ \ \ \ \ \ x\_grow\ =\ \mbox{\hyperlink{ili9341_8c_a80fb826a684cf3f0d306b22aa100ddac}{RIGHT}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00563}00563\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00564}00564\ \ \ \ \ \textcolor{keywordflow}{if}\ (y0\ >\ y1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00565}00565\ \ \ \ \ \ \ \ \ y\_dist\ =\ -\/y\_dist;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00566}00566\ \ \ \ \ \ \ \ \ y\_grow\ =\ \mbox{\hyperlink{ili9341_8c_a1965eaca47dbf3f87acdafc2208f04eb}{UP}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00567}00567\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00568}00568\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00569}00569\ \ \ \ \ \ \ \ \ y\_grow\ =\ \mbox{\hyperlink{ili9341_8c_a4193cd1c8c2e6ebd0e056fa2364a663f}{DOWN}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00570}00570\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00571}00571\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00572}00572\ \ \ \ \ \textcolor{comment}{/*\ Vertical\ or\ horizontal\ line\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00573}00573\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\_dist\ ==\ 0\ ||\ y\_dist\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00574}00574\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ili9341_8c_a1398b648b9ae023e8c33ac565fc9eaff}{Fill}}(x0,\ y0,\ x1,\ y1,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00575}00575\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00576}00576\ \ \ \ \ \textcolor{comment}{/*\ Diagonal\ line\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00577}00577\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00578}00578\ \ \ \ \ \ \ \ \ error\ =\ x\_dist\ -\/\ y\_dist;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00579}00579\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00580}00580\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00581}00581\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Draw\ start\ point\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00582}00582\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0,\ y0,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00583}00583\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Loop\ ends\ when\ start\ point\ reaches\ end\ point\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00584}00584\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x0\ ==\ x1\ \&\&\ y0\ ==\ y1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00585}00585\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00586}00586\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00587}00587\ \ \ \ \ \ \ \ \ \ \ \ \ error\_2\ =\ 2\ *\ error;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00588}00588\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Determine\ if\ line\ must\ grow\ in\ x\ direction\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00589}00589\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (error\_2\ >\ -\/y\_dist)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00590}00590\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ error\ -\/=\ y\_dist;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00591}00591\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x0\ +=\ x\_grow;\ \ \ \textcolor{comment}{/*\ Move\ start\ point\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00592}00592\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00593}00593\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Determine\ if\ line\ must\ grow\ in\ y\ direction\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00594}00594\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (error\_2\ <\ x\_dist)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00595}00595\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ error\ +=\ x\_dist;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00596}00596\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y0\ +=\ y\_grow;\ \ \ \textcolor{comment}{/*\ Move\ start\ point\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00597}00597\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00598}00598\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00599}00599\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00600}00600\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00601}00601\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00602}\mbox{\hyperlink{group___i_l_i9341_ga90867195c7e57957fe9db4913beeee45}{00602}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_ga90867195c7e57957fe9db4913beeee45}{ILI9341DrawRectangle}}(uint16\_t\ x0,\ uint16\_t\ y0,\ uint16\_t\ x1,\ uint16\_t\ y1,\ uint16\_t\ color)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00603}00603\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(x0,\ y0,\ x1,\ y0,\ color);\ \ \ \ \ \ \textcolor{comment}{/*\ Draw\ top\ line\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00604}00604\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(x1,\ y0,\ x1,\ y1,\ color);\ \ \ \ \ \ \textcolor{comment}{/*\ Draw\ right\ line\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00605}00605\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(x0,\ y1,\ x1,\ y1,\ color);\ \ \ \ \ \ \textcolor{comment}{/*\ Draw\ bottom\ line\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00606}00606\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(x0,\ y0,\ x0,\ y1,\ color);\ \ \ \ \ \ \textcolor{comment}{/*\ Draw\ left\ line\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00607}00607\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00608}00608\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00609}\mbox{\hyperlink{group___i_l_i9341_gae317015706c9711c49b9419cd3d89823}{00609}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_gae317015706c9711c49b9419cd3d89823}{ILI9341DrawFilledRectangle}}(uint16\_t\ x0,\ uint16\_t\ y0,\ uint16\_t\ x1,\ uint16\_t\ y1,\ uint16\_t\ color)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00610}00610\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_a1398b648b9ae023e8c33ac565fc9eaff}{Fill}}(x0,\ y0,\ x1,\ y1,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00611}00611\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00612}00612\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00613}\mbox{\hyperlink{group___i_l_i9341_ga232a7c83cb705bd8c14d57dee26d0db7}{00613}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_ga232a7c83cb705bd8c14d57dee26d0db7}{ILI9341DrawCircle}}(int16\_t\ x0,\ int16\_t\ y0,\ int16\_t\ r,\ uint16\_t\ color)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00614}00614\ \ \ \ \ \textcolor{keyword}{static}\ int16\_t\ f,\ ddF\_x,\ ddF\_y,\ x,\ y;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00615}00615\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00616}00616\ \ \ \ \ f\ =\ 1\ -\/\ r;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00617}00617\ \ \ \ \ ddF\_x\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00618}00618\ \ \ \ \ ddF\_y\ =\ -\/2\ *\ r;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00619}00619\ \ \ \ \ x\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00620}00620\ \ \ \ \ y\ =\ r;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00621}00621\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00622}00622\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0,\ y0\ +\ r,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00623}00623\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0,\ y0\ -\/\ r,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00624}00624\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0\ +\ r,\ y0,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00625}00625\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0\ -\/\ r,\ y0,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00626}00626\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00627}00627\ \ \ \ \ \textcolor{keywordflow}{while}\ (x\ <\ y)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00628}00628\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (f\ >=\ 0)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00629}00629\ \ \ \ \ \ \ \ \ \ \ \ \ y-\/-\/;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00630}00630\ \ \ \ \ \ \ \ \ \ \ \ \ ddF\_y\ +=\ 2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00631}00631\ \ \ \ \ \ \ \ \ \ \ \ \ f\ +=\ ddF\_y;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00632}00632\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00633}00633\ \ \ \ \ \ \ \ \ x++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00634}00634\ \ \ \ \ \ \ \ \ ddF\_x\ +=\ 2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00635}00635\ \ \ \ \ \ \ \ \ f\ +=\ ddF\_x;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00636}00636\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00637}00637\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0\ +\ x,\ y0\ +\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00638}00638\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0\ -\/\ x,\ y0\ +\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00639}00639\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0\ +\ x,\ y0\ -\/\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00640}00640\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0\ -\/\ x,\ y0\ -\/\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00641}00641\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00642}00642\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0\ +\ y,\ y0\ +\ x,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00643}00643\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0\ -\/\ y,\ y0\ +\ x,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00644}00644\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0\ +\ y,\ y0\ -\/\ x,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00645}00645\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0\ -\/\ y,\ y0\ -\/\ x,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00646}00646\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00647}00647\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00648}00648\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00649}\mbox{\hyperlink{group___i_l_i9341_ga12d38b5bae7cf33dce21b97e9ed7f114}{00649}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_ga12d38b5bae7cf33dce21b97e9ed7f114}{ILI9341DrawFilledCircle}}(int16\_t\ x0,\ int16\_t\ y0,\ int16\_t\ r,\ uint16\_t\ color)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00650}00650\ \ \ \ \ \textcolor{keyword}{static}\ int16\_t\ f,\ ddF\_x,\ ddF\_y,\ x,\ y;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00651}00651\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00652}00652\ \ \ \ \ f\ =\ 1\ -\/\ r;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00653}00653\ \ \ \ \ ddF\_x\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00654}00654\ \ \ \ \ ddF\_y\ =\ -\/2\ *\ r;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00655}00655\ \ \ \ \ x\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00656}00656\ \ \ \ \ y\ =\ r;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00657}00657\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00658}00658\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0,\ y0\ +\ r,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00659}00659\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0,\ y0\ -\/\ r,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00660}00660\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0\ +\ r,\ y0,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00661}00661\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga73585c8169e7a54bc906df9ba1b82752}{ILI9341DrawPixel}}(x0\ -\/\ r,\ y0,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00662}00662\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(x0\ -\/\ r,\ y0,\ x0\ +\ r,\ y0,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00663}00663\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00664}00664\ \ \ \ \ \textcolor{keywordflow}{while}\ (x\ <\ y)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00665}00665\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (f\ >=\ 0)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00666}00666\ \ \ \ \ \ \ \ \ \ \ \ \ y-\/-\/;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00667}00667\ \ \ \ \ \ \ \ \ \ \ \ \ ddF\_y\ +=\ 2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00668}00668\ \ \ \ \ \ \ \ \ \ \ \ \ f\ +=\ ddF\_y;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00669}00669\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00670}00670\ \ \ \ \ \ \ \ \ x++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00671}00671\ \ \ \ \ \ \ \ \ ddF\_x\ +=\ 2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00672}00672\ \ \ \ \ \ \ \ \ f\ +=\ ddF\_x;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00673}00673\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00674}00674\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(x0\ -\/\ x,\ y0\ +\ y,\ x0\ +\ x,\ y0\ +\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00675}00675\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(x0\ +\ x,\ y0\ -\/\ y,\ x0\ -\/\ x,\ y0\ -\/\ y,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00676}00676\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00677}00677\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(x0\ +\ y,\ y0\ +\ x,\ x0\ -\/\ y,\ y0\ +\ x,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00678}00678\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(x0\ +\ y,\ y0\ -\/\ x,\ x0\ -\/\ y,\ y0\ -\/\ x,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00679}00679\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00680}00680\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00681}00681\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00682}\mbox{\hyperlink{group___i_l_i9341_ga91597ef98cf09f7d8870917f9b5ebea4}{00682}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_ga91597ef98cf09f7d8870917f9b5ebea4}{ILI9341DrawTriangle}}(int16\_t\ x0,\ int16\_t\ y0,\ int16\_t\ x1,\ int16\_t\ y1,\ int16\_t\ x2,\ int16\_t\ y2,\ uint16\_t\ color)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00683}00683\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(x0,\ y0,\ x1,\ y1,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00684}00684\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(x0,\ y0,\ x2,\ y2,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00685}00685\ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(x1,\ y1,\ x2,\ y2,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00686}00686\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00687}00687\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00688}\mbox{\hyperlink{group___i_l_i9341_ga371e40bd6e120c18f7fff4a5a0f292b2}{00688}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_ga371e40bd6e120c18f7fff4a5a0f292b2}{ILI9341DrawFilledTriangle}}(int16\_t\ x0,\ int16\_t\ y0,\ int16\_t\ x1,\ int16\_t\ y1,\ int16\_t\ x2,\ int16\_t\ y2,\ uint16\_t\ color)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00689}00689\ \ \ \ \ \textcolor{keyword}{static}\ int16\_t\ x\_0\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00690}00690\ \ \ \ \ \textcolor{keyword}{static}\ int16\_t\ y\_0\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00691}00691\ \ \ \ \ \textcolor{keyword}{static}\ int16\_t\ x\_1\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00692}00692\ \ \ \ \ \textcolor{keyword}{static}\ int16\_t\ y\_1\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00693}00693\ \ \ \ \ \textcolor{keyword}{static}\ int16\_t\ x\_2\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00694}00694\ \ \ \ \ \textcolor{keyword}{static}\ int16\_t\ y\_2\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00695}00695\ \ \ \ \ \textcolor{keyword}{static}\ int16\_t\ x\_aux\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00696}00696\ \ \ \ \ \textcolor{keyword}{static}\ int16\_t\ y\_aux\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00697}00697\ \ \ \ \ \textcolor{keyword}{static}\ int16\_t\ scanline\_y\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00698}00698\ \ \ \ \ \textcolor{keywordtype}{float}\ invslope1,\ invslope2,\ curx1,\ curx2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00699}00699\ \ \ \ \ \textcolor{keywordflow}{if}((y0\ <=\ y1)\ \&\&\ (y0\ <=\ y2))\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00700}00700\ \ \ \ \ \ \ \ \ x\_0\ =\ x0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00701}00701\ \ \ \ \ \ \ \ \ y\_0\ =\ y0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00702}00702\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(y1\ <=\ y2)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00703}00703\ \ \ \ \ \ \ \ \ \ \ \ \ x\_1\ =\ x1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00704}00704\ \ \ \ \ \ \ \ \ \ \ \ \ y\_1\ =\ y1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00705}00705\ \ \ \ \ \ \ \ \ \ \ \ \ x\_2\ =\ x2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00706}00706\ \ \ \ \ \ \ \ \ \ \ \ \ y\_2\ =\ y2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00707}00707\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00708}00708\ \ \ \ \ \ \ \ \ \ \ \ \ x\_1\ =\ x2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00709}00709\ \ \ \ \ \ \ \ \ \ \ \ \ y\_1\ =\ y2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00710}00710\ \ \ \ \ \ \ \ \ \ \ \ \ x\_2\ =\ x1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00711}00711\ \ \ \ \ \ \ \ \ \ \ \ \ y\_2\ =\ y1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00712}00712\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00713}00713\ \ \ \ \ \}\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((y1\ <=\ y2)\ \&\&\ (y1\ <=\ y0))\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00714}00714\ \ \ \ \ \ \ \ \ x\_0\ =\ x1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00715}00715\ \ \ \ \ \ \ \ \ y\_0\ =\ y1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00716}00716\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(y0\ <=\ y2)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00717}00717\ \ \ \ \ \ \ \ \ \ \ \ \ x\_1\ =\ x0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00718}00718\ \ \ \ \ \ \ \ \ \ \ \ \ y\_1\ =\ y0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00719}00719\ \ \ \ \ \ \ \ \ \ \ \ \ x\_2\ =\ x2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00720}00720\ \ \ \ \ \ \ \ \ \ \ \ \ y\_2\ =\ y2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00721}00721\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00722}00722\ \ \ \ \ \ \ \ \ \ \ \ \ x\_1\ =\ x2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00723}00723\ \ \ \ \ \ \ \ \ \ \ \ \ y\_1\ =\ y2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00724}00724\ \ \ \ \ \ \ \ \ \ \ \ \ x\_2\ =\ x0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00725}00725\ \ \ \ \ \ \ \ \ \ \ \ \ y\_2\ =\ y0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00726}00726\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00727}00727\ \ \ \ \ \}\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}((y2\ <=\ y1)\ \&\&\ (y2\ <=\ y0))\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00728}00728\ \ \ \ \ \ \ \ \ x\_0\ =\ x2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00729}00729\ \ \ \ \ \ \ \ \ y\_0\ =\ y2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00730}00730\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(y0\ <=\ y1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00731}00731\ \ \ \ \ \ \ \ \ \ \ \ \ x\_1\ =\ x0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00732}00732\ \ \ \ \ \ \ \ \ \ \ \ \ y\_1\ =\ y0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00733}00733\ \ \ \ \ \ \ \ \ \ \ \ \ x\_2\ =\ x1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00734}00734\ \ \ \ \ \ \ \ \ \ \ \ \ y\_2\ =\ y1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00735}00735\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00736}00736\ \ \ \ \ \ \ \ \ \ \ \ \ x\_1\ =\ x1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00737}00737\ \ \ \ \ \ \ \ \ \ \ \ \ y\_1\ =\ y1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00738}00738\ \ \ \ \ \ \ \ \ \ \ \ \ x\_2\ =\ x0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00739}00739\ \ \ \ \ \ \ \ \ \ \ \ \ y\_2\ =\ y0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00740}00740\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00741}00741\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00742}00742\ \ \ \ \ \textcolor{keywordflow}{if}(y\_1\ ==\ y\_2)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00743}00743\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bottom\ flat\ triangle}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00744}00744\ \ \ \ \ \ \ \ \ invslope1\ =\ (float)(x\_1\ -\/\ x\_0)\ /\ (float)(y\_1\ -\/\ y\_0);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00745}00745\ \ \ \ \ \ \ \ \ invslope2\ =\ (float)(x\_2\ -\/\ x\_0)\ /\ (float)(y\_2\ -\/\ y\_0);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00746}00746\ \ \ \ \ \ \ \ \ curx1\ =\ x\_0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00747}00747\ \ \ \ \ \ \ \ \ curx2\ =\ x\_0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00748}00748\ \ \ \ \ \ \ \ \ scanline\_y\ =\ y\_0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00749}00749\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(scanline\_y\ <\ y\_1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00750}00750\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}((\textcolor{keywordtype}{int})curx1,\ scanline\_y,\ (\textcolor{keywordtype}{int})curx2,\ scanline\_y,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00751}00751\ \ \ \ \ \ \ \ \ \ \ \ \ curx1\ +=\ invslope1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00752}00752\ \ \ \ \ \ \ \ \ \ \ \ \ curx2\ +=\ invslope2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00753}00753\ \ \ \ \ \ \ \ \ \ \ \ \ scanline\_y++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00754}00754\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00755}00755\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00756}00756\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (y\_0\ ==\ y\_1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00757}00757\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Top\ flat\ triangle}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00758}00758\ \ \ \ \ \ \ \ \ invslope1\ =\ (float)(x\_2\ -\/\ x\_0)\ /\ (float)(y\_2\ -\/\ y\_0);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00759}00759\ \ \ \ \ \ \ \ \ invslope2\ =\ (float)(x\_2\ -\/\ x\_1)\ /\ (float)(y\_2\ -\/\ y\_1);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00760}00760\ \ \ \ \ \ \ \ \ curx1\ =\ x\_2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00761}00761\ \ \ \ \ \ \ \ \ curx2\ =\ x\_2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00762}00762\ \ \ \ \ \ \ \ \ scanline\_y\ =\ y\_2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00763}00763\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(scanline\_y\ >\ y\_0)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00764}00764\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}((\textcolor{keywordtype}{int})curx1,\ scanline\_y,\ (\textcolor{keywordtype}{int})curx2,\ scanline\_y,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00765}00765\ \ \ \ \ \ \ \ \ \ \ \ \ curx1\ -\/=\ invslope1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00766}00766\ \ \ \ \ \ \ \ \ \ \ \ \ curx2\ -\/=\ invslope2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00767}00767\ \ \ \ \ \ \ \ \ \ \ \ \ scanline\_y-\/-\/;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00768}00768\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00769}00769\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00770}00770\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00771}00771\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Split\ in\ a\ flat\ top\ triangle\ and\ a\ bottom\ flat\ triangle}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00772}00772\ \ \ \ \ \ \ \ \ x\_aux\ =\ (int)(x\_0\ +\ (\textcolor{keywordtype}{float})(y\_1\ -\/\ y\_0)\ /\ (\textcolor{keywordtype}{float})(y\_2\ -\/\ y\_0)\ *\ (x\_2\ -\/\ x\_0));}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00773}00773\ \ \ \ \ \ \ \ \ y\_aux\ =\ y\_1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00774}00774\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bottom\ flat\ triangle}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00775}00775\ \ \ \ \ \ \ \ \ invslope1\ =\ (float)(x\_1\ -\/\ x\_0)\ /\ (float)(y\_1\ -\/\ y\_0);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00776}00776\ \ \ \ \ \ \ \ \ invslope2\ =\ (float)(x\_aux\ -\/\ x\_0)\ /\ (float)(y\_aux\ -\/\ y\_0);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00777}00777\ \ \ \ \ \ \ \ \ curx1\ =\ x\_0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00778}00778\ \ \ \ \ \ \ \ \ curx2\ =\ x\_0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00779}00779\ \ \ \ \ \ \ \ \ scanline\_y\ =\ y\_0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00780}00780\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(scanline\_y\ <\ y\_1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00781}00781\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}((\textcolor{keywordtype}{int})curx1,\ scanline\_y,\ (\textcolor{keywordtype}{int})curx2,\ scanline\_y,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00782}00782\ \ \ \ \ \ \ \ \ \ \ \ \ curx1\ +=\ invslope1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00783}00783\ \ \ \ \ \ \ \ \ \ \ \ \ curx2\ +=\ invslope2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00784}00784\ \ \ \ \ \ \ \ \ \ \ \ \ scanline\_y++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00785}00785\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00786}00786\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Top\ flat\ triangle}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00787}00787\ \ \ \ \ \ \ \ \ invslope1\ =\ (float)(x\_2\ -\/\ x\_1)\ /\ (float)(y\_2\ -\/\ y\_1);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00788}00788\ \ \ \ \ \ \ \ \ invslope2\ =\ (float)(x\_2\ -\/\ x\_aux)\ /\ (float)(y\_2\ -\/\ y\_aux);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00789}00789\ \ \ \ \ \ \ \ \ curx1\ =\ x\_2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00790}00790\ \ \ \ \ \ \ \ \ curx2\ =\ x\_2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00791}00791\ \ \ \ \ \ \ \ \ scanline\_y\ =\ y\_2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00792}00792\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(scanline\_y\ >\ y\_1)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00793}00793\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}((\textcolor{keywordtype}{int})curx1,\ scanline\_y,\ (\textcolor{keywordtype}{int})curx2,\ scanline\_y,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00794}00794\ \ \ \ \ \ \ \ \ \ \ \ \ curx1\ -\/=\ invslope1;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00795}00795\ \ \ \ \ \ \ \ \ \ \ \ \ curx2\ -\/=\ invslope2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00796}00796\ \ \ \ \ \ \ \ \ \ \ \ \ scanline\_y-\/-\/;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00797}00797\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00798}00798\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___i_l_i9341_ga479dc2df6cfdfa86bf9c5123721f8e49}{ILI9341DrawLine}}(x\_1,\ y\_1,\ x\_aux,\ y\_aux,\ color);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00799}00799\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00800}00800\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00801}00801\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00802}\mbox{\hyperlink{group___i_l_i9341_ga6fcf1346ba44bd098e41392eab653318}{00802}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i_l_i9341_ga6fcf1346ba44bd098e41392eab653318}{ILI9341DrawPicture}}(uint16\_t\ x,\ uint16\_t\ y,\ uint16\_t\ width,\ uint16\_t\ height,\ \textcolor{keyword}{const}\ uint8\_t*\ pic)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00803}00803\ \ \ \ \ \textcolor{keyword}{static}\ uint16\_t\ i,\ j;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00804}00804\ \ \ \ \ \textcolor{keyword}{static}\ int32\_t\ bytes\_count;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00805}00805\ \ \ \ \ \textcolor{keyword}{static}\ uint8\_t\ pixel[\mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00806}00806\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00807}00807\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_a3ced3a9e7189797ae4b2c5cc34cc1886}{SetCursorPosition}}(x,\ y,\ x\ +\ width\ -\/\ 1,\ y\ +\ height\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00808}00808\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00809}00809\ \ \ \ \ \textcolor{comment}{/*\ Number\ of\ bytes\ to\ write.\ We\ have\ to\ write\ 2\ bytes/pixel\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00810}00810\ \ \ \ \ bytes\_count\ =\ width\ *\ height\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00811}00811\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00812}00812\ \ \ \ \ \textcolor{comment}{/*\ Start\ writing\ LCD\ memory\ */}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00813}00813\ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_write\ =\ \{\mbox{\hyperlink{ili9341_8c_aabb0fea5286144a240a956114bccce7a}{MEM\_WRITE}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00814}00814\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_write);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00815}00815\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00816}00816\ \ \ \ \ j\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00817}00817\ \ \ \ \ \textcolor{keywordflow}{while}(bytes\_count\ -\/\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}\ >\ 0)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00818}00818\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}};\ i++)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00819}00819\ \ \ \ \ \ \ \ \ \ \ \ \ pixel[i]\ =\ pic[j\ *\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}\ +\ i];}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00820}00820\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00821}00821\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_pixel\ =\ \{\mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}},\ pixel\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00822}00822\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_pixel);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00823}00823\ \ \ \ \ \ \ \ \ bytes\_count\ -\/=\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00824}00824\ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00825}00825\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00826}00826\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ bytes\_count;\ i++)\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00827}00827\ \ \ \ \ \ \ \ \ pixel[i]\ =\ pic[j\ *\ \mbox{\hyperlink{ili9341_8c_a3cbe8667aff6d42a70de59c7c557727c}{MAX\_VALUE\_SIZE}}\ +\ i];}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00828}00828\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00829}00829\ \ \ \ \ \mbox{\hyperlink{structlcd__cmd__t}{lcd\_cmd\_t}}\ lcd\_pixel\ =\ \{\mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ bytes\_count,\ pixel\};}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00830}00830\ \ \ \ \ \mbox{\hyperlink{ili9341_8c_aa1174c3cbb4307e2913a29c5234ee7e6}{WriteLCD}}(\&lcd\_pixel);}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00831}00831\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00832}00832\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00833}\mbox{\hyperlink{group___i_l_i9341_gafae878cd3134badb186d4f6eae0c5de9}{00833}}\ uint8\_t\ \mbox{\hyperlink{group___i_l_i9341_gafae878cd3134badb186d4f6eae0c5de9}{ILI9341DeInit}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00834}00834\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00835}00835\ \}}
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00836}00836\ }
+\DoxyCodeLine{\Hypertarget{ili9341_8c_source_l00837}00837\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

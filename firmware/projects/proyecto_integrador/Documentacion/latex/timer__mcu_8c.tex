@@ -1,0 +1,245 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/src/timer\+\_\+mcu.c}
+\hypertarget{timer__mcu_8c}{}\label{timer__mcu_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/timer\_mcu.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/timer\_mcu.c}}
+{\ttfamily \#include "{}timer\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}driver/gptimer.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/task.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{timer__mcu_8c_a0084affffdb426de14a2629cfe92c652}{US\+\_\+\+RESOLUTION\+\_\+\+HZ}}~1000000
+\item 
+\#define \mbox{\hyperlink{timer__mcu_8c_aa7a65675b0d17a71d0646e743bb4d1f0}{RESET\+\_\+\+COUNT\+\_\+\+VALUE}}~0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___timer_gae8617c0d176463a60441464ad26563f6}{Timer\+Init}} (\mbox{\hyperlink{structtimer__config__t}{timer\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+ini)
+\begin{DoxyCompactList}\small\item\em Timer initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___timer_ga0b1779c5b8f91cc83c8bfd127071ea2f}{Timer\+Start}} (\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}} timer)
+\begin{DoxyCompactList}\small\item\em Start timer count. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___timer_ga0860e7ffff656386879c7dcd600d0629}{Timer\+Stop}} (\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}} timer)
+\begin{DoxyCompactList}\small\item\em Pause timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___timer_ga80ed309959e5a179f5676ed4af547fa1}{Timer\+Reset}} (\mbox{\hyperlink{group___timer_ga5b93c89e9ca8359fa618753610f77a8d}{timer\+\_\+mcu\+\_\+t}} timer)
+\begin{DoxyCompactList}\small\item\em Reset timer count to 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+gptimer\+\_\+handle\+\_\+t \mbox{\hyperlink{timer__mcu_8c_adb4864b7053f61a0691085c9e7f48207}{timer\+\_\+a}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\item 
+gptimer\+\_\+handle\+\_\+t \mbox{\hyperlink{timer__mcu_8c_aef94044d1e3bc38b47b43af16c59ea60}{timer\+\_\+b}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\item 
+gptimer\+\_\+handle\+\_\+t \mbox{\hyperlink{timer__mcu_8c_a2939aafd32facea4e83f1b1a2573df8d}{timer\+\_\+c}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\item 
+const gptimer\+\_\+config\+\_\+t \mbox{\hyperlink{timer__mcu_8c_a8cbe89279afcba4e146f4f4f851f55dd}{timer\+\_\+config}}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{timer__mcu_8c_a3cf703184a43c9df961f5391e2fb1795}{timer\+\_\+a\+\_\+isr\+\_\+p}} )(void \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{timer__mcu_8c_a289b78452d903091ccd8f6b4021d195c}{timer\+\_\+b\+\_\+isr\+\_\+p}} )(void \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{timer__mcu_8c_a86031d2b8cf8f83b53cbe749d9f62112}{timer\+\_\+c\+\_\+isr\+\_\+p}} )(void \texorpdfstring{$\ast$}{*})
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{timer__mcu_8c_a25f9388382a57a243263678e74268e73}{timer\+\_\+a\+\_\+user\+\_\+data}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{timer__mcu_8c_a7cb36718dd13e907185633f7adaf4550}{timer\+\_\+b\+\_\+user\+\_\+data}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{timer__mcu_8c_ae84408911ab3b7bfd1fee20f7e016d4c}{timer\+\_\+c\+\_\+user\+\_\+data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva (\href{mailto:albano.penalva@uner.edu.ar}{\texttt{ albano.\+penalva@uner.\+edu.\+ar}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2023-\/10-\/20
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+Definición en el archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{timer__mcu_8c_aa7a65675b0d17a71d0646e743bb4d1f0}\label{timer__mcu_8c_aa7a65675b0d17a71d0646e743bb4d1f0} 
+\index{timer\_mcu.c@{timer\_mcu.c}!RESET\_COUNT\_VALUE@{RESET\_COUNT\_VALUE}}
+\index{RESET\_COUNT\_VALUE@{RESET\_COUNT\_VALUE}!timer\_mcu.c@{timer\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{RESET\_COUNT\_VALUE}{RESET\_COUNT\_VALUE}}
+{\footnotesize\ttfamily \#define RESET\+\_\+\+COUNT\+\_\+\+VALUE~0}
+
+Reset timer count to 0 
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00019}{19}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}} y \mbox{\hyperlink{timer__mcu_8c_source_l00138}{Timer\+Reset()}}.
+
+\Hypertarget{timer__mcu_8c_a0084affffdb426de14a2629cfe92c652}\label{timer__mcu_8c_a0084affffdb426de14a2629cfe92c652} 
+\index{timer\_mcu.c@{timer\_mcu.c}!US\_RESOLUTION\_HZ@{US\_RESOLUTION\_HZ}}
+\index{US\_RESOLUTION\_HZ@{US\_RESOLUTION\_HZ}!timer\_mcu.c@{timer\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{US\_RESOLUTION\_HZ}{US\_RESOLUTION\_HZ}}
+{\footnotesize\ttfamily \#define US\+\_\+\+RESOLUTION\+\_\+\+HZ~1000000}
+
+1usec 
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00018}{18}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{timer__mcu_8c_adb4864b7053f61a0691085c9e7f48207}\label{timer__mcu_8c_adb4864b7053f61a0691085c9e7f48207} 
+\index{timer\_mcu.c@{timer\_mcu.c}!timer\_a@{timer\_a}}
+\index{timer\_a@{timer\_a}!timer\_mcu.c@{timer\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{timer\_a}{timer\_a}}
+{\footnotesize\ttfamily gptimer\+\_\+handle\+\_\+t timer\+\_\+a = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00021}{21}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}, \mbox{\hyperlink{timer__mcu_8c_source_l00138}{Timer\+Reset()}}, \mbox{\hyperlink{timer__mcu_8c_source_l00110}{Timer\+Start()}} y \mbox{\hyperlink{timer__mcu_8c_source_l00124}{Timer\+Stop()}}.
+
+\Hypertarget{timer__mcu_8c_a3cf703184a43c9df961f5391e2fb1795}\label{timer__mcu_8c_a3cf703184a43c9df961f5391e2fb1795} 
+\index{timer\_mcu.c@{timer\_mcu.c}!timer\_a\_isr\_p@{timer\_a\_isr\_p}}
+\index{timer\_a\_isr\_p@{timer\_a\_isr\_p}!timer\_mcu.c@{timer\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{timer\_a\_isr\_p}{timer\_a\_isr\_p}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} timer\+\_\+a\+\_\+isr\+\_\+p) (void \texorpdfstring{$\ast$}{*}) (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00029}{29}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}.
+
+\Hypertarget{timer__mcu_8c_a25f9388382a57a243263678e74268e73}\label{timer__mcu_8c_a25f9388382a57a243263678e74268e73} 
+\index{timer\_mcu.c@{timer\_mcu.c}!timer\_a\_user\_data@{timer\_a\_user\_data}}
+\index{timer\_a\_user\_data@{timer\_a\_user\_data}!timer\_mcu.c@{timer\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{timer\_a\_user\_data}{timer\_a\_user\_data}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} timer\+\_\+a\+\_\+user\+\_\+data}
+
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00032}{32}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}.
+
+\Hypertarget{timer__mcu_8c_aef94044d1e3bc38b47b43af16c59ea60}\label{timer__mcu_8c_aef94044d1e3bc38b47b43af16c59ea60} 
+\index{timer\_mcu.c@{timer\_mcu.c}!timer\_b@{timer\_b}}
+\index{timer\_b@{timer\_b}!timer\_mcu.c@{timer\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{timer\_b}{timer\_b}}
+{\footnotesize\ttfamily gptimer\+\_\+handle\+\_\+t timer\+\_\+b = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00022}{22}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}, \mbox{\hyperlink{timer__mcu_8c_source_l00138}{Timer\+Reset()}}, \mbox{\hyperlink{timer__mcu_8c_source_l00110}{Timer\+Start()}} y \mbox{\hyperlink{timer__mcu_8c_source_l00124}{Timer\+Stop()}}.
+
+\Hypertarget{timer__mcu_8c_a289b78452d903091ccd8f6b4021d195c}\label{timer__mcu_8c_a289b78452d903091ccd8f6b4021d195c} 
+\index{timer\_mcu.c@{timer\_mcu.c}!timer\_b\_isr\_p@{timer\_b\_isr\_p}}
+\index{timer\_b\_isr\_p@{timer\_b\_isr\_p}!timer\_mcu.c@{timer\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{timer\_b\_isr\_p}{timer\_b\_isr\_p}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} timer\+\_\+b\+\_\+isr\+\_\+p) (void \texorpdfstring{$\ast$}{*}) (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00030}{30}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}.
+
+\Hypertarget{timer__mcu_8c_a7cb36718dd13e907185633f7adaf4550}\label{timer__mcu_8c_a7cb36718dd13e907185633f7adaf4550} 
+\index{timer\_mcu.c@{timer\_mcu.c}!timer\_b\_user\_data@{timer\_b\_user\_data}}
+\index{timer\_b\_user\_data@{timer\_b\_user\_data}!timer\_mcu.c@{timer\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{timer\_b\_user\_data}{timer\_b\_user\_data}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} timer\+\_\+b\+\_\+user\+\_\+data}
+
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00033}{33}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}.
+
+\Hypertarget{timer__mcu_8c_a2939aafd32facea4e83f1b1a2573df8d}\label{timer__mcu_8c_a2939aafd32facea4e83f1b1a2573df8d} 
+\index{timer\_mcu.c@{timer\_mcu.c}!timer\_c@{timer\_c}}
+\index{timer\_c@{timer\_c}!timer\_mcu.c@{timer\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{timer\_c}{timer\_c}}
+{\footnotesize\ttfamily gptimer\+\_\+handle\+\_\+t timer\+\_\+c = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00023}{23}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}, \mbox{\hyperlink{timer__mcu_8c_source_l00138}{Timer\+Reset()}}, \mbox{\hyperlink{timer__mcu_8c_source_l00110}{Timer\+Start()}} y \mbox{\hyperlink{timer__mcu_8c_source_l00124}{Timer\+Stop()}}.
+
+\Hypertarget{timer__mcu_8c_a86031d2b8cf8f83b53cbe749d9f62112}\label{timer__mcu_8c_a86031d2b8cf8f83b53cbe749d9f62112} 
+\index{timer\_mcu.c@{timer\_mcu.c}!timer\_c\_isr\_p@{timer\_c\_isr\_p}}
+\index{timer\_c\_isr\_p@{timer\_c\_isr\_p}!timer\_mcu.c@{timer\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{timer\_c\_isr\_p}{timer\_c\_isr\_p}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} timer\+\_\+c\+\_\+isr\+\_\+p) (void \texorpdfstring{$\ast$}{*}) (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00031}{31}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}.
+
+\Hypertarget{timer__mcu_8c_ae84408911ab3b7bfd1fee20f7e016d4c}\label{timer__mcu_8c_ae84408911ab3b7bfd1fee20f7e016d4c} 
+\index{timer\_mcu.c@{timer\_mcu.c}!timer\_c\_user\_data@{timer\_c\_user\_data}}
+\index{timer\_c\_user\_data@{timer\_c\_user\_data}!timer\_mcu.c@{timer\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{timer\_c\_user\_data}{timer\_c\_user\_data}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} timer\+\_\+c\+\_\+user\+\_\+data}
+
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00034}{34}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}.
+
+\Hypertarget{timer__mcu_8c_a8cbe89279afcba4e146f4f4f851f55dd}\label{timer__mcu_8c_a8cbe89279afcba4e146f4f4f851f55dd} 
+\index{timer\_mcu.c@{timer\_mcu.c}!timer\_config@{timer\_config}}
+\index{timer\_config@{timer\_config}!timer\_mcu.c@{timer\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{timer\_config}{timer\_config}}
+{\footnotesize\ttfamily const gptimer\+\_\+config\+\_\+t timer\+\_\+config}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .clk\_src\ =\ GPTIMER\_CLK\_SRC\_DEFAULT,\ }
+\DoxyCodeLine{\ \ \ \ .direction\ =\ GPTIMER\_COUNT\_UP,\ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ .resolution\_hz\ =\ \mbox{\hyperlink{timer__mcu_8c_a0084affffdb426de14a2629cfe92c652}{US\_RESOLUTION\_HZ}},\ \ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definición en la línea \mbox{\hyperlink{timer__mcu_8c_source_l00024}{24}} del archivo \mbox{\hyperlink{timer__mcu_8c_source}{timer\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}.
+

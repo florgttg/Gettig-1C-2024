@@ -1,0 +1,27 @@
+var spi__mcu_8c =
+[
+    [ "PIN_NUM_CLK", "spi__mcu_8c.html#a756bcaa6e44d1879623a058849c66fbb", null ],
+    [ "PIN_NUM_CS1", "spi__mcu_8c.html#aa2f6abf259e3a90857564314975b6eeb", null ],
+    [ "PIN_NUM_CS2", "spi__mcu_8c.html#a137551b499589b9dffe6148f9b4d3b46", null ],
+    [ "PIN_NUM_CS3", "spi__mcu_8c.html#a1c0520aae302b46de9931f0a4a757a15", null ],
+    [ "PIN_NUM_MISO", "spi__mcu_8c.html#a4ffa0949bfda52d9c7b37fcb148cbb53", null ],
+    [ "PIN_NUM_MOSI", "spi__mcu_8c.html#a060569807a8819489e6a7b4ee17ad67b", null ],
+    [ "SpiDeInit", "group___s_p_i.html#gac082e2d0f13dd3a3c67e4f30c71fcacf", null ],
+    [ "SpiInit", "group___s_p_i.html#gab45316fbf89f00655b81427e3e709596", null ],
+    [ "SpiRead", "group___s_p_i.html#ga401e936d7c4a7ec7866bd93d6e3e3a8d", null ],
+    [ "SpiReadWrite", "group___s_p_i.html#gabc656b4da81a1183cf8b8b67679d6e49", null ],
+    [ "SpiWrite", "group___s_p_i.html#ga8895abd934fb22a652c828b72f3eda13", null ],
+    [ "bus_cfg", "spi__mcu_8c.html#acff5631217f27db20d7049cd58791eaf", null ],
+    [ "spi_1", "spi__mcu_8c.html#a0a237932925279e740ad2f35122bda9c", null ],
+    [ "spi_1_isr_p", "spi__mcu_8c.html#aa9b8f1cd5882222c979d585bd8bafcd9", null ],
+    [ "spi_1_user_data", "spi__mcu_8c.html#a44572ba7fd2411e129e231e167dffbab", null ],
+    [ "spi_2", "spi__mcu_8c.html#a350c5eeed9a7697071fd6fcf68de2a39", null ],
+    [ "spi_2_isr_p", "spi__mcu_8c.html#ad19e020791d9f0a24d4b07a7f568e1c4", null ],
+    [ "spi_2_user_data", "spi__mcu_8c.html#ab0fdc32c261fde185ce71d1bc39fa74f", null ],
+    [ "spi_3", "spi__mcu_8c.html#ab651aa3ee48bd9dd7d95fe01cadba037", null ],
+    [ "spi_3_isr_p", "spi__mcu_8c.html#a69ecc920251934d2d9d311a9fc25ef68", null ],
+    [ "spi_3_user_data", "spi__mcu_8c.html#a9364697c61d08e5cf1a5b37e61cd373f", null ],
+    [ "transfer_mode_1", "spi__mcu_8c.html#a7fb397c433c08910058254af2f985ef3", null ],
+    [ "transfer_mode_2", "spi__mcu_8c.html#a35ee3b7edb1f4729718629aefd3aecf4", null ],
+    [ "transfer_mode_3", "spi__mcu_8c.html#a1009dbf10491aa42036acc69d855e829", null ]
+];

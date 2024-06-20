@@ -1,0 +1,191 @@
+\doxysection{main.\+py}
+\hypertarget{main_8py_source}{}\label{main_8py_source}\index{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/proyecto\_integrador/ProyectoFlappy/main.py@{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/proyecto\_integrador/ProyectoFlappy/main.py}}
+\mbox{\hyperlink{main_8py}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00001}\mbox{\hyperlink{namespacemain}{00001}}\ \textcolor{keyword}{import}\ pygame}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00002}00002\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00003}00003\ \textcolor{keyword}{import}\ random}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00004}00004\ \textcolor{keyword}{import}\ time}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00006}00006\ \textcolor{comment}{\#\ Inicialización\ de\ Pygame}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00007}00007\ pygame.init()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00009}00009\ \textcolor{comment}{\#\ Configuración\ de\ la\ pantalla}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00010}\mbox{\hyperlink{namespacemain_aa4d434a8b93410ea0ed660e48dac41c6}{00010}}\ screen\_width\ =\ 400}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00011}\mbox{\hyperlink{namespacemain_a3b4a1bd850991355b91c7bfc15247d49}{00011}}\ screen\_height\ =\ 600}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00012}\mbox{\hyperlink{namespacemain_a72bba37476e63c27f023823f17619987}{00012}}\ screen\ =\ pygame.display.set\_mode((screen\_width,\ screen\_height))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00013}\mbox{\hyperlink{namespacemain_af761a67e9d7ce9e23381088b6f2ae893}{00013}}\ clock\ =\ pygame.time.Clock()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00015}00015\ \textcolor{comment}{\#\ Colores}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00016}\mbox{\hyperlink{namespacemain_aa0a8e412645d58d87218f1659f5b8d4e}{00016}}\ WHITE\ =\ (255,\ 255,\ 255)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00017}\mbox{\hyperlink{namespacemain_a94f1bbc95586661d10e60ec5653c709d}{00017}}\ BLACK\ =\ (0,\ 0,\ 0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00019}00019\ \textcolor{comment}{\#\ Fuentes}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00020}\mbox{\hyperlink{namespacemain_a3416a118f2659683240717efead6aa9f}{00020}}\ flappyfont\ =\ pygame.font.Font(\textcolor{stringliteral}{'assets/FlappyBirdy.ttf'},\ 50)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00021}\mbox{\hyperlink{namespacemain_af18bb9025627467c42857f6b57902a47}{00021}}\ font\ =\ pygame.font.Font(\textcolor{stringliteral}{'assets/dogica.otf'},\ 14)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00023}00023\ \textcolor{comment}{\#\ Cargar\ imágenes}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00024}\mbox{\hyperlink{namespacemain_ad32ce94f8bb752ee5f63903411495087}{00024}}\ background\_img\ =\ pygame.image.load(\textcolor{stringliteral}{'assets/bg.png'}).convert()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00025}\mbox{\hyperlink{namespacemain_aef256127ec00ed2f201e99ddb521878f}{00025}}\ bird\_img\ =\ pygame.image.load(\textcolor{stringliteral}{'assets/bird.png'}).convert\_alpha()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00026}\mbox{\hyperlink{namespacemain_aaa1e6e9cd94195ae7c52db65f02c6f39}{00026}}\ pipe\_img\ =\ pygame.image.load(\textcolor{stringliteral}{'assets/pipe.png'}).convert\_alpha()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00027}\mbox{\hyperlink{namespacemain_a21243fb0720e683fce5f367eb23daa47}{00027}}\ start\_img=pygame.image.load(\textcolor{stringliteral}{'assets/init.png'}).convert()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00029}00029\ \textcolor{comment}{\#\ Clase\ para\ el\ pájaro}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00030}\mbox{\hyperlink{classmain_1_1_bird}{00030}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmain_1_1_bird}{Bird}}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00031}\mbox{\hyperlink{classmain_1_1_bird_abdd362d5f799ad16b5d6700efe590290}{00031}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classmain_1_1_bird_abdd362d5f799ad16b5d6700efe590290}{\_\_init\_\_}}(self):\ \ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00032}\mbox{\hyperlink{classmain_1_1_bird_a9336ebf25087d91c818ee6e9ec29f8c1}{00032}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_bird_a9336ebf25087d91c818ee6e9ec29f8c1}{x}}\ =\ 50}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00033}\mbox{\hyperlink{classmain_1_1_bird_a2fb1c5cf58867b5bbc9a1b145a86f3a0}{00033}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_bird_a2fb1c5cf58867b5bbc9a1b145a86f3a0}{y}}\ =\ screen\_height\ //\ 2}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00034}\mbox{\hyperlink{classmain_1_1_bird_aecfeca1289d00fbe5fc76a8dd5295913}{00034}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_bird_aecfeca1289d00fbe5fc76a8dd5295913}{velocity}}\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00035}\mbox{\hyperlink{classmain_1_1_bird_a5558ace5433f9aabbf0a0ec059900d94}{00035}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_bird_a5558ace5433f9aabbf0a0ec059900d94}{width}}\ =\ bird\_img.get\_width()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00036}\mbox{\hyperlink{classmain_1_1_bird_a509290c21d570ff479c1b9d9b1fe8810}{00036}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_bird_a509290c21d570ff479c1b9d9b1fe8810}{height}}\ =\ bird\_img.get\_height()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00037}\mbox{\hyperlink{classmain_1_1_bird_a597a053615e37d29283b8f2d32bfa4d8}{00037}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_bird_a597a053615e37d29283b8f2d32bfa4d8}{collisions}}\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00038}\mbox{\hyperlink{classmain_1_1_bird_a116f8b70476a6eb724b8b4d4107d28b0}{00038}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_bird_a116f8b70476a6eb724b8b4d4107d28b0}{has\_collided}}\ =\ \textcolor{keyword}{False}\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00039}00039\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00040}\mbox{\hyperlink{classmain_1_1_bird_aee92d1368e7eba9c024dfc1cb30258f6}{00040}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classmain_1_1_bird_aee92d1368e7eba9c024dfc1cb30258f6}{show}}(self):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ screen.blit(bird\_img,\ (self.\mbox{\hyperlink{classmain_1_1_bird_a9336ebf25087d91c818ee6e9ec29f8c1}{x}},\ self.\mbox{\hyperlink{classmain_1_1_bird_a2fb1c5cf58867b5bbc9a1b145a86f3a0}{y}}))\ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00043}\mbox{\hyperlink{classmain_1_1_bird_a3ed6c48ad94cd8dc1ef028827ce10997}{00043}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classmain_1_1_bird_a3ed6c48ad94cd8dc1ef028827ce10997}{update}}(self):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Asegura\ que\ el\ pájaro\ no\ se\ salga\ por\ la\ parte\ superior\ e\ inferior\ de\ la\ pantalla.}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classmain_1_1_bird_a2fb1c5cf58867b5bbc9a1b145a86f3a0}{y}}\ >\ screen\_height\ -\/\ self.\mbox{\hyperlink{classmain_1_1_bird_a509290c21d570ff479c1b9d9b1fe8810}{height}}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_bird_a2fb1c5cf58867b5bbc9a1b145a86f3a0}{y}}\ =\ screen\_height\ -\/\ self.\mbox{\hyperlink{classmain_1_1_bird_a509290c21d570ff479c1b9d9b1fe8810}{height}}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_bird_aecfeca1289d00fbe5fc76a8dd5295913}{velocity}}\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classmain_1_1_bird_a2fb1c5cf58867b5bbc9a1b145a86f3a0}{y}}\ <\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_bird_a2fb1c5cf58867b5bbc9a1b145a86f3a0}{y}}\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_bird_aecfeca1289d00fbe5fc76a8dd5295913}{velocity}}\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00053}\mbox{\hyperlink{classmain_1_1_bird_a583f88e66fc3a725a87f81610c847208}{00053}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classmain_1_1_bird_a583f88e66fc3a725a87f81610c847208}{up}}(self):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_bird_a2fb1c5cf58867b5bbc9a1b145a86f3a0}{y}}\ -\/=\ screen\_height\ //\ 9\ \ \textcolor{comment}{\#\ Tres\ movimientos\ para\ alcanzar\ el\ borde\ superior}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00056}\mbox{\hyperlink{classmain_1_1_bird_a573b5d98060a1212f11b23c7cebbdd19}{00056}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classmain_1_1_bird_a573b5d98060a1212f11b23c7cebbdd19}{down}}(self):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_bird_a2fb1c5cf58867b5bbc9a1b145a86f3a0}{y}}\ +=\ screen\_height\ //\ 9\ \ \textcolor{comment}{\#\ Tres\ movimientos\ para\ alcanzar\ el\ borde\ inferior}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00058}00058\ \ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00059}\mbox{\hyperlink{classmain_1_1_bird_a6f1032efb7a290b0e63b2d0c4e4de0b2}{00059}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classmain_1_1_bird_a6f1032efb7a290b0e63b2d0c4e4de0b2}{get\_rect}}(self):\ \ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pygame.Rect(self.\mbox{\hyperlink{classmain_1_1_bird_a9336ebf25087d91c818ee6e9ec29f8c1}{x}},\ self.\mbox{\hyperlink{classmain_1_1_bird_a2fb1c5cf58867b5bbc9a1b145a86f3a0}{y}},\ self.\mbox{\hyperlink{classmain_1_1_bird_a5558ace5433f9aabbf0a0ec059900d94}{width}},\ self.\mbox{\hyperlink{classmain_1_1_bird_a509290c21d570ff479c1b9d9b1fe8810}{height}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00062}00062\ \textcolor{comment}{\#\ Clase\ para\ los\ tubos}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00063}\mbox{\hyperlink{classmain_1_1_pipe}{00063}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmain_1_1_pipe}{Pipe}}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00064}\mbox{\hyperlink{classmain_1_1_pipe_abdd362d5f799ad16b5d6700efe590290}{00064}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classmain_1_1_pipe_abdd362d5f799ad16b5d6700efe590290}{\_\_init\_\_}}(self):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00065}\mbox{\hyperlink{classmain_1_1_pipe_a35a998703ea2cb77d0807a372a480fe6}{00065}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_pipe_a35a998703ea2cb77d0807a372a480fe6}{spacing}}\ =\ 170}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00066}\mbox{\hyperlink{classmain_1_1_pipe_a8aab264665f2085687d9eeca4c67a691}{00066}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_pipe_a8aab264665f2085687d9eeca4c67a691}{top}}\ =\ random.randint(50,\ screen\_height\ //\ 2)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00067}\mbox{\hyperlink{classmain_1_1_pipe_a1e1e13bec2639fca768af56dd3b64e9a}{00067}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_pipe_a1e1e13bec2639fca768af56dd3b64e9a}{bottom}}\ =\ screen\_height\ -\/\ (self.\mbox{\hyperlink{classmain_1_1_pipe_a8aab264665f2085687d9eeca4c67a691}{top}}\ +\ self.\mbox{\hyperlink{classmain_1_1_pipe_a35a998703ea2cb77d0807a372a480fe6}{spacing}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00068}\mbox{\hyperlink{classmain_1_1_pipe_a9336ebf25087d91c818ee6e9ec29f8c1}{00068}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_pipe_a9336ebf25087d91c818ee6e9ec29f8c1}{x}}\ =\ screen\_width}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00069}\mbox{\hyperlink{classmain_1_1_pipe_a5558ace5433f9aabbf0a0ec059900d94}{00069}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_pipe_a5558ace5433f9aabbf0a0ec059900d94}{width}}\ =\ pipe\_img.get\_width()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00070}\mbox{\hyperlink{classmain_1_1_pipe_a509290c21d570ff479c1b9d9b1fe8810}{00070}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_pipe_a509290c21d570ff479c1b9d9b1fe8810}{height}}\ =\ pipe\_img.get\_height()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00071}\mbox{\hyperlink{classmain_1_1_pipe_ab04a44aead88cfdbd44325ec2cf7a33a}{00071}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_pipe_ab04a44aead88cfdbd44325ec2cf7a33a}{speed}}\ =\ 6}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00073}\mbox{\hyperlink{classmain_1_1_pipe_aee92d1368e7eba9c024dfc1cb30258f6}{00073}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classmain_1_1_pipe_aee92d1368e7eba9c024dfc1cb30258f6}{show}}(self):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ screen.blit(pipe\_img,\ (self.\mbox{\hyperlink{classmain_1_1_pipe_a9336ebf25087d91c818ee6e9ec29f8c1}{x}},\ self.\mbox{\hyperlink{classmain_1_1_pipe_a8aab264665f2085687d9eeca4c67a691}{top}}\ -\/\ self.\mbox{\hyperlink{classmain_1_1_pipe_a509290c21d570ff479c1b9d9b1fe8810}{height}}))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ screen.blit(pipe\_img,\ (self.\mbox{\hyperlink{classmain_1_1_pipe_a9336ebf25087d91c818ee6e9ec29f8c1}{x}},\ screen\_height\ -\/\ self.\mbox{\hyperlink{classmain_1_1_pipe_a1e1e13bec2639fca768af56dd3b64e9a}{bottom}}))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00077}\mbox{\hyperlink{classmain_1_1_pipe_a3ed6c48ad94cd8dc1ef028827ce10997}{00077}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classmain_1_1_pipe_a3ed6c48ad94cd8dc1ef028827ce10997}{update}}(self):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classmain_1_1_pipe_a9336ebf25087d91c818ee6e9ec29f8c1}{x}}\ -\/=\ self.\mbox{\hyperlink{classmain_1_1_pipe_ab04a44aead88cfdbd44325ec2cf7a33a}{speed}}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00080}\mbox{\hyperlink{classmain_1_1_pipe_ad084e2977bc78c0c1e39e06f1bcb40ce}{00080}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classmain_1_1_pipe_ad084e2977bc78c0c1e39e06f1bcb40ce}{offscreen}}(self):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ self.\mbox{\hyperlink{classmain_1_1_pipe_a9336ebf25087d91c818ee6e9ec29f8c1}{x}}\ <\ -\/self.\mbox{\hyperlink{classmain_1_1_pipe_a5558ace5433f9aabbf0a0ec059900d94}{width}}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00082}00082\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00083}\mbox{\hyperlink{classmain_1_1_pipe_afa689d1e8acd3415bcd16593c0adfed8}{00083}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classmain_1_1_pipe_afa689d1e8acd3415bcd16593c0adfed8}{get\_top\_rect}}(self):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pygame.Rect(self.\mbox{\hyperlink{classmain_1_1_pipe_a9336ebf25087d91c818ee6e9ec29f8c1}{x}},\ self.\mbox{\hyperlink{classmain_1_1_pipe_a8aab264665f2085687d9eeca4c67a691}{top}}\ -\/\ self.\mbox{\hyperlink{classmain_1_1_pipe_a509290c21d570ff479c1b9d9b1fe8810}{height}},\ self.\mbox{\hyperlink{classmain_1_1_pipe_a5558ace5433f9aabbf0a0ec059900d94}{width}},\ self.\mbox{\hyperlink{classmain_1_1_pipe_a509290c21d570ff479c1b9d9b1fe8810}{height}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00086}\mbox{\hyperlink{classmain_1_1_pipe_ac79a7a2ce5dc15dbe46f2861aed86668}{00086}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classmain_1_1_pipe_ac79a7a2ce5dc15dbe46f2861aed86668}{get\_bottom\_rect}}(self):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pygame.Rect(self.\mbox{\hyperlink{classmain_1_1_pipe_a9336ebf25087d91c818ee6e9ec29f8c1}{x}},\ screen\_height\ -\/\ self.\mbox{\hyperlink{classmain_1_1_pipe_a1e1e13bec2639fca768af56dd3b64e9a}{bottom}},\ self.\mbox{\hyperlink{classmain_1_1_pipe_a5558ace5433f9aabbf0a0ec059900d94}{width}},\ self.\mbox{\hyperlink{classmain_1_1_pipe_a1e1e13bec2639fca768af56dd3b64e9a}{bottom}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00089}\mbox{\hyperlink{namespacemain_aed501794f6249eff9f6aa7cbda9a2f2c}{00089}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_aed501794f6249eff9f6aa7cbda9a2f2c}{draw\_text}}(text,\ font,\ color,\ surface,\ x,\ y):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00090}00090\ \ \ \ \ textobj\ =\ font.render(text,\ \textcolor{keyword}{True},\ color)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00091}00091\ \ \ \ \ textrect\ =\ textobj.get\_rect()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00092}00092\ \ \ \ \ textrect.topleft\ =\ (x,\ y)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00093}00093\ \ \ \ \ surface.blit(textobj,\ textrect)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00095}00095\ \textcolor{comment}{\#\ Función\ principal\ del\ juego}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00096}\mbox{\hyperlink{namespacemain_a51af30a60f9f02777c6396b8247e356f}{00096}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_a51af30a60f9f02777c6396b8247e356f}{main}}():}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00097}00097\ \ \ \ \ bird\ =\ \mbox{\hyperlink{classmain_1_1_bird}{Bird}}()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00098}00098\ \ \ \ \ pipes\ =\ []}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00099}00099\ \ \ \ \ pipes.append(\mbox{\hyperlink{classmain_1_1_pipe}{Pipe}}())}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00100}00100\ \ \ \ \ game\_started\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00101}00101\ \ \ \ \ game\_paused\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00102}00102\ \ \ \ \ start\_time\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00104}00104\ \ \ \ \ \textcolor{comment}{\#\ Página\ de\ inicio}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00105}00105\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keywordflow}{not}\ game\_started:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00106}00106\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00107}00107\ \ \ \ \ \ \ \ \ screen.blit(start\_img,\ (0,\ 0))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ event\ \textcolor{keywordflow}{in}\ pygame.event.get():}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ event.type\ ==\ pygame.QUIT:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pygame.quit()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sys.exit()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ event.type\ ==\ pygame.KEYDOWN:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ event.key\ ==\ pygame.K\_2:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ game\_started\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\_time\ =\ time.time()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ event.key\ ==\ pygame.K\_SPACE:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ game\_started\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\_time\ =\ time.time()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00121}00121\ \ \ \ \ \ \ \ \ pygame.display.flip()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00122}00122\ \ \ \ \ \ \ \ \ clock.tick(15)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ event\ \textcolor{keywordflow}{in}\ pygame.event.get():}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ event.type\ ==\ pygame.QUIT:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pygame.quit()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sys.exit()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ event.type\ ==\ pygame.KEYDOWN:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ event.key\ ==\ pygame.K\_SPACE:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ game\_paused\ =\ \textcolor{keywordflow}{not}\ game\_paused}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ event.key\ ==\ pygame.K\_UP:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bird.up()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ event.key\ ==\ pygame.K\_DOWN:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bird.down()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ game\_paused:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00140}00140\ \ \ \ \ \ \ \ \ screen.blit(background\_img,\ (0,\ 0))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00142}00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ game\_started:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ elapsed\_time\ =\ time.time()\ -\/\ start\_time}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ timer\_text\ =\ font.render(f\textcolor{stringliteral}{'Score:\ \{int(elapsed\_time)\}'},\ \textcolor{keyword}{True},\ WHITE)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ screen.blit(timer\_text,\ (10,\ 10))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00147}00147\ \ \ \ \ \ \ \ \ bird.update()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00148}00148\ \ \ \ \ \ \ \ \ bird.show()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00150}00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ len(pipes)\ >\ 0\ \textcolor{keywordflow}{and}\ pipes[0].offscreen():}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ pipes.pop(0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ len(pipes)\ ==\ 0\ \textcolor{keywordflow}{or}\ pipes[-\/1].x\ <\ screen\_width\ -\/\ 200:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ pipes.append(\mbox{\hyperlink{classmain_1_1_pipe}{Pipe}}())}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00156}00156\ \ \ \ \ \ \ \ \ bird\_in\_collision\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00157}00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ pipe\ \textcolor{keywordflow}{in}\ pipes:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ pipe.update()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ pipe.show()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ bird.get\_rect().colliderect(pipe.get\_top\_rect())\ \textcolor{keywordflow}{or}\ bird.get\_rect().colliderect(pipe.get\_bottom\_rect()):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bird\_in\_collision\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ bird.has\_collided:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bird.collisions\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bird.has\_collided\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ bird.collisions\ >=\ 5:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ game\_over\_text\ =\ flappyfont.render(\textcolor{stringliteral}{'0\ Game\ Over\ 0'},\ \textcolor{keyword}{True},\ WHITE)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ screen.blit(game\_over\_text,\ (screen\_width\ //\ 2\ -\/\ 100,\ screen\_height\ //\ 2))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ screen.blit(timer\_text,\ (screen\_width\ //\ 2\ -\/\ 75,\ screen\_height\ //\ 2\ +\ 35))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pygame.display.flip()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pygame.time.wait(5000)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pygame.quit()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sys.exit()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00173}00173\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ bird\_in\_collision:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ bird.has\_collided\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00177}00177\ \ \ \ \ \ \ \ \ life\ =\ \textcolor{stringliteral}{'000'}\ \textcolor{keywordflow}{if}\ bird.collisions\ ==\ 0\ \textcolor{keywordflow}{else}\ \textcolor{stringliteral}{'00'}\ \textcolor{keywordflow}{if}\ bird.collisions\ ==\ 1\ \textcolor{keywordflow}{else}\ \textcolor{stringliteral}{'0'}\ \textcolor{keywordflow}{if}\ bird.collisions\ ==\ 2\ \textcolor{keywordflow}{else}\ \textcolor{stringliteral}{''}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00178}00178\ \ \ \ \ \ \ \ \ collisions\_text\ =\ flappyfont.render(f\textcolor{stringliteral}{'\{life\}'},\ \textcolor{keyword}{True},\ WHITE)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00179}00179\ \ \ \ \ \ \ \ \ screen.blit(collisions\_text,\ (10,\ 50))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00181}00181\ \ \ \ \ \ \ \ \ pygame.display.flip()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00182}00182\ \ \ \ \ \ \ \ \ clock.tick(30)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00184}00184\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{"{}\_\_main\_\_"{}}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00185}00185\ \ \ \ \ \mbox{\hyperlink{namespacemain}{main}}()}
+
+\end{DoxyCode}

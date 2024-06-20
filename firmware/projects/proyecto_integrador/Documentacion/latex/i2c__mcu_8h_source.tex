@@ -1,0 +1,57 @@
+\doxysection{i2c\+\_\+mcu.\+h}
+\hypertarget{i2c__mcu_8h_source}{}\label{i2c__mcu_8h_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/i2c\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/i2c\_mcu.h}}
+\mbox{\hyperlink{i2c__mcu_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ I2C\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ I2C\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00027}00027\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}esp\_log.h"{}}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}driver/i2c.h"{}}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio__mcu_8h}{gpio\_mcu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00033}00033\ \textcolor{comment}{/*==================[macros]=================================================*/}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00035}00035\ \textcolor{comment}{/*==================[typedef]================================================*/}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00036}\mbox{\hyperlink{group___i2_c_ga033b5e8a30541fe4ff939a62fdb7a43d}{00036}}\ \textcolor{preprocessor}{\#define\ I2C\_MASTER\_SCL\_IO\ \ \ \ \ \ \ \ \ \ \ GPIO\_7\ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00037}\mbox{\hyperlink{group___i2_c_gaf47631d568bba17edf9d1ea042602bb6}{00037}}\ \textcolor{preprocessor}{\#define\ I2C\_MASTER\_SDA\_IO\ \ \ \ \ \ \ \ \ \ \ GPIO\_6\ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00038}\mbox{\hyperlink{group___i2_c_gaab9e642b6200f95fcbd2ad7466aaa2d3}{00038}}\ \textcolor{preprocessor}{\#define\ I2C\_MASTER\_NUM\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00039}\mbox{\hyperlink{group___i2_c_ga5c22ca4de37a83a59014e48b0a0b043d}{00039}}\ \textcolor{preprocessor}{\#define\ I2C\_MASTER\_FREQ\_HZ\ \ \ \ \ \ \ \ \ \ 400000\ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00040}\mbox{\hyperlink{group___i2_c_gaaa0e84f340ef5ea9db2d7624fdadaa26}{00040}}\ \textcolor{preprocessor}{\#define\ I2C\_MASTER\_TX\_BUF\_DISABLE\ \ \ 0\ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00041}\mbox{\hyperlink{group___i2_c_ga37a0707200e50e3b3e9ab28b1b8d6777}{00041}}\ \textcolor{preprocessor}{\#define\ I2C\_MASTER\_RX\_BUF\_DISABLE\ \ \ 0\ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00042}\mbox{\hyperlink{group___i2_c_ga7ebc0bc57afc33bd33967be8479690db}{00042}}\ \textcolor{preprocessor}{\#define\ I2C\_MASTER\_TIMEOUT\_MS\ \ \ \ \ \ \ 1000}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00043}00043\ \textcolor{comment}{/*==================[external\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00045}00045\ \textcolor{comment}{/*==================[external\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00050}00050\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group___i2_c_gae2cec986d327013569df22dd2945ff58}{I2C\_initialize}}(\ uint32\_t\ clockRateHz\ );}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00056}00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c_ga7dba17bc71077c236ff1e4af407448a7}{I2C\_enable}}(\textcolor{keywordtype}{bool}\ isEnabled);}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00067}00067\ int8\_t\ \mbox{\hyperlink{group___i2_c_ga9ff51515a73e2748e863f88b94453806}{I2C\_readBit}}(uint8\_t\ \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{devAddr}},\ uint8\_t\ regAddr,\ uint8\_t\ bitNum,\ uint8\_t\ *data,\ uint16\_t\ timeout);}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00079}00079\ int8\_t\ \mbox{\hyperlink{group___i2_c_ga45576a616bac63831ccbb0d803e02937}{I2C\_readBits}}(uint8\_t\ \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{devAddr}},\ uint8\_t\ regAddr,\ uint8\_t\ bitStart,\ uint8\_t\ length,\ uint8\_t\ *data,\ uint16\_t\ timeout);}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00089}00089\ int8\_t\ \mbox{\hyperlink{group___i2_c_ga4a21b6f9f325022b28bad83c9eb9896c}{I2C\_readByte}}(uint8\_t\ \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{devAddr}},\ uint8\_t\ regAddr,\ uint8\_t\ *data,\ uint16\_t\ timeout);}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00099}00099\ int8\_t\ \mbox{\hyperlink{group___i2_c_ga3c1b580e0f8d3bffbb1087265be558d2}{I2C\_readWord}}(uint8\_t\ \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{devAddr}},\ uint8\_t\ regAddr,\ uint16\_t\ *data,\ uint16\_t\ timeout);}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00110}00110\ int8\_t\ \mbox{\hyperlink{group___i2_c_ga63ed6aeafd8e26b0cf22f5477746c123}{I2C\_readBytes}}(uint8\_t\ \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{devAddr}},\ uint8\_t\ regAddr,\ uint8\_t\ length,\ uint8\_t\ *data,\ uint16\_t\ timeout);}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00120}00120\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group___i2_c_gadddc908cb8cdad77fc824cca1ac2f077}{I2C\_writeBit}}(uint8\_t\ \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{devAddr}},\ uint8\_t\ regAddr,\ uint8\_t\ bitNum,\ uint8\_t\ data);}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00131}00131\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group___i2_c_gacb23109c5269fd39be9c926552924eea}{I2C\_writeBits}}(uint8\_t\ \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{devAddr}},\ uint8\_t\ regAddr,\ uint8\_t\ bitStart,\ uint8\_t\ length,\ uint8\_t\ data);}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00140}00140\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group___i2_c_ga6525bb5162f38b6350d6bc3a3c9c98d7}{I2C\_writeByte}}(uint8\_t\ \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{devAddr}},\ uint8\_t\ regAddr,\ uint8\_t\ data);}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00149}00149\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group___i2_c_gabfa0fda26a1a14f65a058f8d6dc2b55b}{I2C\_writeWord}}(uint8\_t\ \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{devAddr}},\ uint8\_t\ regAddr,\ uint16\_t\ data);}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00159}00159\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group___i2_c_ga58d10cf019bafffc7f9b4c2a0b019b53}{I2C\_writeBytes}}(uint8\_t\ \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{devAddr}},\ uint8\_t\ regAddr,\ uint8\_t\ length,\ uint8\_t\ *data);}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00166}00166\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___i2_c_ga1900aab43da6013cadb944301c929562}{I2C\_SelectRegister}}(uint8\_t\ \mbox{\hyperlink{mpu6050_8c_aef9d7f9ccfe8fcda63e76f9541f59700}{devAddr}},\ uint8\_t\ reg);}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00171}00171\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \#ifndef\ I2C\_MCU\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{i2c__mcu_8h_source_l00173}00173\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

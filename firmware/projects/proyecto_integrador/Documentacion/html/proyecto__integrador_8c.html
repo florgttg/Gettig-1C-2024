@@ -1,0 +1,547 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Proyecto Integrador: Referencia del archivo C:/Repositorios/Gettig-1C-2024/firmware/projects/proyecto_integrador/main/proyecto_integrador.c</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Proyecto Integrador<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Gamificacion de ejerciocios de fisioterapia</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('proyecto__integrador_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo proyecto_integrador.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/task.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="gpio__mcu_8h_source.html">gpio_mcu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="led_8h_source.html">led.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ble__hid__mcu_8h_source.html">ble_hid_mcu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="switch_8h_source.html">switch.h</a>&quot;</code><br />
+<code>#include &quot;ADXL335.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="timer__mcu_8h_source.html">timer_mcu.h</a>&quot;</code><br />
+</div>
+<p><a href="proyecto__integrador_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:a086c5713e35d79f7ccb5b3213a59b2fd" id="r_a086c5713e35d79f7ccb5b3213a59b2fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a086c5713e35d79f7ccb5b3213a59b2fd">CONFIG_TIMER_VUELO</a>&#160;&#160;&#160;100000</td></tr>
+<tr class="separator:a086c5713e35d79f7ccb5b3213a59b2fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0782d3b9e79b2ef5eefef51d5b58a39d" id="r_a0782d3b9e79b2ef5eefef51d5b58a39d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0782d3b9e79b2ef5eefef51d5b58a39d">CONFIG_TIMER_CONTROLES</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="separator:a0782d3b9e79b2ef5eefef51d5b58a39d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a3ccd8a43b5c5e8a4d573780da1fd4a" id="r_a7a3ccd8a43b5c5e8a4d573780da1fd4a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a3ccd8a43b5c5e8a4d573780da1fd4a">LED_BT</a>&#160;&#160;&#160;<a class="el" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b">LED_1</a></td></tr>
+<tr class="separator:a7a3ccd8a43b5c5e8a4d573780da1fd4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0af85b0f645ffd6e7376a0f689a10fb" id="r_ae0af85b0f645ffd6e7376a0f689a10fb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0af85b0f645ffd6e7376a0f689a10fb">LED_START</a>&#160;&#160;&#160;<a class="el" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3">LED_3</a></td></tr>
+<tr class="separator:ae0af85b0f645ffd6e7376a0f689a10fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a045088801edfb3f18dae88c10c1d0bd0" id="r_a045088801edfb3f18dae88c10c1d0bd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a045088801edfb3f18dae88c10c1d0bd0">TeclaBarra</a> (void)</td></tr>
+<tr class="memdesc:a045088801edfb3f18dae88c10c1d0bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que envía un comando de teclado de la barra espaciadora a través de Bluetooth y da comienzo con la emulacion.  <br /></td></tr>
+<tr class="separator:a045088801edfb3f18dae88c10c1d0bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dce832fa0cab13e288fb7424ac51f50" id="r_a3dce832fa0cab13e288fb7424ac51f50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dce832fa0cab13e288fb7424ac51f50">Calibrar</a> (void)</td></tr>
+<tr class="memdesc:a3dce832fa0cab13e288fb7424ac51f50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que calibra el acelerometro.  <br /></td></tr>
+<tr class="separator:a3dce832fa0cab13e288fb7424ac51f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99437f7aa9e5d11b47fa932296838a64" id="r_a99437f7aa9e5d11b47fa932296838a64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99437f7aa9e5d11b47fa932296838a64">TeclaArriba</a> (void)</td></tr>
+<tr class="memdesc:a99437f7aa9e5d11b47fa932296838a64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que envía un comando de teclado de la tecla flecha arriba a través de Bluetooth.  <br /></td></tr>
+<tr class="separator:a99437f7aa9e5d11b47fa932296838a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a203632894056c52015b6e49d6642500d" id="r_a203632894056c52015b6e49d6642500d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a203632894056c52015b6e49d6642500d">TeclaAbajo</a> (void)</td></tr>
+<tr class="memdesc:a203632894056c52015b6e49d6642500d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que envía un comando de teclado de la tecla flecha abajo a través de Bluetooth.  <br /></td></tr>
+<tr class="separator:a203632894056c52015b6e49d6642500d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a789190c117d776b4a78b19732953b2fd" id="r_a789190c117d776b4a78b19732953b2fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a789190c117d776b4a78b19732953b2fd">Task_Volar</a> (void *pvParameter)</td></tr>
+<tr class="memdesc:a789190c117d776b4a78b19732953b2fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea que maneja el vuelo del oajaro,lee el acelerometro y calcula el angulo de movimiento entre el plano y y z.  <br /></td></tr>
+<tr class="separator:a789190c117d776b4a78b19732953b2fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a27e54af574b3ae191a8c80099e239a" id="r_a5a27e54af574b3ae191a8c80099e239a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a27e54af574b3ae191a8c80099e239a">Task_Controles</a> (void *pvParameter)</td></tr>
+<tr class="memdesc:a5a27e54af574b3ae191a8c80099e239a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tarea que prende y apaga los led 1 y3 segun el estado del bluetooth y si esta activada la emulación.  <br /></td></tr>
+<tr class="separator:a5a27e54af574b3ae191a8c80099e239a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10506548c0166cec6195f808a27701d6" id="r_a10506548c0166cec6195f808a27701d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10506548c0166cec6195f808a27701d6">FunctionTimerA</a> (void *param)</td></tr>
+<tr class="memdesc:a10506548c0166cec6195f808a27701d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función de callback para el timer A.  <br /></td></tr>
+<tr class="separator:a10506548c0166cec6195f808a27701d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaac5cc84aba38aa4ab933e3a00e92dfd" id="r_aaac5cc84aba38aa4ab933e3a00e92dfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaac5cc84aba38aa4ab933e3a00e92dfd">FunctionTimerB</a> (void *param)</td></tr>
+<tr class="memdesc:aaac5cc84aba38aa4ab933e3a00e92dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función de callback para el timer B.  <br /></td></tr>
+<tr class="separator:aaac5cc84aba38aa4ab933e3a00e92dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630544a7f0a2cc40d8a7fefab7e2fe70" id="r_a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a> (void)</td></tr>
+<tr class="memdesc:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funcion principal del programa Inicializa perifericos, bluetooth, crea tareas, configura timers e interrupciones.  <br /></td></tr>
+<tr class="separator:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ab376b87f96a574a793c03c53e75afec8" id="r_ab376b87f96a574a793c03c53e75afec8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab376b87f96a574a793c03c53e75afec8">start</a> = false</td></tr>
+<tr class="separator:ab376b87f96a574a793c03c53e75afec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03add7d850328814dbea59f72b4e3762" id="r_a03add7d850328814dbea59f72b4e3762"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03add7d850328814dbea59f72b4e3762">volar_task_handle</a> = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="separator:a03add7d850328814dbea59f72b4e3762"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d4e575f11f80f95ee9e5926054bd5bb" id="r_a2d4e575f11f80f95ee9e5926054bd5bb"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d4e575f11f80f95ee9e5926054bd5bb">controles_task_handle</a> = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="separator:a2d4e575f11f80f95ee9e5926054bd5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de «define»</h2>
+<a id="a0782d3b9e79b2ef5eefef51d5b58a39d" name="a0782d3b9e79b2ef5eefef51d5b58a39d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0782d3b9e79b2ef5eefef51d5b58a39d">&#9670;&#160;</a></span>CONFIG_TIMER_CONTROLES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CONFIG_TIMER_CONTROLES&#160;&#160;&#160;1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00051">51</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00198">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a086c5713e35d79f7ccb5b3213a59b2fd" name="a086c5713e35d79f7ccb5b3213a59b2fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a086c5713e35d79f7ccb5b3213a59b2fd">&#9670;&#160;</a></span>CONFIG_TIMER_VUELO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CONFIG_TIMER_VUELO&#160;&#160;&#160;100000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00050">50</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00198">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a7a3ccd8a43b5c5e8a4d573780da1fd4a" name="a7a3ccd8a43b5c5e8a4d573780da1fd4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a3ccd8a43b5c5e8a4d573780da1fd4a">&#9670;&#160;</a></span>LED_BT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED_BT&#160;&#160;&#160;<a class="el" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b">LED_1</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00053">53</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00145">Task_Controles()</a>.</p>
+
+</div>
+</div>
+<a id="ae0af85b0f645ffd6e7376a0f689a10fb" name="ae0af85b0f645ffd6e7376a0f689a10fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0af85b0f645ffd6e7376a0f689a10fb">&#9670;&#160;</a></span>LED_START</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED_START&#160;&#160;&#160;<a class="el" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3">LED_3</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00054">54</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00145">Task_Controles()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="a630544a7f0a2cc40d8a7fefab7e2fe70" name="a630544a7f0a2cc40d8a7fefab7e2fe70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630544a7f0a2cc40d8a7fefab7e2fe70">&#9670;&#160;</a></span>app_main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_main </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funcion principal del programa Inicializa perifericos, bluetooth, crea tareas, configura timers e interrupciones. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00198">198</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l01366">BleHidInit()</a>, <a class="el" href="proyecto__integrador_8c_source.html#l00078">Calibrar()</a>, <a class="el" href="proyecto__integrador_8c_source.html#l00051">CONFIG_TIMER_CONTROLES</a>, <a class="el" href="proyecto__integrador_8c_source.html#l00050">CONFIG_TIMER_VUELO</a>, <a class="el" href="proyecto__integrador_8c_source.html#l00060">controles_task_handle</a>, <a class="el" href="proyecto__integrador_8c_source.html#l00179">FunctionTimerA()</a>, <a class="el" href="proyecto__integrador_8c_source.html#l00187">FunctionTimerB()</a>, <a class="el" href="led_8c_source.html#l00031">LedsInit()</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>, <a class="el" href="switch_8h_source.html#l00032">SWITCH_1</a>, <a class="el" href="switch_8h_source.html#l00033">SWITCH_2</a>, <a class="el" href="switch_8c_source.html#l00047">SwitchActivInt()</a>, <a class="el" href="switch_8c_source.html#l00029">SwitchesInit()</a>, <a class="el" href="proyecto__integrador_8c_source.html#l00145">Task_Controles()</a>, <a class="el" href="proyecto__integrador_8c_source.html#l00105">Task_Volar()</a>, <a class="el" href="proyecto__integrador_8c_source.html#l00068">TeclaBarra()</a>, <a class="el" href="timer__mcu_8h_source.html#l00040">timer_config_t::timer</a>, <a class="el" href="timer__mcu_8h_source.html#l00032">TIMER_A</a>, <a class="el" href="timer__mcu_8h_source.html#l00033">TIMER_B</a>, <a class="el" href="timer__mcu_8c_source.html#l00055">TimerInit()</a>, <a class="el" href="timer__mcu_8c_source.html#l00110">TimerStart()</a> y <a class="el" href="proyecto__integrador_8c_source.html#l00059">volar_task_handle</a>.</p>
+
+</div>
+</div>
+<a id="a3dce832fa0cab13e288fb7424ac51f50" name="a3dce832fa0cab13e288fb7424ac51f50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dce832fa0cab13e288fb7424ac51f50">&#9670;&#160;</a></span>Calibrar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Calibrar </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función que calibra el acelerometro. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00078">78</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00198">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a10506548c0166cec6195f808a27701d6" name="a10506548c0166cec6195f808a27701d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10506548c0166cec6195f808a27701d6">&#9670;&#160;</a></span>FunctionTimerA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FunctionTimerA </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>param</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función de callback para el timer A. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param</td><td>Parámetro de la función. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00179">179</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="proyecto__integrador_8c_source.html#l00059">volar_task_handle</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00198">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="aaac5cc84aba38aa4ab933e3a00e92dfd" name="aaac5cc84aba38aa4ab933e3a00e92dfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaac5cc84aba38aa4ab933e3a00e92dfd">&#9670;&#160;</a></span>FunctionTimerB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FunctionTimerB </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>param</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función de callback para el timer B. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param</td><td>Parámetro de la función. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00187">187</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="proyecto__integrador_8c_source.html#l00060">controles_task_handle</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00198">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a5a27e54af574b3ae191a8c80099e239a" name="a5a27e54af574b3ae191a8c80099e239a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a27e54af574b3ae191a8c80099e239a">&#9670;&#160;</a></span>Task_Controles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Task_Controles </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameter</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tarea que prende y apaga los led 1 y3 segun el estado del bluetooth y si esta activada la emulación. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00145">145</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8h_source.html#l00039">BLE_CONNECTED</a>, <a class="el" href="ble__hid__mcu_8h_source.html#l00038">BLE_DISCONNECTED</a>, <a class="el" href="ble__hid__mcu_8h_source.html#l00037">BLE_OFF</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01417">BleHidStatus()</a>, <a class="el" href="proyecto__integrador_8c_source.html#l00053">LED_BT</a>, <a class="el" href="proyecto__integrador_8c_source.html#l00054">LED_START</a>, <a class="el" href="led_8c_source.html#l00065">LedOff()</a>, <a class="el" href="led_8c_source.html#l00046">LedOn()</a>, <a class="el" href="led_8c_source.html#l00084">LedToggle()</a> y <a class="el" href="proyecto__integrador_8c_source.html#l00057">start</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00198">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a789190c117d776b4a78b19732953b2fd" name="a789190c117d776b4a78b19732953b2fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a789190c117d776b4a78b19732953b2fd">&#9670;&#160;</a></span>Task_Volar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Task_Volar </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameter</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tarea que maneja el vuelo del oajaro,lee el acelerometro y calcula el angulo de movimiento entre el plano y y z. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00105">105</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="proyecto__integrador_8c_source.html#l00057">start</a>, <a class="el" href="proyecto__integrador_8c_source.html#l00095">TeclaAbajo()</a> y <a class="el" href="proyecto__integrador_8c_source.html#l00086">TeclaArriba()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00198">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a203632894056c52015b6e49d6642500d" name="a203632894056c52015b6e49d6642500d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a203632894056c52015b6e49d6642500d">&#9670;&#160;</a></span>TeclaAbajo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TeclaAbajo </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función que envía un comando de teclado de la tecla flecha abajo a través de Bluetooth. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00095">95</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l01421">BleHidSendKeyboard()</a> y <a class="el" href="ble__hid__mcu_8h_source.html#l00122">HID_KEY_DOWN_ARROW</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00105">Task_Volar()</a>.</p>
+
+</div>
+</div>
+<a id="a99437f7aa9e5d11b47fa932296838a64" name="a99437f7aa9e5d11b47fa932296838a64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99437f7aa9e5d11b47fa932296838a64">&#9670;&#160;</a></span>TeclaArriba()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TeclaArriba </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función que envía un comando de teclado de la tecla flecha arriba a través de Bluetooth. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00086">86</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l01421">BleHidSendKeyboard()</a> y <a class="el" href="ble__hid__mcu_8h_source.html#l00123">HID_KEY_UP_ARROW</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00105">Task_Volar()</a>.</p>
+
+</div>
+</div>
+<a id="a045088801edfb3f18dae88c10c1d0bd0" name="a045088801edfb3f18dae88c10c1d0bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a045088801edfb3f18dae88c10c1d0bd0">&#9670;&#160;</a></span>TeclaBarra()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TeclaBarra </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función que envía un comando de teclado de la barra espaciadora a través de Bluetooth y da comienzo con la emulacion. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00068">68</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l01421">BleHidSendKeyboard()</a>, <a class="el" href="ble__hid__mcu_8h_source.html#l00086">HID_KEY_SPACEBAR</a> y <a class="el" href="proyecto__integrador_8c_source.html#l00057">start</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00198">app_main()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="a2d4e575f11f80f95ee9e5926054bd5bb" name="a2d4e575f11f80f95ee9e5926054bd5bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d4e575f11f80f95ee9e5926054bd5bb">&#9670;&#160;</a></span>controles_task_handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t controles_task_handle = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00060">60</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00198">app_main()</a> y <a class="el" href="proyecto__integrador_8c_source.html#l00187">FunctionTimerB()</a>.</p>
+
+</div>
+</div>
+<a id="ab376b87f96a574a793c03c53e75afec8" name="ab376b87f96a574a793c03c53e75afec8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab376b87f96a574a793c03c53e75afec8">&#9670;&#160;</a></span>start</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool start = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00057">57</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00145">Task_Controles()</a>, <a class="el" href="proyecto__integrador_8c_source.html#l00105">Task_Volar()</a> y <a class="el" href="proyecto__integrador_8c_source.html#l00068">TeclaBarra()</a>.</p>
+
+</div>
+</div>
+<a id="a03add7d850328814dbea59f72b4e3762" name="a03add7d850328814dbea59f72b4e3762"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03add7d850328814dbea59f72b4e3762">&#9670;&#160;</a></span>volar_task_handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t volar_task_handle = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="proyecto__integrador_8c_source.html#l00059">59</a> del archivo <a class="el" href="proyecto__integrador_8c_source.html">proyecto_integrador.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="proyecto__integrador_8c_source.html#l00198">app_main()</a> y <a class="el" href="proyecto__integrador_8c_source.html#l00179">FunctionTimerA()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_8ab370a3c87896799f2b13e306a6cbe5.html">Gettig-1C-2024</a></li><li class="navelem"><a class="el" href="dir_ac96dec1f89f2e87072d900a17a4fb13.html">firmware</a></li><li class="navelem"><a class="el" href="dir_d776041ebcc422c46da689d45882ddac.html">projects</a></li><li class="navelem"><a class="el" href="dir_997e6c33be50d79d6a99d976f736ec18.html">proyecto_integrador</a></li><li class="navelem"><a class="el" href="dir_3260b6f50f370b4572c79fb0a2fc3475.html">main</a></li><li class="navelem"><a class="el" href="proyecto__integrador_8c.html">proyecto_integrador.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

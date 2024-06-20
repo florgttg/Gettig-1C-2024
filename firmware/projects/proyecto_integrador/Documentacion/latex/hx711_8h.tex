@@ -1,0 +1,36 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/inc/hx711.h}
+\hypertarget{hx711_8h}{}\label{hx711_8h}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/hx711.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/inc/hx711.h}}
+{\ttfamily \#include $<$gpio\+\_\+mcu.\+h$>$}\newline
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___drivers___devices_ga0253b5770d7658f386b17e6846be30bb}{HX711\+\_\+\+Init}} (uint8\+\_\+t gain, \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} pd\+\_\+sck, \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} dout)
+\begin{DoxyCompactList}\small\item\em The HX711 amplifier is a breakout board that allows you to easily read load cells to measure weight. It communicates with the EDU-\/\+ESP board via I2C. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{group___drivers___devices_ga71638214415227f49d5a68c1ab7ac5fc}{HX711\+\_\+is\+Ready}} (void)
+\begin{DoxyCompactList}\small\item\em Check if HX711 is ready. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_ga015618a3aeb885f497bb4e49703f0533}{HX711\+\_\+set\+Gain}} (uint8\+\_\+t gain)
+\begin{DoxyCompactList}\small\item\em Set the gain factor; takes effect only after a call to read() channel A can be set for a 128 or 64 gain; channel B has a fixed 32 gain depending on the parameter, the channel is also set to either A or B. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___drivers___devices_ga98ffbaa5e4a9d05cbe26d4f11c852b43}{HX711\+\_\+read}} (void)
+\begin{DoxyCompactList}\small\item\em Waits for the chip to be ready and returns a reading. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___drivers___devices_ga624121c6e72709fa80dec71b0bb5a09e}{HX711\+\_\+read\+Average}} (uint8\+\_\+t times)
+\begin{DoxyCompactList}\small\item\em Returns an average reading. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{group___drivers___devices_gab948b825f1a8bb789ffc918a9d56a0a9}{HX711\+\_\+get\+\_\+value}} (uint8\+\_\+t times)
+\begin{DoxyCompactList}\small\item\em Returns (read\+\_\+average() -\/ OFFSET), that is the current value without the tare weight. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group___drivers___devices_gac86aec8c4c9fb31a084f8c4b44cb6c11}{HX711\+\_\+get\+\_\+units}} (uint8\+\_\+t times)
+\begin{DoxyCompactList}\small\item\em Returns get\+\_\+value() divided by SCALE, that is the raw value divided by a value obtained via calibration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_ga49825990854e1a686bec6827116bd21a}{HX711\+\_\+tare}} (uint8\+\_\+t times)
+\begin{DoxyCompactList}\small\item\em Set the OFFSET value for tare weight. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_ga7f8fa1c373124a450721cd2f7c37ca65}{HX711\+\_\+set\+Scale}} (float scale)
+\begin{DoxyCompactList}\small\item\em Set the SCALE value; this value is used to convert the raw data to "{}human readable"{} data (measure units) \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group___drivers___devices_ga5f85e38a6bd3628b18a7fa39696e1734}{HX711\+\_\+get\+Scale}} (void)
+\begin{DoxyCompactList}\small\item\em Get the current SCALE. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_gafeb43438890820a40cac639b45e2f68e}{HX711\+\_\+set\+Offset}} (double offset)
+\item 
+double \mbox{\hyperlink{group___drivers___devices_ga88b64b36ae1198175c714bcb1d12824d}{HX711\+\_\+get\+Offset}} (void)
+\begin{DoxyCompactList}\small\item\em Get the current OFFSET. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_ga6f16f71a0f63a246364ac964488ac9eb}{HX711\+\_\+power\+Down}} (void)
+\begin{DoxyCompactList}\small\item\em Puts the chip into power down mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___drivers___devices_gaefe09edcab845b980ff9f23cb196a914}{HX711\+\_\+power\+Up}} (void)
+\begin{DoxyCompactList}\small\item\em Wakes up the chip after power down mode. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___drivers___devices_gaacc0fa70a56783b9a18f6ae8a6b37487}{shift\+In}} (void)
+\end{DoxyCompactItemize}

@@ -1,0 +1,57 @@
+\doxysection{spi\+\_\+mcu.\+h}
+\hypertarget{spi__mcu_8h_source}{}\label{spi__mcu_8h_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/spi\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/spi\_mcu.h}}
+\mbox{\hyperlink{spi__mcu_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ SPI\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ SPI\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00026}00026\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00029}00029\ \textcolor{comment}{/*==================[macros]=================================================*/}}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00031}00031\ \textcolor{comment}{/*==================[typedef]================================================*/}}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00037}\mbox{\hyperlink{group___s_p_i_ga919e4040af605e210f6c5f4c6fe13a12}{00037}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{group___s_p_i_ga919e4040af605e210f6c5f4c6fe13a12}{spi\_devices}}\ \{}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00038}\mbox{\hyperlink{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12aa4b24f86e59b845990862af6481c321f}{00038}}\ \ \ \ \ \mbox{\hyperlink{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12aa4b24f86e59b845990862af6481c321f}{SPI\_1}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00039}\mbox{\hyperlink{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12a78d05bc33881e02031f9bb60dc5312ee}{00039}}\ \ \ \ \ \mbox{\hyperlink{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12a78d05bc33881e02031f9bb60dc5312ee}{SPI\_2}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12a58b58ba7b098bbfb9fbb252304863a63}{SPI\_3}}\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00041}\mbox{\hyperlink{group___s_p_i_gga919e4040af605e210f6c5f4c6fe13a12a58b58ba7b098bbfb9fbb252304863a63}{00041}}\ \}\ \mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\_dev\_t}};}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00046}\mbox{\hyperlink{group___s_p_i_ga7ddb86ccba25a168f889234061e21692}{00046}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00047}\mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a8c818ffe07c247353de39ebce7a017c2}{00047}}\ \ \ \ \ \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a8c818ffe07c247353de39ebce7a017c2}{MODE0}}\ =\ 0,\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00048}\mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692ac96709e78c1f5f5e077b68b1c65d141d}{00048}}\ \ \ \ \ \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692ac96709e78c1f5f5e077b68b1c65d141d}{MODE1}}\ =\ 1,\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00049}\mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a7e24ffb02d34c2b3a679095809eafc55}{00049}}\ \ \ \ \ \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a7e24ffb02d34c2b3a679095809eafc55}{MODE2}}\ =\ 2,\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00050}\mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a7b316658e8633844a318cde3660e5a77}{00050}}\ \ \ \ \ \mbox{\hyperlink{group___s_p_i_gga7ddb86ccba25a168f889234061e21692a7b316658e8633844a318cde3660e5a77}{MODE3}}\ =\ 3,\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00051}00051\ \}\ \mbox{\hyperlink{group___s_p_i_ga7ddb86ccba25a168f889234061e21692}{clk\_mode\_t}};}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00056}\mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{00056}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00057}\mbox{\hyperlink{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa0cb4f6c37501162dcdcd5686e2efea9a}{00057}}\ \ \ \ \ \mbox{\hyperlink{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa0cb4f6c37501162dcdcd5686e2efea9a}{SPI\_POLLING}},\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00058}\mbox{\hyperlink{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa70e1201d8d9010717b07818bf975c5ed}{00058}}\ \ \ \ \ \mbox{\hyperlink{group___s_p_i_ggadfb7c2a6a73bfdf993e50505aa92992fa70e1201d8d9010717b07818bf975c5ed}{SPI\_INTERRUPT}},\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00059}00059\ \}\ \mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{transfer\_mode\_t}};}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00064}\mbox{\hyperlink{structspi__mcu__config__t}{00064}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00065}\mbox{\hyperlink{structspi__mcu__config__t_ab742c16164c5199448894aa0930a6e75}{00065}}\ \ \ \ \ \mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\_dev\_t}}\ \mbox{\hyperlink{structspi__mcu__config__t_ab742c16164c5199448894aa0930a6e75}{device}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00066}\mbox{\hyperlink{structspi__mcu__config__t_a4737b644103a7cbe225b36724f8d9120}{00066}}\ \ \ \ \ \mbox{\hyperlink{group___s_p_i_ga7ddb86ccba25a168f889234061e21692}{clk\_mode\_t}}\ \mbox{\hyperlink{structspi__mcu__config__t_a4737b644103a7cbe225b36724f8d9120}{clk\_mode}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00067}\mbox{\hyperlink{structspi__mcu__config__t_a32678c62007e0748dae550bd1007a07d}{00067}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structspi__mcu__config__t_a32678c62007e0748dae550bd1007a07d}{bitrate}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00068}\mbox{\hyperlink{structspi__mcu__config__t_a84b3bf61c72f30449d7e3e1a389b9ea2}{00068}}\ \ \ \ \ \mbox{\hyperlink{group___s_p_i_gadfb7c2a6a73bfdf993e50505aa92992f}{transfer\_mode\_t}}\ \mbox{\hyperlink{structspi__mcu__config__t_a84b3bf61c72f30449d7e3e1a389b9ea2}{transfer\_mode}};\ \ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00069}\mbox{\hyperlink{structspi__mcu__config__t_a672985730d2c0cf9105559adc9759a3a}{00069}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structspi__mcu__config__t_a672985730d2c0cf9105559adc9759a3a}{func\_p}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00070}\mbox{\hyperlink{structspi__mcu__config__t_aad5f5715cb799d57b86e98fe3bf701e1}{00070}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structspi__mcu__config__t_aad5f5715cb799d57b86e98fe3bf701e1}{param\_p}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00071}00071\ \}\ \mbox{\hyperlink{structspi__mcu__config__t}{spi\_mcu\_config\_t}};}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00072}00072\ \textcolor{comment}{/*==================[external\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00074}00074\ \textcolor{comment}{/*==================[external\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00081}00081\ uint8\_t\ \mbox{\hyperlink{group___s_p_i_gab45316fbf89f00655b81427e3e709596}{SpiInit}}(\mbox{\hyperlink{structspi__mcu__config__t}{spi\_mcu\_config\_t}}*\ spi);}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00090}00090\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___s_p_i_ga401e936d7c4a7ec7866bd93d6e3e3a8d}{SpiRead}}(\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\_dev\_t}}\ device,\ uint8\_t\ *\ rx\_buffer,\ uint32\_t\ rx\_buffer\_size);}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00099}00099\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___s_p_i_ga8895abd934fb22a652c828b72f3eda13}{SpiWrite}}(\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\_dev\_t}}\ device,\ uint8\_t\ *\ tx\_buffer,\ uint32\_t\ tx\_buffer\_size);}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00109}00109\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___s_p_i_gabc656b4da81a1183cf8b8b67679d6e49}{SpiReadWrite}}(\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\_dev\_t}}\ device,\ uint8\_t\ *\ tx\_buffer,\ uint8\_t\ *\ rx\_buffer,\ uint32\_t\ buffer\_size);}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00117}00117\ uint8\_t\ \mbox{\hyperlink{group___s_p_i_gac082e2d0f13dd3a3c67e4f30c71fcacf}{SpiDeInit}}(\mbox{\hyperlink{group___s_p_i_ga7d468ea862538a179a76e97b9085f075}{spi\_dev\_t}}\ device);}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00122}00122\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{spi__mcu_8h_source_l00124}00124\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

@@ -1,0 +1,55 @@
+\doxysection{analog\+\_\+io\+\_\+mcu.\+h}
+\hypertarget{analog__io__mcu_8h_source}{}\label{analog__io__mcu_8h_source}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/analog\_io\_mcu.h@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/inc/analog\_io\_mcu.h}}
+\mbox{\hyperlink{analog__io__mcu_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ ANALOG\_IO\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ ANALOG\_IO\_MCU\_H}}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00027}00027\ \textcolor{comment}{/*==================[inclusions]=============================================*/}}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}stdint.h"{}}}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00029}00029\ \textcolor{comment}{/*==================[macros]=================================================*/}}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00030}\mbox{\hyperlink{group___analog___i_o_ga4ebdf50515e5d73c58c24fd1491770dc}{00030}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{group___analog___i_o_ga4ebdf50515e5d73c58c24fd1491770dc}{adc\_ch}}\ \{}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00031}\mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca839bb189c047995024b04db6c0dbb29f}{00031}}\ \ \ \ \ \mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca839bb189c047995024b04db6c0dbb29f}{CH0}}\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00032}\mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e}{00032}}\ \ \ \ \ \mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e}{CH1}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00033}\mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dcae574b39c34bd88c27ea641014831e53a}{00033}}\ \ \ \ \ \mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dcae574b39c34bd88c27ea641014831e53a}{CH2}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{group___analog___i_o_gga4ebdf50515e5d73c58c24fd1491770dcaaee6d12bf63ae430250764aa97e9e429}{CH3}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00035}\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{00035}}\ \}\ \mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\_ch\_t}};}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00037}\mbox{\hyperlink{group___analog___i_o_ga51acd785c14953090a3507d4fa8e5939}{00037}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{group___analog___i_o_ga51acd785c14953090a3507d4fa8e5939}{adc\_mode}}\ \{}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00038}\mbox{\hyperlink{group___analog___i_o_gga51acd785c14953090a3507d4fa8e5939a3b0a8cf9a7759ea8b7c9494eb7fb3dd4}{00038}}\ \ \ \ \ \mbox{\hyperlink{group___analog___i_o_gga51acd785c14953090a3507d4fa8e5939a3b0a8cf9a7759ea8b7c9494eb7fb3dd4}{ADC\_SINGLE}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00039}\mbox{\hyperlink{group___analog___i_o_gga51acd785c14953090a3507d4fa8e5939a2c63a9e4a7bd5a4da1cb97f40f1cb49d}{00039}}\ \ \ \ \ \mbox{\hyperlink{group___analog___i_o_gga51acd785c14953090a3507d4fa8e5939a2c63a9e4a7bd5a4da1cb97f40f1cb49d}{ADC\_CONTINUOUS}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00040}\mbox{\hyperlink{group___analog___i_o_ga3e4744e022398e776a8dbdd97903a629}{00040}}\ \}\ \mbox{\hyperlink{group___analog___i_o_ga3e4744e022398e776a8dbdd97903a629}{adc\_mode\_t}};}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00042}\mbox{\hyperlink{group___analog___i_o_ga4aa2a4ab86ce00c23035e5cee2e7fc7e}{00042}}\ \textcolor{preprocessor}{\#define\ DAC\ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00043}00043\ \textcolor{comment}{/*==================[typedef]================================================*/}}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00048}\mbox{\hyperlink{structanalog__input__config__t}{00048}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00049}\mbox{\hyperlink{structanalog__input__config__t_a16d10b35d778a5d4fdbda4d75981d310}{00049}}\ \ \ \ \ \mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\_ch\_t}}\ \mbox{\hyperlink{structanalog__input__config__t_a16d10b35d778a5d4fdbda4d75981d310}{input}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00050}\mbox{\hyperlink{structanalog__input__config__t_a56cce61871ae1c1c5317d84d747f87c1}{00050}}\ \ \ \ \ \mbox{\hyperlink{group___analog___i_o_ga3e4744e022398e776a8dbdd97903a629}{adc\_mode\_t}}\ \mbox{\hyperlink{structanalog__input__config__t_a56cce61871ae1c1c5317d84d747f87c1}{mode}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00051}\mbox{\hyperlink{structanalog__input__config__t_a672985730d2c0cf9105559adc9759a3a}{00051}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structanalog__input__config__t_a672985730d2c0cf9105559adc9759a3a}{func\_p}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00052}\mbox{\hyperlink{structanalog__input__config__t_aad5f5715cb799d57b86e98fe3bf701e1}{00052}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structanalog__input__config__t_aad5f5715cb799d57b86e98fe3bf701e1}{param\_p}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00053}\mbox{\hyperlink{structanalog__input__config__t_a25204106348e34dfe9da6ac6e61b08c8}{00053}}\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structanalog__input__config__t_a25204106348e34dfe9da6ac6e61b08c8}{sample\_frec}};\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00054}00054\ \}\ \mbox{\hyperlink{structanalog__input__config__t}{analog\_input\_config\_t}};\ \ \ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00056}00056\ \textcolor{comment}{/*==================[external\ data\ declaration]==============================*/}}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00058}00058\ \textcolor{comment}{/*==================[external\ functions\ declaration]=========================*/}}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00065}00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___analog___i_o_ga24ce5556aa4682468220b982f151cdfe}{AnalogInputInit}}(\mbox{\hyperlink{structanalog__input__config__t}{analog\_input\_config\_t}}\ *config);}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00072}00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___analog___i_o_gab57399e946247652a096a0e2d3a1b69a}{AnalogOutputInit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00081}00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___analog___i_o_gab5ae00a35744f407072230979e593fd9}{AnalogInputReadSingle}}(\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\_ch\_t}}\ channel,\ uint16\_t\ *value);}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00088}00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___analog___i_o_ga59d18db7ff84dc756b4a66f5331a23eb}{AnalogStartContinuous}}(\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\_ch\_t}}\ channel);}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00095}00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___analog___i_o_gaea40f5dd5d020c0854734479d52458c2}{AnalogStopContinuous}}(\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\_ch\_t}}\ channel);}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00103}00103\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___analog___i_o_ga042e3964ac18e816a5eb4dfca78bb223}{AnalogInputReadContinuous}}(\mbox{\hyperlink{group___analog___i_o_gac537c4efc9fd03387fe824872bae8830}{adc\_ch\_t}}\ channel,\ uint16\_t\ *values);}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00111}00111\ uint16\_t\ \mbox{\hyperlink{group___analog___i_o_gac3a4df81e78216c7d552c0b9d8b1128d}{AnalogRaw2mV}}(uint16\_t\ value);}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00118}00118\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___analog___i_o_gad3fea4064bfa31ae309d4da542347198}{AnalogOutputWrite}}(uint8\_t\ value);}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00123}00123\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \#ifndef\ ANALOG\_IO\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{analog__io__mcu_8h_source_l00125}00125\ \textcolor{comment}{/*==================[end\ of\ file]============================================*/}}
+
+\end{DoxyCode}

@@ -1,0 +1,136 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/devices/src/hc\+\_\+sr04.c}
+\hypertarget{hc__sr04_8c}{}\label{hc__sr04_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/hc\_sr04.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/devices/src/hc\_sr04.c}}
+{\ttfamily \#include "{}hc\+\_\+sr04.\+h"{}}\newline
+{\ttfamily \#include "{}delay\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{hc__sr04_8c_aa6532a029eb01783785bf19751d1252d}{MAX\+\_\+\+US}}~17700 /\texorpdfstring{$\ast$}{*} maximun distance time in us (300cm or 118inch) \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{hc__sr04_8c_a297495b035c5319be312b8ff323a34ba}{MAX\+\_\+\+CM}}~300  /\texorpdfstring{$\ast$}{*} maximun distance time in cm \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{hc__sr04_8c_a05ecf89678042f348a45957db338d788}{MAX\+\_\+\+INCH}}~118  /\texorpdfstring{$\ast$}{*} maximun distance time in inch \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{hc__sr04_8c_a5e52844206c91ee47dcdf1697595b43a}{US2\+CM}}~59  /\texorpdfstring{$\ast$}{*} scale factor to conver pulse width to cm \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{hc__sr04_8c_a34f3975d94758e78ddea4f3bcac2398b}{US2\+INCH}}~150  /\texorpdfstring{$\ast$}{*} scale factor to conver pulse width to inch \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{hc__sr04_8c_a514caef8617b9e64da34797c47f20421}{WAIT\+\_\+\+MAX}}~5900 /\texorpdfstring{$\ast$}{*} maximun time to wait for echo signal \texorpdfstring{$\ast$}{*}/
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{group___h_c___s_r04_ga9d26cc017fe45c607d08231ebffb46c4}{Hc\+Sr04\+Init}} (\mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} echo, \mbox{\hyperlink{group___g_i_o_p_gac6f7bd4f7ee306a4519f04641cbf2d67}{gpio\+\_\+t}} trigger)
+\begin{DoxyCompactList}\small\item\em Driver for reading distance with HC-\/\+SR04 module. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{group___h_c___s_r04_ga73a5aaa2183e55d104d4e0c2c435e251}{Hc\+Sr04\+Read\+Distance\+In\+Centimeters}} (void)
+\begin{DoxyCompactList}\small\item\em Read distance. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{group___h_c___s_r04_gad819b1b0326d1edca15ec7d153aa5700}{Hc\+Sr04\+Read\+Distance\+In\+Inches}} (void)
+\begin{DoxyCompactList}\small\item\em Read distance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___h_c___s_r04_ga549ba28c76f1282cfd92f57f3bca3ff0}{Hc\+Sr04\+Deinit}} (void)
+\begin{DoxyCompactList}\small\item\em HC\+\_\+\+SR04 de-\/initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva (\href{mailto:albano.penalva@uner.edu.ar}{\texttt{ albano.\+penalva@uner.\+edu.\+ar}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2023-\/10-\/20
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+Definición en el archivo \mbox{\hyperlink{hc__sr04_8c_source}{hc\+\_\+sr04.\+c}}.
+
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{hc__sr04_8c_a297495b035c5319be312b8ff323a34ba}\label{hc__sr04_8c_a297495b035c5319be312b8ff323a34ba} 
+\index{hc\_sr04.c@{hc\_sr04.c}!MAX\_CM@{MAX\_CM}}
+\index{MAX\_CM@{MAX\_CM}!hc\_sr04.c@{hc\_sr04.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_CM}{MAX\_CM}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+CM~300  /\texorpdfstring{$\ast$}{*} maximun distance time in cm \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{hc__sr04_8c_source_l00017}{17}} del archivo \mbox{\hyperlink{hc__sr04_8c_source}{hc\+\_\+sr04.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hc__sr04_8c_source_l00045}{Hc\+Sr04\+Read\+Distance\+In\+Centimeters()}}.
+
+\Hypertarget{hc__sr04_8c_a05ecf89678042f348a45957db338d788}\label{hc__sr04_8c_a05ecf89678042f348a45957db338d788} 
+\index{hc\_sr04.c@{hc\_sr04.c}!MAX\_INCH@{MAX\_INCH}}
+\index{MAX\_INCH@{MAX\_INCH}!hc\_sr04.c@{hc\_sr04.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_INCH}{MAX\_INCH}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+INCH~118  /\texorpdfstring{$\ast$}{*} maximun distance time in inch \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{hc__sr04_8c_source_l00018}{18}} del archivo \mbox{\hyperlink{hc__sr04_8c_source}{hc\+\_\+sr04.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hc__sr04_8c_source_l00067}{Hc\+Sr04\+Read\+Distance\+In\+Inches()}}.
+
+\Hypertarget{hc__sr04_8c_aa6532a029eb01783785bf19751d1252d}\label{hc__sr04_8c_aa6532a029eb01783785bf19751d1252d} 
+\index{hc\_sr04.c@{hc\_sr04.c}!MAX\_US@{MAX\_US}}
+\index{MAX\_US@{MAX\_US}!hc\_sr04.c@{hc\_sr04.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_US}{MAX\_US}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+US~17700 /\texorpdfstring{$\ast$}{*} maximun distance time in us (300cm or 118inch) \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{hc__sr04_8c_source_l00016}{16}} del archivo \mbox{\hyperlink{hc__sr04_8c_source}{hc\+\_\+sr04.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hc__sr04_8c_source_l00045}{Hc\+Sr04\+Read\+Distance\+In\+Centimeters()}} y \mbox{\hyperlink{hc__sr04_8c_source_l00067}{Hc\+Sr04\+Read\+Distance\+In\+Inches()}}.
+
+\Hypertarget{hc__sr04_8c_a5e52844206c91ee47dcdf1697595b43a}\label{hc__sr04_8c_a5e52844206c91ee47dcdf1697595b43a} 
+\index{hc\_sr04.c@{hc\_sr04.c}!US2CM@{US2CM}}
+\index{US2CM@{US2CM}!hc\_sr04.c@{hc\_sr04.c}}
+\doxysubsubsection{\texorpdfstring{US2CM}{US2CM}}
+{\footnotesize\ttfamily \#define US2\+CM~59  /\texorpdfstring{$\ast$}{*} scale factor to conver pulse width to cm \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{hc__sr04_8c_source_l00019}{19}} del archivo \mbox{\hyperlink{hc__sr04_8c_source}{hc\+\_\+sr04.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hc__sr04_8c_source_l00045}{Hc\+Sr04\+Read\+Distance\+In\+Centimeters()}}.
+
+\Hypertarget{hc__sr04_8c_a34f3975d94758e78ddea4f3bcac2398b}\label{hc__sr04_8c_a34f3975d94758e78ddea4f3bcac2398b} 
+\index{hc\_sr04.c@{hc\_sr04.c}!US2INCH@{US2INCH}}
+\index{US2INCH@{US2INCH}!hc\_sr04.c@{hc\_sr04.c}}
+\doxysubsubsection{\texorpdfstring{US2INCH}{US2INCH}}
+{\footnotesize\ttfamily \#define US2\+INCH~150  /\texorpdfstring{$\ast$}{*} scale factor to conver pulse width to inch \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{hc__sr04_8c_source_l00020}{20}} del archivo \mbox{\hyperlink{hc__sr04_8c_source}{hc\+\_\+sr04.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hc__sr04_8c_source_l00067}{Hc\+Sr04\+Read\+Distance\+In\+Inches()}}.
+
+\Hypertarget{hc__sr04_8c_a514caef8617b9e64da34797c47f20421}\label{hc__sr04_8c_a514caef8617b9e64da34797c47f20421} 
+\index{hc\_sr04.c@{hc\_sr04.c}!WAIT\_MAX@{WAIT\_MAX}}
+\index{WAIT\_MAX@{WAIT\_MAX}!hc\_sr04.c@{hc\_sr04.c}}
+\doxysubsubsection{\texorpdfstring{WAIT\_MAX}{WAIT\_MAX}}
+{\footnotesize\ttfamily \#define WAIT\+\_\+\+MAX~5900 /\texorpdfstring{$\ast$}{*} maximun time to wait for echo signal \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definición en la línea \mbox{\hyperlink{hc__sr04_8c_source_l00021}{21}} del archivo \mbox{\hyperlink{hc__sr04_8c_source}{hc\+\_\+sr04.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{hc__sr04_8c_source_l00045}{Hc\+Sr04\+Read\+Distance\+In\+Centimeters()}} y \mbox{\hyperlink{hc__sr04_8c_source_l00067}{Hc\+Sr04\+Read\+Distance\+In\+Inches()}}.
+

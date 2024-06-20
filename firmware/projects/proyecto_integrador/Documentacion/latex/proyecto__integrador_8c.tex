@@ -1,0 +1,362 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+Gettig-\/1\+C-\/2024/firmware/projects/proyecto\+\_\+integrador/main/proyecto\+\_\+integrador.c}
+\hypertarget{proyecto__integrador_8c}{}\label{proyecto__integrador_8c}\index{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/proyecto\_integrador/main/proyecto\_integrador.c@{C:/Repositorios/Gettig-\/1C-\/2024/firmware/projects/proyecto\_integrador/main/proyecto\_integrador.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}freertos/\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/task.\+h"{}}\newline
+{\ttfamily \#include "{}gpio\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}led.\+h"{}}\newline
+{\ttfamily \#include "{}ble\+\_\+hid\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}switch.\+h"{}}\newline
+{\ttfamily \#include "{}ADXL335.\+h"{}}\newline
+{\ttfamily \#include "{}timer\+\_\+mcu.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{proyecto__integrador_8c_a086c5713e35d79f7ccb5b3213a59b2fd}{CONFIG\+\_\+\+TIMER\+\_\+\+VUELO}}~100000
+\item 
+\#define \mbox{\hyperlink{proyecto__integrador_8c_a0782d3b9e79b2ef5eefef51d5b58a39d}{CONFIG\+\_\+\+TIMER\+\_\+\+CONTROLES}}~1000
+\item 
+\#define \mbox{\hyperlink{proyecto__integrador_8c_a7a3ccd8a43b5c5e8a4d573780da1fd4a}{LED\+\_\+\+BT}}~\mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b}{LED\+\_\+1}}
+\item 
+\#define \mbox{\hyperlink{proyecto__integrador_8c_ae0af85b0f645ffd6e7376a0f689a10fb}{LED\+\_\+\+START}}~\mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3}{LED\+\_\+3}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{proyecto__integrador_8c_a045088801edfb3f18dae88c10c1d0bd0}{Tecla\+Barra}} (void)
+\begin{DoxyCompactList}\small\item\em Función que envía un comando de teclado de la barra espaciadora a través de Bluetooth y da comienzo con la emulacion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{proyecto__integrador_8c_a3dce832fa0cab13e288fb7424ac51f50}{Calibrar}} (void)
+\begin{DoxyCompactList}\small\item\em Función que calibra el acelerometro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{proyecto__integrador_8c_a99437f7aa9e5d11b47fa932296838a64}{Tecla\+Arriba}} (void)
+\begin{DoxyCompactList}\small\item\em Función que envía un comando de teclado de la tecla flecha arriba a través de Bluetooth. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{proyecto__integrador_8c_a203632894056c52015b6e49d6642500d}{Tecla\+Abajo}} (void)
+\begin{DoxyCompactList}\small\item\em Función que envía un comando de teclado de la tecla flecha abajo a través de Bluetooth. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{proyecto__integrador_8c_a789190c117d776b4a78b19732953b2fd}{Task\+\_\+\+Volar}} (void \texorpdfstring{$\ast$}{*}pv\+Parameter)
+\begin{DoxyCompactList}\small\item\em Tarea que maneja el vuelo del oajaro,lee el acelerometro y calcula el angulo de movimiento entre el plano y y z. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{proyecto__integrador_8c_a5a27e54af574b3ae191a8c80099e239a}{Task\+\_\+\+Controles}} (void \texorpdfstring{$\ast$}{*}pv\+Parameter)
+\begin{DoxyCompactList}\small\item\em Tarea que prende y apaga los led 1 y3 segun el estado del bluetooth y si esta activada la emulación. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{proyecto__integrador_8c_a10506548c0166cec6195f808a27701d6}{Function\+TimerA}} (void \texorpdfstring{$\ast$}{*}param)
+\begin{DoxyCompactList}\small\item\em Función de callback para el timer A. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{proyecto__integrador_8c_aaac5cc84aba38aa4ab933e3a00e92dfd}{Function\+TimerB}} (void \texorpdfstring{$\ast$}{*}param)
+\begin{DoxyCompactList}\small\item\em Función de callback para el timer B. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{proyecto__integrador_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}{app\+\_\+main}} (void)
+\begin{DoxyCompactList}\small\item\em Funcion principal del programa Inicializa perifericos, bluetooth, crea tareas, configura timers e interrupciones. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{proyecto__integrador_8c_ab376b87f96a574a793c03c53e75afec8}{start}} = false
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{proyecto__integrador_8c_a03add7d850328814dbea59f72b4e3762}{volar\+\_\+task\+\_\+handle}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{proyecto__integrador_8c_a2d4e575f11f80f95ee9e5926054bd5bb}{controles\+\_\+task\+\_\+handle}} = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{proyecto__integrador_8c_a0782d3b9e79b2ef5eefef51d5b58a39d}\label{proyecto__integrador_8c_a0782d3b9e79b2ef5eefef51d5b58a39d} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!CONFIG\_TIMER\_CONTROLES@{CONFIG\_TIMER\_CONTROLES}}
+\index{CONFIG\_TIMER\_CONTROLES@{CONFIG\_TIMER\_CONTROLES}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{CONFIG\_TIMER\_CONTROLES}{CONFIG\_TIMER\_CONTROLES}}
+{\footnotesize\ttfamily \#define CONFIG\+\_\+\+TIMER\+\_\+\+CONTROLES~1000}
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00051}{51}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00198}{app\+\_\+main()}}.
+
+\Hypertarget{proyecto__integrador_8c_a086c5713e35d79f7ccb5b3213a59b2fd}\label{proyecto__integrador_8c_a086c5713e35d79f7ccb5b3213a59b2fd} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!CONFIG\_TIMER\_VUELO@{CONFIG\_TIMER\_VUELO}}
+\index{CONFIG\_TIMER\_VUELO@{CONFIG\_TIMER\_VUELO}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{CONFIG\_TIMER\_VUELO}{CONFIG\_TIMER\_VUELO}}
+{\footnotesize\ttfamily \#define CONFIG\+\_\+\+TIMER\+\_\+\+VUELO~100000}
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00050}{50}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00198}{app\+\_\+main()}}.
+
+\Hypertarget{proyecto__integrador_8c_a7a3ccd8a43b5c5e8a4d573780da1fd4a}\label{proyecto__integrador_8c_a7a3ccd8a43b5c5e8a4d573780da1fd4a} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!LED\_BT@{LED\_BT}}
+\index{LED\_BT@{LED\_BT}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{LED\_BT}{LED\_BT}}
+{\footnotesize\ttfamily \#define LED\+\_\+\+BT~\mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b}{LED\+\_\+1}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00053}{53}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00145}{Task\+\_\+\+Controles()}}.
+
+\Hypertarget{proyecto__integrador_8c_ae0af85b0f645ffd6e7376a0f689a10fb}\label{proyecto__integrador_8c_ae0af85b0f645ffd6e7376a0f689a10fb} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!LED\_START@{LED\_START}}
+\index{LED\_START@{LED\_START}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{LED\_START}{LED\_START}}
+{\footnotesize\ttfamily \#define LED\+\_\+\+START~\mbox{\hyperlink{group___l_e_d_ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3}{LED\+\_\+3}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00054}{54}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00145}{Task\+\_\+\+Controles()}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{proyecto__integrador_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}\label{proyecto__integrador_8c_a630544a7f0a2cc40d8a7fefab7e2fe70} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!app\_main@{app\_main}}
+\index{app\_main@{app\_main}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{app\_main()}{app\_main()}}
+{\footnotesize\ttfamily void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Funcion principal del programa Inicializa perifericos, bluetooth, crea tareas, configura timers e interrupciones. 
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00198}{198}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__hid__mcu_8c_source_l01366}{Ble\+Hid\+Init()}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00078}{Calibrar()}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00051}{CONFIG\+\_\+\+TIMER\+\_\+\+CONTROLES}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00050}{CONFIG\+\_\+\+TIMER\+\_\+\+VUELO}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00060}{controles\+\_\+task\+\_\+handle}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00179}{Function\+Timer\+A()}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00187}{Function\+Timer\+B()}}, \mbox{\hyperlink{led_8c_source_l00031}{Leds\+Init()}}, \mbox{\hyperlink{ili9341_8c_source_l00019}{NULL}}, \mbox{\hyperlink{switch_8h_source_l00032}{SWITCH\+\_\+1}}, \mbox{\hyperlink{switch_8h_source_l00033}{SWITCH\+\_\+2}}, \mbox{\hyperlink{switch_8c_source_l00047}{Switch\+Activ\+Int()}}, \mbox{\hyperlink{switch_8c_source_l00029}{Switches\+Init()}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00145}{Task\+\_\+\+Controles()}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00105}{Task\+\_\+\+Volar()}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00068}{Tecla\+Barra()}}, \mbox{\hyperlink{timer__mcu_8h_source_l00040}{timer\+\_\+config\+\_\+t\+::timer}}, \mbox{\hyperlink{timer__mcu_8h_source_l00032}{TIMER\+\_\+A}}, \mbox{\hyperlink{timer__mcu_8h_source_l00033}{TIMER\+\_\+B}}, \mbox{\hyperlink{timer__mcu_8c_source_l00055}{Timer\+Init()}}, \mbox{\hyperlink{timer__mcu_8c_source_l00110}{Timer\+Start()}} y \mbox{\hyperlink{proyecto__integrador_8c_source_l00059}{volar\+\_\+task\+\_\+handle}}.
+
+\Hypertarget{proyecto__integrador_8c_a3dce832fa0cab13e288fb7424ac51f50}\label{proyecto__integrador_8c_a3dce832fa0cab13e288fb7424ac51f50} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!Calibrar@{Calibrar}}
+\index{Calibrar@{Calibrar}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{Calibrar()}{Calibrar()}}
+{\footnotesize\ttfamily void Calibrar (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función que calibra el acelerometro. 
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00078}{78}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00198}{app\+\_\+main()}}.
+
+\Hypertarget{proyecto__integrador_8c_a10506548c0166cec6195f808a27701d6}\label{proyecto__integrador_8c_a10506548c0166cec6195f808a27701d6} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!FunctionTimerA@{FunctionTimerA}}
+\index{FunctionTimerA@{FunctionTimerA}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{FunctionTimerA()}{FunctionTimerA()}}
+{\footnotesize\ttfamily void Function\+TimerA (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption})}
+
+
+
+Función de callback para el timer A. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em param} & Parámetro de la función. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00179}{179}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{proyecto__integrador_8c_source_l00059}{volar\+\_\+task\+\_\+handle}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00198}{app\+\_\+main()}}.
+
+\Hypertarget{proyecto__integrador_8c_aaac5cc84aba38aa4ab933e3a00e92dfd}\label{proyecto__integrador_8c_aaac5cc84aba38aa4ab933e3a00e92dfd} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!FunctionTimerB@{FunctionTimerB}}
+\index{FunctionTimerB@{FunctionTimerB}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{FunctionTimerB()}{FunctionTimerB()}}
+{\footnotesize\ttfamily void Function\+TimerB (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption})}
+
+
+
+Función de callback para el timer B. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em param} & Parámetro de la función. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00187}{187}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{proyecto__integrador_8c_source_l00060}{controles\+\_\+task\+\_\+handle}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00198}{app\+\_\+main()}}.
+
+\Hypertarget{proyecto__integrador_8c_a5a27e54af574b3ae191a8c80099e239a}\label{proyecto__integrador_8c_a5a27e54af574b3ae191a8c80099e239a} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!Task\_Controles@{Task\_Controles}}
+\index{Task\_Controles@{Task\_Controles}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{Task\_Controles()}{Task\_Controles()}}
+{\footnotesize\ttfamily void Task\+\_\+\+Controles (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameter }\end{DoxyParamCaption})}
+
+
+
+Tarea que prende y apaga los led 1 y3 segun el estado del bluetooth y si esta activada la emulación. 
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00145}{145}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__hid__mcu_8h_source_l00039}{BLE\+\_\+\+CONNECTED}}, \mbox{\hyperlink{ble__hid__mcu_8h_source_l00038}{BLE\+\_\+\+DISCONNECTED}}, \mbox{\hyperlink{ble__hid__mcu_8h_source_l00037}{BLE\+\_\+\+OFF}}, \mbox{\hyperlink{ble__hid__mcu_8c_source_l01417}{Ble\+Hid\+Status()}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00053}{LED\+\_\+\+BT}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00054}{LED\+\_\+\+START}}, \mbox{\hyperlink{led_8c_source_l00065}{Led\+Off()}}, \mbox{\hyperlink{led_8c_source_l00046}{Led\+On()}}, \mbox{\hyperlink{led_8c_source_l00084}{Led\+Toggle()}} y \mbox{\hyperlink{proyecto__integrador_8c_source_l00057}{start}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00198}{app\+\_\+main()}}.
+
+\Hypertarget{proyecto__integrador_8c_a789190c117d776b4a78b19732953b2fd}\label{proyecto__integrador_8c_a789190c117d776b4a78b19732953b2fd} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!Task\_Volar@{Task\_Volar}}
+\index{Task\_Volar@{Task\_Volar}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{Task\_Volar()}{Task\_Volar()}}
+{\footnotesize\ttfamily void Task\+\_\+\+Volar (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameter }\end{DoxyParamCaption})}
+
+
+
+Tarea que maneja el vuelo del oajaro,lee el acelerometro y calcula el angulo de movimiento entre el plano y y z. 
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00105}{105}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{proyecto__integrador_8c_source_l00057}{start}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00095}{Tecla\+Abajo()}} y \mbox{\hyperlink{proyecto__integrador_8c_source_l00086}{Tecla\+Arriba()}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00198}{app\+\_\+main()}}.
+
+\Hypertarget{proyecto__integrador_8c_a203632894056c52015b6e49d6642500d}\label{proyecto__integrador_8c_a203632894056c52015b6e49d6642500d} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!TeclaAbajo@{TeclaAbajo}}
+\index{TeclaAbajo@{TeclaAbajo}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{TeclaAbajo()}{TeclaAbajo()}}
+{\footnotesize\ttfamily void Tecla\+Abajo (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función que envía un comando de teclado de la tecla flecha abajo a través de Bluetooth. 
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00095}{95}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__hid__mcu_8c_source_l01421}{Ble\+Hid\+Send\+Keyboard()}} y \mbox{\hyperlink{ble__hid__mcu_8h_source_l00122}{HID\+\_\+\+KEY\+\_\+\+DOWN\+\_\+\+ARROW}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00105}{Task\+\_\+\+Volar()}}.
+
+\Hypertarget{proyecto__integrador_8c_a99437f7aa9e5d11b47fa932296838a64}\label{proyecto__integrador_8c_a99437f7aa9e5d11b47fa932296838a64} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!TeclaArriba@{TeclaArriba}}
+\index{TeclaArriba@{TeclaArriba}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{TeclaArriba()}{TeclaArriba()}}
+{\footnotesize\ttfamily void Tecla\+Arriba (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función que envía un comando de teclado de la tecla flecha arriba a través de Bluetooth. 
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00086}{86}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__hid__mcu_8c_source_l01421}{Ble\+Hid\+Send\+Keyboard()}} y \mbox{\hyperlink{ble__hid__mcu_8h_source_l00123}{HID\+\_\+\+KEY\+\_\+\+UP\+\_\+\+ARROW}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00105}{Task\+\_\+\+Volar()}}.
+
+\Hypertarget{proyecto__integrador_8c_a045088801edfb3f18dae88c10c1d0bd0}\label{proyecto__integrador_8c_a045088801edfb3f18dae88c10c1d0bd0} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!TeclaBarra@{TeclaBarra}}
+\index{TeclaBarra@{TeclaBarra}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{TeclaBarra()}{TeclaBarra()}}
+{\footnotesize\ttfamily void Tecla\+Barra (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función que envía un comando de teclado de la barra espaciadora a través de Bluetooth y da comienzo con la emulacion. 
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00068}{68}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Hace referencia a \mbox{\hyperlink{ble__hid__mcu_8c_source_l01421}{Ble\+Hid\+Send\+Keyboard()}}, \mbox{\hyperlink{ble__hid__mcu_8h_source_l00086}{HID\+\_\+\+KEY\+\_\+\+SPACEBAR}} y \mbox{\hyperlink{proyecto__integrador_8c_source_l00057}{start}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00198}{app\+\_\+main()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{proyecto__integrador_8c_a2d4e575f11f80f95ee9e5926054bd5bb}\label{proyecto__integrador_8c_a2d4e575f11f80f95ee9e5926054bd5bb} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!controles\_task\_handle@{controles\_task\_handle}}
+\index{controles\_task\_handle@{controles\_task\_handle}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{controles\_task\_handle}{controles\_task\_handle}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t controles\+\_\+task\+\_\+handle = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00060}{60}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00198}{app\+\_\+main()}} y \mbox{\hyperlink{proyecto__integrador_8c_source_l00187}{Function\+Timer\+B()}}.
+
+\Hypertarget{proyecto__integrador_8c_ab376b87f96a574a793c03c53e75afec8}\label{proyecto__integrador_8c_ab376b87f96a574a793c03c53e75afec8} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!start@{start}}
+\index{start@{start}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily bool start = false}
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00057}{57}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00145}{Task\+\_\+\+Controles()}}, \mbox{\hyperlink{proyecto__integrador_8c_source_l00105}{Task\+\_\+\+Volar()}} y \mbox{\hyperlink{proyecto__integrador_8c_source_l00068}{Tecla\+Barra()}}.
+
+\Hypertarget{proyecto__integrador_8c_a03add7d850328814dbea59f72b4e3762}\label{proyecto__integrador_8c_a03add7d850328814dbea59f72b4e3762} 
+\index{proyecto\_integrador.c@{proyecto\_integrador.c}!volar\_task\_handle@{volar\_task\_handle}}
+\index{volar\_task\_handle@{volar\_task\_handle}!proyecto\_integrador.c@{proyecto\_integrador.c}}
+\doxysubsubsection{\texorpdfstring{volar\_task\_handle}{volar\_task\_handle}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t volar\+\_\+task\+\_\+handle = \mbox{\hyperlink{ili9341_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+Definición en la línea \mbox{\hyperlink{proyecto__integrador_8c_source_l00059}{59}} del archivo \mbox{\hyperlink{proyecto__integrador_8c_source}{proyecto\+\_\+integrador.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{proyecto__integrador_8c_source_l00198}{app\+\_\+main()}} y \mbox{\hyperlink{proyecto__integrador_8c_source_l00179}{Function\+Timer\+A()}}.
+

@@ -1,0 +1,127 @@
+\doxysection{Referencia del archivo C\+:/\+Repositorios/\+EProgramable\+\_\+\+FIUNER/firmware/drivers/microcontroller/src/delay\+\_\+mcu.c}
+\hypertarget{delay__mcu_8c}{}\label{delay__mcu_8c}\index{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/delay\_mcu.c@{C:/Repositorios/EProgramable\_FIUNER/firmware/drivers/microcontroller/src/delay\_mcu.c}}
+{\ttfamily \#include "{}delay\+\_\+mcu.\+h"{}}\newline
+{\ttfamily \#include "{}driver/gptimer.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/task.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+rom\+\_\+sys.\+h"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{delay__mcu_8c_a0084affffdb426de14a2629cfe92c652}{US\+\_\+\+RESOLUTION\+\_\+\+HZ}}~1000000
+\item 
+\#define \mbox{\hyperlink{delay__mcu_8c_a097e69eabf0bcad178a5958f83036f68}{MSEC}}~1000
+\item 
+\#define \mbox{\hyperlink{delay__mcu_8c_a8bc5e463885769f21393880576c25f6b}{SEC}}~1000000
+\item 
+\#define \mbox{\hyperlink{delay__mcu_8c_a4ba330e742002516439543f6d93c5404}{MIN\+\_\+\+US}}~50
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___delay_ga69b7a2b5881d757ba405331cb1d5e5df}{Delay\+Sec}} (uint16\+\_\+t sec)
+\begin{DoxyCompactList}\small\item\em Functions to generate delays. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___delay_gad436d587a00f4ef2ede7ea6644f07aa1}{Delay\+Ms}} (uint16\+\_\+t msec)
+\begin{DoxyCompactList}\small\item\em Delay in milliseconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___delay_ga92e1b2564bacd20071bcd06b697f52f8}{Delay\+Us}} (uint16\+\_\+t usec)
+\begin{DoxyCompactList}\small\item\em Delay in microseconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{delay__mcu_8c_a09f1afa6c00b38b7d70dae43274c9f55}{task\+\_\+to\+\_\+notify}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Albano Peñalva (\href{mailto:albano.penalva@uner.edu.ar}{\texttt{ albano.\+penalva@uner.\+edu.\+ar}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2023-\/10-\/20
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+Definición en el archivo \mbox{\hyperlink{delay__mcu_8c_source}{delay\+\_\+mcu.\+c}}.
+
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{delay__mcu_8c_a4ba330e742002516439543f6d93c5404}\label{delay__mcu_8c_a4ba330e742002516439543f6d93c5404} 
+\index{delay\_mcu.c@{delay\_mcu.c}!MIN\_US@{MIN\_US}}
+\index{MIN\_US@{MIN\_US}!delay\_mcu.c@{delay\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{MIN\_US}{MIN\_US}}
+{\footnotesize\ttfamily \#define MIN\+\_\+\+US~50}
+
+minimun delay in usec to use gptimer 
+
+Definición en la línea \mbox{\hyperlink{delay__mcu_8c_source_l00022}{22}} del archivo \mbox{\hyperlink{delay__mcu_8c_source}{delay\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{delay__mcu_8c_source_l00087}{Delay\+Us()}}.
+
+\Hypertarget{delay__mcu_8c_a097e69eabf0bcad178a5958f83036f68}\label{delay__mcu_8c_a097e69eabf0bcad178a5958f83036f68} 
+\index{delay\_mcu.c@{delay\_mcu.c}!MSEC@{MSEC}}
+\index{MSEC@{MSEC}!delay\_mcu.c@{delay\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{MSEC}{MSEC}}
+{\footnotesize\ttfamily \#define MSEC~1000}
+
+1msec = 1000usec 
+
+Definición en la línea \mbox{\hyperlink{delay__mcu_8c_source_l00020}{20}} del archivo \mbox{\hyperlink{delay__mcu_8c_source}{delay\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{delay__mcu_8c_source_l00063}{Delay\+Ms()}}.
+
+\Hypertarget{delay__mcu_8c_a8bc5e463885769f21393880576c25f6b}\label{delay__mcu_8c_a8bc5e463885769f21393880576c25f6b} 
+\index{delay\_mcu.c@{delay\_mcu.c}!SEC@{SEC}}
+\index{SEC@{SEC}!delay\_mcu.c@{delay\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{SEC}{SEC}}
+{\footnotesize\ttfamily \#define SEC~1000000}
+
+1sec = 1000msec 
+
+Definición en la línea \mbox{\hyperlink{delay__mcu_8c_source_l00021}{21}} del archivo \mbox{\hyperlink{delay__mcu_8c_source}{delay\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{delay__mcu_8c_source_l00039}{Delay\+Sec()}}.
+
+\Hypertarget{delay__mcu_8c_a0084affffdb426de14a2629cfe92c652}\label{delay__mcu_8c_a0084affffdb426de14a2629cfe92c652} 
+\index{delay\_mcu.c@{delay\_mcu.c}!US\_RESOLUTION\_HZ@{US\_RESOLUTION\_HZ}}
+\index{US\_RESOLUTION\_HZ@{US\_RESOLUTION\_HZ}!delay\_mcu.c@{delay\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{US\_RESOLUTION\_HZ}{US\_RESOLUTION\_HZ}}
+{\footnotesize\ttfamily \#define US\+\_\+\+RESOLUTION\+\_\+\+HZ~1000000}
+
+1usec 
+
+Definición en la línea \mbox{\hyperlink{delay__mcu_8c_source_l00019}{19}} del archivo \mbox{\hyperlink{delay__mcu_8c_source}{delay\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{delay__mcu_8c_source_l00063}{Delay\+Ms()}}, \mbox{\hyperlink{delay__mcu_8c_source_l00039}{Delay\+Sec()}} y \mbox{\hyperlink{delay__mcu_8c_source_l00087}{Delay\+Us()}}.
+
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{delay__mcu_8c_a09f1afa6c00b38b7d70dae43274c9f55}\label{delay__mcu_8c_a09f1afa6c00b38b7d70dae43274c9f55} 
+\index{delay\_mcu.c@{delay\_mcu.c}!task\_to\_notify@{task\_to\_notify}}
+\index{task\_to\_notify@{task\_to\_notify}!delay\_mcu.c@{delay\_mcu.c}}
+\doxysubsubsection{\texorpdfstring{task\_to\_notify}{task\_to\_notify}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t task\+\_\+to\+\_\+notify}
+
+
+
+Definición en la línea \mbox{\hyperlink{delay__mcu_8c_source_l00024}{24}} del archivo \mbox{\hyperlink{delay__mcu_8c_source}{delay\+\_\+mcu.\+c}}.
+
+
+
+Referenciado por \mbox{\hyperlink{delay__mcu_8c_source_l00063}{Delay\+Ms()}}, \mbox{\hyperlink{delay__mcu_8c_source_l00039}{Delay\+Sec()}} y \mbox{\hyperlink{delay__mcu_8c_source_l00087}{Delay\+Us()}}.
+

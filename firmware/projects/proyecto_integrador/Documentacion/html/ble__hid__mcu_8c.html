@@ -1,0 +1,2247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Proyecto Integrador: Referencia del archivo C:/Repositorios/EProgramable_FIUNER/firmware/drivers/microcontroller/src/ble_hid_mcu.c</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Proyecto Integrador<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Gamificacion de ejerciocios de fisioterapia</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('ble__hid__mcu_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Estructuras de datos</a> &#124;
+<a href="#define-members">defines</a> &#124;
+<a href="#typedef-members">typedefs</a> &#124;
+<a href="#enum-members">Enumeraciones</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo ble_hid_mcu.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="ble__hid__mcu_8h_source.html">ble_hid_mcu.h</a>&quot;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;nvs_flash.h&quot;</code><br />
+<code>#include &quot;esp_log.h&quot;</code><br />
+<code>#include &quot;esp_bt.h&quot;</code><br />
+<code>#include &quot;esp_gap_ble_api.h&quot;</code><br />
+<code>#include &quot;esp_gatts_api.h&quot;</code><br />
+<code>#include &quot;esp_bt_defs.h&quot;</code><br />
+<code>#include &quot;esp_bt_main.h&quot;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/task.h&quot;</code><br />
+<code>#include &quot;freertos/queue.h&quot;</code><br />
+</div>
+<p><a href="ble__hid__mcu_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Estructuras de datos</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionesp__hidd__cb__param__t.html">esp_hidd_cb_param_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">HIDD callback parameters union.  <a href="unionesp__hidd__cb__param__t.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structesp__hidd__cb__param__t_1_1hidd__init__finish__evt__param.html">esp_hidd_cb_param_t::hidd_init_finish_evt_param</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ESP_HIDD_EVENT_INIT_FINISH.  <a href="structesp__hidd__cb__param__t_1_1hidd__init__finish__evt__param.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structesp__hidd__cb__param__t_1_1hidd__deinit__finish__evt__param.html">esp_hidd_cb_param_t::hidd_deinit_finish_evt_param</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ESP_HIDD_EVENT_DEINIT_FINISH.  <a href="structesp__hidd__cb__param__t_1_1hidd__deinit__finish__evt__param.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structesp__hidd__cb__param__t_1_1hidd__connect__evt__param.html">esp_hidd_cb_param_t::hidd_connect_evt_param</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ESP_HIDD_EVENT_CONNECT.  <a href="structesp__hidd__cb__param__t_1_1hidd__connect__evt__param.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structesp__hidd__cb__param__t_1_1hidd__disconnect__evt__param.html">esp_hidd_cb_param_t::hidd_disconnect_evt_param</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ESP_HIDD_EVENT_DISCONNECT.  <a href="structesp__hidd__cb__param__t_1_1hidd__disconnect__evt__param.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structesp__hidd__cb__param__t_1_1hidd__vendor__write__evt__param.html">esp_hidd_cb_param_t::hidd_vendor_write_evt_param</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ESP_HIDD_EVENT_BLE_VENDOR_REPORT_WRITE_EVT.  <a href="structesp__hidd__cb__param__t_1_1hidd__vendor__write__evt__param.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structesp__hidd__cb__param__t_1_1hidd__led__write__evt__param.html">esp_hidd_cb_param_t::hidd_led_write_evt_param</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ESP_HIDD_EVENT_BLE_LED_REPORT_WRITE_EVT.  <a href="structesp__hidd__cb__param__t_1_1hidd__led__write__evt__param.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhid__report__map__t.html">hid_report_map_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhid__dev__cfg__t.html">hid_dev_cfg_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhidd__feature__t.html">hidd_feature_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">HIDD Features structure.  <a href="structhidd__feature__t.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhidd__clcb__t.html">hidd_clcb_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhid_rpt_map__t.html">hidRptMap_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhidd__inst__t.html">hidd_inst_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhids__report__ref__t.html">hids_report_ref_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Report Reference structure.  <a href="structhids__report__ref__t.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhids__hid__info__t.html">hids_hid_info_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">HID Information structure.  <a href="structhids__hid__info__t.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhidd__le__env__t.html">hidd_le_env_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structprf__char__pres__fmt.html">prf_char_pres_fmt</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">characteristic presentation information  <a href="structprf__char__pres__fmt.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgatts__profile__inst.html">gatts_profile_inst</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:afc3d101f633a076cc1ca84b85b6224b2" id="r_afc3d101f633a076cc1ca84b85b6224b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc3d101f633a076cc1ca84b85b6224b2">TAG</a>&#160;&#160;&#160;&quot;ble_hid&quot;</td></tr>
+<tr class="separator:afc3d101f633a076cc1ca84b85b6224b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0221366c1aad83bfd0ee08ab476e419e" id="r_a0221366c1aad83bfd0ee08ab476e419e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0221366c1aad83bfd0ee08ab476e419e">HID_KEYBOARD_IN_RPT_LEN</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:a0221366c1aad83bfd0ee08ab476e419e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac30fec7214abaf07884013199141acb6" id="r_ac30fec7214abaf07884013199141acb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac30fec7214abaf07884013199141acb6">HID_LED_OUT_RPT_LEN</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ac30fec7214abaf07884013199141acb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac67c29729cabfabb297eb4f3fe7e00dc" id="r_ac67c29729cabfabb297eb4f3fe7e00dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac67c29729cabfabb297eb4f3fe7e00dc">HID_MOUSE_IN_RPT_LEN</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:ac67c29729cabfabb297eb4f3fe7e00dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab05d6202ce10687104c99ad6ac361aaf" id="r_ab05d6202ce10687104c99ad6ac361aaf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab05d6202ce10687104c99ad6ac361aaf">HID_CC_IN_RPT_LEN</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:ab05d6202ce10687104c99ad6ac361aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80806ec4886bb678ed6803a9fb829e29" id="r_a80806ec4886bb678ed6803a9fb829e29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80806ec4886bb678ed6803a9fb829e29">HID_TYPE_INPUT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a80806ec4886bb678ed6803a9fb829e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fba2446eb27f39dd9f938ed8012443f" id="r_a4fba2446eb27f39dd9f938ed8012443f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fba2446eb27f39dd9f938ed8012443f">HID_TYPE_OUTPUT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a4fba2446eb27f39dd9f938ed8012443f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd5a1bdf50ffe3ae21e24b33396c66d4" id="r_abd5a1bdf50ffe3ae21e24b33396c66d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd5a1bdf50ffe3ae21e24b33396c66d4">HID_TYPE_FEATURE</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:abd5a1bdf50ffe3ae21e24b33396c66d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba6364e0b10b2a25a4d3b67801acc237" id="r_aba6364e0b10b2a25a4d3b67801acc237"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba6364e0b10b2a25a4d3b67801acc237">HIDD_LE_NB_HIDS_INST_MAX</a>&#160;&#160;&#160;(2)</td></tr>
+<tr class="memdesc:aba6364e0b10b2a25a4d3b67801acc237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximal number of HIDS that can be added in the DB.  <br /></td></tr>
+<tr class="separator:aba6364e0b10b2a25a4d3b67801acc237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9345fe7f433ab105bdef0c6c983b078" id="r_ae9345fe7f433ab105bdef0c6c983b078"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9345fe7f433ab105bdef0c6c983b078">HIDD_GREAT_VER</a>&#160;&#160;&#160;0x01</td></tr>
+<tr class="separator:ae9345fe7f433ab105bdef0c6c983b078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cf775d40bbf29d5dbddd89532d2183e" id="r_a6cf775d40bbf29d5dbddd89532d2183e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6cf775d40bbf29d5dbddd89532d2183e">HIDD_SUB_VER</a>&#160;&#160;&#160;0x00</td></tr>
+<tr class="separator:a6cf775d40bbf29d5dbddd89532d2183e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae18cde0e0c2be801a80e675b5c419e1" id="r_aae18cde0e0c2be801a80e675b5c419e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae18cde0e0c2be801a80e675b5c419e1">HIDD_VERSION</a>&#160;&#160;&#160;((<a class="el" href="#ae9345fe7f433ab105bdef0c6c983b078">HIDD_GREAT_VER</a>&lt;&lt;8)|<a class="el" href="#a6cf775d40bbf29d5dbddd89532d2183e">HIDD_SUB_VER</a>)</td></tr>
+<tr class="separator:aae18cde0e0c2be801a80e675b5c419e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5627ebe5d12033b6efbf5f1ea4a6edf" id="r_ad5627ebe5d12033b6efbf5f1ea4a6edf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5627ebe5d12033b6efbf5f1ea4a6edf">HID_MAX_APPS</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ad5627ebe5d12033b6efbf5f1ea4a6edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46dda3faf94c8eafa2218e14c8d1e2be" id="r_a46dda3faf94c8eafa2218e14c8d1e2be"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46dda3faf94c8eafa2218e14c8d1e2be">HID_NUM_REPORTS</a>&#160;&#160;&#160;9</td></tr>
+<tr class="separator:a46dda3faf94c8eafa2218e14c8d1e2be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcc36a227f5386df1faaf120ae4fc0c8" id="r_adcc36a227f5386df1faaf120ae4fc0c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcc36a227f5386df1faaf120ae4fc0c8">HID_RPT_ID_MOUSE_IN</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:adcc36a227f5386df1faaf120ae4fc0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae275c1d382448411ee0441d55a970569" id="r_ae275c1d382448411ee0441d55a970569"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae275c1d382448411ee0441d55a970569">HID_RPT_ID_KEY_IN</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:ae275c1d382448411ee0441d55a970569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a294d77f599410cdc8c71da07fa67020f" id="r_a294d77f599410cdc8c71da07fa67020f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a294d77f599410cdc8c71da07fa67020f">HID_RPT_ID_CC_IN</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a294d77f599410cdc8c71da07fa67020f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7558eb78d7388f89b0beb0794413a3d" id="r_ab7558eb78d7388f89b0beb0794413a3d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7558eb78d7388f89b0beb0794413a3d">HID_RPT_ID_VENDOR_OUT</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:ab7558eb78d7388f89b0beb0794413a3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefc58b8c80aecc52a0712efa3c820063" id="r_aefc58b8c80aecc52a0712efa3c820063"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefc58b8c80aecc52a0712efa3c820063">HID_RPT_ID_LED_OUT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:aefc58b8c80aecc52a0712efa3c820063"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c9299b131a3e8d3e0ac8f803321d51d" id="r_a1c9299b131a3e8d3e0ac8f803321d51d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c9299b131a3e8d3e0ac8f803321d51d">HID_RPT_ID_FEATURE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a1c9299b131a3e8d3e0ac8f803321d51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26f0357180ecb5b51fcda5a4e2301e72" id="r_a26f0357180ecb5b51fcda5a4e2301e72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26f0357180ecb5b51fcda5a4e2301e72">HIDD_APP_ID</a>&#160;&#160;&#160;0x1812</td></tr>
+<tr class="separator:a26f0357180ecb5b51fcda5a4e2301e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc3e6e8d2476850b1308f64d6afeacaa" id="r_abc3e6e8d2476850b1308f64d6afeacaa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc3e6e8d2476850b1308f64d6afeacaa">BATTRAY_APP_ID</a>&#160;&#160;&#160;0x180f</td></tr>
+<tr class="separator:abc3e6e8d2476850b1308f64d6afeacaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a120ccad3a7e1b92bda154619fbb25ea8" id="r_a120ccad3a7e1b92bda154619fbb25ea8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a120ccad3a7e1b92bda154619fbb25ea8">ATT_SVC_HID</a>&#160;&#160;&#160;0x1812</td></tr>
+<tr class="separator:a120ccad3a7e1b92bda154619fbb25ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af74dd0dfaef005dba01aa677621b3990" id="r_af74dd0dfaef005dba01aa677621b3990"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af74dd0dfaef005dba01aa677621b3990">HIDD_LE_NB_REPORT_INST_MAX</a>&#160;&#160;&#160;(5)</td></tr>
+<tr class="memdesc:af74dd0dfaef005dba01aa677621b3990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximal number of Report Char. that can be added in the DB for one HIDS - Up to 11.  <br /></td></tr>
+<tr class="separator:af74dd0dfaef005dba01aa677621b3990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affab08f986635746ac7ddb3a486802a2" id="r_affab08f986635746ac7ddb3a486802a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affab08f986635746ac7ddb3a486802a2">HIDD_LE_REPORT_MAX_LEN</a>&#160;&#160;&#160;(255)</td></tr>
+<tr class="memdesc:affab08f986635746ac7ddb3a486802a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximal length of Report Char. Value.  <br /></td></tr>
+<tr class="separator:affab08f986635746ac7ddb3a486802a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7c14e60132e8dc391fafaa58dcb3ee7" id="r_af7c14e60132e8dc391fafaa58dcb3ee7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7c14e60132e8dc391fafaa58dcb3ee7">HIDD_LE_REPORT_MAP_MAX_LEN</a>&#160;&#160;&#160;(512)</td></tr>
+<tr class="memdesc:af7c14e60132e8dc391fafaa58dcb3ee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximal length of Report Map Char. Value.  <br /></td></tr>
+<tr class="separator:af7c14e60132e8dc391fafaa58dcb3ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07568b577d4808f637aab68473c9292e" id="r_a07568b577d4808f637aab68473c9292e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07568b577d4808f637aab68473c9292e">HIDD_LE_BOOT_REPORT_MAX_LEN</a>&#160;&#160;&#160;(8)</td></tr>
+<tr class="memdesc:a07568b577d4808f637aab68473c9292e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of Boot Report Char. Value Maximal Length.  <br /></td></tr>
+<tr class="separator:a07568b577d4808f637aab68473c9292e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45503d4e183ff471c7c0d5bf1984c1c7" id="r_a45503d4e183ff471c7c0d5bf1984c1c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45503d4e183ff471c7c0d5bf1984c1c7">HIDD_LE_BOOT_KB_IN_NTF_CFG_MASK</a>&#160;&#160;&#160;(0x40)</td></tr>
+<tr class="memdesc:a45503d4e183ff471c7c0d5bf1984c1c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boot KB Input Report Notification Configuration Bit Mask.  <br /></td></tr>
+<tr class="separator:a45503d4e183ff471c7c0d5bf1984c1c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a722cbdbca010efd6daa4afa2d8017c93" id="r_a722cbdbca010efd6daa4afa2d8017c93"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a722cbdbca010efd6daa4afa2d8017c93">HIDD_LE_BOOT_MOUSE_IN_NTF_CFG_MASK</a>&#160;&#160;&#160;(0x80)</td></tr>
+<tr class="memdesc:a722cbdbca010efd6daa4afa2d8017c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boot KB Input Report Notification Configuration Bit Mask.  <br /></td></tr>
+<tr class="separator:a722cbdbca010efd6daa4afa2d8017c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba6045c504a62a047161d5241029a024" id="r_aba6045c504a62a047161d5241029a024"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba6045c504a62a047161d5241029a024">HIDD_LE_REPORT_NTF_CFG_MASK</a>&#160;&#160;&#160;(0x20)</td></tr>
+<tr class="memdesc:aba6045c504a62a047161d5241029a024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boot Report Notification Configuration Bit Mask.  <br /></td></tr>
+<tr class="separator:aba6045c504a62a047161d5241029a024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab94225917ef02635494c83e1dfebeba4" id="r_ab94225917ef02635494c83e1dfebeba4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab94225917ef02635494c83e1dfebeba4">HID_FLAGS_REMOTE_WAKE</a>&#160;&#160;&#160;0x01</td></tr>
+<tr class="separator:ab94225917ef02635494c83e1dfebeba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa96b6ad5eea5ea65fbf3695d0480d516" id="r_aa96b6ad5eea5ea65fbf3695d0480d516"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa96b6ad5eea5ea65fbf3695d0480d516">HID_FLAGS_NORMALLY_CONNECTABLE</a>&#160;&#160;&#160;0x02</td></tr>
+<tr class="separator:aa96b6ad5eea5ea65fbf3695d0480d516"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a594641b9b85c9eaa1fb2674f29f89347" id="r_a594641b9b85c9eaa1fb2674f29f89347"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a594641b9b85c9eaa1fb2674f29f89347">HID_CMD_SUSPEND</a>&#160;&#160;&#160;0x00</td></tr>
+<tr class="separator:a594641b9b85c9eaa1fb2674f29f89347"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00d74ed1936198ebd938a69e205eb66e" id="r_a00d74ed1936198ebd938a69e205eb66e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00d74ed1936198ebd938a69e205eb66e">HID_CMD_EXIT_SUSPEND</a>&#160;&#160;&#160;0x01</td></tr>
+<tr class="separator:a00d74ed1936198ebd938a69e205eb66e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ba5ff3f2a7394ef46d59d32b971a4fa" id="r_a8ba5ff3f2a7394ef46d59d32b971a4fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ba5ff3f2a7394ef46d59d32b971a4fa">HID_PROTOCOL_MODE_BOOT</a>&#160;&#160;&#160;0x00</td></tr>
+<tr class="separator:a8ba5ff3f2a7394ef46d59d32b971a4fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a998ca749aef167d8f61d12d5c0a89963" id="r_a998ca749aef167d8f61d12d5c0a89963"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a998ca749aef167d8f61d12d5c0a89963">HID_PROTOCOL_MODE_REPORT</a>&#160;&#160;&#160;0x01</td></tr>
+<tr class="separator:a998ca749aef167d8f61d12d5c0a89963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f926844a10e6e40a60d67e6b49a754" id="r_ae0f926844a10e6e40a60d67e6b49a754"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0f926844a10e6e40a60d67e6b49a754">HID_PROTOCOL_MODE_LEN</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ae0f926844a10e6e40a60d67e6b49a754"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7903484b0c009cdbe58d2e0fda8c5ca8" id="r_a7903484b0c009cdbe58d2e0fda8c5ca8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7903484b0c009cdbe58d2e0fda8c5ca8">HID_INFORMATION_LEN</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a7903484b0c009cdbe58d2e0fda8c5ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e214dcdc0faba83d46da253cf90250f" id="r_a9e214dcdc0faba83d46da253cf90250f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e214dcdc0faba83d46da253cf90250f">HID_REPORT_REF_LEN</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a9e214dcdc0faba83d46da253cf90250f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaab0501d09d36e5d2ee709a73af2534a" id="r_aaab0501d09d36e5d2ee709a73af2534a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaab0501d09d36e5d2ee709a73af2534a">HID_EXT_REPORT_REF_LEN</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:aaab0501d09d36e5d2ee709a73af2534a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88317e70320544b82dfb2dabf5b2dfde" id="r_a88317e70320544b82dfb2dabf5b2dfde"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88317e70320544b82dfb2dabf5b2dfde">HID_KBD_FLAGS</a>&#160;&#160;&#160;<a class="el" href="#ab94225917ef02635494c83e1dfebeba4">HID_FLAGS_REMOTE_WAKE</a></td></tr>
+<tr class="separator:a88317e70320544b82dfb2dabf5b2dfde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c2f36273741e160a071ead66cc36da2" id="r_a8c2f36273741e160a071ead66cc36da2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c2f36273741e160a071ead66cc36da2">HID_REPORT_TYPE_INPUT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a8c2f36273741e160a071ead66cc36da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc5ff29118405a5851471ccdc991b1be" id="r_afc5ff29118405a5851471ccdc991b1be"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc5ff29118405a5851471ccdc991b1be">HID_REPORT_TYPE_OUTPUT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:afc5ff29118405a5851471ccdc991b1be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2122756f77c390357c5b86f1b69faa6" id="r_ab2122756f77c390357c5b86f1b69faa6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2122756f77c390357c5b86f1b69faa6">HID_REPORT_TYPE_FEATURE</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:ab2122756f77c390357c5b86f1b69faa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7907956e9e9ae0f0d5e6a928c9e1f143" id="r_a7907956e9e9ae0f0d5e6a928c9e1f143"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7907956e9e9ae0f0d5e6a928c9e1f143">HIDD_LE_CLEANUP_FNCT</a>&#160;&#160;&#160;(<a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</td></tr>
+<tr class="memdesc:a7907956e9e9ae0f0d5e6a928c9e1f143"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the connection clean-up function.  <br /></td></tr>
+<tr class="separator:a7907956e9e9ae0f0d5e6a928c9e1f143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a869398c9f0eb7bcf1c8e101b052eed07" id="r_a869398c9f0eb7bcf1c8e101b052eed07"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a869398c9f0eb7bcf1c8e101b052eed07">HI_UINT16</a>(a)&#160;&#160;&#160;(((a) &gt;&gt; 8) &amp; 0xFF)</td></tr>
+<tr class="separator:a869398c9f0eb7bcf1c8e101b052eed07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b94e11f455d94fd743666d4f1364d7" id="r_ab2b94e11f455d94fd743666d4f1364d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2b94e11f455d94fd743666d4f1364d7">LO_UINT16</a>(a)&#160;&#160;&#160;((a) &amp; 0xFF)</td></tr>
+<tr class="separator:ab2b94e11f455d94fd743666d4f1364d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab6353cb3662bdc672ae8ab90df529ce" id="r_aab6353cb3662bdc672ae8ab90df529ce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab6353cb3662bdc672ae8ab90df529ce">PROFILE_NUM</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aab6353cb3662bdc672ae8ab90df529ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7df7ac092d330d877b3f9b638eaa4d06" id="r_a7df7ac092d330d877b3f9b638eaa4d06"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7df7ac092d330d877b3f9b638eaa4d06">PROFILE_APP_IDX</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a7df7ac092d330d877b3f9b638eaa4d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36dab879c60ad380569b702ffb0caabf" id="r_a36dab879c60ad380569b702ffb0caabf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36dab879c60ad380569b702ffb0caabf">CHAR_DECLARATION_SIZE</a>&#160;&#160;&#160;(sizeof(uint8_t))</td></tr>
+<tr class="separator:a36dab879c60ad380569b702ffb0caabf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+typedefs</h2></td></tr>
+<tr class="memitem:af7a19b0130b512a84963eb5f98a39d46" id="r_af7a19b0130b512a84963eb5f98a39d46"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7a19b0130b512a84963eb5f98a39d46">esp_hidd_event_cb_t</a>) (<a class="el" href="#a47afe3bf419ceb85a287f6cae0c2d0e6">esp_hidd_cb_event_t</a> event, <a class="el" href="unionesp__hidd__cb__param__t.html">esp_hidd_cb_param_t</a> *param)</td></tr>
+<tr class="memdesc:af7a19b0130b512a84963eb5f98a39d46"><td class="mdescLeft">&#160;</td><td class="mdescRight">HID device event callback function type.  <br /></td></tr>
+<tr class="separator:af7a19b0130b512a84963eb5f98a39d46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumeraciones</h2></td></tr>
+<tr class="memitem:a06fc87d81c62e9abb8790b6e5713c55b" id="r_a06fc87d81c62e9abb8790b6e5713c55b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55baf35ee918ac2143f340cd89ca02e0f5bf">HIDD_LE_IDX_SVC</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55bac30b5711bc69c4f532772ff50033acca">HIDD_LE_IDX_INCL_SVC</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55bac7a20a4ca83b059226fab0ffb3c449d8">HIDD_LE_IDX_HID_INFO_CHAR</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55bac1484215b461e22d8887673584ad4454">HIDD_LE_IDX_HID_INFO_VAL</a>
+, <br />
+&#160;&#160;<a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba5bc5093ddebdb90f7b93c09fc0a7ddb7">HIDD_LE_IDX_HID_CTNL_PT_CHAR</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55babec57916fe729ff82fe224bc8be9492b">HIDD_LE_IDX_HID_CTNL_PT_VAL</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba287a592201a6a17d7032457637ddbf99">HIDD_LE_IDX_REPORT_MAP_CHAR</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba8ee90239ebd4a8abf27cff59b3f83d5f">HIDD_LE_IDX_REPORT_MAP_VAL</a>
+, <br />
+&#160;&#160;<a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba862468b31c40c7b84e858943eb1cccdb">HIDD_LE_IDX_REPORT_MAP_EXT_REP_REF</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba6fc27e7a52389fae2a92971506a8403f">HIDD_LE_IDX_PROTO_MODE_CHAR</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba5380bfbe7198cc859af31e5c0c2222c7">HIDD_LE_IDX_PROTO_MODE_VAL</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba94a47d679cc033ebc73cb12385f16429">HIDD_LE_IDX_REPORT_MOUSE_IN_CHAR</a>
+, <br />
+&#160;&#160;<a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba4deaffe18cd223b1e1b86511171410a2">HIDD_LE_IDX_REPORT_MOUSE_IN_VAL</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba15f0b1a5489176184dc1bec866e891db">HIDD_LE_IDX_REPORT_MOUSE_IN_CCC</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba28fd2870067701b397e917cf1d9cbc22">HIDD_LE_IDX_REPORT_MOUSE_REP_REF</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55bac6f6e06c2fddd481412ca2b51e7f3fd3">HIDD_LE_IDX_REPORT_KEY_IN_CHAR</a>
+, <br />
+&#160;&#160;<a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba7df8617538e4975c31aa4699f476ce7b">HIDD_LE_IDX_REPORT_KEY_IN_VAL</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba36c36f731e480219d2012390e51757e9">HIDD_LE_IDX_REPORT_KEY_IN_CCC</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba67daed8f464aa01843d26ec2e7d5f003">HIDD_LE_IDX_REPORT_KEY_IN_REP_REF</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba453a34e3528d4d3793c940e6b6a798a9">HIDD_LE_IDX_REPORT_LED_OUT_CHAR</a>
+, <br />
+&#160;&#160;<a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba25c437e1eced83939b9391f93c809220">HIDD_LE_IDX_REPORT_LED_OUT_VAL</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba8ba90b1216b459a3ec28f5e7606697f7">HIDD_LE_IDX_REPORT_LED_OUT_REP_REF</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55baaba0621f5b2d8d71fc64882a05179c3c">HIDD_LE_IDX_REPORT_CC_IN_CHAR</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55badb68dbb071ad802ee51932e6ae7f27c7">HIDD_LE_IDX_REPORT_CC_IN_VAL</a>
+, <br />
+&#160;&#160;<a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba22f7d93a1a7fc93080ecef6aee04efe2">HIDD_LE_IDX_REPORT_CC_IN_CCC</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55baed49ae7b4a6ff38789f60183a8122aac">HIDD_LE_IDX_REPORT_CC_IN_REP_REF</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba162f34f7fafa5aa044b614e5757fafbb">HIDD_LE_IDX_BOOT_KB_IN_REPORT_CHAR</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba88bb4143f90075a31c43bd90bfb19f51">HIDD_LE_IDX_BOOT_KB_IN_REPORT_VAL</a>
+, <br />
+&#160;&#160;<a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba31e26476802bf7ce3b9dc6e40f5a573b">HIDD_LE_IDX_BOOT_KB_IN_REPORT_NTF_CFG</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba746e33abc6c0a45124d8371da7225b27">HIDD_LE_IDX_BOOT_KB_OUT_REPORT_CHAR</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55bade1394b7cb4a78ace17b84a3d220dc74">HIDD_LE_IDX_BOOT_KB_OUT_REPORT_VAL</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba717da60f7f02af7daa9b09745b1c98cc">HIDD_LE_IDX_BOOT_MOUSE_IN_REPORT_CHAR</a>
+, <br />
+&#160;&#160;<a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba94c6d75a689ee4df637acf102b9094ab">HIDD_LE_IDX_BOOT_MOUSE_IN_REPORT_VAL</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba78a551dcfadde601d8232c955ba2ac45">HIDD_LE_IDX_BOOT_MOUSE_IN_REPORT_NTF_CFG</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba0922575290be61908552fbe4cb5e2571">HIDD_LE_IDX_REPORT_CHAR</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55baa4a2ff6e24222d636de8a52c1acfc029">HIDD_LE_IDX_REPORT_VAL</a>
+, <br />
+&#160;&#160;<a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55baa0b416eff4c751b751d4936812efa4a3">HIDD_LE_IDX_REPORT_REP_REF</a>
+, <a class="el" href="#a06fc87d81c62e9abb8790b6e5713c55ba36d89e035162ba80365c8bd1ed53043e">HIDD_LE_IDX_NB</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a06fc87d81c62e9abb8790b6e5713c55b"><td class="mdescLeft">&#160;</td><td class="mdescRight">HID Service Attributes Indexes.  <a href="#a06fc87d81c62e9abb8790b6e5713c55b">Más...</a><br /></td></tr>
+<tr class="separator:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf764cbdea00d65edcd07bb9953ad2b7" id="r_adf764cbdea00d65edcd07bb9953ad2b7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<a class="el" href="#adf764cbdea00d65edcd07bb9953ad2b7a5bf5eecd0a812adb296339e7a4be5cce">HIDD_LE_INFO_CHAR</a>
+, <a class="el" href="#adf764cbdea00d65edcd07bb9953ad2b7a95cd26e74422592c250244b0b0fc1ec1">HIDD_LE_CTNL_PT_CHAR</a>
+, <a class="el" href="#adf764cbdea00d65edcd07bb9953ad2b7afa03760618f0569f1e1d682582b6ea30">HIDD_LE_REPORT_MAP_CHAR</a>
+, <a class="el" href="#adf764cbdea00d65edcd07bb9953ad2b7ab50056319d793245d832e3c741c10ca5">HIDD_LE_REPORT_CHAR</a>
+, <br />
+&#160;&#160;<a class="el" href="#adf764cbdea00d65edcd07bb9953ad2b7a74756a7f80928710da208f59dd4eb36b">HIDD_LE_PROTO_MODE_CHAR</a>
+, <a class="el" href="#adf764cbdea00d65edcd07bb9953ad2b7a15e900fdfe10485376d170570f58878e">HIDD_LE_BOOT_KB_IN_REPORT_CHAR</a>
+, <a class="el" href="#adf764cbdea00d65edcd07bb9953ad2b7a6d00deff2815a095274ea4a03946af02">HIDD_LE_BOOT_KB_OUT_REPORT_CHAR</a>
+, <a class="el" href="#adf764cbdea00d65edcd07bb9953ad2b7a06d65b185b709adc575ad9a0aedf779d">HIDD_LE_BOOT_MOUSE_IN_REPORT_CHAR</a>
+, <br />
+&#160;&#160;<a class="el" href="#adf764cbdea00d65edcd07bb9953ad2b7a346a0c69cba0f63cdc4f913b6dae2e2e">HIDD_LE_CHAR_MAX</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:adf764cbdea00d65edcd07bb9953ad2b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribute Table Indexes.  <a href="#adf764cbdea00d65edcd07bb9953ad2b7">Más...</a><br /></td></tr>
+<tr class="separator:adf764cbdea00d65edcd07bb9953ad2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99fb83031ce9923c84392b4e92f956b5" id="r_a99fb83031ce9923c84392b4e92f956b5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<a class="el" href="#a99fb83031ce9923c84392b4e92f956b5af8fb15814830a601e861d95b5c5eb4d7">HIDD_LE_READ_INFO_EVT</a>
+, <a class="el" href="#a99fb83031ce9923c84392b4e92f956b5a4226e6fb52b9775f334ac567b327d29a">HIDD_LE_READ_CTNL_PT_EVT</a>
+, <a class="el" href="#a99fb83031ce9923c84392b4e92f956b5a242ee7554db1bda272ca0003986a5d42">HIDD_LE_READ_REPORT_MAP_EVT</a>
+, <a class="el" href="#a99fb83031ce9923c84392b4e92f956b5a95ea234cf0a45097e15ba53a54c75375">HIDD_LE_READ_REPORT_EVT</a>
+, <br />
+&#160;&#160;<a class="el" href="#a99fb83031ce9923c84392b4e92f956b5a9958c22471cf751944d448f8a493fd45">HIDD_LE_READ_PROTO_MODE_EVT</a>
+, <a class="el" href="#a99fb83031ce9923c84392b4e92f956b5a4b729d077fe70a86218c686dfa458181">HIDD_LE_BOOT_KB_IN_REPORT_EVT</a>
+, <a class="el" href="#a99fb83031ce9923c84392b4e92f956b5a2cc25916cee1266869ea277dcacf6244">HIDD_LE_BOOT_KB_OUT_REPORT_EVT</a>
+, <a class="el" href="#a99fb83031ce9923c84392b4e92f956b5a3d12bb5614ece5a4b5145f1b31ce5765">HIDD_LE_BOOT_MOUSE_IN_REPORT_EVT</a>
+, <br />
+&#160;&#160;<a class="el" href="#a99fb83031ce9923c84392b4e92f956b5a1aa6a679228cd2f5979db7d7d42ba248">HID_LE_EVT_MAX</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a99fb83031ce9923c84392b4e92f956b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">att read event table Indexs  <a href="#a99fb83031ce9923c84392b4e92f956b5">Más...</a><br /></td></tr>
+<tr class="separator:a99fb83031ce9923c84392b4e92f956b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc6126af1d45847bc59afa0aa3216b04" id="r_abc6126af1d45847bc59afa0aa3216b04"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#abc6126af1d45847bc59afa0aa3216b04a5178520cb60bd1e750d91b7173fb6bcb">HIDD_LE_DESC_MASK</a> = 0x10
+, <a class="el" href="#abc6126af1d45847bc59afa0aa3216b04a47c9b5fa569a0b37c33e2910682c1f91">HIDD_LE_BOOT_KB_IN_REPORT_CFG</a> = HIDD_LE_BOOT_KB_IN_REPORT_CHAR | HIDD_LE_DESC_MASK
+, <a class="el" href="#abc6126af1d45847bc59afa0aa3216b04acfc49d915c338801c15038e3feee8fb2">HIDD_LE_BOOT_MOUSE_IN_REPORT_CFG</a> = HIDD_LE_BOOT_MOUSE_IN_REPORT_CHAR | HIDD_LE_DESC_MASK
+, <a class="el" href="#abc6126af1d45847bc59afa0aa3216b04a77820d787f0a3a4b83e3efd6479bee70">HIDD_LE_REPORT_CFG</a> = HIDD_LE_REPORT_CHAR | HIDD_LE_DESC_MASK
+ }</td></tr>
+<tr class="memdesc:abc6126af1d45847bc59afa0aa3216b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client Characteristic Configuration Codes.  <a href="#abc6126af1d45847bc59afa0aa3216b04">Más...</a><br /></td></tr>
+<tr class="separator:abc6126af1d45847bc59afa0aa3216b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc29c2ff13d900c2f185ee95427fb06c" id="r_adc29c2ff13d900c2f185ee95427fb06c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<a class="el" href="#adc29c2ff13d900c2f185ee95427fb06ca6a963b03b1c92fa0b208fbf84f6eb9a4">HIDD_LE_CFG_KEYBOARD</a> = 0x01
+, <a class="el" href="#adc29c2ff13d900c2f185ee95427fb06caeed2a0fe39d4ca2836c626ba318a7da5">HIDD_LE_CFG_MOUSE</a> = 0x02
+, <a class="el" href="#adc29c2ff13d900c2f185ee95427fb06ca576663d3ab3193a284105b6e763f13a9">HIDD_LE_CFG_PROTO_MODE</a> = 0x04
+, <a class="el" href="#adc29c2ff13d900c2f185ee95427fb06caf7ec65f2d70b66a9890ac027fef82ec9">HIDD_LE_CFG_MAP_EXT_REF</a> = 0x08
+, <br />
+&#160;&#160;<a class="el" href="#adc29c2ff13d900c2f185ee95427fb06ca4c8a4937c0372de7b70b8b1d54737bf0">HIDD_LE_CFG_BOOT_KB_WR</a> = 0x10
+, <a class="el" href="#adc29c2ff13d900c2f185ee95427fb06ca1b6c567a694605d82399b162c658a5bb">HIDD_LE_CFG_BOOT_MOUSE_WR</a> = 0x20
+<br />
+ }</td></tr>
+<tr class="memdesc:adc29c2ff13d900c2f185ee95427fb06c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Features Flag Values.  <a href="#adc29c2ff13d900c2f185ee95427fb06c">Más...</a><br /></td></tr>
+<tr class="separator:adc29c2ff13d900c2f185ee95427fb06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61dadd085c1777f559549e05962b2c9e" id="r_a61dadd085c1777f559549e05962b2c9e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="#a61dadd085c1777f559549e05962b2c9eafa10eda99672ddf83014d1bc7e0c76f3">HIDD_LE_CFG_REPORT_IN</a> = 0x01
+, <a class="el" href="#a61dadd085c1777f559549e05962b2c9ea02d237f5b13ed5240dcd73fd41d9d0b9">HIDD_LE_CFG_REPORT_OUT</a> = 0x02
+, <a class="el" href="#a61dadd085c1777f559549e05962b2c9ea233c3efdc669185d85bfd64b9d190d88">HIDD_LE_CFG_REPORT_FEAT</a> = 0x03
+, <a class="el" href="#a61dadd085c1777f559549e05962b2c9eacc64735638fc565f094809ba2eefd972">HIDD_LE_CFG_REPORT_WR</a> = 0x10
+ }</td></tr>
+<tr class="memdesc:a61dadd085c1777f559549e05962b2c9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Report Char. Configuration Flag Values.  <a href="#a61dadd085c1777f559549e05962b2c9e">Más...</a><br /></td></tr>
+<tr class="separator:a61dadd085c1777f559549e05962b2c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a726ca809ffd3d67ab4b8476646f26635" id="r_a726ca809ffd3d67ab4b8476646f26635"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<a class="el" href="#a726ca809ffd3d67ab4b8476646f26635a5e37b489592eff7e74260064d69ba09e">BAS_IDX_SVC</a>
+, <a class="el" href="#a726ca809ffd3d67ab4b8476646f26635a98baadc8c6d9636f171027aef2b27ff2">BAS_IDX_BATT_LVL_CHAR</a>
+, <a class="el" href="#a726ca809ffd3d67ab4b8476646f26635a28831413b9397355fb1c0afaa32fe3b0">BAS_IDX_BATT_LVL_VAL</a>
+, <a class="el" href="#a726ca809ffd3d67ab4b8476646f26635aa406834fc2cd715ff14dbdbbf73d667e">BAS_IDX_BATT_LVL_NTF_CFG</a>
+, <br />
+&#160;&#160;<a class="el" href="#a726ca809ffd3d67ab4b8476646f26635a4a542f1468e8fab6b000ce3da30c41c2">BAS_IDX_BATT_LVL_PRES_FMT</a>
+, <a class="el" href="#a726ca809ffd3d67ab4b8476646f26635a19e275118a6ba770b54344df5d74cc65">BAS_IDX_NB</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a726ca809ffd3d67ab4b8476646f26635"><td class="mdescLeft">&#160;</td><td class="mdescRight">Battery Service Attributes Indexes.  <a href="#a726ca809ffd3d67ab4b8476646f26635">Más...</a><br /></td></tr>
+<tr class="separator:a726ca809ffd3d67ab4b8476646f26635"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47afe3bf419ceb85a287f6cae0c2d0e6" id="r_a47afe3bf419ceb85a287f6cae0c2d0e6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47afe3bf419ceb85a287f6cae0c2d0e6">esp_hidd_cb_event_t</a> { <br />
+&#160;&#160;<a class="el" href="#a47afe3bf419ceb85a287f6cae0c2d0e6aa83cc4117fc104e49566763f25d30113">ESP_HIDD_EVENT_REG_FINISH</a> = 0
+, <a class="el" href="#a47afe3bf419ceb85a287f6cae0c2d0e6a81275aab4084cbb040c24ddb642af543">ESP_BAT_EVENT_REG</a>
+, <a class="el" href="#a47afe3bf419ceb85a287f6cae0c2d0e6aab1887ebb0a2d39db730b28469b75c2e">ESP_HIDD_EVENT_DEINIT_FINISH</a>
+, <a class="el" href="#a47afe3bf419ceb85a287f6cae0c2d0e6af428f60386d3fae4b22d96f235779ba5">ESP_HIDD_EVENT_BLE_CONNECT</a>
+, <br />
+&#160;&#160;<a class="el" href="#a47afe3bf419ceb85a287f6cae0c2d0e6a6b4043e78a8aadb05ab614d761608c0d">ESP_HIDD_EVENT_BLE_DISCONNECT</a>
+, <a class="el" href="#a47afe3bf419ceb85a287f6cae0c2d0e6aa49b05c4194a3c63f6e37287c06b6ce3">ESP_HIDD_EVENT_BLE_VENDOR_REPORT_WRITE_EVT</a>
+, <a class="el" href="#a47afe3bf419ceb85a287f6cae0c2d0e6a624725431715473c060e2be9191038c6">ESP_HIDD_EVENT_BLE_LED_REPORT_WRITE_EVT</a>
+<br />
+ }</td></tr>
+<tr class="separator:a47afe3bf419ceb85a287f6cae0c2d0e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a586b8e50bea5f04b30a557a556264ed4" id="r_a586b8e50bea5f04b30a557a556264ed4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a586b8e50bea5f04b30a557a556264ed4">esp_hidd_sta_conn_state_t</a> { <a class="el" href="#a586b8e50bea5f04b30a557a556264ed4a7fcd7d664c626bb5096c466ad536c07e">ESP_HIDD_STA_CONN_SUCCESS</a> = 0x00
+, <a class="el" href="#a586b8e50bea5f04b30a557a556264ed4a53bc94d7c4481a76d703fa15b5a0928d">ESP_HIDD_STA_CONN_FAIL</a> = 0x01
+ }</td></tr>
+<tr class="memdesc:a586b8e50bea5f04b30a557a556264ed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">HID config status.  <a href="#a586b8e50bea5f04b30a557a556264ed4">Más...</a><br /></td></tr>
+<tr class="separator:a586b8e50bea5f04b30a557a556264ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15adb62d9ad8757fae5e4b0f36a95a03" id="r_a15adb62d9ad8757fae5e4b0f36a95a03"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15adb62d9ad8757fae5e4b0f36a95a03">esp_hidd_init_state_t</a> { <a class="el" href="#a15adb62d9ad8757fae5e4b0f36a95a03a4695d1b60ecadc8d647662a411ad9614">ESP_HIDD_INIT_OK</a> = 0
+, <a class="el" href="#a15adb62d9ad8757fae5e4b0f36a95a03ab7731152869358e0c85fee0346b36a50">ESP_HIDD_INIT_FAILED</a> = 1
+ }</td></tr>
+<tr class="memdesc:a15adb62d9ad8757fae5e4b0f36a95a03"><td class="mdescLeft">&#160;</td><td class="mdescRight">HID init status.  <a href="#a15adb62d9ad8757fae5e4b0f36a95a03">Más...</a><br /></td></tr>
+<tr class="separator:a15adb62d9ad8757fae5e4b0f36a95a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8af97c7fadb44316863b318b6319a77" id="r_af8af97c7fadb44316863b318b6319a77"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8af97c7fadb44316863b318b6319a77">esp_hidd_deinit_state_t</a> { <a class="el" href="#af8af97c7fadb44316863b318b6319a77a1532e6e2f8b366028d2de8cb97e1853f">ESP_HIDD_DEINIT_OK</a> = 0
+, <a class="el" href="#af8af97c7fadb44316863b318b6319a77aae8bd6ecbe20d2e7eb79001fdc324fad">ESP_HIDD_DEINIT_FAILED</a> = 0
+ }</td></tr>
+<tr class="memdesc:af8af97c7fadb44316863b318b6319a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">HID deinit status.  <a href="#af8af97c7fadb44316863b318b6319a77">Más...</a><br /></td></tr>
+<tr class="separator:af8af97c7fadb44316863b318b6319a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a5256c1f0eb079f624ce5e09a47d5b89c" id="r_a5256c1f0eb079f624ce5e09a47d5b89c"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5256c1f0eb079f624ce5e09a47d5b89c">esp_hidd_register_callbacks</a> (<a class="el" href="#af7a19b0130b512a84963eb5f98a39d46">esp_hidd_event_cb_t</a> callbacks)</td></tr>
+<tr class="memdesc:a5256c1f0eb079f624ce5e09a47d5b89c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is called to receive hid device callback event.  <br /></td></tr>
+<tr class="separator:a5256c1f0eb079f624ce5e09a47d5b89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c4c8031f1e6ea5615c28b98d46d6232" id="r_a4c4c8031f1e6ea5615c28b98d46d6232"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c4c8031f1e6ea5615c28b98d46d6232">esp_hidd_profile_init</a> (void)</td></tr>
+<tr class="memdesc:a4c4c8031f1e6ea5615c28b98d46d6232"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is called to initialize hid device profile.  <br /></td></tr>
+<tr class="separator:a4c4c8031f1e6ea5615c28b98d46d6232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aca045d017710715909138e36a9c544" id="r_a4aca045d017710715909138e36a9c544"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4aca045d017710715909138e36a9c544">esp_hidd_profile_deinit</a> (void)</td></tr>
+<tr class="memdesc:a4aca045d017710715909138e36a9c544"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is called to de-initialize hid device profile.  <br /></td></tr>
+<tr class="separator:a4aca045d017710715909138e36a9c544"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af65c55a902a6ac28657f22df1d9365ae" id="r_af65c55a902a6ac28657f22df1d9365ae"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af65c55a902a6ac28657f22df1d9365ae">esp_hidd_get_version</a> (void)</td></tr>
+<tr class="memdesc:af65c55a902a6ac28657f22df1d9365ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get hidd profile version.  <br /></td></tr>
+<tr class="separator:af65c55a902a6ac28657f22df1d9365ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6df72a6bb64d5c8cd7490eb11617b7ab" id="r_a6df72a6bb64d5c8cd7490eb11617b7ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6df72a6bb64d5c8cd7490eb11617b7ab">hid_dev_register_reports</a> (uint8_t num_reports, <a class="el" href="structhid__report__map__t.html">hid_report_map_t</a> *p_report)</td></tr>
+<tr class="memdesc:a6df72a6bb64d5c8cd7490eb11617b7ab"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+  <br /></td></tr>
+<tr class="separator:a6df72a6bb64d5c8cd7490eb11617b7ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ae7c69dfd4b740534df123a303a8832" id="r_a8ae7c69dfd4b740534df123a303a8832"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ae7c69dfd4b740534df123a303a8832">hid_dev_send_report</a> (esp_gatt_if_t gatts_if, uint16_t conn_id, uint8_t id, uint8_t type, uint8_t length, uint8_t *data)</td></tr>
+<tr class="memdesc:a8ae7c69dfd4b740534df123a303a8832"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+  <br /></td></tr>
+<tr class="separator:a8ae7c69dfd4b740534df123a303a8832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e7096230eedcf2dbc89351ea636677d" id="r_a4e7096230eedcf2dbc89351ea636677d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e7096230eedcf2dbc89351ea636677d">hidd_clcb_alloc</a> (uint16_t conn_id, esp_bd_addr_t bda)</td></tr>
+<tr class="memdesc:a4e7096230eedcf2dbc89351ea636677d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+  <br /></td></tr>
+<tr class="separator:a4e7096230eedcf2dbc89351ea636677d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74aa695557816b038ff9847860291fa2" id="r_a74aa695557816b038ff9847860291fa2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74aa695557816b038ff9847860291fa2">hidd_clcb_dealloc</a> (uint16_t conn_id)</td></tr>
+<tr class="memdesc:a74aa695557816b038ff9847860291fa2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+  <br /></td></tr>
+<tr class="separator:a74aa695557816b038ff9847860291fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a479cfaafdbd41501ccd953c0abfc8ca6" id="r_a479cfaafdbd41501ccd953c0abfc8ca6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a479cfaafdbd41501ccd953c0abfc8ca6">hidd_le_create_service</a> (esp_gatt_if_t gatts_if)</td></tr>
+<tr class="memdesc:a479cfaafdbd41501ccd953c0abfc8ca6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+  <br /></td></tr>
+<tr class="separator:a479cfaafdbd41501ccd953c0abfc8ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1d398a5081d065d043c584c44d77b91" id="r_af1d398a5081d065d043c584c44d77b91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1d398a5081d065d043c584c44d77b91">hidd_set_attr_value</a> (uint16_t handle, uint16_t val_len, const uint8_t *value)</td></tr>
+<tr class="memdesc:af1d398a5081d065d043c584c44d77b91"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+  <br /></td></tr>
+<tr class="separator:af1d398a5081d065d043c584c44d77b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a192d7cf437968a2130fcde7888eaf5ce" id="r_a192d7cf437968a2130fcde7888eaf5ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a192d7cf437968a2130fcde7888eaf5ce">hidd_get_attr_value</a> (uint16_t handle, uint16_t *length, uint8_t **value)</td></tr>
+<tr class="memdesc:a192d7cf437968a2130fcde7888eaf5ce"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+  <br /></td></tr>
+<tr class="separator:a192d7cf437968a2130fcde7888eaf5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb0d2b8e95e7bbabf1e3bdab379d18d5" id="r_acb0d2b8e95e7bbabf1e3bdab379d18d5"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb0d2b8e95e7bbabf1e3bdab379d18d5">hidd_register_cb</a> (void)</td></tr>
+<tr class="memdesc:acb0d2b8e95e7bbabf1e3bdab379d18d5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+  <br /></td></tr>
+<tr class="separator:acb0d2b8e95e7bbabf1e3bdab379d18d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add8f27ab149175c58a8bced1016df5a6" id="r_add8f27ab149175c58a8bced1016df5a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add8f27ab149175c58a8bced1016df5a6">esp_hidd_prf_cb_hdl</a> (esp_gatts_cb_event_t event, esp_gatt_if_t gatts_if, esp_ble_gatts_cb_param_t *param)</td></tr>
+<tr class="separator:add8f27ab149175c58a8bced1016df5a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a371a89ec41b61b5e5d6ae5ad70e8d58d" id="r_a371a89ec41b61b5e5d6ae5ad70e8d58d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a371a89ec41b61b5e5d6ae5ad70e8d58d">hidd_le_init</a> (void)</td></tr>
+<tr class="separator:a371a89ec41b61b5e5d6ae5ad70e8d58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga94512d231afe9cff7e7aa8eff3a18fba" id="r_ga94512d231afe9cff7e7aa8eff3a18fba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e.html#ga94512d231afe9cff7e7aa8eff3a18fba">BleHidInit</a> (char *hid_dev_name)</td></tr>
+<tr class="memdesc:ga94512d231afe9cff7e7aa8eff3a18fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bluetooth initialization as a HID device.  <br /></td></tr>
+<tr class="separator:ga94512d231afe9cff7e7aa8eff3a18fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga67558f92332c3d7edc94278eb7a45cfc" id="r_ga67558f92332c3d7edc94278eb7a45cfc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___b_l_e.html#gace12bf2f4052775366d0375947452f0d">ble_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e.html#ga67558f92332c3d7edc94278eb7a45cfc">BleHidStatus</a> (void)</td></tr>
+<tr class="memdesc:ga67558f92332c3d7edc94278eb7a45cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets BLE connection status.  <br /></td></tr>
+<tr class="separator:ga67558f92332c3d7edc94278eb7a45cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga28150d6c4fe3eedd6e784d272d0e56ca" id="r_ga28150d6c4fe3eedd6e784d272d0e56ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e.html#ga28150d6c4fe3eedd6e784d272d0e56ca">BleHidSendKeyboard</a> (<a class="el" href="group___b_l_e.html#gab3d8494d4d57a81a068b2b569cb0051e">key_mask_t</a> special_key_mask, <a class="el" href="group___b_l_e.html#ga528f1243a7bb2eb10a2140592c67e879">keyboard_cmd_t</a> *<a class="el" href="group___b_l_e.html#gaed078c594a86d36a49f51710e35c405b">keyboard_cmd</a>, uint8_t num_key)</td></tr>
+<tr class="memdesc:ga28150d6c4fe3eedd6e784d272d0e56ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a group of keys to be pressed together.  <br /></td></tr>
+<tr class="separator:ga28150d6c4fe3eedd6e784d272d0e56ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae4f1c4c5da8317a9c16d13e418e82a2e" id="r_gae4f1c4c5da8317a9c16d13e418e82a2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e.html#gae4f1c4c5da8317a9c16d13e418e82a2e">BleHidSendMouse</a> (<a class="el" href="group___b_l_e.html#gad70fe6ba1d3a0ac8b4603c11f6de43b2">mouse_cmd_t</a> mouse_button, int8_t delta_x, int8_t delta_y)</td></tr>
+<tr class="memdesc:gae4f1c4c5da8317a9c16d13e418e82a2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send mouse position and click event.  <br /></td></tr>
+<tr class="separator:gae4f1c4c5da8317a9c16d13e418e82a2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a91d82217264ad84483e4f8f0c644d6cf" id="r_a91d82217264ad84483e4f8f0c644d6cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhidd__le__env__t.html">hidd_le_env_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91d82217264ad84483e4f8f0c644d6cf">hidd_le_env</a></td></tr>
+<tr class="separator:a91d82217264ad84483e4f8f0c644d6cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18824297d97ae42a7da587d9752002fe" id="r_a18824297d97ae42a7da587d9752002fe"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18824297d97ae42a7da587d9752002fe">hidProtocolMode</a> = <a class="el" href="#a998ca749aef167d8f61d12d5c0a89963">HID_PROTOCOL_MODE_REPORT</a></td></tr>
+<tr class="separator:a18824297d97ae42a7da587d9752002fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47b2e510fe20902fa67e2644118db42e" id="r_a47b2e510fe20902fa67e2644118db42e"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47b2e510fe20902fa67e2644118db42e">device_name</a></td></tr>
+<tr class="separator:a47b2e510fe20902fa67e2644118db42e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b7cc6e74ea0a16819c1665e6118294c" id="r_a0b7cc6e74ea0a16819c1665e6118294c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b7cc6e74ea0a16819c1665e6118294c">hidReportMapLen</a> = sizeof(hidReportMap)</td></tr>
+<tr class="separator:a0b7cc6e74ea0a16819c1665e6118294c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2723374c79e85f2899bba93932ee37c3" id="r_a2723374c79e85f2899bba93932ee37c3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2723374c79e85f2899bba93932ee37c3">hid_count</a> = 0</td></tr>
+<tr class="separator:a2723374c79e85f2899bba93932ee37c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc79618f323c3868b5c3ddde94482bb0" id="r_acc79618f323c3868b5c3ddde94482bb0"><td class="memItemLeft" align="right" valign="top">esp_gatts_incl_svc_desc_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc79618f323c3868b5c3ddde94482bb0">incl_svc</a> = {0}</td></tr>
+<tr class="separator:acc79618f323c3868b5c3ddde94482bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5361bd9ad8b63d5b91fea8a38d6242e1" id="r_a5361bd9ad8b63d5b91fea8a38d6242e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___b_l_e.html#gace12bf2f4052775366d0375947452f0d">ble_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5361bd9ad8b63d5b91fea8a38d6242e1">status</a> = <a class="el" href="group___b_l_e.html#ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4">BLE_OFF</a></td></tr>
+<tr class="separator:a5361bd9ad8b63d5b91fea8a38d6242e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Albano Peñalva (<a href="#" onclick="location.href='mai'+'lto:'+'alb'+'an'+'o.p'+'en'+'alv'+'a@'+'une'+'r.'+'edu'+'.a'+'r'; return false;">alban<span class="obfuscator">.nosp@m.</span>o.pe<span class="obfuscator">.nosp@m.</span>nalva<span class="obfuscator">.nosp@m.</span>@une<span class="obfuscator">.nosp@m.</span>r.edu<span class="obfuscator">.nosp@m.</span>.ar</a>) </dd></dl>
+<dl class="section version"><dt>Versión</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Fecha</dt><dd>2024-05-16</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024 </dd></dl>
+
+<p class="definition">Definición en el archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+</div><h2 class="groupheader">Documentación de «define»</h2>
+<a id="a120ccad3a7e1b92bda154619fbb25ea8" name="a120ccad3a7e1b92bda154619fbb25ea8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a120ccad3a7e1b92bda154619fbb25ea8">&#9670;&#160;</a></span>ATT_SVC_HID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ATT_SVC_HID&#160;&#160;&#160;0x1812</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00069">69</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="abc3e6e8d2476850b1308f64d6afeacaa" name="abc3e6e8d2476850b1308f64d6afeacaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc3e6e8d2476850b1308f64d6afeacaa">&#9670;&#160;</a></span>BATTRAY_APP_ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BATTRAY_APP_ID&#160;&#160;&#160;0x180f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00068">68</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01056">esp_hidd_prf_cb_hdl()</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l00972">esp_hidd_register_callbacks()</a>.</p>
+
+</div>
+</div>
+<a id="a36dab879c60ad380569b702ffb0caabf" name="a36dab879c60ad380569b702ffb0caabf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36dab879c60ad380569b702ffb0caabf">&#9670;&#160;</a></span>CHAR_DECLARATION_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CHAR_DECLARATION_SIZE&#160;&#160;&#160;(sizeof(uint8_t))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00225">225</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a869398c9f0eb7bcf1c8e101b052eed07" name="a869398c9f0eb7bcf1c8e101b052eed07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a869398c9f0eb7bcf1c8e101b052eed07">&#9670;&#160;</a></span>HI_UINT16</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HI_UINT16</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">a</span></td><td>)</td>
+          <td>&#160;&#160;&#160;(((a) &gt;&gt; 8) &amp; 0xFF)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00221">221</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="ab05d6202ce10687104c99ad6ac361aaf" name="ab05d6202ce10687104c99ad6ac361aaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab05d6202ce10687104c99ad6ac361aaf">&#9670;&#160;</a></span>HID_CC_IN_RPT_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_CC_IN_RPT_LEN&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00040">40</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a00d74ed1936198ebd938a69e205eb66e" name="a00d74ed1936198ebd938a69e205eb66e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d74ed1936198ebd938a69e205eb66e">&#9670;&#160;</a></span>HID_CMD_EXIT_SUSPEND</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_CMD_EXIT_SUSPEND&#160;&#160;&#160;0x01</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00089">89</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a594641b9b85c9eaa1fb2674f29f89347" name="a594641b9b85c9eaa1fb2674f29f89347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a594641b9b85c9eaa1fb2674f29f89347">&#9670;&#160;</a></span>HID_CMD_SUSPEND</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_CMD_SUSPEND&#160;&#160;&#160;0x00</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00088">88</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="aaab0501d09d36e5d2ee709a73af2534a" name="aaab0501d09d36e5d2ee709a73af2534a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaab0501d09d36e5d2ee709a73af2534a">&#9670;&#160;</a></span>HID_EXT_REPORT_REF_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_EXT_REPORT_REF_LEN&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00097">97</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="aa96b6ad5eea5ea65fbf3695d0480d516" name="aa96b6ad5eea5ea65fbf3695d0480d516"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa96b6ad5eea5ea65fbf3695d0480d516">&#9670;&#160;</a></span>HID_FLAGS_NORMALLY_CONNECTABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_FLAGS_NORMALLY_CONNECTABLE&#160;&#160;&#160;0x02</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00086">86</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="ab94225917ef02635494c83e1dfebeba4" name="ab94225917ef02635494c83e1dfebeba4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab94225917ef02635494c83e1dfebeba4">&#9670;&#160;</a></span>HID_FLAGS_REMOTE_WAKE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_FLAGS_REMOTE_WAKE&#160;&#160;&#160;0x01</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00085">85</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a7903484b0c009cdbe58d2e0fda8c5ca8" name="a7903484b0c009cdbe58d2e0fda8c5ca8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7903484b0c009cdbe58d2e0fda8c5ca8">&#9670;&#160;</a></span>HID_INFORMATION_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_INFORMATION_LEN&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00095">95</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a88317e70320544b82dfb2dabf5b2dfde" name="a88317e70320544b82dfb2dabf5b2dfde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88317e70320544b82dfb2dabf5b2dfde">&#9670;&#160;</a></span>HID_KBD_FLAGS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_KBD_FLAGS&#160;&#160;&#160;<a class="el" href="#ab94225917ef02635494c83e1dfebeba4">HID_FLAGS_REMOTE_WAKE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00099">99</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a0221366c1aad83bfd0ee08ab476e419e" name="a0221366c1aad83bfd0ee08ab476e419e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0221366c1aad83bfd0ee08ab476e419e">&#9670;&#160;</a></span>HID_KEYBOARD_IN_RPT_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_KEYBOARD_IN_RPT_LEN&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00034">34</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01421">BleHidSendKeyboard()</a>.</p>
+
+</div>
+</div>
+<a id="ac30fec7214abaf07884013199141acb6" name="ac30fec7214abaf07884013199141acb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac30fec7214abaf07884013199141acb6">&#9670;&#160;</a></span>HID_LED_OUT_RPT_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_LED_OUT_RPT_LEN&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00036">36</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="ad5627ebe5d12033b6efbf5f1ea4a6edf" name="ad5627ebe5d12033b6efbf5f1ea4a6edf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5627ebe5d12033b6efbf5f1ea4a6edf">&#9670;&#160;</a></span>HID_MAX_APPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_MAX_APPS&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00057">57</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01153">hidd_clcb_alloc()</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l01167">hidd_clcb_dealloc()</a>.</p>
+
+</div>
+</div>
+<a id="ac67c29729cabfabb297eb4f3fe7e00dc" name="ac67c29729cabfabb297eb4f3fe7e00dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac67c29729cabfabb297eb4f3fe7e00dc">&#9670;&#160;</a></span>HID_MOUSE_IN_RPT_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_MOUSE_IN_RPT_LEN&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00038">38</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01443">BleHidSendMouse()</a>.</p>
+
+</div>
+</div>
+<a id="a46dda3faf94c8eafa2218e14c8d1e2be" name="a46dda3faf94c8eafa2218e14c8d1e2be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46dda3faf94c8eafa2218e14c8d1e2be">&#9670;&#160;</a></span>HID_NUM_REPORTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_NUM_REPORTS&#160;&#160;&#160;9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00059">59</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a8ba5ff3f2a7394ef46d59d32b971a4fa" name="a8ba5ff3f2a7394ef46d59d32b971a4fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ba5ff3f2a7394ef46d59d32b971a4fa">&#9670;&#160;</a></span>HID_PROTOCOL_MODE_BOOT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_PROTOCOL_MODE_BOOT&#160;&#160;&#160;0x00</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00091">91</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="ae0f926844a10e6e40a60d67e6b49a754" name="ae0f926844a10e6e40a60d67e6b49a754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0f926844a10e6e40a60d67e6b49a754">&#9670;&#160;</a></span>HID_PROTOCOL_MODE_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_PROTOCOL_MODE_LEN&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00094">94</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a998ca749aef167d8f61d12d5c0a89963" name="a998ca749aef167d8f61d12d5c0a89963"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a998ca749aef167d8f61d12d5c0a89963">&#9670;&#160;</a></span>HID_PROTOCOL_MODE_REPORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_PROTOCOL_MODE_REPORT&#160;&#160;&#160;0x01</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00092">92</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a9e214dcdc0faba83d46da253cf90250f" name="a9e214dcdc0faba83d46da253cf90250f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e214dcdc0faba83d46da253cf90250f">&#9670;&#160;</a></span>HID_REPORT_REF_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_REPORT_REF_LEN&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00096">96</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="ab2122756f77c390357c5b86f1b69faa6" name="ab2122756f77c390357c5b86f1b69faa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2122756f77c390357c5b86f1b69faa6">&#9670;&#160;</a></span>HID_REPORT_TYPE_FEATURE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_REPORT_TYPE_FEATURE&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00103">103</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a8c2f36273741e160a071ead66cc36da2" name="a8c2f36273741e160a071ead66cc36da2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c2f36273741e160a071ead66cc36da2">&#9670;&#160;</a></span>HID_REPORT_TYPE_INPUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_REPORT_TYPE_INPUT&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00101">101</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01421">BleHidSendKeyboard()</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l01443">BleHidSendMouse()</a>.</p>
+
+</div>
+</div>
+<a id="afc5ff29118405a5851471ccdc991b1be" name="afc5ff29118405a5851471ccdc991b1be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc5ff29118405a5851471ccdc991b1be">&#9670;&#160;</a></span>HID_REPORT_TYPE_OUTPUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_REPORT_TYPE_OUTPUT&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00102">102</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a294d77f599410cdc8c71da07fa67020f" name="a294d77f599410cdc8c71da07fa67020f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a294d77f599410cdc8c71da07fa67020f">&#9670;&#160;</a></span>HID_RPT_ID_CC_IN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_RPT_ID_CC_IN&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00063">63</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a1c9299b131a3e8d3e0ac8f803321d51d" name="a1c9299b131a3e8d3e0ac8f803321d51d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c9299b131a3e8d3e0ac8f803321d51d">&#9670;&#160;</a></span>HID_RPT_ID_FEATURE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_RPT_ID_FEATURE&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00066">66</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="ae275c1d382448411ee0441d55a970569" name="ae275c1d382448411ee0441d55a970569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae275c1d382448411ee0441d55a970569">&#9670;&#160;</a></span>HID_RPT_ID_KEY_IN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_RPT_ID_KEY_IN&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00062">62</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01421">BleHidSendKeyboard()</a>.</p>
+
+</div>
+</div>
+<a id="aefc58b8c80aecc52a0712efa3c820063" name="aefc58b8c80aecc52a0712efa3c820063"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefc58b8c80aecc52a0712efa3c820063">&#9670;&#160;</a></span>HID_RPT_ID_LED_OUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_RPT_ID_LED_OUT&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00065">65</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01056">esp_hidd_prf_cb_hdl()</a>.</p>
+
+</div>
+</div>
+<a id="adcc36a227f5386df1faaf120ae4fc0c8" name="adcc36a227f5386df1faaf120ae4fc0c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcc36a227f5386df1faaf120ae4fc0c8">&#9670;&#160;</a></span>HID_RPT_ID_MOUSE_IN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_RPT_ID_MOUSE_IN&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00061">61</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01443">BleHidSendMouse()</a>.</p>
+
+</div>
+</div>
+<a id="ab7558eb78d7388f89b0beb0794413a3d" name="ab7558eb78d7388f89b0beb0794413a3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7558eb78d7388f89b0beb0794413a3d">&#9670;&#160;</a></span>HID_RPT_ID_VENDOR_OUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_RPT_ID_VENDOR_OUT&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00064">64</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="abd5a1bdf50ffe3ae21e24b33396c66d4" name="abd5a1bdf50ffe3ae21e24b33396c66d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd5a1bdf50ffe3ae21e24b33396c66d4">&#9670;&#160;</a></span>HID_TYPE_FEATURE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_TYPE_FEATURE&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00045">45</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a80806ec4886bb678ed6803a9fb829e29" name="a80806ec4886bb678ed6803a9fb829e29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80806ec4886bb678ed6803a9fb829e29">&#9670;&#160;</a></span>HID_TYPE_INPUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_TYPE_INPUT&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00043">43</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a4fba2446eb27f39dd9f938ed8012443f" name="a4fba2446eb27f39dd9f938ed8012443f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fba2446eb27f39dd9f938ed8012443f">&#9670;&#160;</a></span>HID_TYPE_OUTPUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HID_TYPE_OUTPUT&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00044">44</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a26f0357180ecb5b51fcda5a4e2301e72" name="a26f0357180ecb5b51fcda5a4e2301e72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26f0357180ecb5b51fcda5a4e2301e72">&#9670;&#160;</a></span>HIDD_APP_ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIDD_APP_ID&#160;&#160;&#160;0x1812</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00067">67</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01056">esp_hidd_prf_cb_hdl()</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l00972">esp_hidd_register_callbacks()</a>.</p>
+
+</div>
+</div>
+<a id="ae9345fe7f433ab105bdef0c6c983b078" name="ae9345fe7f433ab105bdef0c6c983b078"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9345fe7f433ab105bdef0c6c983b078">&#9670;&#160;</a></span>HIDD_GREAT_VER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIDD_GREAT_VER&#160;&#160;&#160;0x01</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00054">54</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a45503d4e183ff471c7c0d5bf1984c1c7" name="a45503d4e183ff471c7c0d5bf1984c1c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45503d4e183ff471c7c0d5bf1984c1c7">&#9670;&#160;</a></span>HIDD_LE_BOOT_KB_IN_NTF_CFG_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIDD_LE_BOOT_KB_IN_NTF_CFG_MASK&#160;&#160;&#160;(0x40)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Boot KB Input Report Notification Configuration Bit Mask. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00079">79</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a722cbdbca010efd6daa4afa2d8017c93" name="a722cbdbca010efd6daa4afa2d8017c93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a722cbdbca010efd6daa4afa2d8017c93">&#9670;&#160;</a></span>HIDD_LE_BOOT_MOUSE_IN_NTF_CFG_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIDD_LE_BOOT_MOUSE_IN_NTF_CFG_MASK&#160;&#160;&#160;(0x80)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Boot KB Input Report Notification Configuration Bit Mask. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00081">81</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a07568b577d4808f637aab68473c9292e" name="a07568b577d4808f637aab68473c9292e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07568b577d4808f637aab68473c9292e">&#9670;&#160;</a></span>HIDD_LE_BOOT_REPORT_MAX_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIDD_LE_BOOT_REPORT_MAX_LEN&#160;&#160;&#160;(8)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Length of Boot Report Char. Value Maximal Length. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00077">77</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a7907956e9e9ae0f0d5e6a928c9e1f143" name="a7907956e9e9ae0f0d5e6a928c9e1f143"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7907956e9e9ae0f0d5e6a928c9e1f143">&#9670;&#160;</a></span>HIDD_LE_CLEANUP_FNCT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIDD_LE_CLEANUP_FNCT&#160;&#160;&#160;(<a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer to the connection clean-up function. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00209">209</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="aba6364e0b10b2a25a4d3b67801acc237" name="aba6364e0b10b2a25a4d3b67801acc237"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba6364e0b10b2a25a4d3b67801acc237">&#9670;&#160;</a></span>HIDD_LE_NB_HIDS_INST_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIDD_LE_NB_HIDS_INST_MAX&#160;&#160;&#160;(2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximal number of HIDS that can be added in the DB. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00050">50</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="af74dd0dfaef005dba01aa677621b3990" name="af74dd0dfaef005dba01aa677621b3990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af74dd0dfaef005dba01aa677621b3990">&#9670;&#160;</a></span>HIDD_LE_NB_REPORT_INST_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIDD_LE_NB_REPORT_INST_MAX&#160;&#160;&#160;(5)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximal number of Report Char. that can be added in the DB for one HIDS - Up to 11. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00071">71</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="af7c14e60132e8dc391fafaa58dcb3ee7" name="af7c14e60132e8dc391fafaa58dcb3ee7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7c14e60132e8dc391fafaa58dcb3ee7">&#9670;&#160;</a></span>HIDD_LE_REPORT_MAP_MAX_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIDD_LE_REPORT_MAP_MAX_LEN&#160;&#160;&#160;(512)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximal length of Report Map Char. Value. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00075">75</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="affab08f986635746ac7ddb3a486802a2" name="affab08f986635746ac7ddb3a486802a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affab08f986635746ac7ddb3a486802a2">&#9670;&#160;</a></span>HIDD_LE_REPORT_MAX_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIDD_LE_REPORT_MAX_LEN&#160;&#160;&#160;(255)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximal length of Report Char. Value. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00073">73</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="aba6045c504a62a047161d5241029a024" name="aba6045c504a62a047161d5241029a024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba6045c504a62a047161d5241029a024">&#9670;&#160;</a></span>HIDD_LE_REPORT_NTF_CFG_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIDD_LE_REPORT_NTF_CFG_MASK&#160;&#160;&#160;(0x20)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Boot Report Notification Configuration Bit Mask. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00083">83</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a6cf775d40bbf29d5dbddd89532d2183e" name="a6cf775d40bbf29d5dbddd89532d2183e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cf775d40bbf29d5dbddd89532d2183e">&#9670;&#160;</a></span>HIDD_SUB_VER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIDD_SUB_VER&#160;&#160;&#160;0x00</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00055">55</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="aae18cde0e0c2be801a80e675b5c419e1" name="aae18cde0e0c2be801a80e675b5c419e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae18cde0e0c2be801a80e675b5c419e1">&#9670;&#160;</a></span>HIDD_VERSION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIDD_VERSION&#160;&#160;&#160;((<a class="el" href="#ae9345fe7f433ab105bdef0c6c983b078">HIDD_GREAT_VER</a>&lt;&lt;8)|<a class="el" href="#a6cf775d40bbf29d5dbddd89532d2183e">HIDD_SUB_VER</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00056">56</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01023">esp_hidd_get_version()</a>.</p>
+
+</div>
+</div>
+<a id="ab2b94e11f455d94fd743666d4f1364d7" name="ab2b94e11f455d94fd743666d4f1364d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2b94e11f455d94fd743666d4f1364d7">&#9670;&#160;</a></span>LO_UINT16</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LO_UINT16</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">a</span></td><td>)</td>
+          <td>&#160;&#160;&#160;((a) &amp; 0xFF)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00222">222</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a7df7ac092d330d877b3f9b638eaa4d06" name="a7df7ac092d330d877b3f9b638eaa4d06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7df7ac092d330d877b3f9b638eaa4d06">&#9670;&#160;</a></span>PROFILE_APP_IDX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PROFILE_APP_IDX&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00224">224</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="aab6353cb3662bdc672ae8ab90df529ce" name="aab6353cb3662bdc672ae8ab90df529ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab6353cb3662bdc672ae8ab90df529ce">&#9670;&#160;</a></span>PROFILE_NUM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PROFILE_NUM&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00223">223</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="afc3d101f633a076cc1ca84b85b6224b2" name="afc3d101f633a076cc1ca84b85b6224b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc3d101f633a076cc1ca84b85b6224b2">&#9670;&#160;</a></span>TAG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAG&#160;&#160;&#160;&quot;ble_hid&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00031">31</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01366">BleHidInit()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01421">BleHidSendKeyboard()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01056">esp_hidd_prf_cb_hdl()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01004">esp_hidd_profile_deinit()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00991">esp_hidd_profile_init()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01043">hid_dev_send_report()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01222">hidd_get_attr_value()</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l01212">hidd_set_attr_value()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de «typedef»</h2>
+<a id="af7a19b0130b512a84963eb5f98a39d46" name="af7a19b0130b512a84963eb5f98a39d46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a19b0130b512a84963eb5f98a39d46">&#9670;&#160;</a></span>esp_hidd_event_cb_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(* esp_hidd_event_cb_t) (<a class="el" href="#a47afe3bf419ceb85a287f6cae0c2d0e6">esp_hidd_cb_event_t</a> event, <a class="el" href="unionesp__hidd__cb__param__t.html">esp_hidd_cb_param_t</a> *param)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>HID device event callback function type. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>: Event type </td></tr>
+    <tr><td class="paramname">param</td><td>: Point to callback parameter, currently is union type </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00309">309</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de enumeraciones</h2>
+<a id="a06fc87d81c62e9abb8790b6e5713c55b" name="a06fc87d81c62e9abb8790b6e5713c55b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06fc87d81c62e9abb8790b6e5713c55b">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>HID Service Attributes Indexes. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baf35ee918ac2143f340cd89ca02e0f5bf" name="a06fc87d81c62e9abb8790b6e5713c55baf35ee918ac2143f340cd89ca02e0f5bf"></a>HIDD_LE_IDX_SVC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bac30b5711bc69c4f532772ff50033acca" name="a06fc87d81c62e9abb8790b6e5713c55bac30b5711bc69c4f532772ff50033acca"></a>HIDD_LE_IDX_INCL_SVC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bac7a20a4ca83b059226fab0ffb3c449d8" name="a06fc87d81c62e9abb8790b6e5713c55bac7a20a4ca83b059226fab0ffb3c449d8"></a>HIDD_LE_IDX_HID_INFO_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bac1484215b461e22d8887673584ad4454" name="a06fc87d81c62e9abb8790b6e5713c55bac1484215b461e22d8887673584ad4454"></a>HIDD_LE_IDX_HID_INFO_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba5bc5093ddebdb90f7b93c09fc0a7ddb7" name="a06fc87d81c62e9abb8790b6e5713c55ba5bc5093ddebdb90f7b93c09fc0a7ddb7"></a>HIDD_LE_IDX_HID_CTNL_PT_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55babec57916fe729ff82fe224bc8be9492b" name="a06fc87d81c62e9abb8790b6e5713c55babec57916fe729ff82fe224bc8be9492b"></a>HIDD_LE_IDX_HID_CTNL_PT_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba287a592201a6a17d7032457637ddbf99" name="a06fc87d81c62e9abb8790b6e5713c55ba287a592201a6a17d7032457637ddbf99"></a>HIDD_LE_IDX_REPORT_MAP_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8ee90239ebd4a8abf27cff59b3f83d5f" name="a06fc87d81c62e9abb8790b6e5713c55ba8ee90239ebd4a8abf27cff59b3f83d5f"></a>HIDD_LE_IDX_REPORT_MAP_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba862468b31c40c7b84e858943eb1cccdb" name="a06fc87d81c62e9abb8790b6e5713c55ba862468b31c40c7b84e858943eb1cccdb"></a>HIDD_LE_IDX_REPORT_MAP_EXT_REP_REF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba6fc27e7a52389fae2a92971506a8403f" name="a06fc87d81c62e9abb8790b6e5713c55ba6fc27e7a52389fae2a92971506a8403f"></a>HIDD_LE_IDX_PROTO_MODE_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba5380bfbe7198cc859af31e5c0c2222c7" name="a06fc87d81c62e9abb8790b6e5713c55ba5380bfbe7198cc859af31e5c0c2222c7"></a>HIDD_LE_IDX_PROTO_MODE_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba94a47d679cc033ebc73cb12385f16429" name="a06fc87d81c62e9abb8790b6e5713c55ba94a47d679cc033ebc73cb12385f16429"></a>HIDD_LE_IDX_REPORT_MOUSE_IN_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba4deaffe18cd223b1e1b86511171410a2" name="a06fc87d81c62e9abb8790b6e5713c55ba4deaffe18cd223b1e1b86511171410a2"></a>HIDD_LE_IDX_REPORT_MOUSE_IN_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba15f0b1a5489176184dc1bec866e891db" name="a06fc87d81c62e9abb8790b6e5713c55ba15f0b1a5489176184dc1bec866e891db"></a>HIDD_LE_IDX_REPORT_MOUSE_IN_CCC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba28fd2870067701b397e917cf1d9cbc22" name="a06fc87d81c62e9abb8790b6e5713c55ba28fd2870067701b397e917cf1d9cbc22"></a>HIDD_LE_IDX_REPORT_MOUSE_REP_REF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bac6f6e06c2fddd481412ca2b51e7f3fd3" name="a06fc87d81c62e9abb8790b6e5713c55bac6f6e06c2fddd481412ca2b51e7f3fd3"></a>HIDD_LE_IDX_REPORT_KEY_IN_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba7df8617538e4975c31aa4699f476ce7b" name="a06fc87d81c62e9abb8790b6e5713c55ba7df8617538e4975c31aa4699f476ce7b"></a>HIDD_LE_IDX_REPORT_KEY_IN_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba36c36f731e480219d2012390e51757e9" name="a06fc87d81c62e9abb8790b6e5713c55ba36c36f731e480219d2012390e51757e9"></a>HIDD_LE_IDX_REPORT_KEY_IN_CCC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba67daed8f464aa01843d26ec2e7d5f003" name="a06fc87d81c62e9abb8790b6e5713c55ba67daed8f464aa01843d26ec2e7d5f003"></a>HIDD_LE_IDX_REPORT_KEY_IN_REP_REF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba453a34e3528d4d3793c940e6b6a798a9" name="a06fc87d81c62e9abb8790b6e5713c55ba453a34e3528d4d3793c940e6b6a798a9"></a>HIDD_LE_IDX_REPORT_LED_OUT_CHAR&#160;</td><td class="fielddoc"><p>Report Led output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba25c437e1eced83939b9391f93c809220" name="a06fc87d81c62e9abb8790b6e5713c55ba25c437e1eced83939b9391f93c809220"></a>HIDD_LE_IDX_REPORT_LED_OUT_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba8ba90b1216b459a3ec28f5e7606697f7" name="a06fc87d81c62e9abb8790b6e5713c55ba8ba90b1216b459a3ec28f5e7606697f7"></a>HIDD_LE_IDX_REPORT_LED_OUT_REP_REF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baaba0621f5b2d8d71fc64882a05179c3c" name="a06fc87d81c62e9abb8790b6e5713c55baaba0621f5b2d8d71fc64882a05179c3c"></a>HIDD_LE_IDX_REPORT_CC_IN_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55badb68dbb071ad802ee51932e6ae7f27c7" name="a06fc87d81c62e9abb8790b6e5713c55badb68dbb071ad802ee51932e6ae7f27c7"></a>HIDD_LE_IDX_REPORT_CC_IN_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba22f7d93a1a7fc93080ecef6aee04efe2" name="a06fc87d81c62e9abb8790b6e5713c55ba22f7d93a1a7fc93080ecef6aee04efe2"></a>HIDD_LE_IDX_REPORT_CC_IN_CCC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baed49ae7b4a6ff38789f60183a8122aac" name="a06fc87d81c62e9abb8790b6e5713c55baed49ae7b4a6ff38789f60183a8122aac"></a>HIDD_LE_IDX_REPORT_CC_IN_REP_REF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba162f34f7fafa5aa044b614e5757fafbb" name="a06fc87d81c62e9abb8790b6e5713c55ba162f34f7fafa5aa044b614e5757fafbb"></a>HIDD_LE_IDX_BOOT_KB_IN_REPORT_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba88bb4143f90075a31c43bd90bfb19f51" name="a06fc87d81c62e9abb8790b6e5713c55ba88bb4143f90075a31c43bd90bfb19f51"></a>HIDD_LE_IDX_BOOT_KB_IN_REPORT_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba31e26476802bf7ce3b9dc6e40f5a573b" name="a06fc87d81c62e9abb8790b6e5713c55ba31e26476802bf7ce3b9dc6e40f5a573b"></a>HIDD_LE_IDX_BOOT_KB_IN_REPORT_NTF_CFG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba746e33abc6c0a45124d8371da7225b27" name="a06fc87d81c62e9abb8790b6e5713c55ba746e33abc6c0a45124d8371da7225b27"></a>HIDD_LE_IDX_BOOT_KB_OUT_REPORT_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bade1394b7cb4a78ace17b84a3d220dc74" name="a06fc87d81c62e9abb8790b6e5713c55bade1394b7cb4a78ace17b84a3d220dc74"></a>HIDD_LE_IDX_BOOT_KB_OUT_REPORT_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba717da60f7f02af7daa9b09745b1c98cc" name="a06fc87d81c62e9abb8790b6e5713c55ba717da60f7f02af7daa9b09745b1c98cc"></a>HIDD_LE_IDX_BOOT_MOUSE_IN_REPORT_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba94c6d75a689ee4df637acf102b9094ab" name="a06fc87d81c62e9abb8790b6e5713c55ba94c6d75a689ee4df637acf102b9094ab"></a>HIDD_LE_IDX_BOOT_MOUSE_IN_REPORT_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba78a551dcfadde601d8232c955ba2ac45" name="a06fc87d81c62e9abb8790b6e5713c55ba78a551dcfadde601d8232c955ba2ac45"></a>HIDD_LE_IDX_BOOT_MOUSE_IN_REPORT_NTF_CFG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba0922575290be61908552fbe4cb5e2571" name="a06fc87d81c62e9abb8790b6e5713c55ba0922575290be61908552fbe4cb5e2571"></a>HIDD_LE_IDX_REPORT_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baa4a2ff6e24222d636de8a52c1acfc029" name="a06fc87d81c62e9abb8790b6e5713c55baa4a2ff6e24222d636de8a52c1acfc029"></a>HIDD_LE_IDX_REPORT_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baa0b416eff4c751b751d4936812efa4a3" name="a06fc87d81c62e9abb8790b6e5713c55baa0b416eff4c751b751d4936812efa4a3"></a>HIDD_LE_IDX_REPORT_REP_REF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba36d89e035162ba80365c8bd1ed53043e" name="a06fc87d81c62e9abb8790b6e5713c55ba36d89e035162ba80365c8bd1ed53043e"></a>HIDD_LE_IDX_NB&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00105">105</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="adf764cbdea00d65edcd07bb9953ad2b7" name="adf764cbdea00d65edcd07bb9953ad2b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf764cbdea00d65edcd07bb9953ad2b7">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Attribute Table Indexes. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a5bf5eecd0a812adb296339e7a4be5cce" name="adf764cbdea00d65edcd07bb9953ad2b7a5bf5eecd0a812adb296339e7a4be5cce"></a>HIDD_LE_INFO_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a95cd26e74422592c250244b0b0fc1ec1" name="adf764cbdea00d65edcd07bb9953ad2b7a95cd26e74422592c250244b0b0fc1ec1"></a>HIDD_LE_CTNL_PT_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7afa03760618f0569f1e1d682582b6ea30" name="adf764cbdea00d65edcd07bb9953ad2b7afa03760618f0569f1e1d682582b6ea30"></a>HIDD_LE_REPORT_MAP_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7ab50056319d793245d832e3c741c10ca5" name="adf764cbdea00d65edcd07bb9953ad2b7ab50056319d793245d832e3c741c10ca5"></a>HIDD_LE_REPORT_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a74756a7f80928710da208f59dd4eb36b" name="adf764cbdea00d65edcd07bb9953ad2b7a74756a7f80928710da208f59dd4eb36b"></a>HIDD_LE_PROTO_MODE_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a15e900fdfe10485376d170570f58878e" name="adf764cbdea00d65edcd07bb9953ad2b7a15e900fdfe10485376d170570f58878e"></a>HIDD_LE_BOOT_KB_IN_REPORT_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a6d00deff2815a095274ea4a03946af02" name="adf764cbdea00d65edcd07bb9953ad2b7a6d00deff2815a095274ea4a03946af02"></a>HIDD_LE_BOOT_KB_OUT_REPORT_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a06d65b185b709adc575ad9a0aedf779d" name="adf764cbdea00d65edcd07bb9953ad2b7a06d65b185b709adc575ad9a0aedf779d"></a>HIDD_LE_BOOT_MOUSE_IN_REPORT_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7a346a0c69cba0f63cdc4f913b6dae2e2e" name="adf764cbdea00d65edcd07bb9953ad2b7a346a0c69cba0f63cdc4f913b6dae2e2e"></a>HIDD_LE_CHAR_MAX&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00159">159</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a99fb83031ce9923c84392b4e92f956b5" name="a99fb83031ce9923c84392b4e92f956b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99fb83031ce9923c84392b4e92f956b5">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>att read event table Indexs </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5af8fb15814830a601e861d95b5c5eb4d7" name="a99fb83031ce9923c84392b4e92f956b5af8fb15814830a601e861d95b5c5eb4d7"></a>HIDD_LE_READ_INFO_EVT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5a4226e6fb52b9775f334ac567b327d29a" name="a99fb83031ce9923c84392b4e92f956b5a4226e6fb52b9775f334ac567b327d29a"></a>HIDD_LE_READ_CTNL_PT_EVT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5a242ee7554db1bda272ca0003986a5d42" name="a99fb83031ce9923c84392b4e92f956b5a242ee7554db1bda272ca0003986a5d42"></a>HIDD_LE_READ_REPORT_MAP_EVT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5a95ea234cf0a45097e15ba53a54c75375" name="a99fb83031ce9923c84392b4e92f956b5a95ea234cf0a45097e15ba53a54c75375"></a>HIDD_LE_READ_REPORT_EVT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5a9958c22471cf751944d448f8a493fd45" name="a99fb83031ce9923c84392b4e92f956b5a9958c22471cf751944d448f8a493fd45"></a>HIDD_LE_READ_PROTO_MODE_EVT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5a4b729d077fe70a86218c686dfa458181" name="a99fb83031ce9923c84392b4e92f956b5a4b729d077fe70a86218c686dfa458181"></a>HIDD_LE_BOOT_KB_IN_REPORT_EVT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5a2cc25916cee1266869ea277dcacf6244" name="a99fb83031ce9923c84392b4e92f956b5a2cc25916cee1266869ea277dcacf6244"></a>HIDD_LE_BOOT_KB_OUT_REPORT_EVT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5a3d12bb5614ece5a4b5145f1b31ce5765" name="a99fb83031ce9923c84392b4e92f956b5a3d12bb5614ece5a4b5145f1b31ce5765"></a>HIDD_LE_BOOT_MOUSE_IN_REPORT_EVT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5a1aa6a679228cd2f5979db7d7d42ba248" name="a99fb83031ce9923c84392b4e92f956b5a1aa6a679228cd2f5979db7d7d42ba248"></a>HID_LE_EVT_MAX&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00171">171</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="abc6126af1d45847bc59afa0aa3216b04" name="abc6126af1d45847bc59afa0aa3216b04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc6126af1d45847bc59afa0aa3216b04">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Client Characteristic Configuration Codes. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="abc6126af1d45847bc59afa0aa3216b04a5178520cb60bd1e750d91b7173fb6bcb" name="abc6126af1d45847bc59afa0aa3216b04a5178520cb60bd1e750d91b7173fb6bcb"></a>HIDD_LE_DESC_MASK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abc6126af1d45847bc59afa0aa3216b04a47c9b5fa569a0b37c33e2910682c1f91" name="abc6126af1d45847bc59afa0aa3216b04a47c9b5fa569a0b37c33e2910682c1f91"></a>HIDD_LE_BOOT_KB_IN_REPORT_CFG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abc6126af1d45847bc59afa0aa3216b04acfc49d915c338801c15038e3feee8fb2" name="abc6126af1d45847bc59afa0aa3216b04acfc49d915c338801c15038e3feee8fb2"></a>HIDD_LE_BOOT_MOUSE_IN_REPORT_CFG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abc6126af1d45847bc59afa0aa3216b04a77820d787f0a3a4b83e3efd6479bee70" name="abc6126af1d45847bc59afa0aa3216b04a77820d787f0a3a4b83e3efd6479bee70"></a>HIDD_LE_REPORT_CFG&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00184">184</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="adc29c2ff13d900c2f185ee95427fb06c" name="adc29c2ff13d900c2f185ee95427fb06c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc29c2ff13d900c2f185ee95427fb06c">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Features Flag Values. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="adc29c2ff13d900c2f185ee95427fb06ca6a963b03b1c92fa0b208fbf84f6eb9a4" name="adc29c2ff13d900c2f185ee95427fb06ca6a963b03b1c92fa0b208fbf84f6eb9a4"></a>HIDD_LE_CFG_KEYBOARD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adc29c2ff13d900c2f185ee95427fb06caeed2a0fe39d4ca2836c626ba318a7da5" name="adc29c2ff13d900c2f185ee95427fb06caeed2a0fe39d4ca2836c626ba318a7da5"></a>HIDD_LE_CFG_MOUSE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adc29c2ff13d900c2f185ee95427fb06ca576663d3ab3193a284105b6e763f13a9" name="adc29c2ff13d900c2f185ee95427fb06ca576663d3ab3193a284105b6e763f13a9"></a>HIDD_LE_CFG_PROTO_MODE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adc29c2ff13d900c2f185ee95427fb06caf7ec65f2d70b66a9890ac027fef82ec9" name="adc29c2ff13d900c2f185ee95427fb06caf7ec65f2d70b66a9890ac027fef82ec9"></a>HIDD_LE_CFG_MAP_EXT_REF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adc29c2ff13d900c2f185ee95427fb06ca4c8a4937c0372de7b70b8b1d54737bf0" name="adc29c2ff13d900c2f185ee95427fb06ca4c8a4937c0372de7b70b8b1d54737bf0"></a>HIDD_LE_CFG_BOOT_KB_WR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adc29c2ff13d900c2f185ee95427fb06ca1b6c567a694605d82399b162c658a5bb" name="adc29c2ff13d900c2f185ee95427fb06ca1b6c567a694605d82399b162c658a5bb"></a>HIDD_LE_CFG_BOOT_MOUSE_WR&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00192">192</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a61dadd085c1777f559549e05962b2c9e" name="a61dadd085c1777f559549e05962b2c9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61dadd085c1777f559549e05962b2c9e">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Report Char. Configuration Flag Values. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="a61dadd085c1777f559549e05962b2c9eafa10eda99672ddf83014d1bc7e0c76f3" name="a61dadd085c1777f559549e05962b2c9eafa10eda99672ddf83014d1bc7e0c76f3"></a>HIDD_LE_CFG_REPORT_IN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a61dadd085c1777f559549e05962b2c9ea02d237f5b13ed5240dcd73fd41d9d0b9" name="a61dadd085c1777f559549e05962b2c9ea02d237f5b13ed5240dcd73fd41d9d0b9"></a>HIDD_LE_CFG_REPORT_OUT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a61dadd085c1777f559549e05962b2c9ea233c3efdc669185d85bfd64b9d190d88" name="a61dadd085c1777f559549e05962b2c9ea233c3efdc669185d85bfd64b9d190d88"></a>HIDD_LE_CFG_REPORT_FEAT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a61dadd085c1777f559549e05962b2c9eacc64735638fc565f094809ba2eefd972" name="a61dadd085c1777f559549e05962b2c9eacc64735638fc565f094809ba2eefd972"></a>HIDD_LE_CFG_REPORT_WR&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00201">201</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a726ca809ffd3d67ab4b8476646f26635" name="a726ca809ffd3d67ab4b8476646f26635"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a726ca809ffd3d67ab4b8476646f26635">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Battery Service Attributes Indexes. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="a726ca809ffd3d67ab4b8476646f26635a5e37b489592eff7e74260064d69ba09e" name="a726ca809ffd3d67ab4b8476646f26635a5e37b489592eff7e74260064d69ba09e"></a>BAS_IDX_SVC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a726ca809ffd3d67ab4b8476646f26635a98baadc8c6d9636f171027aef2b27ff2" name="a726ca809ffd3d67ab4b8476646f26635a98baadc8c6d9636f171027aef2b27ff2"></a>BAS_IDX_BATT_LVL_CHAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a726ca809ffd3d67ab4b8476646f26635a28831413b9397355fb1c0afaa32fe3b0" name="a726ca809ffd3d67ab4b8476646f26635a28831413b9397355fb1c0afaa32fe3b0"></a>BAS_IDX_BATT_LVL_VAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a726ca809ffd3d67ab4b8476646f26635aa406834fc2cd715ff14dbdbbf73d667e" name="a726ca809ffd3d67ab4b8476646f26635aa406834fc2cd715ff14dbdbbf73d667e"></a>BAS_IDX_BATT_LVL_NTF_CFG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a726ca809ffd3d67ab4b8476646f26635a4a542f1468e8fab6b000ce3da30c41c2" name="a726ca809ffd3d67ab4b8476646f26635a4a542f1468e8fab6b000ce3da30c41c2"></a>BAS_IDX_BATT_LVL_PRES_FMT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a726ca809ffd3d67ab4b8476646f26635a19e275118a6ba770b54344df5d74cc65" name="a726ca809ffd3d67ab4b8476646f26635a19e275118a6ba770b54344df5d74cc65"></a>BAS_IDX_NB&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00211">211</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a47afe3bf419ceb85a287f6cae0c2d0e6" name="a47afe3bf419ceb85a287f6cae0c2d0e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47afe3bf419ceb85a287f6cae0c2d0e6">&#9670;&#160;</a></span>esp_hidd_cb_event_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a47afe3bf419ceb85a287f6cae0c2d0e6">esp_hidd_cb_event_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="a47afe3bf419ceb85a287f6cae0c2d0e6aa83cc4117fc104e49566763f25d30113" name="a47afe3bf419ceb85a287f6cae0c2d0e6aa83cc4117fc104e49566763f25d30113"></a>ESP_HIDD_EVENT_REG_FINISH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a47afe3bf419ceb85a287f6cae0c2d0e6a81275aab4084cbb040c24ddb642af543" name="a47afe3bf419ceb85a287f6cae0c2d0e6a81275aab4084cbb040c24ddb642af543"></a>ESP_BAT_EVENT_REG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a47afe3bf419ceb85a287f6cae0c2d0e6aab1887ebb0a2d39db730b28469b75c2e" name="a47afe3bf419ceb85a287f6cae0c2d0e6aab1887ebb0a2d39db730b28469b75c2e"></a>ESP_HIDD_EVENT_DEINIT_FINISH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a47afe3bf419ceb85a287f6cae0c2d0e6af428f60386d3fae4b22d96f235779ba5" name="a47afe3bf419ceb85a287f6cae0c2d0e6af428f60386d3fae4b22d96f235779ba5"></a>ESP_HIDD_EVENT_BLE_CONNECT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a47afe3bf419ceb85a287f6cae0c2d0e6a6b4043e78a8aadb05ab614d761608c0d" name="a47afe3bf419ceb85a287f6cae0c2d0e6a6b4043e78a8aadb05ab614d761608c0d"></a>ESP_HIDD_EVENT_BLE_DISCONNECT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a47afe3bf419ceb85a287f6cae0c2d0e6aa49b05c4194a3c63f6e37287c06b6ce3" name="a47afe3bf419ceb85a287f6cae0c2d0e6aa49b05c4194a3c63f6e37287c06b6ce3"></a>ESP_HIDD_EVENT_BLE_VENDOR_REPORT_WRITE_EVT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a47afe3bf419ceb85a287f6cae0c2d0e6a624725431715473c060e2be9191038c6" name="a47afe3bf419ceb85a287f6cae0c2d0e6a624725431715473c060e2be9191038c6"></a>ESP_HIDD_EVENT_BLE_LED_REPORT_WRITE_EVT&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00231">231</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="af8af97c7fadb44316863b318b6319a77" name="af8af97c7fadb44316863b318b6319a77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8af97c7fadb44316863b318b6319a77">&#9670;&#160;</a></span>esp_hidd_deinit_state_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#af8af97c7fadb44316863b318b6319a77">esp_hidd_deinit_state_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>HID deinit status. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="af8af97c7fadb44316863b318b6319a77a1532e6e2f8b366028d2de8cb97e1853f" name="af8af97c7fadb44316863b318b6319a77a1532e6e2f8b366028d2de8cb97e1853f"></a>ESP_HIDD_DEINIT_OK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af8af97c7fadb44316863b318b6319a77aae8bd6ecbe20d2e7eb79001fdc324fad" name="af8af97c7fadb44316863b318b6319a77aae8bd6ecbe20d2e7eb79001fdc324fad"></a>ESP_HIDD_DEINIT_FAILED&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00251">251</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a15adb62d9ad8757fae5e4b0f36a95a03" name="a15adb62d9ad8757fae5e4b0f36a95a03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15adb62d9ad8757fae5e4b0f36a95a03">&#9670;&#160;</a></span>esp_hidd_init_state_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a15adb62d9ad8757fae5e4b0f36a95a03">esp_hidd_init_state_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>HID init status. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="a15adb62d9ad8757fae5e4b0f36a95a03a4695d1b60ecadc8d647662a411ad9614" name="a15adb62d9ad8757fae5e4b0f36a95a03a4695d1b60ecadc8d647662a411ad9614"></a>ESP_HIDD_INIT_OK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a15adb62d9ad8757fae5e4b0f36a95a03ab7731152869358e0c85fee0346b36a50" name="a15adb62d9ad8757fae5e4b0f36a95a03ab7731152869358e0c85fee0346b36a50"></a>ESP_HIDD_INIT_FAILED&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00246">246</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a586b8e50bea5f04b30a557a556264ed4" name="a586b8e50bea5f04b30a557a556264ed4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a586b8e50bea5f04b30a557a556264ed4">&#9670;&#160;</a></span>esp_hidd_sta_conn_state_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a586b8e50bea5f04b30a557a556264ed4">esp_hidd_sta_conn_state_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>HID config status. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="a586b8e50bea5f04b30a557a556264ed4a7fcd7d664c626bb5096c466ad536c07e" name="a586b8e50bea5f04b30a557a556264ed4a7fcd7d664c626bb5096c466ad536c07e"></a>ESP_HIDD_STA_CONN_SUCCESS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a586b8e50bea5f04b30a557a556264ed4a53bc94d7c4481a76d703fa15b5a0928d" name="a586b8e50bea5f04b30a557a556264ed4a53bc94d7c4481a76d703fa15b5a0928d"></a>ESP_HIDD_STA_CONN_FAIL&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00241">241</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="af65c55a902a6ac28657f22df1d9365ae" name="af65c55a902a6ac28657f22df1d9365ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af65c55a902a6ac28657f22df1d9365ae">&#9670;&#160;</a></span>esp_hidd_get_version()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t esp_hidd_get_version </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get hidd profile version. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l01023">1023</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l00056">HIDD_VERSION</a>.</p>
+
+</div>
+</div>
+<a id="add8f27ab149175c58a8bced1016df5a6" name="add8f27ab149175c58a8bced1016df5a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add8f27ab149175c58a8bced1016df5a6">&#9670;&#160;</a></span>esp_hidd_prf_cb_hdl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void esp_hidd_prf_cb_hdl </td>
+          <td>(</td>
+          <td class="paramtype">esp_gatts_cb_event_t</td>          <td class="paramname"><span class="paramname"><em>event</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">esp_gatt_if_t</td>          <td class="paramname"><span class="paramname"><em>gatts_if</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">esp_ble_gatts_cb_param_t *</td>          <td class="paramname"><span class="paramname"><em>param</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l01056">1056</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l00361">hidd_inst_t::att_tbl</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00219">BAS_IDX_NB</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00212">BAS_IDX_SVC</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00068">BATTRAY_APP_ID</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00276">esp_hidd_cb_param_t::hidd_connect_evt_param::conn_id</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00298">esp_hidd_cb_param_t::hidd_led_write_evt_param::conn_id</a>, <a class="el" href="unionesp__hidd__cb__param__t.html#aca79c69386c9f7918c333ca0aa439336">esp_hidd_cb_param_t::connect</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00301">esp_hidd_cb_param_t::hidd_led_write_evt_param::data</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00233">ESP_BAT_EVENT_REG</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00235">ESP_HIDD_EVENT_BLE_CONNECT</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00236">ESP_HIDD_EVENT_BLE_DISCONNECT</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00238">ESP_HIDD_EVENT_BLE_LED_REPORT_WRITE_EVT</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00232">ESP_HIDD_EVENT_REG_FINISH</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00390">hidd_le_env_t::gatt_if</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00264">esp_hidd_cb_param_t::hidd_init_finish_evt_param::gatts_if</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00065">HID_RPT_ID_LED_OUT</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00067">HIDD_APP_ID</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00395">hidd_le_env_t::hidd_cb</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01153">hidd_clcb_alloc()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01167">hidd_clcb_dealloc()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00394">hidd_le_env_t::hidd_inst</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01143">hidd_le_create_service()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00434">hidd_le_env</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00156">HIDD_LE_IDX_NB</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00134">HIDD_LE_IDX_REPORT_LED_OUT_VAL</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00106">HIDD_LE_IDX_SVC</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00676">incl_svc</a>, <a class="el" href="unionesp__hidd__cb__param__t.html#a2d4a8ba3539e2fc3c519e5e12c00b372">esp_hidd_cb_param_t::init_finish</a>, <a class="el" href="unionesp__hidd__cb__param__t.html#a369ae8b85d34d957e6b4e05b9bfe42ee">esp_hidd_cb_param_t::led_write</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00300">esp_hidd_cb_param_t::hidd_led_write_evt_param::length</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00277">esp_hidd_cb_param_t::hidd_connect_evt_param::remote_bda</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00299">esp_hidd_cb_param_t::hidd_led_write_evt_param::report_id</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00263">esp_hidd_cb_param_t::hidd_init_finish_evt_param::state</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l00031">TAG</a>.</p>
+
+</div>
+</div>
+<a id="a4aca045d017710715909138e36a9c544" name="a4aca045d017710715909138e36a9c544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aca045d017710715909138e36a9c544">&#9670;&#160;</a></span>esp_hidd_profile_deinit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_hidd_profile_deinit </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function is called to de-initialize hid device profile. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l01004">1004</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l00361">hidd_inst_t::att_tbl</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00391">hidd_le_env_t::enabled</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00390">hidd_le_env_t::gatt_if</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00394">hidd_le_env_t::hidd_inst</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00434">hidd_le_env</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00106">HIDD_LE_IDX_SVC</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l00031">TAG</a>.</p>
+
+</div>
+</div>
+<a id="a4c4c8031f1e6ea5615c28b98d46d6232" name="a4c4c8031f1e6ea5615c28b98d46d6232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c4c8031f1e6ea5615c28b98d46d6232">&#9670;&#160;</a></span>esp_hidd_profile_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_hidd_profile_init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function is called to initialize hid device profile. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00991">991</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l00391">hidd_le_env_t::enabled</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00434">hidd_le_env</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l00031">TAG</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01366">BleHidInit()</a>.</p>
+
+</div>
+</div>
+<a id="a5256c1f0eb079f624ce5e09a47d5b89c" name="a5256c1f0eb079f624ce5e09a47d5b89c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5256c1f0eb079f624ce5e09a47d5b89c">&#9670;&#160;</a></span>esp_hidd_register_callbacks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_hidd_register_callbacks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af7a19b0130b512a84963eb5f98a39d46">esp_hidd_event_cb_t</a></td>          <td class="paramname"><span class="paramname"><em>callbacks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function is called to receive hid device callback event. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00972">972</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l00068">BATTRAY_APP_ID</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00067">HIDD_APP_ID</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00395">hidd_le_env_t::hidd_cb</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00434">hidd_le_env</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01207">hidd_register_cb()</a> y <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01366">BleHidInit()</a>.</p>
+
+</div>
+</div>
+<a id="a6df72a6bb64d5c8cd7490eb11617b7ab" name="a6df72a6bb64d5c8cd7490eb11617b7ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6df72a6bb64d5c8cd7490eb11617b7ab">&#9670;&#160;</a></span>hid_dev_register_reports()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hid_dev_register_reports </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>num_reports</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structhid__report__map__t.html">hid_report_map_t</a> *</td>          <td class="paramname"><span class="paramname"><em>p_report</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><br  />
+ </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l01038">1038</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a8ae7c69dfd4b740534df123a303a8832" name="a8ae7c69dfd4b740534df123a303a8832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ae7c69dfd4b740534df123a303a8832">&#9670;&#160;</a></span>hid_dev_send_report()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hid_dev_send_report </td>
+          <td>(</td>
+          <td class="paramtype">esp_gatt_if_t</td>          <td class="paramname"><span class="paramname"><em>gatts_if</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>conn_id</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>id</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>type</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>length</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><br  />
+ </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l01043">1043</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l00314">hid_report_map_t::handle</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l00031">TAG</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01421">BleHidSendKeyboard()</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l01443">BleHidSendMouse()</a>.</p>
+
+</div>
+</div>
+<a id="a4e7096230eedcf2dbc89351ea636677d" name="a4e7096230eedcf2dbc89351ea636677d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e7096230eedcf2dbc89351ea636677d">&#9670;&#160;</a></span>hidd_clcb_alloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hidd_clcb_alloc </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>conn_id</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">esp_bd_addr_t</td>          <td class="paramname"><span class="paramname"><em>bda</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><br  />
+ </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l01153">1153</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l00340">hidd_clcb_t::conn_id</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00341">hidd_clcb_t::connected</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00057">HID_MAX_APPS</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00389">hidd_le_env_t::hidd_clcb</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00434">hidd_le_env</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00338">hidd_clcb_t::in_use</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l00342">hidd_clcb_t::remote_bda</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01056">esp_hidd_prf_cb_hdl()</a>.</p>
+
+</div>
+</div>
+<a id="a74aa695557816b038ff9847860291fa2" name="a74aa695557816b038ff9847860291fa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74aa695557816b038ff9847860291fa2">&#9670;&#160;</a></span>hidd_clcb_dealloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hidd_clcb_dealloc </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>conn_id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><br  />
+ </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l01167">1167</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l00057">HID_MAX_APPS</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00389">hidd_le_env_t::hidd_clcb</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00434">hidd_le_env</a> y <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01056">esp_hidd_prf_cb_hdl()</a>.</p>
+
+</div>
+</div>
+<a id="a192d7cf437968a2130fcde7888eaf5ce" name="a192d7cf437968a2130fcde7888eaf5ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a192d7cf437968a2130fcde7888eaf5ce">&#9670;&#160;</a></span>hidd_get_attr_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hidd_get_attr_value </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>handle</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *</td>          <td class="paramname"><span class="paramname"><em>length</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t **</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><br  />
+ </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l01222">1222</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l00361">hidd_inst_t::att_tbl</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00394">hidd_le_env_t::hidd_inst</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00434">hidd_le_env</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00111">HIDD_LE_IDX_HID_INFO_VAL</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00154">HIDD_LE_IDX_REPORT_REP_REF</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l00031">TAG</a>.</p>
+
+</div>
+</div>
+<a id="a479cfaafdbd41501ccd953c0abfc8ca6" name="a479cfaafdbd41501ccd953c0abfc8ca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a479cfaafdbd41501ccd953c0abfc8ca6">&#9670;&#160;</a></span>hidd_le_create_service()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hidd_le_create_service </td>
+          <td>(</td>
+          <td class="paramtype">esp_gatt_if_t</td>          <td class="paramname"><span class="paramname"><em>gatts_if</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><br  />
+ </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l01143">1143</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l00219">BAS_IDX_NB</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01056">esp_hidd_prf_cb_hdl()</a>.</p>
+
+</div>
+</div>
+<a id="a371a89ec41b61b5e5d6ae5ad70e8d58d" name="a371a89ec41b61b5e5d6ae5ad70e8d58d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a371a89ec41b61b5e5d6ae5ad70e8d58d">&#9670;&#160;</a></span>hidd_le_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hidd_le_init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l01149">1149</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l00434">hidd_le_env</a>.</p>
+
+</div>
+</div>
+<a id="acb0d2b8e95e7bbabf1e3bdab379d18d5" name="acb0d2b8e95e7bbabf1e3bdab379d18d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb0d2b8e95e7bbabf1e3bdab379d18d5">&#9670;&#160;</a></span>hidd_register_cb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t hidd_register_cb </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><br  />
+ </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l01207">1207</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l00954">status</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l00972">esp_hidd_register_callbacks()</a>.</p>
+
+</div>
+</div>
+<a id="af1d398a5081d065d043c584c44d77b91" name="af1d398a5081d065d043c584c44d77b91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1d398a5081d065d043c584c44d77b91">&#9670;&#160;</a></span>hidd_set_attr_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hidd_set_attr_value </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>handle</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>val_len</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><br  />
+ </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l01212">1212</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ble__hid__mcu_8c_source.html#l00361">hidd_inst_t::att_tbl</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00394">hidd_le_env_t::hidd_inst</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00434">hidd_le_env</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00111">HIDD_LE_IDX_HID_INFO_VAL</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00154">HIDD_LE_IDX_REPORT_REP_REF</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l00031">TAG</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="a47b2e510fe20902fa67e2644118db42e" name="a47b2e510fe20902fa67e2644118db42e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47b2e510fe20902fa67e2644118db42e">&#9670;&#160;</a></span>device_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* device_name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00435">435</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01366">BleHidInit()</a>.</p>
+
+</div>
+</div>
+<a id="a2723374c79e85f2899bba93932ee37c3" name="a2723374c79e85f2899bba93932ee37c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2723374c79e85f2899bba93932ee37c3">&#9670;&#160;</a></span>hid_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t hid_count = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00675">675</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a91d82217264ad84483e4f8f0c644d6cf" name="a91d82217264ad84483e4f8f0c644d6cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91d82217264ad84483e4f8f0c644d6cf">&#9670;&#160;</a></span>hidd_le_env</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structhidd__le__env__t.html">hidd_le_env_t</a> hidd_le_env</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00434">434</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01421">BleHidSendKeyboard()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01443">BleHidSendMouse()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01056">esp_hidd_prf_cb_hdl()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01004">esp_hidd_profile_deinit()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00991">esp_hidd_profile_init()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l00972">esp_hidd_register_callbacks()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01153">hidd_clcb_alloc()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01167">hidd_clcb_dealloc()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01222">hidd_get_attr_value()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01149">hidd_le_init()</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l01212">hidd_set_attr_value()</a>.</p>
+
+</div>
+</div>
+<a id="a18824297d97ae42a7da587d9752002fe" name="a18824297d97ae42a7da587d9752002fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18824297d97ae42a7da587d9752002fe">&#9670;&#160;</a></span>hidProtocolMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t hidProtocolMode = <a class="el" href="#a998ca749aef167d8f61d12d5c0a89963">HID_PROTOCOL_MODE_REPORT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00649">649</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="a0b7cc6e74ea0a16819c1665e6118294c" name="a0b7cc6e74ea0a16819c1665e6118294c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b7cc6e74ea0a16819c1665e6118294c">&#9670;&#160;</a></span>hidReportMapLen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t hidReportMapLen = sizeof(hidReportMap)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00648">648</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+</div>
+</div>
+<a id="acc79618f323c3868b5c3ddde94482bb0" name="acc79618f323c3868b5c3ddde94482bb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc79618f323c3868b5c3ddde94482bb0">&#9670;&#160;</a></span>incl_svc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_gatts_incl_svc_desc_t incl_svc = {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00676">676</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01056">esp_hidd_prf_cb_hdl()</a>.</p>
+
+</div>
+</div>
+<a id="a5361bd9ad8b63d5b91fea8a38d6242e1" name="a5361bd9ad8b63d5b91fea8a38d6242e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5361bd9ad8b63d5b91fea8a38d6242e1">&#9670;&#160;</a></span>status</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___b_l_e.html#gace12bf2f4052775366d0375947452f0d">ble_status_t</a> status = <a class="el" href="group___b_l_e.html#ggab13ed63d3b157b93f1e6d98e3d6a7b47ad30434da7f78bb14ef8e28591b5a03f4">BLE_OFF</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="ble__hid__mcu_8c_source.html#l00954">954</a> del archivo <a class="el" href="ble__hid__mcu_8c_source.html">ble_hid_mcu.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ble__hid__mcu_8c_source.html#l01421">BleHidSendKeyboard()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01443">BleHidSendMouse()</a>, <a class="el" href="ble__hid__mcu_8c_source.html#l01417">BleHidStatus()</a> y <a class="el" href="ble__hid__mcu_8c_source.html#l01207">hidd_register_cb()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_fcba15287a7fba83beff6e7e8c7a3a80.html">firmware</a></li><li class="navelem"><a class="el" href="dir_d771f3729bc48f700515c8c6c400e99b.html">drivers</a></li><li class="navelem"><a class="el" href="dir_bc36ab89ecafc2a8b5ba798a6143b9d0.html">microcontroller</a></li><li class="navelem"><a class="el" href="dir_f1809a81d77850a6c3d2e8c4ffb742df.html">src</a></li><li class="navelem"><a class="el" href="ble__hid__mcu_8c.html">ble_hid_mcu.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>
