@@ -1,33 +1,42 @@
-/*! @mainpage Proyecto Integrador
+/*! @mainpage Proyecto Integrador: Gamificación de ejercicios de Fisiterapia.
  *
  * @section genDesc General Description
  *
- * This section describes how the program works.
+ * En este proyecto se pretende que mediante la lectura de un acelerometro ubicado en la muñeca izquierda,
+ * se registren los movimientos de abducción y aducción y se emulen las teclas arriba o abajo para jugar
+ * un juego, en este caso un FLAPPY BIRD modificado para que el vuelo se controle con las flechas arriba y abajo.
  *
- * <a href="https://drive.google.com/...">Operation Example</a>
+ * 
+ * <a href="https://drive.google.com/file/d/1sRKyfnplFV0p4LId-9fSMcvofKi4c7RP/view?usp=sharing">Operation Example</a>
  *
  * @section hardConn Hardware Connection
  *
- * |    Peripheral  |   ESP32   	|
+ * |    ADXL335     |     ESP32   	|
  * |:--------------:|:--------------|
- * | 	PIN_X	 	| 	GPIO_X		|
+ * | 	X output   	| 	   CH1 		|
+ * | 	y output   	| 	   CH2 		|
+ * | 	z output   	| 	   CH3 		|
+ * | 	Vs          | 	  3.3 V	    |
+ * | 	GND    	    | 	   GND 		|
  *
  *
  * @section changelog Changelog
  *
- * |   Date	    | Description                                        |
- * |:----------:|:---------------------------------------------------|
- * | 17/05/2024 | Se pone emulador bluetooth HID para simular teclado|
- *
+ * |   Date	    | Description                                                |
+ * |:----------:|:-----------------------------------------------------------|
+ * | 17/05/2024 | Se pone emulador bluetooth HID para simular teclado        |
+ * | 13/06/2024 | Se crean tareas y completa el codigo                       |
+ * | 18/06/2024 |Se termina de ajustar detalles para funcionamiento del juego|
+ * 
  * @author Florencia Gettig (florenci.gettig@ingenieria.uner.edu.ar)
  *
  */
 
-/*==================[inclusions]=============================================*/
+/*==================[inclusions]======= ======================================*/
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
-
+#include <math.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
@@ -38,10 +47,8 @@
 #include "ADXL335.h"
 #include "timer_mcu.h"
 /*==================[macros and definitions]=================================*/
-#define CONFIG_TIMER_VUELO 400
+#define CONFIG_TIMER_VUELO 100000
 #define CONFIG_TIMER_CONTROLES 1000
-
-
 
 #define LED_BT LED_1
 #define LED_START LED_3
@@ -55,13 +62,13 @@ TaskHandle_t controles_task_handle = NULL;
 /*==================[internal functions declaration]=========================*/
 
 /**
- * @brief Función que envía un comando de teclado de la barra espaciadora a través de Bluetooth.
+ * @brief Función que envía un comando de teclado de la barra espaciadora a través de Bluetooth y da comienzo con la emulacion.
  *
  */
 void TeclaBarra(void)
 {
-	keyboard_cmd_t up = HID_KEY_UP_ARROW;
-	BleHidSendKeyboard(0, &up, 1);
+	keyboard_cmd_t barra = HID_KEY_SPACEBAR;
+	BleHidSendKeyboard(0, &barra, 1);
 	start = !start;
 }
 /**
@@ -89,22 +96,52 @@ void TeclaAbajo(void)
 {
 	keyboard_cmd_t down = HID_KEY_DOWN_ARROW;
 	BleHidSendKeyboard(0, &down, 1);
-}
+ }
+
 /**
- * @brief Función que recibe la lectura del acelerometro.
+ * @brief Tarea que maneja el vuelo del oajaro,lee el acelerometro y calcula el angulo de movimiento entre el plano y y z.
  *
  */
 void Task_Volar(void *pvParameter)
 {
+	float acel_x, acel_y, acel_z;
+	float angulo_anterior = 0;
+	float angulo; // angulo plano yz
+	float angulo_umbral_up = 8;
+	float angulo_umbral_down = -8;
+	float diferencia_angulos;
 	while (1)
-	{
+	{ 
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		if (start)
 		{
+			acel_x = ReadXValue();
+			acel_y = ReadYValue();
+			acel_z = ReadZValue();
+
+			float angulo = atan2(acel_y, acel_z) * 180 / M_PI; // Convertir a grados
+
+			//printf("El ángulo de inclinación en el plano YZ es: %.2f grados\n", angulo);
+			
+			diferencia_angulos = angulo_anterior - angulo;
+			// printf("La diferencia de angulos es : %f grados\n", diferencia_angulos);
+
+			if ((diferencia_angulos) > angulo_umbral_up)
+			{
+				TeclaArriba();
+				angulo_anterior = angulo;
+			}
+			else if ((diferencia_angulos) < angulo_umbral_down)
+			{
+				TeclaAbajo();
+				angulo_anterior = angulo;
+			}
 		}
 	}
 }
-
+/**
+ * @brief Tarea que prende y apaga los led 1  y3  segun el estado del bluetooth y si esta activada la emulación.
+ */
 void Task_Controles(void *pvParameter)
 {
 	// Chequea que el bluetooth este correctamente conectado con el led1
@@ -112,29 +149,26 @@ void Task_Controles(void *pvParameter)
 	{
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		switch (BleHidStatus())
-        {
-        case BLE_OFF:
-            LedOff(LED_BT);
-            break;
-        case BLE_DISCONNECTED:
-            LedToggle(LED_BT);
-            break;
-        case BLE_CONNECTED:
-            LedOn(LED_BT);
-            break;
-        }
+		{
+		case BLE_OFF:
+			LedOff(LED_BT);
+			break;
+		case BLE_DISCONNECTED:
+			LedToggle(LED_BT);
+			break;
+		case BLE_CONNECTED:
+			LedOn(LED_BT);
+			break;
+		}
 
-
-        if (start)
-        {
-            LedOn(LED_START);
-        }
-        else
-        {
-            LedOff(LED_START);
-        }
-
-
+		if (start)
+		{
+			LedOn(LED_START);
+		}
+		 else
+		{
+			LedOff(LED_START);
+		}
 	}
 }
 
@@ -155,6 +189,12 @@ void FunctionTimerB(void *param)
 	vTaskNotifyGiveFromISR(controles_task_handle, pdFALSE);
 }
 /*==================[external functions definition]==========================*/
+/**
+ * @brief Funcion principal del programa
+ * Inicializa perifericos, bluetooth, crea tareas, configura timers e interrupciones.
+ *
+ * 
+ */
 void app_main(void)
 {
 	LedsInit();
