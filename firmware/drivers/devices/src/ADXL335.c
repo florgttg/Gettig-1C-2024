@@ -114,12 +114,12 @@ int ReadZValueInt(){
 float ReadZValue(){
 	AnalogInputReadSingle(my_ad_z.input, &valor);
 	return UnitConvert(valor*3.6, offset_z); /* Resistor divider for HCSR-04 */
-}
+}      
 
 float GetXOffset(){
-	return offset_x;
+	return offset_x;     
 }
-
+  
 float GetYOffset(){
 	return offset_y;
 }
@@ -129,7 +129,6 @@ float GetZOffset(){
 }
 
 bool ADXL335Calibration(){
-	
 	offset_x = 0;
 	offset_y = 0;
 	offset_z = 0;

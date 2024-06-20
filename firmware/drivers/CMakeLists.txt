@@ -11,7 +11,7 @@ set(srcs
     "microcontroller/src/i2c_mcu.c"
     "microcontroller/src/gpio_fast_out_mcu.c"
     "microcontroller/src/analog_io_mcu.c"
-    #"microcontroller/src/ble_hid_mcu.c"
+    "microcontroller/src/ble_hid_mcu.c"
     "devices/src/led.c"
     "devices/src/switch.c"
     "devices/src/lcditse0803.c"

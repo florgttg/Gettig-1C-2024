@@ -50,6 +50,9 @@
         },
         {
             "path": "projects/examen"
+        },
+        {
+            "path": "../../../Users/Usuario/Desktop/ProyectoFlappy"
         }
     ],
     "settings": {
@@ -107,7 +110,10 @@
             "i2c_mcu.h": "c",
             "limits": "c",
             "*.inc": "c",
-            "compare": "c"
+            "compare": "c",
+            "adxl335.h": "c",
+            "cmath": "c",
+            "complex": "c"
         },
     },
     "tasks": {
